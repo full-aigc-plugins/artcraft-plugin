@@ -174,3 +174,7 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 已发布技能 dev.21／插件 dev.23 固定宿主发现 58 个技能通过；实际安装的单技能使用默认 Python 3.14.3 冷启动完成原生混合验收（2 项，54.673 秒），全部安装摘要不变。[证据](docs/evidence/codex-release25-vector-font-mixed-20261006.json)。
 
 候选技能 dev.22 修复普通和中文模板的矢量字标默认字体。两个单技能公开冷启动原生流程均通过（各 2 项，52.807／52.964 秒），新固定宿主安装复验仍为 NOT_RUN。[证据](docs/evidence/default-campaign-font-first-use.json)。
+
+已发布技能 dev.22／插件 dev.24 的全部 58 个技能固定宿主发现通过。实际安装单技能冷启动普通源工程返工（2 项，57.177 秒）和中文交付／字幕修订（2 项，57.973 秒）均通过，全部安装摘要不变。此前候选 NOT_RUN 描述发布前检查点。[证据](docs/evidence/codex-release26-default-campaign-20261006.json)。
+
+首版能力、首次安装与剩余门禁逐项记录在[交付核对表](docs/ArtCraft-Delivery-Audit.zh_CN.md)。

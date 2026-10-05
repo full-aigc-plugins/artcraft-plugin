@@ -1,7 +1,7 @@
 {
   "schema": "craft-default-campaign-font-first-use/v1",
   "date": "2026-10-06",
-  "state": "source-native-first-use-PASS; fixed-new-host-NOT_RUN",
+  "state": "published-development-release; both-host-installed-cold-workflows-PASS",
   "sourceVersion": "0.1.0-dev.22",
   "runtimeVersion": "0.1.0-dev.16",
   "vectorSkillVersion": "0.1.0-dev.7",
@@ -52,10 +52,32 @@
     "skills/artcraft-use/examples/chinese-brand-campaign.json": "e98b5bb3e2eb45b5f12c02477b0f8a8d5a5f6ca4acd367b5a5d5d5b889c09712"
   },
   "unverified": [
-    "fixed new-release host-installed native retest",
     "actual npx installation",
     "new model dispatch",
     "GUI and human acceptance",
     "caption-only revision deliberately retains old narration; not wording-consistency acceptance"
-  ]
+  ],
+  "published": {
+    "pluginVersion": "0.1.0-dev.24",
+    "pluginSha": "e4f77ed30daa533184881e957a3e4d9541093629",
+    "skillSourceRef": "v0.1.0-dev.22",
+    "skillSourceSha": "e0db235bd28ec5e00d5e8382125d83f3cf03cc4e"
+  },
+  "installedOrdinary": {
+    "tests": 2,
+    "passed": 2,
+    "seconds": 57.177,
+    "scope": "actual fixed-host skill snapshots; revise copied alone into fresh project/cache, four native source revisions, independent task reuse, original preservation and moved package; later assets/deliver/review/recover separately copied with verified cache reuse"
+  },
+  "installedChinese": {
+    "tests": 2,
+    "passed": 2,
+    "seconds": 57.973,
+    "scope": "actual fixed-host revise skill copied alone; fresh default public native cache, Chinese burned subtitles and caption-only film revision; package verified"
+  },
+  "postExecutionSkillHashesVerified": 58,
+  "installedTestDriverSha256": {
+    "test_task_skill_first_use.py": "23d3a591d45fd514a187f37d0a726b479a0c3e100598051b471fcb2a7c756979",
+    "test_chinese_mixed_first_use.py": "b3bd9b8ac0763c00568e98351770deb2132c592acf4801f7743b9d540ca59f51"
+  }
 }

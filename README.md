@@ -174,3 +174,7 @@ Development candidate dev.23 vendors ArtCraft skills dev.21, pinning VectorCraft
 Published dev.21 skills / dev.23 plugin now pass fixed-host discovery (58 skills) and actual installed single-skill native mixed cold-start verification (2 tests, 54.673 seconds) with default Python 3.14.3. All installed hashes remain unchanged. [Evidence](docs/evidence/codex-release25-vector-font-mixed-20261006.json).
 
 Candidate skills dev.22 fix ordinary and Chinese Vector wordmark defaults. Both single-skill public cold native workflows pass (2 tests each, 52.807 / 52.964 seconds). New fixed-host installed retesting remains NOT_RUN. [Evidence](docs/evidence/default-campaign-font-first-use.json).
+
+Published skills dev.22 / plugin dev.24 pass fixed-host discovery for all 58 skills. Both actual installed single-skill cold workflows pass: ordinary source-project revision (2 tests, 57.177 seconds) and Chinese delivery/caption revision (2 tests, 57.973 seconds). All installed skill hashes remain unchanged. Earlier candidate NOT_RUN states describe the pre-publication checkpoint. [Evidence](docs/evidence/codex-release26-default-campaign-20261006.json).
+
+Current first-release capability and installation gaps are listed in the [delivery audit](docs/ArtCraft-Delivery-Audit.md).

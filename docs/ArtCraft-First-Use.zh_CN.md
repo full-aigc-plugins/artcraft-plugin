@@ -2,7 +2,7 @@
 
 ## 当前固定发布检查点
 
-插件版本依次为 FilmCraft dev.6、EffectCraft dev.7、PhotoCraft dev.6、VectorCraft dev.8、ArtCraft dev.23；配套技能源依次为 dev.5、dev.6、dev.5、dev.7、dev.21。当前运行时保持 ArtCraft dev.16，FilmCraft 使用维护制品 0.2.0-craft.1，其余领域 CLI 为 0.2.0。固定宿主发现 58 个技能、单技能公开冷安装及有界原生混合验收已有证据；实际 Skills CLI 安装、模型派发和完整创作接受仍未完成。以下章节保留早期实现记录，其中“尚未完成”是当时检查点；当前恢复、预算与打包范围应以各自后续架构和 evidence 为准。
+插件版本依次为 FilmCraft dev.6、EffectCraft dev.7、PhotoCraft dev.6、VectorCraft dev.8、ArtCraft dev.24；配套技能源依次为 dev.5、dev.6、dev.5、dev.7、dev.22。当前运行时保持 ArtCraft dev.16，FilmCraft 使用维护制品 0.2.0-craft.1，其余领域 CLI 为 0.2.0。固定宿主发现 58 个技能、单技能公开冷安装及有界原生混合验收已有证据；实际 Skills CLI 安装、模型派发和完整创作接受仍未完成。以下章节保留早期实现记录，其中“尚未完成”是当时检查点；当前恢复、预算与打包范围应以各自后续架构和 evidence 为准。
 
 
 独立源码位于 artcraft-skills 的 artcraft-use。公开 workflow.py 自动调用 bootstrap.py，再通过生成的登记表执行 ArtCraft CLI。干净复制单技能目录、没有全局 Node 或兄弟仓库的验证已交付四种原生工程。初始安装测试使用本地锁定自有发布包；开发版发布后，默认在线下载也已在新运行时目录通过。Node 与四个 CLI 为实际官方制品。
@@ -69,3 +69,5 @@ python3 -B scripts/build_runtime_bundle.py \
 ## 默认宣传模板字体兼容
 
 任务 3.21／AC-SK-003-DEFAULT 覆盖普通和中文内置示例。旧普通模板在 dev.7 字体检查后 Logo 和独立矢量节点失败、消费者阻塞（2 项，1 项失败，53.638 秒）。两个模板的矢量字标改为明确的随运行时字体 Source Sans 3，并同步十技能；用户字体与其他领域字体不变。来源技能普通返工两项通过，52.807 秒；中文交付返工两项通过，52.964 秒。原混合任务保持无关节点和旧文件，移动后交付包可验。默认回归 58 项，47 项通过、11 项跳过。候选技能 dev.22 新宿主安装复验仍为 NOT_RUN；中文字幕单独修订刻意保留旧配音，不证明创作一致性。证据：docs/evidence/default-campaign-font-first-use.json。
+
+已发布技能 dev.22／插件 dev.24 的实际安装普通与中文模板冷启动分别通过（各 2 项，57.177 和 57.973 秒）；宿主发现 58 个技能、零加载错误，执行后全部安装摘要不变。普通测试的每个独立任务入口均来自实际不可变安装快照。上文候选 NOT_RUN 为历史检查点。证据：docs/evidence/codex-release26-default-campaign-20261006.json。
