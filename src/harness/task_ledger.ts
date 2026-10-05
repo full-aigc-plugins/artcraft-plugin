@@ -359,6 +359,28 @@ export class TaskLedger {
   leases():{projectKey:string;taskId:string;epoch:number}[] {return (this.database.prepare('SELECT * FROM leases ORDER BY project_key').all() as unknown as {project_key:string;task_id:string;epoch:number}[]).map(row=>({projectKey:row.project_key,taskId:row.task_id,epoch:row.epoch}));}
   /** 读取状态事件，不包含素材内容或凭据。 */
   events(taskId:string):{toState:string;epoch:number;detail:unknown}[] {return (this.database.prepare('SELECT * FROM events WHERE task_id=? ORDER BY sequence').all(taskId) as unknown as {to_state:string;epoch:number;detail_json:string}[]).map(row=>({toState:row.to_state,epoch:row.epoch,detail:JSON.parse(row.detail_json)}));}
+  /** 读取经授权的工作流快照，供离线交付打包；不提升审核状态。 */
+  packageSnapshot(key:string,owner:string,authorization:string):Record<string,any> {
+    return this.transaction(()=>{
+      const row=this.database.prepare('SELECT plan_json,plan_hash FROM workflow_runs WHERE run_key=?').get(key) as {plan_json:string;plan_hash:string}|undefined;
+      if(!row)throw new Error('workflow_missing');
+      const plan=JSON.parse(row.plan_json);
+      if(plan.ownerId!==owner || plan.authorizationRef!==authorization)throw new Error('authorization_scope_mismatch');
+      if(this.workflowCancelled(key))throw new Error('package_workflow_not_ready');
+      if(this.leases().some(lease=>plan.nodes.some((node:any)=>node.projectKey===lease.projectKey)))throw new Error('package_workflow_busy');
+      const nodes=Object.fromEntries(plan.nodes.map((node:any)=>[node.id,this.workflowNode(key,node.id)]));
+      const tasks=plan.nodes.map((node:any)=>{
+        const record=nodes[node.id];
+        if(!['review_ready','completed','reused'].includes(record.status) || !record.taskId || !record.root || !record.outputs?.length)throw new Error('package_workflow_not_ready');
+        const receipt=this.status(record.taskId),execution=this.execution(record.taskId);
+        if(!['review_ready','completed'].includes(receipt.state) || !execution?.groupStopped)throw new Error('package_workflow_not_ready');
+        if(planHash(record.outputs)!==planHash(receipt.outputRefs))throw new Error('package_artifact_binding_mismatch');
+        return {nodeId:node.id,receipt,request:this.request(record.taskId),execution,events:this.events(record.taskId)};
+      });
+      return {runKey:key,plan,planSha256:row.plan_hash,nodes,tasks,budget:this.workflowBudget(key),state:'review_ready'};
+    });
+  }
+
   /** 关闭连接；活跃租约保留在 SQLite 中。 */
   close():void {this.database.close();}
 }

@@ -1,7 +1,7 @@
 /** 四个独立技能公开脚本的真实交接；程序化品牌样本仅证明功能。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
+import { mkdtemp, readFile, writeFile, rm, rename } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { createHash } from 'node:crypto';
@@ -116,6 +116,24 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
   const cliStatus=JSON.parse((await exec(runtimeNode,[cli,'status','--database',join(root,'tasks.sqlite')])).stdout);
   assert.equal(cliStatus.tasks.length,12);assert.equal(cliStatus.leases.length,0);
   await writeFile(join(root,'cli-result.json'),JSON.stringify(cliResult,null,2));
+  const packagePath=join(root,'project-package');
+  const packed=JSON.parse((await exec(runtimeNode,[cli,'package','--database',join(root,'tasks.sqlite'),'--workflow',nativeRevision.runKey,'--owner','test','--authorization','mixed-test-scope','--output',packagePath])).stdout);
+  assert.equal(packed.state,'review_ready');assert.equal(packed.children.length,4);
+  const moved=join(root,'moved-package');await rename(packagePath,moved);
+  // 删除所有原交付和外部音频，移动包必须独立核验并能重关联原生素材。
+  await rm(join(root,'deliveries'),{recursive:true});await rm(voice);
+  const checked=JSON.parse((await exec(runtimeNode,[cli,'verify-package','--package',moved,'--sha',packed.sha256])).stdout);
+  assert.equal(checked.children.length,4);
+  const reopen={...plan,workflowId:'moved-package-reopen',revision:'v1',nodes:checked.children.map((child:any)=>({
+   id:child.nodeId,dependsOn:[],projectKey:'moved-'+child.nodeId,runtimeIdentity:child.runtimeIdentity,expectedRevision:child.outputs[0].nativeProjectRef.sha256,
+   externalInputs:[{root:child.root,artifact:child.outputs[0]}],
+   payload:{schemaVersion:'craft-skill-workflow/v1',sourceProject:{assetId:child.outputs[0].assetId},assetBindings:[],outputs:[{assetId:'reopened-'+child.nodeId,location:child.outputs[0].location,mediaType:child.outputs[0].mediaType}],plan:child.nodeId==='logo'?{operations:[],exports:vectorPlan.exports}:child.nodeId==='poster'?{operations:[],minimumLayers:3,exports:[{format:'png'},{format:'psd'}]}:child.nodeId==='intro'?{operations:[],frames:[0,.5],exports:[{format:'mp4'}]}:{operations:[],frames:['127008000000'],export:{audioRequired:true}}}
+  }))};
+  const reopened=await engine.run(reopen,2);assert.equal(reopened.state,'review_ready',JSON.stringify(reopened));
+  const movedFilm=JSON.parse(await readFile(join(reopened.nodes.film.root!,'manifest.json'),'utf8'));
+  assert.equal(movedFilm.assets.voice.sha256,voiceHash);
+  assert.ok((await decode(join(reopened.nodes.film.root!,'film.mp4'))).streams.some((stream:any)=>stream.codec_type==='audio'));
+  await writeFile(join(root,'package-receipt.json'),JSON.stringify({packed,checked,reopened},null,2));
   if(process.env.CRAFT_KEEP_NATIVE_EVIDENCE==='1')console.log('Native mixed evidence: '+root);
  }finally{ledger.close();if(process.env.CRAFT_KEEP_NATIVE_EVIDENCE!=='1')await rm(root,{recursive:true});}
 });

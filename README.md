@@ -36,7 +36,7 @@ flowchart LR
 | Planning and routing | Skill-led decomposition; explicit nodes bind actual capabilities | Automatic constraint inference; existing Jianying/Factory adapters |
 | Dependency execution | DAG checks, bounded concurrency, one writer per project, verified inputs | Complete crash adoption |
 | Versions and rework | Hashes, lineage, no-replay reuse, Logo consumer rebuilds | Complete creative revision orchestration |
-| Technical delivery | Native projects, collected media, previews, exports and public receipts | Complete media metadata, loss reports and final packaging |
+| Technical delivery | Native projects, collected media, previews, exports and public receipts | Complete media metadata, complete exchange loss reports and creative approval |
 | Evaluation | File/reference hashes, native reopen and real decode tests | Cross-artifact creative consistency and final review |
 | Installation | Clean single skill, default online locked bundles, four official CLI installations | Host installation |
 
@@ -106,3 +106,5 @@ Version 3 passes [default online first use and native Logo source revision](docs
 Development version `0.1.0-dev.4` pins all domain skills at dev.1 and resolves the previous parallel failure: competing CLI reuse failed at the nonblocking install lock, before rendering. After bounded waiting, 16/16 concurrent composition samples, 59 parallel native regression tests and 71 domain live skill tests pass. [Evidence](docs/evidence/install-concurrency.json).
 
 Version 4 passes [default online first use](docs/evidence/online-first-use-v4.json), including all four native deliveries, source Logo revision, downstream updates, preserved source projects/audio and bounded rework. Public runtime and four skill ZIP digests match the installation lock.
+
+Development version `0.1.0-dev.5` packages trusted ledger deliveries with native projects, registered media, previews, exports, frozen plans and task records, returning an independent manifest SHA. Existing directories and unfinished/active workflows are rejected. All four native projects reopen/export after moving the package and deleting original directories/audio. [Evidence](docs/evidence/project-package.json). State remains technical review_ready.

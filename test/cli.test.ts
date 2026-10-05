@@ -9,7 +9,7 @@ import { tmpdir } from 'node:os';
 const exec=promisify(execFile),entry=new URL('../src/cli.ts',import.meta.url).pathname;
 test('ArtCraft public CLI reports version and supported commands',async()=>{
  assert.equal(JSON.parse((await exec(process.execPath,[entry,'--version'])).stdout).version,JSON.parse(await readFile(new URL('../package.json',import.meta.url),'utf8')).version);
- assert.deepEqual(JSON.parse((await exec(process.execPath,[entry,'--help'])).stdout).commands,['run','status','cancel']);
+ assert.deepEqual(JSON.parse((await exec(process.execPath,[entry,'--help'])).stdout).commands,['run','status','cancel','package','verify-package']);
 });
 test('ArtCraft CLI refuses unknown commands and missing databases without creating user files',async()=>{
  const root=await mkdtemp(join(tmpdir(),'craft-cli-'));

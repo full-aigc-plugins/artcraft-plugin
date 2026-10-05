@@ -7,10 +7,11 @@ import { TaskLedger } from './harness/task_ledger.ts';
 import { LocalRunner } from './harness/local_runner.ts';
 import { WorkflowEngine } from './planning/workflow_engine.ts';
 import { publicSkillFactory } from './adapters/public_skill.ts';
+import { packageProject,verifyProjectPackage } from './artifacts/project_package.ts';
 import { planHash } from './protocol/contracts.ts';
 
 const version=JSON.parse(readFileSync(new URL('../package.json',import.meta.url),'utf8')).version;
-const options:Record<string,string[]>={run:['database','registry','plan','owner','authorization','concurrency'],status:['database','task'],cancel:['database','task','workflow']};
+const options:Record<string,string[]>={run:['database','registry','plan','owner','authorization','concurrency'],status:['database','task'],cancel:['database','task','workflow'],package:['database','workflow','owner','authorization','output'],'verify-package':['package','sha']};
 function parse(argv:string[]):{command:string;flags:Record<string,string>} {
  const [command,...rest]=argv;
  if(!Object.hasOwn(options,command))throw new Error('cli_command_invalid');
@@ -20,19 +21,22 @@ function parse(argv:string[]):{command:string;flags:Record<string,string>} {
   if(!rest[index]?.startsWith('--') || !options[command].includes(key) || Object.hasOwn(flags,key) || !value || value.startsWith('--'))throw new Error('cli_arguments_invalid');
   flags[key]=value;
  }
- if(!flags.database || !isAbsolute(flags.database))throw new Error('cli_database_required');
+ if(command!=='verify-package' && (!flags.database || !isAbsolute(flags.database)))throw new Error('cli_database_required');
  return {command,flags};
 }
 
 /** 执行一个命令；调用者通过 argv 明确声明本地授权和所有者。 */
 export async function main(argv:string[]):Promise<unknown> {
  if(argv.length===1 && argv[0]==='--version')return {name:'artcraft',version};
- if(argv.length===1 && argv[0]==='--help')return {name:'artcraft',version,commands:['run','status','cancel'],run:'run --database ABS --registry ABS --plan ABS --owner ID --authorization REF [--concurrency 1..16]',status:'status --database ABS [--task ID]',cancel:'cancel --database ABS --task ID | --workflow RUN_KEY'};
+ if(argv.length===1 && argv[0]==='--help')return {name:'artcraft',version,commands:['run','status','cancel','package','verify-package'],run:'run --database ABS --registry ABS --plan ABS --owner ID --authorization REF [--concurrency 1..16]',status:'status --database ABS [--task ID]',cancel:'cancel --database ABS --task ID | --workflow RUN_KEY',package:'package --database ABS --workflow RUN_KEY --owner ID --authorization REF --output ABS',verifyPackage:'verify-package --package ABS --sha MANIFEST_SHA256'};
  const {command,flags}=parse(argv);
+ if(command==='verify-package'){if(!flags.package || !isAbsolute(flags.package) || !flags.sha)throw new Error('cli_verify_package_arguments_required');return verifyProjectPackage(flags.package,flags.sha);}
+ if(command==='package' && (!flags.owner || !flags.authorization || !flags.workflow || !flags.output || !isAbsolute(flags.output)))throw new Error('cli_package_arguments_required');
  if(command!=='run'){
   await access(flags.database); // 只读状态和取消不能静默创建空账本。
   const ledger=new TaskLedger(flags.database);
   try{
+   if(command==='package')return await packageProject(ledger,flags.workflow,flags.owner,flags.authorization,flags.output);
    if(command==='status')return flags.task?ledger.status(flags.task):{tasks:ledger.list(),leases:ledger.leases(),budgets:ledger.budgetAccounts()};
    if(Boolean(flags.task)===Boolean(flags.workflow))throw new Error('cli_cancel_target_required');
    if(flags.task)return ledger.cancel(flags.task);

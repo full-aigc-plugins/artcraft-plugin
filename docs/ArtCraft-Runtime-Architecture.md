@@ -169,6 +169,26 @@ The prior parallel failure was traced to immediate LOCK_NB acquisition in all fo
 
 After this fix, 16/16 EffectCraft samples under four workers, 59 parallel ArtCraft native regression tests and 71 domain live skill tests pass. This supersedes the historical serialized-suite limitation for the tested workload, without promising unlimited concurrency or production capacity.
 
+### 10.3 Ledger-backed project delivery package (development version 5)
+
+`package --database ABS --workflow RUN_KEY --owner ID --authorization REF --output ABS` reads an authorized transactional ledger snapshot. All nodes must be ready/reused with verified terminal task receipts and confirmed process-group stop; an active project writer blocks packaging. Node artifacts must match their trusted task receipts. Each domain manifest defines the collected file set, including native projects, footage, previews, exports and exchange evidence. External media and historical source inputs are collected separately. Only registered files are copied; large media are hashed through streams.
+
+The package contains project.json, children, inputs, the exact executed workflow-plan.json, a separately hashed relative workflow-plan-portable.json and workflow-record.json. The original plan retains historical paths for evidence; portable roots are relative indexes and are not silently claimed as the original plan. The JSON receipt provides the manifest SHA independently of the package. `verify-package --package ABS --sha SHA` checks this SHA, every indexed file, native reference and exact file inventory; it returns child roots resolved under the current location.
+
+```mermaid
+flowchart LR
+    L[Authorized ledger snapshot] --> G[Ready receipts and no active writer]
+    G --> C[Collect manifest files and external inputs]
+    C --> S[Private staging and streamed digest checks]
+    S --> V[Recheck original sources]
+    V --> P[Exclusive new directory publication]
+    P --> M[Move package]
+    M --> H[Verify using receipt SHA]
+    H --> R[Public source interface relinks native media]
+```
+
+Publication reserves a new directory exclusively and atomically replaces only that empty reservation. Cleanup removes only owned staging or the owned empty reservation; existing user files are preserved. Missing dependencies, escaping paths, substituted artifacts, changed sources or unfinished tasks reject publication. Extra files and symlinks invalidate verification. Packaging retains review_ready and the budget snapshot; it neither approves creative quality nor copies an active SQLite ledger or creates authorization for rerunning historical plans. Native internal media pointers can be relinked via independent skills after verification; runtime/font/effect compatibility still applies.
+
 ## 11. Error semantics
 
 | Code | Trigger | Recovery |

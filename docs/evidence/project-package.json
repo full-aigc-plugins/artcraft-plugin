@@ -1,0 +1,57 @@
+{
+  "observedAt": "2026-10-05T13:26:17.145740+00:00",
+  "version": "0.1.0-dev.5",
+  "platform": "darwin-arm64",
+  "result": "passed",
+  "requirements": [
+    "AC-AR-001"
+  ],
+  "redPhase": {
+    "error": "ERR_MODULE_NOT_FOUND project_package.ts",
+    "missingBehavior": "trusted project collection and moved package verification"
+  },
+  "runtimeRegression": {
+    "passed": 66,
+    "skipped": 0,
+    "command": "native integration environment configured; npm test",
+    "durationSeconds": 4.089
+  },
+  "packageContractTests": {
+    "passed": 7,
+    "checks": [
+      "ledger ownership and authorization",
+      "ready verified receipts and no active writer",
+      "record artifact matches task receipt",
+      "manifest digest and streamed file hashes",
+      "unlisted files and symlinks",
+      "escaping file tables",
+      "preserve existing output and reject partial/corrupt sources"
+    ]
+  },
+  "nativeAcceptance": [
+    "four native public skills and local CLI generate/revise projects",
+    "package native revision workflow through CLI",
+    "move package and delete all original deliveries and original audio",
+    "verify package using independent receipt SHA",
+    "reopen all four native projects through public source workflow and export",
+    "FilmCraft retains collected narration hash and actual audio stream"
+  ],
+  "sourceHashes": {
+    "src/artifacts/project_package.ts": "f57104c4a71e27f2a17b54a895c3c44eaff5c2eaa1dc0c740f7556325e5d1dd6",
+    "src/harness/task_ledger.ts": "1d8f4a02fdb4ba211d6ec0863a33832acdc42ab1d004a5d9df0553b70d0415fc",
+    "test/project_package.test.ts": "13ebd058e50c27fb84984de0fe97bf685439f075b4e7cb07ab3f7d9ecd780e29",
+    "test/native_mixed_workflow.test.ts": "6049325165fbf803860699b604179169246b81916760247d20f00a78cc214eae"
+  },
+  "limits": [
+    "technical fixture; no creative acceptance or production host approval",
+    "historic original plan paths are retained for evidence; relative plan has independent digest",
+    "font/effect environment compatibility and full exchange loss report completeness are not established by packaging",
+    "crash adoption and creative review remain pending"
+  ],
+  "installerRegression": {
+    "passed": 14,
+    "skipped": 0,
+    "durationSeconds": 35.579,
+    "scope": "isolated single skill, locked Node/runtime bundles, four native deliveries, public package create and moved verify entrypoints"
+  }
+}

@@ -44,8 +44,10 @@ python3 /mnt/skills/user/artcraft-use/scripts/workflow.py \
 - 开发版本 3 支持登记源工程修订：将上次结果的完整 artifact 与 root 登记为节点 externalInputs，payload.sourceProject.assetId 指向该输入，expectedRevision 使用 nativeProjectRef.sha256。领域 plan 不带 document；适配器填入 expectedProjectSha256，并调用公开 --source。另存新交付，核验旧交付不变；完整示例规则见计划合同。开发版本 4 已修复安装锁竞争；四并发执行器下 16 次 EffectCraft 技术样本和 ArtCraft 全量并行回归通过。此证据不代表生产并发容量。
 - 运行中取消登记意图，等待真实子进程和进程组停止；不明确结果保留写占用，不重放任务。崩溃后的自动接管尚未完成，先读取账本再处理。
 - 交付 SQLite 账本、冻结计划、安装回执、结果清单，以及各子节点原生工程、收集素材、预览和导出。原生工程引用保持可核验；移动包时可能需要对应技能重新链接素材。
-- `review_ready` 只表示技术核验。还需检查真实视觉、文字、音频与用户需求；共享预算上界已在原生副作用前控制；付费服务实际核销、创作最终审核和最终交付包功能尚未完成，不能据此声明生产发布通过。
+- `review_ready` 只表示技术核验。还需检查真实视觉、文字、音频与用户需求；共享预算上界已在原生副作用前控制；付费服务实际核销、创作最终审核尚未完成，不能据此声明生产发布通过。
 
 四个独立技能通过名称交接，不使用兄弟技能相对链接。独立安装：`npx skills add full-aigc-skills/filmcraft-skills --skill filmcraft-use`；其他名称为 `effectcraft-use`、`photocraft-use`、`vectorcraft-use`，分别属于同名 `-skills` 包。插件中同步固定发布标签与摘要；独立安装与插件宿主安装是不同证据范围。
 
 当前验证范围：四个原生公开工作流交接、Logo 语义改动后下游重建、源工程与已有音频保留、CLI 重开和状态核验。完整干净首次使用与在线发布状态以最新测试及仓库证据为准。
+
+开发版本 5 提供项目打包与移动验包：使用 `scripts/package.py create/verify`，参见[交付包合同](references/project-package.md)。从可信账本收集原生工程、登记输入和工作流记录，保留技术待审状态；移动后核验并使用独立技能源工程入口重关联。
