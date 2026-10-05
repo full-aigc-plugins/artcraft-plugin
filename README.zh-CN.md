@@ -178,3 +178,5 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 已发布技能 dev.22／插件 dev.24 的全部 58 个技能固定宿主发现通过。实际安装单技能冷启动普通源工程返工（2 项，57.177 秒）和中文交付／字幕修订（2 项，57.973 秒）均通过，全部安装摘要不变。此前候选 NOT_RUN 描述发布前检查点。[证据](docs/evidence/codex-release26-default-campaign-20261006.json)。
 
 首版能力、首次安装与剩余门禁逐项记录在[交付核对表](docs/ArtCraft-Delivery-Audit.zh_CN.md)。
+
+插件候选 dev.25 固定技能源 dev.23，先核对冻结修订绑定再发布安装身份。来源独立技能原生首次使用通过（3 项，92.662 秒）；固定插件安装复验仍为 NOT_RUN。[架构](docs/ArtCraft-Frozen-Revision-Metadata-Architecture.zh_CN.md)、[证据](docs/evidence/frozen-revision-metadata-first-use.json)。

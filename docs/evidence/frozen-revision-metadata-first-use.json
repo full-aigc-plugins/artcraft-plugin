@@ -1,0 +1,46 @@
+{
+  "schema": "craft-frozen-revision-metadata/v1",
+  "date": "2026-10-06",
+  "state": "source-native-PASS; installed-release-NOT_RUN",
+  "sourceVersion": "0.1.0-dev.23",
+  "runtimeVersion": "0.1.0-dev.16",
+  "requirement": "AC-TX-001-META",
+  "red": {
+    "tests": 3,
+    "failed": 1,
+    "seconds": 0.008,
+    "scope": "mocked identity change exposed overwritten installation receipt and extra registry"
+  },
+  "native": {
+    "tests": 3,
+    "passed": 3,
+    "seconds": 92.662,
+    "scope": "two argument contracts and one independently copied use skill; fresh public downloads, four native editable projects, same-revision replay, changed-runtime registration refusal with identical project file inventory and hashes, changed-plan refusal, relocated package verification"
+  },
+  "regression": {
+    "tests": 59,
+    "passed": 48,
+    "skipped": 11,
+    "seconds": 5.093
+  },
+  "files": {
+    "tests/test_workflow.py": "0f42c1b58a76d105c78b001dade776608db6307a97c3fa049f553e29308483e5",
+    "tests/test_workflow_first_use.py": "cef2f4747c6e88748b5dedf6d95a298e0ad16a565ac77c8d6165ebd9ae57dd3e",
+    "skills/artcraft-cli/scripts/workflow.py": "94a2d0bed73650645be2b9c14cadb0c07c6a1044d063a027fa370105f36da8a8",
+    "skills/artcraft-cli-assets/scripts/workflow.py": "94a2d0bed73650645be2b9c14cadb0c07c6a1044d063a027fa370105f36da8a8",
+    "skills/artcraft-cli-deliver/scripts/workflow.py": "94a2d0bed73650645be2b9c14cadb0c07c6a1044d063a027fa370105f36da8a8",
+    "skills/artcraft-cli-execute/scripts/workflow.py": "94a2d0bed73650645be2b9c14cadb0c07c6a1044d063a027fa370105f36da8a8",
+    "skills/artcraft-cli-plan/scripts/workflow.py": "94a2d0bed73650645be2b9c14cadb0c07c6a1044d063a027fa370105f36da8a8",
+    "skills/artcraft-cli-recover/scripts/workflow.py": "94a2d0bed73650645be2b9c14cadb0c07c6a1044d063a027fa370105f36da8a8",
+    "skills/artcraft-cli-review/scripts/workflow.py": "94a2d0bed73650645be2b9c14cadb0c07c6a1044d063a027fa370105f36da8a8",
+    "skills/artcraft-cli-revise/scripts/workflow.py": "94a2d0bed73650645be2b9c14cadb0c07c6a1044d063a027fa370105f36da8a8",
+    "skills/artcraft-cli-setup/scripts/workflow.py": "94a2d0bed73650645be2b9c14cadb0c07c6a1044d063a027fa370105f36da8a8",
+    "skills/artcraft-use/scripts/workflow.py": "94a2d0bed73650645be2b9c14cadb0c07c6a1044d063a027fa370105f36da8a8"
+  },
+  "limitations": [
+    "Candidate source test, not installed immutable plugin proof",
+    "No actual npx installation or new model dispatch",
+    "Synthetic audio fixture; no human creative acceptance",
+    "Other platforms and simultaneous metadata publication not verified"
+  ]
+}

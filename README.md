@@ -178,3 +178,5 @@ Candidate skills dev.22 fix ordinary and Chinese Vector wordmark defaults. Both 
 Published skills dev.22 / plugin dev.24 pass fixed-host discovery for all 58 skills. Both actual installed single-skill cold workflows pass: ordinary source-project revision (2 tests, 57.177 seconds) and Chinese delivery/caption revision (2 tests, 57.973 seconds). All installed skill hashes remain unchanged. Earlier candidate NOT_RUN states describe the pre-publication checkpoint. [Evidence](docs/evidence/codex-release26-default-campaign-20261006.json).
 
 Current first-release capability and installation gaps are listed in the [delivery audit](docs/ArtCraft-Delivery-Audit.md).
+
+Plugin candidate dev.25 pins skill source dev.23, validating frozen revision bindings before publishing installation metadata. Source single-skill native first use passes (3 tests, 92.662 seconds); installed-release retesting remains NOT_RUN. [Architecture](docs/ArtCraft-Frozen-Revision-Metadata-Architecture.md), [evidence](docs/evidence/frozen-revision-metadata-first-use.json).

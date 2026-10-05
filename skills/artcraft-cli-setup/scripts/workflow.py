@@ -118,7 +118,6 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
     if setup.get('schema') != 'artcraft-setup/v1' or set(setup.get('skills', {})) != set(required):
         raise ValueError('setup_incomplete')
     output.mkdir(parents=True, exist_ok=True)
-    if not marker.exists():marker.write_bytes(canonical(identity))
     plugins = {}
     for name, skill in setup['skills'].items():
         plugins[name] = {'runtimeIdentity': skill['runtimeIdentity'], 'config': {'pluginId': name, 'skillRoot': skill['skillRoot'], 'python': setup['pythonExecutable'], 'pythonSha256': setup['pythonSha256'], 'nativeExecutable': skill['executable'], 'runtimeHome': setup['runtimeHome'], 'files': skill['files'], 'outputRoot': str(output/'outputs')}}
@@ -132,9 +131,7 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
         plugins['video-factory'] = json.loads(registered.stdout)
     registry = {'schemaVersion': 'craft-skill-registry/v1', 'plugins': plugins}
     registry_hash = digest(canonical(registry));registry_path = output/('registry-'+registry_hash+'.json')
-    if not registry_path.exists():registry_path.write_bytes(canonical(registry))
-    elif registry_path.read_bytes() != canonical(registry):raise ValueError('registry_modified')
-    (output/'installation-receipt.json').write_bytes(canonical(setup))
+    if registry_path.exists() and registry_path.read_bytes() != canonical(registry):raise ValueError('registry_modified')
     binding_hash = digest(canonical({'plan': plan, 'registrySha256': registry_hash, 'ownerId': owner, 'authorizationRef': authorization}))
     key = digest(canonical([plan['workflowId'], plan['revision']]))
     plan_dir = output/'plans';plan_dir.mkdir(exist_ok=True)
@@ -149,6 +146,10 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
             plan['deadline'] = (datetime.now(timezone.utc)+timedelta(hours=24)).isoformat(timespec='milliseconds').replace('+00:00','Z')
         compiled_path.write_bytes(canonical(plan))
         receipt_path.write_bytes(canonical({'bindingSha256': binding_hash, 'compiledSha256': digest(compiled_path.read_bytes())}))
+    # 冻结修订绑定通过后才发布当前安装身份，冲突不得改变旧项目材料。
+    if not marker.exists():marker.write_bytes(canonical(identity))
+    if not registry_path.exists():registry_path.write_bytes(canonical(registry))
+    (output/'installation-receipt.json').write_bytes(canonical(setup))
     result = subprocess.run([setup['nodeExecutable'], setup['entryPoint'], 'run', '--database', str(output/'tasks.sqlite'), '--registry', str(registry_path), '--plan', str(compiled_path), '--owner', owner, '--authorization', authorization], capture_output=True, text=True, timeout=600)
     if not result.stdout.strip():raise RuntimeError('artcraft_result_missing')
     receipt = json.loads(result.stdout)
