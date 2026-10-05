@@ -109,6 +109,7 @@ async function allowedPath(root: string, location: string): Promise<string> {
 
 function matchesMime(prefix: Buffer, type: string): boolean {
   if (type === 'application/octet-stream') return true;
+  if (type === 'application/json') return true; // 完整 JSON 语法在摘要核对后检查。
   if (type === 'image/png') return prefix.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10]));
   if (type === 'application/pdf') return prefix.subarray(0,5).toString() === '%PDF-';
   if (type === 'image/jpeg') return prefix[0] === 255 && prefix[1] === 216 && prefix[2] === 255;
@@ -135,6 +136,12 @@ export async function verifyArtifact(value: unknown, root: string): Promise<Reco
   const after = await stat(target);
   if (before.ino !== after.ino || before.size !== after.size || before.mtimeMs !== after.mtimeMs) throw new Error('artifact_changed_during_read');
   if (bytes !== artifact.bytes || hash.digest('hex') !== artifact.sha256) throw new Error('artifact_digest_mismatch');
+  if (artifact.mediaType === 'application/json') {
+    if (bytes > 16 * 1024 * 1024) throw new Error('json_artifact_too_large');
+    const content = await readFile(target);
+    if (content.length !== bytes || createHash('sha256').update(content).digest('hex') !== artifact.sha256) throw new Error('artifact_changed_during_read');
+    try { JSON.parse(content.toString('utf8')); } catch { throw new Error('json_artifact_invalid'); }
+  }
   if (!matchesMime(prefix, artifact.mediaType)) throw new Error('media_type_mismatch');
   // 源工程、交换表示与证据也是当前交付的一部分，不能只核验平面输出。
   const references=[artifact.nativeProjectRef,artifact.lossReportRef,...artifact.renditions,...artifact.evidenceRefs].filter(Boolean);

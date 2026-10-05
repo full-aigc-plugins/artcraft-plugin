@@ -46,3 +46,9 @@ ArtCraft SHALL 维护 craft-artifact/v1 的唯一规范事实源；清单包含 
 
 - **WHEN** FilmCraft 的大整数 ticks 经过 JSON 与下游适配器交换
 - **THEN** 仍能精确还原帧边界；溢出或基准丢失时拒绝转换
+
+#### Scenario: 外部 JSON 验收证据
+
+- **WHEN** 登记外部工具返回的 application/json 报告
+- **THEN** 系统 SHALL 核对完整文件摘要与 JSON 语法，超过 16 MiB 或语法损坏拒绝登记；领域适配器另行验证报告语义与任务绑定
+- **AND** 报告不得通过未定义的 technicalMetadata 字段扩展公共协议，也不得将报告存在视为创作通过

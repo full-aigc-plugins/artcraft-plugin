@@ -95,3 +95,9 @@ ArtCraft SHALL 汇总子工程、素材、输出、损失报告和验收记录�
 
 - **WHEN** 子插件只返回 accepted 而没有产物证据
 - **THEN** 父流程继续等待或核对，不标记交付完成
+
+#### Scenario: AC-DM-006-VF 公开 Video Factory 成片验证
+
+- **WHEN** 用户选择已安装的 Video Factory 0.4.0 验证登记的 MP4 成片，并显式提供实际插件、FFmpeg 和 ffprobe 路径
+- **THEN** ArtCraft SHALL 固定公开 CLI、源文件、Node 与媒体工具摘要，只调用 probe、validate-plan、evaluate 接口，绑定输入、期望输出与验收报告，执行前后核验输入并保留原工程
+- **AND** 报告 SHALL 保留 PASS、FAIL、NOT_RUN 状态；accepted、退出零或缺失来源账本不构成验收通过；失败门禁阻断交付，技术待审报告可随项目包保存

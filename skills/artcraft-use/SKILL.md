@@ -72,3 +72,5 @@ ArtCraft dev.7 消费四领域 dev.2 的[交换损失报告](references/exchange
 | **artcraft-cli-review** | 检查混合交付的技术证据和视觉文案音频一致性 |
 
 缺少技能：`npx skills add full-aigc-skills/artcraft-skills --skill <skill-name>`。每项自带安装与执行资源；直接执行本技能 `scripts/cli.py` 也可查询当前 CLI，不依赖兄弟路径。
+
+需要通过既有 Video Factory 验证成片时，读取本技能 [公开验证交接](references/video-factory.md)。该适配保留 NOT_RUN，不替代创作审阅或原生工程。

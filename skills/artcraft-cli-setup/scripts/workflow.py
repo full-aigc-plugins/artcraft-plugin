@@ -30,7 +30,7 @@ def canonical(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode()
 
 
-def execute(plan_path, output, owner, authorization, runtime_home=None, node_archive=None, bundle_directory=None, native_archive_directory=None, assignments=()):
+def execute(plan_path, output, owner, authorization, runtime_home=None, node_archive=None, bundle_directory=None, native_archive_directory=None, assignments=(), video_factory_root=None, ffmpeg=None, ffprobe=None):
     root = Path(output).expanduser().resolve()
     if root.exists() and not (root/'.artcraft-project.json').exists() and any(path.name != '.artcraft-write.lock' for path in root.iterdir()):
         raise ValueError('project_directory_not_owned')
@@ -39,13 +39,24 @@ def execute(plan_path, output, owner, authorization, runtime_home=None, node_arc
     if lock.is_symlink():raise ValueError('project_lock_invalid')
     with lock.open('a+b') as ownership:
         fcntl.flock(ownership.fileno(), fcntl.LOCK_EX)
-        return _execute(plan_path, root, owner, authorization, runtime_home, node_archive, bundle_directory, native_archive_directory, assignments)
+        return _execute(plan_path, root, owner, authorization, runtime_home, node_archive, bundle_directory, native_archive_directory, assignments, video_factory_root, ffmpeg, ffprobe)
 
 
-def _execute(plan_path, output, owner, authorization, runtime_home=None, node_archive=None, bundle_directory=None, native_archive_directory=None, assignments=()):
+def _execute(plan_path, output, owner, authorization, runtime_home=None, node_archive=None, bundle_directory=None, native_archive_directory=None, assignments=(), video_factory_root=None, ffmpeg=None, ffprobe=None):
     source_plan = json.loads(Path(plan_path).read_text())
     if not isinstance(source_plan, dict) or not isinstance(source_plan.get('nodes'), list) or not source_plan.get('workflowId') or not source_plan.get('revision'):
         raise ValueError('workflow_plan_invalid')
+    external = any(node.get('pluginId') == 'video-factory' or node.get('runtimeIdentity', {}).get('pluginId') == 'video-factory' for node in source_plan['nodes'])
+    if external and not all((video_factory_root, ffmpeg, ffprobe)):
+        raise ValueError('video_factory_registration_required')
+    if not external and any((video_factory_root, ffmpeg, ffprobe)):
+        raise ValueError('video_factory_registration_unused')
+    if external:
+        video_factory_root = Path(video_factory_root).expanduser().resolve(strict=True)
+        ffmpeg = Path(ffmpeg).expanduser().absolute()
+        ffprobe = Path(ffprobe).expanduser().absolute()
+        if not (video_factory_root / 'bin/video-factory').is_file() or not ffmpeg.is_file() or not ffprobe.is_file():
+            raise ValueError('video_factory_registration_required')
     assets = {}
     for assignment in assignments:
         name, filename = assignment.split('=', 1)
@@ -86,6 +97,14 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
     plugins = {}
     for name, skill in setup['skills'].items():
         plugins[name] = {'runtimeIdentity': skill['runtimeIdentity'], 'config': {'pluginId': name, 'skillRoot': skill['skillRoot'], 'python': setup['pythonExecutable'], 'pythonSha256': setup['pythonSha256'], 'nativeExecutable': skill['executable'], 'runtimeHome': setup['runtimeHome'], 'files': skill['files'], 'outputRoot': str(output/'outputs')}}
+    if external:
+        registered = subprocess.run([setup['nodeExecutable'], setup['entryPoint'], 'register-video-factory',
+                                     '--plugin-root', str(video_factory_root), '--ffmpeg', str(ffmpeg),
+                                     '--ffprobe', str(ffprobe), '--output-root', str(output/'outputs')],
+                                    capture_output=True, text=True, timeout=120)
+        if registered.returncode:
+            raise ValueError('video_factory_registration_failed: ' + registered.stdout.strip())
+        plugins['video-factory'] = json.loads(registered.stdout)
     registry = {'schemaVersion': 'craft-skill-registry/v1', 'plugins': plugins}
     registry_hash = digest(canonical(registry));registry_path = output/('registry-'+registry_hash+'.json')
     if not registry_path.exists():registry_path.write_bytes(canonical(registry))
@@ -125,9 +144,12 @@ def main():
     parser.add_argument('--bundle-dir', type=Path)
     parser.add_argument('--native-archive-dir', type=Path)
     parser.add_argument('--asset', action='append', default=[])
+    parser.add_argument('--video-factory-root', type=Path, help='宿主实际安装的 Video Factory 插件根目录')
+    parser.add_argument('--ffmpeg', type=Path)
+    parser.add_argument('--ffprobe', type=Path)
     args = parser.parse_args()
     try:
-        print(json.dumps(execute(args.plan, args.output, args.owner, args.authorization, args.runtime_home, args.node_archive, args.bundle_dir, args.native_archive_dir, args.asset), ensure_ascii=False))
+        print(json.dumps(execute(args.plan, args.output, args.owner, args.authorization, args.runtime_home, args.node_archive, args.bundle_dir, args.native_archive_dir, args.asset, args.video_factory_root, args.ffmpeg, args.ffprobe), ensure_ascii=False))
     except (ValueError, RuntimeError, OSError, subprocess.SubprocessError) as error:
         print(json.dumps({'error': str(error)}, ensure_ascii=False));raise SystemExit(1)
 

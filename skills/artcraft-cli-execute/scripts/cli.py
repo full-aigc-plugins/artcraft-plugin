@@ -7,7 +7,7 @@ from pathlib import Path
 import subprocess
 import sys
 sys.dont_write_bytecode=True
-ALLOWED={'--version','--help','run','status','cancel','package','verify-package'}
+ALLOWED={'--version','--help','run','status','cancel','package','verify-package','register-video-factory'}
 def main():
  parser=argparse.ArgumentParser(description=__doc__)
  parser.add_argument('--runtime-home',type=Path,default=Path(os.environ.get('CRAFT_RUNTIME_HOME',str(Path.home()/'.local/share/craft-runtimes'))))

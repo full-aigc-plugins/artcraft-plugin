@@ -31,6 +31,15 @@ test('artifact large ticks must be strings with rational timebase',()=>{
  assert.throws(()=>validateArtifact({...artifact(),technicalMetadata:{durationTicks:25401600000000000}}),/protocol_invalid/);
  assert.throws(()=>validateArtifact({...artifact(),technicalMetadata:{durationTicks:'254016000000'}}),/timebase_required/);
 });
+test('JSON evidence is checked as complete syntax after content hashing',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'craft-json-artifact-'));
+ try{
+  const value='{"decision":"review"}';await writeFile(join(root,'logo.bin'),value);
+  await verifyArtifact({...artifact(),mediaType:'application/json',bytes:Buffer.byteLength(value),sha256:createHash('sha256').update(value).digest('hex')},root);
+  await writeFile(join(root,'logo.bin'),'{broken');
+  await assert.rejects(verifyArtifact({...artifact(),mediaType:'application/json',bytes:7,sha256:createHash('sha256').update('{broken').digest('hex')},root),/json_artifact_invalid/);
+ }finally{await rm(root,{recursive:true});}
+});
 test('actual file content, size and containment are verified',async()=>{
  const root=await mkdtemp(join(tmpdir(),'craft-protocol-'));
  try {
