@@ -75,9 +75,9 @@
 - [ ] 6.17 [AC-DM-006] 在 src/planning/、src/adapters/ 的领域计划与映射 实现“交付与外部生态接入”的最小行为，不扩大支持范围。责任：Domain owner；前置：6.16。产物：对应源码/独立技能源/锁定材料；验证：目标测试和受影响回归通过。
 - [ ] 6.18 [AC-DM-006] 完成“交付与外部生态接入”真实边界验收并记录版本、平台、输入输出摘要及未验证项。责任：QA owner；前置：6.17。产物：evidence/ac-dm-006/；验证：规范所有场景有证据，且 README 能力状态与证据一致。
 
-- [x] 6.18 [AC-DM-006] 编写缺失适配器、缺外部登记及 JSON 证据/门禁边界测试并记录预期失败；产物：test/video_factory_adapter.test.ts、test/protocol.test.ts、独立技能源 tests/test_video_factory_first_use.py。
-- [x] 6.19 [AC-DM-006] 实现固定公开 Video Factory 0.4.0 验证节点、可信工具摘要登记、闭合 payload、JSON 证据与打包保留；产物：src/adapters/video_factory*.ts、公开 register-video-factory、独立技能 workflow.py。
-- [ ] 6.20 [AC-DM-006] 新固定制品发布后，默认在线单技能安装执行四领域+外部验证并验包，记录工具/输入/报告摘要及未验证范围；候选证据不替代公开下载证明。
+- [x] 6.19 [AC-DM-006] 编写缺失适配器、缺外部登记及 JSON 证据/门禁边界测试并记录预期失败；产物：test/video_factory_adapter.test.ts、test/protocol.test.ts、独立技能源 tests/test_video_factory_first_use.py。
+- [x] 6.20 [AC-DM-006] 实现固定公开 Video Factory 0.4.0 验证节点、可信工具摘要登记、闭合 payload、JSON 证据与打包保留；产物：src/adapters/video_factory*.ts、公开 register-video-factory、独立技能 workflow.py。
+- [x] 6.21 [AC-DM-006] 新固定制品发布后，默认在线单技能安装执行四领域+外部验证并验包，记录工具/输入/报告摘要及未验证范围；候选证据不替代公开下载证明。
 
 ## 7. artifact-delivery
 

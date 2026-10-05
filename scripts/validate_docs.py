@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Validate documentation integrity and OpenSpec traceability; not product behavior."""
+from collections import Counter
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 import json
@@ -78,6 +79,9 @@ if len(requirements) != len(set(requirements)):
     errors.append('duplicate requirement IDs')
 tasks = (change / 'tasks.md').read_text()
 task_ids = re.findall(r'^- \[[ xX]\] ([0-9.]+) ', tasks, flags=re.M)
+duplicate_task_ids = sorted(task for task, count in Counter(task_ids).items() if count > 1)
+if duplicate_task_ids:
+    errors.append('duplicate task IDs: '+', '.join(duplicate_task_ids))
 for completed in re.findall(r'^- \[[xX]\] ([0-9.]+) ', tasks, flags=re.M):
     evidence = status.get('taskEvidence', {}).get(completed)
     if status['stage'] == 'documentation-baseline' or not evidence or not (ROOT / evidence).is_file():

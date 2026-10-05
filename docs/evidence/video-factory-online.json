@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-06",
+  "phase": "default-public-online-first-use",
+  "sourceTag": "v0.1.0-dev.12",
+  "sourceCommit": "53a26b4f1884cba0b12de1f4bc61b30572e08f1f",
+  "runtimeVersion": "0.1.0-dev.13",
+  "runtimeArchiveSha256": "51bf346daf9edb0e721ff9ddd01a69d3b3ab4fe635d410652204e824bebcb4fb",
+  "regression": {
+    "tests": 25,
+    "passed": 24,
+    "skipped": 1,
+    "seconds": 172.375,
+    "skipReason": "Node-only offline archive test",
+    "environment": {
+      "CRAFT_ONLINE_FIRST_USE": "1",
+      "CRAFT_VIDEO_FIRST_USE": "1",
+      "CRAFT_TASK_FIRST_USE": "1",
+      "CRAFT_LIVE_TEST": "1",
+      "CRAFT_LIVE_SUITE": "1"
+    },
+    "archiveOverrides": false
+  },
+  "externalPrerequisite": {
+    "plugin": "video-factory",
+    "version": "0.4.0",
+    "sourceCommit": "cdb226d158d85eb02ce4c296f541e4ba0b201027",
+    "mediaTools": "explicit existing FFmpeg and ffprobe; no silent global installation"
+  },
+  "checks": [
+    "Single installed skill in .agents/skills and empty runtime home",
+    "Default public Node, ArtCraft runtime and four native domain downloads",
+    "Four native projects plus external validation report",
+    "Report input SHA matches actual FilmCraft output",
+    "Required provenance gate remains NOT_RUN; decision remains review",
+    "All five task IDs reused on repeat",
+    "Delivery package verifies with five child deliveries"
+  ],
+  "testFiles": {
+    "tests/test_video_factory_first_use.py": "f7e3d3a2f24c8832ce4b651fbca9704fc9aa4042df5d8648a7ee15c47e1fe8b0",
+    "tests/test_task_skill_first_use.py": "981aeaee45d117d544c1c4879c3f126ae137c2f1fa4e308c556296898f4ff8e2",
+    "tests/test_workflow_first_use.py": "50b0ec549b610180d0fed0f8be9f9223ada7075e28fe96900071c0e866aaf59f"
+  },
+  "unverified": [
+    "Host model dispatch",
+    "Creative approval",
+    "Video Factory rendering",
+    "Jianying and Image Factory adapters",
+    "Other platforms"
+  ]
+}
