@@ -1,0 +1,30 @@
+{
+  "observedAt": "2026-10-05",
+  "command": "npm test",
+  "exitCode": 0,
+  "testCount": 22,
+  "ledgerTestCount": 12,
+  "protocolTestCount": 10,
+  "redPhase": "task_ledger.ts module absent: ERR_MODULE_NOT_FOUND",
+  "scope": "Actual SQLite persistence, idempotent registration, transaction writer isolation, deadline start gate, unknown-state persistence and cancellation intent. No native subprocess execution. Includes two OS process competition and SIGKILL writer crash persistence.",
+  "resultTail": "\n> @full-aigc-plugins/artcraft@0.1.0-dev.0 test\n> node --test test/*.test.ts\n\n✔ strict versioned tasks accept explicit empty creation inputs (1.589333ms)\n✔ invalid calendar deadlines and unknown nested runtime fields are rejected (0.302083ms)\n✔ unknown protocol, fields, implicit budget and imprecise integers fail before execution (0.154541ms)\n✔ canonical hashes ignore key order but preserve values and reject unsafe numbers (0.095458ms)\n✔ artifact large ticks must be strings with rational timebase (0.225583ms)\n✔ actual file content, size and containment are verified (4.792458ms)\n✔ symlink escaping the delivery root is rejected (1.092459ms)\n✔ missing dependencies cannot claim successful packaging (0.172917ms)\n✔ DAG rejects cycles and missing nodes (0.313542ms)\n✔ logo invalidates only its transitive consumers, independent voice remains reusable (0.117375ms)\n✔ same scoped key returns original identity across reopen; changed plan conflicts (4.551167ms)\n✔ idempotency scope includes caller and target plugin; bindings cannot silently change (2.475083ms)\n✔ plan hash must bind actual versioned payload before any registration (1.746084ms)\n✔ two database connections cannot acquire the same native project (3.164583ms)\n✔ stale GUI revision prevents claim and does not allocate a lease (2.531709ms)\n✔ unknown outcome survives reopen, retains writer ownership and is never automatically retried (2.566166ms)\n✔ cancellation of a live task records intent and retains lease; stale executor cannot change state (1.983417ms)\n✔ cancel before any side effect is immediately terminal (1.614833ms)\n✔ expired deadline cannot start a native task (1.917375ms)\n✔ foreign SQLite database is rejected without changing user data (1.329833ms)\n✔ separate OS processes compete for one project without duplicate starts (61.844125ms)\n✔ killed writer leaves durable intent and lease; restart never replays the task (62.704417ms)\nℹ tests 22\nℹ suites 0\nℹ pass 22\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 215.639917\n",
+  "notVerified": [
+    "native process stop or cancellation",
+    "safe lease settlement/release",
+    "authorization scope",
+    "shared budget accounting",
+    "GUI revision observation",
+    "full recovery workflow",
+    "independent ArtCraft skill",
+    "host install"
+  ],
+  "sourceHashes": {
+    "src/protocol/contracts.ts": "b64d230c8e051490833e00bf7fca87a7951e15edf316ec96635fea48bcd92eaa",
+    "src/protocol/dependency_graph.ts": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43",
+    "src/harness/task_ledger.ts": "78c8ee04894bd2255c89679201cee8b94dcb2241a3350715dc7f44dda51796e2",
+    "test/protocol.test.ts": "585db3a22f62d707289420fec78e28f24037706f51043374eb9fa7144873fc05",
+    "test/task_ledger.test.ts": "1203ee6a503cfb5bbd70d298e83b829443415e64756377cc8a761221003c2236",
+    "schemas/craft-task-v1.json": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+    "schemas/craft-artifact-v1.json": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d"
+  }
+}

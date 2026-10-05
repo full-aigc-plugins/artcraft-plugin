@@ -1,103 +1,88 @@
 # ArtCraft Agent Plugin
 
-独立技能驱动的跨插件创作编排、素材依赖与局部返工.
+跨工具项目规划、素材依赖、版本传播和选择性返工。独立 `artcraft-use` 技能调用锁定运行时，再通过四个独立领域技能的公开脚本执行。
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-> 当前是文档与 OpenSpec 规格基线，不是可安装的功能版本。插件功能和技能包尚未实现或发布。
-
-## 定位
-
-完成品牌图形、海报、动态片头与宣传片；替换 Logo 后仅更新依赖它的产物；中断恢复不重复提交已发生的生成任务。
-
-面向需要原生可编辑工程、反复修改和可靠自动化的创作者。
+> 实施中。四领域原生交接、CLI 账本重开以及本地发布包的干净首次安装已通过。在线发布包、插件宿主安装、共享预算、创作最终评审与完整恢复仍未完成。
 
 ## 一眼了解
 
-```text
-Intent + assets
-  -> independent Skills (planned)
-  -> plugin Harness (planned)
-  -> verified runtime / child adapter
-  -> native project + preview + export + evidence
+```mermaid
+flowchart LR
+ U[需求与已有素材] --> S[独立 artcraft-use 技能]
+ S --> I[固定制品安装与身份核验]
+ I --> H[计划冻结 / SQLite 账本 / DAG]
+ H --> V[VectorCraft]
+ V --> P[PhotoCraft]
+ V --> E[EffectCraft]
+ E --> F[FilmCraft]
+ H --> A[原生工程 / 素材 / 导出 / 证据]
 ```
-| Property | Value |
-| :--- | :--- |
-| Plugin ID | artcraft |
-| Metadata version | 0.1.0-dev.0 |
-| Stage | documentation-baseline |
-| Skills source | artcraft-skills (planned) |
-| Execution | 上游 CLI；ArtCraft 使用子适配器 |
-| Host compatibility | NOT_RUN |
-| License | Apache-2.0 (original repository content) |
 
+| 属性 | 当前状态 |
+| --- | --- |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.0 |
+| 规格事实源 | openspec/changes/establish-v1-plugin |
+| 技能事实源 | 独立 artcraft-skills，发布快照尚未上传 |
+| 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
+| 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
+| 宿主与市场 | 尚未验收，不能作为可安装市场发布 |
 
 ## 能力与边界
 
-| 能力 | 行为边界 | 状态 |
-| :--- | :--- | :--- |
-| 混合需求与交付约束 | 将用户需求转为可版本化 Brief，记录画幅、品牌、角色、字体、预算与原生交付要求；歧义阻止依赖它的步骤，不阻塞独立检查。 | 计划中 |
-| 能力与交付驱动路由 | 按能力快照与用户原生格式选工具；指定剪映工程不得静默替换为 FilmCraft 或 FFmpeg；不要求每次安装或调用全部插件。 | 计划中 |
-| 依赖调度与并发隔离 | 执行前检查 DAG 循环、缺失节点与输入版本；独立节点可并行，同一原生工程单写；下游只消费已验证产物。 | 计划中 |
-| 素材版本与选择性失效 | 区分逻辑资产 ID 与内容哈希；显式记录派生边；修改 Logo 只使传递依赖失效，已审阅旧版本仍可追溯。 | 计划中 |
-| 跨产物一致性 | 以固定品牌与主体参考评估海报、片头和成片，问题绑定资产版本及帧或区域；单一提示词不是一致性证据。 | 计划中 |
-| 交付与外部生态接入 | 汇总子工程、素材、输出、损失报告和验收记录；现有插件需经过公开适配接口，禁止导入兄弟仓库私有模块或伪造完成。 | 计划中 |
+| 能力 | 已验证 | 尚未完成 |
+| --- | --- | --- |
+| 计划与路由 | 技能指导拆解；显式节点选择真实能力快照 | 自动约束推导；既有剪映/Factory 适配 |
+| 依赖调度 | DAG、并发上限、同工程单写、输入核验 | 完整故障接管 |
+| 素材版本与返工 | 内容摘要、血缘、重跑复用、Logo 下游重建 | 原生源工程修订绑定 |
+| 技术交付 | 原生工程与收集素材、预览、导出、公共回执 | 完整媒体元数据、损失报告、最终打包 |
+| 评估 | 文件与引用摘要、原生重开、实际输出解码测试 | 跨产物创作一致性与最终审核 |
+| 安装 | 干净单技能目录、本地锁定包、四个官方 CLI 实装 | 自有制品在线下载及宿主安装 |
 
-不重写上游编辑引擎，不暗中改变原生交付格式，不宣称 GUI 或跨平台验收完成。
+## 快速开始
+
+开发源技能使用实际目录运行 `scripts/workflow.py`。它安装全部锁定依赖并生成项目账本；示例需要已有 WAV，参见独立包中的 SKILL.md 和工作流合同。
+
+```text
+python3 <skill-root>/scripts/workflow.py <plan.json> \
+  --output <absolute-project-dir> --authorization <existing-scope-ref> \
+  --asset voice=<absolute-voice.wav>
+```
+
+当前开发验收使用 `--node-archive` 和 `--bundle-dir`。这些参数仍校验摘要；自有发布 URL 尚未上线，不把开发离线安装说成在线发布。实际 CLI argv 为 `[nodeExecutable, entryPoint, ...]`，命令为 run、status、cancel。
 
 ## 架构与文档
 
 - [完整运行时架构](docs/ArtCraft-Runtime-Architecture.zh_CN.md)
-- [技术方案与路线](product-docs/ArtCraft/5%E3%80%81ArtCraft-%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E4%B8%8E%E8%B7%AF%E7%BA%BF.md)
-- [V1 PRD 与需求映射](product-docs/ArtCraft/V1/5%E3%80%81ArtCraft-PRD%E6%96%87%E6%A1%A3-V1.md)
+- [领域技术设计](docs/ArtCraft-Domain-Design.zh_CN.md)
+- [公共协议](docs/ArtCraft-Protocol-Implementation.zh_CN.md)
+- [任务账本](docs/ArtCraft-Task-Ledger.zh_CN.md)
+- [本地执行](docs/ArtCraft-Local-Execution.zh_CN.md)
+- [依赖调度](docs/ArtCraft-Workflow-Scheduling.zh_CN.md)
+- [公开技能适配](docs/ArtCraft-Public-Skill-Adapter.zh_CN.md)
+- [四领域原生交接](docs/ArtCraft-Native-Handoff.zh_CN.md)
+- [首次使用安装设计](docs/ArtCraft-First-Use.zh_CN.md)
 - [完整文档导航](docs/README.zh-CN.md)
-- [OpenSpec proposal](openspec/changes/establish-v1-plugin/proposal.md)
-- [OpenSpec tasks](openspec/changes/establish-v1-plugin/tasks.md)
+- [OpenSpec proposal](openspec/changes/establish-v1-plugin/proposal.md)与[tasks](openspec/changes/establish-v1-plugin/tasks.md)
 
-- [专业领域技术设计](docs/ArtCraft-Domain-Design.zh_CN.md)
+## 可靠性与验证
 
-## 当前可执行的快速开始
+可信配置固定解释器、脚本、原生 CLI 与输出根；公共 payload 不能选择可执行代码。Python 使用隔离模式并禁止字节码缓存。执行器登记意图、监督进程组、核验输出后释放写占用；未知结果不自动重放。技能项目入口另外串行化同目录调用，冻结计划和登记表，不覆盖用户已有目录。
+
+ArtCraft 运行时 48 项回归通过，见[原生证据](docs/evidence/native-mixed-tests.json)。独立技能安装与首次使用证据见[安装记录](docs/evidence/artcraft-setup-tests.json)。本地安装、在线下载、原生交付、创作验收和宿主安装分开报告。`review_ready` 是技术就绪，不是创作完成。
+
+## 规范、贡献与许可
+
+保持现有 OpenSpec 为唯一规范事实源；任务仅按实际范围勾选，完整场景未验收时保持进行中。线上发布、宿主、共享预算、创作审核与恢复仍需后续实现。
 
 ```bash
 python3 scripts/validate_docs.py
 openspec validate establish-v1-plugin --strict --no-interactive
 ```
-以上校验文档和规范，不运行产品工作流。OpenSpec 校验使用 1.13.1；本仓不自动安装工具。
 
-## 配置与运行时
+以上只校验文档与规范。原创内容使用 [Apache-2.0](LICENSE)。Node 与四款官方 CLI 的许可分别保留；不复制受限 ArtCraft/Services 上游代码或品牌资产。
 
-目标配置包含 CLI 路径、允许读写根目录、运行模式、预算、超时与输出目录；配置 schema 尚待实现。技能锁文件 sources 为空，避免误报技能已发布。本仓不定义独立编辑 CLI；四个子插件各自维护运行时锁文件，所附证据只证明其 CLI 在已记录平台的基础运行。
+[上游参考](https://github.com/storytold/artcraft) · [Issues](https://github.com/full-aigc-plugins/artcraft-plugin/issues)
 
-## 可靠性与安全
-
-规划要求：单工程写入锁、版本前置条件、持久化意图、幂等键、不明确结果核对、原生工程检查点、产物摘要及受限修订。密钥只通过宿主秘密引用传递；素材元数据不作为执行指令。
-
-## 验证与成熟度
-
-[脱敏 CLI 证据](docs/evidence/runtime-baseline.json)
-
-| 层面 | 状态 |
-| :--- | :--- |
-| 四个子工具的上游 CLI 与只读 MCP | 已观察，仅 macOS arm64 |
-| 业务技能与插件 Harness | PLANNED |
-| 原生工程与创作验收 | NOT_RUN |
-| 目标宿主安装 | NOT_RUN |
-
-
-## 路线与贡献
-
-| 阶段 | 交付 | 进入下一阶段条件 |
-| :--- | :--- | :--- |
-| D0 | 双语文档与 OpenSpec 基线 | 文档、链接、规范校验通过；实现任务仍未完成 |
-| M1 | 独立技能与运行时适配 | 清洁环境安装、摘要检查、真实 MCP 调用 |
-| M2 | 专业领域完整闭环 | 代表任务、工程重开、输出解码、局部修改 |
-| M3 | ArtCraft 跨插件协作 | 版本传播、局部失效、断线恢复与幂等 |
-| M4 | 宿主与发布验收 | 宿主实装与多平台证据；市场清单一致 |
-
-先更新 OpenSpec 再实现行为；每项任务通过实际验收后才能勾选。中英文文档同时维护。参考 CONTRIBUTING.md 与 AGENTS.md。
-
-## 许可与上游
-
-原创内容遵循 [Apache-2.0](LICENSE)。这是第三方集成规划，不代表上游背书。四款应用的代码许可与 ArtCraft/Services 的受限许可分别处理；不复制上游 ArtCraft/Services 代码或品牌资产。
-
-[Upstream ArtCraft](https://github.com/storytold/artcraft) · [Issues](https://github.com/full-aigc-plugins/artcraft-plugin/issues)
+独立技能现已绑定已发布的开发标签 `v0.1.0-dev.0`，`skills.lock.json` 固定来源提交与整个技能摘要。使用 `python3 scripts/vendor/skill_vendor.py check` 核对。技能源快照发布不代表宿主验收或生产完成。

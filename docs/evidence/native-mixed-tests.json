@@ -1,0 +1,46 @@
+{
+  "observedAt": "2026-10-05",
+  "platform": "darwin-arm64",
+  "nodeVersion": "24.21.0",
+  "exitCode": 0,
+  "testCount": 48,
+  "nativeIntegrationCases": 3,
+  "command": "CRAFT_EFFECTCRAFT_CLI=<verified-executable> CRAFT_EFFECTCRAFT_SKILL=<source-skill> CRAFT_NATIVE_SKILLS_ROOT=<independent-source-root> CRAFT_NATIVE_RUNTIME_HOME=<installed-runtimes> CRAFT_ARTCRAFT_NODE=<pinned-node> node --test test/*.test.ts",
+  "scope": [
+    "four public independent native workflows",
+    "PNG dependency collection into PhotoCraft and EffectCraft",
+    "native projects and actual video with audio/SRT",
+    "Logo semantic revision rebuilds consumers",
+    "source projects and narration preserved",
+    "public CLI resume/status"
+  ],
+  "notVerified": [
+    "complete ArtCraft first-use installation",
+    "ArtCraft native source revision bindings",
+    "creative brand acceptance",
+    "shared budget",
+    "crash adoption",
+    "host installation",
+    "other platforms"
+  ],
+  "resultTail": "✔ ArtCraft public CLI reports version and supported commands (203.062166ms)\n✔ ArtCraft CLI refuses unknown commands and missing databases without creating user files (152.100459ms)\n✔ successful process is verified, review-ready and releases writer ownership (243.437958ms)\n✔ known nonzero exit fails with recorded stop evidence and releases ownership (142.397875ms)\n✔ live cancel intent becomes cancelled only after process close and group stop (161.299084ms)\n✔ no authorization prevents claim and child launch (53.517917ms)\n✔ incorrect artifact digest fails technical delivery and never publishes output references (130.998ms)\n✔ review-ready task can be cancelled without reviving a stopped writer (128.039208ms)\n✔ two execute calls cannot create two native attempts (155.480834ms)\n✔ unconfirmed process group stop cannot settle or release the native project (54.101208ms)\n✔ verified launcher can supervise a separately bound native runtime (178.746709ms)\n✔ changed skill script cannot start a wrapped native attempt (152.047042ms)\n✔ incorrect launcher or native digest is rejected before any claim (295.909333ms)\n✔ real EffectCraft render is supervised, decoded and registered without changing the native project (483.007833ms)\nNative mixed evidence: <temporary-evidence-root>\n✔ four native public skills hand off Logo, poster, intro and narrated film; Logo revision updates consumers (2048.512708ms)\n✔ strict versioned tasks accept explicit empty creation inputs (11.596541ms)\n✔ invalid calendar deadlines and unknown nested runtime fields are rejected (0.318875ms)\n✔ unknown protocol, fields, implicit budget and imprecise integers fail before execution (0.155791ms)\n✔ canonical hashes ignore key order but preserve values and reject unsafe numbers (0.094375ms)\n✔ artifact large ticks must be strings with rational timebase (0.228875ms)\n✔ actual file content, size and containment are verified (9.661334ms)\n✔ symlink escaping the delivery root is rejected (10.158625ms)\n✔ missing dependencies cannot claim successful packaging (0.307167ms)\n✔ DAG rejects cycles and missing nodes (0.455416ms)\n✔ logo invalidates only its transitive consumers, independent voice remains reusable (0.144125ms)\n✔ native project and rendition references must match actual files, not only the primary render (5.513292ms)\n✔ public EffectCraft skill script produces registered native project and render (528.261209ms)\n✔ public skill preflight rejects arbitrary paths, inline assets and unsupported revisions before writes (0.635167ms)\n✔ same scoped key returns original identity across reopen; changed plan conflicts (5.54525ms)\n✔ idempotency scope includes caller and target plugin; bindings cannot silently change (13.497834ms)\n✔ plan hash must bind actual versioned payload before any registration (2.842125ms)\n✔ two database connections cannot acquire the same native project (6.30425ms)\n✔ stale GUI revision prevents claim and does not allocate a lease (3.42975ms)\n✔ unknown outcome survives reopen, retains writer ownership and is never automatically retried (4.54125ms)\n✔ cancellation of a live task records intent and retains lease; stale executor cannot change state (3.291792ms)\n✔ cancel before any side effect is immediately terminal (2.831833ms)\n✔ expired deadline cannot start a native task (2.467375ms)\n✔ foreign SQLite database is rejected without changing user data (1.551042ms)\n✔ separate OS processes compete for one project without duplicate starts (87.231583ms)\n✔ killed writer leaves durable intent and lease; restart never replays the task (96.01375ms)\n✔ DAG executes verified dependencies and joins independent branches (563.259333ms)\n✔ same revision resumes from durable verified results without native replay (445.2825ms)\n✔ logo change rebuilds only transitive consumers and reuses voice (852.295584ms)\n✔ cycle and unknown plugin reject the plan before child registration (49.564542ms)\n✔ a cached file modified after verification blocks consumers instead of serving stale data (429.239291ms)\n✔ same project nodes serialize while independent projects can overlap (457.171917ms)\n✔ parent cancellation stops new dependent scheduling and waits for actual child stops (156.479ms)\n✔ changed plan under an existing workflow revision is rejected without replay (420.993208ms)\nℹ tests 48\nℹ suites 0\nℹ pass 48\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 3471.285\n",
+  "sourceHashes": {
+    "schemas/craft-artifact-v1.json": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d",
+    "schemas/craft-task-v1.json": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+    "src/adapters/public_skill.ts": "c00162ea56db539fadb5024beb464d6219f0cfe03b3f7cadc1c0ec987df08be3",
+    "src/cli.ts": "772734bed5178c420ede67adcac7a1d3d33ec2990ce2793d960643b33b97cc8b",
+    "src/harness/local_runner.ts": "8f952bc5ab0306b9d5f2589133a38c91ff33eb4cd30827eab2e74ed039ca8fd3",
+    "src/harness/task_ledger.ts": "fb44b28466a2d8d2f66a2364711a451023886e702dd584025ea76af26f6c5cf4",
+    "src/planning/workflow_engine.ts": "07b69f59d99baee8cac5b9b08ff75c74c991a85fef1d4ae1f9d1b3e8f5a1a579",
+    "src/protocol/contracts.ts": "230c040d43ef9ca75a52f72aaa9d51b11dda049c6f74d3baa265915692ef3765",
+    "src/protocol/dependency_graph.ts": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43",
+    "test/cli.test.ts": "86cdecc4f3bf5e9489a0139a740cf8db940cfd2179e369ac7ab31b4da165c3a4",
+    "test/local_runner.test.ts": "4869835c9d549443d255f694f931260c099d8e0b138e1d244f41308e7ae84486",
+    "test/native_effect_runner.test.ts": "14d23cf1ce602027531a4b9e8bcdcb39380cb2324358e1feadd255814974a77c",
+    "test/native_mixed_workflow.test.ts": "46ce9a8ebf0c81f715c079aa8d48bad58bde8386ff8194d7f9736d10fe3d183b",
+    "test/protocol.test.ts": "dc7be4254bdea031bed7548d8ce902e2e124a604e9feb4edb136e513a2e6ea88",
+    "test/public_skill_adapter.test.ts": "8a4e0eb90c4dbf28f17078340f759c5049cf8931fd20d203b3469897fd86d7be",
+    "test/task_ledger.test.ts": "1203ee6a503cfb5bbd70d298e83b829443415e64756377cc8a761221003c2236",
+    "test/workflow_engine.test.ts": "a2d8eed95d7940f0d54b51ea80509fe41c19004ca427050bea24ba77401033aa"
+  }
+}

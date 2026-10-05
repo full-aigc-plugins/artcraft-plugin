@@ -5,6 +5,7 @@ from urllib.parse import unquote, urlsplit
 import json
 import re
 import sys
+import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 errors = []
@@ -46,10 +47,17 @@ for path in markdown:
 manifest = json.loads((ROOT / 'plugin.json').read_text())
 status = json.loads((ROOT / 'project-status.json').read_text())
 lock = json.loads((ROOT / 'skills.lock.json').read_text())
-if manifest['version'] != '0.1.0-dev.0' or status['stage'] != 'documentation-baseline':
+if manifest['version'] != '0.1.0-dev.0' or status['stage'] not in ('documentation-baseline', 'implementation-in-progress'):
     errors.append('documentation status and metadata mismatch')
-if status['marketplaceEligible'] or status['supportedPluginHosts'] or lock['sources']:
-    errors.append('unimplemented baseline claims a release, host or published skills')
+if status['marketplaceEligible'] or status['supportedPluginHosts']:
+    errors.append('unaccepted implementation claims marketplace or host support')
+if lock['sources']:
+    if status['stage'] != 'implementation-in-progress':
+        errors.append('published skill snapshots require implementation stage')
+    else:
+        verified = subprocess.run([sys.executable, str(ROOT/'scripts/vendor/skill_vendor.py'), 'check', '--offline'], cwd=ROOT, capture_output=True, text=True)
+        if verified.returncode:
+            errors.append('skill snapshot verification failed: '+verified.stdout.strip())
 
 change = ROOT / status['specAuthority']
 spec_files = sorted((change / 'specs').glob('*/spec.md'))
@@ -69,9 +77,11 @@ for spec in spec_files:
 if len(requirements) != len(set(requirements)):
     errors.append('duplicate requirement IDs')
 tasks = (change / 'tasks.md').read_text()
-task_ids = re.findall(r'^- \[ \] ([0-9.]+) ', tasks, flags=re.M)
-if re.search(r'^- \[[xX]\]', tasks, flags=re.M):
-    errors.append('implementation task incorrectly marked complete')
+task_ids = re.findall(r'^- \[[ xX]\] ([0-9.]+) ', tasks, flags=re.M)
+for completed in re.findall(r'^- \[[xX]\] ([0-9.]+) ', tasks, flags=re.M):
+    evidence = status.get('taskEvidence', {}).get(completed)
+    if status['stage'] == 'documentation-baseline' or not evidence or not (ROOT / evidence).is_file():
+        errors.append(f'completed task {completed} needs implementation-stage evidence')
 trace = json.loads((ROOT / 'docs/traceability.json').read_text())['entries']
 if {e['requirement'] for e in trace} != set(requirements):
     errors.append('traceability requirements differ from OpenSpec')
@@ -79,7 +89,7 @@ for entry in trace:
     for task in entry['tasks']:
         if task not in task_ids:
             errors.append(f'missing task {task} for {entry["requirement"]}')
-        if not re.search(r'^- \[ \] '+re.escape(task)+r' \['+re.escape(entry['requirement'])+r'\]', tasks, re.M):
+        if not re.search(r'^- \[[ xX]\] '+re.escape(task)+r' \['+re.escape(entry['requirement'])+r'\]', tasks, re.M):
             errors.append(f'task {task} points at the wrong requirement')
 proposal = (change / 'proposal.md').read_text()
 new_caps = proposal.split('### New Capabilities',1)[1].split('### Modified Capabilities',1)[0]
@@ -110,6 +120,6 @@ for path in ROOT.rglob('*.json'):
             json.loads(path.read_text())
         except (json.JSONDecodeError,UnicodeDecodeError) as exc:
             errors.append(f'{path.relative_to(ROOT)}: invalid JSON: {exc}')
-result={'status':'failed' if errors else 'passed','scope':'documentation structure, local links, status honesty and spec/task traceability only','markdownFiles':len(markdown),'capabilities':len(spec_files),'requirements':len(requirements),'scenarios':scenario_count,'openImplementationTasks':len(task_ids),'errors':errors}
+result={'status':'failed' if errors else 'passed','scope':'documentation structure, local links, status honesty and spec/task traceability only','markdownFiles':len(markdown),'capabilities':len(spec_files),'requirements':len(requirements),'scenarios':scenario_count,'openImplementationTasks':len(re.findall(r'^- \[ \] ',tasks,re.M)),'errors':errors}
 print(json.dumps(result,ensure_ascii=False,indent=2))
 sys.exit(bool(errors))

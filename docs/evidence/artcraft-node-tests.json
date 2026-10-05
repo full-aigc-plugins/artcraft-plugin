@@ -1,0 +1,20 @@
+{
+  "observedAt": "2026-10-05",
+  "platform": "darwin-arm64",
+  "exitCode": 0,
+  "testCount": 6,
+  "command": "CRAFT_LIVE_TEST=1 CRAFT_NODE_ARCHIVE=<verified-official-archive> python3 -m unittest discover -s tests -v",
+  "redPhase": "bootstrap.py absent before implementation; isolated path assertion corrected for macOS /var realpath alias",
+  "scope": "Node installer only, including real clean copy without global Node; not complete ArtCraft installation",
+  "resultTail": "test_corrupt_archive_and_bad_path_do_not_publish (test_bootstrap.BootstrapTests.test_corrupt_archive_and_bad_path_do_not_publish) ... ok\ntest_existing_corrupt_runtime_is_not_overwritten (test_bootstrap.BootstrapTests.test_existing_corrupt_runtime_is_not_overwritten) ... ok\ntest_install_and_reuse (test_bootstrap.BootstrapTests.test_install_and_reuse) ... ok\ntest_unsupported_platform_rejects_before_install (test_bootstrap.BootstrapTests.test_unsupported_platform_rejects_before_install) ... ok\ntest_wrong_binary_version_is_rejected (test_bootstrap.BootstrapTests.test_wrong_binary_version_is_rejected) ... ok\ntest_clean_copy_installs_real_node_without_global_node (test_first_use.FirstUseTests.test_clean_copy_installs_real_node_without_global_node) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 3.004s\n\nOK\n",
+  "sourceHashes": {
+    ".gitignore": "991a50177d1f4cbbee11a410574a7bb42a7499a950ae9dafee7f2119ccf8294b",
+    "LICENSE": "f51b5b32a3b7c3df50ef7153f4dd46233221574f07384d2cf99c6fae08c59f03",
+    "README.md": "61484cb55f5078e3960b7e1b1b07a70db929c1a624f61ac36c9c2f90d4d4af06",
+    "README.zh-CN.md": "06d389e769fbaef177dca84133a598e399f291c06d9ab38a6edbf855e9975ed4",
+    "skills/artcraft-use/scripts/bootstrap.py": "2104e742dc19768e9449c461c8c72109eb815e9c1d72c8a563669b1dce718714",
+    "skills/artcraft-use/scripts/node.lock.json": "5d47b1f8b5a1738686f3033981444489eafeb99854d2102254be0375ae4462b8",
+    "tests/test_bootstrap.py": "86b5c9f2d768a6726d16ee5d191e918799ec867482d7762730ba93d100100375",
+    "tests/test_first_use.py": "4670fe3e2ea5bc19507ede9223016dafeb91da8298c30068c84157cd667135de"
+  }
+}

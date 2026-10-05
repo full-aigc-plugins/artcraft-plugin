@@ -1,0 +1,37 @@
+{
+  "schema": "craft-development-publication/v1",
+  "observedAt": "2026-10-05T11:41:49.208367+00:00",
+  "status": "development-prerelease",
+  "sources": [
+    {
+      "package": "artcraft-skills",
+      "repo": "https://github.com/full-aigc-skills/artcraft-skills.git",
+      "ref": "v0.1.0-dev.0",
+      "sha": "912e5f3aab9b75959b6d200241318770077ce89a",
+      "skills": [
+        "artcraft-use"
+      ],
+      "dest": "skills/",
+      "sha256": {
+        "artcraft-use": "eae885031da4ad1dd53925e7b2b15617d122131d87dd42e9fd1ab202e1c38351"
+      }
+    }
+  ],
+  "checks": {
+    "vendorUnitTests": {
+      "passed": 3,
+      "command": "python3 -B -m unittest discover -s tests -p test_skill_vendor.py"
+    },
+    "vendorOnlineCheck": {
+      "result": "passed",
+      "command": "python3 -B scripts/vendor/skill_vendor.py check"
+    }
+  },
+  "excludedEvidence": [
+    "plugin-host installation",
+    "GUI acceptance",
+    "full domain coverage",
+    "creative quality",
+    "production release"
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "observedAt": "2026-10-05",
+  "platform": "darwin-arm64",
+  "exitCode": 0,
+  "testCount": 12,
+  "command": "CRAFT_LIVE_TEST=1 CRAFT_NODE_ARCHIVE=<verified-official-archive> CRAFT_BUNDLE_DIRECTORY=<locked-local-bundles> python3 -m unittest discover -s tests -v",
+  "redPhase": [
+    "Node bootstrap module absent before implementation",
+    "setup.py absent before bundle installer implementation",
+    "file_digest absent before streaming-media implementation"
+  ],
+  "scope": [
+    "clean single-skill copied directory with PATH=/usr/bin:/bin",
+    "actual isolated Node installation",
+    "five locked source bundles installed and verified",
+    "four official CLI downloads/installations in fresh runtime root",
+    "four native project deliveries via installed public scripts",
+    "same revision reuse and changed revision conflict",
+    "corrupt archive, traversal and corrupt installed version rejection",
+    "streamed media digests and size checks",
+    "existing user directory preserved before setup"
+  ],
+  "notVerified": [
+    "online project bundle download",
+    "plugin host installation",
+    "other platforms",
+    "shared budget",
+    "native source revision adapter",
+    "creative review",
+    "crash adoption",
+    "final package"
+  ],
+  "resultTail": "test_corrupt_archive_and_bad_path_do_not_publish (test_bootstrap.BootstrapTests.test_corrupt_archive_and_bad_path_do_not_publish) ... ok\ntest_existing_corrupt_runtime_is_not_overwritten (test_bootstrap.BootstrapTests.test_existing_corrupt_runtime_is_not_overwritten) ... ok\ntest_install_and_reuse (test_bootstrap.BootstrapTests.test_install_and_reuse) ... ok\ntest_unsupported_platform_rejects_before_install (test_bootstrap.BootstrapTests.test_unsupported_platform_rejects_before_install) ... ok\ntest_wrong_binary_version_is_rejected (test_bootstrap.BootstrapTests.test_wrong_binary_version_is_rejected) ... ok\ntest_clean_copy_installs_real_node_without_global_node (test_first_use.FirstUseTests.test_clean_copy_installs_real_node_without_global_node) ... ok\ntest_bad_archive_hash_and_traversal_do_not_publish (test_setup.BundleTests.test_bad_archive_hash_and_traversal_do_not_publish) ... ok\ntest_corrupt_existing_bundle_is_preserved (test_setup.BundleTests.test_corrupt_existing_bundle_is_preserved) ... ok\ntest_install_and_reuse_locked_files (test_setup.BundleTests.test_install_and_reuse_locked_files) ... ok\ntest_multichunk_input_digest_and_size (test_workflow.WorkflowTests.test_multichunk_input_digest_and_size) ... ok\ntest_user_directory_is_rejected_and_preserved_before_setup (test_workflow.WorkflowTests.test_user_directory_is_rejected_and_preserved_before_setup) ... ok\ntest_isolated_single_skill_installs_runs_and_reuses_four_native_deliveries (test_workflow_first_use.FirstWorkflowTests.test_isolated_single_skill_installs_runs_and_reuses_four_native_deliveries) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 39.347s\n\nOK\n",
+  "sourceHashes": {
+    ".gitignore": "991a50177d1f4cbbee11a410574a7bb42a7499a950ae9dafee7f2119ccf8294b",
+    "LICENSE": "f51b5b32a3b7c3df50ef7153f4dd46233221574f07384d2cf99c6fae08c59f03",
+    "README.md": "ae72c460957d4d518d5f3261687c252054ef86648e134f3f66e1bfb9fc13c0f3",
+    "README.zh-CN.md": "b8be908d43a21647a44072a10354ca68455ae59ecfe1a032067299291b087d7d",
+    "skills/artcraft-use/SKILL.md": "53c14fdad6170909627e804eadaad495a2bf77950feda39bba79aa3304ce95b9",
+    "skills/artcraft-use/examples/brand-campaign.json": "6530cca583ec5e9c6ae0f7982e2d426141b275e72a73d7c13866531a968106fe",
+    "skills/artcraft-use/references/workflow.md": "c7de401745b486e64cbf1ee72f7186d8941722f2959b96db9d0d949e31168b67",
+    "skills/artcraft-use/scripts/bootstrap.py": "72a431488a53562c007e0c807d92c72b37b688a44b5c5ffd43d2948160369bb9",
+    "skills/artcraft-use/scripts/distribution.lock.json": "e602a87cc8423f90416b8a7d3d96962f25a9e50fa09ac53a3d6e196051c4904f",
+    "skills/artcraft-use/scripts/node.lock.json": "5d47b1f8b5a1738686f3033981444489eafeb99854d2102254be0375ae4462b8",
+    "skills/artcraft-use/scripts/setup.py": "51e08a971de97a0d0ac0baf38daa8b1431d9fb833947143345251212ac16fff7",
+    "skills/artcraft-use/scripts/workflow.py": "3d0731f80559fa694ebc7c2f712adf5dfdbf4e409dd209ad35262fa9e82456fc",
+    "tests/test_bootstrap.py": "86b5c9f2d768a6726d16ee5d191e918799ec867482d7762730ba93d100100375",
+    "tests/test_first_use.py": "9bc7536e9252f374f32db65f10bc7285936cb2ccac94020a960582213df1bdc5",
+    "tests/test_setup.py": "9654f6e5589c632b8b5b1d583e58fc1b89bfd243ade86c43ac5b958de09726fd",
+    "tests/test_workflow.py": "f87ba7a8d6d8dbcf4fbcf1dd5efb8b4d834f632068514ca72c8ac8ece17d7632",
+    "tests/test_workflow_first_use.py": "162a2f5972ba5523ca17829417a994c107db4edba36d8cb86c19f8f10f414b02"
+  },
+  "bundles": {
+    "artcraft-runtime": {
+      "filename": "artcraft-runtime-0.1.0-dev.0.zip",
+      "url": "https://github.com/full-aigc-plugins/artcraft-plugin/releases/download/v0.1.0-dev.0/artcraft-runtime-0.1.0-dev.0.zip",
+      "sha256": "ddfd8a57fdcc643854777d9133fd9fc1d9bff6f26878340bbc283ce23a9ff31e",
+      "bytes": 23686,
+      "files": {
+        "LICENSE": "f51b5b32a3b7c3df50ef7153f4dd46233221574f07384d2cf99c6fae08c59f03",
+        "package.json": "929defa8363655bad13868c1f10548f9a7f12424f5b8fa2219ce2acf92511946",
+        "schemas/craft-artifact-v1.json": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d",
+        "schemas/craft-task-v1.json": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+        "src/adapters/public_skill.ts": "67c86eb1b4710352928775244d74f99e85c7b73623c5d8e3a9cbda11c5261c4b",
+        "src/cli.ts": "772734bed5178c420ede67adcac7a1d3d33ec2990ce2793d960643b33b97cc8b",
+        "src/harness/local_runner.ts": "8f952bc5ab0306b9d5f2589133a38c91ff33eb4cd30827eab2e74ed039ca8fd3",
+        "src/harness/task_ledger.ts": "fb44b28466a2d8d2f66a2364711a451023886e702dd584025ea76af26f6c5cf4",
+        "src/planning/workflow_engine.ts": "07b69f59d99baee8cac5b9b08ff75c74c991a85fef1d4ae1f9d1b3e8f5a1a579",
+        "src/protocol/contracts.ts": "230c040d43ef9ca75a52f72aaa9d51b11dda049c6f74d3baa265915692ef3765",
+        "src/protocol/dependency_graph.ts": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43"
+      },
+      "sourceRepository": "https://github.com/full-aigc-plugins/artcraft-plugin"
+    },
+    "filmcraft-skills": {
+      "filename": "filmcraft-skills-0.1.0-dev.0.zip",
+      "url": "https://github.com/full-aigc-skills/filmcraft-skills/releases/download/v0.1.0-dev.0/filmcraft-skills-0.1.0-dev.0.zip",
+      "sha256": "1a4bd2b24cfe9eac9be65908611ce984a30064be31845578798a8e63af57b4c9",
+      "bytes": 18015,
+      "files": {
+        "LICENSE": "f51b5b32a3b7c3df50ef7153f4dd46233221574f07384d2cf99c6fae08c59f03",
+        "skills/filmcraft-use/SKILL.md": "0a598fbcc4b0dd3f67fa612fb29fd7be752f6729e227b955fab4313175608d07",
+        "skills/filmcraft-use/examples/short-film.json": "01ceb137983bde7be8c1a9eac9fbdce9f4f49ec58c59b9ace8acedd7307c0223",
+        "skills/filmcraft-use/references/workflow.md": "602ff957ad0b96435e7644e63a8ee2e7e15eaa13c51c60d99e9185ea2095a02b",
+        "skills/filmcraft-use/scripts/bootstrap.py": "1c0867a919a7b81d0b971f817ba5287742c0e602cdd0b33377c65840963b856b",
+        "skills/filmcraft-use/scripts/mcp_session.py": "2f1e6de76d1fe12917933f4967a40c827ba80994a8441e47cb68f212b00160a4",
+        "skills/filmcraft-use/scripts/runtime.lock.json": "92aa2ac6fbe89c57b141b112743581a6e26aabfab69f57717eccc04afad17401",
+        "skills/filmcraft-use/scripts/workflow.py": "4a4606c7f41be21781c58f0282bf144cf13c258ccbd7a1b421c4bcbf909ce668"
+      },
+      "sourceRepository": "https://github.com/full-aigc-skills/filmcraft-skills"
+    },
+    "effectcraft-skills": {
+      "filename": "effectcraft-skills-0.1.0-dev.0.zip",
+      "url": "https://github.com/full-aigc-skills/effectcraft-skills/releases/download/v0.1.0-dev.0/effectcraft-skills-0.1.0-dev.0.zip",
+      "sha256": "9824324423afdfb2c6ec9167cb40f54ff3449432d3cd54f42d85fd8edd83e124",
+      "bytes": 16921,
+      "files": {
+        "LICENSE": "f51b5b32a3b7c3df50ef7153f4dd46233221574f07384d2cf99c6fae08c59f03",
+        "skills/effectcraft-use/SKILL.md": "2d784b328e4a9332635cc1fdf94c4e02865c1b710609b6748aa0c40370bccfc3",
+        "skills/effectcraft-use/examples/brand-intro.json": "8d786356a69ba838cb9015175494e2d44c7ccd05e6cf6a7ced5d8395bba8c5f1",
+        "skills/effectcraft-use/references/workflow.md": "8391e1464ad00cc099af1480597d052268c6cab2c38ec3465c2e40aae0bb03e7",
+        "skills/effectcraft-use/scripts/bootstrap.py": "1c0867a919a7b81d0b971f817ba5287742c0e602cdd0b33377c65840963b856b",
+        "skills/effectcraft-use/scripts/mcp_session.py": "2f1e6de76d1fe12917933f4967a40c827ba80994a8441e47cb68f212b00160a4",
+        "skills/effectcraft-use/scripts/runtime.lock.json": "c3dc4d1443e9b74d0891904d7ec95167375cfb9a8457bfc4faa89208280d465d",
+        "skills/effectcraft-use/scripts/workflow.py": "352feb1fc96814090ad79613ce18aae6ce39271c7e3a707fbb6056b2c56f13e0"
+      },
+      "sourceRepository": "https://github.com/full-aigc-skills/effectcraft-skills"
+    },
+    "photocraft-skills": {
+      "filename": "photocraft-skills-0.1.0-dev.0.zip",
+      "url": "https://github.com/full-aigc-skills/photocraft-skills/releases/download/v0.1.0-dev.0/photocraft-skills-0.1.0-dev.0.zip",
+      "sha256": "9f09046253e9824e59f2e0fc6e749f8334723791a09184a6525a50502a5867db",
+      "bytes": 14490,
+      "files": {
+        "LICENSE": "f51b5b32a3b7c3df50ef7153f4dd46233221574f07384d2cf99c6fae08c59f03",
+        "skills/photocraft-use/SKILL.md": "aa44dac1610fbb45dc436c06ea378d1fc22bae15eb196c11a98ee273a1cf4a2f",
+        "skills/photocraft-use/examples/poster-plan.json": "33dce8089816a570f9dd0a99a6fede5fcd163dd12892817f8c59dfb13bd16ea3",
+        "skills/photocraft-use/references/workflow.md": "5b2f2b9c7aa8355570906f92947bb90c76fb420c5278a52d8ce6b31ed0f93253",
+        "skills/photocraft-use/scripts/bootstrap.py": "1c0867a919a7b81d0b971f817ba5287742c0e602cdd0b33377c65840963b856b",
+        "skills/photocraft-use/scripts/mcp_session.py": "2f1e6de76d1fe12917933f4967a40c827ba80994a8441e47cb68f212b00160a4",
+        "skills/photocraft-use/scripts/runtime.lock.json": "1b94994549e0914d47c443bd1e95c45d3d9d7fd7f7d0e3c927f9da4d456da59b",
+        "skills/photocraft-use/scripts/workflow.py": "2c60c8cbf85272efdb1b9605c7df0b8a1ec5e8ec7564906ca99b5893c41f1398"
+      },
+      "sourceRepository": "https://github.com/full-aigc-skills/photocraft-skills"
+    },
+    "vectorcraft-skills": {
+      "filename": "vectorcraft-skills-0.1.0-dev.0.zip",
+      "url": "https://github.com/full-aigc-skills/vectorcraft-skills/releases/download/v0.1.0-dev.0/vectorcraft-skills-0.1.0-dev.0.zip",
+      "sha256": "b657257e82dc018110fdad3c0e865aa16af6e6fe56ae1b6e397fa96e6e5230e1",
+      "bytes": 13759,
+      "files": {
+        "LICENSE": "f51b5b32a3b7c3df50ef7153f4dd46233221574f07384d2cf99c6fae08c59f03",
+        "skills/vectorcraft-use/SKILL.md": "fdc65d32532ae10cc133a98edb43670a19619781964fa1f20f7dd9e478def3fd",
+        "skills/vectorcraft-use/examples/brand-assets.json": "fa7132f877265db25e02742f57ff2f802e3c1d525588f8ee27d4604dee9fe673",
+        "skills/vectorcraft-use/references/workflow.md": "2ffc8764e8ef26ed54cd776076855ccdd1b4f3a9c776655c9bbbe7b735614b73",
+        "skills/vectorcraft-use/scripts/bootstrap.py": "1c0867a919a7b81d0b971f817ba5287742c0e602cdd0b33377c65840963b856b",
+        "skills/vectorcraft-use/scripts/mcp_session.py": "2f1e6de76d1fe12917933f4967a40c827ba80994a8441e47cb68f212b00160a4",
+        "skills/vectorcraft-use/scripts/runtime.lock.json": "58895e0b74ddb2cbf60de9a0832b9e61a7dc1518221d2481a96d78580276bfc5",
+        "skills/vectorcraft-use/scripts/workflow.py": "087babcca2ec8e8c157f2fa9541120e32a8d9c99ef03796262bcb2e21fda43d9"
+      },
+      "sourceRepository": "https://github.com/full-aigc-skills/vectorcraft-skills"
+    }
+  },
+  "runtimeRegression": {
+    "testCount": 48,
+    "exitCode": 0,
+    "resultTail": "\n✔ separate OS processes compete for one project without duplicate starts (148.789875ms)\n✔ killed writer leaves durable intent and lease; restart never replays the task (261.2375ms)\n✔ DAG executes verified dependencies and joins independent branches (967.036875ms)\n✔ same revision resumes from durable verified results without native replay (643.508125ms)\n✔ logo change rebuilds only transitive consumers and reuses voice (1119.87775ms)\n✔ cycle and unknown plugin reject the plan before child registration (77.378375ms)\n✔ a cached file modified after verification blocks consumers instead of serving stale data (601.627ms)\n✔ same project nodes serialize while independent projects can overlap (665.727542ms)\n✔ parent cancellation stops new dependent scheduling and waits for actual child stops (224.41775ms)\n✔ changed plan under an existing workflow revision is rejected without replay (651.8495ms)\nℹ tests 48\nℹ suites 0\nℹ pass 48\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 5126.58575\n"
+  }
+}

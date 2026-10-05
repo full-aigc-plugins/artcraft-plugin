@@ -1,0 +1,36 @@
+{
+  "observedAt": "2026-10-05",
+  "platform": "darwin-arm64",
+  "command": "CRAFT_EFFECTCRAFT_CLI=<verified-installed-executable> npm test",
+  "exitCode": 0,
+  "testCount": 40,
+  "schedulingTestCount": 8,
+  "nativeTestCount": 1,
+  "redPhase": "workflow_engine.ts absent; ERR_MODULE_NOT_FOUND before implementation",
+  "scope": "Durable DAG scheduling and real supervised fixture subprocesses; one separate native EffectCraft render. Mixed domain fixtures are strings.",
+  "resultTail": "\n> @full-aigc-plugins/artcraft@0.1.0-dev.0 test\n> node --test test/*.test.ts\n\n✔ successful process is verified, review-ready and releases writer ownership (161.767083ms)\n✔ known nonzero exit fails with recorded stop evidence and releases ownership (125.323ms)\n✔ live cancel intent becomes cancelled only after process close and group stop (152.60775ms)\n✔ no authorization prevents claim and child launch (49.152292ms)\n✔ incorrect artifact digest fails technical delivery and never publishes output references (120.607625ms)\n✔ review-ready task can be cancelled without reviving a stopped writer (124.899583ms)\n✔ two execute calls cannot create two native attempts (141.398666ms)\n✔ unconfirmed process group stop cannot settle or release the native project (49.669875ms)\n✔ real EffectCraft render is supervised, decoded and registered without changing the native project (431.82475ms)\n✔ strict versioned tasks accept explicit empty creation inputs (2.324458ms)\n✔ invalid calendar deadlines and unknown nested runtime fields are rejected (0.32525ms)\n✔ unknown protocol, fields, implicit budget and imprecise integers fail before execution (0.170958ms)\n✔ canonical hashes ignore key order but preserve values and reject unsafe numbers (0.109791ms)\n✔ artifact large ticks must be strings with rational timebase (0.252166ms)\n✔ actual file content, size and containment are verified (6.563125ms)\n✔ symlink escaping the delivery root is rejected (1.707208ms)\n✔ missing dependencies cannot claim successful packaging (0.236125ms)\n✔ DAG rejects cycles and missing nodes (0.340083ms)\n✔ logo invalidates only its transitive consumers, independent voice remains reusable (0.134792ms)\n✔ native project and rendition references must match actual files, not only the primary render (3.607333ms)\n✔ same scoped key returns original identity across reopen; changed plan conflicts (5.984625ms)\n✔ idempotency scope includes caller and target plugin; bindings cannot silently change (3.197375ms)\n✔ plan hash must bind actual versioned payload before any registration (2.203542ms)\n✔ two database connections cannot acquire the same native project (4.303958ms)\n✔ stale GUI revision prevents claim and does not allocate a lease (3.049834ms)\n✔ unknown outcome survives reopen, retains writer ownership and is never automatically retried (3.865042ms)\n✔ cancellation of a live task records intent and retains lease; stale executor cannot change state (2.422833ms)\n✔ cancel before any side effect is immediately terminal (1.909791ms)\n✔ expired deadline cannot start a native task (1.901709ms)\n✔ foreign SQLite database is rejected without changing user data (1.229584ms)\n✔ separate OS processes compete for one project without duplicate starts (77.312958ms)\n✔ killed writer leaves durable intent and lease; restart never replays the task (69.07425ms)\n✔ DAG executes verified dependencies and joins independent branches (501.246167ms)\n✔ same revision resumes from durable verified results without native replay (426.618375ms)\n✔ logo change rebuilds only transitive consumers and reuses voice (767.310666ms)\n✔ cycle and unknown plugin reject the plan before child registration (49.455792ms)\n✔ a cached file modified after verification blocks consumers instead of serving stale data (411.149542ms)\n✔ same project nodes serialize while independent projects can overlap (445.381792ms)\n✔ parent cancellation stops new dependent scheduling and waits for actual child stops (154.025916ms)\n✔ changed plan under an existing workflow revision is rejected without replay (413.753292ms)\nℹ tests 40\nℹ suites 0\nℹ pass 40\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 3253.399875\n",
+  "notVerified": [
+    "four public skill adapters",
+    "mixed native project delivery",
+    "shared budget accounting",
+    "immutable asset registration",
+    "creative review",
+    "supervisor crash adoption",
+    "ArtCraft independent first-use installation",
+    "plugin host acceptance"
+  ],
+  "sourceHashes": {
+    "schemas/craft-artifact-v1.json": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d",
+    "schemas/craft-task-v1.json": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+    "src/harness/local_runner.ts": "ff7c093da5bb4e316b0975446a2f60aed04531d2a23a4509bdcc90537ddae9f0",
+    "src/harness/task_ledger.ts": "fb44b28466a2d8d2f66a2364711a451023886e702dd584025ea76af26f6c5cf4",
+    "src/planning/workflow_engine.ts": "07b69f59d99baee8cac5b9b08ff75c74c991a85fef1d4ae1f9d1b3e8f5a1a579",
+    "src/protocol/contracts.ts": "230c040d43ef9ca75a52f72aaa9d51b11dda049c6f74d3baa265915692ef3765",
+    "src/protocol/dependency_graph.ts": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43",
+    "test/local_runner.test.ts": "1f1ecb99181ce90479ca3462e0af4e1735717db61d0cc134ec5239814e902d1f",
+    "test/native_effect_runner.test.ts": "14d23cf1ce602027531a4b9e8bcdcb39380cb2324358e1feadd255814974a77c",
+    "test/protocol.test.ts": "dc7be4254bdea031bed7548d8ce902e2e124a604e9feb4edb136e513a2e6ea88",
+    "test/task_ledger.test.ts": "1203ee6a503cfb5bbd70d298e83b829443415e64756377cc8a761221003c2236",
+    "test/workflow_engine.test.ts": "a2d8eed95d7940f0d54b51ea80509fe41c19004ca427050bea24ba77401033aa"
+  }
+}

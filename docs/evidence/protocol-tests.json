@@ -1,0 +1,28 @@
+{
+  "observedAt": "2026-10-05",
+  "command": "npm test",
+  "exitCode": 0,
+  "nodeVersion": "v24.18.0",
+  "testCount": 10,
+  "redPhase": "contracts.ts module absent: ERR_MODULE_NOT_FOUND",
+  "scope": "Protocol fields, primary artifact file verification and DAG functions only; no task submission or domain rendering.",
+  "resultTail": "\n> @full-aigc-plugins/artcraft@0.1.0-dev.0 test\n> node --test test/*.test.ts\n\n✔ strict versioned tasks accept explicit empty creation inputs (1.468167ms)\n✔ invalid calendar deadlines and unknown nested runtime fields are rejected (0.279667ms)\n✔ unknown protocol, fields, implicit budget and imprecise integers fail before execution (0.145709ms)\n✔ canonical hashes ignore key order but preserve values and reject unsafe numbers (0.087208ms)\n✔ artifact large ticks must be strings with rational timebase (0.231042ms)\n✔ actual file content, size and containment are verified (4.481083ms)\n✔ symlink escaping the delivery root is rejected (1.162333ms)\n✔ missing dependencies cannot claim successful packaging (0.1935ms)\n✔ DAG rejects cycles and missing nodes (0.400583ms)\n✔ logo invalidates only its transitive consumers, independent voice remains reusable (0.1285ms)\nℹ tests 10\nℹ suites 0\nℹ pass 10\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 78.346375\n",
+  "notVerified": [
+    "idempotency ledger",
+    "state responses",
+    "authorization scope enforcement",
+    "immutable asset registry",
+    "referenced artifact verification",
+    "real cross-plugin execution",
+    "independent ArtCraft skill",
+    "host installation"
+  ],
+  "sourceHashes": {
+    "src/protocol/contracts.ts": "b64d230c8e051490833e00bf7fca87a7951e15edf316ec96635fea48bcd92eaa",
+    "src/protocol/dependency_graph.ts": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43",
+    "schemas/craft-task-v1.json": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+    "schemas/craft-artifact-v1.json": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d",
+    "test/protocol.test.ts": "585db3a22f62d707289420fec78e28f24037706f51043374eb9fa7144873fc05",
+    "package.json": "929defa8363655bad13868c1f10548f9a7f12424f5b8fa2219ce2acf92511946"
+  }
+}
