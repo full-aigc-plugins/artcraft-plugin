@@ -37,6 +37,8 @@
 
 - [x] 3.15 [AC-SK-003] 支持固定完整 Git 发布归档并保留原字节/文件摘要；绑定 FilmCraft dev.5，执行在线单 ArtCraft 技能中文配音、烧录、局部返工与四工程打包验收；产物：docs/evidence/chinese-mixed-first-use.json。
 
+- [ ] 3.16 [AC-SK-002] 使用实际 Skills CLI 将五套固定公开技能源安装到隔离项目 .agents/skills；核验 58 个目录摘要、每个目录原生版本探测及执行后摘要。工具缺失不静默安装；只有实际执行通过才记录完成。
+
 ## 4. runtime-distribution
 
 - [x] 4.1 [AC-RT-001] 编写能暴露“运行时来源与完整性”缺失的正向与失败测试并确认预期失败。责任：Runtime owner；前置：技能/运行时合同已确定；业务调用依赖对应适配器。产物：fixture、断言及失败日志；验证：失败原因必须是目标行为缺失。

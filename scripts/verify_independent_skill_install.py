@@ -1,0 +1,89 @@
+#!/usr/bin/env python3
+"""核验真实 Skills CLI 项目安装；不安装工具或修改全局技能目录。"""
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+NAMES = ('filmcraft', 'effectcraft', 'photocraft', 'vectorcraft', 'artcraft')
+
+def skill_hash(directory):
+    result = hashlib.sha256()
+    for path in sorted(p for p in directory.rglob('*') if p.is_file()):
+        if path.is_symlink():
+            raise ValueError('independent_skill_symlink')
+        result.update(path.relative_to(directory).as_posix().encode() + b'\0')
+        result.update(hashlib.sha256(path.read_bytes()).hexdigest().encode() + b'\n')
+    return result.hexdigest()
+
+def installation_plan(lock):
+    if set(lock.get('plugins', {})) != set(NAMES):
+        raise ValueError('five_plugin_lock_required')
+    plans = []
+    for name in NAMES:
+        entry = lock['plugins'][name]
+        skills = entry.get('skills', {})
+        if not skills or name + '-cli' not in skills:
+            raise ValueError('independent_skill_inventory_missing')
+        source = 'https://github.com/full-aigc-skills/' + name + '-skills/tree/' + entry['skillSourceRef']
+        plans.append({'plugin': name, 'source': source, 'sourceSha': entry['skillSourceSha'],
+                      'skills': skills, 'argv': ['add', source, '--skill', *sorted(skills), '--agent', 'codex', '--copy', '--yes']})
+    return plans
+
+def verify(node, cli, python, lock, output):
+    plans = installation_plan(lock)
+    # 工具缺失时不下载安装，也不创建输出目录。
+    for value in (node, cli, python):
+        if not Path(value).is_file():
+            raise ValueError('existing_tool_required')
+    node, cli, python = (str(Path(value).resolve(strict=True)) for value in (node, cli, python))
+    output = Path(output).absolute()
+    output.mkdir(mode=0o700)  # 拒绝复用已有项目，避免覆盖用户技能。
+    env = dict(os.environ, DO_NOT_TRACK='1', SKILLS_NO_TELEMETRY='1')
+    def run(argv, cwd, native=False):
+        value = subprocess.run(list(map(str, argv)), cwd=cwd, env=dict(env, PATH="/usr/bin:/bin") if native else env, capture_output=True, text=True, timeout=600)
+        if value.returncode:
+            raise RuntimeError('independent_install_call_failed: ' + value.stdout[-2000:] + value.stderr[-2000:])
+        return value.stdout
+    version = run([node, cli, '--version'], output).strip()
+    records = []
+    for item in plans:
+        project = output / item['plugin'];project.mkdir()
+        run([node, cli, *item['argv']], project)
+        directory = project / '.agents/skills'
+        if {p.name for p in directory.iterdir() if p.is_dir()} != set(item['skills']):
+            raise ValueError('independent_installed_inventory_mismatch')
+        before = {name: skill_hash(directory/name) for name in item['skills']}
+        if before != item['skills']:
+            raise ValueError('independent_installed_source_drift')
+        runtime = project / 'runtime'
+        for name in sorted(item['skills']):
+            script = directory/name/'scripts/cli.py'
+            run([python, '-I', '-B', script, '--runtime-home', runtime, '--', '--version'], project, native=True)
+        after = {name: skill_hash(directory/name) for name in item['skills']}
+        if after != before:
+            raise ValueError('independent_skill_changed_after_use')
+        records.append({'plugin': item['plugin'], 'source': item['source'], 'sourceSha': item['sourceSha'],
+                        'skills': before, 'versionProbes': len(before), 'afterUseHashes': 'unchanged'})
+    receipt = {'schema': 'craft-independent-install-evidence/v1', 'skillsCliVersion': version,
+               'plugins': records, 'scope': 'actual public Skills CLI installation and 58 public native version probes',
+               'unverified': ['model dispatch', 'GUI', 'creative acceptance; native workflows have separate evidence']}
+    (output/'receipt.json').write_text(json.dumps(receipt, ensure_ascii=False, indent=2)+'\n')
+    return receipt
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--lock', type=Path, default=ROOT/'host-acceptance.lock.json')
+    p.add_argument('--plan', action='store_true')
+    p.add_argument('--node');p.add_argument('--cli');p.add_argument('--python',default=sys.executable)
+    p.add_argument('--output',type=Path)
+    a=p.parse_args();lock=json.loads(a.lock.read_text())
+    if a.plan:
+        print(json.dumps(installation_plan(lock),ensure_ascii=False,indent=2));return
+    if not a.node or not a.cli or not a.output:p.error('--node, --cli and --output are required')
+    print(json.dumps(verify(a.node,a.cli,a.python,lock,a.output),ensure_ascii=False))
+if __name__=='__main__':main()
