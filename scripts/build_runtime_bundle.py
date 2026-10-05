@@ -55,6 +55,22 @@ def tagged_source(repository, version, destination, paths):
     return sha
 
 
+def git_archive_bundle(repository, version, destination, published_repository):
+    """保持固定标签的完整 Git ZIP 原字节；拒绝链接和工作树混入。"""
+    with tempfile.TemporaryDirectory(prefix='artcraft-git-archive-') as temporary:
+        source = Path(temporary)
+        sha = tagged_source(repository, version, source, [])
+        subprocess.run(['git', '-C', str(repository), 'archive', '--format=zip',
+                        '--output=' + str(destination), sha], check=True)
+        files = {str(path.relative_to(source)): digest(path.read_bytes())
+                 for path in sorted(source.rglob('*')) if path.is_file()}
+    return {'version': version, 'filename': destination.name,
+            'url': f'https://github.com/{published_repository}/releases/download/v{version}/{destination.name}',
+            'sha256': digest(destination.read_bytes()), 'bytes': destination.stat().st_size,
+            'files': files, 'sourceRepository': f'https://github.com/{published_repository}',
+            'archiveFormat': 'git-archive-zip', 'sourceCommit': sha}
+
+
 def build(plugin_root, skills_root, output, lock_path, input_lock=None):
     """按锁重建五个发行包；全部验证后才输出，不覆盖不同内容的发布包。"""
     input_lock = input_lock or plugin_root / 'skills/artcraft-use/scripts/distribution.lock.json'
@@ -70,6 +86,17 @@ def build(plugin_root, skills_root, output, lock_path, input_lock=None):
             version = expected['version']; filename = name + '-' + version + '.zip'
             if expected['filename'] != filename or expected['sourceRepository'] != 'https://github.com/' + repository:
                 raise ValueError('distribution_source_mismatch')
+            archive_format = expected.get('archiveFormat', 'canonical-skills-zip')
+            if archive_format == 'git-archive-zip':
+                if runtime:
+                    raise ValueError('runtime_requires_canonical_archive')
+                actual = git_archive_bundle(skills_root / name, version, stage / filename, repository)
+                if actual != expected:
+                    raise ValueError('locked_bundle_mismatch:' + name)
+                entries[name] = actual
+                continue
+            if archive_format != 'canonical-skills-zip':
+                raise ValueError('unsupported_archive_format')
             source = stage / name; source.mkdir()
             tagged_source(plugin_root if runtime else skills_root / name, version, source,
                           ['LICENSE', 'package.json', 'src', 'schemas'] if runtime else ['LICENSE', 'skills'])

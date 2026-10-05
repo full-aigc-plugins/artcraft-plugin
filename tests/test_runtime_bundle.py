@@ -56,6 +56,25 @@ class RuntimeBundleTests(unittest.TestCase):
             self.assertEqual((root / 'rebuilt/filmcraft-skills-1.0.0.zip').read_bytes(), (root / 'published/filmcraft-skills-1.0.0.zip').read_bytes())
             self.assertEqual(builder.build(plugin, skills, root / 'rebuilt', root / 'rebuilt.lock.json'), lock)
 
+    def test_fixed_git_archive_release_is_preserved_without_repacking(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);plugin,skills,lock,lock_file=self.fixture(root)
+            source=skills/'filmcraft-skills'
+            (source/'README.md').write_text('published documentation')
+            subprocess.run(['git','-C',str(source),'add','.'],check=True)
+            subprocess.run(['git','-C',str(source),'-c','user.name=Test','-c','user.email=test@example.invalid','commit','-qm','new published archive'],check=True)
+            subprocess.run(['git','-C',str(source),'tag','v1.0.1'],check=True)
+            archive=root/'filmcraft-skills-1.0.1.zip'
+            entry=builder.git_archive_bundle(source,'1.0.1',archive,'full-aigc-skills/filmcraft-skills')
+            self.assertEqual(entry['archiveFormat'],'git-archive-zip')
+            self.assertIn('README.md',entry['files'])
+            lock['bundles']['filmcraft-skills']=entry;lock_file.write_text(json.dumps(lock))
+            (source/'README.md').write_text('dirty newer documentation')
+            actual=builder.build(plugin,skills,root/'rebuilt',root/'rebuilt.lock.json')
+            self.assertEqual(actual,lock)
+            self.assertEqual((root/'rebuilt'/archive.name).read_bytes(),archive.read_bytes())
+            self.assertEqual((source/'README.md').read_text(),'dirty newer documentation')
+
     def test_bad_digest_and_missing_tag_publish_nothing(self):
         for failure in ('digest', 'tag'):
             with self.subTest(failure=failure), tempfile.TemporaryDirectory() as tmp:

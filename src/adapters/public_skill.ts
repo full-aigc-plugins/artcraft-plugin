@@ -43,6 +43,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
    plan.expectedProjectSha256=node.expectedRevision;
   }else if(node.expectedRevision!==null || 'expectedProjectSha256' in plan)throw new Error('skill_source_missing');
   const sourceFiles:{path:string;sha256:string}[]=[];
+  let sourceManifest:any;
   const checkSource=async()=>{
    if(!source)return;
    await verifyArtifact(source.artifact,source.root);
@@ -54,6 +55,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
    if(hash(bytes)!==evidence[0].sha256)throw new Error('skill_source_manifest_mismatch');
    const manifest=JSON.parse(bytes.toString());
    if(manifest.schema!==locked.pluginId+'-delivery/v1' || manifest.runtimeSha256!==node.runtimeIdentity.sha256 || !manifest.files || typeof manifest.files!=='object' || Array.isArray(manifest.files) || manifest.files[projects[locked.pluginId]]!==node.expectedRevision)throw new Error('skill_source_manifest_invalid');
+   sourceManifest=manifest;
    const checked=[{path:join(source.root,'manifest.json'),sha256:hash(bytes)}];
    for(const [location,digest] of Object.entries(manifest.files)){
     if(!safeLocation(location) || typeof digest!=='string' || !/^[a-f0-9]{64}$/.test(digest))throw new Error('skill_source_manifest_invalid');
@@ -66,15 +68,24 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
   };
   await checkSource();
   const names=new Set<string>();
-  const assets:{name:string;input:ArtifactInput}[]=[];
+  const assets:{name:string;input:ArtifactInput;retained:boolean}[]=[];
   for(const binding of payload.assetBindings){
-   if(Object.keys(binding).some(key=>!['name','assetId'].includes(key)) || !/^[a-zA-Z][a-zA-Z0-9_-]{0,63}$/.test(binding.name) || names.has(binding.name))throw new Error('skill_asset_binding_invalid');
+   if(Object.keys(binding).some(key=>!['name','assetId','retained'].includes(key)) || (binding.retained!==undefined && typeof binding.retained!=='boolean') || !/^[a-zA-Z][a-zA-Z0-9_-]{0,63}$/.test(binding.name) || names.has(binding.name))throw new Error('skill_asset_binding_invalid');
    names.add(binding.name);
    const matches=inputs.filter(input=>input.artifact.assetId===binding.assetId);
    if(matches.length!==1)throw new Error('skill_asset_missing');
    if(matches[0]===source)throw new Error('skill_source_bound_as_media');
-   await verifyArtifact(matches[0].artifact,matches[0].root);assets.push({name:binding.name,input:matches[0]});
+   await verifyArtifact(matches[0].artifact,matches[0].root);assets.push({name:binding.name,input:matches[0],retained:binding.retained===true});
   }
+  // 保留绑定仍消费真实上游输入；必须与原工程已收集的同名素材一致。
+  const checkRetained=async()=>{
+   for(const asset of assets.filter(item=>item.retained)){
+    const prior=sourceManifest?.assets?.[asset.name];
+    if(!source || !prior || !safeLocation(prior.path) || prior.sha256!==asset.input.artifact.sha256 || sourceManifest.files[prior.path]!==prior.sha256)throw new Error('skill_retained_asset_mismatch');
+    await verifyArtifact(asset.input.artifact,asset.input.root);
+   }
+  };
+  await checkRetained();
   // 每个声明输入须实际交接给领域端，不能制造未消费的血缘。
   if(assets.length+(source?1:0)!==inputs.length || new Set(assets.map(item=>item.input)).size!==assets.length)throw new Error('skill_input_unbound');
   for(const output of payload.outputs){
@@ -89,7 +100,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
   await mkdir(root,{recursive:true});
   await writeFile(planFile,JSON.stringify(plan),'utf8');
   const args=['-I','-B',script,planFile,'--output',delivery,'--runtime-home',locked.runtimeHome];
-  for(const asset of assets)args.push('--asset',asset.name+'='+join(asset.input.root,asset.input.artifact.location));
+  for(const asset of assets.filter(item=>!item.retained))args.push('--asset',asset.name+'='+join(asset.input.root,asset.input.artifact.location));
   if(source)args.push('--source',source.root);
   const ref=(location:string,sha256:string)=>({assetId:taskId+'-'+hash(location).slice(0,16),version:sha256,sha256,location});
   const artifact=async(location:string,sha256:string,mediaType:string,assetId:string)=>({
@@ -100,10 +111,12 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
     if(request.runtimeIdentity.pluginId!==locked.pluginId)throw new Error('skill_plugin_mismatch');
     if(request.expectedRevision!==node.expectedRevision)throw new Error('skill_source_revision_mismatch');
     await checkSource();
+    await checkRetained();
     return {executable:locked.python,args,cwd:root,actualRevision:source?node.expectedRevision:null,budgetUsage:{minorUnits:0,externalCalls:0},launcherIdentity:{runtimeExecutable:locked.nativeExecutable,sha256:locked.pythonSha256,files:[...locked.files,...sourceFiles,{path:planFile,sha256:hash(JSON.stringify(plan))}]}};
    },
    verify:async(request)=>{
     await checkSource();
+    await checkRetained();
     const manifestBytes=await readFile(join(delivery,'manifest.json'));
     const manifest=JSON.parse(manifestBytes.toString());
     if(manifest.schema!==locked.pluginId+'-delivery/v1' || manifest.runtimeSha256!==request.runtimeIdentity.sha256 || !manifest.files || typeof manifest.files!=='object')throw new Error('skill_manifest_invalid');

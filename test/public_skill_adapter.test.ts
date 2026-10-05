@@ -103,3 +103,32 @@ test('source binding derives public source argv and refuses revision drift',asyn
   await assert.rejects(made.adapter.verify({runtimeIdentity:node.runtimeIdentity,expectedRevision:digest} as any),/artifact_digest_mismatch|artifact_reference_mismatch/);
  }finally{await rm(root,{recursive:true});}
 });
+
+
+test('retained media binding keeps upstream dependency without reinserting source media',async()=>{
+ const {writeFile,mkdir}=await import('node:fs/promises');
+ const root=await mkdtemp(join(tmpdir(),'craft-retained-media-'));
+ try{
+  const source=join(root,'source'),upstream=join(root,'upstream'),skillRoot=join(root,'skill');await mkdir(source);await mkdir(upstream);await mkdir(join(skillRoot,'scripts'),{recursive:true});
+  const native=Buffer.from('native project'),media=Buffer.from('registered intro'),nativeSha=hash(native),mediaSha=hash(media);
+  await writeFile(join(source,'project.fcproj'),native);await writeFile(join(source,'intro.mp4'),media);await writeFile(join(upstream,'intro.mp4'),media);
+  const manifest={schema:'filmcraft-delivery/v1',runtimeSha256:'a'.repeat(64),files:{'project.fcproj':nativeSha,'intro.mp4':mediaSha},assets:{intro:{path:'intro.mp4',sha256:mediaSha}},bindings:{}};
+  const text=JSON.stringify(manifest);await writeFile(join(source,'manifest.json'),text);
+  const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'fixture');return {path,sha256:hash('fixture')};}));
+  const factory=publicSkillFactory({pluginId:'filmcraft',skillRoot,python:process.execPath,pythonSha256:hash(await readFile(process.execPath)),nativeExecutable:'/usr/bin/true',runtimeHome:root,files,outputRoot:join(root,'output')});
+  const base={protocolVersion:'craft-artifact/v1',producerTaskId:'previous',sourceRefs:[],renditions:[],dependencies:[],technicalMetadata:{},lossReportRef:null};
+  const old={...base,assetId:'old-film',version:nativeSha,sha256:nativeSha,bytes:native.length,mediaType:'application/octet-stream',nativeProjectRef:{assetId:'native',version:nativeSha,sha256:nativeSha,location:'project.fcproj'},evidenceRefs:[{assetId:'manifest',version:hash(text),sha256:hash(text),location:'manifest.json'}],location:'project.fcproj'};
+  const intro={...base,assetId:'intro-video',version:mediaSha,sha256:mediaSha,bytes:media.length,mediaType:'application/octet-stream',nativeProjectRef:null,evidenceRefs:[],location:'intro.mp4'};
+  const node={id:'film',dependsOn:['intro'],projectKey:'film',runtimeIdentity:{pluginId:'filmcraft',sha256:'a'.repeat(64)},expectedRevision:nativeSha,payload:{schemaVersion:'craft-skill-workflow/v1',sourceProject:{assetId:'old-film'},plan:{operations:[]},assetBindings:[{name:'intro',assetId:'intro-video',retained:true}],outputs:[{assetId:'new-film',location:'film.mp4',mediaType:'video/mp4'}]}};
+  const made=await factory(node,[{root:source,artifact:old},{root:upstream,artifact:intro}],'retained');
+  const prepared=await made.adapter.prepare({runtimeIdentity:node.runtimeIdentity,expectedRevision:nativeSha} as any);
+  assert.equal(prepared.args.includes('--asset'),false);assert.deepEqual(prepared.args.slice(-2),['--source',source]);
+  const changed=Buffer.from('changed intro');await writeFile(join(upstream,'changed.mp4'),changed);
+  await assert.rejects(factory(node,[{root:source,artifact:old},{root:upstream,artifact:{...intro,location:'changed.mp4',sha256:hash(changed),version:hash(changed),bytes:changed.length}}],'changed'),/skill_retained_asset_mismatch/);
+  await assert.rejects(factory({...node,payload:{...node.payload,sourceProject:undefined},expectedRevision:null},[{root:upstream,artifact:intro}],'no-source'),/skill_retained_asset_mismatch/);
+  await assert.rejects(factory({...node,payload:{...node.payload,assetBindings:[{name:'intro',assetId:'intro-video',retained:'true'}]}},[{root:source,artifact:old},{root:upstream,artifact:intro}],'bad-flag'),/skill_asset_binding_invalid/);
+  await writeFile(join(upstream,'intro.mp4'),Buffer.from('tampered upstream'));
+  await assert.rejects(made.adapter.prepare({runtimeIdentity:node.runtimeIdentity,expectedRevision:nativeSha} as any),/artifact_digest_mismatch/);
+  await assert.rejects(made.adapter.verify({runtimeIdentity:node.runtimeIdentity} as any),/artifact_digest_mismatch/);
+ }finally{await rm(root,{recursive:true});}
+});

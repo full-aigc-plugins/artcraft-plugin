@@ -35,6 +35,8 @@
 
 - [x] 3.14 [AC-SK-003] 升级固定 EffectCraft 技能依赖并完成默认在线单技能蒙版混合返工：保存源摘要与动画、复用图形/海报、更新片头/成片、实际 RGBA 与打包验收；产物：docs/evidence/mask-revision-first-use.json。
 
+- [ ] 3.15 [AC-SK-003] 支持固定完整 Git 发布归档并保留原字节/文件摘要；绑定 FilmCraft dev.5，执行在线单 ArtCraft 技能中文配音、烧录、局部返工与四工程打包验收；产物：docs/evidence/chinese-mixed-first-use.json。
+
 ## 4. runtime-distribution
 
 - [x] 4.1 [AC-RT-001] 编写能暴露“运行时来源与完整性”缺失的正向与失败测试并确认预期失败。责任：Runtime owner；前置：技能/运行时合同已确定；业务调用依赖对应适配器。产物：fixture、断言及失败日志；验证：失败原因必须是目标行为缺失。
