@@ -1,0 +1,82 @@
+{
+  "scope": "Maintainer fixed-tag bundle reproduction; not host/model/creative acceptance",
+  "date": "2026-10-06",
+  "bundles": [
+    {
+      "bundle": "artcraft-runtime",
+      "version": "0.1.0-dev.7",
+      "sourceCommit": "e058e72116deafbab6f605ab70d427b7931e8dfd",
+      "sha256": "e97be68fab7f2c3bb4685931bf859c0489cdc617b8f33f362778216e2f495aa8",
+      "bytes": 35635,
+      "fileCount": 15,
+      "result": "PASS"
+    },
+    {
+      "bundle": "filmcraft-skills",
+      "version": "0.1.0-dev.4",
+      "sourceCommit": "7414b7d22582c5f142acea7408d202ee82878aed",
+      "sha256": "568cd74442221b7ce796b41f77bbe59d8085c529db75fdd760095ba48c8835ac",
+      "bytes": 340365,
+      "fileCount": 141,
+      "result": "PASS"
+    },
+    {
+      "bundle": "effectcraft-skills",
+      "version": "0.1.0-dev.5",
+      "sourceCommit": "f06492a105410417699c7499a8dbbf763bf186c2",
+      "sha256": "13bd7d7300b1640bc60c14df43956afa2a7f67d0d7a7dd443d18cef4ea155783",
+      "bytes": 402475,
+      "fileCount": 167,
+      "result": "PASS"
+    },
+    {
+      "bundle": "photocraft-skills",
+      "version": "0.1.0-dev.5",
+      "sourceCommit": "02e2a4f33ff73c54b51c830f1f1c9937c58a2ed4",
+      "sha256": "81159d097aef14df927f00305497062500fdbfd621752856193bab45b83da879",
+      "bytes": 382999,
+      "fileCount": 154,
+      "result": "PASS"
+    },
+    {
+      "bundle": "vectorcraft-skills",
+      "version": "0.1.0-dev.5",
+      "sourceCommit": "70fa4fead185de23a1de270eece74b8cd30e201d",
+      "sha256": "3c6629b91faca3bac9ff34dce0d3ee33648b06fdfb2711d4a069e0867d7bc8fc",
+      "bytes": 425662,
+      "fileCount": 154,
+      "result": "PASS"
+    }
+  ],
+  "red": {
+    "testCases": 3,
+    "assertionFailures": 4,
+    "cause": "Previous builder read current worktrees, hardcoded versions and ignored release locks/output conflicts"
+  },
+  "tests": {
+    "file": "tests/test_runtime_bundle.py",
+    "sha256": "2a1322f651b626ab49b6853f50d1adfb3416a9fb6e22f368f5efc43e41bf7fd2",
+    "cases": 4,
+    "status": "PASS"
+  },
+  "runtimeChanged": false,
+  "skillSnapshotsChanged": false,
+  "exclusions": [
+    "Cross-platform creative acceptance",
+    "Host model dispatch",
+    "Concurrent multi-process publishing"
+  ],
+  "builderSha256": "ee0b47d09c3dc3a67191f1a42549b5a643714190a734bad6b6eeabc91cba62cf",
+  "regression": {
+    "command": "python3 -B -m unittest discover -s tests -v",
+    "tests": 16,
+    "passed": 14,
+    "skipped": 2,
+    "skipReason": "Live Codex host and default online mixed workflow are explicitly gated; not rerun for maintainer-only packaging change"
+  },
+  "checks": {
+    "documentation": "PASS",
+    "openspecStrict": "PASS",
+    "diffWhitespace": "PASS"
+  }
+}

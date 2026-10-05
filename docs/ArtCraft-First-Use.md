@@ -45,3 +45,18 @@ Repeats reuse verified tasks; new revisions invalidate affected consumers. Unkno
 ## Default online release acceptance
 
 The v0.1.0-dev.0 runtime and four skill bundles are now public. [Online first-use evidence](evidence/online-first-use.json) records a single copied skill, no global Node and no offline overrides. The default entry downloaded all dependencies, produced four native projects and checked replay reuse, ledger reopening and same-revision conflicts. Earlier offline statements remain historical stage evidence. This macOS arm64 technical case does not establish host, GUI, complete creative or production acceptance.
+
+## Rebuild bundles from the distribution lock
+
+The builder defaults to the plugin's `skills/artcraft-use/scripts/distribution.lock.json`; `--input-lock` selects another reviewed lock. Each bundle reads its own fixed local `refs/tags/v<version>` through the resolved commit and `git archive`, never the working tree. Missing tags fail without implicit network fetching or fallback to HEAD. Domain bundles may have different versions.
+
+All bundles are staged and checked against the complete input lock, including file hashes, ZIP hashes, sizes, origins and URLs, before output. Existing conflicting bundles or locks are never overwritten; identical bundles can be checked repeatedly. Tagged symlinks and escaping paths are rejected. A new release needs a reviewed lock first; this command reproduces a locked release and does not relabel current sources.
+
+```bash
+python3 -B scripts/build_runtime_bundle.py \
+  --skills-root <independent-skills-repository-collection> \
+  --output <bundle-output-directory> \
+  --lock-output <rebuilt-distribution-lock>
+```
+
+[Locked bundle evidence](evidence/locked-bundle-rebuild.json) records five byte-for-byte reproductions and isolated Git fixtures. This change affects maintainer tooling only; installed snapshots and runtime release versions stay unchanged.

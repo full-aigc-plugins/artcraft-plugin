@@ -103,3 +103,9 @@
 ## 当前宿主证据范围
 
 `docs/evidence/codex-current-release.json` 记录固定发布在 Codex 0.147.0 / 0.153.4 的安装、发现与公开入口执行；共享复现工具由 ArtCraft 持有。该证据未覆盖模型派发、桌面 GUI、完整 P0 与创作验收，release-compatibility 任务的前置条件尚未全部满足，不能据此勾选完整发布任务。
+
+## 11. 发行包重建补充验收
+
+- [x] 11.1 [AC-RT-001] 用隔离 Git 仓库确认工作树漂移、缺失标签、摘要错误与输出冲突在旧打包器上失败；产物：tests/test_runtime_bundle.py。
+- [x] 11.2 [AC-RT-001] 按输入发行锁读取固定标签、暂存验证全部包并拒绝覆盖冲突输出；产物：scripts/build_runtime_bundle.py、双语首次使用说明。
+- [x] 11.3 [AC-RT-001] 验证隔离场景、幂等重建和当前五个锁定包摘要一致；产物：docs/evidence/locked-bundle-rebuild.json。不提升完整宿主、创作或上线验收状态。
