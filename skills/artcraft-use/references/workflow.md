@@ -58,3 +58,28 @@ Nodes and revisions under the same owner/workflow/authorization share one frozen
 账本版本升级为 2；旧历史没有预算证据时仍能读取状态，但在旧授权范围继续执行会报 budget_history_untracked。不要删除账本或伪造授权来绕过。运行时升级改变登记表与身份摘要，同修订不可直接替换。完整质量停滞循环与付费账单核销仍未完成。
 
 Ledger version 2 preserves historical reads but unmetered historical scopes reject execution with budget_history_untracked. Do not delete the ledger or fabricate authorization to bypass it. Runtime upgrades change registry/identity hashes and require an explicit revision; quality stagnation loops and provider invoice settlement remain pending.
+
+
+## 登记源工程局部修订 / Registered native source revisions
+
+开发版本 3 的节点允许 `payload.sourceProject = {"assetId":"old-output"}`。从前次结果取该输出完整 artifact 和 root 放入 `externalInputs`，`expectedRevision` 取 `artifact.nativeProjectRef.sha256`。源输入独立于媒体 `assetBindings`；每个输入必须有明确消费。旧工程不得通过 `--asset` 伪装成媒体，也不得自行提供源路径字段。领域 plan 不含 document；适配器注入匹配的 expectedProjectSha256。新任务保存到独立交付目录，源文件在执行前后核验，漂移停止。
+
+Development version 3 accepts `payload.sourceProject = {"assetId":"old-output"}`. Register the prior result's full artifact and root in node `externalInputs`; set `expectedRevision` to `artifact.nativeProjectRef.sha256`. Source inputs are consumed separately from media bindings. Domain plans omit document recreation; the adapter injects the expected project digest and calls the public skill source interface. It creates a new delivery and verifies the old package before and after execution.
+
+```json
+{
+  "expectedRevision": "<prior nativeProjectRef.sha256>",
+  "externalInputs": [{"root": "<prior node.root>", "artifact": "<prior complete output artifact object>"}],
+  "payload": {
+    "schemaVersion": "craft-skill-workflow/v1",
+    "sourceProject": {"assetId": "old-output"},
+    "plan": {"operations": [{"command": "layer.setText", "params": {"layer": {"$ref": "title.layer"}, "text": "Updated title"}}], "frames": [0, 0.5], "exports": [{"format": "mp4"}]},
+    "assetBindings": [],
+    "outputs": [{"assetId": "updated-output", "location": "intro.mp4", "mediaType": "video/mp4"}]
+  }
+}
+```
+
+上例是字段示意，artifact 必须为真实完整对象，摘要为 64 位真实值，不可把示意字符串直接执行。同一项目的新修订仍消耗共享修订预算；不能改授权绕过。继承素材由领域技能收集，旧工程保留在 sourceRefs 血缘，不假称打包了旧工程。技术回归串行通过；并行 EffectCraft 原生测试偶发失败未解决，创作审核、故障接管及最终打包仍待完成。
+
+The example describes fields, not an executable fixture; artifact must be the real full object and the digest the real 64-character SHA. New revisions remain under shared budgets. Inherited media are collected; the prior project stays in source lineage. Native regression passes with serialized test files; intermittent parallel EffectCraft failures, creative review, crash adoption and final packaging remain open.

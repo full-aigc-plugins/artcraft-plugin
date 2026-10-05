@@ -47,7 +47,7 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
    node('logo','vectorcraft',[],payload(vectorPlan,[],'logo-png','artboard-1.png','image/png')),
    node('poster','photocraft',['logo'],payload({document:{name:'NOVA brand poster',width:320,height:400,background:'#faf4e8'},minimumLayers:3,operations:[operation('asset.place',{asset:'logo',center:[160,210],name:'Logo'},'logo'),operation('type.create',{x:28,y:60,text:'NOVA',name:'Headline',font:'Arial',size:30,color:'#192a3b'},'title')],exports:[{format:'png'},{format:'psd'}]},[{name:'logo',assetId:'logo-png'}],'poster-png','design.png','image/png')),
    node('intro','effectcraft',['logo'],payload({document:{name:'NOVA intro',width:320,height:180,frameRate:12,duration:1},operations:[operation('asset.import',{asset:'logo'},'logo'),operation('layer.addItem',{item:ref('logo.item'),duration:1},'logoLayer'),operation('prop.addKey',{layer:ref('logoLayer.layer'),path:'transform/opacity',time:0,value:0}),operation('prop.addKey',{layer:ref('logoLayer.layer'),path:'transform/opacity',time:.5,value:100})],frames:[0,.5],exports:[{format:'mp4'}]},[{name:'logo',assetId:'logo-png'}],'intro-video','intro.mp4','video/mp4')),
-   {...node('film','filmcraft',['intro'],payload({document:{name:'NOVA campaign',width:320,height:180,frameRate:{num:12,den:1}},operations:[operation('asset.import',{asset:'intro'},'intro'),operation('asset.import',{asset:'voice'},'voice'),operation('timeline.place',{item:ref('intro.item'),track:'V1',time:'0',sourceIn:'0',duration:tick,insert:false}),operation('timeline.place',{item:ref('voice.item'),track:'A1',audioTrack:'A1',time:'0',sourceIn:'0',duration:tick,insert:false}),operation('captions.newTrack',{format:'Subtitle',name:'Brand subtitle',language:'en'}),operation('captions.setStyle',{track:'C1',font:'Arial',size:18,color:'#ffffff',background:true}),operation('caption.add',{track:'C1',text:'NOVA essentials',startTicks:'0',durationTicks:tick})],frames:['127008000000'],export:{audioRequired:true}},[{name:'intro',assetId:'intro-video'},{name:'voice',assetId:'voice'}],'film-video','film.mp4','video/mp4')),externalInputs:[voiceInput]}
+   {...node('film','filmcraft',['intro'],payload({document:{name:'NOVA campaign',width:320,height:180,frameRate:{num:12,den:1}},operations:[operation('asset.import',{asset:'intro'},'intro'),operation('asset.import',{asset:'voice'},'voice'),operation('timeline.place',{item:ref('intro.item'),track:'V1',time:'0',sourceIn:'0',duration:tick,insert:false},'introClip'),operation('timeline.place',{item:ref('voice.item'),track:'A1',audioTrack:'A1',time:'0',sourceIn:'0',duration:tick,insert:false}),operation('captions.newTrack',{format:'Subtitle',name:'Brand subtitle',language:'en'}),operation('captions.setStyle',{track:'C1',font:'Arial',size:18,color:'#ffffff',background:true}),operation('caption.add',{track:'C1',text:'NOVA essentials',startTicks:'0',durationTicks:tick})],frames:['127008000000'],export:{audioRequired:true}},[{name:'intro',assetId:'intro-video'},{name:'voice',assetId:'voice'}],'film-video','film.mp4','video/mp4')),externalInputs:[voiceInput]}
   ]};
   const engine=new WorkflowEngine(ledger,new LocalRunner(ledger,async request=>assert.equal(request.authorizationRef,'mixed-test-scope')),factories);
   const first=await engine.run(plan,2);await writeFile(join(root,'v1-result.json'),JSON.stringify(first,null,2));
@@ -73,6 +73,39 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
   const filmManifest=JSON.parse(await readFile(join(second.nodes.film.root!,'manifest.json'),'utf8'));
   assert.equal(filmManifest.assets.voice.sha256,voiceHash);
   await writeFile(join(root,'acceptance.json'),JSON.stringify({scope:'four native public scripts and selective semantic revision; procedural Logo and sine-wave narration, no creative acceptance',checks:['four native projects reopened by domain helpers','actual PNG/media collection and SHA lineage','MP4 decoded 12 frames with audio','SRT text','same workflow no replay','Logo revision rebuilt all consumers','original native projects and narration unchanged'],first,second},null,2));
+  // 真实旧工程修订通过公开 --source 交接；四个旧包均为登记输入。
+  const sourceNode=(id:string,plugin:string,domainPlan:Record<string,any>,dependsOn:string[]=[],assetBindings:{name:string;assetId:string}[]=[])=>{
+   const old=second.nodes[id];const output=old.outputs![0];
+   return {...node(id,plugin,dependsOn,{...payload(domainPlan,assetBindings,output.assetId,output.location,output.mediaType),sourceProject:{assetId:output.assetId}}),expectedRevision:output.nativeProjectRef.sha256,externalInputs:[{root:old.root!,artifact:output}]};
+  };
+  const revisionPlan={...plan,workflowId:'native-source-revisions',revision:'v1',nodes:[
+   sourceNode('logo','vectorcraft',{operations:[operation('paint.setFill',{ids:[ref('logo.ids.0'),ref('wordmark.id')],color:'#175cce'})],exports:vectorPlan.exports}),
+   sourceNode('poster','photocraft',{minimumLayers:3,operations:[operation('type.edit',{layer:ref('title.layer'),text:'NOVA PLUS'})],exports:[{format:'png'},{format:'psd'}]}),
+   sourceNode('intro','effectcraft',{operations:[operation('asset.replace',{asset:'logo',replacement:'replacement'})],frames:[0,.5],exports:[{format:'mp4'}]},['logo'],[{name:'replacement',assetId:'logo-png'}]),
+   sourceNode('film','filmcraft',{operations:[operation('asset.import',{asset:'replacement'},'replacement'),operation('clip.replaceFromBin',{clips:ref('introClip.clips'),item:ref('replacement.item')})],frames:['127008000000'],export:{audioRequired:true}},['intro'],[{name:'replacement',assetId:'intro-video'}])
+  ]};
+  const nativeRevision=await engine.run(revisionPlan,2);
+  assert.equal(nativeRevision.state,'review_ready',JSON.stringify(nativeRevision));
+  for(const id of ['logo','poster','intro','film']){
+   const old=second.nodes[id],updated=nativeRevision.nodes[id];
+   const oldManifest=JSON.parse(await readFile(join(old.root!,'manifest.json'),'utf8'));
+   const newManifest=JSON.parse(await readFile(join(updated.root!,'manifest.json'),'utf8'));
+   assert.equal(newManifest.sourceProjectSha256,old.outputs![0].nativeProjectRef.sha256);
+   for(const [file,digest] of Object.entries(oldManifest.files))assert.equal(hash(await readFile(join(old.root!,file))),digest,'old '+id+' '+file+' preserved');
+   assert.notEqual(updated.outputs![0].sha256,old.outputs![0].sha256);
+   assert.ok(updated.outputs![0].sourceRefs.some((ref:any)=>ref.sha256===old.outputs![0].sha256));
+  }
+  const oldIntro=JSON.parse(await readFile(join(second.nodes.intro.root!,'native.json'),'utf8'));
+  const newIntro=JSON.parse(await readFile(join(nativeRevision.nodes.intro.root!,'native.json'),'utf8'));
+  assert.deepEqual(newIntro.layers,oldIntro.layers,'asset replacement preserves animation/layer IDs');
+  const oldFilm=JSON.parse(await readFile(join(second.nodes.film.root!,'native.json'),'utf8')).sequence;
+  const newFilm=JSON.parse(await readFile(join(nativeRevision.nodes.film.root!,'native.json'),'utf8')).sequence;
+  assert.deepEqual(newFilm.audio,oldFilm.audio);
+  assert.equal(await readFile(join(nativeRevision.nodes.film.root!,'captions.srt'),'utf8'),await readFile(join(second.nodes.film.root!,'captions.srt'),'utf8'));
+  const revisedFilmManifest=JSON.parse(await readFile(join(nativeRevision.nodes.film.root!,'manifest.json'),'utf8'));
+  assert.equal(revisedFilmManifest.assets.voice.sha256,voiceHash);
+  const revisionReplay=await engine.run(revisionPlan);for(const id of ['logo','poster','intro','film'])assert.equal(revisionReplay.nodes[id].taskId,nativeRevision.nodes[id].taskId);
+  await writeFile(join(root,'source-revision-result.json'),JSON.stringify(nativeRevision,null,2));
   const registry=join(root,'registry.json'),planFile=join(root,'workflow.json');
   await writeFile(registry,JSON.stringify({schemaVersion:'craft-skill-registry/v1',plugins:Object.fromEntries(Object.keys(configs).map(id=>[id,{config:configs[id],runtimeIdentity:identities[id]}]))}));
   await writeFile(planFile,JSON.stringify(changed));
@@ -81,7 +114,7 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
   assert.equal(cliResult.state,'review_ready');
   for(const id of ['logo','poster','intro','film'])assert.equal(cliResult.nodes[id].taskId,second.nodes[id].taskId);
   const cliStatus=JSON.parse((await exec(runtimeNode,[cli,'status','--database',join(root,'tasks.sqlite')])).stdout);
-  assert.equal(cliStatus.tasks.length,8);assert.equal(cliStatus.leases.length,0);
+  assert.equal(cliStatus.tasks.length,12);assert.equal(cliStatus.leases.length,0);
   await writeFile(join(root,'cli-result.json'),JSON.stringify(cliResult,null,2));
   if(process.env.CRAFT_KEEP_NATIVE_EVIDENCE==='1')console.log('Native mixed evidence: '+root);
  }finally{ledger.close();if(process.env.CRAFT_KEEP_NATIVE_EVIDENCE!=='1')await rm(root,{recursive:true});}

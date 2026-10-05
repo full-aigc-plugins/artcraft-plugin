@@ -139,6 +139,24 @@ stateDiagram-v2
 | deadline / budget | 父子任务共享上限，不重复计账 |
 
 
+### 10.1 原生源工程修订适配（开发版本 3）
+
+`payload.sourceProject = {"assetId":"old-output"}` 单独消费一个登记输入，不把旧工程当作 `assetBindings` 中的媒体。节点 `externalInputs` 从上次结果提供 root 与完整 artifact，也可使用显式依赖绑定。`expectedRevision` 必须为输入的原生工程 SHA，不能使用预览或成片 SHA。适配器解析登记的源交付，拒绝任意源路径、缺失 manifest 证据、不兼容运行时身份和 `document` 重建；填入 `plan.expectedProjectSha256` 后调用独立技能公开 `--source` 接口。
+
+```mermaid
+flowchart LR
+    P[登记旧产物与原生 SHA] --> V[核验工程、manifest、全部文件]
+    V --> L[预算预留、版本绑定、工程单写]
+    L --> S[独立技能公开 source 接口]
+    S --> N[另存原生工程、素材、预览与导出]
+    N --> C[再核验旧包不变与新包源摘要]
+    C --> R[技术待审与血缘记录]
+```
+
+旧交付作为历史血缘引用，不伪称已经复制为新媒体依赖。继承素材全部进入新 manifest 和证据引用；EffectCraft 替换素材按计划显式 `asset.replace` 目标别名核验。工厂准备、执行准备和交付验收时均重查源文件，漂移拒绝执行或拒绝交付。新交付目录不覆盖旧包；本能力不代表 GUI 协作、崩溃接管或创作审核已经完成。
+
+本地原生回归使用 `npm run test:native` 串行运行测试文件。并行全量原生套件出现 EffectCraft 偶发失败，多进程原生渲染稳定性尚未验证；单元测试和 SQLite/进程竞争测试保留各自显式并发覆盖。
+
 ## 11. 错误语义
 
 | Code | 何时出现 | 恢复动作 |

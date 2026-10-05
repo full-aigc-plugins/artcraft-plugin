@@ -3,12 +3,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { mkdtemp, rm, access } from 'node:fs/promises';
+import { mkdtemp, rm, access, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 const exec=promisify(execFile),entry=new URL('../src/cli.ts',import.meta.url).pathname;
 test('ArtCraft public CLI reports version and supported commands',async()=>{
- assert.equal(JSON.parse((await exec(process.execPath,[entry,'--version'])).stdout).version,'0.1.0-dev.1');
+ assert.equal(JSON.parse((await exec(process.execPath,[entry,'--version'])).stdout).version,JSON.parse(await readFile(new URL('../package.json',import.meta.url),'utf8')).version);
  assert.deepEqual(JSON.parse((await exec(process.execPath,[entry,'--help'])).stdout).commands,['run','status','cancel']);
 });
 test('ArtCraft CLI refuses unknown commands and missing databases without creating user files',async()=>{

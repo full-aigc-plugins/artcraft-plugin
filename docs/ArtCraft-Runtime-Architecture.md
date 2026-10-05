@@ -139,6 +139,30 @@ Planned adapter operations are capabilities, validate, estimate, submit, status,
 | deadline / budget | Parent and child share ceilings without double counting |
 
 
+### 10.1 Native source revision adapter (development version 3)
+
+`payload.sourceProject = {"assetId":"old-output"}` consumes exactly one registered input artifact separately from `assetBindings`. Supply its root and artifact from the previous result as a node `externalInputs` entry (or an explicit dependency binding). `expectedRevision` must equal that artifact's native-project SHA, rather than its preview/export SHA. The adapter derives the source delivery from this input; arbitrary source paths, missing manifest evidence, incompatible runtime identity and `document` recreation are rejected. It fills `plan.expectedProjectSha256` and calls the independent skill's public `--source` interface.
+
+```mermaid
+sequenceDiagram
+    participant P as Planner
+    participant A as Public adapter
+    participant L as Ledger / runner
+    participant S as Independent skill
+    P->>A: registered source artifact + expected native SHA
+    A->>A: verify native reference, manifest and all files
+    A->>L: fixed argv + actual revision + source file locks
+    L->>L: reserve budget and exclusive project lease
+    L->>S: --source old delivery --output new delivery
+    S-->>A: new native project, collected media, render and manifest
+    A->>A: reverify unchanged source and new sourceProjectSha256
+    A-->>P: review_ready + source lineage + dependency evidence
+```
+
+The old delivery remains a historical lineage reference; it is not falsely labeled as a copied media dependency. All inherited collected media appear in new evidence references and the new manifest. EffectCraft replacement bindings are checked against the explicit `asset.replace` target alias. Source drift at factory preparation, runner preparation or final verification rejects the operation. Published paths are immutable new deliveries; this feature does not implement GUI cooperation, crash adoption or creative approval.
+
+The local native regression uses `npm run test:native` to serialize test files. Parallel full native suites showed intermittent EffectCraft failures; multi-process native rendering stability remains unverified. Independent unit and SQLite/process-race tests retain their explicit concurrency coverage.
+
 ## 11. Error semantics
 
 | Code | Trigger | Recovery |

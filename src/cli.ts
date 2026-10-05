@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 /** ArtCraft 本地公共 CLI；仅解释 JSON 数据和锁定领域适配器。 */
 import { readFile, access, mkdir } from 'node:fs/promises';
 import { isAbsolute, dirname } from 'node:path';
@@ -8,7 +9,7 @@ import { WorkflowEngine } from './planning/workflow_engine.ts';
 import { publicSkillFactory } from './adapters/public_skill.ts';
 import { planHash } from './protocol/contracts.ts';
 
-const version='0.1.0-dev.1';
+const version=JSON.parse(readFileSync(new URL('../package.json',import.meta.url),'utf8')).version;
 const options:Record<string,string[]>={run:['database','registry','plan','owner','authorization','concurrency'],status:['database','task'],cancel:['database','task','workflow']};
 function parse(argv:string[]):{command:string;flags:Record<string,string>} {
  const [command,...rest]=argv;

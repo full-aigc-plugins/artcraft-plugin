@@ -21,6 +21,13 @@
 - **WHEN** 用户在 GUI 中修改工程后提交旧计划
 - **THEN** 返回 revision_conflict 并重新检查工程，不覆盖新修改
 
+#### Scenario: 通过公开技能接口修订登记的原生工程
+- **GIVEN** 输入素材协议登记了旧交付的原生工程引用、manifest 及文件摘要
+- **WHEN** 四个领域节点声明 `sourceProject.assetId` 和匹配的 `expectedRevision`
+- **THEN** ArtCraft 从登记输入解析源交付，核验全部 manifest 文件并通过公开 `--source` 接口另存修订；禁止任意源路径和重建 document
+- **AND** 准备执行与验收时重新核验源交付，源摘要漂移拒绝执行或拒绝交付；输出记录源工程摘要、输入血缘和继承素材，旧交付保持不变
+
+
 ### Requirement: AC-TX-002 幂等与不明确结果恢复
 
 任务 SHALL 在副作用前登记幂等键；超时且执行结果未知时进入 reconciling；核对原任务或产物前不得重新提交。

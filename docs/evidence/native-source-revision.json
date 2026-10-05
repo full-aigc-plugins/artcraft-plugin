@@ -1,0 +1,56 @@
+{
+  "observedAt": "2026-10-05T12:49:56.193565+00:00",
+  "platform": "darwin-arm64",
+  "result": "passed-with-concurrency-limitation",
+  "developmentVersion": "0.1.0-dev.3",
+  "redPhase": {
+    "failed": 1,
+    "error": "skill_revision_adapter_pending"
+  },
+  "regression": {
+    "passed": 59,
+    "skipped": 0,
+    "command": "native runtime environment configured; npm run test:native",
+    "durationSeconds": 9.907
+  },
+  "nativeChecks": [
+    "four registered native source projects revised through public skill CLI",
+    "all prior manifest file digests unchanged",
+    "VectorCraft targeted recolor",
+    "PhotoCraft headline edit with inherited Logo media",
+    "EffectCraft replacement retains layers and keyframes",
+    "FilmCraft clip replacement preserves audio and captions",
+    "source SHA, inherited dependencies and lineage verified",
+    "replay reuses original revision task IDs"
+  ],
+  "negativeChecks": [
+    "arbitrary source binding paths",
+    "missing source artifact/manifest",
+    "expected native SHA mismatch",
+    "document recreation",
+    "escaping source symlink",
+    "source edit before prepare/after execution"
+  ],
+  "sourceHashes": {
+    "src/adapters/public_skill.ts": "647656f71478ac32cefa5a803e9e51c6adca8eb16b44b07612e5cf4aae6634ea",
+    "test/public_skill_adapter.test.ts": "581898cf6aec1b9faccae4b39d3cc0d3b483d843df396ad3fbec75327c9a3062",
+    "test/native_mixed_workflow.test.ts": "81e7d3320277e45dabac643d6bfa2993995591bcddf6b4c167b09fe4185bf0de",
+    "src/cli.ts": "dea1f8822ee8344d16e9a7495d7f90bc2ffa37250267caa8f655340f7911d699"
+  },
+  "limits": [
+    "Parallel full native suite failed intermittently in EffectCraft; native multi-instance stability unverified",
+    "Procedural fixture and tone audio, no creative/real narration acceptance",
+    "No GUI, crash adoption, final project packaging or production host acceptance"
+  ],
+  "installerRegression": {
+    "passed": 14,
+    "skipped": 0,
+    "durationSeconds": 34.711,
+    "mode": "isolated single skill, official Node archive and locally locked ZIPs, native CLIs from official downloads"
+  },
+  "releaseCorrection": {
+    "skillTag": "v0.1.0-dev.2",
+    "issue": "installer rejected CLI reporting dev.1; no corresponding runtime uploaded",
+    "resolution": "derive runtime version from packaged package.json; new immutable v0.1.0-dev.3 tag; dev.2 release marked unusable"
+  }
+}

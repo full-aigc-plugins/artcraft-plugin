@@ -35,7 +35,7 @@ flowchart LR
 | --- | --- | --- |
 | Planning and routing | Skill-led decomposition; explicit nodes bind actual capabilities | Automatic constraint inference; existing Jianying/Factory adapters |
 | Dependency execution | DAG checks, bounded concurrency, one writer per project, verified inputs | Complete crash adoption |
-| Versions and rework | Hashes, lineage, no-replay reuse, Logo consumer rebuilds | Native source-project revision bindings |
+| Versions and rework | Hashes, lineage, no-replay reuse, Logo consumer rebuilds | Complete creative revision orchestration |
 | Technical delivery | Native projects, collected media, previews, exports and public receipts | Complete media metadata, loss reports and final packaging |
 | Evaluation | File/reference hashes, native reopen and real decode tests | Cross-artifact creative consistency and final review |
 | Installation | Clean single skill, default online locked bundles, four official CLI installations | Host installation |
@@ -98,3 +98,5 @@ The development runtime now freezes one account per owner/workflow/authorization
 Version `0.1.0-dev.1` passes [default online first use and bounded Logo rework](docs/evidence/online-first-use-v1.json): all four outputs update, original native project hashes and provided audio remain intact, replay allocates no extra round, and a third revision is rejected.
 
 The new development version also passes [Codex installed-skill execution](docs/evidence/codex-installation-v1.json), including bounded Logo rework. This is controlled host evidence, not desktop GUI or production marketplace acceptance.
+
+Development version `0.1.0-dev.3` binds registered native source projects through public revision interfaces, saves new deliveries and verifies unchanged source packages and inherited media. See [revision architecture](docs/ArtCraft-Runtime-Architecture.md#101-native-source-revision-adapter-development-version-3) and [evidence](docs/evidence/native-source-revision.json). Native regressions serialize test files; intermittent parallel EffectCraft failures remain unresolved.
