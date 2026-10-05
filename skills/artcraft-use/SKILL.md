@@ -12,11 +12,14 @@ license: Apache-2.0
 
 定位本技能的真实目录。用户已要求完成创作或安装且授权覆盖必要依赖时，运行公开入口；安装固定版本和摘要的官方 Node、ArtCraft 运行时及领域技能快照，再由每个领域技能的公开安装器安装官方 CLI。安装范围仅用户数据目录，不需 sudo，不修改 PATH。
 
+将 `SKILL_DIR` 设置为宿主实际加载的本 `SKILL.md` 所在目录（绝对路径）。用户级安装可能位于 `~/.agents/skills/artcraft-use`，项目级可能位于 `.agents/skills/artcraft-use`，插件可能位于其 `skills/artcraft-use` 或宿主缓存目录；以实际加载路径为准，不按当前工作目录猜测，也不搜索后随意选择重复版本。技能目录与 CLI 的用户数据安装目录是两个独立位置。
+
 ```bash
-python3 /mnt/skills/user/artcraft-use/scripts/bootstrap.py
+: "${SKILL_DIR:?请先设置为本 SKILL.md 的实际所在目录}"
+python3 "$SKILL_DIR/scripts/bootstrap.py"
 ```
 
-`/mnt/skills/user/artcraft-use` 是宿主挂载示例；实际加载位置不同时替换为该技能真实绝对路径。返回 JSON 包含 `nodeExecutable`、`entryPoint` 和四个领域运行时身份。当前锁文件指向固定开发发布制品；制品缺失或摘要不符会明确失败。各领域技能保持自身版本，不跟随 ArtCraft 运行时伪升级。
+返回 JSON 包含 `nodeExecutable`、`entryPoint` 和四个领域运行时身份。当前锁文件指向固定开发发布制品；制品缺失或摘要不符会明确失败。各领域技能保持自身版本，不跟随 ArtCraft 运行时伪升级。
 
 离线制品可用 `--node-archive`、`--bundle-dir`、`--native-archive-dir` 指定；这些参数不绕过摘要、路径或版本验证。`--runtime-home` 或 `CRAFT_RUNTIME_HOME` 指定隔离安装目录。复用版本时重新核验文件；损坏版本报错并保留，不覆盖、不静默升级。
 
@@ -27,8 +30,8 @@ python3 /mnt/skills/user/artcraft-use/scripts/bootstrap.py
 参见[计划合同](references/workflow.md)。示例 `examples/brand-campaign.json` 生成 Logo、分层海报、动态图形片头和带字幕、音频的短片。示例需要用户提供 `voice` WAV：
 
 ```bash
-python3 /mnt/skills/user/artcraft-use/scripts/workflow.py \
-  /mnt/skills/user/artcraft-use/examples/brand-campaign.json \
+python3 "$SKILL_DIR/scripts/workflow.py" \
+  "$SKILL_DIR/examples/brand-campaign.json" \
   --output /absolute/path/brand-project \
   --authorization brand-project-authorized \
   --asset voice=/absolute/path/voice.wav

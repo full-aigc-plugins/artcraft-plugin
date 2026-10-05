@@ -16,13 +16,16 @@ license: Apache-2.0
 
 定位当前 SKILL.md 的真实目录。当前支持 macOS arm64、Python 3.11+；自动安装固定 Node、编排包、领域技能源和原生 CLI，不要求全局 Node。已有任务授权覆盖必要依赖时直接执行本技能安装器，不另造批准流程。
 
+将 `SKILL_DIR` 设置为宿主实际加载的本 `SKILL.md` 所在目录（绝对路径）。用户级安装可能位于 `~/.agents/skills/artcraft-cli-assets`，项目级可能位于 `.agents/skills/artcraft-cli-assets`，插件可能位于其 `skills/artcraft-cli-assets` 或宿主缓存目录；以实际加载路径为准，不按当前工作目录猜测，也不搜索后随意选择重复版本。技能目录与 CLI 的用户数据安装目录是两个独立位置。
+
 ```bash
-python3 -I -B /mnt/skills/user/artcraft-cli-assets/scripts/bootstrap.py
-python3 -I -B /mnt/skills/user/artcraft-cli-assets/scripts/cli.py -- --version
-python3 -I -B /mnt/skills/user/artcraft-cli-assets/scripts/cli.py -- --help
+: "${SKILL_DIR:?请先设置为本 SKILL.md 的实际所在目录}"
+python3 -I -B "$SKILL_DIR/scripts/bootstrap.py"
+python3 -I -B "$SKILL_DIR/scripts/cli.py" -- --version
+python3 -I -B "$SKILL_DIR/scripts/cli.py" -- --help
 ```
 
-`/mnt/skills/user/artcraft-cli-assets` 是挂载示例，替换为实际加载目录；CLI argv 在 `--` 后，原生子命令必须放首位。安装参数放分隔符前；`--runtime-home` 可隔离缓存。锁定制品摘要失败、损坏安装或不支持平台时停止；不改 PATH、不执行浮动升级。原生帮助入口是 `--help`；launcher 自身 `--help` 只说明启动参数。
+CLI argv 在 `--` 后，原生子命令必须放首位。安装参数放分隔符前；`--runtime-home` 可隔离缓存。锁定制品摘要失败、损坏安装或不支持平台时停止；不改 PATH、不执行浮动升级。原生帮助入口是 `--help`；launcher 自身 `--help` 只说明启动参数。
 
 ## 场景操作
 

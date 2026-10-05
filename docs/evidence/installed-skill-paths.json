@@ -1,0 +1,48 @@
+{
+  "schema": "craft-installed-skill-paths/v1",
+  "date": "2026-10-06",
+  "sourceRef": "v0.1.0-dev.9",
+  "skillCount": 10,
+  "layoutCount": 3,
+  "isolatedCopies": 30,
+  "helpInvocations": 60,
+  "layouts": [
+    "user-home/.agents/skills/<name>",
+    "project/.agents/skills/<name>",
+    "plugin/skills/<name>"
+  ],
+  "spacePaths": true,
+  "testFile": "tests/test_installed_paths.py",
+  "testSha256": "a127f856b8046419a730a922a419f443bd1713f9bbed180fbe138d7589b3d190",
+  "command": "python3 -B -m unittest discover -s tests -p test_installed_paths.py",
+  "result": {
+    "tests": 2,
+    "passed": 2,
+    "skipped": 0
+  },
+  "scope": [
+    "Markdown examples use the actual loaded skill directory",
+    "Quoted script paths execute from three isolated layouts with spaces",
+    "No legacy mounted skill path in skill Markdown",
+    "No bytecode files created"
+  ],
+  "exclusions": [
+    "Full domain creative acceptance",
+    "Existing installed host caches are not upgraded automatically"
+  ],
+  "onlineBootstrap": {
+    "command": "python3 -I -B skills/artcraft-cli/scripts/cli.py --runtime-home <new-isolated-directory> -- --version",
+    "exitCode": 0,
+    "output": {
+      "name": "artcraft",
+      "version": "0.1.0-dev.7"
+    },
+    "scope": "Fresh online bootstrap verified pinned Node, runtime bundle, four revised public skill bundles and four official native CLIs; version check only, not a mixed creative workflow",
+    "domainSkillVersions": {
+      "filmcraft": "0.1.0-dev.4",
+      "effectcraft": "0.1.0-dev.5",
+      "photocraft": "0.1.0-dev.4",
+      "vectorcraft": "0.1.0-dev.4"
+    }
+  }
+}
