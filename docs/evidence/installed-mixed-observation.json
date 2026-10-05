@@ -1,0 +1,351 @@
+{
+  "schema": "craft-installed-mixed-observation-evidence/v1",
+  "date": "2026-10-06",
+  "pluginVersion": "0.1.0-dev.20",
+  "pluginSourceCommit": "57bec9c29c3835fe9660911b5e50e8c30ee546de",
+  "skillSourceCommit": "f4e21ebbb3c0db4c99f7389c8febbaac3ec6b8b0",
+  "runtimeVersion": "0.1.0-dev.16",
+  "firstUse": {
+    "tests": 2,
+    "passed": 2,
+    "skipped": 0,
+    "seconds": 52.314,
+    "scope": "current installed artcraft-cli-revise content, isolated runtime default public downloads, four native projects, narration and burned Chinese caption, original-preserving caption revision, portable package"
+  },
+  "testFileSha256": "b3bd9b8ac0763c00568e98351770deb2132c592acf4801f7743b9d540ca59f51",
+  "actualObservation": {
+    "schema": "craft-model-observation/v1",
+    "evaluator": "current Codex assistant; GPT-6; observation made from four actual rendered images",
+    "scope": "static visual brand consistency at observed frames and known narration script; no human acceptance, no full animation/audio subjective review",
+    "logo": "Blue merged shape and NOVA wordmark are visible, within canvas. Recognizable consistency with poster/intro/film. Originality and brand preference unassessed.",
+    "poster": "NOVA headline and placed logo visible, cream background, no clipping in observed export. This fixture contains brand art, not a product-photo poster acceptance task.",
+    "intro": "At one second, blue logo and wordmark visible, within frame; this observation alone does not assess animation quality.",
+    "film": "At one second, subtitle reads 品牌焕新，精彩呈现。, while fixture narration source is 新品上市，轻松剪辑。. Native/audio regression confirms retained audio. This fails caption/narration wording consistency; not a glyph-rendering or runtime installation failure."
+  },
+  "technical": {
+    "test": "current installed skill Chinese mixed first use",
+    "tests": 2,
+    "passed": 2,
+    "seconds": 52.314,
+    "video": {
+      "width": 640,
+      "height": 360,
+      "decodedFrames": 72
+    },
+    "audioCorrelation": 0.9999744911880156,
+    "verifiedChildren": 4,
+    "nativeFormats": [
+      ".vectorcraft",
+      ".pcraft",
+      ".ecproj",
+      ".fcproj"
+    ],
+    "originalFilesUnchanged": true,
+    "captionOnlyRevisionPreservesOtherThreeTaskIds": true,
+    "scope": "test assertions executed; these metrics do not establish creative or human acceptance"
+  },
+  "review": {
+    "schema": "craft-review-receipt/v1",
+    "sha256": "430bfe0dcbd868272d838af08a66f7c9ffc6a941e9932e44c493c7cd859079b7",
+    "packageSha256": "44c02b36c362b5b980e9038271e2c3c1b5411666448e072ebecaff9f7ca00142",
+    "dimensions": {
+      "engineering": "PASS",
+      "technical": "PASS",
+      "creative": "FAIL",
+      "acceptance": "NOT_RUN"
+    },
+    "decision": "changes_requested",
+    "taskState": "review_ready",
+    "checks": [
+      {
+        "id": "logo-technical",
+        "dimension": "technical",
+        "status": "PASS",
+        "evaluator": {
+          "kind": "tool",
+          "id": "installed-native-regression",
+          "version": "source-dev.18-host-test-extension"
+        },
+        "target": {
+          "assetId": "logo-png",
+          "version": "04df3c359bbc1bab98d0638664dfe0ebcf84e28e4b27c23b265b31fe3ab68b38",
+          "sha256": "04df3c359bbc1bab98d0638664dfe0ebcf84e28e4b27c23b265b31fe3ab68b38",
+          "nodeId": "logo"
+        },
+        "evidence": [
+          {
+            "location": "evidence/fd4e3f781513ed7c58d7261b2123f9a138b0fedc553aa75b9a28581c1929e965",
+            "sha256": "fd4e3f781513ed7c58d7261b2123f9a138b0fedc553aa75b9a28581c1929e965"
+          }
+        ],
+        "note": "Native reopening, packaged sources, decoding and selective revision test assertions passed; scope recorded in technical.json.",
+        "responsiblePlugin": "vectorcraft",
+        "runtimeIdentity": {
+          "capabilitySnapshotSha256": "823c5a4e007cc00cea4c41dace9de538fcbd15c58e176d0776d4a3fc5b10d990",
+          "cliVersion": "0.2.0",
+          "mode": "headless",
+          "pluginId": "vectorcraft",
+          "pluginVersion": "0.1.0-dev.5",
+          "sha256": "4ba62138ff64d7f701fd2d8fd4c833bd3bb077b6ed78244a8909a4fa0129b766"
+        }
+      },
+      {
+        "id": "logo-creative",
+        "dimension": "creative",
+        "status": "PASS",
+        "evaluator": {
+          "kind": "model",
+          "id": "Codex-current-thread-assistant",
+          "version": "GPT-6"
+        },
+        "target": {
+          "assetId": "logo-png",
+          "version": "04df3c359bbc1bab98d0638664dfe0ebcf84e28e4b27c23b265b31fe3ab68b38",
+          "sha256": "04df3c359bbc1bab98d0638664dfe0ebcf84e28e4b27c23b265b31fe3ab68b38",
+          "nodeId": "logo",
+          "frame": 0
+        },
+        "evidence": [
+          {
+            "location": "evidence/04df3c359bbc1bab98d0638664dfe0ebcf84e28e4b27c23b265b31fe3ab68b38",
+            "sha256": "04df3c359bbc1bab98d0638664dfe0ebcf84e28e4b27c23b265b31fe3ab68b38"
+          },
+          {
+            "location": "evidence/643ac627b7531ac2ecbdbd78ea2c544997c9b9cbec2e4425a663532344404001",
+            "sha256": "643ac627b7531ac2ecbdbd78ea2c544997c9b9cbec2e4425a663532344404001"
+          }
+        ],
+        "note": "Blue merged shape and NOVA wordmark are visible, within canvas. Recognizable consistency with poster/intro/film. Originality and brand preference unassessed.",
+        "responsiblePlugin": "vectorcraft",
+        "runtimeIdentity": {
+          "capabilitySnapshotSha256": "823c5a4e007cc00cea4c41dace9de538fcbd15c58e176d0776d4a3fc5b10d990",
+          "cliVersion": "0.2.0",
+          "mode": "headless",
+          "pluginId": "vectorcraft",
+          "pluginVersion": "0.1.0-dev.5",
+          "sha256": "4ba62138ff64d7f701fd2d8fd4c833bd3bb077b6ed78244a8909a4fa0129b766"
+        }
+      },
+      {
+        "id": "poster-technical",
+        "dimension": "technical",
+        "status": "PASS",
+        "evaluator": {
+          "kind": "tool",
+          "id": "installed-native-regression",
+          "version": "source-dev.18-host-test-extension"
+        },
+        "target": {
+          "assetId": "poster-png",
+          "version": "7306d65b016686312fd21616c00e67d7e390d4857f2cb319fc93a4b8042265ae",
+          "sha256": "7306d65b016686312fd21616c00e67d7e390d4857f2cb319fc93a4b8042265ae",
+          "nodeId": "poster"
+        },
+        "evidence": [
+          {
+            "location": "evidence/fd4e3f781513ed7c58d7261b2123f9a138b0fedc553aa75b9a28581c1929e965",
+            "sha256": "fd4e3f781513ed7c58d7261b2123f9a138b0fedc553aa75b9a28581c1929e965"
+          }
+        ],
+        "note": "Native reopening, packaged sources, decoding and selective revision test assertions passed; scope recorded in technical.json.",
+        "responsiblePlugin": "photocraft",
+        "runtimeIdentity": {
+          "capabilitySnapshotSha256": "2c615a3ef0b387db3e47b2a6f7cd88031463edbd1f039b74bfc268aa3c5a6883",
+          "cliVersion": "0.2.0",
+          "mode": "headless",
+          "pluginId": "photocraft",
+          "pluginVersion": "0.1.0-dev.5",
+          "sha256": "57cefe9ee7bda1d996c11741bef84f934cf28d4729eb237900f00d76678d6fa4"
+        }
+      },
+      {
+        "id": "poster-creative",
+        "dimension": "creative",
+        "status": "PASS",
+        "evaluator": {
+          "kind": "model",
+          "id": "Codex-current-thread-assistant",
+          "version": "GPT-6"
+        },
+        "target": {
+          "assetId": "poster-png",
+          "version": "7306d65b016686312fd21616c00e67d7e390d4857f2cb319fc93a4b8042265ae",
+          "sha256": "7306d65b016686312fd21616c00e67d7e390d4857f2cb319fc93a4b8042265ae",
+          "nodeId": "poster",
+          "frame": 0
+        },
+        "evidence": [
+          {
+            "location": "evidence/7306d65b016686312fd21616c00e67d7e390d4857f2cb319fc93a4b8042265ae",
+            "sha256": "7306d65b016686312fd21616c00e67d7e390d4857f2cb319fc93a4b8042265ae"
+          },
+          {
+            "location": "evidence/643ac627b7531ac2ecbdbd78ea2c544997c9b9cbec2e4425a663532344404001",
+            "sha256": "643ac627b7531ac2ecbdbd78ea2c544997c9b9cbec2e4425a663532344404001"
+          }
+        ],
+        "note": "NOVA headline and placed logo visible, cream background, no clipping in observed export. This fixture contains brand art, not a product-photo poster acceptance task.",
+        "responsiblePlugin": "photocraft",
+        "runtimeIdentity": {
+          "capabilitySnapshotSha256": "2c615a3ef0b387db3e47b2a6f7cd88031463edbd1f039b74bfc268aa3c5a6883",
+          "cliVersion": "0.2.0",
+          "mode": "headless",
+          "pluginId": "photocraft",
+          "pluginVersion": "0.1.0-dev.5",
+          "sha256": "57cefe9ee7bda1d996c11741bef84f934cf28d4729eb237900f00d76678d6fa4"
+        }
+      },
+      {
+        "id": "intro-technical",
+        "dimension": "technical",
+        "status": "PASS",
+        "evaluator": {
+          "kind": "tool",
+          "id": "installed-native-regression",
+          "version": "source-dev.18-host-test-extension"
+        },
+        "target": {
+          "assetId": "intro-video",
+          "version": "ed72961fe0e62957c9964f3fb57c920272aa31b4c9cbab755e97d5091a07682f",
+          "sha256": "ed72961fe0e62957c9964f3fb57c920272aa31b4c9cbab755e97d5091a07682f",
+          "nodeId": "intro"
+        },
+        "evidence": [
+          {
+            "location": "evidence/fd4e3f781513ed7c58d7261b2123f9a138b0fedc553aa75b9a28581c1929e965",
+            "sha256": "fd4e3f781513ed7c58d7261b2123f9a138b0fedc553aa75b9a28581c1929e965"
+          }
+        ],
+        "note": "Native reopening, packaged sources, decoding and selective revision test assertions passed; scope recorded in technical.json.",
+        "responsiblePlugin": "effectcraft",
+        "runtimeIdentity": {
+          "capabilitySnapshotSha256": "683afb04c6ab862097f2a4dcc9276e1d2d541cc349926b6fc8dcf307e9d9d5fc",
+          "cliVersion": "0.2.0",
+          "mode": "headless",
+          "pluginId": "effectcraft",
+          "pluginVersion": "0.1.0-dev.6",
+          "sha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+        }
+      },
+      {
+        "id": "intro-creative",
+        "dimension": "creative",
+        "status": "PASS",
+        "evaluator": {
+          "kind": "model",
+          "id": "Codex-current-thread-assistant",
+          "version": "GPT-6"
+        },
+        "target": {
+          "assetId": "intro-video",
+          "version": "ed72961fe0e62957c9964f3fb57c920272aa31b4c9cbab755e97d5091a07682f",
+          "sha256": "ed72961fe0e62957c9964f3fb57c920272aa31b4c9cbab755e97d5091a07682f",
+          "nodeId": "intro",
+          "frame": 24
+        },
+        "evidence": [
+          {
+            "location": "evidence/87338784aa6692a5a410757f1d4a892d756576e53ee267714e3e7b486f941ffa",
+            "sha256": "87338784aa6692a5a410757f1d4a892d756576e53ee267714e3e7b486f941ffa"
+          },
+          {
+            "location": "evidence/643ac627b7531ac2ecbdbd78ea2c544997c9b9cbec2e4425a663532344404001",
+            "sha256": "643ac627b7531ac2ecbdbd78ea2c544997c9b9cbec2e4425a663532344404001"
+          }
+        ],
+        "note": "At one second, blue logo and wordmark visible, within frame; this observation alone does not assess animation quality.",
+        "responsiblePlugin": "effectcraft",
+        "runtimeIdentity": {
+          "capabilitySnapshotSha256": "683afb04c6ab862097f2a4dcc9276e1d2d541cc349926b6fc8dcf307e9d9d5fc",
+          "cliVersion": "0.2.0",
+          "mode": "headless",
+          "pluginId": "effectcraft",
+          "pluginVersion": "0.1.0-dev.6",
+          "sha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+        }
+      },
+      {
+        "id": "film-technical",
+        "dimension": "technical",
+        "status": "PASS",
+        "evaluator": {
+          "kind": "tool",
+          "id": "installed-native-regression",
+          "version": "source-dev.18-host-test-extension"
+        },
+        "target": {
+          "assetId": "film-video",
+          "version": "d771cbc001700c1bed0d685ec49fe886ec5e823250517386d759a0df8c5a52df",
+          "sha256": "d771cbc001700c1bed0d685ec49fe886ec5e823250517386d759a0df8c5a52df",
+          "nodeId": "film"
+        },
+        "evidence": [
+          {
+            "location": "evidence/fd4e3f781513ed7c58d7261b2123f9a138b0fedc553aa75b9a28581c1929e965",
+            "sha256": "fd4e3f781513ed7c58d7261b2123f9a138b0fedc553aa75b9a28581c1929e965"
+          }
+        ],
+        "note": "Native reopening, packaged sources, decoding and selective revision test assertions passed; scope recorded in technical.json.",
+        "responsiblePlugin": "filmcraft",
+        "runtimeIdentity": {
+          "capabilitySnapshotSha256": "ac1e975eeed7c8982dab785f4c6d28cbef1df180d000947abf80dfbe7b5123ad",
+          "cliVersion": "0.2.0-craft.1",
+          "mode": "headless",
+          "pluginId": "filmcraft",
+          "pluginVersion": "0.1.0-dev.5",
+          "sha256": "4bd79931912c591d1cb1b47690949512ffb4361c3ec4f57664024f9a4847ae38"
+        }
+      },
+      {
+        "id": "film-creative",
+        "dimension": "creative",
+        "status": "FAIL",
+        "evaluator": {
+          "kind": "model",
+          "id": "Codex-current-thread-assistant",
+          "version": "GPT-6"
+        },
+        "target": {
+          "assetId": "film-video",
+          "version": "d771cbc001700c1bed0d685ec49fe886ec5e823250517386d759a0df8c5a52df",
+          "sha256": "d771cbc001700c1bed0d685ec49fe886ec5e823250517386d759a0df8c5a52df",
+          "nodeId": "film",
+          "frame": 24
+        },
+        "evidence": [
+          {
+            "location": "evidence/013f01ec6580ffad506bdf9a7f50341d37d6dbd89bb3e2a2a05a0f11ea8e3de3",
+            "sha256": "013f01ec6580ffad506bdf9a7f50341d37d6dbd89bb3e2a2a05a0f11ea8e3de3"
+          },
+          {
+            "location": "evidence/643ac627b7531ac2ecbdbd78ea2c544997c9b9cbec2e4425a663532344404001",
+            "sha256": "643ac627b7531ac2ecbdbd78ea2c544997c9b9cbec2e4425a663532344404001"
+          }
+        ],
+        "note": "At one second, subtitle reads 品牌焕新，精彩呈现。, while fixture narration source is 新品上市，轻松剪辑。. Native/audio regression confirms retained audio. This fails caption/narration wording consistency; not a glyph-rendering or runtime installation failure.",
+        "responsiblePlugin": "filmcraft",
+        "runtimeIdentity": {
+          "capabilitySnapshotSha256": "ac1e975eeed7c8982dab785f4c6d28cbef1df180d000947abf80dfbe7b5123ad",
+          "cliVersion": "0.2.0-craft.1",
+          "mode": "headless",
+          "pluginId": "filmcraft",
+          "pluginVersion": "0.1.0-dev.5",
+          "sha256": "4bd79931912c591d1cb1b47690949512ffb4361c3ec4f57664024f9a4847ae38"
+        }
+      }
+    ],
+    "scope": "package integrity verified; named evaluator observations recorded, not automatic creative validation; ledger state unchanged"
+  },
+  "publicReviewReverification": "PASS; dimensions remain engineering PASS, technical PASS, creative FAIL, acceptance NOT_RUN",
+  "allInstalledSkillHashesAfterWorkflow": "58 match immutable public lock",
+  "unverified": [
+    "human acceptance",
+    "complete motion quality",
+    "subjective audio quality",
+    "brand preference",
+    "product-photo poster acceptance in this fixture",
+    "model-directed automatic skill dispatch",
+    "GUI"
+  ],
+  "scope": "real artifact observations by current assistant; not synthetic PASS statements or human acceptance"
+}
