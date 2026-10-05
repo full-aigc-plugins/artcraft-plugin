@@ -34,4 +34,28 @@ class VendorTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError,'escapes repository root'):
                 vendor.validate_source(self.source('v0.1.0','../outside'),root)
 
+
+    def test_local_override_uses_tag_not_dirty_worktree_or_cache(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            local = root / 'source'; local.mkdir()
+            subprocess.run(['git', 'init', '-q', str(local)], check=True)
+            skill = local / 'skills' / 'sample'; skill.mkdir(parents=True)
+            (skill / 'SKILL.md').write_text('fixed tag content')
+            (local / '.gitignore').write_text('__pycache__/\n')
+            subprocess.run(['git', '-C', str(local), 'add', '.'], check=True)
+            subprocess.run(['git', '-C', str(local), '-c', 'user.name=Test', '-c', 'user.email=test@example.invalid', 'commit', '-qm', 'fixture'], check=True)
+            subprocess.run(['git', '-C', str(local), 'tag', 'v1.0.0'], check=True)
+            expected = subprocess.check_output(['git', '-C', str(local), 'rev-parse', 'v1.0.0'], text=True).strip()
+            (skill / 'SKILL.md').write_text('uncommitted worktree')
+            cache = skill / '__pycache__'; cache.mkdir(); (cache / 'module.pyc').write_bytes(b'ignored local cache')
+            work = root / 'fetch'; work.mkdir()
+            source = {'package':'sample-skills', 'repo':str(local), 'ref':'v1.0.0'}
+            checkout, sha = vendor.source_checkout(source, {'sample-skills':str(local)}, work)
+            self.assertEqual(sha, expected)
+            self.assertEqual((checkout / 'skills/sample/SKILL.md').read_text(), 'fixed tag content')
+            self.assertFalse((checkout / 'skills/sample/__pycache__').exists())
+            self.assertEqual((skill / 'SKILL.md').read_text(), 'uncommitted worktree')
+
 if __name__=='__main__':unittest.main()

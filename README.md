@@ -129,4 +129,6 @@ Default online dev.7 first-use acceptance passes in 53.106 seconds: one copied s
 
 The source suite contains 10 independently installable skills with setup, public CLI operations and focused tasks. [Architecture and catalogue](docs/ArtCraft-Skill-Suite-Architecture.md). Runtime and plugin versions are separate; prior host evidence retains its original version scope.
 
-Current plugin/skill suite: `0.1.0-dev.9`. The corrected examples resolve scripts from the actual host-loaded `SKILL.md` directory. All skills passed isolated entry-point checks in user, project and plugin layouts with spaces. [Path evidence](docs/evidence/installed-skill-paths.json). Earlier host evidence above covers its recorded release; existing installations require an update.
+Current plugin: `0.1.0-dev.10`; skill suite: `0.1.0-dev.9`. The corrected examples resolve scripts from the actual host-loaded `SKILL.md` directory. All skills passed isolated entry-point checks in user, project and plugin layouts with spaces. [Path evidence](docs/evidence/installed-skill-paths.json). Earlier host evidence above covers its recorded release; existing installations require an update.
+
+Plugin `0.1.0-dev.10` corrects the whole-skill digests by fetching the immutable public source tag, without local Python caches. Plugin tag `v0.1.0-dev.9` is superseded and must not be installed because its source digests included ignored development caches.

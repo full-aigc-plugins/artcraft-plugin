@@ -44,5 +44,20 @@
       "photocraft": "0.1.0-dev.4",
       "vectorcraft": "0.1.0-dev.4"
     }
+  },
+  "pluginVersion": "0.1.0-dev.10",
+  "snapshotSource": "Fresh fetch of the immutable public Git tag; excludes local untracked/ignored caches",
+  "supersededPluginTag": "v0.1.0-dev.9",
+  "onlineSourceCheck": {
+    "command": "python3 -B scripts/vendor/skill_vendor.py check",
+    "exitCode": 0,
+    "scope": "All managed skill trees match the immutable public source tag and lock; no local caches included"
+  },
+  "vendorRegression": {
+    "command": "python3 -B -m unittest discover -s tests -p test_skill_vendor.py",
+    "tests": 4,
+    "passed": 4,
+    "newCase": "Local source override reads fixed tag content, excludes ignored caches, and preserves dirty source files",
+    "redBeforeFix": true
   }
 }

@@ -294,14 +294,16 @@ def source_checkout(source: dict, overrides: dict[str, str], workdir: Path) -> t
         local = Path(overrides[package]).resolve()
         if not local.is_dir():
             raise RuntimeError(f"{package}: --source-path '{local}' is not a directory")
+        # 本地覆盖仅指定 Git 来源；快照必须读取固定标签，不能复制脏工作树或缓存。
+        checkout = fetch_checkout(str(local), source["ref"], workdir / package)
         sha = subprocess.run(
-            ["git", "-C", str(local), "rev-parse", "HEAD"],
+            ["git", "-C", str(checkout), "rev-parse", "HEAD"],
             check=True,
             capture_output=True,
             text=True,
         ).stdout.strip()
-        print(f"using local override for {package}: {local} @ {sha}")
-        return local, sha
+        print(f"using local tagged source for {package}: {local} @ {sha}")
+        return checkout, sha
 
     environment = credential_env(credential_for(source["repo"]), workdir)
     sha = resolve_ref(source["repo"], source["ref"], environment)
