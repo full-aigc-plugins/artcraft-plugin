@@ -89,3 +89,5 @@
 执行账本已经加入父子共享额度、修订轮次和原子准入；详细设计与迁移策略见 docs/ArtCraft-Budget-Architecture.zh_CN.md。真实付费服务核销、完整质量循环仍待完成。
 
 dev.6 已实现固定独立 worker 监督、原任务停止证据接管与 verifying 重查。调度器崩溃后沿用冻结计划、token、epoch、attempt 和预算；父工作流取消由 worker 直接读取。worker 本身崩溃或提交窗口未知保留写占用，不重放。实现与实际边界见双语 Runtime Architecture 10.4 和 crash-recovery.json；这不改变创作审核及完整宿主验收待完成状态。
+
+交换交付已增加 exchange-loss.json：摘要绑定原生、重开记录和导出，派生物不替代原生；跨编辑器字体、效果和蒙版保真以 unknown 显式标注，完整边界验收不因此自动完成。

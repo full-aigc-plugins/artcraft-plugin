@@ -283,3 +283,19 @@ worker 自身崩溃、prepared 提交窗口未知、进程组停止未确认时�
 **创建日期**：2026-10-05
 **最后更新**：2026-10-05
 **文档状态**：待评审；实现以 OpenSpec 任务和证据为准。
+
+当前实现：原生交付包含 exchange-loss.json，公开工作流保留原生源与重开检查摘要，记录格式损失、SVG/PSD 实际结构观察及未知字体/效果保真。报告进入 manifest.files，由 ArtCraft 接管与打包时重新核验；完整交换保真验收仍待完成。
+
+交换报告信任链
+
+```mermaid
+flowchart LR
+ N[Native project] --> R[Reopened inspection]
+ N --> E[Exports]
+ R --> L[Loss report: lost / observed / unknown]
+ E --> L
+ L --> M[Manifest SHA]
+ M --> A[Artifact lossReportRef]
+ A --> V[Actual file and semantic checks]
+ V --> P[Project package and relocation verification]
+```

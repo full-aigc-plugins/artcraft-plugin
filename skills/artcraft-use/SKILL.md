@@ -51,3 +51,5 @@ python3 /mnt/skills/user/artcraft-use/scripts/workflow.py \
 当前验证范围：四个原生公开工作流交接、Logo 语义改动后下游重建、源工程与已有音频保留、CLI 重开和状态核验。完整干净首次使用与在线发布状态以最新测试及仓库证据为准。
 
 开发版本 5 提供项目打包与移动验包：使用 `scripts/package.py create/verify`，参见[交付包合同](references/project-package.md)。从可信账本收集原生工程、登记输入和工作流记录，保留技术待审状态；移动后核验并使用独立技能源工程入口重关联。
+
+ArtCraft dev.7 消费四领域 dev.2 的[交换损失报告](references/exchange-loss.md)。报告引用写入每份公共素材并随项目打包；核验原生/导出/重开检查身份，拒绝未知保真冒充已验证或有损原生替代。

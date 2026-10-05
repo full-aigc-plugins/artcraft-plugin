@@ -41,3 +41,9 @@
 
 - **WHEN** 交换格式不能保留所用效果
 - **THEN** 保留原工程，报告损失并阻止未接受的有损替代交付
+
+#### Scenario: 绑定原生工程的交换损失报告
+
+- **WHEN** 生成当前版本原生工程和约定导出
+- **THEN** 交付 exchange-loss.json 并由 manifest 文件摘要绑定，记录原生工程、重开检查及每个导出摘要；格式损失、实际结构观察与未验证保真分别使用 lost、observed、unknown
+- **AND** 原生工程必须保留，导出仅作 derivative；未知字体和效果保真不得标记已验证，缺失、损坏、身份错配或有损 nativeSubstitute 拒绝技术交付

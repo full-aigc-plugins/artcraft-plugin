@@ -50,6 +50,16 @@ class OnlineFirstWorkflowTests(unittest.TestCase):
             for value in setup['skills'].values():
                 self.assertTrue(Path(value['executable']).is_relative_to(runtime))
                 self.assertTrue(Path(value['skillRoot']).is_relative_to(runtime))
+            if int(distribution['version'].rsplit('.',1)[1]) >= 7:
+                for node in first['nodes'].values():
+                    for artifact in node['outputs']:
+                        loss=artifact['lossReportRef'];self.assertIsNotNone(loss)
+                        data=(Path(node['root'])/loss['location']).read_bytes();self.assertEqual(hashlib.sha256(data).hexdigest(),loss['sha256'])
+                        report=json.loads(data);self.assertEqual(report['native']['sha256'],artifact['nativeProjectRef']['sha256'])
+                        self.assertEqual(report['acceptance'],'technical-observations-only')
+                        for export in report['outputs']:
+                            self.assertFalse(export['nativeSubstitute']);self.assertEqual(export['role'],'derivative')
+                            self.assertEqual(hashlib.sha256((Path(node['root'])/export['location']).read_bytes()).hexdigest(),export['sha256'])
             second_run=subprocess.run(args,capture_output=True,text=True,env=environment,timeout=120)
             self.assertEqual(second_run.returncode,0,second_run.stdout+second_run.stderr)
             second=json.loads(second_run.stdout)

@@ -2,7 +2,7 @@
 import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
 import { join, isAbsolute } from 'node:path';
 import { createHash } from 'node:crypto';
-import { verifyArtifact } from '../protocol/contracts.ts';
+import { verifyArtifact, validateExchangeLossReport } from '../protocol/contracts.ts';
 import type { AdapterFactory, ArtifactInput } from '../planning/workflow_engine.ts';
 
 export interface PublicSkillConfig {
@@ -19,7 +19,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
  const locked=structuredClone(config);
  if(!Object.hasOwn(projects,locked.pluginId) || ![locked.skillRoot,locked.python,locked.nativeExecutable,locked.runtimeHome,locked.outputRoot].every(isAbsolute))throw new Error('skill_config_invalid');
  const script=join(locked.skillRoot,'scripts','workflow.py');
- for(const name of ['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json']){
+ for(const name of ['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py']){
   if(!locked.files.some(file=>file.path===join(locked.skillRoot,'scripts',name)))throw new Error('skill_lock_incomplete');
  }
  return async(nodeValue,inputValues,taskId)=>{
@@ -131,12 +131,16 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
     const nativeLocation=projects[locked.pluginId];
     if(!manifest.files[nativeLocation])throw new Error('skill_native_missing');
     const nativeRef=ref(nativeLocation,manifest.files[nativeLocation]),manifestRef=ref('manifest.json',hash(manifestBytes));
+    if(manifest.lossReport?.path!=='exchange-loss.json' || manifest.lossReport.sha256!==manifest.files['exchange-loss.json'])throw new Error('skill_loss_report_missing');
+    const lossRef=ref('exchange-loss.json',manifest.lossReport.sha256);
+    const report=validateExchangeLossReport(JSON.parse(await readFile(join(delivery,lossRef.location),'utf8')));
+    if(report.pluginId!==locked.pluginId || report.native.sha256!==nativeRef.sha256 || report.outputs.some((item:any)=>manifest.files[item.location]!==item.sha256))throw new Error('skill_loss_report_binding_mismatch');
     const sourceRefs=inputs.map(input=>({assetId:input.artifact.assetId,version:input.artifact.version,sha256:input.artifact.sha256}));
     const outputs=[];
     for(const item of payload.outputs){
      if(!manifest.files[item.location])throw new Error('skill_output_missing');
      const output=await artifact(item.location,manifest.files[item.location],item.mediaType,item.assetId);
-     const publicOutput={...output,sourceRefs,nativeProjectRef:nativeRef,evidenceRefs:[manifestRef,...dependencyRefs],dependencies:sourceRefs.filter(assetRef=>!source || assetRef.assetId!==source.artifact.assetId).map(assetRef=>({assetRef,kind:'media',packaged:true,missingReason:null}))};
+     const publicOutput={...output,sourceRefs,nativeProjectRef:nativeRef,lossReportRef:lossRef,evidenceRefs:[manifestRef,...dependencyRefs],dependencies:sourceRefs.filter(assetRef=>!source || assetRef.assetId!==source.artifact.assetId).map(assetRef=>({assetRef,kind:'media',packaged:true,missingReason:null}))};
      await verifyArtifact(publicOutput,delivery);outputs.push(publicOutput);
     }
     return {root:delivery,outputs,evidenceRefs:[manifestRef]};

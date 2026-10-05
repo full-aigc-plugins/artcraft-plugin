@@ -1,0 +1,164 @@
+{
+  "type": "object",
+  "required": [
+    "schema",
+    "pluginId",
+    "native",
+    "inspection",
+    "outputs",
+    "acceptance"
+  ],
+  "properties": {
+    "schema": {
+      "const": "craft-exchange-loss/v1"
+    },
+    "pluginId": {
+      "enum": [
+        "filmcraft",
+        "effectcraft",
+        "photocraft",
+        "vectorcraft"
+      ]
+    },
+    "native": {
+      "type": "object",
+      "required": [
+        "location",
+        "sha256"
+      ],
+      "properties": {
+        "location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "inspection": {
+      "type": "object",
+      "required": [
+        "location",
+        "sha256"
+      ],
+      "properties": {
+        "location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "psdInspection": {
+      "type": "object",
+      "required": [
+        "location",
+        "sha256"
+      ],
+      "properties": {
+        "location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "location",
+          "sha256",
+          "format",
+          "role",
+          "nativeSubstitute",
+          "changes",
+          "observations",
+          "warnings"
+        ],
+        "properties": {
+          "location": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "format": {
+            "enum": [
+              "png",
+              "jpg",
+              "jpeg",
+              "webp",
+              "mp4",
+              "svg",
+              "pdf",
+              "psd",
+              "srt",
+              "tif"
+            ]
+          },
+          "role": {
+            "const": "derivative"
+          },
+          "nativeSubstitute": {
+            "const": false
+          },
+          "changes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "code",
+                "status",
+                "reason"
+              ],
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "status": {
+                  "enum": [
+                    "lost",
+                    "unknown",
+                    "observed"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "observations": {
+            "type": "object"
+          },
+          "warnings": {
+            "type": "array"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "acceptance": {
+      "const": "technical-observations-only"
+    }
+  },
+  "additionalProperties": false
+}

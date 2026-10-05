@@ -16,7 +16,7 @@ test('public EffectCraft skill script produces registered native project and ren
  const root=await mkdtemp(join(tmpdir(),'craft-public-skill-'));const ledger=new TaskLedger(join(root,'tasks.sqlite'));
  try{
   const python='/opt/anaconda3/bin/python3',runtimeHome=join(homedir(),'.local/share/craft-runtimes');
-  const scripts=['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json'];
+  const scripts=['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'];
   const files=await Promise.all(scripts.map(async name=>({path:join(skill!,'scripts',name),sha256:hash(await readFile(join(skill!,'scripts',name)))})));
   const factory=publicSkillFactory({pluginId:'effectcraft',skillRoot:skill!,python,pythonSha256:hash(await readFile(python)),nativeExecutable:cli!,runtimeHome,files,outputRoot:join(root,'deliveries')});
   const runtimeIdentity={pluginId:'effectcraft',pluginVersion:'0.1.0',cliVersion:'0.2.0',sha256:hash(await readFile(cli!)),mode:'headless',capabilitySnapshotSha256:hash(JSON.stringify(files))};
@@ -52,7 +52,7 @@ test('public EffectCraft skill script produces registered native project and ren
 test('public skill preflight rejects arbitrary paths, inline assets and unbound revisions before writes',async()=>{
  const root=await mkdtemp(join(tmpdir(),'craft-skill-preflight-'));
  try{
-  const files=['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json'].map(name=>({path:join(root,'scripts',name),sha256:'0'.repeat(64)}));
+  const files=['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'].map(name=>({path:join(root,'scripts',name),sha256:'0'.repeat(64)}));
   const factory=publicSkillFactory({pluginId:'effectcraft',skillRoot:root,python:process.execPath,pythonSha256:'0'.repeat(64),nativeExecutable:'/usr/bin/true',runtimeHome:root,files,outputRoot:join(root,'output')});
   const node={id:'intro',dependsOn:[],projectKey:'intro',runtimeIdentity:{pluginId:'effectcraft'},expectedRevision:null,payload:{schemaVersion:'craft-skill-workflow/v1',plan:{},assetBindings:[],outputs:[{assetId:'render',location:'../outside.mp4',mediaType:'video/mp4'}]}};
   await assert.rejects(factory(node,[],'task'),/skill_output_invalid/);
@@ -73,7 +73,7 @@ test('source binding derives public source argv and refuses revision drift',asyn
   await writeFile(join(source,'project.ecproj'),native);
   const manifest={schema:'effectcraft-delivery/v1',runtimeSha256:'a'.repeat(64),files:{'project.ecproj':digest},assets:{},bindings:{}};
   const manifestText=JSON.stringify(manifest);await writeFile(join(source,'manifest.json'),manifestText);
-  const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'fixture');return {path,sha256:hash('fixture')};}));
+  const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'fixture');return {path,sha256:hash('fixture')};}));
   const factory=publicSkillFactory({pluginId:'effectcraft',skillRoot,python:process.execPath,pythonSha256:hash(await readFile(process.execPath)),nativeExecutable:'/usr/bin/true',runtimeHome:root,files,outputRoot:join(root,'output')});
   const reference={assetId:'native',version:digest,sha256:digest,location:'project.ecproj'};
   const artifact={protocolVersion:'craft-artifact/v1',assetId:'old-project',version:digest,sha256:digest,bytes:native.length,mediaType:'application/octet-stream',producerTaskId:'old-task',sourceRefs:[],nativeProjectRef:reference,renditions:[],dependencies:[],technicalMetadata:{},lossReportRef:null,evidenceRefs:[{assetId:'manifest',version:hash(manifestText),sha256:hash(manifestText),location:'manifest.json'}],location:'project.ecproj'};

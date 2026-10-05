@@ -75,3 +75,7 @@
 ## dev.6 已实现恢复决策
 
 原生监督由固定独立 worker 承担，调度器恢复只核对持久化停止证据并验收原任务，不新 claim、不重放、不重扣预算。父工作流取消由 worker 直接读取；停止前保留 cancel_requested。worker 本身崩溃或提交窗口未知保留写锁与待核对状态。verifying 可重新核验，并发接管至多发布一个 outcome。SQLite schema 保持 v2；旧任务没有停止证据时不假造恢复完成。细节与序列图见双语 Runtime Architecture 10.4；证据见 docs/evidence/crash-recovery.json。
+
+## 交换报告实施决策
+
+报告生成器属于各独立技能源，插件仅消费不可变快照。报告绑定原生、重开记录与导出摘要；lost/observed/unknown 不互相提升。ArtCraft 严格核验报告结构和实际文件，不允许 nativeSubstitute；历史无报告的交付不补造证据。实现与真实回归已验证，跨编辑器完整保真任务仍待验收。

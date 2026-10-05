@@ -1,6 +1,6 @@
 /** 公共协议的严格校验、规范化摘要与文件证据核对。 */
 import { readFileSync, createReadStream } from 'node:fs';
-import { realpath, stat } from 'node:fs/promises';
+import { realpath, stat, readFile } from 'node:fs/promises';
 import { resolve, relative, isAbsolute } from 'node:path';
 import { createHash } from 'node:crypto';
 import { isDeepStrictEqual } from 'node:util';
@@ -64,6 +64,24 @@ export function validateArtifact(value: unknown): Record<string, any> {
   return structuredClone(artifact);
 }
 
+/** 严格核对交换报告；派生物永不自动替代原生可编辑工程。 */
+export function validateExchangeLossReport(value:unknown):Record<string,any> {
+  const schema=JSON.parse(readFileSync(new URL('../../schemas/craft-exchange-loss-v1.json',import.meta.url),'utf8'));
+  check(schema,value);planHash(value as Json);const report=value as Record<string,any>;
+  const safe=(location:string)=>!isAbsolute(location) && !/[\\:\x00]/.test(location) && !location.split('/').some(part=>['','..','.'].includes(part));
+  const seen=new Set<string>();
+  for(const ref of [report.native,report.inspection,report.psdInspection,...report.outputs].filter(Boolean)){
+    if(!safe(ref.location))throw new Error('loss_report_location_invalid');
+  }
+  const names={filmcraft:'project.fcproj',effectcraft:'project.ecproj',photocraft:'project.pcraft',vectorcraft:'project.vectorcraft'};
+  if(report.native.location!==names[report.pluginId as keyof typeof names] || report.inspection.location!=='native.json')throw new Error('loss_report_native_invalid');
+  for(const output of report.outputs){
+    if(seen.has(output.location) || output.location.split('.').at(-1)!==output.format || !output.changes.length)throw new Error('loss_report_output_invalid');
+    seen.add(output.location);
+  }
+  return structuredClone(report);
+}
+
 /** 本地版本的规范化 JSON，按码点排序键并拒绝不安全的整数。 */
 export function planHash(value: Json): string {
   function canonical(item: Json): string {
@@ -125,6 +143,17 @@ export async function verifyArtifact(value: unknown, root: string): Promise<Reco
     const referenceHash=createHash('sha256');
     for await(const chunk of createReadStream(path))referenceHash.update(chunk);
     if(referenceHash.digest('hex')!==reference.sha256)throw new Error('artifact_reference_mismatch');
+  }
+  if(artifact.lossReportRef){
+    const reportPath=await allowedPath(root,artifact.lossReportRef.location);
+    if((await stat(reportPath)).size>16*1024*1024)throw new Error('loss_report_too_large');
+    const report=validateExchangeLossReport(JSON.parse(await readFile(reportPath,'utf8')));
+    if(!artifact.nativeProjectRef || report.native.location!==artifact.nativeProjectRef.location || report.native.sha256!==artifact.nativeProjectRef.sha256)throw new Error('loss_report_native_mismatch');
+    if(artifact.location!==report.native.location && !report.outputs.some((output:any)=>output.location===artifact.location && output.sha256===artifact.sha256))throw new Error('loss_report_output_mismatch');
+    for(const ref of [report.inspection,report.psdInspection,...report.outputs].filter(Boolean)){
+      const path=await allowedPath(root,ref.location),digest=createHash('sha256');for await(const chunk of createReadStream(path))digest.update(chunk);
+      if(digest.digest('hex')!==ref.sha256)throw new Error('loss_report_evidence_mismatch');
+    }
   }
   return artifact;
 }
