@@ -22,7 +22,7 @@ npm test
 
 `runtimeIdentity` 当前使用 `pluginId`、`pluginVersion`、`cliVersion`、`sha256`、`mode`、`capabilitySnapshotSha256`。`mode` 仅为 `headless` 或 `bridge`。运行时身份通过字段校验不代表程序已探测成功，执行器仍须核验实际版本和能力摘要。
 
-预算使用 `currency`、`maxMinorUnits`、`maxRevisions`、`maxExternalCalls`；上限是非负安全整数，显式 `null` 表示无限。没有省略字段的默认授权；当前协议校验不执行计费和预算消耗。
+预算使用 `currency`、`maxMinorUnits`、`maxRevisions`、`maxExternalCalls`；上限是非负安全整数，显式 `null` 表示无限。没有省略字段的默认授权；协议校验不负责计费；执行账本已实施共享消耗上界准入，服务商实际核销仍未接入。
 
 `payload.schemaVersion` 标识领域协议，公共层允许该对象的其他 JSON 字段，由领域适配器解释。核心字段和运行时字段不接受未知项。所有 JSON 中的不安全整数均拒绝；精确时间使用字符串。`durationTicks` 必须同时携带有理数 `timeBase`。
 

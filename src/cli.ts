@@ -8,7 +8,7 @@ import { WorkflowEngine } from './planning/workflow_engine.ts';
 import { publicSkillFactory } from './adapters/public_skill.ts';
 import { planHash } from './protocol/contracts.ts';
 
-const version='0.1.0-dev.0';
+const version='0.1.0-dev.1';
 const options:Record<string,string[]>={run:['database','registry','plan','owner','authorization','concurrency'],status:['database','task'],cancel:['database','task','workflow']};
 function parse(argv:string[]):{command:string;flags:Record<string,string>} {
  const [command,...rest]=argv;
@@ -32,7 +32,7 @@ export async function main(argv:string[]):Promise<unknown> {
   await access(flags.database); // 只读状态和取消不能静默创建空账本。
   const ledger=new TaskLedger(flags.database);
   try{
-   if(command==='status')return flags.task?ledger.status(flags.task):{tasks:ledger.list(),leases:ledger.leases()};
+   if(command==='status')return flags.task?ledger.status(flags.task):{tasks:ledger.list(),leases:ledger.leases(),budgets:ledger.budgetAccounts()};
    if(Boolean(flags.task)===Boolean(flags.workflow))throw new Error('cli_cancel_target_required');
    if(flags.task)return ledger.cancel(flags.task);
    ledger.cancelWorkflow(flags.workflow);return {workflow:flags.workflow,state:'cancel_requested'};

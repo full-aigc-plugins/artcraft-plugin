@@ -33,6 +33,8 @@ Parent cancellation or deadline expiry stops new downstream scheduling and recor
 
 [Recorded tests](evidence/workflow-tests.json) include source hashes, the initial missing-module failure, 40 regression tests and limitations. Coverage includes dependency joins, durable no-replay resume, selective Logo invalidation, corrupt-cache rejection, project serialization, parent cancellation, cycle and unknown-plugin rejection, and same-revision plan conflicts.
 
-Four public skill workflows now pass native handoff tests. Complete first-use installation, native source revision bindings, shared budget accounting, immutable asset registration, creative review, final packaging, crashed-supervisor adoption, independent ArtCraft skill installation and host acceptance remain unfinished. `review_ready` denotes technical verification. OpenSpec AC-DM-003/004 remain in progress; native acceptance tasks remain unchecked.
+Four public skill workflows now pass native handoff tests. Complete first-use installation, native source revision bindings, provider invoice settlement, immutable asset registration, creative review, final packaging, crashed-supervisor adoption, independent ArtCraft skill installation and host acceptance remain unfinished. `review_ready` denotes technical verification. OpenSpec AC-DM-003/004 remain in progress; native acceptance tasks remain unchecked.
 
 [Subsequent native integration evidence](ArtCraft-Native-Handoff.md): four-domain handoff now passes; complete first-use setup remains pending.
+
+Shared execution-budget admission and revision counters now apply across the authorization scope. See [budget architecture](ArtCraft-Budget-Architecture.md); paid-provider settlement remains pending.

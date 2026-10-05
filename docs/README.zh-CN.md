@@ -37,3 +37,7 @@ OpenSpec 是唯一行为事实源；本目录是解释与证据视图。
 
 
 [专业领域技术设计](ArtCraft-Domain-Design.zh_CN.md)
+
+## 共享预算实现
+
+[共享预算架构](ArtCraft-Budget-Architecture.zh_CN.md)

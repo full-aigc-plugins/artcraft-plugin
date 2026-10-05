@@ -18,11 +18,11 @@ async function fixture(){
   const directory=join(root,taskId);await mkdir(directory,{recursive:true});const script=join(directory,'worker.mjs'),output=join(directory,'output.bin');
   const content=node.payload.plan.text+'|'+inputs.map(item=>item.artifact.sha256).join('|');
   await writeFile(script,`import{writeFileSync}from'node:fs';setTimeout(()=>{writeFileSync(process.argv[2],${JSON.stringify(content)});},30);`);
-  return {root:directory,adapter:{prepare:async()=>{launches.push(node.id);return {executable:process.execPath,args:[script,output],cwd:directory,actualRevision:null};},verify:async()=>{const bytes=await readFile(output);return {root:directory,evidenceRefs:[],outputs:[{protocolVersion:'craft-artifact/v1',assetId:node.id,version:sha(bytes),sha256:sha(bytes),bytes:bytes.length,mediaType:'application/octet-stream',producerTaskId:taskId,sourceRefs:inputs.map(item=>({assetId:item.artifact.assetId,version:item.artifact.version,sha256:item.artifact.sha256})),nativeProjectRef:null,renditions:[],dependencies:[],technicalMetadata:{},lossReportRef:null,evidenceRefs:[],location:'output.bin'}]};}}};
+  return {root:directory,adapter:{prepare:async()=>{launches.push(node.id);return {executable:process.execPath,args:[script,output],cwd:directory,actualRevision:null,budgetUsage:{minorUnits:0,externalCalls:0}};},verify:async()=>{const bytes=await readFile(output);return {root:directory,evidenceRefs:[],outputs:[{protocolVersion:'craft-artifact/v1',assetId:node.id,version:sha(bytes),sha256:sha(bytes),bytes:bytes.length,mediaType:'application/octet-stream',producerTaskId:taskId,sourceRefs:inputs.map(item=>({assetId:item.artifact.assetId,version:item.artifact.version,sha256:item.artifact.sha256})),nativeProjectRef:null,renditions:[],dependencies:[],technicalMetadata:{},lossReportRef:null,evidenceRefs:[],location:'output.bin'}]};}}};
  };
  const engine=new WorkflowEngine(ledger,new LocalRunner(ledger,async()=>{}),{fixture:factory});
  const node=(id:string,dependsOn:string[]=[])=>({id,dependsOn,projectKey:'project-'+id,runtimeIdentity:identity,payload:{schemaVersion:'fixture/v1',plan:{text:id}},expectedRevision:null});
- const plan={workflowId:'brand',ownerId:'user',revision:'v1',authorizationRef:'test-authority',budget:{currency:'USD',maxMinorUnits:0,maxRevisions:0,maxExternalCalls:0},deadline:new Date(Date.now()+60000).toISOString(),nodes:[node('logo'),node('poster',['logo']),node('intro',['logo']),node('voice'),node('film',['intro','voice'])]};
+ const plan={workflowId:'brand',ownerId:'user',revision:'v1',authorizationRef:'test-authority',budget:{currency:'USD',maxMinorUnits:0,maxRevisions:1,maxExternalCalls:0},deadline:new Date(Date.now()+60000).toISOString(),nodes:[node('logo'),node('poster',['logo']),node('intro',['logo']),node('voice'),node('film',['intro','voice'])]};
  return {root,ledger,engine,factory,plan,get launches(){return launches;},clear(){launches=[];},cleanup:async()=>{ledger.close();await rm(root,{recursive:true});}};
 }
 
@@ -84,5 +84,23 @@ test('changed plan under an existing workflow revision is rejected without repla
  const f=await fixture();try{
   await f.engine.run(f.plan);f.clear();const changed=structuredClone(f.plan);changed.nodes[0].payload.plan.text='modified';
   await assert.rejects(f.engine.run(changed),/workflow_revision_conflict/);assert.equal(f.launches.length,0);
+ }finally{await f.cleanup();}
+});
+
+test('DAG reserves a shared cap before child spawn and resuming does not double allocate',async()=>{
+ const f=await fixture();try{
+  f.plan.budget={currency:'USD',maxMinorUnits:5,maxRevisions:1,maxExternalCalls:2};
+  const factory=async(node:any,inputs:any[],taskId:string)=>{
+   const compiled=await f.factory(node,inputs,taskId);
+   return {...compiled,adapter:{...compiled.adapter,prepare:async()=>({...await compiled.adapter.prepare(),budgetUsage:{minorUnits:3,externalCalls:1}})}};
+  };
+  const engine=new WorkflowEngine(f.ledger,new LocalRunner(f.ledger,async()=>{}),{fixture:factory});
+  const first=await engine.run(f.plan,2);assert.equal(first.state,'blocked');
+  assert.deepEqual(first.budget.allocated,{minorUnits:3,externalCalls:1,revisions:0});
+  assert.equal(f.ledger.list().filter(task=>f.ledger.execution(task.taskId)).length,1);
+  assert.equal(f.ledger.leases().length,0);
+  assert.ok(Object.values(first.nodes).some(node=>node.error?.includes('budget_exceeded')));
+  const repeated=await engine.run(f.plan);assert.deepEqual(repeated.budget,first.budget);
+  assert.equal(f.ledger.list().filter(task=>f.ledger.execution(task.taskId)).length,1);
  }finally{await f.cleanup();}
 });

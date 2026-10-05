@@ -93,6 +93,14 @@ def install_bundle(lock, target, archive=None):
             shutil.rmtree(stage)
 
 
+def bundle_version(lock, entry):
+    """组合版本升级不改变未升级的领域技能身份；缺失字段兼容旧锁。"""
+    version = entry.get('version', lock['version'])
+    if not isinstance(version, str) or not re.fullmatch(r'\d+\.\d+\.\d+(?:-dev\.\d+)?', version):
+        raise ValueError('bundle_version_invalid')
+    return version
+
+
 def setup(lock, runtime_home, node, bundle_directory=None, native_archive_directory=None):
     if lock.get('schema') != 'artcraft-distribution/v1' or not re.fullmatch(r'\d+\.\d+\.\d+(?:-dev\.\d+)?', lock.get('version', '')) or set(lock.get('bundles', {})) != {'artcraft-runtime', *[name+'-skills' for name in NAMES]}:
         raise ValueError('distribution_lock_invalid')
@@ -103,7 +111,7 @@ def setup(lock, runtime_home, node, bundle_directory=None, native_archive_direct
         for name, entry in lock['bundles'].items():
             if Path(entry['filename']).name != entry['filename']:
                 raise ValueError('bundle_path_invalid')
-            target = home/'artcraft/bundles'/name/lock['version']/entry['sha256']
+            target = home/'artcraft/bundles'/name/bundle_version(lock, entry)/entry['sha256']
             archive = Path(bundle_directory)/entry['filename'] if bundle_directory else None
             installed[name] = install_bundle(entry, target, archive)
         runtime = installed['artcraft-runtime'];entry_point = runtime/'src/cli.ts'
@@ -126,5 +134,5 @@ def setup(lock, runtime_home, node, bundle_directory=None, native_archive_direct
             files = [{'path': str(root/'scripts'/file), 'sha256': sha(root/'scripts'/file)} for file in ('workflow.py', 'bootstrap.py', 'mcp_session.py', 'runtime.lock.json')]
             snapshot = {'commandCatalogSha256': hashlib.sha256(catalog).hexdigest(), 'skillBundleSha256': lock['bundles'][name+'-skills']['sha256'], 'artcraftRuntimeSha256': lock['bundles']['artcraft-runtime']['sha256'], 'scriptHashes': {Path(file['path']).name:file['sha256'] for file in files}}
             snapshot_hash = hashlib.sha256(json.dumps(snapshot, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
-            skills[name] = {'capabilitySnapshot': snapshot, 'skillRoot': str(root), 'executable': str(cli), 'files': files, 'runtimeIdentity': {'pluginId': name, 'pluginVersion': lock['version'], 'cliVersion': native_lock['resolvedVersion'], 'sha256': result['binarySha256'], 'mode': 'headless', 'capabilitySnapshotSha256': snapshot_hash}}
+            skills[name] = {'capabilitySnapshot': snapshot, 'skillRoot': str(root), 'executable': str(cli), 'files': files, 'runtimeIdentity': {'pluginId': name, 'pluginVersion': bundle_version(lock, lock['bundles'][name+'-skills']), 'cliVersion': native_lock['resolvedVersion'], 'sha256': result['binarySha256'], 'mode': 'headless', 'capabilitySnapshotSha256': snapshot_hash}}
         return {'schema': 'artcraft-setup/v1', **node, 'version': lock['version'], 'runtimeRoot': str(runtime), 'entryPoint': str(entry_point), 'pythonExecutable': str(Path(sys.executable).resolve()), 'pythonSha256': sha(Path(sys.executable).resolve()), 'runtimeHome': str(home), 'bundleHashes': {key:value['sha256'] for key,value in lock['bundles'].items()}, 'skills': skills}

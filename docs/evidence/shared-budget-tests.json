@@ -1,0 +1,62 @@
+{
+  "observedAt": "2026-10-05T12:07:05.833574+00:00",
+  "platform": "darwin-arm64",
+  "result": "passed",
+  "exitCode": 0,
+  "requirement": "AC-TX-003",
+  "redPhase": {
+    "tests": 8,
+    "failed": 8,
+    "behavior": [
+      "siblings could exceed the monetary/call allowance",
+      "two OS processes both acquired allowance beyond the shared cap",
+      "missing usage and overflow were accepted",
+      "new revisions and legacy untracked history were admitted"
+    ]
+  },
+  "budgetTests": {
+    "command": "node --test test/shared_budget.test.ts",
+    "passed": 8
+  },
+  "runtimeRegression": {
+    "command": "native integration environment configured; npm test",
+    "passed": 58,
+    "skipped": 0,
+    "nativeIntegrationCases": 3,
+    "durationSeconds": 4.152
+  },
+  "sourceHashes": {
+    "src/adapters/public_skill.ts": "c9ea22efca4b469a8e5ddee778fb3760ecc12e8392ca2dc76054ed0f87a3c614",
+    "src/cli.ts": "962cda9eab35d7e580685dd2370dfd96b4990583bbf986ece11148756f377bdb",
+    "src/harness/budget.ts": "a8a41bc4d4f7dad1103ac674cd71ef3d18449ab6206fc414c9287b45634ebf79",
+    "src/harness/local_runner.ts": "836a55059ff56ac629a951a19ed90a7b29c693f8ea8cc35d3b0dce7e810ff346",
+    "src/harness/task_ledger.ts": "28abc44029a58669f5888b5c0ca0f182017616d7056bcf34aadab783ab679a85",
+    "src/planning/workflow_engine.ts": "e1a87840d3c6362e5551e672c8b8da53c1180837b5ac4d9dcbfed03656e802a2",
+    "src/protocol/contracts.ts": "230c040d43ef9ca75a52f72aaa9d51b11dda049c6f74d3baa265915692ef3765",
+    "src/protocol/dependency_graph.ts": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43",
+    "test/cli.test.ts": "1b0a0c035d03a6cd90f9aa52ffd73208aaaeead2fbc92e8513f9e182fbae3785",
+    "test/local_runner.test.ts": "2a7da4bef8e1dbcb756837af0285c1f6a27f734731be0c8ba99d37e6e788946a",
+    "test/native_effect_runner.test.ts": "bd7e7e17f86a01452cd9ea804c2ae97da245932b20e7959c445d423216579130",
+    "test/native_mixed_workflow.test.ts": "ee05addd4aa7face0fc8b9e3c9c70c3b3585346696968ce619275580e7320965",
+    "test/protocol.test.ts": "dc7be4254bdea031bed7548d8ce902e2e124a604e9feb4edb136e513a2e6ea88",
+    "test/public_skill_adapter.test.ts": "958503709ea757fc77283eca3575c910a817f04753c299e47bbaf0004e95fe0c",
+    "test/shared_budget.test.ts": "e270e814daa53e4a6af030f37b5e2a5932bad7f1d2df0e834d22d4aae28e798f",
+    "test/task_ledger.test.ts": "23ede9701af86c63a398754afc72e34ac13ea1233c1396a549c795203d64574c",
+    "test/workflow_engine.test.ts": "c67848447f3ee8656635c25b4e24953d80de5854210915730ba328cb6cffd0d4"
+  },
+  "remaining": [
+    "real paid provider settlement",
+    "quality stagnation loop",
+    "native source revision adapter",
+    "crash adoption",
+    "final creative review",
+    "final package",
+    "production release"
+  ],
+  "version": "0.1.0-dev.1",
+  "setupRegression": {
+    "passed": 14,
+    "identityFirstUsePassed": 1,
+    "evidence": "https://github.com/full-aigc-skills/artcraft-skills/blob/v0.1.0-dev.1/docs/evidence/development-v1-setup.json"
+  }
+}

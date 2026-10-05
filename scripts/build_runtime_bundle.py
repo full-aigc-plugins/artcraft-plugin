@@ -6,7 +6,8 @@ import json
 from pathlib import Path
 import zipfile
 
-VERSION = '0.1.0-dev.0'
+VERSION = '0.1.0-dev.1'
+DOMAIN_VERSION = '0.1.0-dev.0'
 NAMES = ('filmcraft', 'effectcraft', 'photocraft', 'vectorcraft')
 
 
@@ -14,7 +15,7 @@ def digest(data):
     return hashlib.sha256(data).hexdigest()
 
 
-def bundle(source, files, destination, repository):
+def bundle(source, files, destination, repository, version=VERSION):
     hashes = {}
     with zipfile.ZipFile(destination, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for path in sorted(files):
@@ -25,7 +26,7 @@ def bundle(source, files, destination, repository):
             info = zipfile.ZipInfo(name, (1980, 1, 1, 0, 0, 0))
             info.create_system = 3;info.external_attr = 0o100644 << 16;info.compress_type = zipfile.ZIP_DEFLATED
             archive.writestr(info, content)
-    return {'filename': destination.name, 'url': f'https://github.com/{repository}/releases/download/v{VERSION}/{destination.name}', 'sha256': digest(destination.read_bytes()), 'bytes': destination.stat().st_size, 'files': hashes, 'sourceRepository': f'https://github.com/{repository}'}
+    return {'version': version, 'filename': destination.name, 'url': f'https://github.com/{repository}/releases/download/v{version}/{destination.name}', 'sha256': digest(destination.read_bytes()), 'bytes': destination.stat().st_size, 'files': hashes, 'sourceRepository': f'https://github.com/{repository}'}
 
 
 def build(plugin_root, skills_root, output, lock_path):
@@ -35,7 +36,7 @@ def build(plugin_root, skills_root, output, lock_path):
     for name in NAMES:
         source = skills_root/(name+'-skills')
         files = [source/'LICENSE', *[p for p in (source/'skills'/(name+'-use')).rglob('*') if p.is_file() and '__pycache__' not in p.parts]]
-        entries[name+'-skills'] = bundle(source, files, output/f'{name}-skills-{VERSION}.zip', 'full-aigc-skills/'+name+'-skills')
+        entries[name+'-skills'] = bundle(source, files, output/f'{name}-skills-{DOMAIN_VERSION}.zip', 'full-aigc-skills/'+name+'-skills', DOMAIN_VERSION)
     lock = {'schema': 'artcraft-distribution/v1', 'version': VERSION, 'bundles': entries}
     lock_path.write_text(json.dumps(lock, ensure_ascii=False, indent=2)+'\n')
     return lock

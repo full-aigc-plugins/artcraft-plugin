@@ -60,7 +60,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
   return {root:delivery,adapter:{
    prepare:async(request)=>{
     if(request.runtimeIdentity.pluginId!==locked.pluginId)throw new Error('skill_plugin_mismatch');
-    return {executable:locked.python,args,cwd:root,actualRevision:null,launcherIdentity:{runtimeExecutable:locked.nativeExecutable,sha256:locked.pythonSha256,files:[...locked.files,{path:planFile,sha256:hash(JSON.stringify(payload.plan))}]}};
+    return {executable:locked.python,args,cwd:root,actualRevision:null,budgetUsage:{minorUnits:0,externalCalls:0},launcherIdentity:{runtimeExecutable:locked.nativeExecutable,sha256:locked.pythonSha256,files:[...locked.files,{path:planFile,sha256:hash(JSON.stringify(payload.plan))}]}};
    },
    verify:async(request)=>{
     const manifestBytes=await readFile(join(delivery,'manifest.json'));

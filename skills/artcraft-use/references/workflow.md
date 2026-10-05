@@ -48,3 +48,13 @@ The actual argv is `[nodeExecutable, entryPoint, ...]`; no shell command is cons
 保留 `.fcproj`、`.ecproj`、`.pcraft`、`.vectorcraft`、收集素材、预览、导出、公共血缘和回执。单项项目与原生素材交接测试不等于创作验收或宿主发布。安装包本地验证、在线下载和插件市场安装是不同证据范围。
 
 Retain all native projects, collected dependencies, previews, exports, lineage and receipts. Functional handoff tests do not establish creative or host-release acceptance. Local locked archives, online download and marketplace installation are separate verification scopes.
+
+## 共享预算 / Shared budgets
+
+相同 ownerId、workflowId 与 authorizationRef 下的节点和计划修订共享额度，政策首次登记后固定。首个计划不扣 maxRevisions；之后每个新计划修订扣一轮，同修订重跑不重复扣。原生四领域声明金额与外部服务调用上界为零；预算来自可信适配器而非 payload。未知和失败执行保留分配额度，不能靠重跑自动退款。额度不足在启动原生副作用前阻断；状态回执显示 budget，CLI status 显示 budgets。
+
+Nodes and revisions under the same owner/workflow/authorization share one frozen policy. The initial plan uses no revision round; each subsequent new revision uses one, without replay charges. Native adapters declare zero money/external-service calls. Trusted adapters choose usage bounds, not payloads. Unknown and failed attempts retain allocations. Insufficient allowance blocks before native side effects; result budget and CLI budgets expose snapshots.
+
+账本版本升级为 2；旧历史没有预算证据时仍能读取状态，但在旧授权范围继续执行会报 budget_history_untracked。不要删除账本或伪造授权来绕过。运行时升级改变登记表与身份摘要，同修订不可直接替换。完整质量停滞循环与付费账单核销仍未完成。
+
+Ledger version 2 preserves historical reads but unmetered historical scopes reject execution with budget_history_untracked. Do not delete the ledger or fabricate authorization to bypass it. Runtime upgrades change registry/identity hashes and require an explicit revision; quality stagnation loops and provider invoice settlement remain pending.

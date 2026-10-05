@@ -47,7 +47,7 @@ for path in markdown:
 manifest = json.loads((ROOT / 'plugin.json').read_text())
 status = json.loads((ROOT / 'project-status.json').read_text())
 lock = json.loads((ROOT / 'skills.lock.json').read_text())
-if manifest['version'] != '0.1.0-dev.0' or status['stage'] not in ('documentation-baseline', 'implementation-in-progress'):
+if not re.fullmatch(r'0\.1\.0-dev\.\d+', manifest['version']) or status['stage'] not in ('documentation-baseline', 'implementation-in-progress'):
     errors.append('documentation status and metadata mismatch')
 if status['marketplaceEligible'] or status['supportedPluginHosts']:
     errors.append('unaccepted implementation claims marketplace or host support')

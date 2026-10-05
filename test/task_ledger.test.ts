@@ -39,34 +39,34 @@ test('plan hash must bind actual versioned payload before any registration',()=>
  assert.equal(ledger.list().length,0);
 }));
 test('two database connections cannot acquire the same native project',()=>fixture((ledger,path)=>{
- ledger.register('caller','project',request());ledger.ready('task1');const acquired=ledger.claim('task1','revision1');
+ ledger.register('caller','project',request());ledger.ready('task1');const acquired=ledger.claim('task1','revision1',{minorUnits:0,externalCalls:0});
  const second=new TaskLedger(path);
  try {
   second.register('caller','project',request('task2','key2'));second.ready('task2');
-  assert.throws(()=>second.claim('task2','revision1'),/project_busy/);
+  assert.throws(()=>second.claim('task2','revision1',{minorUnits:0,externalCalls:0}),/project_busy/);
   assert.equal(second.status('task2').state,'ready');
   assert.equal(second.status('task1').epoch,acquired.epoch);
  }finally{second.close();}
 }));
 test('stale GUI revision prevents claim and does not allocate a lease',()=>fixture(ledger=>{
  ledger.register('caller','project',request());ledger.ready('task1');
- assert.throws(()=>ledger.claim('task1','gui-revision2'),/revision_conflict/);
+ assert.throws(()=>ledger.claim('task1','gui-revision2',{minorUnits:0,externalCalls:0}),/revision_conflict/);
  assert.equal(ledger.status('task1').state,'ready');
  assert.equal(ledger.leases().length,0);
 }));
 test('unknown outcome survives reopen, retains writer ownership and is never automatically retried',()=>fixture((ledger,path)=>{
- ledger.register('caller','project',request());ledger.ready('task1');const acquired=ledger.claim('task1','revision1');
+ ledger.register('caller','project',request());ledger.ready('task1');const acquired=ledger.claim('task1','revision1',{minorUnits:0,externalCalls:0});
  ledger.unknown('task1',acquired.epoch,'stdio_disconnect');
  const reopened=new TaskLedger(path);
  try {
   assert.equal(reopened.status('task1').state,'reconciling');
-  assert.throws(()=>reopened.claim('task1','revision1'),/task_not_ready/);
+  assert.throws(()=>reopened.claim('task1','revision1',{minorUnits:0,externalCalls:0}),/task_not_ready/);
   assert.equal(reopened.leases()[0].taskId,'task1');
   assert.equal(reopened.events('task1').filter(x=>x.toState==='running').length,1);
  }finally{reopened.close();}
 }));
 test('cancellation of a live task records intent and retains lease; stale executor cannot change state',()=>fixture(ledger=>{
- ledger.register('caller','project',request());ledger.ready('task1');const acquired=ledger.claim('task1','revision1');
+ ledger.register('caller','project',request());ledger.ready('task1');const acquired=ledger.claim('task1','revision1',{minorUnits:0,externalCalls:0});
  assert.throws(()=>ledger.unknown('task1',acquired.epoch+1,'timeout'),/stale_executor/);
  assert.equal(ledger.cancel('task1').state,'cancel_requested');
  assert.equal(ledger.leases()[0].taskId,'task1');
@@ -81,7 +81,7 @@ test('cancel before any side effect is immediately terminal',()=>fixture(ledger=
 test('expired deadline cannot start a native task',()=>fixture(ledger=>{
  const expired={...request(),deadline:'2020-01-01T00:00:00Z'};
  ledger.register('caller','project',expired);ledger.ready('task1');
- assert.throws(()=>ledger.claim('task1','revision1'),/deadline_exceeded/);
+ assert.throws(()=>ledger.claim('task1','revision1',{minorUnits:0,externalCalls:0}),/deadline_exceeded/);
  assert.equal(ledger.leases().length,0);
 }));
 test('foreign SQLite database is rejected without changing user data',async()=>{
@@ -103,7 +103,7 @@ test('separate OS processes compete for one project without duplicate starts',as
  ledger.register('caller','project',request('task2','key2'));ledger.ready('task2');
  const module=new URL('../src/harness/task_ledger.ts',import.meta.url).href;
  const script=join(root,'claim.mjs');
- writeFileSync(script,`import {TaskLedger} from ${JSON.stringify(module)};const ledger=new TaskLedger(process.argv[2]);try{console.log(JSON.stringify({ok:true,receipt:ledger.claim(process.argv[3],'revision1')}));}catch(error){console.log(JSON.stringify({ok:false,error:error.message}));}finally{ledger.close();}`);
+ writeFileSync(script,`import {TaskLedger} from ${JSON.stringify(module)};const ledger=new TaskLedger(process.argv[2]);try{console.log(JSON.stringify({ok:true,receipt:ledger.claim(process.argv[3],'revision1',{minorUnits:0,externalCalls:0})}));}catch(error){console.log(JSON.stringify({ok:false,error:error.message}));}finally{ledger.close();}`);
  const claim=(id:string)=>new Promise<{ok:boolean,error?:string}>((resolve,reject)=>{
   const child=spawn(process.execPath,[script,path,id],{stdio:['ignore','pipe','pipe']});let output='',errors='';
   child.stdout.on('data',chunk=>output+=chunk);child.stderr.on('data',chunk=>errors+=chunk);
@@ -123,7 +123,7 @@ test('killed writer leaves durable intent and lease; restart never replays the t
  ledger.register('caller','project',request());ledger.ready('task1');
  const module=new URL('../src/harness/task_ledger.ts',import.meta.url).href;
  const script=join(root,'writer.mjs');
- writeFileSync(script,`import {TaskLedger} from ${JSON.stringify(module)};const ledger=new TaskLedger(process.argv[2]);console.log(JSON.stringify(ledger.claim('task1','revision1')));setInterval(()=>{},1000);`);
+ writeFileSync(script,`import {TaskLedger} from ${JSON.stringify(module)};const ledger=new TaskLedger(process.argv[2]);console.log(JSON.stringify(ledger.claim('task1','revision1',{minorUnits:0,externalCalls:0})));setInterval(()=>{},1000);`);
  const child=spawn(process.execPath,[script,path],{stdio:['ignore','pipe','pipe']});
  try {
   await new Promise<void>((resolve,reject)=>{
@@ -136,7 +136,7 @@ test('killed writer leaves durable intent and lease; restart never replays the t
   try {
    const stored=restarted.status('task1');assert.equal(stored.state,'running');
    assert.equal(restarted.leases()[0].taskId,'task1');
-   assert.throws(()=>restarted.claim('task1','revision1'),/task_not_ready/);
+   assert.throws(()=>restarted.claim('task1','revision1',{minorUnits:0,externalCalls:0}),/task_not_ready/);
    assert.equal(restarted.unknown('task1',stored.epoch,'worker_exit_SIGKILL').state,'reconciling');
    assert.equal(restarted.events('task1').filter(x=>x.toState==='running').length,1);
   }finally{restarted.close();}

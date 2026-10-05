@@ -39,6 +39,10 @@ class OnlineFirstWorkflowTests(unittest.TestCase):
             self.assertTrue(Path(setup['nodeExecutable']).is_relative_to(runtime))
             self.assertTrue(Path(setup['entryPoint']).is_relative_to(runtime))
             self.assertEqual(set(setup['skills']),{'filmcraft','effectcraft','photocraft','vectorcraft'})
+            self.assertEqual(first['budget']['allocated'],{'minorUnits':0,'externalCalls':0,'revisions':0})
+            distribution=json.loads((skill/'scripts/distribution.lock.json').read_text())
+            self.assertEqual(setup['version'],distribution['version'])
+            for name,value in setup['skills'].items():self.assertEqual(value['runtimeIdentity']['pluginVersion'],distribution['bundles'][name+'-skills'].get('version',distribution['version']))
             for value in setup['skills'].values():
                 self.assertTrue(Path(value['executable']).is_relative_to(runtime))
                 self.assertTrue(Path(value['skillRoot']).is_relative_to(runtime))
@@ -55,5 +59,28 @@ class OnlineFirstWorkflowTests(unittest.TestCase):
             bad=subprocess.run(bad_args,capture_output=True,text=True,env=environment,timeout=120)
             self.assertEqual(bad.returncode,1);self.assertIn('workflow_revision_conflict',bad.stdout)
             self.assertEqual(hashlib.sha256(voice.read_bytes()).hexdigest(),first['nodes']['film']['outputs'][0]['sourceRefs'][1]['sha256'])
+            old_projects={id:hashlib.sha256((Path(node['root'])/node['outputs'][0]['nativeProjectRef']['location']).read_bytes()).hexdigest() for id,node in first['nodes'].items()}
+            revised=json.loads((skill/'examples/brand-campaign.json').read_text());revised['revision']='v2'
+            for operation in revised['nodes'][0]['payload']['plan']['operations']:
+                if operation['command']=='paint.setFill' or operation['command']=='text.create':operation['params']['color']='#e84032'
+            revised_file=root/'revised.json';revised_file.write_text(json.dumps(revised));revision_args=list(args);revision_args[4]=str(revised_file)
+            modified_run=subprocess.run(revision_args,capture_output=True,text=True,env=environment,timeout=120)
+            self.assertEqual(modified_run.returncode,0,modified_run.stdout+modified_run.stderr);modified=json.loads(modified_run.stdout)
+            self.assertEqual(modified['budget']['allocated'],{'minorUnits':0,'externalCalls':0,'revisions':1})
+            for id,node in first['nodes'].items():
+                self.assertNotEqual(node['taskId'],modified['nodes'][id]['taskId'])
+                self.assertNotEqual(node['outputs'][0]['sha256'],modified['nodes'][id]['outputs'][0]['sha256'])
+                self.assertEqual(old_projects[id],hashlib.sha256((Path(node['root'])/node['outputs'][0]['nativeProjectRef']['location']).read_bytes()).hexdigest())
+            self.assertEqual(hashlib.sha256(voice.read_bytes()).hexdigest(),modified['nodes']['film']['outputs'][0]['sourceRefs'][1]['sha256'])
+            repeated_revision=subprocess.run(revision_args,capture_output=True,text=True,env=environment,timeout=120)
+            self.assertEqual(repeated_revision.returncode,0,repeated_revision.stdout+repeated_revision.stderr)
+            self.assertEqual(json.loads(repeated_revision.stdout)['budget'],modified['budget'])
+            revised['revision']='v3';revised_file.write_text(json.dumps(revised))
+            exhausted=subprocess.run(revision_args,capture_output=True,text=True,env=environment,timeout=120)
+            self.assertEqual(exhausted.returncode,1);self.assertIn('budget_exceeded: revisions',exhausted.stdout)
+            final_status=json.loads(subprocess.run(cli,check=True,capture_output=True,text=True,env=environment,timeout=30).stdout)
+            self.assertEqual(len(final_status['tasks']),8);self.assertFalse(final_status['leases'])
+            self.assertEqual(final_status['budgets'][0]['allocated']['revisions'],1)
+
 
 if __name__ == '__main__':unittest.main()

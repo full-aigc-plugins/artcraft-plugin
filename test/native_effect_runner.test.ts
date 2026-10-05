@@ -26,7 +26,7 @@ test('real EffectCraft render is supervised, decoded and registered without chan
   ledger.ready('native-render');
   const runner=new LocalRunner(ledger,async request=>{assert.equal(request.authorizationRef,'native-render-test-scope');});
   const receipt=await runner.execute('native-render',{
-   prepare:async()=>({executable:cli!,args:['--project',project,'render','--comp','Integration intro','--out',output,'--format','h264','--start','0','--end','1','--fps','12','--audio','off'],cwd:root,actualRevision:hash(await readFile(project))}),
+   prepare:async()=>({executable:cli!,args:['--project',project,'render','--comp','Integration intro','--out',output,'--format','h264','--start','0','--end','1','--fps','12','--audio','off'],cwd:root,actualRevision:hash(await readFile(project)),budgetUsage:{minorUnits:0,externalCalls:0}}),
    verify:async()=>{
     const decoded=JSON.parse((await exec('ffprobe',['-v','error','-count_frames','-show_streams','-of','json',output])).stdout);
     const video=decoded.streams.find((item:{codec_type:string})=>item.codec_type==='video');

@@ -8,7 +8,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 const exec=promisify(execFile),entry=new URL('../src/cli.ts',import.meta.url).pathname;
 test('ArtCraft public CLI reports version and supported commands',async()=>{
- assert.equal(JSON.parse((await exec(process.execPath,[entry,'--version'])).stdout).version,'0.1.0-dev.0');
+ assert.equal(JSON.parse((await exec(process.execPath,[entry,'--version'])).stdout).version,'0.1.0-dev.1');
  assert.deepEqual(JSON.parse((await exec(process.execPath,[entry,'--help'])).stdout).commands,['run','status','cancel']);
 });
 test('ArtCraft CLI refuses unknown commands and missing databases without creating user files',async()=>{

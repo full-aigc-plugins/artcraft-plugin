@@ -4,7 +4,7 @@ Cross-tool project planning, asset dependencies, version propagation and selecti
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-> Implementation in progress. Four-domain native handoff, durable CLI resume and clean first use through default online downloads pass. Host installation, shared budgets, final creative review and complete recovery remain unfinished.
+> Implementation in progress. Four-domain native handoff, durable CLI resume and clean first use through default online downloads pass. Host installation, provider invoice settlement, final creative review and complete recovery remain unfinished.
 
 ## At a glance
 
@@ -22,9 +22,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.0 |
+| Plugin ID / version | artcraft / 0.1.0-dev.1 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.0 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.1 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -70,11 +70,11 @@ Default online downloads passed in a fresh runtime directory with only one copie
 
 Trusted configuration pins interpreter, scripts, native executables and output roots; public payloads cannot choose executable code. Python runs isolated without bytecode caches. The runner persists intent, supervises process groups and verifies outputs before releasing ownership. Unknown outcomes are not replayed. The skill entry also serializes project-directory calls, freezes plans and registries and preserves existing user directories.
 
-The runtime's 48-test regression passes; see [native evidence](docs/evidence/native-mixed-tests.json). Independent installation and first-use evidence is in [setup records](docs/evidence/artcraft-setup-tests.json). Local installation, online download, native delivery, creative acceptance and host installation are separate evidence scopes. `review_ready` denotes technical readiness.
+The runtime's 58-test regression passes; see [native evidence](docs/evidence/native-mixed-tests.json). Independent installation and first-use evidence is in [setup records](docs/evidence/artcraft-setup-tests.json). Local installation, online download, native delivery, creative acceptance and host installation are separate evidence scopes. `review_ready` denotes technical readiness.
 
 ## Specification, contribution and license
 
-The existing OpenSpec change remains the sole authority. Check tasks only against their actual scope; complete scenarios stay in progress until accepted. Hosts, shared budgets, creative review and complete recovery remain unfinished.
+The existing OpenSpec change remains the sole authority. Check tasks only against their actual scope; complete scenarios stay in progress until accepted. Hosts, provider invoice settlement, creative review and complete recovery remain unfinished.
 
 ```bash
 python3 scripts/validate_docs.py
@@ -85,8 +85,12 @@ These validate documentation and specifications only. Original code uses [Apache
 
 [Upstream reference](https://github.com/storytold/artcraft) · [Issues](https://github.com/full-aigc-plugins/artcraft-plugin/issues)
 
-Independent skills are now pinned at the published development tag `v0.1.0-dev.0`, including the exact source commit and whole-skill digest in `skills.lock.json`. Verify using `python3 scripts/vendor/skill_vendor.py check`. These source snapshots do not establish plugin-host acceptance or production readiness.
+Independent skills are now pinned at the published development tag `v0.1.0-dev.1`, including the exact source commit and whole-skill digest in `skills.lock.json`. Verify using `python3 scripts/vendor/skill_vendor.py check`. These source snapshots do not establish plugin-host acceptance or production readiness.
 
 ## Codex development host checks
 
 All five plugins installed from public tags into an isolated Codex configuration. App-server discovered their namespaced skills without loading errors; the installed ArtCraft entry produced four native projects. [Host evidence](docs/evidence/codex-installation.json). These controlled development checks do not establish desktop GUI, other hosts, complete creative or production marketplace acceptance.
+
+## Shared budget admission
+
+The development runtime now freezes one account per owner/workflow/authorization, reserves trusted cost bounds before native execution and limits subsequent plan revisions. Replays do not allocate twice; unknown outcomes keep their reservation. [Architecture and migration contract](docs/ArtCraft-Budget-Architecture.md). Paid-provider settlement and quality stagnation loops remain pending.

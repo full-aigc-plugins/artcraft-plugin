@@ -3,6 +3,7 @@ import { orderGraph } from '../protocol/dependency_graph.ts';
 import { planHash, validateTask, verifyArtifact } from '../protocol/contracts.ts';
 import { TaskLedger } from '../harness/task_ledger.ts';
 import { LocalRunner } from '../harness/local_runner.ts';
+import type { BudgetSnapshot } from '../harness/budget.ts';
 import type { ExecutionAdapter } from '../harness/local_runner.ts';
 
 export interface ArtifactInput {root:string;artifact:Record<string,any>;}
@@ -17,7 +18,7 @@ export interface WorkflowPlan {
 }
 export type AdapterFactory=(node:WorkflowNode,inputs:ArtifactInput[],taskId:string)=>Promise<{adapter:ExecutionAdapter;root:string}>;
 type NodeResult={status:string;fingerprint?:string;taskId?:string;root?:string;outputs?:Record<string,any>[];error?:string};
-export type WorkflowResult={runKey:string;state:string;nodes:Record<string,NodeResult>};
+export type WorkflowResult={runKey:string;state:string;nodes:Record<string,NodeResult>;budget:BudgetSnapshot};
 
 /** 领域工厂只通过公开接口编译；图中不允许模型自行注入可执行代码。 */
 export class WorkflowEngine {
@@ -72,7 +73,7 @@ export class WorkflowEngine {
         if(['review_ready','reused'].includes(existing.status))await this.verifyResult(existing);
       }
       for(const node of plan.nodes)for(const input of node.externalInputs ?? [])await verifyArtifact(input.artifact,input.root);
-    }catch(error){return {runKey:key,state:'blocked',nodes:{preflight:{status:'blocked',error:(error as Error).message}}};}
+    }catch(error){return {runKey:key,state:'blocked',nodes:{preflight:{status:'blocked',error:(error as Error).message}},budget:this.ledger.workflowBudget(key)};}
     const monitor=setInterval(()=>{
       if(Date.parse(plan.deadline)<=Date.now())this.ledger.cancelWorkflow(key);
       if(this.ledger.workflowCancelled(key))for(const taskId of activeTasks)this.ledger.cancel(taskId);
@@ -97,7 +98,7 @@ export class WorkflowEngine {
         if(cached){await this.verifyResult(cached);save(id,{...cached,status:'reused',fingerprint});return;}
         taskId='wf-'+planHash({owner:plan.ownerId,workflow:plan.workflowId,revision:plan.revision,node:id,fingerprint}).slice(0,48);
         const request=this.request(plan,node,taskId,'wf-node:'+planHash({key,id,fingerprint}),inputs);
-        const registered=this.ledger.register(plan.ownerId,node.projectKey,request);
+        const registered=this.ledger.register(plan.ownerId,node.projectKey,request,key);
         taskId=registered.taskId;
         const previous=this.ledger.workflowNode(key,id) as NodeResult;
         root=previous.root;
@@ -142,6 +143,6 @@ export class WorkflowEngine {
     }finally{clearInterval(monitor);}
     const states=Object.values(results).map(result=>result.status);
     const state=this.ledger.workflowCancelled(key) ? 'cancelled' : states.every(status=>['review_ready','reused'].includes(status)) ? 'review_ready' : states.includes('failed') ? 'failed' : states.includes('waiting') ? 'waiting' : 'blocked';
-    return {runKey:key,state,nodes:results};
+    return {runKey:key,state,nodes:results,budget:this.ledger.workflowBudget(key)};
   }
 }

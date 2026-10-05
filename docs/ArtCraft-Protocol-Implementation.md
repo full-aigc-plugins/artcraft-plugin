@@ -22,7 +22,7 @@ npm test
 
 Runtime identity uses `pluginId`, `pluginVersion`, `cliVersion`, `sha256`, `mode` and `capabilitySnapshotSha256`. Mode is `headless` or `bridge`. Schema validation does not prove runtime discovery; adapters must verify actual versions and capabilities.
 
-Budget uses `currency`, `maxMinorUnits`, `maxRevisions` and `maxExternalCalls`. Limits are nonnegative safe integers; explicit null means unlimited. Omitted fields never imply authorization. Budget accounting is still pending.
+Budget uses `currency`, `maxMinorUnits`, `maxRevisions` and `maxExternalCalls`. Limits are nonnegative safe integers; explicit null means unlimited. Omitted fields never imply authorization. Shared upper-bound admission is implemented in the budget ledger; provider invoice settlement remains pending.
 
 `payload.schemaVersion` identifies the domain protocol. Domain adapters interpret additional JSON payload fields. Core and runtime fields reject unknown properties. Unsafe JSON integers are rejected; exact ticks use decimal strings and require a rational `timeBase`.
 

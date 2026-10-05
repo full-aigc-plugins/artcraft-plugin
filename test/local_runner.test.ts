@@ -19,7 +19,7 @@ async function context(mode='success') {
  const script=join(root,'worker.mjs');const output=join(root,'output.bin');
  await writeFile(script,mode==='success' ? `import{writeFileSync}from'node:fs';writeFileSync(process.argv[2],'result');` : mode==='failure' ? 'process.exit(3)' : 'setInterval(()=>{},1000)');
  let starts=0;
- const adapter={prepare:async()=>({executable:process.execPath,args:[script,output],cwd:root,actualRevision:null}),verify:async()=>{
+ const adapter={prepare:async()=>({executable:process.execPath,args:[script,output],cwd:root,actualRevision:null,budgetUsage:{minorUnits:0,externalCalls:0}}),verify:async()=>{
   const bytes=await readFile(output);return {root,outputs:[{protocolVersion:'craft-artifact/v1',assetId:'output',version:'v1',sha256:hash(bytes),bytes:bytes.length,mediaType:'application/octet-stream',producerTaskId:'task1',sourceRefs:[],nativeProjectRef:null,renditions:[],dependencies:[],technicalMetadata:{},lossReportRef:null,evidenceRefs:[],location:'output.bin'}],evidenceRefs:[]};
  }};
  const runner=new LocalRunner(ledger,async req=>{assert.equal(req.authorizationRef,'test-scope');starts++;});
@@ -82,7 +82,7 @@ test('two execute calls cannot create two native attempts',async()=>{
 
 test('unconfirmed process group stop cannot settle or release the native project',async()=>{
  const fixture=await context();try{
-  const task=fixture.ledger.claim('task1',null);
+  const task=fixture.ledger.claim('task1',null,{minorUnits:0,externalCalls:0});
   const token=fixture.ledger.prepareExecution('task1',task.epoch,hash('command'));
   fixture.ledger.attachExecution('task1',task.epoch,token,12345);
   fixture.ledger.recordExit('task1',task.epoch,token,{exitCode:0,signal:null,groupStopped:false});
@@ -124,5 +124,16 @@ test('incorrect launcher or native digest is rejected before any claim',async()=
   binding.sha256=hash(await readFile(process.execPath));binding.runtimeExecutable=process.execPath;
   await assert.rejects(fixture.runner.execute('wrapped',adapter),/runtime_identity_mismatch/);
   assert.equal(fixture.ledger.execution('wrapped'),null);
+ }finally{await fixture.cleanup();}
+});
+
+test('missing or excessive trusted cost stops before spawn and leaves no output or lease',async()=>{
+ const fixture=await context();try{
+  for(const usage of [undefined,{minorUnits:1,externalCalls:0}]){
+   const adapter={...fixture.adapter,prepare:async()=>({...await fixture.adapter.prepare(),budgetUsage:usage})};
+   await assert.rejects(fixture.runner.execute('task1',adapter),/budget_usage_invalid|budget_exceeded/);
+   assert.equal(fixture.ledger.execution('task1'),null);assert.equal(fixture.ledger.leases().length,0);
+   await assert.rejects(readFile(join(fixture.root,'output.bin')),/ENOENT/);
+  }
  }finally{await fixture.cleanup();}
 });

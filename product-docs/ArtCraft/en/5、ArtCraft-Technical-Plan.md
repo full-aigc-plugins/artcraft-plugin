@@ -83,3 +83,7 @@ Plugin, skills, upstream CLI and protocol versions evolve independently. Release
 **Created**: 2026-10-05
 **Updated**: 2026-10-05
 **Document status**: Ready for review; implementation status is governed by OpenSpec tasks and evidence.
+
+## Shared budget implementation progress
+
+The ledger now provides parent/child shared allowances, revision counters and atomic admission. See docs/ArtCraft-Budget-Architecture.md for implementation and migration contracts. Actual provider settlement and complete quality loops remain pending.

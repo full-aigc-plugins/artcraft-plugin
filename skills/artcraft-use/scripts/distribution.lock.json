@@ -1,28 +1,31 @@
 {
   "schema": "artcraft-distribution/v1",
-  "version": "0.1.0-dev.0",
+  "version": "0.1.0-dev.1",
   "bundles": {
     "artcraft-runtime": {
-      "filename": "artcraft-runtime-0.1.0-dev.0.zip",
-      "url": "https://github.com/full-aigc-plugins/artcraft-plugin/releases/download/v0.1.0-dev.0/artcraft-runtime-0.1.0-dev.0.zip",
-      "sha256": "ddfd8a57fdcc643854777d9133fd9fc1d9bff6f26878340bbc283ce23a9ff31e",
-      "bytes": 23686,
+      "version": "0.1.0-dev.1",
+      "filename": "artcraft-runtime-0.1.0-dev.1.zip",
+      "url": "https://github.com/full-aigc-plugins/artcraft-plugin/releases/download/v0.1.0-dev.1/artcraft-runtime-0.1.0-dev.1.zip",
+      "sha256": "3c3a3865c5f133a23fdec2da44d2f51c153df43bf277139b080e2a8e0902da2a",
+      "bytes": 26164,
       "files": {
         "LICENSE": "f51b5b32a3b7c3df50ef7153f4dd46233221574f07384d2cf99c6fae08c59f03",
-        "package.json": "929defa8363655bad13868c1f10548f9a7f12424f5b8fa2219ce2acf92511946",
+        "package.json": "b6a4ab66e22821a42092f4ee1de0cfdcc97aa0c439977fcd199dfa2bccc9d6fa",
         "schemas/craft-artifact-v1.json": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d",
         "schemas/craft-task-v1.json": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
-        "src/adapters/public_skill.ts": "67c86eb1b4710352928775244d74f99e85c7b73623c5d8e3a9cbda11c5261c4b",
-        "src/cli.ts": "772734bed5178c420ede67adcac7a1d3d33ec2990ce2793d960643b33b97cc8b",
-        "src/harness/local_runner.ts": "8f952bc5ab0306b9d5f2589133a38c91ff33eb4cd30827eab2e74ed039ca8fd3",
-        "src/harness/task_ledger.ts": "fb44b28466a2d8d2f66a2364711a451023886e702dd584025ea76af26f6c5cf4",
-        "src/planning/workflow_engine.ts": "07b69f59d99baee8cac5b9b08ff75c74c991a85fef1d4ae1f9d1b3e8f5a1a579",
+        "src/adapters/public_skill.ts": "c9ea22efca4b469a8e5ddee778fb3760ecc12e8392ca2dc76054ed0f87a3c614",
+        "src/cli.ts": "962cda9eab35d7e580685dd2370dfd96b4990583bbf986ece11148756f377bdb",
+        "src/harness/budget.ts": "a8a41bc4d4f7dad1103ac674cd71ef3d18449ab6206fc414c9287b45634ebf79",
+        "src/harness/local_runner.ts": "836a55059ff56ac629a951a19ed90a7b29c693f8ea8cc35d3b0dce7e810ff346",
+        "src/harness/task_ledger.ts": "28abc44029a58669f5888b5c0ca0f182017616d7056bcf34aadab783ab679a85",
+        "src/planning/workflow_engine.ts": "e1a87840d3c6362e5551e672c8b8da53c1180837b5ac4d9dcbfed03656e802a2",
         "src/protocol/contracts.ts": "230c040d43ef9ca75a52f72aaa9d51b11dda049c6f74d3baa265915692ef3765",
         "src/protocol/dependency_graph.ts": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43"
       },
       "sourceRepository": "https://github.com/full-aigc-plugins/artcraft-plugin"
     },
     "filmcraft-skills": {
+      "version": "0.1.0-dev.0",
       "filename": "filmcraft-skills-0.1.0-dev.0.zip",
       "url": "https://github.com/full-aigc-skills/filmcraft-skills/releases/download/v0.1.0-dev.0/filmcraft-skills-0.1.0-dev.0.zip",
       "sha256": "bba07e6881b845431d28f11bf9e3e4f6b542109439b1236e3581eb791efef509",
@@ -40,6 +43,7 @@
       "sourceRepository": "https://github.com/full-aigc-skills/filmcraft-skills"
     },
     "effectcraft-skills": {
+      "version": "0.1.0-dev.0",
       "filename": "effectcraft-skills-0.1.0-dev.0.zip",
       "url": "https://github.com/full-aigc-skills/effectcraft-skills/releases/download/v0.1.0-dev.0/effectcraft-skills-0.1.0-dev.0.zip",
       "sha256": "43bb9d983e29671cd948c2dab58f8bd05be5e53fcbf8eb826e8a723ed73d6eb1",
@@ -57,6 +61,7 @@
       "sourceRepository": "https://github.com/full-aigc-skills/effectcraft-skills"
     },
     "photocraft-skills": {
+      "version": "0.1.0-dev.0",
       "filename": "photocraft-skills-0.1.0-dev.0.zip",
       "url": "https://github.com/full-aigc-skills/photocraft-skills/releases/download/v0.1.0-dev.0/photocraft-skills-0.1.0-dev.0.zip",
       "sha256": "7f9dc2dfeda0a4af95c30f193ea6ac20667c60043d30ca2a62c852ee5f720344",
@@ -74,6 +79,7 @@
       "sourceRepository": "https://github.com/full-aigc-skills/photocraft-skills"
     },
     "vectorcraft-skills": {
+      "version": "0.1.0-dev.0",
       "filename": "vectorcraft-skills-0.1.0-dev.0.zip",
       "url": "https://github.com/full-aigc-skills/vectorcraft-skills/releases/download/v0.1.0-dev.0/vectorcraft-skills-0.1.0-dev.0.zip",
       "sha256": "aa290a48c2161b7eece2ef45a831954784ea0736732fd09610a2684ae9f500f7",

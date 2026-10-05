@@ -16,7 +16,7 @@ license: Apache-2.0
 python3 /mnt/skills/user/artcraft-use/scripts/bootstrap.py
 ```
 
-`/mnt/skills/user/artcraft-use` 是宿主挂载示例；实际加载位置不同时替换为该技能真实绝对路径。返回 JSON 包含 `nodeExecutable`、`entryPoint` 和四个领域运行时身份。当前锁文件指向开发发布制品；制品尚未上传时会明确失败，不能把本地离线验收说成在线发布可用。
+`/mnt/skills/user/artcraft-use` 是宿主挂载示例；实际加载位置不同时替换为该技能真实绝对路径。返回 JSON 包含 `nodeExecutable`、`entryPoint` 和四个领域运行时身份。当前锁文件指向固定开发发布制品；制品缺失或摘要不符会明确失败。各领域技能保持自身版本，不跟随 ArtCraft 运行时伪升级。
 
 离线制品可用 `--node-archive`、`--bundle-dir`、`--native-archive-dir` 指定；这些参数不绕过摘要、路径或版本验证。`--runtime-home` 或 `CRAFT_RUNTIME_HOME` 指定隔离安装目录。复用版本时重新核验文件；损坏版本报错并保留，不覆盖、不静默升级。
 
@@ -40,12 +40,12 @@ python3 /mnt/skills/user/artcraft-use/scripts/workflow.py \
 
 ## 修改、恢复与交付
 
-- 修改语义计划时使用新的 `revision`；同修订内容变化报冲突。仅受影响节点重建，无关节点复用；旧交付保留。
+- 修改语义计划时使用新的 `revision`；同修订内容变化报冲突。仅受影响节点重建，无关节点复用；旧交付保留。相同工作流授权范围共享预算；首个计划不扣修订轮次，之后每个新修订扣一次 `maxRevisions`。示例允许一轮；不要在同一授权范围提高上限或更换货币。
 - 当前 ArtCraft 适配器只支持新建领域工程。原生源工程局部修改应使用对应独立技能的修订入口；不要假称 ArtCraft 已接通该能力。
 - 运行中取消登记意图，等待真实子进程和进程组停止；不明确结果保留写占用，不重放任务。崩溃后的自动接管尚未完成，先读取账本再处理。
 - 交付 SQLite 账本、冻结计划、安装回执、结果清单，以及各子节点原生工程、收集素材、预览和导出。原生工程引用保持可核验；移动包时可能需要对应技能重新链接素材。
-- `review_ready` 只表示技术核验。还需检查真实视觉、文字、音频与用户需求；共享预算扣减、创作最终审核和最终交付包功能尚未完成，不能据此声明生产发布通过。
+- `review_ready` 只表示技术核验。还需检查真实视觉、文字、音频与用户需求；共享预算上界已在原生副作用前控制；付费服务实际核销、创作最终审核和最终交付包功能尚未完成，不能据此声明生产发布通过。
 
-四个独立技能通过名称交接，不使用兄弟技能相对链接。独立安装：`npx skills add full-aigc-skills/filmcraft-skills --skill filmcraft-use`；其他名称为 `effectcraft-use`、`photocraft-use`、`vectorcraft-use`，分别属于同名 `-skills` 包。源码包尚未发布时，该命令不作为当前安装成功证据。
+四个独立技能通过名称交接，不使用兄弟技能相对链接。独立安装：`npx skills add full-aigc-skills/filmcraft-skills --skill filmcraft-use`；其他名称为 `effectcraft-use`、`photocraft-use`、`vectorcraft-use`，分别属于同名 `-skills` 包。插件中同步固定发布标签与摘要；独立安装与插件宿主安装是不同证据范围。
 
 当前验证范围：四个原生公开工作流交接、Logo 语义改动后下游重建、源工程与已有音频保留、CLI 重开和状态核验。完整干净首次使用与在线发布状态以最新测试及仓库证据为准。

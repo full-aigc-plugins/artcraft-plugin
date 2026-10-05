@@ -67,3 +67,7 @@
 独立 artcraft-use 的公开 workflow.py 串联固定 Node、ArtCraft 运行时、四个独立技能源快照和四个官方 CLI。runtime ZIP 与技能 ZIP 由插件构建脚本从各自事实源生成，锁定压缩包及逐文件摘要；仅在暂存验证后原子安装，损坏的已有版本拒绝复用且保留。CLI 与命令能力快照通过各领域公开入口核验，不导入兄弟技能私有模块。项目入口串行化同目录调用，冻结计划、登记表与授权绑定。
 
 12 项安装/技能测试与 48 项运行时回归已通过。4.1/4.2 对应失败测试和最小实现完成，4.3 在线制品及完整边界验收保持未完成。自有发布包当前通过本地锁定 ZIP 验证，不能据此声明在线或宿主安装成功。详情见 docs/ArtCraft-First-Use.zh_CN.md。
+
+## Shared budget implementation
+
+采用 SQLite 共享预算账户，范围为 ownerId/workflowId/authorizationRef，政策固定。原生执行的可信消耗上界与工程租约在同一写事务分配；新计划修订计轮次，未知执行保留额度，同修订重跑与复用不重复占用。账本 schema 2 保留旧历史读取，但无计量旧范围拒绝新执行。实施和边界见[预算架构](../../../docs/ArtCraft-Budget-Architecture.zh_CN.md)。付费适配器实际账单核销和质量停滞循环仍未实现。

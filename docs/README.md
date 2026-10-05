@@ -37,3 +37,7 @@ OpenSpec is the sole behavioral authority; this documentation provides explanati
 
 
 [Domain technical design](ArtCraft-Domain-Design.md)
+
+## Shared budget implementation
+
+[Shared budget architecture](ArtCraft-Budget-Architecture.md)

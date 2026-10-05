@@ -2,6 +2,8 @@
 import { DatabaseSync } from 'node:sqlite';
 import { randomUUID } from 'node:crypto';
 import { validateTask, planHash, verifyArtifact } from '../protocol/contracts.ts';
+import { budgetLimits, budgetUsage, allocateBudget } from './budget.ts';
+import type { BudgetSnapshot, BudgetLimits } from './budget.ts';
 
 type TaskRow = {task_id:string;request_json:string;state:string;epoch:number;attempt_id:string|null;project_key:string;binding_hash:string};
 export type TaskReceipt = {taskId:string;attemptId:string|null;state:string;epoch:number;runtimeIdentity:Record<string,unknown>;outputRefs:unknown[];evidenceRefs:unknown[];error:unknown};
@@ -17,7 +19,7 @@ export class TaskLedger {
     const application=this.database.prepare('PRAGMA application_id').get() as {application_id:number};
     const version=this.database.prepare('PRAGMA user_version').get() as {user_version:number};
     const tables=this.database.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'").all();
-    if((application.application_id!==0 && application.application_id!==1129464134) || version.user_version>1 || (tables.length && (application.application_id!==1129464134 || version.user_version!==1))) throw new Error('ledger_schema_incompatible');
+    if((application.application_id!==0 && application.application_id!==1129464134) || version.user_version>2 || (tables.length && (application.application_id!==1129464134 || ![1,2].includes(version.user_version)))) throw new Error('ledger_schema_incompatible');
     this.database.exec(`
       CREATE TABLE IF NOT EXISTS tasks (
         task_id TEXT PRIMARY KEY, caller_id TEXT NOT NULL, plugin_id TEXT NOT NULL,
@@ -47,7 +49,16 @@ export class TaskLedger {
       CREATE TABLE IF NOT EXISTS workflow_nodes (
         run_key TEXT NOT NULL, node_id TEXT NOT NULL, fingerprint TEXT,
         record_json TEXT NOT NULL, PRIMARY KEY(run_key,node_id));
-      PRAGMA application_id=1129464134; PRAGMA user_version=1;`);
+      CREATE TABLE IF NOT EXISTS budget_accounts (
+        account_key TEXT PRIMARY KEY, limits_json TEXT NOT NULL, allocated_json TEXT NOT NULL);
+      CREATE TABLE IF NOT EXISTS workflow_budget_links (
+        run_key TEXT PRIMARY KEY, account_key TEXT NOT NULL);
+      CREATE TABLE IF NOT EXISTS task_budget_links (
+        task_id TEXT PRIMARY KEY, account_key TEXT NOT NULL);
+      CREATE TABLE IF NOT EXISTS budget_reservations (
+        task_id TEXT PRIMARY KEY, account_key TEXT NOT NULL, usage_json TEXT NOT NULL,
+        status TEXT NOT NULL, created_at TEXT NOT NULL);
+      PRAGMA application_id=1129464134; PRAGMA user_version=2;`);
     this.database.exec('COMMIT; PRAGMA journal_mode=WAL; PRAGMA synchronous=FULL;');
     }catch(error){try{this.database.exec('ROLLBACK');}catch{}this.database.close();throw error;}
   }
@@ -77,20 +88,34 @@ export class TaskLedger {
   }
 
   /** 核对真实计划摘要；同一调用方/插件幂等键返回原任务，绑定改变则冲突。 */
-  register(callerId:string,projectKey:string,value:unknown):TaskReceipt {
+  register(callerId:string,projectKey:string,value:unknown,workflowKey?:string):TaskReceipt {
     if(!callerId || !projectKey || callerId.length>256 || projectKey.length>4096) throw new Error('context_invalid');
     const request=validateTask(value);
     if(planHash(request.payload)!==request.planHash) throw new Error('plan_hash_mismatch');
     const {taskId:ignoredTaskId,...binding}=request;
     const bindingHash=planHash({projectKey,request:binding});
     return this.transaction(()=>{
+      let accountKey:string;
+      if(workflowKey){
+        const workflow=this.database.prepare('SELECT owner_id,plan_json FROM workflow_runs WHERE run_key=?').get(workflowKey) as {owner_id:string;plan_json:string}|undefined;
+        if(!workflow || workflow.owner_id!==callerId || JSON.parse(workflow.plan_json).authorizationRef!==request.authorizationRef)throw new Error('budget_scope_mismatch');
+        const linked=this.database.prepare('SELECT account_key FROM workflow_budget_links WHERE run_key=?').get(workflowKey) as {account_key:string}|undefined;
+        if(!linked)throw new Error('budget_history_untracked');accountKey=linked.account_key;
+        if(planHash(this.budgetAccount(accountKey).limits)!==planHash(request.budget))throw new Error('budget_policy_conflict');
+      }else accountKey=planHash({ownerId:callerId,rootTaskId:request.taskId,authorizationRef:request.authorizationRef});
       const previous=this.database.prepare('SELECT * FROM tasks WHERE caller_id=? AND plugin_id=? AND idem_key=?').get(callerId,request.runtimeIdentity.pluginId,request.idempotencyKey) as unknown as TaskRow|undefined;
       if(previous){
         if(previous.binding_hash!==bindingHash) throw new Error('idempotency_conflict');
+        if(workflowKey){
+          const link=this.database.prepare('SELECT account_key FROM task_budget_links WHERE task_id=?').get(previous.task_id) as {account_key:string}|undefined;
+          if(link?.account_key!==accountKey)throw new Error('budget_scope_mismatch');
+        }
         return this.receipt(previous);
       }
       if(this.database.prepare('SELECT task_id FROM tasks WHERE task_id=?').get(request.taskId)) throw new Error('task_identity_conflict');
       this.database.prepare('INSERT INTO tasks(task_id,caller_id,plugin_id,idem_key,project_key,binding_hash,request_json,state,created_at) VALUES(?,?,?,?,?,?,?,?,?)').run(request.taskId,callerId,request.runtimeIdentity.pluginId,request.idempotencyKey,projectKey,bindingHash,JSON.stringify(request),'planned',new Date().toISOString());
+      this.ensureBudgetAccount(accountKey,budgetLimits(request.budget));
+      this.database.prepare('INSERT INTO task_budget_links(task_id,account_key) VALUES(?,?)').run(request.taskId,accountKey);
       this.event(request.taskId,null,'planned',0,{planHash:request.planHash});
       return this.receipt(this.row(request.taskId));
     });
@@ -108,7 +133,7 @@ export class TaskLedger {
   }
 
   /** 在副作用前核对工程版本并获得持久化单写租约；不自动回收旧占用。 */
-  claim(taskId:string,actualRevision:string|null):TaskReceipt {
+  claim(taskId:string,actualRevision:string|null,usage?:unknown):TaskReceipt {
     return this.transaction(()=>{
       const row=this.row(taskId);
       if(row.state!=='ready') throw new Error('task_not_ready');
@@ -116,6 +141,12 @@ export class TaskLedger {
       if(Date.parse(request.deadline)<=Date.now()) throw new Error('deadline_exceeded');
       if(request.expectedRevision!==actualRevision) throw new Error('revision_conflict');
       if(this.database.prepare('SELECT * FROM leases WHERE project_key=?').get(row.project_key)) throw new Error('project_busy');
+      const requested=budgetUsage(usage);
+      const link=this.database.prepare('SELECT account_key FROM task_budget_links WHERE task_id=?').get(taskId) as {account_key:string}|undefined;
+      if(!link)throw new Error('budget_history_untracked');
+      const snapshot=this.budgetAccount(link.account_key),allocated=allocateBudget(snapshot,{...requested,revisions:0});
+      this.database.prepare('UPDATE budget_accounts SET allocated_json=? WHERE account_key=?').run(JSON.stringify(allocated),link.account_key);
+      this.database.prepare('INSERT INTO budget_reservations(task_id,account_key,usage_json,status,created_at) VALUES(?,?,?,?,?)').run(taskId,link.account_key,JSON.stringify(requested),'reserved',new Date().toISOString());
       const previous=this.database.prepare('SELECT epoch FROM epochs WHERE project_key=?').get(row.project_key) as {epoch:number}|undefined;
       const epoch=(previous?.epoch ?? 0)+1;
       const attempt=randomUUID();
@@ -165,6 +196,7 @@ export class TaskLedger {
       if(row.state!=='running' || this.execution(taskId)) throw new Error('execution_conflict');
       const token=randomUUID();
       this.database.prepare('INSERT INTO executions(task_id,attempt_id,epoch,token,command_hash,status) VALUES(?,?,?,?,?,?)').run(taskId,row.attempt_id,epoch,token,commandHash,'prepared');
+      this.database.prepare('UPDATE budget_reservations SET status=? WHERE task_id=?').run('committed',taskId);
       this.event(taskId,row.state,row.state,epoch,{execution:'prepared',commandHash});
       return token;
     });
@@ -251,11 +283,44 @@ export class TaskLedger {
     const digest=planHash(plan);
     return this.transaction(()=>{
       const existing=this.database.prepare('SELECT plan_hash FROM workflow_runs WHERE run_key=?').get(key) as {plan_hash:string}|undefined;
-      if(existing){if(existing.plan_hash!==digest)throw new Error('workflow_revision_conflict');return key;}
+      if(existing){
+        if(existing.plan_hash!==digest)throw new Error('workflow_revision_conflict');
+        if(!this.database.prepare('SELECT account_key FROM workflow_budget_links WHERE run_key=?').get(key))throw new Error('budget_history_untracked');
+        return key;
+      }
+      const limits=budgetLimits(plan.budget),accountKey=planHash({ownerId:plan.ownerId,workflowId:plan.workflowId,authorizationRef:plan.authorizationRef});
+      // 旧账本未计量的执行不得隐式迁成免费历史，调用者仍能读取旧状态。
+      const history=this.database.prepare('SELECT w.plan_json,b.account_key FROM workflow_runs w LEFT JOIN workflow_budget_links b ON w.run_key=b.run_key WHERE w.owner_id=? AND w.workflow_id=?').all(plan.ownerId,plan.workflowId) as {plan_json:string;account_key:string|null}[];
+      if(history.some(row=>!row.account_key && JSON.parse(row.plan_json).authorizationRef===plan.authorizationRef))throw new Error('budget_history_untracked');
+      this.ensureBudgetAccount(accountKey,limits);
+      if(history.some(row=>row.account_key===accountKey)){
+        const allocated=allocateBudget(this.budgetAccount(accountKey),{minorUnits:0,externalCalls:0,revisions:1});
+        this.database.prepare('UPDATE budget_accounts SET allocated_json=? WHERE account_key=?').run(JSON.stringify(allocated),accountKey);
+      }
+      this.database.prepare('INSERT INTO workflow_budget_links(run_key,account_key) VALUES(?,?)').run(key,accountKey);
       this.database.prepare('INSERT INTO workflow_runs(run_key,owner_id,workflow_id,revision,plan_hash,plan_json) VALUES(?,?,?,?,?,?)').run(key,plan.ownerId,plan.workflowId,plan.revision,digest,JSON.stringify(plan));
       for(const node of plan.nodes)this.database.prepare('INSERT INTO workflow_nodes(run_key,node_id,record_json) VALUES(?,?,?)').run(key,node.id,JSON.stringify({status:'pending'}));
       return key;
     });
+  }
+
+  private ensureBudgetAccount(key:string,limits:BudgetLimits):void {
+    const existing=this.database.prepare('SELECT limits_json FROM budget_accounts WHERE account_key=?').get(key) as {limits_json:string}|undefined;
+    if(existing){if(planHash(JSON.parse(existing.limits_json))!==planHash(limits))throw new Error('budget_policy_conflict');return;}
+    this.database.prepare('INSERT INTO budget_accounts(account_key,limits_json,allocated_json) VALUES(?,?,?)').run(key,JSON.stringify(limits),JSON.stringify({minorUnits:0,externalCalls:0,revisions:0}));
+  }
+  private budgetAccount(key:string):BudgetSnapshot {
+    const row=this.database.prepare('SELECT limits_json,allocated_json FROM budget_accounts WHERE account_key=?').get(key) as {limits_json:string;allocated_json:string}|undefined;
+    if(!row)throw new Error('budget_account_missing');return {accountKey:key,limits:JSON.parse(row.limits_json),allocated:JSON.parse(row.allocated_json)};
+  }
+  /** 工作流修订共享授权范围的预算快照，读取不会核销未知消耗。 */
+  workflowBudget(key:string):BudgetSnapshot {
+    const row=this.database.prepare('SELECT account_key FROM workflow_budget_links WHERE run_key=?').get(key) as {account_key:string}|undefined;
+    if(!row)throw new Error('budget_history_untracked');return this.budgetAccount(row.account_key);
+  }
+  /** 全部已计量预算账户；用于本地状态检查，历史未计量记录不伪造账户。 */
+  budgetAccounts():BudgetSnapshot[] {
+    return (this.database.prepare('SELECT account_key FROM budget_accounts ORDER BY account_key').all() as {account_key:string}[]).map(row=>this.budgetAccount(row.account_key));
   }
 
   /** 保存节点与子任务引用；产物只在公共核验后登记为就绪。 */

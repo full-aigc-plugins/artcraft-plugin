@@ -6,6 +6,7 @@ import { isAbsolute } from 'node:path';
 import { planHash } from '../protocol/contracts.ts';
 import { TaskLedger } from './task_ledger.ts';
 import type { TaskReceipt } from './task_ledger.ts';
+import type { BudgetUsage } from './budget.ts';
 
 /** 可信适配器的锁定启动器；模型 payload 不能提供此对象。 */
 export interface LauncherIdentity {
@@ -13,7 +14,7 @@ export interface LauncherIdentity {
   sha256:string;
   files:{path:string;sha256:string}[];
 }
-export interface ExecutionPlan {executable:string;args:string[];cwd:string;actualRevision:string|null;launcherIdentity?:LauncherIdentity;}
+export interface ExecutionPlan {executable:string;args:string[];cwd:string;actualRevision:string|null;budgetUsage?:BudgetUsage;launcherIdentity?:LauncherIdentity;}
 export interface ExecutionAdapter {
   /** 只读准备和编译；授权已检查，不启动副作用。 */
   prepare(request:Record<string,any>):Promise<ExecutionPlan>;
@@ -56,7 +57,7 @@ export class LocalRunner {
     const runtimeHash=await digest(launcher?.runtimeExecutable ?? plan.executable);
     if(runtimeHash!==request.runtimeIdentity.sha256) throw new Error('runtime_identity_mismatch');
     let claimed:TaskReceipt;
-    try{claimed=this.ledger.claim(taskId,plan.actualRevision);}
+    try{claimed=this.ledger.claim(taskId,plan.actualRevision,plan.budgetUsage);}
     catch(error){if(['task_not_ready','project_busy'].includes((error as Error).message))return this.ledger.status(taskId);throw error;}
     const epoch=claimed.epoch;
     const token=this.ledger.prepareExecution(taskId,epoch,planHash({executable:plan.executable,args:plan.args,cwd:plan.cwd,launcherIdentity:launcher ?? null}));
