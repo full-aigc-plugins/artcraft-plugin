@@ -78,6 +78,15 @@ for spec in spec_files:
 if len(requirements) != len(set(requirements)):
     errors.append('duplicate requirement IDs')
 tasks = (change / 'tasks.md').read_text()
+# 与 CI 固定 OpenSpec 的任务分组约束一致，旧 CLI 也能提前发现错放。
+current_group = None
+for line in tasks.splitlines():
+    heading = re.match(r'^## ([0-9]+)\.', line)
+    if heading:
+        current_group = heading[1]
+    task = re.match(r'^- \[[ xX]\] ([0-9]+)\.([0-9]+) ', line)
+    if task and task[1] != current_group:
+        errors.append(f'task {task[1]}.{task[2]} is under group {current_group}, expected group {task[1]}')
 task_ids = re.findall(r'^- \[[ xX]\] ([0-9.]+) ', tasks, flags=re.M)
 duplicate_task_ids = sorted(task for task, count in Counter(task_ids).items() if count > 1)
 if duplicate_task_ids:

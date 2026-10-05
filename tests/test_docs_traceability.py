@@ -29,3 +29,17 @@ class DocumentationTraceabilityTests(unittest.TestCase):
             path.write_text(baseline+'\n- [ ] 6.16 duplicate fixture\n')
             negative=validate();self.assertEqual(negative.returncode,1,negative.stdout+negative.stderr)
             self.assertIn('duplicate task IDs: 6.16',json.loads(negative.stdout)['errors'])
+
+    def test_task_under_wrong_numbered_group_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary)/'repo'
+            shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','node_modules','.codex','.claude','.local','.runtime','.codegraph','__pycache__'))
+            path=root/'openspec/changes/establish-v1-plugin/tasks.md'
+            baseline=path.read_text()
+            def validate():
+                return subprocess.run([sys.executable,'-B',str(root/'scripts/validate_docs.py')],cwd=root,capture_output=True,text=True)
+            positive=validate();self.assertEqual(positive.returncode,0,positive.stdout+positive.stderr)
+            task=next(line for line in baseline.splitlines() if line.startswith('- [ ] 1.1 '))
+            path.write_text(baseline.replace(task+'\n','')+'\n'+task+'\n')
+            negative=validate();self.assertEqual(negative.returncode,1,negative.stdout+negative.stderr)
+            self.assertIn('task 1.1 is under group 11, expected group 1',json.loads(negative.stdout)['errors'])

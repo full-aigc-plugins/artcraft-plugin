@@ -1,0 +1,25 @@
+{
+  "schema": "craft-openspec-task-group-evidence/v1",
+  "date": "2026-10-06",
+  "failedRun": "https://github.com/full-aigc-plugins/artcraft-plugin/actions/runs/37371253917",
+  "remoteFailure": "OpenSpec 1.13.1 strict validation rejected task 6.22 under numbered group 11",
+  "fix": "move the unchanged task 6.22 into group 6; preserve ID, requirement, checkbox and evidence",
+  "localRegression": {
+    "tests": 2,
+    "passed": 2,
+    "red": "mutated wrong-group task accepted by old validator; expected exit 1, got 0",
+    "green": "same wrong-group task rejected; duplicate-ID guard remains covered"
+  },
+  "peerAudit": {
+    "filmcraft": "no misplaced tasks",
+    "effectcraft": "no misplaced tasks",
+    "photocraft": "no misplaced tasks",
+    "vectorcraft": "no misplaced tasks"
+  },
+  "localChecks": [
+    "documentation validator passed",
+    "installed local OpenSpec strict validation passed",
+    "git diff --check passed"
+  ],
+  "remoteCI": "awaiting new main commit; no CLI installed or upgraded"
+}

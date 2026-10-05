@@ -83,6 +83,8 @@
 - [x] 6.20 [AC-DM-006] 实现固定公开 Video Factory 0.4.0 验证节点、可信工具摘要登记、闭合 payload、JSON 证据与打包保留；产物：src/adapters/video_factory*.ts、公开 register-video-factory、独立技能 workflow.py。
 - [x] 6.21 [AC-DM-006] 新固定制品发布后，默认在线单技能安装执行四领域+外部验证并验包，记录工具/输入/报告摘要及未验证范围；候选证据不替代公开下载证明。
 
+- [x] 6.22 [AC-DM-002] 按声明任务图选择首次安装领域，验证单 VectorCraft 冷启动、增量 PhotoCraft、未知执行器提前拒绝与四领域兼容；产物：独立技能源 tests/test_selected_setup.py、docs/evidence/selected-domain-first-use.json。
+
 ## 7. artifact-delivery
 
 - [x] 7.1 [AC-AR-001] 编写能暴露“产物血缘与包完整性”缺失的正向与失败测试并确认预期失败。责任：Harness owner；前置：技能/运行时合同已确定；业务调用依赖对应适配器。产物：fixture、断言及失败日志；验证：失败原因必须是目标行为缺失。
@@ -125,5 +127,3 @@
 - [x] 11.1 [AC-RT-001] 用隔离 Git 仓库确认工作树漂移、缺失标签、摘要错误与输出冲突在旧打包器上失败；产物：tests/test_runtime_bundle.py。
 - [x] 11.2 [AC-RT-001] 按输入发行锁读取固定标签、暂存验证全部包并拒绝覆盖冲突输出；产物：scripts/build_runtime_bundle.py、双语首次使用说明。
 - [x] 11.3 [AC-RT-001] 验证隔离场景、幂等重建和当前五个锁定包摘要一致；产物：docs/evidence/locked-bundle-rebuild.json。不提升完整宿主、创作或上线验收状态。
-
-- [x] 6.22 [AC-DM-002] 按声明任务图选择首次安装领域，验证单 VectorCraft 冷启动、增量 PhotoCraft、未知执行器提前拒绝与四领域兼容；产物：独立技能源 tests/test_selected_setup.py、docs/evidence/selected-domain-first-use.json。
