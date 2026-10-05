@@ -4,7 +4,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-> 实施中。四领域原生交接、CLI 账本重开以及本地发布包的干净首次安装已通过。在线发布包、插件宿主安装、共享预算、创作最终评审与完整恢复仍未完成。
+> 实施中。四领域原生交接、CLI 账本重开以及默认在线下载的干净首次安装已通过。插件宿主安装、共享预算、创作最终评审与完整恢复仍未完成。
 
 ## 一眼了解
 
@@ -24,10 +24,10 @@ flowchart LR
 | --- | --- |
 | Plugin ID / 版本 | artcraft / 0.1.0-dev.0 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills，发布快照尚未上传 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.0 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
-| 宿主与市场 | 尚未验收，不能作为可安装市场发布 |
+| 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
 
 ## 能力与边界
 
@@ -50,7 +50,7 @@ python3 <skill-root>/scripts/workflow.py <plan.json> \
   --asset voice=<absolute-voice.wav>
 ```
 
-当前开发验收使用 `--node-archive` 和 `--bundle-dir`。这些参数仍校验摘要；自有发布 URL 尚未上线，不把开发离线安装说成在线发布。实际 CLI argv 为 `[nodeExecutable, entryPoint, ...]`，命令为 run、status、cancel。
+默认在线下载已在只复制单技能、无全局 Node 的新运行时目录通过；参见[在线证据](docs/evidence/online-first-use.json)。离线制品参数也保留摘要校验。实际 CLI argv 为 `[nodeExecutable, entryPoint, ...]`，命令为 run、status、cancel。
 
 ## 架构与文档
 
@@ -74,7 +74,7 @@ ArtCraft 运行时 48 项回归通过，见[原生证据](docs/evidence/native-m
 
 ## 规范、贡献与许可
 
-保持现有 OpenSpec 为唯一规范事实源；任务仅按实际范围勾选，完整场景未验收时保持进行中。线上发布、宿主、共享预算、创作审核与恢复仍需后续实现。
+保持现有 OpenSpec 为唯一规范事实源；任务仅按实际范围勾选，完整场景未验收时保持进行中。宿主、共享预算、创作审核与完整恢复仍需后续实现。
 
 ```bash
 python3 scripts/validate_docs.py
@@ -86,3 +86,7 @@ openspec validate establish-v1-plugin --strict --no-interactive
 [上游参考](https://github.com/storytold/artcraft) · [Issues](https://github.com/full-aigc-plugins/artcraft-plugin/issues)
 
 独立技能现已绑定已发布的开发标签 `v0.1.0-dev.0`，`skills.lock.json` 固定来源提交与整个技能摘要。使用 `python3 scripts/vendor/skill_vendor.py check` 核对。技能源快照发布不代表宿主验收或生产完成。
+
+## Codex 开发版宿主验证
+
+五个插件已在隔离 Codex 配置中从公开标签安装，app-server 发现带命名空间的技能且无加载错误；安装缓存中的 ArtCraft 入口已交付四种原生工程。[宿主证据](docs/evidence/codex-installation.json)。此为受控开发验收，不代表桌面 GUI、其他宿主、完整创作或正式市场发布通过。

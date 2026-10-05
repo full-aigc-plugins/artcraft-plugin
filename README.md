@@ -4,7 +4,7 @@ Cross-tool project planning, asset dependencies, version propagation and selecti
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-> Implementation in progress. Four-domain native handoff, durable CLI resume and clean first use with local release bundles pass. Online bundles, host installation, shared budgets, final creative review and complete recovery remain unfinished.
+> Implementation in progress. Four-domain native handoff, durable CLI resume and clean first use through default online downloads pass. Host installation, shared budgets, final creative review and complete recovery remain unfinished.
 
 ## At a glance
 
@@ -24,10 +24,10 @@ flowchart LR
 | --- | --- |
 | Plugin ID / version | artcraft / 0.1.0-dev.0 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills; release snapshots not yet uploaded |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.0 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
-| Host and marketplace | Unverified; not eligible for installable marketplace release |
+| Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
 
 ## Capabilities and boundaries
 
@@ -38,7 +38,7 @@ flowchart LR
 | Versions and rework | Hashes, lineage, no-replay reuse, Logo consumer rebuilds | Native source-project revision bindings |
 | Technical delivery | Native projects, collected media, previews, exports and public receipts | Complete media metadata, loss reports and final packaging |
 | Evaluation | File/reference hashes, native reopen and real decode tests | Cross-artifact creative consistency and final review |
-| Installation | Clean single skill, local locked bundles, four official CLI installations | Online project artifacts and host installation |
+| Installation | Clean single skill, default online locked bundles, four official CLI installations | Host installation |
 
 ## Quick start
 
@@ -50,7 +50,7 @@ python3 <skill-root>/scripts/workflow.py <plan.json> \
   --asset voice=<absolute-voice.wav>
 ```
 
-Development acceptance uses `--node-archive` and `--bundle-dir`, without bypassing hashes. Project release URLs are not live yet. The actual CLI argv is `[nodeExecutable, entryPoint, ...]`; public commands are run, status and cancel.
+Default online downloads passed in a fresh runtime directory with only one copied skill and no global Node; see [online evidence](docs/evidence/online-first-use.json). Offline archive options also preserve hash checks. The actual CLI argv is `[nodeExecutable, entryPoint, ...]`; public commands are run, status and cancel.
 
 ## Architecture and documentation
 
@@ -74,7 +74,7 @@ The runtime's 48-test regression passes; see [native evidence](docs/evidence/nat
 
 ## Specification, contribution and license
 
-The existing OpenSpec change remains the sole authority. Check tasks only against their actual scope; complete scenarios stay in progress until accepted. Online release, hosts, shared budgets, creative review and recovery remain unfinished.
+The existing OpenSpec change remains the sole authority. Check tasks only against their actual scope; complete scenarios stay in progress until accepted. Hosts, shared budgets, creative review and complete recovery remain unfinished.
 
 ```bash
 python3 scripts/validate_docs.py
@@ -86,3 +86,7 @@ These validate documentation and specifications only. Original code uses [Apache
 [Upstream reference](https://github.com/storytold/artcraft) · [Issues](https://github.com/full-aigc-plugins/artcraft-plugin/issues)
 
 Independent skills are now pinned at the published development tag `v0.1.0-dev.0`, including the exact source commit and whole-skill digest in `skills.lock.json`. Verify using `python3 scripts/vendor/skill_vendor.py check`. These source snapshots do not establish plugin-host acceptance or production readiness.
+
+## Codex development host checks
+
+All five plugins installed from public tags into an isolated Codex configuration. App-server discovered their namespaced skills without loading errors; the installed ArtCraft entry produced four native projects. [Host evidence](docs/evidence/codex-installation.json). These controlled development checks do not establish desktop GUI, other hosts, complete creative or production marketplace acceptance.

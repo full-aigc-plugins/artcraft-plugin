@@ -1,0 +1,38 @@
+{
+  "observedAt": "2026-10-05T11:48:59.111674+00:00",
+  "platform": "darwin-arm64",
+  "exitCode": 0,
+  "testCount": 13,
+  "status": "passed",
+  "requirement": "AC-RT-001",
+  "sourceSkillCommit": "912e5f3aab9b75959b6d200241318770077ce89a",
+  "installerSourceHashes": {
+    "bootstrap.py": "72a431488a53562c007e0c807d92c72b37b688a44b5c5ffd43d2948160369bb9",
+    "setup.py": "51e08a971de97a0d0ac0baf38daa8b1431d9fb833947143345251212ac16fff7",
+    "node.lock.json": "5d47b1f8b5a1738686f3033981444489eafeb99854d2102254be0375ae4462b8",
+    "distribution.lock.json": "ee7ec27664a77e35b0f3de079ba1077b61ff511dbe9527a2bcb9a2a959f4e3df"
+  },
+  "checks": [
+    {
+      "suite": "independent artcraft-skills setup regression",
+      "passed": 12,
+      "durationSeconds": 41.561,
+      "mode": "locked local own bundles + actual official runtimes"
+    },
+    {
+      "evidence": "docs/evidence/online-first-use.json",
+      "passed": 1,
+      "mode": "default online all bundles and runtimes"
+    }
+  ],
+  "scenarios": {
+    "AC-RT-001-P": "default online pinned source, version, platform and archive/file hashes; staged atomic installation, retained licenses and runtime receipt; four native projects delivered",
+    "AC-RT-001-N": "bad archive hash/traversal/incorrect binary version/corrupt existing runtime rejected; existing content preserved"
+  },
+  "excludedEvidence": [
+    "other platforms",
+    "AC-RT-002 upgrades and draining",
+    "GUI or creative acceptance",
+    "complete recovery and production release"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "craft-codex-host-evidence/v1",
+  "observedAt": "2026-10-05T11:51:21.344020+00:00",
+  "platform": "darwin-arm64",
+  "pluginId": "artcraft",
+  "releaseTag": "v0.1.0-dev.0",
+  "releaseCommit": "9ed351e825671a32288578678f81b31212f5ff29",
+  "cliVersion": "codex-cli 0.153.4",
+  "appServerUserAgent": "Codex Desktop/0.147.0",
+  "result": "passed",
+  "scope": [
+    "temporary isolated host configuration and local test marketplace",
+    "install from public GitHub immutable tag",
+    "plugin list installed and enabled",
+    "app-server skills/list discovers enabled namespaced skill with zero errors",
+    "installed skill content matches source lock"
+  ],
+  "skillName": "artcraft:artcraft-use",
+  "marketplacePromotion": false,
+  "notVerified": [
+    "desktop GUI activation and interaction",
+    "other hosts or platforms",
+    "full domain and creative acceptance",
+    "production release"
+  ],
+  "installedSkillFirstUse": {
+    "passed": 1,
+    "durationSeconds": 46.851,
+    "entry": "installed plugin cache skill scripts/workflow.py",
+    "offlineOverrides": false,
+    "checks": [
+      "four native projects",
+      "task reuse",
+      "ledger status and zero leases",
+      "revision conflict",
+      "provided audio unchanged"
+    ]
+  }
+}

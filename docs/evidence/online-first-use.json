@@ -1,0 +1,47 @@
+{
+  "schema": "craft-online-first-use-evidence/v1",
+  "observedAt": "2026-10-05T11:46:07.740769+00:00",
+  "result": "passed",
+  "testCommand": "CRAFT_ONLINE_FIRST_USE=1 /opt/anaconda3/bin/python3 -I -B -m unittest discover -s tests -p test_online_first_use.py -v",
+  "tests": 1,
+  "durationSeconds": 50.479,
+  "pluginReleaseCommit": "9ed351e825671a32288578678f81b31212f5ff29",
+  "skillSource": {
+    "package": "artcraft-skills",
+    "repo": "https://github.com/full-aigc-skills/artcraft-skills.git",
+    "ref": "v0.1.0-dev.0",
+    "sha": "912e5f3aab9b75959b6d200241318770077ce89a",
+    "skills": [
+      "artcraft-use"
+    ],
+    "dest": "skills/",
+    "sha256": {
+      "artcraft-use": "eae885031da4ad1dd53925e7b2b15617d122131d87dd42e9fd1ab202e1c38351"
+    }
+  },
+  "distributionLockSha256": "ee7ec27664a77e35b0f3de079ba1077b61ff511dbe9527a2bcb9a2a959f4e3df",
+  "isolation": {
+    "skillDirectories": 1,
+    "runtimeHome": "fresh temporary directory",
+    "childPATH": "/usr/bin:/bin",
+    "offlineArchiveOverrides": false,
+    "globalNodeUsed": false
+  },
+  "assertions": [
+    "all five project ZIPs downloaded from locked GitHub releases",
+    "official Node and four native CLIs installed from default URLs",
+    "four native project files exist and node states are review_ready",
+    "second invocation preserves all four task IDs",
+    "CLI ledger contains four tasks and zero held leases",
+    "changed plan under the same revision is rejected",
+    "original provided audio hash preserved"
+  ],
+  "fixture": "Procedural Logo and tone WAV exercise technical handoff; not commercial creative assets or voiceover acceptance",
+  "limitations": [
+    "macOS arm64 only",
+    "not GUI or creative acceptance",
+    "not full domain coverage",
+    "not host installation",
+    "shared budget/final review/recovery/source revisions remain incomplete"
+  ]
+}
