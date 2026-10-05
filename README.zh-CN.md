@@ -162,3 +162,5 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 插件 dev.21 固定发行版宿主验证通过：五插件、58 项技能、加载错误为零，执行后全部技能摘要不变。实际安装的返工技能通过原生冷启动、未解决问题交付及中断恢复，用时 50.054 秒。[宿主证据](docs/evidence/codex-release21-unresolved-first-use-20261006.json)。发布提交的文档／OpenSpec 和实现 CI 通过。完整创作、模型派发和 GUI 验收仍未完成。
 
 独立 Skills CLI 安装验收已准备，实际执行为 NOT_RUN。验收器读取固定公开技能源版本，核验项目内 58 个安装目录并探测每个原生启动入口，不修改全局技能目录。三项计划／保护测试通过；缺少的安装工具需取得隔离安装授权后才执行。[设计](docs/ArtCraft-Independent-Install-Architecture.zh_CN.md)、[准备证据](docs/evidence/independent-install-readiness.json)。已有插件／原生证据不变。
+
+单技能在线冷启动品牌色混合工作流验证通过：图形、海报、片头、成片更新，独立图标任务复用，旧交付保留。VectorCraft 技能固定 dev.6，ArtCraft 运行时保持 dev.16。技能源 dev.20 已发布，插件 dev.22 为候选版本，固定发行版宿主复验待完成。[架构](docs/ArtCraft-Brand-Token-Mixed-Architecture.zh_CN.md)、[证据](docs/evidence/brand-token-mixed-first-use.json)。

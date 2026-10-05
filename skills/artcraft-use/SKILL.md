@@ -78,3 +78,7 @@ ArtCraft dev.7 消费四领域 dev.2 的[交换损失报告](references/exchange
 需要保存审阅证据时使用本技能自带 `scripts/review.py`，合同见 [审阅记录](references/review.md)。它记录具名观察、责任插件与当前版本绑定，不执行模型或自动修订，不能用验包成功替代创作与人工接受。
 
 连续按审阅问题返工时，使用本技能的 `scripts/revision.py`，按 [受控修订指南](references/revision.md) 冻结策略并执行明确补丁，保存轮次、停滞与最佳包锚。未知结果不自动重放；完整模型规划／评价与创作接受独立验收。
+
+## 品牌色板混合返工
+
+本技能自带品牌图形／海报／片头／成片和独立图标的五节点示例。按本技能 [品牌色板指南](references/brand-token-workflow.md) 执行并核对受影响产物；首次安装所需领域由固定依赖锁决定。

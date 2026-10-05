@@ -59,3 +59,7 @@ CLI argv 在 `--` 后，原生子命令必须放首位。安装参数放分隔�
 python3 -I -B "$SKILL_DIR/scripts/revision.py" step --project "$PROJECT_ROOT" --package "$PACKAGE_ROOT" --package-sha "$PACKAGE_SHA" --review "$REVIEW_ROOT" --review-sha "$REVIEW_SHA" --policy "$REVISION_POLICY" --policy-sha "$POLICY_SHA" --request "$REVISION_REQUEST"
 python3 -I -B "$SKILL_DIR/scripts/revision.py" status --project "$PROJECT_ROOT"
 ```
+
+## 品牌色板混合返工
+
+本技能自带品牌图形／海报／片头／成片和独立图标的五节点示例。按本技能 [品牌色板指南](references/brand-token-workflow.md) 执行并核对受影响产物；首次安装所需领域由固定依赖锁决定。
