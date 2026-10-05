@@ -1,0 +1,24 @@
+{
+  "scope": "documentation and specification validation only",
+  "checks": [
+    {
+      "command": "python3 scripts/validate_docs.py",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"passed\",\n  \"scope\": \"documentation structure, local links, status honesty and spec/task traceability only\",\n  \"markdownFiles\": 60,\n  \"capabilities\": 9,\n  \"requirements\": 21,\n  \"scenarios\": 46,\n  \"openImplementationTasks\": 63,\n  \"errors\": []\n}",
+      "stderr": ""
+    },
+    {
+      "command": "openspec validate establish-v1-plugin --strict --no-interactive",
+      "exitCode": 0,
+      "stdout": "Change 'establish-v1-plugin' is valid",
+      "stderr": ""
+    }
+  ],
+  "manifestSchema": "Agent Plugins 1.0.0 validated with jsonschema",
+  "architectureFilenames": "30 total architecture files across five repositories passed bundled validator",
+  "templateSourceCheck": {
+    "status": "failed-upstream-skill",
+    "error": "full-stack-doc SKILL.md private product name partme; source skill unchanged"
+  },
+  "productAcceptance": "NOT_RUN"
+}

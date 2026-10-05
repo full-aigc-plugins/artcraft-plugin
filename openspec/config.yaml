@@ -1,0 +1,15 @@
+schema: spec-driven
+context: |
+  Language: zh-CN. Keep structural headings and SHALL/MUST in English.
+  Product: ArtCraft Agent Plugin. Current stage: documentation-baseline.
+  Plugin id: artcraft; source skills package: artcraft-skills (planned, not published).
+  OpenSpec active change is the only normative V1 authority; bilingual product docs explain it.
+  No runtime implementation, marketplace publication or production acceptance is claimed.
+  Shared craft-task/v1 and craft-artifact/v1 are owned by artcraft-plugin; consumers reference them.
+rules:
+  specs:
+    - Use stable requirement IDs, observable WHEN/THEN scenarios and at least one failure scenario.
+    - Distinguish actual upstream runtime evidence from planned plugin behavior.
+  tasks:
+    - Keep every implementation task unchecked until its acceptance evidence exists.
+    - Include requirement ID, expected output, dependency and validation evidence for each task.
