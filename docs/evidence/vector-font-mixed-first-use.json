@@ -1,7 +1,7 @@
 {
   "schema": "craft-vector-font-mixed-first-use/v1",
   "date": "2026-10-06",
-  "state": "source-native-first-use-passed; fixed-host-release-NOT_RUN",
+  "state": "published-development-release; fixed-host-installed-native-first-use-passed",
   "runtimeVersion": "0.1.0-dev.16",
   "vectorSkillVersion": "0.1.0-dev.7",
   "vectorSourceCommit": "c0effdce5888f976f7b988f708af7694192fe88e",
@@ -35,7 +35,20 @@
     "actual npx granular install",
     "new model session dispatch",
     "full native domain coverage",
-    "GUI and human creative acceptance",
-    "this candidate fixed-host installed acceptance"
-  ]
+    "GUI and human creative acceptance"
+  ],
+  "published": {
+    "skillsVersion": "0.1.0-dev.21",
+    "skillsSha": "3e10b3b61866dd66bd4a0040820f29d53fad8e0a",
+    "pluginVersion": "0.1.0-dev.23",
+    "pluginSha": "dda4137d637b8e8dfcad736ef1dd708c9abd91f8"
+  },
+  "hostInstalledNative": {
+    "tests": 2,
+    "passed": 2,
+    "seconds": 54.673,
+    "workflowPython": "3.14.3",
+    "scope": "actual immutable host-installed revise skill copied alone; fresh public runtime downloads; same native mixed assertions as source test; image assertions in test-only Pillow Python",
+    "postExecutionSkillHashesVerified": 58
+  }
 }
