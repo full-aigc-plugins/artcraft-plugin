@@ -180,3 +180,5 @@ Published skills dev.22 / plugin dev.24 pass fixed-host discovery for all 58 ski
 Current first-release capability and installation gaps are listed in the [delivery audit](docs/ArtCraft-Delivery-Audit.md).
 
 Plugin candidate dev.25 pins skill source dev.23, validating frozen revision bindings before publishing installation metadata. Source single-skill native first use passes (3 tests, 92.662 seconds); installed-release retesting remains NOT_RUN. [Architecture](docs/ArtCraft-Frozen-Revision-Metadata-Architecture.md), [evidence](docs/evidence/frozen-revision-metadata-first-use.json).
+
+Published plugin dev.25 / skills dev.23 pass actual installed single-skill native cold start, replay and metadata-preserving conflict refusal (3 tests, 90.697 seconds). Host discovery and unchanged installed hashes cover all 58 skills. [Proof](docs/evidence/codex-release27-binding-metadata-20261006.json).

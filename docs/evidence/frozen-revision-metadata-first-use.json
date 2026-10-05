@@ -1,7 +1,7 @@
 {
   "schema": "craft-frozen-revision-metadata/v1",
   "date": "2026-10-06",
-  "state": "source-native-PASS; installed-release-NOT_RUN",
+  "state": "published-development-release; installed-single-skill-native-PASS",
   "sourceVersion": "0.1.0-dev.23",
   "runtimeVersion": "0.1.0-dev.16",
   "requirement": "AC-TX-001-META",
@@ -38,9 +38,20 @@
     "skills/artcraft-use/scripts/workflow.py": "94a2d0bed73650645be2b9c14cadb0c07c6a1044d063a027fa370105f36da8a8"
   },
   "limitations": [
-    "Candidate source test, not installed immutable plugin proof",
+    "Installed immutable ArtCraft use skill tested; other scenario-specific native behavior is covered only by its separate evidence",
     "No actual npx installation or new model dispatch",
     "Synthetic audio fixture; no human creative acceptance",
     "Other platforms and simultaneous metadata publication not verified"
-  ]
+  ],
+  "published": {
+    "skillSourceRef": "v0.1.0-dev.23",
+    "skillSourceSha": "8a24536d4a3e8386f174ee01ba918421fba4245f",
+    "pluginRef": "v0.1.0-dev.25",
+    "pluginSha": "d133e3423c27f020e4ecc3cb96992dae1c0e5351",
+    "evidence": "docs/evidence/codex-release27-binding-metadata-20261006.json",
+    "nativeTests": 3,
+    "nativePassed": 3,
+    "seconds": 90.697,
+    "allInstalledSkillHashesVerified": 58
+  }
 }
