@@ -3,10 +3,12 @@ import importlib.util
 import json
 from pathlib import Path
 import tempfile
+import sys
 import unittest
 from argparse import Namespace
 from unittest.mock import patch
 
+sys.dont_write_bytecode=True
 ROOT=Path(__file__).resolve().parents[1]
 SCRIPT=ROOT/'skills/artcraft-use/scripts/review.py'
 

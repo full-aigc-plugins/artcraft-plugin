@@ -1,0 +1,22 @@
+{
+  "schema": "craft-ci-cache-regression/v1",
+  "date": "2026-10-06",
+  "failedRun": "https://github.com/full-aigc-plugins/artcraft-plugin/actions/runs/37370847944",
+  "reproduction": {
+    "source": "immutable plugin v0.1.0-dev.19 exported into isolated directory",
+    "unitTests": "29 total, 26 passed, 3 skipped",
+    "result": "tests pass; first dynamic review module load generates review.cpython-313.pyc inside installable skill; strict vendor digest then fails"
+  },
+  "fix": [
+    "disable bytecode before dynamic module loading in test_review.py",
+    "run CI tests and vendor verification with python3 -B"
+  ],
+  "verified": {
+    "source": "isolated copy of corrected main worktree, plain Python invocation also tested",
+    "unitTests": "29 total, 26 passed, 3 skipped",
+    "skillBytecodeFiles": 0,
+    "strictOfflineVendorCheck": "passed"
+  },
+  "invariant": "skill hashes and immutable release tags unchanged; no cache exclusions or weakened verifier",
+  "remoteCI": "pending latest main run; failed fixed-tag run remains failure"
+}
