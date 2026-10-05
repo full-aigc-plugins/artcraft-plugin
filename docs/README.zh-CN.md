@@ -41,3 +41,5 @@ OpenSpec 是唯一行为事实源；本目录是解释与证据视图。
 ## 共享预算实现
 
 [共享预算架构](ArtCraft-Budget-Architecture.zh_CN.md)
+
+[Current host verification / 当前宿主验证](ArtCraft-Host-Verification-Architecture.zh_CN.md)

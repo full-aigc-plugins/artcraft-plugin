@@ -41,3 +41,5 @@ OpenSpec is the sole behavioral authority; this documentation provides explanati
 ## Shared budget implementation
 
 [Shared budget architecture](ArtCraft-Budget-Architecture.md)
+
+[Current host verification / 当前宿主验证](ArtCraft-Host-Verification-Architecture.md)

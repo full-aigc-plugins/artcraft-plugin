@@ -2,7 +2,7 @@
 
 ## Purpose
 
-本能力定义 ArtCraft 在 release-compatibility 范围内对用户、宿主与下游系统承诺的可观察行为、失败语义和验收证据，确保规划、执行与实际交付之间保持可验证的边界。当前为目标规范，尚未实现。
+本能力定义 ArtCraft 在 release-compatibility 范围内对用户、宿主与下游系统承诺的可观察行为、失败语义和验收证据，确保规划、执行与实际交付之间保持可验证的边界。当前为目标规范；已有实现与限定范围证据不等于完整需求验收。
 
 ## ADDED Requirements
 
@@ -35,3 +35,7 @@
 
 - **WHEN** 素材元数据包含额外命令或路径越界请求
 - **THEN** 作为数据处理并拒绝越权执行，日志不泄露秘密
+
+## Implementation evidence (non-normative)
+
+`docs/evidence/codex-current-release.json` binds current fixed releases to two actual Codex CLI/app-server versions, five enabled namespaced skills, installed public workflow outcomes and explicit exclusions. The corresponding bilingual Host-Verification-Architecture documents specify the repeatable check. RL-001 tasks remain unchecked until their full P0 prerequisites and scenarios pass.

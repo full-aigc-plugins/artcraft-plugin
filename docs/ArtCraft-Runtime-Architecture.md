@@ -292,3 +292,7 @@ flowchart LR
  A --> V[Actual file and semantic checks]
  V --> P[Project package and relocation verification]
 ```
+
+## Current host acceptance
+
+Snapshot `0.1.0-dev.7` has scoped installation/discovery and installed-entrypoint evidence. See [verification contracts and exclusions](ArtCraft-Host-Verification-Architecture.md). Full release tasks remain open; target design sections do not constitute implementation evidence.

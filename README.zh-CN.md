@@ -4,6 +4,12 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+## 当前版本与可复现宿主验证
+
+当前插件与独立技能源快照：`0.1.0-dev.7`。Codex 0.147.0 与 0.153.4 均安装五个固定发布，发现五项启用的命名空间技能，加载错误为零；两套宿主中的 ArtCraft 公开入口均通过混合首次使用流程。四个独立代表任务在 0.147.0 通过。这些测试执行安装后的 Python 入口；模型自动派发、桌面 GUI、创作最终评审和完整交换保真尚未验证。
+
+[宿主验证设计](docs/ArtCraft-Host-Verification-Architecture.zh_CN.md) · [绑定版本的证据](docs/evidence/codex-current-release.json)。历史里程碑保留原证据范围；当前版本身份以 manifest 和锁文件为准。
+
 > 实施中。四领域原生交接、CLI 账本重开以及默认在线下载的干净首次安装已通过。当前版本完整宿主验收、付费账单核销和创作最终评审仍未完成；worker/提交窗口未知时保留占用等待核对。
 
 ## 一眼了解
@@ -22,9 +28,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.1 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.7 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.1 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.7 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
@@ -34,9 +40,9 @@ flowchart LR
 | 能力 | 已验证 | 尚未完成 |
 | --- | --- | --- |
 | 计划与路由 | 技能指导拆解；显式节点选择真实能力快照 | 自动约束推导；既有剪映/Factory 适配 |
-| 依赖调度 | DAG、并发上限、同工程单写、输入核验 | 完整故障接管 |
+| 依赖调度 | DAG、并发上限、同工程单写、输入核验与原任务接管 | worker/提交窗口未知时等待核对 |
 | 素材版本与返工 | 内容摘要、血缘、重跑复用、Logo 下游重建 | 完整创作修订协调 |
-| 技术交付 | 原生工程与收集素材、预览、导出、公共回执 | 完整媒体元数据、损失报告、最终打包 |
+| 技术交付 | 原生工程、收集素材、预览、导出、移动包和摘要绑定损失报告 | 完整媒体元数据、跨编辑器保真与创作审核 |
 | 评估 | 文件与引用摘要、原生重开、实际输出解码测试 | 跨产物创作一致性与最终审核 |
 | 安装 | 单技能默认在线安装、四个官方 CLI 实装、Codex 受控安装与发现 | GUI 与其他宿主完整验收 |
 
@@ -70,7 +76,7 @@ python3 <skill-root>/scripts/workflow.py <plan.json> \
 
 可信配置固定解释器、脚本、原生 CLI 与输出根；公共 payload 不能选择可执行代码。Python 使用隔离模式并禁止字节码缓存。执行器登记意图、监督进程组、核验输出后释放写占用；未知结果不自动重放。技能项目入口另外串行化同目录调用，冻结计划和登记表，不覆盖用户已有目录。
 
-ArtCraft 运行时 58 项回归通过，见[原生证据](docs/evidence/native-mixed-tests.json)。独立技能安装与首次使用证据见[安装记录](docs/evidence/artcraft-setup-tests.json)。本地安装、在线下载、原生交付、创作验收和宿主安装分开报告。`review_ready` 是技术就绪，不是创作完成。
+ArtCraft dev.7 运行时 79 项原生回归通过，见[交换报告证据](docs/evidence/exchange-loss.json)。独立技能安装与首次使用证据见[安装记录](docs/evidence/artcraft-setup-tests.json)。本地安装、在线下载、原生交付、创作验收和宿主安装分开报告。`review_ready` 是技术就绪，不是创作完成。
 
 ## 规范、贡献与许可
 
@@ -85,7 +91,7 @@ openspec validate establish-v1-plugin --strict --no-interactive
 
 [上游参考](https://github.com/storytold/artcraft) · [Issues](https://github.com/full-aigc-plugins/artcraft-plugin/issues)
 
-独立技能现已绑定已发布的开发标签 `v0.1.0-dev.1`，`skills.lock.json` 固定来源提交与整个技能摘要。使用 `python3 scripts/vendor/skill_vendor.py check` 核对。技能源快照发布不代表宿主验收或生产完成。
+独立技能现已绑定当前已发布开发标签 `v0.1.0-dev.7`，`skills.lock.json` 固定来源提交与整个技能摘要。使用 `python3 scripts/vendor/skill_vendor.py check` 核对。技能源快照发布不代表宿主验收或生产完成。
 
 ## Codex 开发版宿主验证
 

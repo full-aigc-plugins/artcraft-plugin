@@ -4,6 +4,12 @@ Cross-tool project planning, asset dependencies, version propagation and selecti
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+## Current release and reproducible host checks
+
+Current plugin and independent skill snapshot: `0.1.0-dev.7`. Codex 0.147.0 and 0.153.4 installed all five fixed releases and discovered five enabled namespaced skills with zero loading errors. Installed ArtCraft public entrypoints passed mixed first-use workflows on both hosts. Four standalone representative workflows passed on 0.147.0. These runs invoke the installed Python entrypoints; model dispatch, desktop GUI, creative final review and full interchange fidelity remain unverified.
+
+[Host verification design](docs/ArtCraft-Host-Verification-Architecture.md) · [Version-bound evidence](docs/evidence/codex-current-release.json). Historical milestones below retain their original scope; the current manifest and locks own version identity.
+
 > Implementation in progress. Four-domain native handoff, durable CLI resume and clean first use through default online downloads pass. Current-version full host acceptance, provider invoice settlement and final creative review remain unfinished; unknown worker/submission outcomes retain ownership for reconciliation.
 
 ## At a glance
@@ -22,9 +28,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.1 |
+| Plugin ID / version | artcraft / 0.1.0-dev.7 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.1 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.7 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -34,11 +40,11 @@ flowchart LR
 | Capability | Verified | Remaining work |
 | --- | --- | --- |
 | Planning and routing | Skill-led decomposition; explicit nodes bind actual capabilities | Automatic constraint inference; existing Jianying/Factory adapters |
-| Dependency execution | DAG checks, bounded concurrency, one writer per project, verified inputs | Complete crash adoption |
+| Dependency execution | DAG checks, bounded concurrency, one writer per project, verified inputs and original-attempt adoption | Unknown worker/submission windows require reconciliation |
 | Versions and rework | Hashes, lineage, no-replay reuse, Logo consumer rebuilds | Complete creative revision orchestration |
-| Technical delivery | Native projects, collected media, previews, exports and public receipts | Complete media metadata, complete exchange loss reports and creative approval |
+| Technical delivery | Native projects, collected media, previews, exports, portable packages and hash-bound loss reports | Complete media metadata, cross-editor fidelity and creative approval |
 | Evaluation | File/reference hashes, native reopen and real decode tests | Cross-artifact creative consistency and final review |
-| Installation | Clean single skill, default online locked bundles, four official CLI installations | Host installation |
+| Installation | Clean single skill, default online locked bundles, four official CLI installations and two Codex install/discovery runs | GUI and other hosts |
 
 ## Quick start
 
@@ -70,7 +76,7 @@ Default online downloads passed in a fresh runtime directory with only one copie
 
 Trusted configuration pins interpreter, scripts, native executables and output roots; public payloads cannot choose executable code. Python runs isolated without bytecode caches. The runner persists intent, supervises process groups and verifies outputs before releasing ownership. Unknown outcomes are not replayed. The skill entry also serializes project-directory calls, freezes plans and registries and preserves existing user directories.
 
-The runtime's 58-test regression passes; see [native evidence](docs/evidence/native-mixed-tests.json). Independent installation and first-use evidence is in [setup records](docs/evidence/artcraft-setup-tests.json). Local installation, online download, native delivery, creative acceptance and host installation are separate evidence scopes. `review_ready` denotes technical readiness.
+The dev.7 runtime's 79 native regression tests passed; see [exchange/report evidence](docs/evidence/exchange-loss.json). Independent installation and first-use evidence is in [setup records](docs/evidence/artcraft-setup-tests.json). Local installation, online download, native delivery, creative acceptance and host installation are separate evidence scopes. `review_ready` denotes technical readiness.
 
 ## Specification, contribution and license
 
@@ -85,7 +91,7 @@ These validate documentation and specifications only. Original code uses [Apache
 
 [Upstream reference](https://github.com/storytold/artcraft) · [Issues](https://github.com/full-aigc-plugins/artcraft-plugin/issues)
 
-Independent skills are now pinned at the published development tag `v0.1.0-dev.1`, including the exact source commit and whole-skill digest in `skills.lock.json`. Verify using `python3 scripts/vendor/skill_vendor.py check`. These source snapshots do not establish plugin-host acceptance or production readiness.
+Independent skills are pinned at the current published development tag `v0.1.0-dev.7`, including the exact source commit and whole-skill digest in `skills.lock.json`. Verify using `python3 scripts/vendor/skill_vendor.py check`. These source snapshots do not establish plugin-host acceptance or production readiness.
 
 ## Codex development host checks
 

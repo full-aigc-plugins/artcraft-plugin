@@ -1,0 +1,255 @@
+{
+  "schema": "craft-host-validation-summary/v1",
+  "date": "2026-10-05",
+  "result": "passed-with-scoped-exclusions",
+  "releaseLock": {
+    "schema": "craft-host-release-lock/v1",
+    "plugins": {
+      "filmcraft": {
+        "repository": "https://github.com/full-aigc-plugins/filmcraft-plugin.git",
+        "version": "0.1.0-dev.2",
+        "ref": "v0.1.0-dev.2",
+        "sha": "361ef0b4aca72c75f6e6308a216fc4c7969dac36",
+        "skillSourceSha": "42570c15c00e1ec7e20ddb9e31100e7383d4fea7",
+        "skillSha256": "f3f3f16f9407b14e417053a0874a5320058e8e5bfc5ef40f878fcbf6465d9c45",
+        "pluginManifestSha256": "fa25e08c68e3d6d468fcc7b78ab6928843122831163f934d672b902be0d80222",
+        "skillSourceRef": "v0.1.0-dev.2"
+      },
+      "effectcraft": {
+        "repository": "https://github.com/full-aigc-plugins/effectcraft-plugin.git",
+        "version": "0.1.0-dev.2",
+        "ref": "v0.1.0-dev.2",
+        "sha": "ceeebf2c77ccef347c567579533ffa0db53e9c81",
+        "skillSourceSha": "08799a63429cce312ef254ad5085553629956dbf",
+        "skillSha256": "d79a495f2b8fd91cb0fdcacc94b09213d83c0ad8c01acfbd55e15491acf8206c",
+        "pluginManifestSha256": "662e5fdf082bab570a7b1083af8ff283c012a2b9bb842cf8ab2bc748a9b2c8c7",
+        "skillSourceRef": "v0.1.0-dev.2"
+      },
+      "photocraft": {
+        "repository": "https://github.com/full-aigc-plugins/photocraft-plugin.git",
+        "version": "0.1.0-dev.2",
+        "ref": "v0.1.0-dev.2",
+        "sha": "017235e92c19e207a00869a7fc4af9a306368ba7",
+        "skillSourceSha": "9293e29222218ee9bf30307f466d491052c64430",
+        "skillSha256": "5495d79c1bc1738d269ceeb65591be230158e4723291ef09e5278468916a16be",
+        "pluginManifestSha256": "d489e0d536d13b8344c6fa1f54747345a819af2e60bbb12a9b227001b078dd4b",
+        "skillSourceRef": "v0.1.0-dev.2"
+      },
+      "vectorcraft": {
+        "repository": "https://github.com/full-aigc-plugins/vectorcraft-plugin.git",
+        "version": "0.1.0-dev.2",
+        "ref": "v0.1.0-dev.2",
+        "sha": "01736c04ebbe4e9ebd66545bdd2c7317f24b041e",
+        "skillSourceSha": "f1740c2b76d204218bcbfc95a9d79bbe559b684c",
+        "skillSha256": "39151bde227a02af7304bbf7590d0c61ad2ef9cf1a13dd1aa33c2dae8ed1efc7",
+        "pluginManifestSha256": "9fe601c22075d370695c8228adc995c7e0655b039cd877d09c10e4f223dae75b",
+        "skillSourceRef": "v0.1.0-dev.2"
+      },
+      "artcraft": {
+        "repository": "https://github.com/full-aigc-plugins/artcraft-plugin.git",
+        "version": "0.1.0-dev.7",
+        "ref": "v0.1.0-dev.7",
+        "sha": "e058e72116deafbab6f605ab70d427b7931e8dfd",
+        "skillSourceSha": "a49bfee69d19028465d343ca57998a07a6e39825",
+        "skillSha256": "6b5448f8a9cad3aabe5db4efdee577760114254f244ad8fc965baabbbd1ab143",
+        "pluginManifestSha256": "820140e6b08e629a04d2913e03208d3ee95a2c72d6542cd12293821785520a1a",
+        "skillSourceRef": "v0.1.0-dev.7"
+      }
+    }
+  },
+  "hosts": [
+    {
+      "schema": "craft-codex-host-evidence/v2",
+      "result": "passed",
+      "cliVersion": "codex-cli 0.147.0",
+      "appServerUserAgent": "Codex Desktop/0.147.0 (Mac OS 27.0.0; arm64) dumb (craft-host-acceptance; 0.2.0)",
+      "platform": "darwin-arm64",
+      "plugins": [
+        {
+          "pluginId": "filmcraft",
+          "version": "0.1.0-dev.2",
+          "pluginManifestSha256": "fa25e08c68e3d6d468fcc7b78ab6928843122831163f934d672b902be0d80222",
+          "sourceSha": "361ef0b4aca72c75f6e6308a216fc4c7969dac36",
+          "skillSourceSha": "42570c15c00e1ec7e20ddb9e31100e7383d4fea7",
+          "skillSha256": "f3f3f16f9407b14e417053a0874a5320058e8e5bfc5ef40f878fcbf6465d9c45",
+          "discoveredName": "filmcraft:filmcraft-use",
+          "scope": "user",
+          "enabled": true
+        },
+        {
+          "pluginId": "effectcraft",
+          "version": "0.1.0-dev.2",
+          "pluginManifestSha256": "662e5fdf082bab570a7b1083af8ff283c012a2b9bb842cf8ab2bc748a9b2c8c7",
+          "sourceSha": "ceeebf2c77ccef347c567579533ffa0db53e9c81",
+          "skillSourceSha": "08799a63429cce312ef254ad5085553629956dbf",
+          "skillSha256": "d79a495f2b8fd91cb0fdcacc94b09213d83c0ad8c01acfbd55e15491acf8206c",
+          "discoveredName": "effectcraft:effectcraft-use",
+          "scope": "user",
+          "enabled": true
+        },
+        {
+          "pluginId": "photocraft",
+          "version": "0.1.0-dev.2",
+          "pluginManifestSha256": "d489e0d536d13b8344c6fa1f54747345a819af2e60bbb12a9b227001b078dd4b",
+          "sourceSha": "017235e92c19e207a00869a7fc4af9a306368ba7",
+          "skillSourceSha": "9293e29222218ee9bf30307f466d491052c64430",
+          "skillSha256": "5495d79c1bc1738d269ceeb65591be230158e4723291ef09e5278468916a16be",
+          "discoveredName": "photocraft:photocraft-use",
+          "scope": "user",
+          "enabled": true
+        },
+        {
+          "pluginId": "vectorcraft",
+          "version": "0.1.0-dev.2",
+          "pluginManifestSha256": "9fe601c22075d370695c8228adc995c7e0655b039cd877d09c10e4f223dae75b",
+          "sourceSha": "01736c04ebbe4e9ebd66545bdd2c7317f24b041e",
+          "skillSourceSha": "f1740c2b76d204218bcbfc95a9d79bbe559b684c",
+          "skillSha256": "39151bde227a02af7304bbf7590d0c61ad2ef9cf1a13dd1aa33c2dae8ed1efc7",
+          "discoveredName": "vectorcraft:vectorcraft-use",
+          "scope": "user",
+          "enabled": true
+        },
+        {
+          "pluginId": "artcraft",
+          "version": "0.1.0-dev.7",
+          "pluginManifestSha256": "820140e6b08e629a04d2913e03208d3ee95a2c72d6542cd12293821785520a1a",
+          "sourceSha": "e058e72116deafbab6f605ab70d427b7931e8dfd",
+          "skillSourceSha": "a49bfee69d19028465d343ca57998a07a6e39825",
+          "skillSha256": "6b5448f8a9cad3aabe5db4efdee577760114254f244ad8fc965baabbbd1ab143",
+          "discoveredName": "artcraft:artcraft-use",
+          "scope": "user",
+          "enabled": true
+        }
+      ],
+      "loadingErrors": 0,
+      "scope": [
+        "isolated fixed public-tag install",
+        "installed immutable skill content identity",
+        "app-server skill discovery"
+      ],
+      "excluded": [
+        "agent model dispatch",
+        "desktop GUI interaction",
+        "production acceptance"
+      ]
+    },
+    {
+      "schema": "craft-codex-host-evidence/v2",
+      "result": "passed",
+      "cliVersion": "codex-cli 0.153.4",
+      "appServerUserAgent": "Codex Desktop/0.153.4 (Mac OS 27.0.0; arm64) dumb (craft-host-acceptance; 0.2.0)",
+      "platform": "darwin-arm64",
+      "plugins": [
+        {
+          "pluginId": "filmcraft",
+          "version": "0.1.0-dev.2",
+          "pluginManifestSha256": "fa25e08c68e3d6d468fcc7b78ab6928843122831163f934d672b902be0d80222",
+          "sourceSha": "361ef0b4aca72c75f6e6308a216fc4c7969dac36",
+          "skillSourceSha": "42570c15c00e1ec7e20ddb9e31100e7383d4fea7",
+          "skillSha256": "f3f3f16f9407b14e417053a0874a5320058e8e5bfc5ef40f878fcbf6465d9c45",
+          "discoveredName": "filmcraft:filmcraft-use",
+          "scope": "user",
+          "enabled": true
+        },
+        {
+          "pluginId": "effectcraft",
+          "version": "0.1.0-dev.2",
+          "pluginManifestSha256": "662e5fdf082bab570a7b1083af8ff283c012a2b9bb842cf8ab2bc748a9b2c8c7",
+          "sourceSha": "ceeebf2c77ccef347c567579533ffa0db53e9c81",
+          "skillSourceSha": "08799a63429cce312ef254ad5085553629956dbf",
+          "skillSha256": "d79a495f2b8fd91cb0fdcacc94b09213d83c0ad8c01acfbd55e15491acf8206c",
+          "discoveredName": "effectcraft:effectcraft-use",
+          "scope": "user",
+          "enabled": true
+        },
+        {
+          "pluginId": "photocraft",
+          "version": "0.1.0-dev.2",
+          "pluginManifestSha256": "d489e0d536d13b8344c6fa1f54747345a819af2e60bbb12a9b227001b078dd4b",
+          "sourceSha": "017235e92c19e207a00869a7fc4af9a306368ba7",
+          "skillSourceSha": "9293e29222218ee9bf30307f466d491052c64430",
+          "skillSha256": "5495d79c1bc1738d269ceeb65591be230158e4723291ef09e5278468916a16be",
+          "discoveredName": "photocraft:photocraft-use",
+          "scope": "user",
+          "enabled": true
+        },
+        {
+          "pluginId": "vectorcraft",
+          "version": "0.1.0-dev.2",
+          "pluginManifestSha256": "9fe601c22075d370695c8228adc995c7e0655b039cd877d09c10e4f223dae75b",
+          "sourceSha": "01736c04ebbe4e9ebd66545bdd2c7317f24b041e",
+          "skillSourceSha": "f1740c2b76d204218bcbfc95a9d79bbe559b684c",
+          "skillSha256": "39151bde227a02af7304bbf7590d0c61ad2ef9cf1a13dd1aa33c2dae8ed1efc7",
+          "discoveredName": "vectorcraft:vectorcraft-use",
+          "scope": "user",
+          "enabled": true
+        },
+        {
+          "pluginId": "artcraft",
+          "version": "0.1.0-dev.7",
+          "pluginManifestSha256": "820140e6b08e629a04d2913e03208d3ee95a2c72d6542cd12293821785520a1a",
+          "sourceSha": "e058e72116deafbab6f605ab70d427b7931e8dfd",
+          "skillSourceSha": "a49bfee69d19028465d343ca57998a07a6e39825",
+          "skillSha256": "6b5448f8a9cad3aabe5db4efdee577760114254f244ad8fc965baabbbd1ab143",
+          "discoveredName": "artcraft:artcraft-use",
+          "scope": "user",
+          "enabled": true
+        }
+      ],
+      "loadingErrors": 0,
+      "scope": [
+        "isolated fixed public-tag install",
+        "installed immutable skill content identity",
+        "app-server skill discovery"
+      ],
+      "excluded": [
+        "agent model dispatch",
+        "desktop GUI interaction",
+        "production acceptance"
+      ]
+    }
+  ],
+  "verifierTests": {
+    "passed": 6,
+    "skipped": 0,
+    "elapsedSeconds": 17.286,
+    "command": "CRAFT_HOST_TEST=1 CRAFT_CODEX_CLI=<absolute-codex> python3 -B -m unittest discover -s tests -p test_codex_host.py -v"
+  },
+  "installedPublicWorkflows": {
+    "artcraft": [
+      {
+        "codex": "0.147.0",
+        "tests": 1,
+        "passed": 1,
+        "elapsedSeconds": 55.133
+      },
+      {
+        "codex": "0.153.4",
+        "tests": 1,
+        "passed": 1,
+        "elapsedSeconds": 55.332
+      }
+    ],
+    "standaloneCodex": "0.147.0",
+    "standaloneTasks": {
+      "filmcraft": "editable short film, captions, voice, relocation and single-shot revision",
+      "effectcraft": "animated brand intro, keyframes, alpha render and text revision",
+      "photocraft": "separate product/text/background layers, mask, PSD and size variant",
+      "vectorcraft": "Boolean paths, artboards, SVG/PDF/PNG and recolor"
+    }
+  },
+  "integrity": "Installed skill tree digests verified against immutable source locks; test imports disable bytecode writes.",
+  "excluded": [
+    "model-driven automatic skill dispatch",
+    "desktop GUI workflow",
+    "standalone domain tests on Codex 0.153.4",
+    "creative final review",
+    "full cross-editor interchange fidelity",
+    "all P0 completion",
+    "production or marketplace promotion"
+  ],
+  "status": {
+    "marketplaceEligible": false,
+    "supportedPluginHosts": []
+  }
+}

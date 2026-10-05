@@ -21,7 +21,7 @@ Related documents: [Brand boundary](1%E3%80%81ArtCraft-Naming-and-Brand.md) · [
 
 ## 2. Independent skill supply chain
 
-`artcraft-skills` is the planned independent knowledge repository and is not yet published. It owns SKILL.md, references and portable helper scripts where required. The plugin resolves a fixed tag to a commit, verifies the whole skill tree and packages it in `skills/`. Release checks run in a clean export and verify links, licenses, inventory and locks. The current skills lock has no sources; no version or digest is fabricated.
+`artcraft-skills` is an independent published knowledge repository. The plugin vendors source tag `v0.1.0-dev.7`, a fixed commit and the full skill digest recorded in `skills.lock.json`. SKILL.md, references and portable scripts remain owned by the skill repository. `python3 scripts/vendor/skill_vendor.py check --offline` verifies the packaged snapshot; a source release does not imply complete host or creative acceptance.
 
 | Stage | Input | Failure rule |
 | :--- | :--- | :--- |
@@ -91,3 +91,7 @@ The ledger now provides parent/child shared allowances, revision counters and at
 dev.6 implements fixed independent worker supervision, adoption of original stop evidence and interrupted verification rechecks. Scheduler recovery retains the frozen plan, token, epoch, attempt and budget; workers read parent cancellation directly. Worker death and uncertain submission windows retain ownership without replay. See Runtime Architecture 10.4 and crash-recovery.json for implementation and acceptance boundaries; creative review and full host acceptance remain open.
 
 Exchange delivery now includes exchange-loss.json binding native, reopened inspection and exports by digest. Derivatives never substitute for native projects; cross-editor font, effect and mask fidelity remains explicitly unknown until separate acceptance.
+
+## Current host acceptance
+
+Snapshot `0.1.0-dev.7` has scoped installation/discovery and installed-entrypoint evidence. See [verification contracts and exclusions](../../../docs/ArtCraft-Host-Verification-Architecture.md). Full release tasks remain open; target design sections do not constitute implementation evidence.

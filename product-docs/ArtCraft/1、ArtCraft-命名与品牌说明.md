@@ -24,7 +24,7 @@ ArtCraft: 跨插件创作编排、素材依赖与局部返工.
 | Skills source (planned) | full-aigc-skills/artcraft-skills |
 | Native deliverable | project-manifest.json |
 | Current stage | documentation-baseline |
-| Metadata version | 0.1.0-dev.0 |
+| Metadata version | 0.1.0-dev.7 |
 
 
 ## 3. 品牌与版权边界

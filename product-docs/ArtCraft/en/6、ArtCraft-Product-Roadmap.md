@@ -10,7 +10,7 @@ Related documents: [Brand boundary](1%E3%80%81ArtCraft-Naming-and-Brand.md) · [
 
 ## 1. Product and release boundaries
 
-Current 0.1.0-dev.0 identifies repository metadata and a documentation baseline; it contains no installable skills or production executor. V1 names target scope, not a released product. CLI 0.2.0 is an upstream version, not the plugin version.
+Current 0.1.0-dev.7 is a published development snapshot with independently versioned skills and executable technical workflows; complete P0, creative and production acceptance remain pending. V1 names target scope, not a released product. CLI 0.2.0 is an upstream version, not the plugin version.
 
 ## 2. Milestones
 
