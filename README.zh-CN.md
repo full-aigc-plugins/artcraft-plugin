@@ -147,4 +147,6 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 
 插件 dev.18 内置独立技能源 dev.16，编排运行时保持 dev.16。十个技能先安装基础编排运行时，再由任务图选择领域；只做 Logo 不安装其他领域，追加海报增量安装 PhotoCraft，查询/打包/验包不补装无关 CLI。35 项默认在线回归通过、1 项 Node 离线测试未运行；指引与守卫另有 6 项通过。[架构](docs/ArtCraft-Selected-Setup-Architecture.zh_CN.md)、[证据](docs/evidence/selected-domain-first-use.json)。新发布的宿主模型调度与完整创作验收仍未完成。
 
-插件 dev.19 锁定技能源 dev.17，各独立技能均包含当前交付审阅记录器；编排运行时仍为 dev.16。记录具名观察及可移动证据，缺少创作／人工接受时保持 pending，不改变账本。6 个审阅单元测试及 1 个源码单技能首次原生调用通过，测试观察不证明创作验收。[架构](docs/ArtCraft-Review-Records-Architecture.zh_CN.md)、[证据](docs/evidence/review-record-first-use.json)。当前固定发布版宿主验证待执行。
+插件 dev.19 锁定技能源 dev.17，各独立技能均包含当前交付审阅记录器；编排运行时仍为 dev.16。记录具名观察及可移动证据，缺少创作／人工接受时保持 pending，不改变账本。6 个审阅单元测试及 1 个源码单技能首次原生调用通过，测试观察不证明创作验收。[架构](docs/ArtCraft-Review-Records-Architecture.zh_CN.md)、[证据](docs/evidence/review-record-first-use.json)。当前固定发布版宿主证据见下文。
+
+固定发行版 dev.19 宿主验证：五插件共 58 技能发现成功、加载错误为零；实际安装的审阅技能通过 1 个公开冷启动首次调用测试，耗时 30.165 秒。执行后全部技能仍与锁定摘要一致。此结果证明审阅记录合同，未证明模型调度、GUI 或完整创作验收。[宿主证据](docs/evidence/codex-release19-review-first-use-20261006.json)。
