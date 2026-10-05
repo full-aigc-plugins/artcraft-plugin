@@ -1,5 +1,10 @@
 # ArtCraft first-use and distribution implementation
 
+## Current frozen-release checkpoint
+
+Plugin versions are FilmCraft dev.6, EffectCraft dev.7, PhotoCraft dev.6, VectorCraft dev.8 and ArtCraft dev.23; paired skill sources are dev.5, dev.6, dev.5, dev.7 and dev.21. ArtCraft runtime remains dev.16; FilmCraft uses maintained 0.2.0-craft.1 and the other domain CLIs use 0.2.0. Fixed-host discovery of 58 skills and bounded single-skill cold/native mixed acceptance have evidence. Actual Skills CLI installation, model dispatch and full creative acceptance remain open. The sections below preserve early implementation records: unfinished statements refer to those checkpoints; current recovery, budget and packaging coverage is documented by their later architecture and evidence.
+
+
 The independent source is artcraft-use in artcraft-skills. Public workflow.py invokes bootstrap.py, then runs the ArtCraft CLI through a generated registry. A clean copied skill directory without global Node or sibling repositories has delivered all four native projects. Initial tests used local locked project bundles; the published development version also passes default online downloads into a fresh runtime root.
 
 ```mermaid

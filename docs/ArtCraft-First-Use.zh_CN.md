@@ -1,5 +1,10 @@
 # ArtCraft 首次使用与分发实现
 
+## 当前固定发布检查点
+
+插件版本依次为 FilmCraft dev.6、EffectCraft dev.7、PhotoCraft dev.6、VectorCraft dev.8、ArtCraft dev.23；配套技能源依次为 dev.5、dev.6、dev.5、dev.7、dev.21。当前运行时保持 ArtCraft dev.16，FilmCraft 使用维护制品 0.2.0-craft.1，其余领域 CLI 为 0.2.0。固定宿主发现 58 个技能、单技能公开冷安装及有界原生混合验收已有证据；实际 Skills CLI 安装、模型派发和完整创作接受仍未完成。以下章节保留早期实现记录，其中“尚未完成”是当时检查点；当前恢复、预算与打包范围应以各自后续架构和 evidence 为准。
+
+
 独立源码位于 artcraft-skills 的 artcraft-use。公开 workflow.py 自动调用 bootstrap.py，再通过生成的登记表执行 ArtCraft CLI。干净复制单技能目录、没有全局 Node 或兄弟仓库的验证已交付四种原生工程。初始安装测试使用本地锁定自有发布包；开发版发布后，默认在线下载也已在新运行时目录通过。Node 与四个 CLI 为实际官方制品。
 
 ```mermaid

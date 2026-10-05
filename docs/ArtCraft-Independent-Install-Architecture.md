@@ -34,8 +34,12 @@ python3 -I -B scripts/verify_independent_skill_install.py \
   --python <existing-absolute-python> --output <new-isolated-directory>
 ```
 
-Current npm metadata resolves skills@1.7.0; its registry integrity is recorded in pending evidence. Installation waits for tool authorization. Three tests cover the fixed plan, missing-tool refusal before directory creation and symlink rejection. They do not establish real installation or creative execution.
+Current npm metadata resolves skills@1.7.0; its registry integrity is recorded in pending evidence. Installation waits for tool authorization. Five tests cover the fixed plan, missing-tool refusal before directory creation, symlink rejection, wrong-version refusal and removal of offline overrides. They do not establish real installation or creative execution.
 
 ## 5. External contract
 
 [Official Skills CLI documentation](https://github.com/vercel-labs/skills), checked 2026-10-06, documents project-default installation, skill/agent selection, copy/yes flags and GitHub tree sources. Agreement between the current README and npm release still requires actual execution. Model dispatch, native creative workflows and GUI acceptance retain separate evidence.
+
+## 6. Exact native version gate
+
+The verifier now reads the expected native version from each hash-verified installed skill lock. A zero exit with a different full maintenance or prerelease suffix fails without a success receipt. Each successful native probe must record expected and actual versions. Inherited CRAFT_RUNTIME_HOME, CRAFT_NODE_ARCHIVE, CRAFT_BUNDLE_DIRECTORY and CRAFT_NATIVE_ARCHIVE_DIRECTORY are removed before execution. The failure fixture accepted craft.10 when craft.1 was expected before the fix; five unit tests now pass. Subprocesses are simulated, so actual public Skills CLI installation remains NOT_RUN and task 3.16 stays open. The generated plan now binds the current dev.7 VectorCraft and dev.21 ArtCraft skill sources.

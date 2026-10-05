@@ -33,13 +33,13 @@
         "skills": 12
       },
       "vectorcraft": {
-        "ref": "v0.1.0-dev.6",
-        "expectedSha": "898849a0775dfcda0c680f7224110f45fb288096",
+        "ref": "v0.1.0-dev.7",
+        "expectedSha": "c0effdce5888f976f7b988f708af7694192fe88e",
         "skills": 12
       },
       "artcraft": {
-        "ref": "v0.1.0-dev.20",
-        "expectedSha": "571f70c2b21cd6ed63570c2b831180866727e6ec",
+        "ref": "v0.1.0-dev.21",
+        "expectedSha": "3e10b3b61866dd66bd4a0040820f29d53fad8e0a",
         "skills": 10
       }
     }
@@ -55,5 +55,29 @@
     "scripts/verify_independent_skill_install.py": "fdc00ca6b697f8d084693ca56dc2f9f4388c72db325aefe497469ee2a4251c74",
     "tests/test_independent_skill_install.py": "e5cf9160d816d2af9059c923c6c1e060f979094dbf9bafa8bfa6cbe162d7c034"
   },
-  "scope": "reviewable acceptance tool; no new installer downloaded, no global skills modified"
+  "scope": "reviewable acceptance tool; no new installer downloaded, no global skills modified",
+  "versionGate": {
+    "state": "unit-verified; actual Skills CLI installation NOT_RUN",
+    "expectedVersionSource": "each hash-verified skill runtime.lock.resolvedVersion or ArtCraft distribution.lock runtime version",
+    "comparison": "full token including maintenance/prerelease suffix",
+    "offlineOverrides": "removed before native startup",
+    "red": {
+      "tests": 5,
+      "failed": 1,
+      "errors": 1,
+      "scope": "simulated zero-exit wrong native version accepted; receipt lacked native version bindings"
+    },
+    "green": {
+      "tests": 5,
+      "passed": 5,
+      "seconds": 0.015
+    },
+    "scope": "mocked subprocess fixtures only; no Skills CLI installation",
+    "regression": {
+      "tests": 50,
+      "passed": 46,
+      "skipped": 4,
+      "seconds": 2.911
+    }
+  }
 }

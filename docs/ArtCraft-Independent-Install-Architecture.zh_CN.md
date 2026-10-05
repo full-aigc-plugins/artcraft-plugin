@@ -34,8 +34,12 @@ python3 -I -B scripts/verify_independent_skill_install.py \
   --python <现有Python绝对路径> --output <新的隔离测试目录>
 ```
 
-当前 npm 元数据为 skills@1.7.0，registry 完整性值记录在待执行证据中。工具授权后才执行安装；用户日常配置与全局目录不在本流程范围内。三项测试仅证明固定安装计划、工具缺失不创建目录和符号链接拒绝，不能证明 Skills CLI 实际安装或原生创作。
+当前 npm 元数据为 skills@1.7.0，registry 完整性值记录在待执行证据中。工具授权后才执行安装；用户日常配置与全局目录不在本流程范围内。五项测试仅证明固定安装计划、工具缺失不创建目录、符号链接拒绝、错误原生版本拒绝和排除离线覆盖，不能证明 Skills CLI 实际安装或原生创作。
 
 ## 5. 已核对的外部合同
 
 [官方 Skills CLI 文档](https://github.com/vercel-labs/skills) 给出项目级默认安装、按 skill／agent 选择、copy 与 yes 参数，以及 GitHub tree 源格式。核对日期：2026-10-06。README 当前分支与 npm 发行版仍需以真实运行结果确认一致，不能仅凭文档宣称通过。创作、模型派发与 GUI 验收继续使用各自证据。
+
+## 6. 完整原生版本门禁
+
+验收工具从每个摘要已核验的安装技能锁读取预期原生版本。退出码零但完整维护或预发布后缀不同，拒绝产出成功回执；通过后逐技能记录预期与实际版本。执行前移除继承的 CRAFT_RUNTIME_HOME、CRAFT_NODE_ARCHIVE、CRAFT_BUNDLE_DIRECTORY 和 CRAFT_NATIVE_ARCHIVE_DIRECTORY。修复前预期 craft.1 却接受 craft.10 的失败用例已复现；修复后五项单元测试通过。子进程均为模拟，因此实际公开 Skills CLI 安装仍为 NOT_RUN，任务 3.16 保持未完成。安装计划同步到当前 VectorCraft dev.7 与 ArtCraft dev.21 技能源。

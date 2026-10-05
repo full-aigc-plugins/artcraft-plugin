@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -44,6 +45,8 @@ def verify(node, cli, python, lock, output):
     output = Path(output).absolute()
     output.mkdir(mode=0o700)  # 拒绝复用已有项目，避免覆盖用户技能。
     env = dict(os.environ, DO_NOT_TRACK='1', SKILLS_NO_TELEMETRY='1')
+    for key in ('CRAFT_RUNTIME_HOME', 'CRAFT_NODE_ARCHIVE', 'CRAFT_BUNDLE_DIRECTORY', 'CRAFT_NATIVE_ARCHIVE_DIRECTORY'):
+        env.pop(key, None)
     def run(argv, cwd, native=False):
         value = subprocess.run(list(map(str, argv)), cwd=cwd, env=dict(env, PATH="/usr/bin:/bin") if native else env, capture_output=True, text=True, timeout=600)
         if value.returncode:
@@ -61,14 +64,22 @@ def verify(node, cli, python, lock, output):
         if before != item['skills']:
             raise ValueError('independent_installed_source_drift')
         runtime = project / 'runtime'
+        native_versions = {}
         for name in sorted(item['skills']):
             script = directory/name/'scripts/cli.py'
-            run([python, '-I', '-B', script, '--runtime-home', runtime, '--', '--version'], project, native=True)
+            locked = json.loads((script.parent / ('distribution.lock.json' if item['plugin']=='artcraft' else 'runtime.lock.json')).read_text())
+            expected = locked['bundles']['artcraft-runtime']['version'] if item['plugin']=='artcraft' else locked['resolvedVersion']
+            if not isinstance(expected, str) or not re.fullmatch(r'\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?', expected):
+                raise ValueError('independent_runtime_lock_invalid')
+            actual = run([python, '-I', '-B', script, '--runtime-home', runtime, '--', '--version'], project, native=True).strip()
+            if re.search(r'(?<![0-9A-Za-z.-])'+re.escape(expected)+r'(?![0-9A-Za-z.-])', actual) is None:
+                raise ValueError('independent_runtime_version_mismatch: '+name)
+            native_versions[name] = {'expected': expected, 'actual': actual}
         after = {name: skill_hash(directory/name) for name in item['skills']}
         if after != before:
             raise ValueError('independent_skill_changed_after_use')
         records.append({'plugin': item['plugin'], 'source': item['source'], 'sourceSha': item['sourceSha'],
-                        'skills': before, 'versionProbes': len(before), 'afterUseHashes': 'unchanged'})
+                        'skills': before, 'versionProbes': len(before), 'nativeVersions': native_versions, 'afterUseHashes': 'unchanged'})
     receipt = {'schema': 'craft-independent-install-evidence/v1', 'skillsCliVersion': version,
                'plugins': records, 'scope': 'actual public Skills CLI installation and 58 public native version probes',
                'unverified': ['model dispatch', 'GUI', 'creative acceptance; native workflows have separate evidence']}
