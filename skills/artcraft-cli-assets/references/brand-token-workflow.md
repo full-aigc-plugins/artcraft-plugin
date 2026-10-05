@@ -1,6 +1,6 @@
 # 原生品牌色板混合工作流
 
-本技能携带 `examples/brand-token-campaign.json`，首次按图安装固定四领域依赖。VectorCraft 技能包锁定 dev.6，原生 CLI 保持 0.2.0；ArtCraft 编排运行时保持 dev.16。不是上游 ArtCraft 应用 CLI。
+本技能携带 `examples/brand-token-campaign.json`，首次按图安装固定四领域依赖。VectorCraft 技能包锁定 dev.7，原生 CLI 保持 0.2.0；ArtCraft 编排运行时保持 dev.16。不是上游 ArtCraft 应用 CLI。
 
 沿用当前实际加载的 `SKILL.md` 所在目录作为 `SKILL_DIR`：
 
@@ -27,3 +27,5 @@ python3 -I -B "$SKILL_DIR/scripts/workflow.py" \
 旧交付和 voice 必须保持摘要不变；关联图形、海报、片头、成片需检查真实输出，而非仅任务 ID。重复相同 revision 应复用已有任务和预算。打包仍使用本技能自己的 package.py create/verify。
 
 本案例只证明原生已登记 RGB 色板与显式 DAG 依赖，不推断模型自动设计、跨文件依赖发现、其他颜色模型、外部编辑器 token 保真、声音创意质量或人工创作接受。
+
+VectorCraft 示例明确使用随原生运行时提供的 Source Sans 3。新包在保存前记录 `text.fonts` 原生字体依赖；它报告本次原生会话已加载字体的可用性，不代表完整操作系统字体目录。用户指定字体未通过检查时应停止交付，不自动替换。中文文字定点修订参考 VectorCraft 的 `vectorcraft-cli-text` 技能。安装：`npx skills add full-aigc-skills/vectorcraft-skills --skill vectorcraft-cli-text`。

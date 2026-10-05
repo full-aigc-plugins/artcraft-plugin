@@ -33,3 +33,9 @@ Default regression: 57 tests, 46 pass and 11 native/offline gated skips, 5.550 s
 ## 5. Boundaries
 
 RGB native global swatches and explicit registered DAG consumers are covered. Automatic model design, undeclared cross-file dependency discovery, other color models, cross-editor editable token preservation, GUI, speech quality and human creative acceptance are not claimed. The synthetic test audio is an input fixture, not narrated speech. review_ready means pending review, not acceptance.
+
+## 6. VectorCraft dev.7 dependency update
+
+Skill candidate dev.21 pins the immutable VectorCraft dev.7 archive (202 files) and uses bundled Source Sans 3 for the Vector sample. ArtCraft runtime remains dev.16. Native loaded-font availability is not an OS-wide font inventory; user fonts are not silently replaced. Task 3.19 / AC-SK-003-BRAND-FONT records this compatibility gate.
+
+A single copied revise skill with fresh public downloads passes two contract/native tests in 56.437 seconds. The five native projects, selective four-output update, independent badge reuse, unchanged originals, idempotency and five-child package verification pass. Default regression: 57 tests, 46 passed and 11 skipped in 6.123 seconds. All five distribution archives reconstruct to locked hashes. Fixed-host installed verification of this candidate is NOT_RUN; previous dev.22 host results apply only to their original frozen release. Evidence: docs/evidence/vector-font-mixed-first-use.json.
