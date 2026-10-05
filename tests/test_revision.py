@@ -122,4 +122,33 @@ class RevisionTests(unittest.TestCase):
   with patch.object(m,'invoke',side_effect=RuntimeError('package_file_digest_mismatch')):
    self.assertEqual(m.stopped_receipt(None,state,'stagnation')['bestVerification'],'FAIL')
 
+ def test_stop_receipt_keeps_bound_unresolved_issues_without_relabeling_acceptance(self):
+  m=self.module();policy,plan,package,review,request=self.fixture()
+  failed=next(c for c in review['checks'] if c['status']=='FAIL')
+  failed.update(id='logo-color',note='Wrong brand color',responsiblePlugin='vectorcraft',evidence=[{'location':'color.png','sha256':'e'*64}])
+  failed['target']['objectId']='brand-mark'
+  policy['maxRounds']=1
+  state={'rounds':1,'stagnantRounds':0,'bestScore':None,'bestPackage':None,'lastScore':None,'stopped':None}
+  self.assertEqual(m.observe(policy,state,package,review),'max_rounds')
+  receipt=m.stopped_receipt(None,state,'max_rounds')
+  self.assertEqual(receipt['unresolvedIssues'][0]['checkId'],'logo-color')
+  self.assertEqual(receipt['unresolvedIssues'][0]['target']['objectId'],'brand-mark')
+  self.assertEqual(receipt['unresolvedIssues'][0]['responsiblePlugin'],'vectorcraft')
+  self.assertEqual(receipt['unresolvedIssues'][0]['note'],'Wrong brand color')
+  self.assertEqual(receipt['issueSource']['packageSha256'],package['sha256'])
+  failed['note']='changed caller observation'
+  self.assertEqual(receipt['unresolvedIssues'][0]['note'],'Wrong brand color')
+
+ def test_acceptance_clears_old_failed_issue_snapshot_and_legacy_stop_is_unobserved(self):
+  m=self.module();policy,plan,package,review,request=self.fixture()
+  state={'rounds':0,'stagnantRounds':0,'bestScore':None,'bestPackage':None,'lastScore':None,'stopped':None}
+  m.observe(policy,state,package,review)
+  for row in review['checks']:row['status']='PASS'
+  review['decision']='accepted'
+  self.assertEqual(m.observe(policy,state,package,review),'accepted_record')
+  self.assertEqual(m.stopped_receipt(None,state,'accepted_record')['unresolvedIssues'],[])
+  old=m.stopped_receipt(None,{'rounds':1,'bestPackage':None},'max_rounds')
+  self.assertEqual(old['issueEvidence'],'NOT_RUN')
+  self.assertIsNone(old['issueSource'])
+
 if __name__=='__main__':unittest.main()

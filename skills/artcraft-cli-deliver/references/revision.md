@@ -85,3 +85,9 @@ python3 -I -B "$SKILL_DIR/scripts/revision.py" status --project "$PROJECT_ROOT"
 循环状态写入当前项目 `.artcraft-revision-cycle.json`，每个提交前保存 pending，使用项目锁串行化并原子更新。计数与步骤记录不一致或 pending 计划被改动时拒绝。不要删除或手工重写状态来绕过停滞、预算或未知结果。
 
 本入口执行明确补丁与声明的政策，补丁规划、实际视觉／音频观察和模型评价由调用者完成；不执行额外模型会话，不认证评价者身份，不提升任务账本为 completed。模型自动规划与完整创作接受仍有独立验收。
+
+## 停止后的未解决问题
+
+停止回执携带 `unresolvedIssues`，保存最近已核验审阅中的 FAIL 检查 ID、维度、对象／帧／区域目标、责任插件、运行身份、观察说明与证据摘要。`issueSource` 绑定该观察所属交付包、runKey 和审阅回执摘要。它可能与 `bestPackage` 属于不同版本，不能把最佳包的核验结果当作最新失败已经解决。
+
+`issueEvidence: recorded_observation` 表示保存了观察快照，不表示重新执行模型或人工评价。旧日志没有该快照时返回 `NOT_RUN`，不能从空问题数组推断无问题。新的接受记录清除旧失败快照，但账本仍保持 `review_ready`，完整创作接受仍由独立审阅合同管理。

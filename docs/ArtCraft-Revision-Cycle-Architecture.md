@@ -54,3 +54,7 @@ Stagnation compares the count of declared FAIL observations, not aesthetic quali
 Eight targeted unit tests cover policy scope, native source derivation, stop rules, unknown results, plan tampering, journal counters and saved package verification. One real isolated cold-first-use test covers three stop-policy subcases, Logo recolor, dependent poster edits, unrelated task reuse, immutable originals and a killed controller followed by explicit recovery. Evidence is in `docs/evidence/revision-cycle-first-use.json`.
 
 Fixture feedback tests the revision contract; it does not prove creative acceptance. Evaluator authentication, automatic model patch generation, semantic target-drift detection, parameter-level authorization, GUI operation and complete mixed creative delivery remain unverified. The ledger remains `review_ready`. These limits keep broader AC-QA-002 implementation and acceptance tasks open.
+
+## 6. Unresolved issue delivery
+
+Stop receipts carry the latest verified observation snapshot in `unresolvedIssues`, retaining check identity, dimension, target, responsible plugin, runtime identity, note and evidence. `issueSource` binds the snapshot package/run and review receipt SHA. This source can differ from `bestPackage`; best-package integrity does not clear current failed observations. `recorded_observation` means persisted observations, not a new evaluation. Legacy journals without a snapshot report NOT_RUN. A newly accepted record clears older failures while leaving the task ledger unchanged.

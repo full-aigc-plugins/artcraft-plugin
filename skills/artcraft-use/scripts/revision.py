@@ -68,6 +68,14 @@ def observe(policy, state, package, review):
     identity(policy, package)
     if state.get('stopped'):
         return state['stopped']
+    # 保存最近已核验观察的失败项；最佳包与这些问题可来自不同版本。
+    state['unresolvedIssues'] = R.load_json(canonical([
+        {'checkId': row.get('id'), 'dimension': row['dimension'], 'target': row['target'],
+         'responsiblePlugin': row.get('responsiblePlugin'), 'runtimeIdentity': row.get('runtimeIdentity'),
+         'note': row.get('note'), 'evidence': row.get('evidence', [])}
+        for row in review['checks'] if row['status'] == 'FAIL'
+    ]))
+    state['issueSource'] = {'packageSha256': package['sha256'], 'runKey': package['workflow']['runKey']}
     score = observed_score(package, review)
     if score is None or review['decision'] not in ('changes_requested', 'accepted'):
         return 'review_required'
@@ -223,6 +231,9 @@ def save_state(root, state):
 
 def stopped_receipt(args, state, reason):
     result = {'state': 'stopped', 'reason': reason, 'bestPackage': state['bestPackage'], 'rounds': state['rounds'], 'bestVerification': 'NOT_RUN'}
+    result['unresolvedIssues'] = state.get('unresolvedIssues', [])
+    result['issueSource'] = state.get('issueSource')
+    result['issueEvidence'] = 'recorded_observation' if result['issueSource'] else 'NOT_RUN'
     best = state['bestPackage']
     if best and best.get('root'):
         try:
@@ -285,6 +296,7 @@ def step(args):
             if any(item.get('revision') == request.get('revision') for item in state['steps'].values()):
                 raise ValueError('revision_version_already_used')
             reason = observe(policy, state, package, review)
+            state['issueSource']['reviewSha256'] = args.review_sha
             if reason:
                 state['stopped'] = reason if reason != 'review_required' else None
                 save_state(root, state)

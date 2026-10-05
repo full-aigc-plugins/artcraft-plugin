@@ -89,7 +89,7 @@ class RevisionFirstUseTests(unittest.TestCase):
      else:
       made=step(package,packed,feedback,feedback_receipt)
      if reason=='budget_exceeded':
-      self.assertEqual(made['state'],'stopped',made);self.assertEqual(made['reason'],'budget_exceeded');self.assertEqual(made['bestVerification'],'PASS')
+      self.assertEqual(made['state'],'stopped',made);self.assertEqual(made['reason'],'budget_exceeded');self.assertEqual(made['bestVerification'],'PASS');self.assertTrue(made['unresolvedIssues']);self.assertEqual(made['issueSource']['reviewSha256'],feedback_receipt['sha256'])
      else:
       self.assertEqual(made['state'],'review_required',made)
       second=made['workflow'];self.assertEqual(second['nodes']['unrelated']['taskId'],first['nodes']['unrelated']['taskId'])
@@ -103,7 +103,7 @@ class RevisionFirstUseTests(unittest.TestCase):
       newpackage=Path(made['package']['root']);newfeedback,newreceipt=review(newpackage,made['package'],reason+'-new')
       request['revision']='v3';requestfile.write_text(json.dumps(request))
       stopped=step(newpackage,made['package'],newfeedback,newreceipt)
-      self.assertEqual(stopped['state'],'stopped');self.assertEqual(stopped['reason'],reason);self.assertEqual(stopped['bestVerification'],'PASS')
+      self.assertEqual(stopped['state'],'stopped');self.assertEqual(stopped['reason'],reason);self.assertTrue(stopped['unresolvedIssues']);self.assertEqual(stopped['issueEvidence'],'recorded_observation');self.assertEqual(stopped['bestVerification'],'PASS')
       self.assertEqual(stopped['bestPackage']['sha256'],packed['sha256'])
       self.assertEqual(run('cli.py','--','status','--database',project/'tasks.sqlite'),before)
      for path,contents in original_files.items():self.assertEqual(path.read_bytes(),contents)

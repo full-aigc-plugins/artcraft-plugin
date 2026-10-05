@@ -6,7 +6,7 @@ Cross-tool project planning, asset dependencies, version propagation and selecti
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.20`; skill source: `0.1.0-dev.18`; runtime: `0.1.0-dev.16`. Historical host evidence below retains its original release scope. Codex 0.147.0 and 0.153.4 installed five fixed public releases and discovered all 58 enabled namespaced skills with zero loading errors and matching source digests. Five representative workflows passed through installed task-skill entrypoints on 0.147.0, including native projects, targeted revisions and the mixed ArtCraft online workflow. Model dispatch, desktop GUI, final creative review and full interchange fidelity remain unverified.
+Current plugin: `0.1.0-dev.21`; skill source: `0.1.0-dev.19`; runtime: `0.1.0-dev.16`. Historical host evidence below retains its original release scope. Codex 0.147.0 and 0.153.4 installed five fixed public releases and discovered all 58 enabled namespaced skills with zero loading errors and matching source digests. Five representative workflows passed through installed task-skill entrypoints on 0.147.0, including native projects, targeted revisions and the mixed ArtCraft online workflow. Model dispatch, desktop GUI, final creative review and full interchange fidelity remain unverified.
 
 [Host verification design](docs/ArtCraft-Host-Verification-Architecture.md) · [Version-bound evidence](docs/evidence/codex-skill-suite.json). Historical milestones below retain their original scope; the current manifest and locks own version identity.
 
@@ -28,9 +28,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.20 |
+| Plugin ID / version | artcraft / 0.1.0-dev.21 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.18 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.19 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -156,3 +156,5 @@ Plugin dev.20 vendors the revision helper from published independent source dev.
 Fixed plugin dev.20 host validation passed: five plugins and all 58 skills discovered without errors; the actual installed revise skill passed default-public cold first use and real interrupted-process recovery in 47.636 seconds. Every installed skill hash still matches its fixed release lock. Release-commit documentation/OpenSpec and implementation CI passed; Linux runtime CI reports 79 passed and 5 skipped, not native macOS acceptance. [Evidence](docs/evidence/codex-release20-revision-first-use-20261006.json). Model dispatch, GUI and complete creative acceptance remain open.
 
 Current fixed-release mixed observation: installed plugin dev.20 and skills dev.18 passed two Chinese native first-use/revision tests. Four actual exports were inspected by the current assistant and a hash-bound model observation was recorded and reverified. Caption-only v2 deliberately retains the original narration but changes its text, so wording consistency is FAIL; engineering/technical PASS does not imply creative acceptance. Human acceptance remains NOT_RUN. [Evidence](docs/evidence/installed-mixed-observation.json). No new native release or model session was used for this QA check.
+
+Plugin dev.21 pins skills dev.19 and runtime dev.16. Stop receipts retain the latest unresolved observation and package/review identity separately from the best package. Old journals remain NOT_RUN. Native source cold-first-use passes; fixed-release host evidence is separate. [Evidence](docs/evidence/revision-unresolved-first-use.json).

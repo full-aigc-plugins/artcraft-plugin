@@ -1,0 +1,45 @@
+{
+  "schema": "craft-revision-unresolved-evidence/v1",
+  "date": "2026-10-06",
+  "sourceVersion": "0.1.0-dev.19",
+  "runtimeVersion": "0.1.0-dev.16",
+  "red": {
+    "tests": 10,
+    "passed": 8,
+    "errors": 2,
+    "reason": "stop receipts omitted unresolvedIssues"
+  },
+  "unit": {
+    "tests": 10,
+    "passed": 10,
+    "seconds": 0.065
+  },
+  "nativeFirstUse": {
+    "tests": 1,
+    "passed": 1,
+    "skipped": 0,
+    "seconds": 50.93,
+    "scope": "single isolated revise skill; default public native cold downloads; round/stagnation/budget stops retain bound failure snapshot; controller interruption and resume preserve tasks and budget"
+  },
+  "regression": {
+    "tests": 55,
+    "passed": 45,
+    "skipped": 10,
+    "failed": 0,
+    "seconds": 6.734
+  },
+  "files": {
+    "skills/artcraft-use/scripts/revision.py": "22795a5d63fa651233db30569304aa4c79b8508eb02545c96768774e25a62eb9",
+    "tests/test_revision.py": "1d8c2fca37815991e4a610f2777f014743f987d2a70d91bde17ee68f7b99ff4d",
+    "tests/test_revision_first_use.py": "b2ac054bdf909c015efe61c256a256258ea8674bf8e8c75ea1daf59b4e241d54"
+  },
+  "scope": "persisted verified observation snapshot, not evaluator authentication or new creative assessment",
+  "unverified": [
+    "new fixed-release installed-host execution",
+    "model-directed dispatch",
+    "GUI",
+    "full creative acceptance"
+  ],
+  "pluginVersion": "0.1.0-dev.21",
+  "sourceCommit": "68e4079f57bddf20cd1d2e21d3cd1002b362343f"
+}
