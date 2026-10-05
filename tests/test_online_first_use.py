@@ -88,6 +88,20 @@ class OnlineFirstWorkflowTests(unittest.TestCase):
             final_status=json.loads(subprocess.run(cli,check=True,capture_output=True,text=True,env=environment,timeout=30).stdout)
             self.assertEqual(len(final_status['tasks']),8);self.assertFalse(final_status['leases'])
             self.assertEqual(final_status['budgets'][0]['allocated']['revisions'],1)
+            # 默认公开下载的单技能入口完整交付打包，不读取开发仓库模块。
+            package=root/'delivery-package'
+            package_args=[sys.executable,'-I','-B',str(skill/'scripts/package.py'),'create','--project',str(project),'--workflow',modified['runKey'],'--output',str(package),'--authorization','isolated-first-use','--runtime-home',str(runtime)]
+            packed_run=subprocess.run(package_args,capture_output=True,text=True,env=environment,timeout=120)
+            self.assertEqual(packed_run.returncode,0,packed_run.stdout+packed_run.stderr)
+            packed=json.loads(packed_run.stdout);self.assertEqual(len(packed['children']),4)
+            moved=root/'moved-package';package.rename(moved)
+            shutil.rmtree(project);voice.unlink()
+            verify_args=[sys.executable,'-I','-B',str(skill/'scripts/package.py'),'verify','--package',str(moved),'--sha',packed['sha256'],'--runtime-home',str(runtime)]
+            verified_run=subprocess.run(verify_args,capture_output=True,text=True,env=environment,timeout=120)
+            self.assertEqual(verified_run.returncode,0,verified_run.stdout+verified_run.stderr)
+            verified=json.loads(verified_run.stdout);self.assertEqual(len(verified['children']),4)
+            self.assertEqual(verified['state'],'review_ready')
+
 
 
 if __name__ == '__main__':unittest.main()
