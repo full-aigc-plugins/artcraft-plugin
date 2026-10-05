@@ -27,3 +27,5 @@
 本轮实际修复了 dev.7 字体检查后普通与中文 ArtCraft 默认矢量模板的首次执行失败。发布 dev.24／技能 dev.22 后，两个实际安装的独立冷启动测试分别 2 项通过、57.177 和 57.973 秒。完整目标仍未完成。
 
 当前插件 dev.25／技能 dev.23 另通过实际安装原生重放和运行时绑定冲突保全：3 项，90.697 秒；全部 58 个安装摘要不变。[证据](evidence/codex-release27-binding-metadata-20261006.json)。完整目标仍未完成。
+
+FilmCraft 维护版 CLI 0.2.0-craft.1 已补齐实际安装快照的八类任务场景证据：八个独立冷缓存，8 项通过、43.688 秒，记录输入／输出／原生／驱动摘要，全部 58 个安装摘要保持不变。旧 0.2.0 场景报告保留历史范围。[当前 FilmCraft 场景证据](https://github.com/full-aigc-plugins/filmcraft-plugin/blob/main/docs/evidence/maintained-runtime-task-first-use.json)。

@@ -27,3 +27,5 @@ Checked 2026-10-06 against each repository's establish-v1-plugin OpenSpec and th
 This audit found and fixed ordinary/Chinese default Vector wordmark cold-start failures introduced by the dev.7 font check. Published plugin dev.24 / skills dev.22 pass both actual installed cold-start cases: 2 tests each, 57.177 and 57.973 seconds. The full objective remains incomplete.
 
 Current plugin dev.25 / skills dev.23 additionally pass installed native replay and runtime-binding refusal without project metadata mutation: 3 tests, 90.697 seconds; all 58 installed hashes preserved. [Evidence](evidence/codex-release27-binding-metadata-20261006.json). The full objective remains incomplete.
+
+FilmCraft maintained CLI 0.2.0-craft.1 now has current installed-snapshot evidence for all eight task scenes: eight separate cold task caches, 8 passes in 43.688 seconds, input/output/native/driver fingerprints and all 58 installed hashes preserved. The earlier 0.2.0 scene report is historical. [Current FilmCraft scene proof](https://github.com/full-aigc-plugins/filmcraft-plugin/blob/main/docs/evidence/maintained-runtime-task-first-use.json).
