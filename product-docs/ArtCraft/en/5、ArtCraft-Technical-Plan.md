@@ -95,3 +95,7 @@ Exchange delivery now includes exchange-loss.json binding native, reopened inspe
 ## Current host acceptance
 
 Snapshot `0.1.0-dev.7` has scoped installation/discovery and installed-entrypoint evidence. See [verification contracts and exclusions](../../../docs/ArtCraft-Host-Verification-Architecture.md). Full release tasks remain open; target design sections do not constitute implementation evidence.
+
+## CLI skill suite revision
+
+[ArtCraft CLI / setup / task suite](../../../docs/ArtCraft-Skill-Suite-Architecture.md)

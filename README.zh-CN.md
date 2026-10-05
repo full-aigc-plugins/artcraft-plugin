@@ -6,7 +6,7 @@
 
 ## 当前版本与可复现宿主验证
 
-当前插件与独立技能源快照：`0.1.0-dev.7`。Codex 0.147.0 与 0.153.4 均安装五个固定发布，发现五项启用的命名空间技能，加载错误为零；两套宿主中的 ArtCraft 公开入口均通过混合首次使用流程。四个独立代表任务在 0.147.0 通过。这些测试执行安装后的 Python 入口；模型自动派发、桌面 GUI、创作最终评审和完整交换保真尚未验证。
+前一已验证插件/技能源快照：`0.1.0-dev.7`；当前技能体系为 `0.1.0-dev.8`。Codex 0.147.0 与 0.153.4 均安装五个固定发布，发现五项启用的命名空间技能，加载错误为零；两套宿主中的 ArtCraft 公开入口均通过混合首次使用流程。四个独立代表任务在 0.147.0 通过。这些测试执行安装后的 Python 入口；模型自动派发、桌面 GUI、创作最终评审和完整交换保真尚未验证。
 
 [宿主验证设计](docs/ArtCraft-Host-Verification-Architecture.zh_CN.md) · [绑定版本的证据](docs/evidence/codex-current-release.json)。历史里程碑保留原证据范围；当前版本身份以 manifest 和锁文件为准。
 
@@ -28,9 +28,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.7 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.8 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.7 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.8 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
@@ -124,3 +124,7 @@ dev.6 默认在线验收通过：仅复制一个技能目录、空运行时、�
 当前开发里程碑为原生交付增加摘要绑定的交换损失报告，区分 lost、observed、unknown；派生导出不替代原生工程。跨编辑器字体、效果和蒙版保真尚未验证，完整交换验收任务保持未完成。
 
 dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行时、无离线覆盖；四个原生交付均含摘要绑定交换报告，源工程修订、调度器恢复与移动包核验通过。见[在线证据](docs/evidence/online-first-use-v7.json)。
+
+## CLI 与场景技能体系
+
+技能源包含 10 项可独立安装的技能，分为安装、CLI 公共操作与场景任务。[架构与清单](docs/ArtCraft-Skill-Suite-Architecture.zh_CN.md)。运行时与插件版本分别维护；旧宿主证据保持原版本范围。

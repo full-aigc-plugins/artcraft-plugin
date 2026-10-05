@@ -30,7 +30,8 @@ def verify_installed_skill(directory,expected):
     installed=json.loads((plugin/'plugin.json').read_text());sources=json.loads((plugin/'skills.lock.json').read_text()).get('sources',[])
     if len(sources)!=1:raise ValueError('host_installed_skill_identity_mismatch')
     source=sources[0]
-    if hashlib.sha256((plugin/'plugin.json').read_bytes()).hexdigest()!=expected['pluginManifestSha256'] or installed['version']!=expected['version'] or source['ref']!=expected['skillSourceRef'] or source['sha']!=expected['skillSourceSha'] or source['sha256'][directory.name]!=expected['skillSha256'] or skill_hash(directory)!=expected['skillSha256']:raise ValueError('host_installed_skill_identity_mismatch')
+    expected_hash=expected.get('skills',{}).get(directory.name,expected['skillSha256'])
+    if hashlib.sha256((plugin/'plugin.json').read_bytes()).hexdigest()!=expected['pluginManifestSha256'] or installed['version']!=expected['version'] or source['ref']!=expected['skillSourceRef'] or source['sha']!=expected['skillSourceSha'] or source['sha256'][directory.name]!=expected_hash or skill_hash(directory)!=expected_hash:raise ValueError('host_installed_skill_identity_mismatch')
     return installed,source
 
 
@@ -73,6 +74,9 @@ def validate_lock(lock):
         for key,length in [('sha',40),('skillSourceSha',40),('skillSha256',64),('pluginManifestSha256',64)]:
             if not isinstance(entry.get(key),str) or not re.fullmatch('[a-f0-9]{'+str(length)+'}',entry[key]):raise ValueError('host_release_identity_invalid')
         if not re.fullmatch(r'v0\.1\.0-dev\.\d+',entry.get('skillSourceRef','')):raise ValueError('host_release_identity_invalid')
+        if 'skills' in entry:
+            skills=entry['skills']
+            if not isinstance(skills,dict) or skills.get(name+'-use')!=entry['skillSha256'] or any(not re.fullmatch(re.escape(name)+r'-[a-z0-9]+(?:-[a-z0-9]+)*',skill) or not isinstance(digest,str) or not re.fullmatch('[a-f0-9]{64}',digest) for skill,digest in skills.items()):raise ValueError('host_skill_suite_identity_invalid')
 
 
 def verify(codex,lock_path,output):
@@ -105,13 +109,18 @@ def verify(codex,lock_path,output):
     if any(row.get('errors') for row in rows):raise ValueError('host_skill_loading_errors')
     found={};records=[]
     for name in NAMES:
-        matches=[skill for row in rows for skill in row.get('skills',[]) if skill.get('name')==name+':'+name+'-use' and skill.get('enabled')]
-        if len(matches)!=1:raise ValueError('host_skill_not_discovered: '+name)
-        skill=matches[0];directory=Path(skill['path']).resolve().parent
-        if not directory.is_relative_to(host.resolve()):raise ValueError('host_skill_outside_isolation')
-        expected=lock['plugins'][name];installed,source=verify_installed_skill(directory,expected)
-        found[name]=str(directory)
-        records.append({'pluginId':name,'version':installed['version'],'pluginManifestSha256':expected['pluginManifestSha256'],'sourceSha':expected['sha'],'skillSourceSha':source['sha'],'skillSha256':expected['skillSha256'],'discoveredName':skill['name'],'scope':skill.get('scope'),'enabled':True})
+        expected=lock['plugins'][name];skill_names=expected.get('skills',{name+'-use':expected['skillSha256']});discovered=[]
+        actual_names={skill['name'] for row in rows for skill in row.get('skills',[]) if skill.get('name','').startswith(name+':')}
+        if actual_names!={name+':'+skill_name for skill_name in skill_names}:raise ValueError('host_skill_suite_inventory_mismatch')
+        for skill_name,skill_digest in skill_names.items():
+            matches=[skill for row in rows for skill in row.get('skills',[]) if skill.get('name')==name+':'+skill_name and skill.get('enabled')]
+            if len(matches)!=1:raise ValueError('host_skill_not_discovered: '+name+':'+skill_name)
+            skill=matches[0];directory=Path(skill['path']).resolve().parent
+            if not directory.is_relative_to(host.resolve()):raise ValueError('host_skill_outside_isolation')
+            installed,source=verify_installed_skill(directory,expected)
+            discovered.append({'name':skill['name'],'sha256':skill_digest,'scope':skill.get('scope'),'enabled':True})
+            if skill_name==name+'-use':found[name]=str(directory)
+        records.append({'pluginId':name,'version':installed['version'],'pluginManifestSha256':expected['pluginManifestSha256'],'sourceSha':expected['sha'],'skillSourceSha':source['sha'],'skillSha256':expected['skillSha256'],'discoveredName':name+':'+name+'-use','scope':skill.get('scope'),'enabled':True,'skills':discovered})
     receipt={'schema':'craft-codex-host-evidence/v2','result':'passed','cliVersion':cli_version,'appServerUserAgent':initialization.get('userAgent'),'platform':os.uname().sysname.lower()+'-'+os.uname().machine,'plugins':records,'loadingErrors':0,'scope':['isolated fixed public-tag install','installed immutable skill content identity','app-server skill discovery'],'skillDirectories':found,'excluded':['agent model dispatch','desktop GUI interaction','production acceptance']}
     (root/'host-receipt.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
     return receipt

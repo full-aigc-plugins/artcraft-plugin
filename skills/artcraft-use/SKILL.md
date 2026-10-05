@@ -53,3 +53,19 @@ python3 /mnt/skills/user/artcraft-use/scripts/workflow.py \
 开发版本 5 提供项目打包与移动验包：使用 `scripts/package.py create/verify`，参见[交付包合同](references/project-package.md)。从可信账本收集原生工程、登记输入和工作流记录，保留技术待审状态；移动后核验并使用独立技能源工程入口重关联。
 
 ArtCraft dev.7 消费四领域 dev.2 的[交换损失报告](references/exchange-loss.md)。报告引用写入每份公共素材并随项目打包；核验原生/导出/重开检查身份，拒绝未知保真冒充已验证或有损原生替代。
+
+## 按任务选择独立技能
+
+| 技能 | 触发任务 |
+| :--- | :--- |
+| **artcraft-cli** | 查询实际命令参数和能力，调用公开 CLI、MCP 与诊断 |
+| **artcraft-cli-setup** | 首次安装、摘要校验、版本检查与缺失运行时排障 |
+| **artcraft-cli-plan** | 拆解品牌图形、海报、片头与宣传片的工具、DAG 和交付约束 |
+| **artcraft-cli-execute** | 执行已有 ArtCraft 计划，核对输入版本与并发写入 |
+| **artcraft-cli-assets** | 登记素材摘要、来源与子工程依赖，核对受影响产物 |
+| **artcraft-cli-revise** | 替换 Logo 或指定资产，修改原生子工程并更新下游 |
+| **artcraft-cli-recover** | 检查任务状态、取消原任务并在调度器退出后恢复 |
+| **artcraft-cli-deliver** | 收集原生子工程、素材、计划和证据，移动包后核验 |
+| **artcraft-cli-review** | 检查混合交付的技术证据和视觉文案音频一致性 |
+
+缺少技能：`npx skills add full-aigc-skills/artcraft-skills --skill <skill-name>`。每项自带安装与执行资源；直接执行本技能 `scripts/cli.py` 也可查询当前 CLI，不依赖兄弟路径。

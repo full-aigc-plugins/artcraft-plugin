@@ -6,7 +6,7 @@ Cross-tool project planning, asset dependencies, version propagation and selecti
 
 ## Current release and reproducible host checks
 
-Current plugin and independent skill snapshot: `0.1.0-dev.7`. Codex 0.147.0 and 0.153.4 installed all five fixed releases and discovered five enabled namespaced skills with zero loading errors. Installed ArtCraft public entrypoints passed mixed first-use workflows on both hosts. Four standalone representative workflows passed on 0.147.0. These runs invoke the installed Python entrypoints; model dispatch, desktop GUI, creative final review and full interchange fidelity remain unverified.
+Previous verified plugin/skill snapshot: `0.1.0-dev.7`; current suite is `0.1.0-dev.8`. Codex 0.147.0 and 0.153.4 installed all five fixed releases and discovered five enabled namespaced skills with zero loading errors. Installed ArtCraft public entrypoints passed mixed first-use workflows on both hosts. Four standalone representative workflows passed on 0.147.0. These runs invoke the installed Python entrypoints; model dispatch, desktop GUI, creative final review and full interchange fidelity remain unverified.
 
 [Host verification design](docs/ArtCraft-Host-Verification-Architecture.md) · [Version-bound evidence](docs/evidence/codex-current-release.json). Historical milestones below retain their original scope; the current manifest and locks own version identity.
 
@@ -28,9 +28,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.7 |
+| Plugin ID / version | artcraft / 0.1.0-dev.8 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.7 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.8 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -124,3 +124,7 @@ Default online dev.6 acceptance passes from a single copied skill and empty runt
 The current development milestone adds hash-bound exchange loss reports to native deliveries. lost, observed and unknown are separate; derivatives never substitute for native projects. Font/effect/mask fidelity across editors remains unverified, so full exchange acceptance stays open.
 
 Default online dev.7 first-use acceptance passes in 53.106 seconds: one copied skill, fresh runtime and no archive overrides. All four native deliveries include digest-bound exchange reports; source revisions, scheduler recovery and moved-package verification pass. See [online evidence](docs/evidence/online-first-use-v7.json).
+
+## CLI and task skill suite
+
+The source suite contains 10 independently installable skills with setup, public CLI operations and focused tasks. [Architecture and catalogue](docs/ArtCraft-Skill-Suite-Architecture.md). Runtime and plugin versions are separate; prior host evidence retains its original version scope.

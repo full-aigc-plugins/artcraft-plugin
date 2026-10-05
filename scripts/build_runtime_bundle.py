@@ -7,7 +7,7 @@ from pathlib import Path
 import zipfile
 
 VERSION = '0.1.0-dev.7'
-DOMAIN_VERSION = '0.1.0-dev.2'
+DOMAIN_VERSION = '0.1.0-dev.3'
 NAMES = ('filmcraft', 'effectcraft', 'photocraft', 'vectorcraft')
 
 
@@ -35,7 +35,7 @@ def build(plugin_root, skills_root, output, lock_path):
     entries = {'artcraft-runtime': bundle(plugin_root, files, output/f'artcraft-runtime-{VERSION}.zip', 'full-aigc-plugins/artcraft-plugin')}
     for name in NAMES:
         source = skills_root/(name+'-skills')
-        files = [source/'LICENSE', *[p for p in (source/'skills'/(name+'-use')).rglob('*') if p.is_file() and '__pycache__' not in p.parts]]
+        files = [source/'LICENSE', *[p for p in (source/'skills').rglob('*') if p.is_file() and '__pycache__' not in p.parts]]
         entries[name+'-skills'] = bundle(source, files, output/f'{name}-skills-{DOMAIN_VERSION}.zip', 'full-aigc-skills/'+name+'-skills', DOMAIN_VERSION)
     lock = {'schema': 'artcraft-distribution/v1', 'version': VERSION, 'bundles': entries}
     lock_path.write_text(json.dumps(lock, ensure_ascii=False, indent=2)+'\n')

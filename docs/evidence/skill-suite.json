@@ -1,0 +1,36 @@
+{
+  "schema": "craft-skill-suite-evidence/v1",
+  "date": "2026-10-05",
+  "pluginId": "artcraft",
+  "skillVersion": "0.1.0-dev.8",
+  "runtimeVersion": "0.1.0-dev.7",
+  "skillCount": 10,
+  "redPhase": {
+    "previousSourceCommitFailsSuiteContract": true,
+    "failure": "skill-suite.json absent; executed isolated git archive of previous source commit"
+  },
+  "checks": {
+    "formatValidated": 10,
+    "isolatedDiscovery": 10,
+    "unknownSubcommandRejectedBeforeInstall": 10,
+    "internalSkillLinks": "passed",
+    "resourceSynchronization": "passed"
+  },
+  "regression": {
+    "tests": 17,
+    "passed": 17,
+    "skipped": 0,
+    "seconds": 48.695
+  },
+  "taskSkillNative": {
+    "skill": "artcraft-cli-execute",
+    "passed": 1,
+    "seconds": 32.228
+  },
+  "hostDiscovery": "pending fixed release verification",
+  "limits": [
+    "not all individual command IDs executed",
+    "model task dispatch and GUI remain unverified",
+    "creative final acceptance and full interchange fidelity remain open"
+  ]
+}

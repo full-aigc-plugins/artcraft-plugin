@@ -24,7 +24,7 @@ For creators who need editable deliverables, repeatable revisions and cross-tool
 | Skills source (planned) | full-aigc-skills/artcraft-skills |
 | Native deliverable | project-manifest.json |
 | Current stage | documentation-baseline |
-| Metadata version | 0.1.0-dev.7 |
+| Metadata version | 0.1.0-dev.8 |
 
 
 ## 3. Brand and copyright boundary

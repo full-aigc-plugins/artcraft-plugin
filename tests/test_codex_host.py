@@ -49,6 +49,13 @@ class HostVerifierTests(unittest.TestCase):
    source['sha']='a'*40;(root/'skills.lock.json').write_text(json.dumps({'sources':[source]}));manifest['name']='counterfeit';(root/'plugin.json').write_text(json.dumps(manifest))
    with self.assertRaisesRegex(ValueError,'host_installed_skill_identity_mismatch'):verifier.verify_installed_skill(skill,expected)
 
+ def test_skill_suite_lock_rejects_foreign_names_missing_router_and_bad_digest(self):
+  import copy
+  lock=json.loads((ROOT/'host-acceptance.lock.json').read_text())
+  for skills in [{'filmcraft-use':'bad'},{'another-use':'a'*64},{'filmcraft-cli':'a'*64}]:
+   candidate=copy.deepcopy(lock);candidate['plugins']['filmcraft']['skills']=skills
+   with self.assertRaisesRegex(ValueError,'host_skill_suite_identity_invalid'):verifier.validate_lock(candidate)
+
 # 与离线边界测试分开；CI 不具备 Codex 时明确跳过，不伪称宿主通过。
 import os
 import shutil
@@ -63,5 +70,7 @@ class LiveHostTests(unittest.TestCase):
    self.assertEqual({entry['pluginId'] for entry in result['plugins']},set(verifier.NAMES))
    for entry in result['plugins']:
     self.assertTrue(entry['enabled']);self.assertEqual(entry['discoveredName'],entry['pluginId']+':'+entry['pluginId']+'-use')
+    expected=json.loads((ROOT/'host-acceptance.lock.json').read_text())['plugins'][entry['pluginId']]
+    self.assertEqual({skill['name'] for skill in entry['skills']},{entry['pluginId']+':'+name for name in expected.get('skills',{entry['pluginId']+'-use':expected['skillSha256']})})
 
 if __name__=='__main__':unittest.main()
