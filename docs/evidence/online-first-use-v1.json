@@ -1,0 +1,60 @@
+{
+  "schema": "craft-online-first-use-evidence/v1",
+  "observedAt": "2026-10-05T12:21:16.873135+00:00",
+  "version": "0.1.0-dev.1",
+  "result": "passed",
+  "passedTests": 1,
+  "durationSeconds": 48.066,
+  "pluginReleaseCommit": "05962d8be1c889ca83104e811d841c6f7139cd8f",
+  "skillSource": {
+    "package": "artcraft-skills",
+    "repo": "https://github.com/full-aigc-skills/artcraft-skills.git",
+    "ref": "v0.1.0-dev.1",
+    "sha": "9ac78ab97cd29d79512e39517d12ed2a060e8308",
+    "skills": [
+      "artcraft-use"
+    ],
+    "dest": "skills/",
+    "sha256": {
+      "artcraft-use": "c9b56bc362d595f5b97bdff2a14297301e8352a13c8166620d4d3c32a0879c3c"
+    }
+  },
+  "runtimeBundleSha256": "3c3a3865c5f133a23fdec2da44d2f51c153df43bf277139b080e2a8e0902da2a",
+  "bundleVersions": {
+    "artcraft-runtime": "0.1.0-dev.1",
+    "filmcraft-skills": "0.1.0-dev.0",
+    "effectcraft-skills": "0.1.0-dev.0",
+    "photocraft-skills": "0.1.0-dev.0",
+    "vectorcraft-skills": "0.1.0-dev.0"
+  },
+  "isolation": {
+    "skillDirectories": 1,
+    "runtimeHome": "fresh temporary directory",
+    "childPATH": "/usr/bin:/bin",
+    "offlineOverrides": false,
+    "globalNodeUsed": false
+  },
+  "assertions": [
+    "all project bundles, official Node and four native CLIs fetched through default URLs",
+    "four native projects generated for each of two successful revisions",
+    "same revision replay preserves task identities",
+    "same revision changed plan rejected",
+    "Logo recolor changes Logo/poster/intro/film output hashes",
+    "four original native project hashes preserved",
+    "provided audio hash preserved across revisions",
+    "shared allocations: zero monetary and external calls, one revision",
+    "replaying new revision does not charge again",
+    "third revision rejected before creating tasks",
+    "CLI ledger has eight tasks and zero leases"
+  ],
+  "fixture": "Procedural brand graphics and tone WAV; technical workflow only",
+  "notVerified": [
+    "actual paid provider billing",
+    "source-native project edit adapter",
+    "quality stagnation loop",
+    "final creative acceptance",
+    "crash adoption",
+    "final packaging",
+    "GUI and production release"
+  ]
+}

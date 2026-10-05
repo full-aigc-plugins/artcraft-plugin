@@ -66,3 +66,5 @@ Frozen project plans, registries and runtime hashes still apply. Runtime upgrade
 [Budget evidence](evidence/shared-budget-tests.json) records the RED phase, eight ledger budget tests and 58 runtime tests including native integrations and runner/DAG admission tests. Coverage includes process races, call/revision caps, frozen policies, reopen, unknown outcomes, invalid usage, overflow, legacy-history protection, pre-spawn rejection and replay deduplication.
 
 Native fixtures establish technical behavior. Real paid-provider billing, creative acceptance, complete quality loops, crash adoption and production release remain outside this evidence scope.
+
+[Released online native workflow](evidence/online-first-use-v1.json) verifies two successful revisions and a rejected third, with unchanged original project hashes/audio and eight durable tasks. This extends fixture budget tests without claiming real paid-provider settlement.

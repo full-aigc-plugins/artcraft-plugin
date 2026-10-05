@@ -1,0 +1,42 @@
+{
+  "schema": "craft-codex-host-evidence/v1",
+  "observedAt": "2026-10-05T12:25:08.400317+00:00",
+  "platform": "darwin-arm64",
+  "result": "passed",
+  "cliVersion": "codex-cli 0.153.4",
+  "appServerUserAgent": "Codex Desktop/0.147.0 (Mac OS 27.0.0; arm64) dumb (craft-budget-acceptance; 0.1.0)",
+  "pluginVersions": {
+    "filmcraft": "0.1.0-dev.0",
+    "effectcraft": "0.1.0-dev.0",
+    "photocraft": "0.1.0-dev.0",
+    "vectorcraft": "0.1.0-dev.0",
+    "artcraft": "0.1.0-dev.1"
+  },
+  "scope": [
+    "five plugins installed from public immutable tags into fresh isolated host configuration",
+    "installed skill sources checked against their locks",
+    "app-server discovers all five enabled namespaced skills with zero loading errors"
+  ],
+  "artcraftInstalledFirstUse": {
+    "passedTests": 1,
+    "durationSeconds": 47.457,
+    "offlineOverrides": false,
+    "source": "installed plugin cache artcraft-use",
+    "assertions": [
+      "two successful revisions with four native projects each",
+      "Logo recolor updates all consumer outputs",
+      "original project hashes/audio preserved",
+      "replays do not allocate again",
+      "third revision stopped at maxRevisions",
+      "eight tasks and zero leases"
+    ]
+  },
+  "marketplacePromotion": false,
+  "excludedEvidence": [
+    "desktop GUI interaction",
+    "other hosts/platforms",
+    "paid billing",
+    "complete creative review",
+    "production release"
+  ]
+}
