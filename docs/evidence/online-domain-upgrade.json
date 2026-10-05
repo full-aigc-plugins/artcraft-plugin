@@ -1,0 +1,67 @@
+{
+  "schema": "artcraft-online-domain-upgrade/v1",
+  "date": "2026-10-06",
+  "skillSourceRef": "v0.1.0-dev.10",
+  "runtimeVersion": "0.1.0-dev.7",
+  "nodeVersion": "24.21.0",
+  "domainBundles": {
+    "filmcraft-skills": {
+      "version": "0.1.0-dev.4",
+      "sha256": "568cd74442221b7ce796b41f77bbe59d8085c529db75fdd760095ba48c8835ac",
+      "url": "https://github.com/full-aigc-skills/filmcraft-skills/releases/download/v0.1.0-dev.4/filmcraft-skills-0.1.0-dev.4.zip"
+    },
+    "effectcraft-skills": {
+      "version": "0.1.0-dev.5",
+      "sha256": "13bd7d7300b1640bc60c14df43956afa2a7f67d0d7a7dd443d18cef4ea155783",
+      "url": "https://github.com/full-aigc-skills/effectcraft-skills/releases/download/v0.1.0-dev.5/effectcraft-skills-0.1.0-dev.5.zip"
+    },
+    "photocraft-skills": {
+      "version": "0.1.0-dev.5",
+      "sha256": "81159d097aef14df927f00305497062500fdbfd621752856193bab45b83da879",
+      "url": "https://github.com/full-aigc-skills/photocraft-skills/releases/download/v0.1.0-dev.5/photocraft-skills-0.1.0-dev.5.zip"
+    },
+    "vectorcraft-skills": {
+      "version": "0.1.0-dev.5",
+      "sha256": "3c6629b91faca3bac9ff34dce0d3ee33648b06fdfb2711d4a069e0867d7bc8fc",
+      "url": "https://github.com/full-aigc-skills/vectorcraft-skills/releases/download/v0.1.0-dev.5/vectorcraft-skills-0.1.0-dev.5.zip"
+    }
+  },
+  "testFile": "tests/test_workflow_first_use.py",
+  "testFileSha256": "50b0ec549b610180d0fed0f8be9f9223ada7075e28fe96900071c0e866aaf59f",
+  "testCommand": "CRAFT_LIVE_TEST=1 CRAFT_ONLINE_FIRST_USE=1 CRAFT_LIVE_SUITE=1 /opt/anaconda3/bin/python3 -B -m unittest discover -s tests -v",
+  "result": {
+    "tests": 21,
+    "passed": 20,
+    "skipped": 1,
+    "seconds": 79.585
+  },
+  "skipped": "Node-only verified-offline-archive case; online mixed workflow installed and checked real Node without global Node",
+  "firstUse": {
+    "onlyArtcraftUseCopied": true,
+    "freshRuntimeDirectory": true,
+    "offlineArchiveOverrides": false,
+    "subprocessPath": "/usr/bin:/bin",
+    "outputs": [
+      "project.vectorcraft",
+      "project.pcraft",
+      "project.ecproj",
+      "project.fcproj"
+    ],
+    "state": "review_ready"
+  },
+  "verified": [
+    "All ten isolated ArtCraft skill launchers find expected runtime/CLI help",
+    "Default online installer obtains pinned Node/runtime/updated domain bundles/native CLIs",
+    "Four native domain deliveries with input voice hash retained",
+    "Same-revision replay reuses four task IDs and leaves no active leases",
+    "Changed plan without new revision is rejected",
+    "Delivery package has four children; moved package verifies"
+  ],
+  "exclusions": [
+    "Final creative or real narration quality; technical voice fixture used",
+    "Model automatic skill dispatch",
+    "GUI and complete host acceptance",
+    "Image Factory/Video Factory/Jianying adapter integration",
+    "All ArtCraft task-specific first-use scenarios"
+  ]
+}

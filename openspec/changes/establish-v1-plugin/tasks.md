@@ -29,6 +29,7 @@
 - [x] 3.9 [AC-SK-003] 验证每个单独技能的 CLI 发现与原生代表任务、旧入口回归及插件技能发现。责任：QA owner；前置：3.8；产物：docs/evidence/skill-suite.json；明确未执行的创作/GUI 场景。
 - [x] 3.10 [AC-SK-003] 修正全部技能为真实加载目录调用，执行三种安装布局及含空格路径的隔离入口回归；产物：docs/evidence/installed-skill-paths.json、独立技能源 tests/test_installed_paths.py。此检查不替代完整创作验收。
 - [x] 3.11 [AC-SK-001] 修复本地来源覆盖读取工作树而非固定标签的漂移，验证脏文件保留、缓存排除和公开来源摘要一致；产物：tests/test_skill_vendor.py、docs/evidence/installed-skill-paths.json。
+- [x] 3.12 [AC-SK-003] 接入 PhotoCraft/VectorCraft dev.5 并以单技能默认公开下载完成四领域原生交付、任务复用与移动验包；20 项通过、1 项 Node 专用离线制品测试跳过；产物：docs/evidence/online-domain-upgrade.json、独立技能源 tests/test_workflow_first_use.py。
 
 ## 4. runtime-distribution
 
