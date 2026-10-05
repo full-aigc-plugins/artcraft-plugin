@@ -28,7 +28,7 @@ Consumers in this example are generated from their prior plans. Preserving addit
 
 The old locked skill bundle fails the native logo step and blocks its consumers while the independent badge succeeds. With dev.6, a single copied ArtCraft revise skill and fresh public runtime cache pass in 48.357 seconds. Checks bind installed VectorCraft version, changed four outputs and decoded poster/intro/film pixels, byte-identical independent logo icon, all prior files, original audio, repeat task identity/budget and five verified packaged child projects.
 
-Default regression: 57 tests, 46 pass and 11 native/offline gated skips, 5.550 seconds. Bounded cold native testing is separate from this regression. Skill source dev.20 is published. Plugin dev.22 is a release candidate; fixed-release installed-host acceptance remains pending. Evidence: docs/evidence/brand-token-mixed-first-use.json.
+Default regression: 57 tests, 46 pass and 11 native/offline gated skips, 5.550 seconds. Bounded cold native testing is separate from this regression. Skill source dev.20 is published. Plugin dev.22 is published. Fixed-release host discovery passes for all 58 skills; a separate installed-skill cold native run passes both tests in 54.471 seconds. All installed hashes remain unchanged, and all five distribution archives reproduce the pinned bytes. Evidence: docs/evidence/brand-token-mixed-first-use.json.
 
 ## 5. Boundaries
 

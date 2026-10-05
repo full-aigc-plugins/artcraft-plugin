@@ -1,7 +1,7 @@
 {
   "schema": "craft-brand-token-mixed-first-use/v1",
   "date": "2026-10-06",
-  "state": "skill-source-published; plugin-release-candidate",
+  "state": "published-development-release; bounded-installed-native-mixed-acceptance-passed",
   "runtimeVersion": "0.1.0-dev.16",
   "vectorSkillVersion": "0.1.0-dev.6",
   "vectorBundleSha256": "db722d8cb4bf41c797a8560f94b18bee5bf300d4b53c9d0b5de2366bc1e678fa",
@@ -40,7 +40,6 @@
     "skills/artcraft-use/scripts/distribution.lock.json": "851ee0ce6feb9f7f1b8eccc529ba6ec38ebd6e8e881a8b70fdd022c59c3d7b09"
   },
   "unverified": [
-    "fixed-release installed-host acceptance for this addition",
     "actual npx independent installer",
     "model-directed dispatch",
     "GUI",
@@ -51,5 +50,25 @@
   ],
   "skillSourceRef": "v0.1.0-dev.20",
   "skillSourceCommit": "571f70c2b21cd6ed63570c2b831180866727e6ec",
-  "pluginCandidateVersion": "0.1.0-dev.22"
+  "pluginVersion": "0.1.0-dev.22",
+  "pluginSourceCommit": "4da515b31ee26a81e412377ee9f3ed6000e9754d",
+  "installedNative": {
+    "tests": 2,
+    "passed": 2,
+    "skipped": 0,
+    "seconds": 54.471,
+    "scope": "one contract plus actual host-installed revise skill copied alone; fresh default public runtime cache; real five-node native delivery, revision and package verification"
+  },
+  "hostEvidence": "docs/evidence/codex-release23-brand-token-mixed-20261006.json",
+  "postExecutionSkillHashesVerified": 58,
+  "distributionRebuild": {
+    "bundles": 5,
+    "allLockedBytesReproduced": true
+  },
+  "pluginRegression": {
+    "tests": 44,
+    "passed": 40,
+    "skipped": 4,
+    "seconds": 3.478
+  }
 }
