@@ -116,3 +116,5 @@ Development version `0.1.0-dev.6` adds detached native supervision and original-
 Default online dev.6 acceptance passes from a single copied skill and empty runtime without archive overrides. Killing the installed scheduler during a native operation and re-running the same public workflow preserves the original attempt, produces exactly four executions and leaves no lease or duplicate budget allocation. Source revision and moved package verification also pass; see [online evidence](docs/evidence/online-first-use-v6.json).
 
 The current development milestone adds hash-bound exchange loss reports to native deliveries. lost, observed and unknown are separate; derivatives never substitute for native projects. Font/effect/mask fidelity across editors remains unverified, so full exchange acceptance stays open.
+
+Default online dev.7 first-use acceptance passes in 53.106 seconds: one copied skill, fresh runtime and no archive overrides. All four native deliveries include digest-bound exchange reports; source revisions, scheduler recovery and moved-package verification pass. See [online evidence](docs/evidence/online-first-use-v7.json).

@@ -1,0 +1,49 @@
+{
+  "observedAt": "2026-10-05T14:24:00.738604+00:00",
+  "version": "0.1.0-dev.7",
+  "platform": "darwin-arm64",
+  "result": "passed",
+  "tests": {
+    "passed": 1,
+    "skipped": 0,
+    "durationSeconds": 53.106
+  },
+  "command": "CRAFT_ONLINE_FIRST_USE=1 python3 -m unittest discover -s tests -p test_online_first_use.py",
+  "environment": {
+    "singleCopiedSkill": true,
+    "emptyRuntime": true,
+    "archiveOverrides": false,
+    "PATH": "/usr/bin:/bin",
+    "developmentImports": false
+  },
+  "runtime": {
+    "sha256": "e97be68fab7f2c3bb4685931bf859c0489cdc617b8f33f362778216e2f495aa8",
+    "bytes": 35635,
+    "releaseSha": "e058e72116deafbab6f605ab70d427b7931e8dfd",
+    "skillSha": "a49bfee69d19028465d343ca57998a07a6e39825"
+  },
+  "domainVersions": {
+    "filmcraft": "0.1.0-dev.2",
+    "effectcraft": "0.1.0-dev.2",
+    "photocraft": "0.1.0-dev.2",
+    "vectorcraft": "0.1.0-dev.2"
+  },
+  "checks": [
+    "online Node/runtime/domain-skill/CLI install",
+    "four native V1 deliveries with subtitles and voice",
+    "every public output lossReportRef is present and digest bound",
+    "report native SHA matches artifact nativeProjectRef",
+    "each report export hash matches actual bytes and nativeSubstitute is false",
+    "same revision reuse and source-project Logo revision",
+    "old native hashes and voice retained",
+    "shared budget and excess revision rejection",
+    "installed scheduler SIGKILL; public entry adopts original attempt without duplicate native invocation",
+    "package latest native deliveries and reports; remove originals; move and verify package"
+  ],
+  "limits": [
+    "unknown font/effect/mask fidelity is not proven lossless",
+    "complete cross-editor interchange acceptance remains open",
+    "technical readiness is not creative approval",
+    "current-version complete host acceptance remains open"
+  ]
+}
