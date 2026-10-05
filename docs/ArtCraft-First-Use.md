@@ -65,3 +65,7 @@ python3 -B scripts/build_runtime_bundle.py \
 ```
 
 [Locked bundle evidence](evidence/locked-bundle-rebuild.json) records five byte-for-byte reproductions and isolated Git fixtures. This change affects maintainer tooling only; installed snapshots and runtime release versions stay unchanged.
+
+## Default campaign font compatibility
+
+Task 3.21 / AC-SK-003-DEFAULT cover ordinary and Chinese built-in examples. The old ordinary template fails Logo and unrelated Vector nodes after the dev.7 font guard, blocking consumers (2 tests, 1 failed, 53.638 seconds). Both templates now explicitly use bundled Source Sans 3 for Vector wordmarks, synchronized across ten skills; user fonts and other domain fonts are unchanged. Source cold ordinary revision passes two tests in 52.807 seconds; source cold Chinese delivery/revision passes two tests in 52.964 seconds. The original mixed task preserves unrelated nodes and old files and verifies a relocated package. Default regression: 58 tests, 47 passed and 11 skipped. Candidate skills dev.22 new-host installed retesting is NOT_RUN. Chinese caption-only revision intentionally retains old narration and is not creative consistency acceptance. Evidence: docs/evidence/default-campaign-font-first-use.json.

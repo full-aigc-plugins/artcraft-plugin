@@ -1,0 +1,61 @@
+{
+  "schema": "craft-default-campaign-font-first-use/v1",
+  "date": "2026-10-06",
+  "state": "source-native-first-use-PASS; fixed-new-host-NOT_RUN",
+  "sourceVersion": "0.1.0-dev.22",
+  "runtimeVersion": "0.1.0-dev.16",
+  "vectorSkillVersion": "0.1.0-dev.7",
+  "changed": "only packaged VectorCraft text.create default font in ordinary and Chinese campaign examples; synced across all ten skills; user fonts untouched",
+  "red": {
+    "contract": {
+      "tests": 1,
+      "failed": 1,
+      "seconds": 0.002
+    },
+    "native": {
+      "tests": 2,
+      "failed": 1,
+      "seconds": 53.638,
+      "scope": "ordinary template logo and unrelated vector nodes failed; downstream consumers blocked"
+    }
+  },
+  "green": {
+    "contract": {
+      "tests": 1,
+      "passed": 1,
+      "seconds": 0.002
+    },
+    "ordinary": {
+      "tests": 2,
+      "passed": 2,
+      "seconds": 52.807,
+      "scope": "single copied revise skill with fresh public native cache; native Logo and consumers revised, unrelated task reused, original files preserved, movable package verified; subsequent standalone task entries reuse verified cache"
+    },
+    "chinese": {
+      "tests": 2,
+      "passed": 2,
+      "seconds": 52.964,
+      "scope": "single copied revise skill with fresh public native cache; installed system voice fixture; four native projects and burned Chinese subtitles; caption-only film revision, unchanged inputs and package verification"
+    }
+  },
+  "regression": {
+    "tests": 58,
+    "passed": 47,
+    "skipped": 11,
+    "seconds": 6.13
+  },
+  "files": {
+    "tests/test_campaign_font_contract.py": "9e4de839ebe364533b03ba14054e3adc5c8099218eeee1387a8fcc0c5ba0cea3",
+    "tests/test_task_skill_first_use.py": "981aeaee45d117d544c1c4879c3f126ae137c2f1fa4e308c556296898f4ff8e2",
+    "tests/test_chinese_mixed_first_use.py": "b3bd9b8ac0763c00568e98351770deb2132c592acf4801f7743b9d540ca59f51",
+    "skills/artcraft-use/examples/brand-campaign.json": "e06b82ff197f72634cea6888a7e23936f26e5939ee4c0b77b09eb23b3f5aa650",
+    "skills/artcraft-use/examples/chinese-brand-campaign.json": "e98b5bb3e2eb45b5f12c02477b0f8a8d5a5f6ca4acd367b5a5d5d5b889c09712"
+  },
+  "unverified": [
+    "fixed new-release host-installed native retest",
+    "actual npx installation",
+    "new model dispatch",
+    "GUI and human acceptance",
+    "caption-only revision deliberately retains old narration; not wording-consistency acceptance"
+  ]
+}

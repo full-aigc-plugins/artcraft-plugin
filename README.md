@@ -172,3 +172,5 @@ The actual host-installed ArtCraft mixed workflow also passes with Homebrew Pyth
 Development candidate dev.23 vendors ArtCraft skills dev.21, pinning VectorCraft skills dev.7 with bundled sample fonts. Single-skill cold native mixed creation/revision/package tests pass (2 tests, 56.437 seconds); fixed-host installed verification of this candidate remains NOT_RUN. [Evidence](docs/evidence/vector-font-mixed-first-use.json).
 
 Published dev.21 skills / dev.23 plugin now pass fixed-host discovery (58 skills) and actual installed single-skill native mixed cold-start verification (2 tests, 54.673 seconds) with default Python 3.14.3. All installed hashes remain unchanged. [Evidence](docs/evidence/codex-release25-vector-font-mixed-20261006.json).
+
+Candidate skills dev.22 fix ordinary and Chinese Vector wordmark defaults. Both single-skill public cold native workflows pass (2 tests each, 52.807 / 52.964 seconds). New fixed-host installed retesting remains NOT_RUN. [Evidence](docs/evidence/default-campaign-font-first-use.json).
