@@ -21,7 +21,7 @@
 
 ## 2. 独立技能供应链
 
-`artcraft-skills` 已独立发布。插件通过 `skills.lock.json` 固定来源标签 `v0.1.0-dev.7`、提交和完整技能摘要；SKILL.md、引用与可移植脚本仍由技能源仓库维护。执行 `python3 scripts/vendor/skill_vendor.py check --offline` 核对内置快照。技能源发布不代表完整宿主或创作验收通过。
+`artcraft-skills` 已独立发布。插件通过 `skills.lock.json` 固定来源标签 `v0.1.0-dev.8`、提交和完整技能摘要；SKILL.md、引用与可移植脚本仍由技能源仓库维护。执行 `python3 scripts/vendor/skill_vendor.py check --offline` 核对内置快照。技能源发布不代表完整宿主或创作验收通过。
 
 | 阶段 | 输入 | 失败规则 |
 | :--- | :--- | :--- |

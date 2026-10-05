@@ -21,7 +21,7 @@ Related documents: [Brand boundary](1%E3%80%81ArtCraft-Naming-and-Brand.md) · [
 
 ## 2. Independent skill supply chain
 
-`artcraft-skills` is an independent published knowledge repository. The plugin vendors source tag `v0.1.0-dev.7`, a fixed commit and the full skill digest recorded in `skills.lock.json`. SKILL.md, references and portable scripts remain owned by the skill repository. `python3 scripts/vendor/skill_vendor.py check --offline` verifies the packaged snapshot; a source release does not imply complete host or creative acceptance.
+`artcraft-skills` is an independent published knowledge repository. The plugin vendors source tag `v0.1.0-dev.8`, a fixed commit and the full skill digest recorded in `skills.lock.json`. SKILL.md, references and portable scripts remain owned by the skill repository. `python3 scripts/vendor/skill_vendor.py check --offline` verifies the packaged snapshot; a source release does not imply complete host or creative acceptance.
 
 | Stage | Input | Failure rule |
 | :--- | :--- | :--- |

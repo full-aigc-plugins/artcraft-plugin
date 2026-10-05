@@ -27,10 +27,26 @@
     "passed": 1,
     "seconds": 32.228
   },
-  "hostDiscovery": "pending fixed release verification",
+  "hostDiscovery": {
+    "result": "passed",
+    "versions": [
+      "0.147.0",
+      "0.153.4"
+    ],
+    "suiteSkills": 58,
+    "pluginSkills": 10,
+    "loadingErrors": 0,
+    "evidence": "codex-skill-suite.json"
+  },
   "limits": [
     "not all individual command IDs executed",
     "model task dispatch and GUI remain unverified",
     "creative final acceptance and full interchange fidelity remain open"
-  ]
+  ],
+  "installedTaskWorkflow": {
+    "pluginId": "artcraft",
+    "skill": "artcraft-cli-execute",
+    "result": "passed",
+    "testOutput": "test_isolated_single_skill_installs_runs_and_reuses_four_native_deliveries (test_online_first_use.OnlineFirstWorkflowTests.test_isolated_single_skill_installs_runs_and_reuses_four_native_deliveries) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 62.064s\n\nOK"
+  }
 }

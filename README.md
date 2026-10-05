@@ -6,9 +6,9 @@ Cross-tool project planning, asset dependencies, version propagation and selecti
 
 ## Current release and reproducible host checks
 
-Previous verified plugin/skill snapshot: `0.1.0-dev.7`; current suite is `0.1.0-dev.8`. Codex 0.147.0 and 0.153.4 installed all five fixed releases and discovered five enabled namespaced skills with zero loading errors. Installed ArtCraft public entrypoints passed mixed first-use workflows on both hosts. Four standalone representative workflows passed on 0.147.0. These runs invoke the installed Python entrypoints; model dispatch, desktop GUI, creative final review and full interchange fidelity remain unverified.
+Current plugin/skill suite: `0.1.0-dev.8`. Codex 0.147.0 and 0.153.4 installed five fixed public releases and discovered all 58 enabled namespaced skills with zero loading errors and matching source digests. Five representative workflows passed through installed task-skill entrypoints on 0.147.0, including native projects, targeted revisions and the mixed ArtCraft online workflow. Model dispatch, desktop GUI, final creative review and full interchange fidelity remain unverified.
 
-[Host verification design](docs/ArtCraft-Host-Verification-Architecture.md) · [Version-bound evidence](docs/evidence/codex-current-release.json). Historical milestones below retain their original scope; the current manifest and locks own version identity.
+[Host verification design](docs/ArtCraft-Host-Verification-Architecture.md) · [Version-bound evidence](docs/evidence/codex-skill-suite.json). Historical milestones below retain their original scope; the current manifest and locks own version identity.
 
 > Implementation in progress. Four-domain native handoff, durable CLI resume and clean first use through default online downloads pass. Current-version full host acceptance, provider invoice settlement and final creative review remain unfinished; unknown worker/submission outcomes retain ownership for reconciliation.
 
@@ -91,7 +91,7 @@ These validate documentation and specifications only. Original code uses [Apache
 
 [Upstream reference](https://github.com/storytold/artcraft) · [Issues](https://github.com/full-aigc-plugins/artcraft-plugin/issues)
 
-Independent skills are pinned at the current published development tag `v0.1.0-dev.7`, including the exact source commit and whole-skill digest in `skills.lock.json`. Verify using `python3 scripts/vendor/skill_vendor.py check`. These source snapshots do not establish plugin-host acceptance or production readiness.
+Independent skills are pinned at the current published development tag `v0.1.0-dev.8`, including the exact source commit and whole-skill digest in `skills.lock.json`. Verify using `python3 scripts/vendor/skill_vendor.py check`. These source snapshots do not establish plugin-host acceptance or production readiness.
 
 ## Codex development host checks
 

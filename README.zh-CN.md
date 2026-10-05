@@ -6,9 +6,9 @@
 
 ## 当前版本与可复现宿主验证
 
-前一已验证插件/技能源快照：`0.1.0-dev.7`；当前技能体系为 `0.1.0-dev.8`。Codex 0.147.0 与 0.153.4 均安装五个固定发布，发现五项启用的命名空间技能，加载错误为零；两套宿主中的 ArtCraft 公开入口均通过混合首次使用流程。四个独立代表任务在 0.147.0 通过。这些测试执行安装后的 Python 入口；模型自动派发、桌面 GUI、创作最终评审和完整交换保真尚未验证。
+当前插件/技能源版本：`0.1.0-dev.8`。Codex 0.147.0 与 0.153.4 均安装五个固定公开发布，发现全部 58 项启用的命名空间技能，加载错误为零，来源摘要一致。五项代表流程已通过 0.147.0 安装后的场景技能入口验证，包括原生工程、局部修订和 ArtCraft 在线混合流程。模型自动派发、桌面 GUI、创作最终评审和完整交换保真尚未验证。
 
-[宿主验证设计](docs/ArtCraft-Host-Verification-Architecture.zh_CN.md) · [绑定版本的证据](docs/evidence/codex-current-release.json)。历史里程碑保留原证据范围；当前版本身份以 manifest 和锁文件为准。
+[宿主验证设计](docs/ArtCraft-Host-Verification-Architecture.zh_CN.md) · [绑定版本的证据](docs/evidence/codex-skill-suite.json)。历史里程碑保留原证据范围；当前版本身份以 manifest 和锁文件为准。
 
 > 实施中。四领域原生交接、CLI 账本重开以及默认在线下载的干净首次安装已通过。当前版本完整宿主验收、付费账单核销和创作最终评审仍未完成；worker/提交窗口未知时保留占用等待核对。
 
@@ -91,7 +91,7 @@ openspec validate establish-v1-plugin --strict --no-interactive
 
 [上游参考](https://github.com/storytold/artcraft) · [Issues](https://github.com/full-aigc-plugins/artcraft-plugin/issues)
 
-独立技能现已绑定当前已发布开发标签 `v0.1.0-dev.7`，`skills.lock.json` 固定来源提交与整个技能摘要。使用 `python3 scripts/vendor/skill_vendor.py check` 核对。技能源快照发布不代表宿主验收或生产完成。
+独立技能现已绑定当前已发布开发标签 `v0.1.0-dev.8`，`skills.lock.json` 固定来源提交与整个技能摘要。使用 `python3 scripts/vendor/skill_vendor.py check` 核对。技能源快照发布不代表宿主验收或生产完成。
 
 ## Codex 开发版宿主验证
 
