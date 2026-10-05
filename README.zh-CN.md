@@ -140,3 +140,5 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 此前验证插件 dev.14 / 运行时 dev.13 固定技能套件 dev.12，支持可选 Video Factory 0.4.0 公开验证节点。现有插件和 FFmpeg/ffprobe 按实际路径登记并冻结摘要，模型 payload 不能选择命令或执行器。真实门禁、输入绑定、报告语法与打包保留通过验证；缺来源门禁保持 NOT_RUN，必需 FAIL 阻断交付。83 项原生回归全部通过。默认公开在线首次使用已通过：24 项通过、1 项 Node 专用离线测试跳过；单独安装的技能冷启动依赖、执行五节点并验包。插件 dev.14 修复 dev.13 快照的 OpenSpec 重复任务编号并加入回归检查；运行时 dev.13 的公开字节和摘要保持不变。[架构](docs/ArtCraft-VideoFactory-Architecture.zh_CN.md)、[候选证据](docs/evidence/video-factory-candidate.json)、[在线证据](docs/evidence/video-factory-online.json)。旧插件渲染、剪映/图片工厂适配及完整模型/创作验收仍未完成。
 
 当前插件 dev.15 固定技能套件 dev.13，运行时保持 dev.13。EffectCraft 技能 dev.6 支持原生蒙版顶点修订，仅更新片头和消费它的成片，Logo/海报任务复用。原文件摘要、透明度关键帧、音轨与字幕保留，真实 RGBA 边界和四子交付验包通过；完整默认在线回归 25 项通过、1 项 Node 专用离线测试跳过，原生集成 83 项通过。[架构](docs/ArtCraft-Mask-Revision-Architecture.zh_CN.md)、[证据](docs/evidence/mask-revision-first-use.json)。宿主/模型、创作与更广旧插件适配仍未完成。
+
+当前固定发布的宿主刷新：Codex 0.153.4 在隔离配置安装 FilmCraft dev.5、EffectCraft dev.7、PhotoCraft/VectorCraft dev.6、ArtCraft dev.15，加载并核对全部 58 技能身份。实际安装内容的五代表工作流通过，调用后 58 个技能摘要保持不变；显式标签矩阵生成器四项边界测试通过。[证据](docs/evidence/codex-current-release-20261006.json)。模型派发等待明确授权；GUI、创作和生产验收仍未完成。本次 QA 维护不修改已发布插件/技能/运行时标签。

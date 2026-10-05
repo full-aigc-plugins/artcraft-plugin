@@ -48,3 +48,18 @@ CRAFT_HOST_TEST=1 CRAFT_CODEX_CLI=<absolute-codex> \
 The online check downloads public releases. Six verifier tests passed, including content/manifest/source tampering and refusal to overwrite existing output. Native tests require the declared Python media dependencies and pinned official CLIs. `CRAFT_INSTALLED_SKILL_ROOT` selects a real installed skill cache in the independent repository's native test; imports disable bytecode writes to preserve snapshot identity.
 
 This QA update does not alter runtime bundles, skill content or immutable tags. `marketplaceEligible` stays false and `supportedPluginHosts` stays empty until full release requirements pass. RL-001 tasks retain their unmet P0 prerequisites. See [evidence](evidence/codex-current-release.json) and [tasks](../openspec/changes/establish-v1-plugin/tasks.md).
+
+## Current fixed-release refresh: 2026-10-06
+
+The current matrix pins FilmCraft dev.5, EffectCraft dev.7, PhotoCraft/VectorCraft dev.6 and ArtCraft dev.15. Codex 0.153.4 installs all five into an isolated home and discovers all 58 skills with exact metadata and content hashes. Native tests select the actual installed skill paths; all five representative workflows pass, followed by another immutable-content check of every skill. The previous dev.3 matrix remains in host-acceptance-v3.lock.json.
+
+Generate a new candidate lock from explicit local immutable tags; the installer independently verifies remote tag SHAs. Dirty working trees never become release content and conflicting outputs are refused.
+
+```bash
+python3 -B scripts/build_host_release_lock.py --repositories PLUGIN_REPOSITORIES \
+  --plugin filmcraft=0.1.0-dev.5 --plugin effectcraft=0.1.0-dev.7 \
+  --plugin photocraft=0.1.0-dev.6 --plugin vectorcraft=0.1.0-dev.6 \
+  --plugin artcraft=0.1.0-dev.15 --output NEW_LOCK_JSON
+```
+
+Use the existing host verifier with the candidate lock and a new output directory. This QA refresh changes tooling, matrix and evidence; plugin/skill/runtime release contents stay unchanged. Model dispatch awaits explicit authorization and remains unverified. [Current evidence](evidence/codex-current-release-20261006.json).

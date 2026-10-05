@@ -108,6 +108,10 @@
 - [ ] 9.5 [AC-RL-002] 在 宿主清单、发布矩阵与权限适配 实现“权限与秘密边界”的最小行为，不扩大支持范围。责任：Release owner；前置：9.4。产物：对应源码/独立技能源/锁定材料；验证：目标测试和受影响回归通过。
 - [ ] 9.6 [AC-RL-002] 完成“权限与秘密边界”真实边界验收并记录版本、平台、输入输出摘要及未验证项。责任：QA owner；前置：9.5。产物：evidence/ac-rl-002/；验证：规范所有场景有证据，且 README 能力状态与证据一致。
 
+- [x] 9.7 [AC-RL-001] 编写固定标签矩阵生成的脏工作树、版本/技能漂移与输出冲突测试并记录缺失生成器的失败；产物：tests/test_host_release_builder.py。
+- [x] 9.8 [AC-RL-001] 实现显式版本的固定标签矩阵生成，保留旧矩阵与发布标签；产物：scripts/build_host_release_lock.py、host-acceptance.lock.json。
+- [x] 9.9 [AC-RL-001] 核验当前五发行版的隔离安装、58 技能逐项身份、安装路径下的原生代表任务及调用后摘要，记录模型/GUI 未验证；产物：docs/evidence/codex-current-release-20261006.json。
+
 ## 当前宿主证据范围
 
 `docs/evidence/codex-current-release.json` 记录固定发布在 Codex 0.147.0 / 0.153.4 的安装、发现与公开入口执行；共享复现工具由 ArtCraft 持有。该证据未覆盖模型派发、桌面 GUI、完整 P0 与创作验收，release-compatibility 任务的前置条件尚未全部满足，不能据此勾选完整发布任务。

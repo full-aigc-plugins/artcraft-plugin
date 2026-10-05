@@ -48,3 +48,18 @@ CRAFT_HOST_TEST=1 CRAFT_CODEX_CLI=<absolute-codex> \
 在线检查下载公开发布。6 项验证器测试通过，覆盖内容/清单/来源篡改和已有目录保护。原生测试依赖已声明的 Python 媒体库和固定官方 CLI。独立仓原生测试以 `CRAFT_INSTALLED_SKILL_ROOT` 选择实际宿主缓存；导入禁止写字节码以保持快照身份。
 
 本次 QA 更新不改变运行时包、技能内容或不可变标签。完整发布需求通过前，`marketplaceEligible` 保持 false、`supportedPluginHosts` 保持空数组；RL-001 任务保留未满足的 P0 前置条件。参见[证据](evidence/codex-current-release.json)与[任务](../openspec/changes/establish-v1-plugin/tasks.md)。
+
+## 当前固定发布刷新：2026-10-06
+
+矩阵固定 FilmCraft dev.5、EffectCraft dev.7、PhotoCraft/VectorCraft dev.6、ArtCraft dev.15。Codex 0.153.4 在隔离配置中安装五插件，加载全部 58 技能，逐项匹配元数据和内容摘要；原生测试从实际安装路径调用，五代表工作流通过，调用后再次核对全部技能不可变内容。此前 dev.3 矩阵保留于 host-acceptance-v3.lock.json。
+
+候选矩阵只从显式本地不可变标签生成，安装验收另外核对公开远程标签 SHA；脏工作树不能成为发行内容，冲突输出拒绝覆盖。
+
+```bash
+python3 -B scripts/build_host_release_lock.py --repositories PLUGIN_REPOSITORIES \
+  --plugin filmcraft=0.1.0-dev.5 --plugin effectcraft=0.1.0-dev.7 \
+  --plugin photocraft=0.1.0-dev.6 --plugin vectorcraft=0.1.0-dev.6 \
+  --plugin artcraft=0.1.0-dev.15 --output NEW_LOCK_JSON
+```
+
+再用既有宿主验收器、候选锁与新的输出目录执行安装核验。本次只刷新 QA 工具、矩阵和证据，插件/技能/运行时发行内容保持不变。模型派发等待明确授权，仍未验证。[当前证据](evidence/codex-current-release-20261006.json)。
