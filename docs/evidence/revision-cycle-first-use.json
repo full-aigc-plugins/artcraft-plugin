@@ -1,0 +1,67 @@
+{
+  "schema": "craft-revision-cycle-evidence/v1",
+  "date": "2026-10-06",
+  "publication": "plugin v0.1.0-dev.20 vendors published source v0.1.0-dev.18; fixed-release host proof recorded separately",
+  "runtimeVersion": "0.1.0-dev.16",
+  "red": {
+    "tests": 4,
+    "errors": 4,
+    "reason": "revision.py absent before implementation"
+  },
+  "unit": {
+    "tests": 8,
+    "passed": 8,
+    "failed": 0,
+    "seconds": 0.048
+  },
+  "regression": {
+    "tests": 53,
+    "passed": 43,
+    "skipped": 10,
+    "failed": 0,
+    "seconds": 5.836,
+    "scope": "default unit/offline regression; native gates require separate execution"
+  },
+  "firstUseHistorical": {
+    "tests": 1,
+    "passed": 1,
+    "seconds": 46.919,
+    "scope": "three stop policies and real killed controller after native workflow review_ready; test polling subsequently made tolerant of an empty pending state"
+  },
+  "unverified": [
+    "automatic model patch generation",
+    "evaluator authentication",
+    "semantic target drift detection",
+    "parameter-level authorization",
+    "latest fixed-release installed-host execution",
+    "GUI",
+    "complete mixed creative acceptance"
+  ],
+  "files": {
+    "skills/artcraft-use/scripts/revision.py": "d3ab30c0b5afcb3c218cfd52742f3c91ca5eb5c549a36f66313bbfe3032ea525",
+    "tests/test_revision.py": "d80f8490099d043aa47b743a20d03d062920bfdc311bf637b35d94a4f4ccbbfd",
+    "tests/test_revision_first_use.py": "10c5a329bef98ff811a8f0113e148cc25e1ff26700b0acbf67054e99b6a52db4"
+  },
+  "scope": "Declared fixture failure-count policy and real native revision contract; not aesthetic or human acceptance",
+  "firstUse": {
+    "tests": 1,
+    "passed": 1,
+    "skipped": 0,
+    "seconds": 47.548,
+    "scope": "current hashed source; isolated artcraft-cli-revise with default public cold downloads",
+    "checks": [
+      "native Logo recolor and dependent editable poster update",
+      "unrelated node task identity reuse",
+      "original source/package bytes unchanged",
+      "round, stagnation and inherited-budget stops",
+      "controller process group killed after native workflow review_ready",
+      "default retry refuses unknown result",
+      "explicit resume retains task IDs and budget",
+      "best package reverified",
+      "changed policy/target requires new authorization"
+    ]
+  },
+  "sourceCommit": "f4e21ebbb3c0db4c99f7389c8febbaac3ec6b8b0",
+  "sourceVersion": "0.1.0-dev.18",
+  "pluginVersion": "0.1.0-dev.20"
+}

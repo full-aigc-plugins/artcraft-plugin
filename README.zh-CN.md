@@ -6,7 +6,7 @@
 
 ## 当前版本与可复现宿主验证
 
-此前完成宿主验证的插件/技能源版本：`0.1.0-dev.8`。Codex 0.147.0 与 0.153.4 均安装五个固定公开发布，发现全部 58 项启用的命名空间技能，加载错误为零，来源摘要一致。五项代表流程已通过 0.147.0 安装后的场景技能入口验证，包括原生工程、局部修订和 ArtCraft 在线混合流程。模型自动派发、桌面 GUI、创作最终评审和完整交换保真尚未验证。
+当前插件 `0.1.0-dev.20`，独立技能源 `0.1.0-dev.18`，运行时 `0.1.0-dev.16`。下述历史宿主证据保持其原版本范围。Codex 0.147.0 与 0.153.4 均安装五个固定公开发布，发现全部 58 项启用的命名空间技能，加载错误为零，来源摘要一致。五项代表流程已通过 0.147.0 安装后的场景技能入口验证，包括原生工程、局部修订和 ArtCraft 在线混合流程。模型自动派发、桌面 GUI、创作最终评审和完整交换保真尚未验证。
 
 [宿主验证设计](docs/ArtCraft-Host-Verification-Architecture.zh_CN.md) · [绑定版本的证据](docs/evidence/codex-skill-suite.json)。历史里程碑保留原证据范围；当前版本身份以 manifest 和锁文件为准。
 
@@ -28,9 +28,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.8 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.20 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.8 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.18 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
@@ -150,3 +150,5 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 插件 dev.19 锁定技能源 dev.17，各独立技能均包含当前交付审阅记录器；编排运行时仍为 dev.16。记录具名观察及可移动证据，缺少创作／人工接受时保持 pending，不改变账本。6 个审阅单元测试及 1 个源码单技能首次原生调用通过，测试观察不证明创作验收。[架构](docs/ArtCraft-Review-Records-Architecture.zh_CN.md)、[证据](docs/evidence/review-record-first-use.json)。当前固定发布版宿主证据见下文。
 
 固定发行版 dev.19 宿主验证：五插件共 58 技能发现成功、加载错误为零；实际安装的审阅技能通过 1 个公开冷启动首次调用测试，耗时 30.165 秒。执行后全部技能仍与锁定摘要一致。此结果证明审阅记录合同，未证明模型调度、GUI 或完整创作验收。[宿主证据](docs/evidence/codex-release19-review-first-use-20261006.json)。
+
+插件 dev.20 锁定发布的独立技能源 dev.18 返工脚本，运行时仍为 dev.16。它接收冻结策略、已核验交付包与审阅、明确的原生补丁，保留原交付，支持轮次、停滞、预算停止和中断恢复。[架构](docs/ArtCraft-Revision-Cycle-Architecture.zh_CN.md)。固定发行版宿主验证单独记录；反馈 fixture 不证明创作验收。

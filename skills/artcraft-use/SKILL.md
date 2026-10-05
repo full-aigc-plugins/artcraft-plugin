@@ -76,3 +76,5 @@ ArtCraft dev.7 消费四领域 dev.2 的[交换损失报告](references/exchange
 需要通过既有 Video Factory 验证成片时，读取本技能 [公开验证交接](references/video-factory.md)。该适配保留 NOT_RUN，不替代创作审阅或原生工程。
 
 需要保存审阅证据时使用本技能自带 `scripts/review.py`，合同见 [审阅记录](references/review.md)。它记录具名观察、责任插件与当前版本绑定，不执行模型或自动修订，不能用验包成功替代创作与人工接受。
+
+连续按审阅问题返工时，使用本技能的 `scripts/revision.py`，按 [受控修订指南](references/revision.md) 冻结策略并执行明确补丁，保存轮次、停滞与最佳包锚。未知结果不自动重放；完整模型规划／评价与创作接受独立验收。

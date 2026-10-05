@@ -50,3 +50,12 @@ CLI argv 在 `--` 后，原生子命令必须放首位。安装参数放分隔�
 本技能不提供虚构的登录接口；本地 headless 不要求云账户。完整 GUI、跨编辑器保真与创作质量按实际证据陈述。
 
 需要通过既有 Video Factory 验证成片时，读取本技能 [公开验证交接](references/video-factory.md)。该适配保留 NOT_RUN，不替代创作审阅或原生工程。
+
+## 审阅驱动的连续修订
+
+需要按审阅问题连续返工时，读取 [受控修订指南](references/revision.md)，使用本技能 `revision.py` 冻结目标／授权与节点命令范围，再执行明确补丁。当前包、审阅和策略摘要都使用此前可信回执；不编造人工接受或观察。入口自动保留原工程、更新受影响节点并打包，轮数／预算／停滞时停止。结果未知先核对原任务，仅显式恢复同一步骤。
+
+```bash
+python3 -I -B "$SKILL_DIR/scripts/revision.py" step --project "$PROJECT_ROOT" --package "$PACKAGE_ROOT" --package-sha "$PACKAGE_SHA" --review "$REVIEW_ROOT" --review-sha "$REVIEW_SHA" --policy "$REVISION_POLICY" --policy-sha "$POLICY_SHA" --request "$REVISION_REQUEST"
+python3 -I -B "$SKILL_DIR/scripts/revision.py" status --project "$PROJECT_ROOT"
+```

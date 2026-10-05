@@ -6,7 +6,7 @@ Cross-tool project planning, asset dependencies, version propagation and selecti
 
 ## Current release and reproducible host checks
 
-Previously verified plugin/skill suite: `0.1.0-dev.8`. Codex 0.147.0 and 0.153.4 installed five fixed public releases and discovered all 58 enabled namespaced skills with zero loading errors and matching source digests. Five representative workflows passed through installed task-skill entrypoints on 0.147.0, including native projects, targeted revisions and the mixed ArtCraft online workflow. Model dispatch, desktop GUI, final creative review and full interchange fidelity remain unverified.
+Current plugin: `0.1.0-dev.20`; skill source: `0.1.0-dev.18`; runtime: `0.1.0-dev.16`. Historical host evidence below retains its original release scope. Codex 0.147.0 and 0.153.4 installed five fixed public releases and discovered all 58 enabled namespaced skills with zero loading errors and matching source digests. Five representative workflows passed through installed task-skill entrypoints on 0.147.0, including native projects, targeted revisions and the mixed ArtCraft online workflow. Model dispatch, desktop GUI, final creative review and full interchange fidelity remain unverified.
 
 [Host verification design](docs/ArtCraft-Host-Verification-Architecture.md) · [Version-bound evidence](docs/evidence/codex-skill-suite.json). Historical milestones below retain their original scope; the current manifest and locks own version identity.
 
@@ -28,9 +28,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.8 |
+| Plugin ID / version | artcraft / 0.1.0-dev.20 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.8 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.18 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -150,3 +150,5 @@ Plugin dev.18 vendors independent source dev.16 and retains runtime dev.16. All 
 Plugin dev.19 vendors skill source dev.17. Every independent skill now carries the current-package review recorder; runtime remains dev.16. It saves named observations and movable evidence, keeps missing creative/human acceptance pending, and leaves the task ledger unchanged. Six review unit tests and one source-isolated native first-use test pass. Fixture records do not prove creative acceptance. [Architecture](docs/ArtCraft-Review-Records-Architecture.md), [evidence](docs/evidence/review-record-first-use.json). Fixed-release host evidence is reported separately below.
 
 Fixed release dev.19 host validation: all five plugins and 58 skills discovered with zero loading errors; the actual installed review skill passes one public cold first-use test in 30.165 seconds. All installed skill hashes remain identical to their locks after execution. This proves the review-record contract, not model dispatch, GUI or complete creative acceptance. [Host evidence](docs/evidence/codex-release19-review-first-use-20261006.json).
+
+Plugin dev.20 vendors the revision helper from published independent source dev.18; runtime remains dev.16. It accepts a frozen policy, verified package/review and explicit native patches; preserves original deliveries; and supports bounded rounds, stagnation, budget stops and interrupted-process recovery. [Architecture](docs/ArtCraft-Revision-Cycle-Architecture.md). Fixed-release host verification is recorded separately. Fixture feedback does not establish creative acceptance.
