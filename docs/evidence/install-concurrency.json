@@ -1,0 +1,51 @@
+{
+  "observedAt": "2026-10-05T13:02:18.651702+00:00",
+  "platform": "darwin-arm64",
+  "developmentVersion": "0.1.0-dev.4",
+  "result": "passed",
+  "rootCause": "all four domain bootstrap installers used LOCK_NB without waiting; competing reuse rejected before native execution",
+  "before": {
+    "parallelEffectSamples": 16,
+    "passed": 4,
+    "failed": 12,
+    "error": "Errno 35 Resource temporarily unavailable"
+  },
+  "after": {
+    "parallelEffectSamples": 16,
+    "passed": 16,
+    "failed": 0,
+    "workers": 4
+  },
+  "parallelNativeRegression": {
+    "passed": 59,
+    "skipped": 0,
+    "command": "native integration environment configured; npm test",
+    "durationSeconds": 4.338
+  },
+  "domainLiveRegressions": {
+    "filmcraft": 17,
+    "effectcraft": 18,
+    "photocraft": 17,
+    "vectorcraft": 19
+  },
+  "bootstrapTestsPerDomain": {
+    "passed": 10,
+    "checks": [
+      "two first-install OS processes",
+      "wait for lock and verified reuse",
+      "timeout leaves installation intact"
+    ]
+  },
+  "scope": "bounded installer coordination, not native task retry",
+  "limits": [
+    "procedural fixtures, no creative or production capacity acceptance",
+    "crash adoption, quality review and final package remain incomplete"
+  ],
+  "installerRegression": {
+    "passed": 14,
+    "skipped": 0,
+    "durationSeconds": 35.243,
+    "version": "0.1.0-dev.4",
+    "mode": "single copied skill, isolated runtime, verified official Node archive and local locked release ZIPs, native CLIs via official downloads"
+  }
+}

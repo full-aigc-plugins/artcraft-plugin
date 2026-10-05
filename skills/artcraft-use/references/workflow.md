@@ -80,6 +80,6 @@ Development version 3 accepts `payload.sourceProject = {"assetId":"old-output"}`
 }
 ```
 
-上例是字段示意，artifact 必须为真实完整对象，摘要为 64 位真实值，不可把示意字符串直接执行。同一项目的新修订仍消耗共享修订预算；不能改授权绕过。继承素材由领域技能收集，旧工程保留在 sourceRefs 血缘，不假称打包了旧工程。技术回归串行通过；并行 EffectCraft 原生测试偶发失败未解决，创作审核、故障接管及最终打包仍待完成。
+上例是字段示意，artifact 必须为真实完整对象，摘要为 64 位真实值，不可把示意字符串直接执行。同一项目的新修订仍消耗共享修订预算；不能改授权绕过。继承素材由领域技能收集，旧工程保留在 sourceRefs 血缘，不假称打包了旧工程。开发版本 4 的安装锁竞争修复后，技术回归并行通过；创作审核、故障接管及最终打包仍待完成。
 
-The example describes fields, not an executable fixture; artifact must be the real full object and the digest the real 64-character SHA. New revisions remain under shared budgets. Inherited media are collected; the prior project stays in source lineage. Native regression passes with serialized test files; intermittent parallel EffectCraft failures, creative review, crash adoption and final packaging remain open.
+The example describes fields, not an executable fixture; artifact must be the real full object and the digest the real 64-character SHA. New revisions remain under shared budgets. Inherited media are collected; the prior project stays in source lineage. Development version 4 fixes installer lock contention and passes parallel native regression; creative review, crash adoption and final packaging remain open.

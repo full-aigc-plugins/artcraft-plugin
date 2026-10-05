@@ -163,6 +163,12 @@ The old delivery remains a historical lineage reference; it is not falsely label
 
 The local native regression uses `npm run test:native` to serialize test files. Parallel full native suites showed intermittent EffectCraft failures; multi-process native rendering stability remains unverified. Independent unit and SQLite/process-race tests retain their explicit concurrency coverage.
 
+### 10.2 Install lock contention fix (development version 4)
+
+The prior parallel failure was traced to immediate LOCK_NB acquisition in all four domain bootstrap installers: 12 of 16 samples failed before rendering. Domain skill dev.1 waits up to 120 seconds using a monotonic clock, then rechecks installed digests/receipts; atomic installation still happens once. Timeout reports runtime_install_busy, preserves installations/projects and never retries native tasks. OS lock release follows process exit; a stale lock file is not proof of a live installer.
+
+After this fix, 16/16 EffectCraft samples under four workers, 59 parallel ArtCraft native regression tests and 71 domain live skill tests pass. This supersedes the historical serialized-suite limitation for the tested workload, without promising unlimited concurrency or production capacity.
+
 ## 11. Error semantics
 
 | Code | Trigger | Recovery |
