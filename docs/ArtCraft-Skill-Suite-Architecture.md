@@ -1,6 +1,6 @@
 # ArtCraft Skill Suite Architecture
 
-> Updated: 2026-10-06. Skill suite: 0.1.0-dev.16; plugin: 0.1.0-dev.18; orchestration runtime: 0.1.0-dev.16. Existing OpenSpec owns target behavior.
+> Updated: 2026-10-06. Skill suite: 0.1.0-dev.17; plugin: 0.1.0-dev.19; orchestration runtime: 0.1.0-dev.16. Existing OpenSpec owns target behavior.
 
 ## 1. Why a suite
 

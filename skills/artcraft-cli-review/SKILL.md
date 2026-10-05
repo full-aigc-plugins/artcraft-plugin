@@ -50,3 +50,12 @@ CLI argv 在 `--` 后，原生子命令必须放首位。安装参数放分隔�
 本技能不提供虚构的登录接口；本地 headless 不要求云账户。完整 GUI、跨编辑器保真与创作质量按实际证据陈述。
 
 需要通过既有 Video Factory 验证成片时，读取本技能 [公开验证交接](references/video-factory.md)。该适配保留 NOT_RUN，不替代创作审阅或原生工程。
+
+## 保存具名审阅结果
+
+需要保存技术、创作、人工接受与品牌问题时，按 [当前交付审阅记录](references/review.md) 调用本技能 `scripts/review.py record/verify`。使用当前打包回执摘要与真实观察文件；绑定子节点、资产版本和问题位置。仅记录已执行观察，不编造人工接受，不把测试记录或模型意见当用户同意。缺少完整审阅时保持 pending，账本状态仍为 review_ready。
+
+```bash
+python3 -I -B "$SKILL_DIR/scripts/review.py" record --package "$PACKAGE_ROOT" --package-sha "$PACKAGE_SHA" --input "$REVIEW_INPUT" --output "$REVIEW_ROOT"
+python3 -I -B "$SKILL_DIR/scripts/review.py" verify --package "$PACKAGE_ROOT" --package-sha "$PACKAGE_SHA" --review "$REVIEW_ROOT" --review-sha "$REVIEW_SHA"
+```

@@ -1,0 +1,56 @@
+{
+  "schema": "craft-review-record-evidence/v1",
+  "sourceVersion": "0.1.0-dev.17",
+  "runtimeVersion": "0.1.0-dev.16",
+  "date": "2026-10-06",
+  "red": {
+    "tests": 4,
+    "errors": 4,
+    "reason": "review.py absent before implementation"
+  },
+  "unit": {
+    "tests": 6,
+    "passed": 6,
+    "failed": 0
+  },
+  "firstUse": {
+    "tests": 1,
+    "passed": 1,
+    "skipped": 0,
+    "seconds": 30.393,
+    "source": "one copied independent artcraft-cli-review skill, default public cold downloads",
+    "checks": [
+      "native VectorCraft project and public package verification",
+      "record technical fixture with creative/acceptance NOT_RUN",
+      "move package and sidecar",
+      "fresh runtime-only verification",
+      "unrelated domains not installed",
+      "package and ledger bytes unchanged",
+      "stale asset reference refused before output",
+      "tampered copied observation refused"
+    ]
+  },
+  "regression": {
+    "tests": 44,
+    "passed": 35,
+    "skipped": 9,
+    "failed": 0,
+    "seconds": 4.382,
+    "scope": "default offline/unit run; native gates skipped except separately executed review first-use"
+  },
+  "scope": "review contract and evidence identity only; fixture observations are not creative acceptance",
+  "unverified": [
+    "evaluator authentication",
+    "actual creative quality",
+    "model dispatch",
+    "GUI",
+    "automatic bounded revision loop"
+  ],
+  "files": {
+    "skills/artcraft-use/scripts/review.py": "fde29e2cb937a7aa19a796a0bed28481fdcef818e9d8169d63abf9fddb5787ef",
+    "tests/test_review.py": "c1c606119e3cde2ed368621ba4002d10785fa4d0cdac94567154c4c758022be0",
+    "tests/test_review_first_use.py": "c3b2be2dcd34dc7a6096b1ac9bc20e338d69491facb75d1dba07ecc9ad7cb674"
+  },
+  "sourceCommit": "45063ef01515eaf7715e8e94436dbb6d6a4109eb",
+  "pluginVersion": "0.1.0-dev.19"
+}
