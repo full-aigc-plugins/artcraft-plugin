@@ -24,3 +24,13 @@
 4. 原生工程、素材清单、预览/导出及交换报告交付；技术核验和视觉审核分开记录。
 
 首次组合实例采用本技能 examples 与 references/workflow.md。此实例验证组合能力，不替代所有候选命令的逐项验收。失败保留检查点，不将无损原生交付替换成扁平结果。
+
+## 素材账本查询
+
+以既有项目的 tasks.sqlite 绝对路径作为 PROJECT_DATABASE；查询不会生成新工程，也不创建空账本。
+
+```bash
+python3 -I -B "$SKILL_DIR/scripts/cli.py" -- status --database "$PROJECT_DATABASE"
+```
+
+返回 tasks、leases、budgets；实际产物 root、outputs、sourceRefs 与 nativeProjectRef 从已保存的 result 回执读取。用完整 artifact 与真实摘要登记输入，不把文件名、版本标签或 task 状态代替内容摘要。任务列表和媒体血缘分别检查。

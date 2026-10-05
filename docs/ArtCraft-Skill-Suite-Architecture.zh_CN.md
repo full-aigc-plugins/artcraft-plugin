@@ -1,6 +1,6 @@
 # ArtCraft CLI 场景技能架构
 
-> 更新：2026-10-05。技能源开发版本：0.1.0-dev.10；插件版本：0.1.0-dev.11；原生/编排运行时：0.1.0-dev.7。目标行为以既有 OpenSpec 变更为事实源。
+> 更新：2026-10-06。技能源开发版本：0.1.0-dev.11；插件版本：0.1.0-dev.12；原生/编排运行时：0.1.0-dev.7。目标行为以既有 OpenSpec 变更为事实源。
 
 ## 1. 为什么拆分
 
@@ -59,3 +59,9 @@ CRAFT_LIVE_SUITE=1 python3 -B -m unittest discover -s tests -p test_skill_suite.
 ```
 
 单项安装：`npx skills add full-aigc-skills/artcraft-skills --skill <skill-name>`，使用其实际绝对路径执行，不读取兄弟技能。插件固定完整技能清单的来源标签、提交和逐项摘要；旧发布标签不可变，原 use/workflow payload 保持兼容。
+
+## 独立场景执行验收
+
+场景指南与路由技能消费相同锁定运行时合同。新建的 expectedRevision 为 null；原生修订登记完整源 artifact 与 nativeProjectRef.sha256。共享预算控制准入，独立 worker 只在停止证据成立时支持调度器退出后的原 attempt 接管；未知提交窗口或 worker 死亡保留占用。
+
+首次使用用例先冷启动一个 revise 技能，再逐次替换为单个 assets/deliver/review/recover 技能。四种源工程修订保留旧包、动画、音轨和字幕，无关节点复用；交付验包只检查技术完整性，已停止任务取消与崩溃恢复区分。证据：[场景首次使用](evidence/task-skill-first-use.json)。

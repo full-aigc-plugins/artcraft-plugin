@@ -6,13 +6,13 @@ The entry bootstraps pinned dependencies, creates a registry of actual identitie
 
 ## 计划 / Plan
 
-顶层指定 `workflowId`、`revision`、`budget`、可选 UTC `deadline` 和 `nodes`。预算必须显式声明币种、金额上限、修订上限和外部调用上限；null 表示明确无限制。当前共享预算计数仍待实现，不能借有预算字段声称实际限额已强制生效。
+顶层指定 `workflowId`、`revision`、`budget`、可选 UTC `deadline` 和 `nodes`。预算必须显式声明币种、金额上限、修订上限和外部调用上限；null 表示明确无限制。当前运行时按相同 owner、workflow 和 authorization 共享预算计数，具体扣减、失败保留与历史账本限制见下文。付费服务账单核销仍未实现。
 
-Top-level fields are `workflowId`, `revision`, explicit `budget`, optional UTC `deadline` and `nodes`. Budget counters remain unfinished; declared fields alone do not enforce shared limits.
+Top-level fields are `workflowId`, `revision`, explicit `budget`, optional UTC `deadline` and `nodes`. The runtime enforces shared admission counters under the same owner/workflow/authorization. See the budget section for allocation and historical ledger constraints; provider invoice settlement remains pending.
 
-节点指定 `id`、`pluginId`、`dependsOn`、`projectKey`、`expectedRevision`（当前须 null）、`payload`。`providedAssets` 指定通过 `--asset` 提供的现有素材名称；只使用到的素材可以登记。运行时拒绝环、未知插件、坏引用和摘要变化。
+节点指定 `id`、`pluginId`、`dependsOn`、`projectKey`、`expectedRevision`（新建为 null；源工程修订为登记的 nativeProjectRef.sha256）、`payload`。`providedAssets` 指定通过 `--asset` 提供的现有素材名称；只使用到的素材可以登记。运行时拒绝环、未知插件、坏引用和摘要变化。
 
-Nodes declare `id`, `pluginId`, `dependsOn`, `projectKey`, `expectedRevision` (currently null) and `payload`. `providedAssets` binds explicitly supplied `--asset` files. Cycles, unknown plugins, invalid references and changed digests fail before consumption.
+Nodes declare `id`, `pluginId`, `dependsOn`, `projectKey`, `expectedRevision` (null for creation; registered nativeProjectRef.sha256 for source revisions) and `payload`. `providedAssets` binds explicitly supplied `--asset` files. Cycles, unknown plugins, invalid references and changed digests fail before consumption.
 
 `payload` 为 `craft-skill-workflow/v1`：`plan` 是领域计划，`assetBindings` 为 `{name,assetId}`，`outputs` 为 `{assetId,location,mediaType}`。输出路径必须在领域交付包内。不要在 `plan` 内嵌任意 `assets` 路径；素材只能来自已核验输入。多个输出依赖时使用 `inputBindings` 选择所需产物。
 
@@ -39,9 +39,9 @@ artcraft cancel --database ABS --task ID
 artcraft cancel --database ABS --workflow RUN_KEY
 ```
 
-实际 argv 为 `[nodeExecutable, entryPoint, ...]`，不拼接 shell。取消后核查真实状态；未知运行结果不能自动重启。当前不支持崩溃监督器自动接管。
+实际 argv 为 `[nodeExecutable, entryPoint, ...]`，不拼接 shell。取消后核查真实状态；未知运行结果不能自动重启。调度器退出后独立 worker 可继续监督；同一冻结计划可沿用原 attempt 核对停止证据。worker 崩溃或未知提交窗口不自动重放，详见 recovery.md。
 
-The actual argv is `[nodeExecutable, entryPoint, ...]`; no shell command is constructed. Cancellation needs confirmed process stop. Unknown outcomes cannot be replayed, and crashed-supervisor adoption is not implemented.
+The actual argv is `[nodeExecutable, entryPoint, ...]`; no shell command is constructed. Cancellation needs confirmed process stop. A detached worker can continue after scheduler exit; the same frozen plan adopts the original attempt only with verified stop evidence. Worker death and unknown submission windows are never replayed; see recovery.md.
 
 ## 验收 / Acceptance
 
@@ -80,6 +80,6 @@ Development version 3 accepts `payload.sourceProject = {"assetId":"old-output"}`
 }
 ```
 
-上例是字段示意，artifact 必须为真实完整对象，摘要为 64 位真实值，不可把示意字符串直接执行。同一项目的新修订仍消耗共享修订预算；不能改授权绕过。继承素材由领域技能收集，旧工程保留在 sourceRefs 血缘，不假称打包了旧工程。开发版本 4 的安装锁竞争修复后，技术回归并行通过；创作审核、故障接管及最终打包仍待完成。
+上例是字段示意，artifact 必须为真实完整对象，摘要为 64 位真实值，不可把示意字符串直接执行。同一项目的新修订仍消耗共享修订预算；不能改授权绕过。继承素材由领域技能收集，旧工程保留在 sourceRefs 血缘，不假称打包了旧工程。开发版本 4 的安装锁竞争修复后，技术回归并行通过；运行时 dev.7 已具备技术交付打包与调度器退出后的原 attempt 恢复；完整创作审核、未知提交窗口恢复和跨宿主验收仍未完成。
 
-The example describes fields, not an executable fixture; artifact must be the real full object and the digest the real 64-character SHA. New revisions remain under shared budgets. Inherited media are collected; the prior project stays in source lineage. Development version 4 fixes installer lock contention and passes parallel native regression; creative review, crash adoption and final packaging remain open.
+The example describes fields, not an executable fixture; artifact must be the real full object and the digest the real 64-character SHA. New revisions remain under shared budgets. Inherited media are collected; the prior project stays in source lineage. Development version 4 fixes installer lock contention and passes parallel native regression; runtime dev.7 supports technical packaging and original-attempt recovery after scheduler exit; full creative review, unknown submission windows and cross-host acceptance remain open.

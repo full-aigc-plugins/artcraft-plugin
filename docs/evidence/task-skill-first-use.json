@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-06",
+  "platform": "darwin-arm64",
+  "sourceRef": "v0.1.0-dev.11",
+  "runtimeVersion": "0.1.0-dev.7",
+  "scope": "Public script execution from one independently installed skill at a time; not model dispatch or creative approval",
+  "testFile": "tests/test_task_skill_first_use.py",
+  "testFileSha256": "981aeaee45d117d544c1c4879c3f126ae137c2f1fa4e308c556296898f4ff8e2",
+  "skills": {
+    "artcraft-cli-revise": "7a5a1bbde2ef1c5fe389fc4fd2d530bf8c3f93f7e55de8f66109b702e87dae0b",
+    "artcraft-cli-assets": "fcf13a9c372b2bdcb09557c9098a146ff1e9b558f08616802828b8e0402964ea",
+    "artcraft-cli-deliver": "5f722d542728ef95cfd363f163964b0bde17f8cd24f8ddd56adcfd3d11b98843",
+    "artcraft-cli-review": "bfba5346ad8ae0f67300844192476d3ef61c671f751e2c9e0ef6695dcea4c59e",
+    "artcraft-cli-recover": "6ee3cb28ae3649e8b1d632555593827e0f91b29eee40a852c37a57de01e13bd6"
+  },
+  "initialInstallation": {
+    "skill": "artcraft-cli-revise",
+    "runtime": "empty",
+    "pathLayout": ".agents/skills/<name>",
+    "pathEnvironment": "/usr/bin:/bin",
+    "offlineArchiveOverrides": false,
+    "sourceMedia": "synthetic silence WAV for technical audio retention, not narration quality"
+  },
+  "subsequentSkillInstallation": {
+    "skills": [
+      "artcraft-cli-assets",
+      "artcraft-cli-deliver",
+      "artcraft-cli-review",
+      "artcraft-cli-recover"
+    ],
+    "onlyOneSkillDirectoryPresent": true,
+    "runtime": "reuse previously verified pinned cache"
+  },
+  "checks": [
+    "Five native nodes created",
+    "Four registered native source projects revised",
+    "Logo change reaches poster/intro/film",
+    "Unrelated node reuses its original task",
+    "Every old manifest file retains its digest",
+    "Intro animation/layer objects retained",
+    "Film audio sequence and captions retained",
+    "Repeat revision preserves task IDs and shared budget",
+    "Nine ledger tasks with no active leases",
+    "Five-child package moved and verified",
+    "Independent review verifies external manifest SHA",
+    "Independent recovery idempotently cancels a stopped task"
+  ],
+  "redPhase": {
+    "assertionFailures": 1,
+    "cause": "Current shared budget marked unimplemented in skill contract"
+  },
+  "regression": {
+    "command": "CRAFT_TASK_FIRST_USE=1 CRAFT_ONLINE_FIRST_USE=1 CRAFT_LIVE_TEST=1 CRAFT_LIVE_SUITE=1 python3 -B -m unittest discover -s tests -v",
+    "tests": 23,
+    "passed": 22,
+    "skipped": 1,
+    "seconds": 124.171,
+    "skipReason": "Node-only offline archive test lacks explicit archive override; default online workflows install real Node"
+  },
+  "unverified": [
+    "Crashed worker and unknown submission window recovery",
+    "Creative approval",
+    "Host model dispatch",
+    "Other operating systems",
+    "Legacy plugin adapters"
+  ]
+}

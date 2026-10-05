@@ -1,6 +1,6 @@
 # ArtCraft Skill Suite Architecture
 
-> Updated: 2026-10-05. Skill development version: 0.1.0-dev.10; plugin version: 0.1.0-dev.11; native/orchestration runtime: 0.1.0-dev.7. Target behavior is owned by the existing OpenSpec change.
+> Updated: 2026-10-06. Skill development version: 0.1.0-dev.11; plugin version: 0.1.0-dev.12; native/orchestration runtime: 0.1.0-dev.7. Target behavior is owned by the existing OpenSpec change.
 
 ## 1. Why a suite
 
@@ -59,3 +59,9 @@ CRAFT_LIVE_SUITE=1 python3 -B -m unittest discover -s tests -p test_skill_suite.
 ```
 
 Install one skill with `npx skills add full-aigc-skills/artcraft-skills --skill <skill-name>`; invoke its actual absolute directory, not a sibling path. Plugin packaging must bind the complete suite to a fixed source tag, commit and per-skill digest. Former tags remain immutable, and existing use/workflow payloads stay compatible.
+
+## Independent task execution acceptance
+
+Scene guides consume the same pinned runtime contracts as the router. Creation uses null expectedRevision; native revisions bind complete registered source artifacts and nativeProjectRef.sha256. Shared budgets enforce admission, while detached workers permit original-attempt adoption after scheduler exit only with stop evidence. Unknown submission windows and worker death retain ownership.
+
+The task-first-use fixture verifies one cold revise skill, then replaces it with one assets/deliver/review/recover skill at a time. Four source revisions preserve prior packages, animation, audio and captions; an unrelated node is reused. Package review checks technical integrity; cancelling a stopped task is distinct from crash recovery. Evidence: [task first use](evidence/task-skill-first-use.json).

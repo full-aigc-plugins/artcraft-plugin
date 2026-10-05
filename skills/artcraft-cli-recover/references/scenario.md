@@ -26,3 +26,15 @@
 4. 原生工程、素材清单、预览/导出及交换报告交付；技术核验和视觉审核分开记录。
 
 首次组合实例采用本技能 examples 与 references/workflow.md。此实例验证组合能力，不替代所有候选命令的逐项验收。失败保留检查点，不将无损原生交付替换成扁平结果。
+
+## 已停止任务的取消与查询
+
+从原回执取得 TASK_ID 和 PROJECT_DATABASE，沿用原账本；这里取消一个已确认停止的任务，不重新执行原生操作。
+
+```bash
+python3 -I -B "$SKILL_DIR/scripts/cli.py" -- status --database "$PROJECT_DATABASE" --task "$TASK_ID"
+python3 -I -B "$SKILL_DIR/scripts/cli.py" -- cancel --database "$PROJECT_DATABASE" --task "$TASK_ID"
+python3 -I -B "$SKILL_DIR/scripts/cli.py" -- status --database "$PROJECT_DATABASE" --task "$TASK_ID"
+```
+
+重复取消返回同一终态。运行中的取消先登记意图，必须继续查询停止证据；cancel_requested 不表示已停止。调度器异常后的恢复按本技能 recovery.md 使用同一冻结计划；worker 死亡或未知提交窗口仍保留占用，不能借换目录或新授权绕过。

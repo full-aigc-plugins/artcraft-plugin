@@ -25,3 +25,13 @@
 4. 原生工程、素材清单、预览/导出及交换报告交付；技术核验和视觉审核分开记录。
 
 首次组合实例采用本技能 examples 与 references/workflow.md。此实例验证组合能力，不替代所有候选命令的逐项验收。失败保留检查点，不将无损原生交付替换成扁平结果。
+
+## 交付包技术核验
+
+PACKAGE_ROOT 使用当前移动后的绝对目录；PACKAGE_SHA 使用此前 create 回执单独保存的 sha256，不从包内读取信任摘要。
+
+```bash
+python3 -I -B "$SKILL_DIR/scripts/cli.py" -- verify-package --package "$PACKAGE_ROOT" --sha "$PACKAGE_SHA"
+```
+
+核对 children 中的原生引用、文件摘要和当前位置。技术通过后仍需分别审阅视觉、文案、音频和品牌一致性；没有创作审阅证据时保持 review_ready。验包不会补写缺失文件、重新渲染或修改已保存工程。
