@@ -87,3 +87,5 @@ Plugin, skills, upstream CLI and protocol versions evolve independently. Release
 ## Shared budget implementation progress
 
 The ledger now provides parent/child shared allowances, revision counters and atomic admission. See docs/ArtCraft-Budget-Architecture.md for implementation and migration contracts. Actual provider settlement and complete quality loops remain pending.
+
+dev.6 implements fixed independent worker supervision, adoption of original stop evidence and interrupted verification rechecks. Scheduler recovery retains the frozen plan, token, epoch, attempt and budget; workers read parent cancellation directly. Worker death and uncertain submission windows retain ownership without replay. See Runtime Architecture 10.4 and crash-recovery.json for implementation and acceptance boundaries; creative review and full host acceptance remain open.

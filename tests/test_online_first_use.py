@@ -8,6 +8,9 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import sqlite3
+import time
+import signal
 import wave
 import struct
 import math
@@ -88,6 +91,45 @@ class OnlineFirstWorkflowTests(unittest.TestCase):
             final_status=json.loads(subprocess.run(cli,check=True,capture_output=True,text=True,env=environment,timeout=30).stdout)
             self.assertEqual(len(final_status['tasks']),8);self.assertFalse(final_status['leases'])
             self.assertEqual(final_status['budgets'][0]['allocated']['revisions'],1)
+            # 通过默认安装后的单技能公开入口恢复真实调度器 SIGKILL；不导入开发源码。
+            if int(distribution['version'].rsplit('.',1)[1]) >= 6:
+                crashed_project=root/'crashed-project';crash_args=list(args);crash_args[crash_args.index('--output')+1]=str(crashed_project)
+                scheduler=subprocess.Popen(crash_args,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,env=environment)
+                observed=None
+                for _ in range(3000):
+                    database=crashed_project/'tasks.sqlite'
+                    if database.exists():
+                        try:
+                            with sqlite3.connect('file:'+str(database)+'?mode=ro',uri=True) as connection:
+                                observed=connection.execute("SELECT e.pid,t.task_id,t.attempt_id FROM executions e JOIN tasks t ON e.task_id=t.task_id WHERE e.status='running' LIMIT 1").fetchone()
+                        except sqlite3.Error:pass
+                        if observed:
+                            parent_of=lambda pid:int(subprocess.run(['/bin/ps','-o','ppid=','-p',str(pid)],capture_output=True,text=True,check=True).stdout.strip())
+                            try:
+                                worker_pid=parent_of(observed[0]);scheduler_pid=parent_of(worker_pid)
+                                command=subprocess.run(['/bin/ps','-o','command=','-p',str(scheduler_pid)],capture_output=True,text=True,check=True).stdout
+                                self.assertIn(setup['entryPoint'],command)
+                                os.kill(scheduler_pid,signal.SIGKILL);break
+                            except (ValueError,subprocess.CalledProcessError,ProcessLookupError):observed=None
+                    if scheduler.poll() is not None:break
+                    time.sleep(.01)
+                self.assertIsNotNone(observed,'no running native execution observed before scheduler completion')
+                crashed_stdout,crashed_stderr=scheduler.communicate(timeout=30)
+                self.assertNotEqual(scheduler.returncode,0,crashed_stdout+crashed_stderr)
+                for _ in range(3000):
+                    with sqlite3.connect(crashed_project/'tasks.sqlite') as connection:
+                        remaining=connection.execute("SELECT COUNT(*) FROM executions WHERE status!='stopped'").fetchone()[0]
+                    if not remaining:break
+                    time.sleep(.01)
+                self.assertEqual(remaining,0)
+                recovered_run=subprocess.run(crash_args,capture_output=True,text=True,env=environment,timeout=120)
+                self.assertEqual(recovered_run.returncode,0,recovered_run.stdout+recovered_run.stderr)
+                recovered=json.loads(recovered_run.stdout);self.assertEqual(recovered['state'],'review_ready');self.assertEqual(len(recovered['nodes']),4)
+                with sqlite3.connect(crashed_project/'tasks.sqlite') as connection:
+                    self.assertEqual(connection.execute('SELECT attempt_id FROM tasks WHERE task_id=?',(observed[1],)).fetchone()[0],observed[2])
+                    self.assertEqual(connection.execute('SELECT COUNT(*) FROM executions').fetchone()[0],4)
+                    self.assertEqual(connection.execute('SELECT COUNT(*) FROM leases').fetchone()[0],0)
+                self.assertEqual(recovered['budget']['allocated'],{'minorUnits':0,'externalCalls':0,'revisions':0})
             # 默认公开下载的单技能入口完整交付打包，不读取开发仓库模块。
             package=root/'delivery-package'
             package_args=[sys.executable,'-I','-B',str(skill/'scripts/package.py'),'create','--project',str(project),'--workflow',modified['runKey'],'--output',str(package),'--authorization','isolated-first-use','--runtime-home',str(runtime)]

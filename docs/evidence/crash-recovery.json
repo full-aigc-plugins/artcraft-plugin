@@ -1,0 +1,58 @@
+{
+  "observedAt": "2026-10-05T13:55:36.010222+00:00",
+  "version": "0.1.0-dev.6",
+  "platform": "darwin-arm64",
+  "result": "passed",
+  "requirements": [
+    "AC-TX-002"
+  ],
+  "redPhase": {
+    "tests": 2,
+    "expectedFailures": 2,
+    "actualState": "running",
+    "expectedState": "stopped",
+    "missingBehavior": "durable independent worker stop evidence after scheduler SIGKILL"
+  },
+  "runtimeRegression": {
+    "passed": 76,
+    "skipped": 0,
+    "durationSeconds": 9.692,
+    "command": "native integration environment configured; npm test"
+  },
+  "covered": [
+    "real scheduler SIGKILL while native child is running",
+    "worker persists native close and group-stop evidence",
+    "real EffectCraft 0.2.0 render recovery and ffprobe decode",
+    "original attemptId retained and native spawn count one",
+    "two concurrent adopters publish one outcome",
+    "DAG active worker waiting then stopped-node adoption",
+    "same shared budget allocation after recovery",
+    "orphan worker observes task and parent-workflow cancellation",
+    "interrupted verifying state rechecks outputs",
+    "changed command or missing authorization preserves lease",
+    "corrupt artifact does not publish references",
+    "worker SIGKILL retains reconciling state and writer lease",
+    "prepared execution without stop evidence never replays"
+  ],
+  "compatibility": {
+    "ledgerSchema": 2,
+    "oldUnstoppedExecutions": "waiting; no fabricated stop evidence"
+  },
+  "limits": [
+    "worker death and uncertain submission windows do not auto-complete or replay",
+    "macOS arm64 real native acceptance; Linux generic CI is separate",
+    "no Windows support",
+    "technical readiness is not creative approval",
+    "current-version full host acceptance and paid-provider reconciliation remain open"
+  ],
+  "independentSkillFirstUse": {
+    "passed": 14,
+    "skipped": 0,
+    "durationSeconds": 34.457,
+    "scope": "single copied skill with isolated runtime and locked offline archives; actual native workflows and package verification"
+  },
+  "skillSource": {
+    "version": "0.1.0-dev.6",
+    "sha": "9157b95aa6fa0a26491e48c8523f6ee86aeb4a08"
+  }
+}

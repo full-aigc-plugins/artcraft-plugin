@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 import zipfile
 
-VERSION = '0.1.0-dev.5'
+VERSION = '0.1.0-dev.6'
 DOMAIN_VERSION = '0.1.0-dev.1'
 NAMES = ('filmcraft', 'effectcraft', 'photocraft', 'vectorcraft')
 

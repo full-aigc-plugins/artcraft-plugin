@@ -3,6 +3,7 @@ import { spawn } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { isAbsolute } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { planHash } from '../protocol/contracts.ts';
 import { TaskLedger } from './task_ledger.ts';
 import type { TaskReceipt } from './task_ledger.ts';
@@ -22,26 +23,14 @@ export interface ExecutionAdapter {
   verify(request:Record<string,any>):Promise<{root:string;outputs:unknown[];evidenceRefs:unknown[]}>;
 }
 
-function groupAlive(pid:number):boolean {
-  try{process.kill(-pid,0);return true;}catch(error){if((error as NodeJS.ErrnoException).code==='ESRCH')return false;throw error;}
-}
-const delay=(milliseconds:number)=>new Promise(resolve=>setTimeout(resolve,milliseconds));
-
 /** 监督器拥有唯一重试责任；未知结果永不自动启动第二次子任务。 */
 export class LocalRunner {
   private ledger:TaskLedger;
   private authorize:(request:Record<string,any>)=>Promise<void>;
   constructor(ledger:TaskLedger,authorize:(request:Record<string,any>)=>Promise<void>){this.ledger=ledger;this.authorize=authorize;}
 
-  /** 登记意图、监督真实 close、核对进程组停止，最后验证产物。 */
-  async execute(taskId:string,adapter:ExecutionAdapter):Promise<TaskReceipt> {
-    if(!['darwin','linux'].includes(process.platform))throw new Error('unsupported_platform');
-    const original=this.ledger.status(taskId);
-    if(original.state!=='ready') return original;
-    const request=this.ledger.request(taskId);
-    await this.authorize(request);
-    const plan=await adapter.prepare(request);
-    if(!isAbsolute(plan.executable) || !isAbsolute(plan.cwd) || !plan.args.every(value=>typeof value==='string')) throw new Error('execution_plan_invalid');
+  private async validatePlan(plan:ExecutionPlan,request:Record<string,any>):Promise<void> {
+    if(!isAbsolute(plan.executable) || !isAbsolute(plan.cwd) || !Array.isArray(plan.args) || !plan.args.every(value=>typeof value==='string')) throw new Error('execution_plan_invalid');
     const digest=async(path:string)=>createHash('sha256').update(await readFile(path)).digest('hex');
     const launcher=plan.launcherIdentity;
     if(launcher){
@@ -56,58 +45,64 @@ export class LocalRunner {
     }
     const runtimeHash=await digest(launcher?.runtimeExecutable ?? plan.executable);
     if(runtimeHash!==request.runtimeIdentity.sha256) throw new Error('runtime_identity_mismatch');
+  }
+
+  /** 登记意图、监督真实 close、核对进程组停止，最后验证产物。 */
+  async execute(taskId:string,adapter:ExecutionAdapter):Promise<TaskReceipt> {
+    if(!['darwin','linux'].includes(process.platform))throw new Error('unsupported_platform');
+    if(this.ledger.databasePath===':memory:')throw new Error('durable_ledger_required');
+    const original=this.ledger.status(taskId);
+    if(original.state!=='ready') return original;
+    const request=this.ledger.request(taskId);
+    await this.authorize(request);
+    const plan=await adapter.prepare(request);
+    await this.validatePlan(plan,request);
+    const launcher=plan.launcherIdentity;
+    if(Buffer.byteLength(JSON.stringify(plan))>2*1024*1024-8192)throw new Error('worker_plan_too_large');
     let claimed:TaskReceipt;
     try{claimed=this.ledger.claim(taskId,plan.actualRevision,plan.budgetUsage);}
     catch(error){if(['task_not_ready','project_busy'].includes((error as Error).message))return this.ledger.status(taskId);throw error;}
     const epoch=claimed.epoch;
     const token=this.ledger.prepareExecution(taskId,epoch,planHash({executable:plan.executable,args:plan.args,cwd:plan.cwd,launcherIdentity:launcher ?? null}));
-    let child:ReturnType<typeof spawn>;
-    try{child=spawn(plan.executable,plan.args,{cwd:plan.cwd,detached:true,shell:false,stdio:['ignore','pipe','pipe']});}
-    catch(error){this.ledger.recordExit(taskId,epoch,token,{exitCode:null,signal:null,groupStopped:true,spawnError:String(error)});return this.ledger.settleStopped(taskId,epoch,token,'failed','runtime_spawn_failed');}
-    child.stdout?.on('data',()=>{});
-    child.stderr?.on('data',()=>{});
-    const closed=new Promise<{code:number|null;signal:string|null;spawnError?:string}>(resolve=>{
-      let spawnError:string|undefined;
-      child.once('error',error=>{spawnError=String(error);});
-      child.once('close',(code,signal)=>resolve({code,signal,spawnError}));
-    });
-    if(child.pid)this.ledger.attachExecution(taskId,epoch,token,child.pid);
-    let signalled=false;
-    let escalation:ReturnType<typeof setTimeout>|undefined;
-    let observationError:unknown;
-    const monitor=setInterval(()=>{
-      try{
-        const status=this.ledger.status(taskId);
-        if(status.state==='cancel_requested' || Date.parse(request.deadline)<=Date.now()){
-          if(status.state!=='cancel_requested')this.ledger.cancel(taskId);
-          if(!signalled && child.pid){
-            signalled=true;
-            if(groupAlive(child.pid))process.kill(-child.pid,'SIGTERM');
-            escalation=setTimeout(()=>{try{if(child.pid && groupAlive(child.pid))process.kill(-child.pid,'SIGKILL');}catch(error){observationError=error;}},500);
-          }
-        }
-      }catch(error){observationError=error;}
-    },50);
-    const result=await closed;
-    clearInterval(monitor);
-    let stopped=true;
-    try{
-      if(child.pid){
-        stopped=!groupAlive(child.pid);
-        for(let count=0;!stopped && count<10;count++){await delay(50);stopped=!groupAlive(child.pid);}
-      }
-    }catch(error){stopped=false;observationError=error;}
-    if(escalation)clearTimeout(escalation);
-    this.ledger.recordExit(taskId,epoch,token,{exitCode:result.code,signal:result.signal,groupStopped:stopped,spawnError:result.spawnError});
-    if(!stopped || observationError){return this.ledger.unknown(taskId,epoch,'process_group_stop_unverified');}
-    if(this.ledger.status(taskId).state==='cancel_requested')return this.ledger.settleStopped(taskId,epoch,token,'cancelled','process_stopped');
-    if(result.spawnError || result.code!==0)return this.ledger.settleStopped(taskId,epoch,token,'failed',result.spawnError ? 'runtime_spawn_failed' : 'native_execution_failed');
+    // 独立 worker 使用固定运行时源码；只接收可信适配器已编译的结构化计划。
+    const child=spawn(process.execPath,[fileURLToPath(new URL('./execution_worker.ts',import.meta.url))],{detached:true,shell:false,stdio:['pipe','ignore','ignore']});
+    const closed=new Promise<void>(resolve=>{child.once('error',()=>resolve());child.once('close',()=>resolve());});
+    child.stdin?.on('error',()=>{});
+    child.stdin?.end(JSON.stringify({database:this.ledger.databasePath,taskId,epoch,token,plan}));
+    await closed;
+    const execution=this.ledger.execution(taskId);
+    if(execution?.status!=='stopped')return this.ledger.unknown(taskId,epoch,'worker_exit_without_stop_evidence');
+    return this.adopt(taskId,adapter,plan);
+  }
+
+  /** 只接管原任务的停止证据；从不重新提交原生副作用或预算申请。 */
+  async reconcile(taskId:string,adapter:ExecutionAdapter):Promise<TaskReceipt> {
+    return this.adopt(taskId,adapter);
+  }
+
+  private async adopt(taskId:string,adapter:ExecutionAdapter,preparedPlan?:ExecutionPlan):Promise<TaskReceipt> {
+    const status=this.ledger.status(taskId);
+    if(!['running','reconciling','cancel_requested','verifying'].includes(status.state))return status;
+    const request=this.ledger.request(taskId);if(!preparedPlan)await this.authorize(request);
+    const execution=this.ledger.execution(taskId);
+    if(!execution || execution.status!=='stopped' || !execution.groupStopped)return status;
+    const settle=(state:'failed'|'cancelled',code:string)=>{
+      const current=this.ledger.status(taskId);
+      if(!['running','reconciling','cancel_requested','verifying'].includes(current.state))return current;
+      return this.ledger.settleStopped(taskId,status.epoch,execution.token,state,code);
+    };
+    if(status.state==='cancel_requested')return settle('cancelled','process_stopped');
+    if(execution.exitCode!==0)return settle('failed','native_execution_failed');
+    // 重编译仅验证身份，不运行 prepare 的输出命令。
+    const plan=preparedPlan ?? await adapter.prepare(request);
+    await this.validatePlan(plan,request);
+    if(planHash({executable:plan.executable,args:plan.args,cwd:plan.cwd,launcherIdentity:plan.launcherIdentity ?? null})!==execution.commandHash)throw new Error('recovery_command_identity_mismatch');
     try{
       const verified=await adapter.verify(request);
-      return await this.ledger.reviewReady(taskId,epoch,token,verified.root,verified.outputs,verified.evidenceRefs);
+      return await this.ledger.reviewReady(taskId,status.epoch,execution.token,verified.root,verified.outputs,verified.evidenceRefs);
     }catch(error){
-      if(this.ledger.status(taskId).state==='cancel_requested')return this.ledger.settleStopped(taskId,epoch,token,'cancelled','process_stopped');
-      return this.ledger.settleStopped(taskId,epoch,token,'failed','artifact_invalid');
+      if(this.ledger.status(taskId).state==='cancel_requested')return settle('cancelled','process_stopped');
+      return settle('failed','artifact_invalid');
     }
   }
 }

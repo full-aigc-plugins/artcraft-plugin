@@ -102,7 +102,9 @@ export class WorkflowEngine {
         taskId=registered.taskId;
         const previous=this.ledger.workflowNode(key,id) as NodeResult;
         root=previous.root;
-        if(['running','reconciling','cancel_requested','verifying'].includes(registered.state)){
+        const recovering=['running','reconciling','cancel_requested','verifying'].includes(registered.state);
+        const stopped=this.ledger.execution(taskId);
+        if(recovering && !(stopped?.status==='stopped' && stopped.groupStopped)){
           save(id,{status:'waiting',fingerprint,taskId,root,error:'outcome_pending'});return;
         }
         if(['failed','cancelled'].includes(registered.state)){save(id,{status:registered.state,fingerprint,taskId,root});return;}
@@ -117,7 +119,7 @@ export class WorkflowEngine {
         if(registered.state==='planned')this.ledger.ready(taskId);
         if(this.ledger.workflowCancelled(key)){this.ledger.cancel(taskId);save(id,{status:'cancelled',fingerprint,taskId,root});return;}
         activeTasks.add(taskId);
-        const receipt=await this.runner.execute(taskId,compiled.adapter);
+        const receipt=recovering ? await this.runner.reconcile(taskId,compiled.adapter) : await this.runner.execute(taskId,compiled.adapter);
         const result={status:['review_ready','completed'].includes(receipt.state) ? 'review_ready' : ['failed','cancelled'].includes(receipt.state) ? receipt.state : 'waiting',fingerprint,taskId,root,outputs:receipt.outputRefs as Record<string,any>[]};
         if(result.status==='review_ready')await this.verifyResult(result);
         save(id,result);
@@ -129,7 +131,15 @@ export class WorkflowEngine {
         for(const id of order){
           if(!pending.has(id))continue;
           const node=byId.get(id)!;
-          if(this.ledger.workflowCancelled(key)){pending.delete(id);save(id,{status:'cancelled'});continue;}
+          if(this.ledger.workflowCancelled(key)){
+            pending.delete(id);const previous=this.ledger.workflowNode(key,id) as NodeResult;
+            if(previous.taskId){
+              this.ledger.cancel(previous.taskId);
+              const receipt=await this.runner.reconcile(previous.taskId,{prepare:async()=>{throw new Error('cancel_recovery_must_not_prepare');},verify:async()=>{throw new Error('cancel_recovery_must_not_verify');}});
+              save(id,{...previous,status:receipt.state==='cancelled' ? 'cancelled' : 'waiting',error:receipt.state==='cancelled' ? undefined : 'outcome_pending'});
+            }else save(id,{status:'cancelled'});
+            continue;
+          }
           if(node.dependsOn.some(parent=>results[parent] && !['review_ready','reused'].includes(results[parent].status) && !active.has(parent))){pending.delete(id);save(id,{status:'blocked',error:'dependency_not_verified'});continue;}
           if(node.dependsOn.some(parent=>!results[parent] || !['review_ready','reused'].includes(results[parent].status)))continue;
           if(active.size>=concurrency || resources.has(node.projectKey))continue;
@@ -142,7 +152,7 @@ export class WorkflowEngine {
       }
     }finally{clearInterval(monitor);}
     const states=Object.values(results).map(result=>result.status);
-    const state=this.ledger.workflowCancelled(key) ? 'cancelled' : states.every(status=>['review_ready','reused'].includes(status)) ? 'review_ready' : states.includes('failed') ? 'failed' : states.includes('waiting') ? 'waiting' : 'blocked';
+    const state=this.ledger.workflowCancelled(key) ? (states.includes('waiting') ? 'cancel_requested' : 'cancelled') : states.every(status=>['review_ready','reused'].includes(status)) ? 'review_ready' : states.includes('failed') ? 'failed' : states.includes('waiting') ? 'waiting' : 'blocked';
     return {runKey:key,state,nodes:results,budget:this.ledger.workflowBudget(key)};
   }
 }

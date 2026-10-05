@@ -189,6 +189,32 @@ flowchart LR
 
 Publication reserves a new directory exclusively and atomically replaces only that empty reservation. Cleanup removes only owned staging or the owned empty reservation; existing user files are preserved. Missing dependencies, escaping paths, substituted artifacts, changed sources or unfinished tasks reject publication. Extra files and symlinks invalidate verification. Packaging retains review_ready and the budget snapshot; it neither approves creative quality nor copies an active SQLite ledger or creates authorization for rerunning historical plans. Native internal media pointers can be relinked via independent skills after verification; runtime/font/effect compatibility still applies.
 
+### 10.4 Implemented: independent supervision and original-attempt adoption (dev.6)
+
+After committing intent, token, epoch, command digest and budget reservation, LocalRunner starts the fixed execution_worker.ts from the pinned runtime. The worker rechecks identity, starts a native child in its own process group and ignores standard streams, so scheduler pipes are not a lifetime dependency. It reads task and parent-workflow cancellation plus deadlines from SQLite, observes actual close and process-group stop, then records evidence under the original token and epoch.
+
+```mermaid
+sequenceDiagram
+    participant U as Public workflow entry
+    participant L as SQLite ledger
+    participant W as Independent worker
+    participant N as Native CLI
+    U->>L: intent + token + epoch + commandHash + budget
+    U->>W: Fixed worker and trusted plan
+    W->>N: One native invocation
+    Note over U: Scheduler may crash
+    W->>L: Read cancellation and deadline
+    N-->>W: Actual close
+    W->>L: Exit and process-group stop evidence
+    U->>L: Re-run same frozen workflow
+    U->>U: Recheck identity and artifacts
+    U->>L: Publish review_ready once for same attempt
+```
+
+Adoption does not claim again, allocate budget again or replay native work. Active executions remain waiting; stopped successful executions recompile the read-only plan, match the command digest and verify artifacts. Interrupted verifying can be rechecked and concurrent adopters publish at most one outcome. Parent cancellation without stop evidence remains cancel_requested and retains ownership; the worker stops its own child group when it reads cancellation.
+
+Worker death, an uncertain prepared/submission window or unverified group stop retains reconciling/waiting and the writer lease. PID disappearance and file existence cannot establish completion. Older executions without worker stop evidence remain waiting; SQLite stays at schema v2. Local acceptance covers macOS arm64, Node 24 and EffectCraft 0.2.0 with 76 parallel tests; Linux CI, paid-provider reconciliation, full host acceptance and creative review are separate scopes. See [recovery evidence](evidence/crash-recovery.json).
+
 ## 11. Error semantics
 
 | Code | Trigger | Recovery |

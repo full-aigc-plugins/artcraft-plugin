@@ -1,5 +1,6 @@
 /** 真实子进程的退出、产物核验、取消和幂等执行测试。 */
 import test from 'node:test';
+import { spawn } from 'node:child_process';
 import assert from 'node:assert/strict';
 import { mkdtemp, writeFile, readFile, rm } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -23,7 +24,7 @@ async function context(mode='success') {
   const bytes=await readFile(output);return {root,outputs:[{protocolVersion:'craft-artifact/v1',assetId:'output',version:'v1',sha256:hash(bytes),bytes:bytes.length,mediaType:'application/octet-stream',producerTaskId:'task1',sourceRefs:[],nativeProjectRef:null,renditions:[],dependencies:[],technicalMetadata:{},lossReportRef:null,evidenceRefs:[],location:'output.bin'}],evidenceRefs:[]};
  }};
  const runner=new LocalRunner(ledger,async req=>{assert.equal(req.authorizationRef,'test-scope');starts++;});
- return {root,ledger,runner,adapter,get starts(){return starts;},cleanup:async()=>{ledger.close();await rm(root,{recursive:true});}};
+ return {root,ledger,runner,adapter,get starts(){return starts;},cleanup:async()=>{const pid=ledger.execution('task1')?.pid;if(pid){try{process.kill(-pid,'SIGKILL');}catch{}}ledger.close();await rm(root,{recursive:true});}};
 }
 
 test('successful process is verified, review-ready and releases writer ownership',async()=>{
@@ -135,5 +136,86 @@ test('missing or excessive trusted cost stops before spawn and leaves no output 
    assert.equal(fixture.ledger.execution('task1'),null);assert.equal(fixture.ledger.leases().length,0);
    await assert.rejects(readFile(join(fixture.root,'output.bin')),/ENOENT/);
   }
+ }finally{await fixture.cleanup();}
+});
+
+async function crashedParent(fixture:Awaited<ReturnType<typeof context>>,wait=false){
+ const script=join(fixture.root,'parent.mjs');
+ await writeFile(join(fixture.root,'worker.mjs'),wait ? `import{appendFileSync}from'node:fs';appendFileSync(process.argv[2]+'.starts','x');setInterval(()=>{},1000);` : `import{appendFileSync,writeFileSync}from'node:fs';appendFileSync(process.argv[2]+'.starts','x');setTimeout(()=>writeFileSync(process.argv[2],'result'),350);`);
+ const runnerUrl=new URL('../src/harness/local_runner.ts',import.meta.url).href;
+ const ledgerUrl=new URL('../src/harness/task_ledger.ts',import.meta.url).href;
+ await writeFile(script,`import{TaskLedger}from${JSON.stringify(ledgerUrl)};import{LocalRunner}from${JSON.stringify(runnerUrl)};const ledger=new TaskLedger(${JSON.stringify(join(fixture.root,'tasks.sqlite'))});await new LocalRunner(ledger,async()=>{}).execute('task1',{prepare:async()=>(${JSON.stringify(await fixture.adapter.prepare())}),verify:async()=>{throw Error('parent_should_be_killed')}});`);
+ const parent=spawn(process.execPath,[script],{stdio:'ignore'});
+ const closed=new Promise(resolve=>parent.once('close',resolve));
+ for(let n=0;!fixture.ledger.execution('task1')?.pid && n<300;n++)await new Promise(r=>setTimeout(r,10));
+ assert.ok(fixture.ledger.execution('task1')?.pid);parent.kill('SIGKILL');await closed;
+}
+async function awaitStopped(fixture:Awaited<ReturnType<typeof context>>){
+ for(let n=0;fixture.ledger.execution('task1')?.status!=='stopped' && n<300;n++)await new Promise(r=>setTimeout(r,10));
+ assert.equal(fixture.ledger.execution('task1')?.status,'stopped');
+}
+test('SIGKILL of scheduler preserves worker exit evidence and adopts without native replay',async()=>{
+ const fixture=await context();try{
+  await crashedParent(fixture);const before=fixture.ledger.status('task1');await awaitStopped(fixture);
+  const results=await Promise.all([fixture.runner.reconcile('task1',fixture.adapter),fixture.runner.reconcile('task1',fixture.adapter)]);
+  assert.ok(results.every(r=>r.state==='review_ready'));assert.equal(results[0].attemptId,before.attemptId);
+  assert.equal(await readFile(join(fixture.root,'output.bin.starts'),'utf8'),'x');assert.equal(fixture.ledger.leases().length,0);
+  assert.equal(fixture.ledger.events('task1').filter(e=>e.toState==='review_ready').length,1);
+ }finally{await fixture.cleanup();}
+});
+test('orphan worker observes ledger cancellation after scheduler SIGKILL',async()=>{
+ const fixture=await context();try{
+  await crashedParent(fixture,true);fixture.ledger.cancel('task1');await awaitStopped(fixture);
+  assert.equal((await fixture.runner.reconcile('task1',fixture.adapter)).state,'cancelled');
+  assert.equal(fixture.ledger.leases().length,0);
+ }finally{await fixture.cleanup();}
+});
+test('recovery rejects changed command and authorization while preserving the original lease',async()=>{
+ const fixture=await context();try{
+  await crashedParent(fixture);await awaitStopped(fixture);
+  await assert.rejects(new LocalRunner(fixture.ledger,async()=>{throw Error('authorization_required')}).reconcile('task1',fixture.adapter),/authorization_required/);
+  const changed={...fixture.adapter,prepare:async()=>({...await fixture.adapter.prepare(),args:['--version']})};
+  await assert.rejects(fixture.runner.reconcile('task1',changed),/recovery_command_identity_mismatch/);
+  assert.equal(fixture.ledger.leases().length,1);assert.equal(await readFile(join(fixture.root,'output.bin.starts'),'utf8'),'x');
+ }finally{await fixture.cleanup();}
+});
+test('interrupted verifying state resumes the same stopped attempt',async()=>{
+ const fixture=await context();try{
+  await crashedParent(fixture);await awaitStopped(fixture);
+  const status=fixture.ledger.status('task1'),execution=fixture.ledger.execution('task1')!;
+  await assert.rejects(fixture.ledger.reviewReady('task1',status.epoch,execution.token,fixture.root,[],[]),/artifact_missing/);
+  assert.equal(fixture.ledger.status('task1').state,'verifying');
+  assert.equal((await fixture.runner.reconcile('task1',fixture.adapter)).state,'review_ready');
+  assert.equal(await readFile(join(fixture.root,'output.bin.starts'),'utf8'),'x');
+ }finally{await fixture.cleanup();}
+});
+test('prepared execution without trustworthy stop evidence never replays or releases ownership',async()=>{
+ const fixture=await context();try{
+  const task=fixture.ledger.claim('task1',null,{minorUnits:0,externalCalls:0});fixture.ledger.prepareExecution('task1',task.epoch,hash('unknown'));
+  assert.equal((await fixture.runner.reconcile('task1',fixture.adapter)).state,'running');
+  assert.equal(fixture.ledger.leases().length,1);assert.equal(fixture.ledger.execution('task1')?.status,'prepared');
+ }finally{await fixture.cleanup();}
+});
+test('corrupt recovered output cannot publish artifact references',async()=>{
+ const fixture=await context();try{
+  await crashedParent(fixture);await awaitStopped(fixture);
+  const verify=fixture.adapter.verify;
+  const adapter={...fixture.adapter,verify:async()=>{const result=await verify();result.outputs[0].sha256=hash('original expected');return result;}};
+  const result=await fixture.runner.reconcile('task1',adapter);assert.equal(result.state,'failed');assert.deepEqual(result.outputRefs,[]);
+  assert.equal(await readFile(join(fixture.root,'output.bin.starts'),'utf8'),'x');
+ }finally{await fixture.cleanup();}
+});
+test('worker SIGKILL leaves outcome unknown and cannot authorize native replay',async()=>{
+ const fixture=await context('wait');try{
+  const executing=fixture.runner.execute('task1',fixture.adapter);
+  for(let n=0;!fixture.ledger.execution('task1')?.pid && n<300;n++)await new Promise(resolve=>setTimeout(resolve,10));
+  const nativePid=fixture.ledger.execution('task1')?.pid;assert.ok(nativePid);
+  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');const exec=promisify(execFile);
+  const workerPid=Number((await exec('/bin/ps',['-o','ppid=','-p',String(nativePid)])).stdout.trim());
+  assert.ok((await exec('/bin/ps',['-o','command=','-p',String(workerPid)])).stdout.includes('/execution_worker.ts'));
+  process.kill(workerPid,'SIGKILL');const result=await executing;
+  assert.equal(result.state,'reconciling');assert.equal(fixture.ledger.leases().length,1);
+  assert.equal((await fixture.runner.reconcile('task1',fixture.adapter)).attemptId,result.attemptId);
+  assert.equal(fixture.ledger.execution('task1')?.status,'running');assert.equal(fixture.ledger.execution('task1')?.groupStopped,false);
  }finally{await fixture.cleanup();}
 });

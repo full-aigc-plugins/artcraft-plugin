@@ -104,3 +104,28 @@ test('DAG reserves a shared cap before child spawn and resuming does not double 
   assert.equal(f.ledger.list().filter(task=>f.ledger.execution(task.taskId)).length,1);
  }finally{await f.cleanup();}
 });
+for(const cancel of [false,true])test((cancel ? 'cancel parent after scheduler SIGKILL: ' : '')+'DAG resumes a scheduler-crashed node from durable stop evidence without budget or native replay',async()=>{
+ const f=await fixture();try{
+  const {planHash}=await import('../src/protocol/contracts.ts');const {spawn}=await import('node:child_process');
+  f.plan.nodes=[f.plan.nodes[0]];const node=f.plan.nodes[0],key=f.ledger.beginWorkflow(f.plan);
+  const fingerprint=planHash({payload:node.payload,inputRefs:[],runtimeIdentity:node.runtimeIdentity,projectKey:node.projectKey,expectedRevision:null});
+  const taskId='wf-'+planHash({owner:f.plan.ownerId,workflow:f.plan.workflowId,revision:f.plan.revision,node:node.id,fingerprint}).slice(0,48);
+  const request={protocolVersion:'craft-task/v1',taskId,idempotencyKey:'wf-node:'+planHash({key,id:node.id,fingerprint}),planHash:planHash(node.payload),inputRefs:[],expectedRevision:null,runtimeIdentity:node.runtimeIdentity,authorizationRef:f.plan.authorizationRef,budget:f.plan.budget,deadline:f.plan.deadline,payload:node.payload};
+  f.ledger.register(f.plan.ownerId,node.projectKey,request,key);f.ledger.ready(taskId);
+  const compiled=await f.factory(node,[],taskId),executionPlan=await compiled.adapter.prepare();
+  await writeFile(executionPlan.args[0],`import{appendFileSync,writeFileSync}from'node:fs';appendFileSync(process.argv[2]+'.starts','x');setTimeout(()=>writeFileSync(process.argv[2],'logo|'),350);`);
+  f.ledger.saveWorkflowNode(key,node.id,{status:'running',taskId,root:compiled.root,fingerprint});
+  const parentScript=join(f.root,'scheduler.mjs');
+  await writeFile(parentScript,`import{TaskLedger}from${JSON.stringify(new URL('../src/harness/task_ledger.ts',import.meta.url).href)};import{LocalRunner}from${JSON.stringify(new URL('../src/harness/local_runner.ts',import.meta.url).href)};const ledger=new TaskLedger(${JSON.stringify(join(f.root,'ledger.sqlite'))});await new LocalRunner(ledger,async()=>{}).execute(${JSON.stringify(taskId)},{prepare:async()=>(${JSON.stringify(executionPlan)}),verify:async()=>{throw Error('scheduler_should_be_killed')}});`);
+  const parent=spawn(process.execPath,[parentScript],{stdio:'ignore'}),closed=new Promise(resolve=>parent.once('close',resolve));
+  for(let n=0;!f.ledger.execution(taskId)?.pid && n<300;n++)await new Promise(resolve=>setTimeout(resolve,10));
+  assert.ok(f.ledger.execution(taskId)?.pid);parent.kill('SIGKILL');await closed;
+  if(cancel)f.ledger.cancelWorkflow(key);
+  const pending=await f.engine.run(f.plan);assert.equal(pending.state,cancel ? 'cancel_requested' : 'waiting');
+  for(let n=0;f.ledger.execution(taskId)?.status!=='stopped' && n<300;n++)await new Promise(resolve=>setTimeout(resolve,10));
+  const before=f.ledger.workflowBudget(key),attempt=f.ledger.status(taskId).attemptId;
+  const result=await f.engine.run(f.plan);assert.equal(result.state,cancel ? 'cancelled' : 'review_ready');assert.equal(result.nodes.logo.taskId,taskId);
+  assert.equal(f.ledger.status(taskId).attemptId,attempt);assert.deepEqual(result.budget,before);
+  if(!cancel)assert.equal(await readFile(join(compiled.root,'output.bin.starts'),'utf8'),'x');assert.equal(f.ledger.leases().length,0);
+ }finally{await f.cleanup();}
+});

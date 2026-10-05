@@ -1,6 +1,7 @@
 /** 副作用之前持久化任务身份、版本绑定和工程写入占用。 */
 import { DatabaseSync } from 'node:sqlite';
 import { randomUUID } from 'node:crypto';
+import { resolve } from 'node:path';
 import { validateTask, planHash, verifyArtifact } from '../protocol/contracts.ts';
 import { budgetLimits, budgetUsage, allocateBudget } from './budget.ts';
 import type { BudgetSnapshot, BudgetLimits } from './budget.ts';
@@ -12,7 +13,9 @@ export type ExecutionRecord = {token:string;status:string;pid:number|null;comman
 /** SQLite 本地账本；关闭连接不会释放不明确结果的工程占用。 */
 export class TaskLedger {
   private database: DatabaseSync;
+  readonly databasePath:string;
   constructor(path:string) {
+    this.databasePath=path===':memory:' ? path : resolve(path);
     this.database=new DatabaseSync(path);
     try {
     this.database.exec('PRAGMA busy_timeout=5000; BEGIN IMMEDIATE');
@@ -246,7 +249,7 @@ export class TaskLedger {
   async reviewReady(taskId:string,epoch:number,token:string,root:string,outputs:unknown[],evidenceRefs:unknown[]):Promise<TaskReceipt> {
     this.transaction(()=>{
       const row=this.row(taskId);this.requireLease(row,epoch);const execution=this.requireStopped(taskId,token);
-      if(execution.exitCode!==0 || !['running','reconciling'].includes(row.state)) throw new Error('invalid_transition');
+      if(execution.exitCode!==0 || !['running','reconciling','verifying'].includes(row.state)) throw new Error('invalid_transition');
       this.database.prepare('UPDATE tasks SET state=? WHERE task_id=?').run('verifying',taskId);
       this.event(taskId,row.state,'verifying',epoch);
     });
@@ -258,7 +261,9 @@ export class TaskLedger {
       checked.push(artifact);
     }
     return this.transaction(()=>{
-      const row=this.row(taskId);this.requireLease(row,epoch);this.requireStopped(taskId,token);
+      const row=this.row(taskId);
+      if(row.state==='review_ready' && row.epoch===epoch && this.requireStopped(taskId,token))return this.receipt(row);
+      this.requireLease(row,epoch);this.requireStopped(taskId,token);
       if(row.state!=='verifying') throw new Error('invalid_transition');
       this.database.prepare('INSERT INTO outcomes(task_id,outputs_json,evidence_json) VALUES(?,?,?)').run(taskId,JSON.stringify(checked),JSON.stringify(evidenceRefs));
       this.database.prepare('UPDATE tasks SET state=?,error_json=NULL WHERE task_id=?').run('review_ready',taskId);
@@ -266,6 +271,11 @@ export class TaskLedger {
       this.event(taskId,'verifying','review_ready',epoch,{outputHashes:checked.map(item=>item.sha256)});
       return this.receipt(this.row(taskId));
     });
+  }
+
+  /** 独立 worker 从已绑定节点读取父工作流取消意图；无需调度器存活。 */
+  taskWorkflowCancelled(taskId:string):boolean {
+    return Boolean(this.database.prepare("SELECT 1 FROM workflow_nodes n JOIN workflow_runs w ON n.run_key=w.run_key WHERE json_extract(n.record_json,'$.taskId')=? AND w.cancel_requested=1 LIMIT 1").get(taskId));
   }
 
   /** 返回副作用的持久身份与停止证据，不把 PID 不存在作为自动重试许可。 */

@@ -196,6 +196,32 @@ flowchart LR
 
 发布只独占新目录并替换本调用的空占位；失败清理只删除自有暂存或自有空占位，保留用户既有文件。缺依赖、外逃路径、回执产物被替换、源文件漂移或任务未就绪均拒绝。验包拒绝清单外文件与链接。打包保留 review_ready 和预算快照，不提升创作验收、不复制活跃 SQLite 账本、不建立重新执行历史计划的授权。原生内部素材指针在验包后由独立技能源工程接口重关联，运行时、字体和效果兼容性仍按领域检查。
 
+### 10.4 已实现：独立监督与原任务接管（dev.6）
+
+LocalRunner 在登记 intent、token、epoch、命令摘要与预算占用之后，启动固定 runtime 中的独立 execution_worker.ts。worker 重查身份后启动原生子进程，使用独立进程组并忽略标准流，不依赖调度器管道存活。worker 从 SQLite 读取任务和父工作流取消意图及截止时间，观察真实 close 与进程组停止，再以原 token/epoch 写入停止证据。
+
+```mermaid
+sequenceDiagram
+    participant U as 公开 workflow 入口
+    participant L as SQLite 账本
+    participant W as 独立监督 worker
+    participant N as 原生 CLI
+    U->>L: intent + token + epoch + commandHash + budget
+    U->>W: 固定 worker 与可信计划
+    W->>N: 唯一原生调用
+    Note over U: 调度器可能异常退出
+    W->>L: 读取取消和截止时间
+    N-->>W: 实际 close
+    W->>L: 退出码与进程组停止证据
+    U->>L: 再次运行同一冻结工作流
+    U->>U: 身份和产物重新核验
+    U->>L: 同 attempt 发布一次 review_ready
+```
+
+接管不重新 claim 或分配预算，不重放原生任务。进程仍运行时返回 waiting；已停止且成功时重新编译只读计划、匹配命令摘要并验证产物；verifying 中断允许重新核验，两个并发接管至多提交一个 outcome。父取消但没有停止证据时返回 cancel_requested，保留占用；worker 读到父取消后负责停止其自有子进程组。
+
+worker 自身崩溃、prepared 提交窗口未知、进程组停止未确认时保留 reconciling/waiting 和写锁，不凭 PID 消失或文件存在完成任务。没有 worker/停止证据的旧执行保持等待；SQLite schema 仍为 v2。实测为 macOS arm64、Node 24、EffectCraft 0.2.0；76 项并行回归通过，Linux CI、付费服务、完整宿主和创作审核是不同证据范围。详见 [接管证据](evidence/crash-recovery.json)。
+
 ## 11. 错误语义
 
 | Code | 何时出现 | 恢复动作 |

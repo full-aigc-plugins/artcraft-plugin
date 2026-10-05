@@ -71,3 +71,7 @@
 ## Shared budget implementation
 
 采用 SQLite 共享预算账户，范围为 ownerId/workflowId/authorizationRef，政策固定。原生执行的可信消耗上界与工程租约在同一写事务分配；新计划修订计轮次，未知执行保留额度，同修订重跑与复用不重复占用。账本 schema 2 保留旧历史读取，但无计量旧范围拒绝新执行。实施和边界见[预算架构](../../../docs/ArtCraft-Budget-Architecture.zh_CN.md)。付费适配器实际账单核销和质量停滞循环仍未实现。
+
+## dev.6 已实现恢复决策
+
+原生监督由固定独立 worker 承担，调度器恢复只核对持久化停止证据并验收原任务，不新 claim、不重放、不重扣预算。父工作流取消由 worker 直接读取；停止前保留 cancel_requested。worker 本身崩溃或提交窗口未知保留写锁与待核对状态。verifying 可重新核验，并发接管至多发布一个 outcome。SQLite schema 保持 v2；旧任务没有停止证据时不假造恢复完成。细节与序列图见双语 Runtime Architecture 10.4；证据见 docs/evidence/crash-recovery.json。
