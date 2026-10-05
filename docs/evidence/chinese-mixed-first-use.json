@@ -1,0 +1,144 @@
+{
+  "schema": "craft-chinese-mixed-first-use-evidence/v1",
+  "date": "2026-10-06",
+  "status": "bounded-native-first-use-passed",
+  "scope": "one isolated ArtCraft revise skill; default public downloads; Chinese caption and voice; native revision and four-child package",
+  "skillSuiteVersion": "0.1.0-dev.14",
+  "runtimeVersion": "0.1.0-dev.16",
+  "runtimeSourceCommit": "b5dc4b3a4d3166602b7697475fb2039a482690e7",
+  "distribution": {
+    "artcraft-runtime": {
+      "version": "0.1.0-dev.16",
+      "sha256": "c6c24df1782e6e3e17109859b89dcd1643d2a73339e785456421a11d4cb934d2",
+      "bytes": 40586
+    },
+    "filmcraft-skills": {
+      "version": "0.1.0-dev.5",
+      "sha256": "32181a1ae2fc75e8698756f6ac3dbac7fc616cf8ddf3e95ed9d403195e154cee",
+      "bytes": 428081
+    },
+    "effectcraft-skills": {
+      "version": "0.1.0-dev.6",
+      "sha256": "66e2727a7e84a0e85ced2bddaba63e38a6578b2f34698485666380b3ce26b582",
+      "bytes": 409662
+    },
+    "photocraft-skills": {
+      "version": "0.1.0-dev.5",
+      "sha256": "81159d097aef14df927f00305497062500fdbfd621752856193bab45b83da879",
+      "bytes": 382999
+    },
+    "vectorcraft-skills": {
+      "version": "0.1.0-dev.5",
+      "sha256": "3c6629b91faca3bac9ff34dce0d3ee33648b06fdfb2711d4a069e0867d7bc8fc",
+      "bytes": 425662
+    }
+  },
+  "tests": {
+    "chineseMixed": {
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 51.379
+    },
+    "runtimeUnit": {
+      "passed": 79,
+      "failed": 0,
+      "skipped": 5
+    },
+    "fixedArchiveBuilder": {
+      "passed": 5,
+      "failed": 0
+    },
+    "installer": {
+      "passed": 7,
+      "failed": 0
+    },
+    "nativeIntegration": {
+      "passed": 84,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 31.237969167
+    },
+    "onlineRegression": {
+      "tests": 30,
+      "passed": 27,
+      "skipped": 3,
+      "failed": 0,
+      "seconds": 208.625,
+      "archiveOverrides": false
+    },
+    "singleSkillDiscoverySupplement": {
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 18.685,
+      "isolatedSkills": 10
+    },
+    "videoFactorySupplement": {
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 51.527,
+      "archiveOverrides": false
+    }
+  },
+  "checks": {
+    "fourNativeProjects": true,
+    "decodedVideoFrames": 72,
+    "videoSize": [
+      640,
+      360
+    ],
+    "chineseBurnedCaptionFrameVisuallyInspected": true,
+    "voiceCorrelation": 0.9999744911880156,
+    "retainedDependencyCheckedAtPrepareAndVerify": true,
+    "revisionChangedNodes": [
+      "film"
+    ],
+    "reusedNodes": [
+      "logo",
+      "poster",
+      "intro"
+    ],
+    "oldFilesUnchanged": true,
+    "audioPreserved": true,
+    "repeatBudgetUnchanged": true,
+    "fourChildrenPackageVerified": true,
+    "skillBytecodeAbsent": true
+  },
+  "filmRuntime": {
+    "capabilitySnapshotSha256": "ac1e975eeed7c8982dab785f4c6d28cbef1df180d000947abf80dfbe7b5123ad",
+    "cliVersion": "0.2.0-craft.1",
+    "mode": "headless",
+    "pluginId": "filmcraft",
+    "pluginVersion": "0.1.0-dev.5",
+    "sha256": "4bd79931912c591d1cb1b47690949512ffb4361c3ec4f57664024f9a4847ae38"
+  },
+  "evidenceArtifacts": {
+    "renderedFrameSha256": "013f01ec6580ffad506bdf9a7f50341d37d6dbd89bb3e2a2a05a0f11ea8e3de3"
+  },
+  "notProven": [
+    "GUI acceptance",
+    "creative quality acceptance",
+    "model-dispatched first use",
+    "current host release matrix"
+  ],
+  "specAuthority": "openspec/changes/establish-v1-plugin",
+  "task": "3.15",
+  "sourceFingerprints": {
+    "tests/test_chinese_mixed_first_use.py": "7f3cf552b74cd9ce7f6dc588885ad9128b3c23ce5a0ec7b6d2605ee84c2544b5",
+    "tests/test_setup.py": "c1f2203944c0392128c1e4b528d53d4e8dc560cf94a0aa7e27720edca7b527bd",
+    "skills/artcraft-use/scripts/distribution.lock.json": "bcd3d805c5d5a4e9fc384787c522216518bdbdb892814c13422138090babf2f4",
+    "skills/artcraft-use/scripts/setup.py": "cf534fc2a7511a29fa776ab274e2209b7859e78c7b72bb13b9f6f372c9d9f6b7",
+    "skills/artcraft-use/examples/chinese-brand-campaign.json": "7bf8725b7845ab2e6eef6c144e5b30dab2e6bf93294edc7283bb01089cbbf09a",
+    "skill-suite.json": "520a0a0ba5adfa8319671255efb0e40629b52a2a2958f5c9e9dcbef8bb32a967"
+  },
+  "coverage": {
+    "distinctSourceTestsPassed": 29,
+    "distinctSourceTestsNotRun": 1,
+    "notRunReason": "Node-only offline archive fixture; default online runtime download exercised instead"
+  },
+  "skillSourceCommit": "f3c86a73c12c784cf565325bf50ed1e47cede8d4",
+  "pluginVersion": "0.1.0-dev.17",
+  "skillsLockSha256": "37f6b891487ac5840ea7a7b49232eb0c5ebb69e66305a79e3f029affb857585e"
+}

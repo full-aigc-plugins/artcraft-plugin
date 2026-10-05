@@ -72,7 +72,20 @@ def install_bundle(lock, target, archive=None):
         with zipfile.ZipFile(archive_path) as zip:
             for member in zip.infolist():
                 mode = member.external_attr >> 16
-                if not safe_path(member.filename) or member.filename in seen or member.is_dir() or stat.S_ISLNK(mode):
+                if member.is_dir():
+                    directory = member.filename[:-1]
+                    ancestors = {'/'.join(name.split('/')[:index]) for name in lock['files'] for index in range(1, len(name.split('/')))}
+                    if (lock.get('archiveFormat') != 'git-archive-zip' or not safe_path(directory)
+                            or directory not in ancestors or member.filename in seen
+                            or member.file_size != 0 or stat.S_ISLNK(mode)
+                            or stat.S_IFMT(mode) not in (0, stat.S_IFDIR)):
+                        raise ValueError('bundle_path_invalid')
+                    seen.add(member.filename)
+                    if len(seen) > 2000:
+                        raise ValueError('bundle_size_limit')
+                    continue
+                if (not safe_path(member.filename) or member.filename in seen or stat.S_ISLNK(mode)
+                        or stat.S_IFMT(mode) not in (0, stat.S_IFREG)):
                     raise ValueError('bundle_path_invalid')
                 seen.add(member.filename);total += member.file_size
                 if member.file_size > 16*1024*1024 or total > 64*1024*1024 or len(seen)>2000:

@@ -31,11 +31,13 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
   const factories:Record<string,any>={},identities:Record<string,any>={},configs:Record<string,any>={};
   for(const pluginId of ['vectorcraft','photocraft','effectcraft','filmcraft'] as const){
    const skillRoot=join(skillsRoot!,pluginId+'-skills','skills',pluginId+'-use');
-   const nativeExecutable=join(runtimeHome!,pluginId,'0.2.0',pluginId+'-cli');
+   const runtimeLock=JSON.parse(await readFile(join(skillRoot,'scripts/runtime.lock.json'),'utf8'));
+   const nativeVersion=runtimeLock.resolvedVersion;
+   const nativeExecutable=join(runtimeHome!,pluginId,nativeVersion,pluginId+'-cli');
    const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'].map(async name=>({path:join(skillRoot,'scripts',name),sha256:hash(await readFile(join(skillRoot,'scripts',name)))})));
    configs[pluginId]={pluginId,skillRoot,python,pythonSha256:pythonHash,nativeExecutable,runtimeHome:runtimeHome!,files,outputRoot:join(root,'deliveries')};
    factories[pluginId]=publicSkillFactory(configs[pluginId]);
-   identities[pluginId]={pluginId,pluginVersion:'0.1.0',cliVersion:'0.2.0',sha256:hash(await readFile(nativeExecutable)),mode:'headless',capabilitySnapshotSha256:hash(JSON.stringify(files))};
+   identities[pluginId]={pluginId,pluginVersion:'0.1.0',cliVersion:nativeVersion,sha256:hash(await readFile(nativeExecutable)),mode:'headless',capabilitySnapshotSha256:hash(JSON.stringify(files))};
   }
   const voice=join(root,'voice.wav');await writeFile(voice,narration());const voiceHash=hash(await readFile(voice));
   const voiceInput={root,artifact:{protocolVersion:'craft-artifact/v1',assetId:'voice',version:'v1',sha256:voiceHash,bytes:(await readFile(voice)).length,mediaType:'application/octet-stream',producerTaskId:'provided-voice',sourceRefs:[],nativeProjectRef:null,renditions:[],dependencies:[],technicalMetadata:{audio:{sampleRate:48000,channels:1}},lossReportRef:null,evidenceRefs:[],location:'voice.wav'}};
