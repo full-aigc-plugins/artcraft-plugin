@@ -29,7 +29,7 @@ def execute(args):
         if not args.package or not args.sha:
             raise ValueError('package_verification_arguments_required')
         command = ['verify-package', '--package', str(args.package.expanduser().resolve(strict=True)), '--sha', args.sha]
-    setup_args = [sys.executable, '-I', '-B', str(Path(__file__).with_name('bootstrap.py')), '--runtime-home', str(args.runtime_home)]
+    setup_args = [sys.executable, '-I', '-B', str(Path(__file__).with_name('bootstrap.py')), '--runtime-home', str(args.runtime_home), '--runtime-only']
     for flag, value in [('--node-archive', args.node_archive), ('--bundle-dir', args.bundle_dir), ('--native-archive-dir', args.native_archive_dir)]:
         if value is not None:
             setup_args.extend([flag, str(value)])

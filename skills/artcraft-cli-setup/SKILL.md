@@ -14,13 +14,13 @@ license: Apache-2.0
 
 ## 首次使用与公共入口
 
-定位当前 SKILL.md 的真实目录。当前支持 macOS arm64、Python 3.11+；自动安装固定 Node、编排包、领域技能源和原生 CLI，不要求全局 Node。已有任务授权覆盖必要依赖时直接执行本技能安装器，不另造批准流程。
+定位当前 SKILL.md 的真实目录。当前支持 macOS arm64、Python 3.11+；基础入口安装固定 Node 与编排包；workflow.py 按任务图安装所需领域技能源和原生 CLI，不要求全局 Node。已有任务授权覆盖必要依赖时直接执行本技能安装器，不另造批准流程。
 
 将 `SKILL_DIR` 设置为宿主实际加载的本 `SKILL.md` 所在目录（绝对路径）。用户级安装可能位于 `~/.agents/skills/artcraft-cli-setup`，项目级可能位于 `.agents/skills/artcraft-cli-setup`，插件可能位于其 `skills/artcraft-cli-setup` 或宿主缓存目录；以实际加载路径为准，不按当前工作目录猜测，也不搜索后随意选择重复版本。技能目录与 CLI 的用户数据安装目录是两个独立位置。
 
 ```bash
 : "${SKILL_DIR:?请先设置为本 SKILL.md 的实际所在目录}"
-python3 -I -B "$SKILL_DIR/scripts/bootstrap.py"
+python3 -I -B "$SKILL_DIR/scripts/bootstrap.py" --runtime-only
 python3 -I -B "$SKILL_DIR/scripts/cli.py" -- --version
 python3 -I -B "$SKILL_DIR/scripts/cli.py" -- --help
 ```
@@ -29,7 +29,7 @@ CLI argv 在 `--` 后，原生子命令必须放首位。安装参数放分隔�
 
 ## 场景操作
 
-先读取系统/架构、Python 版本及用户已有授权；运行本技能 bootstrap.py。核对 JSON 回执中的可执行路径、摘要与版本；不依赖 shell PATH。重复调用复用固定安装，失败停止并记录具体错误。
+先读取系统/架构、Python 版本及用户已有授权；按上述 --runtime-only 运行本技能 bootstrap.py；手动预装已选领域可显式使用 --plugin，省略选择参数是完整安装兼容入口，不是每个项目的必要步骤。核对 JSON 回执中的可执行路径、摘要与版本；不依赖 shell PATH。重复调用复用固定安装，失败停止并记录具体错误。
 
 本项目 `--help` 定义 run/status/cancel/package/verify-package；语义计划走 workflow.py，不能将上游 Tauri 的账号/供应商方法当编排 CLI 命令。
 

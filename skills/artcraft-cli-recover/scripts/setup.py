@@ -114,14 +114,20 @@ def bundle_version(lock, entry):
     return version
 
 
-def setup(lock, runtime_home, node, bundle_directory=None, native_archive_directory=None):
+def setup(lock, runtime_home, node, bundle_directory=None, native_archive_directory=None, plugins=None):
     if lock.get('schema') != 'artcraft-distribution/v1' or not re.fullmatch(r'\d+\.\d+\.\d+(?:-dev\.\d+)?', lock.get('version', '')) or set(lock.get('bundles', {})) != {'artcraft-runtime', *[name+'-skills' for name in NAMES]}:
         raise ValueError('distribution_lock_invalid')
+    selected = list(NAMES) if plugins is None else plugins
+    if (not isinstance(selected, list) or any(not isinstance(name, str) or name not in NAMES for name in selected)
+            or len(set(selected)) != len(selected)):
+        raise ValueError('plugin_selection_invalid')
+    selected = [name for name in NAMES if name in selected]
     home = Path(runtime_home).expanduser().resolve();home.mkdir(parents=True, exist_ok=True)
     with (home/'.artcraft-setup.lock').open('a+b') as ownership:
         fcntl.flock(ownership.fileno(), fcntl.LOCK_EX)
         installed = {}
-        for name, entry in lock['bundles'].items():
+        for name in ['artcraft-runtime', *[plugin+'-skills' for plugin in selected]]:
+            entry = lock['bundles'][name]
             if Path(entry['filename']).name != entry['filename']:
                 raise ValueError('bundle_path_invalid')
             target = home/'artcraft/bundles'/name/bundle_version(lock, entry)/entry['sha256']
@@ -132,14 +138,17 @@ def setup(lock, runtime_home, node, bundle_directory=None, native_archive_direct
         if actual != {'name': 'artcraft', 'version': lock['version']}:
             raise ValueError('artcraft_version_mismatch')
         skills = {}
-        for name in NAMES:
+        for name in selected:
             root = installed[name+'-skills']/'skills'/(name+'-use')
             args = [sys.executable, '-I', '-B', str(root/'scripts/bootstrap.py'), '--runtime-home', str(home)]
             native_lock = json.loads((root/'scripts/runtime.lock.json').read_text())
             if native_archive_directory:
                 filename = urllib.parse.urlparse(native_lock['artifacts']['darwin-arm64']['url']).path.rsplit('/',1)[-1]
                 args += ['--archive', str(Path(native_archive_directory)/filename)]
-            result = json.loads(subprocess.run(args, check=True, capture_output=True, text=True, timeout=180).stdout)
+            bootstrapped = subprocess.run(args, capture_output=True, text=True, timeout=180)
+            if bootstrapped.returncode:
+                raise ValueError('domain_setup_failed: '+name+': '+bootstrapped.stdout.strip())
+            result = json.loads(bootstrapped.stdout)
             cli = Path(result['executable'])
             catalog = subprocess.run([str(cli), 'commands', '--json'], check=True, capture_output=True, timeout=30).stdout
             if not json.loads(catalog):
@@ -148,4 +157,4 @@ def setup(lock, runtime_home, node, bundle_directory=None, native_archive_direct
             snapshot = {'commandCatalogSha256': hashlib.sha256(catalog).hexdigest(), 'skillBundleSha256': lock['bundles'][name+'-skills']['sha256'], 'artcraftRuntimeSha256': lock['bundles']['artcraft-runtime']['sha256'], 'scriptHashes': {Path(file['path']).name:file['sha256'] for file in files}}
             snapshot_hash = hashlib.sha256(json.dumps(snapshot, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
             skills[name] = {'capabilitySnapshot': snapshot, 'skillRoot': str(root), 'executable': str(cli), 'files': files, 'runtimeIdentity': {'pluginId': name, 'pluginVersion': bundle_version(lock, lock['bundles'][name+'-skills']), 'cliVersion': native_lock['resolvedVersion'], 'sha256': result['binarySha256'], 'mode': 'headless', 'capabilitySnapshotSha256': snapshot_hash}}
-        return {'schema': 'artcraft-setup/v1', **node, 'version': lock['version'], 'runtimeRoot': str(runtime), 'entryPoint': str(entry_point), 'pythonExecutable': str(Path(sys.executable).resolve()), 'pythonSha256': sha(Path(sys.executable).resolve()), 'runtimeHome': str(home), 'bundleHashes': {key:value['sha256'] for key,value in lock['bundles'].items()}, 'skills': skills}
+        return {'schema': 'artcraft-setup/v1', **node, 'version': lock['version'], 'runtimeRoot': str(runtime), 'entryPoint': str(entry_point), 'pythonExecutable': str(Path(sys.executable).resolve()), 'pythonSha256': sha(Path(sys.executable).resolve()), 'runtimeHome': str(home), 'bundleHashes': {key:value['sha256'] for key,value in lock['bundles'].items() if key in installed}, 'skills': skills}

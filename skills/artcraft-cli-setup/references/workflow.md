@@ -98,3 +98,11 @@ Register the prior intro as an external source artifact, bind its native hash an
 下游成片以新片头替换原镜头；继续保留已有音轨、字幕与无关图层。保留原工程摘要与透明度关键帧，比较 RGBA 蒙版边界；图形与海报任务应复用，只有片头和成片改变。重复同一修订时，任务和预算身份应复用。独立技能运行默认安装依赖，不需要读取其他技能目录。
 
 Replace only the consuming video clip with the new intro. Verify original hashes, opacity keys, audio and captions; compare RGBA boundaries and reuse Logo/poster tasks. Repeating the same revision must reuse task and budget identity. The isolated skill installs its own pinned dependencies.
+
+## 按需安装执行器
+
+workflow.py 在依赖下载前读取节点 pluginId 或 runtimeIdentity.pluginId，拒绝冲突或未知执行器。只下载本次任务图所需领域的固定技能源和 CLI；安装回执 skills 与 bundleHashes 仅列实际安装内容。只含 Logo 节点时不安装剪辑、合成与图片领域；追加海报节点时增量安装 PhotoCraft，已验证 Logo 任务可复用。原生交付格式由领域节点决定，不能用 FilmCraft 静默替代未登记的剪映执行器。
+
+bootstrap.py 显式调用保持完整安装的兼容默认；可重复 --plugin vectorcraft --plugin photocraft 指定领域，或用 --runtime-only 仅安装编排运行时。四领域混合示例仍自动安装全部四个领域。手动 --node-only 仅证明 Node，不能代表 ArtCraft 已安装。
+
+CLI 发现、状态查询、打包和移动验包仅安装编排运行时，不额外下载领域工具。直接 CLI run 的 registry 必须登记已有领域运行身份；领域首次安装与登记由 workflow.py 按计划完成。

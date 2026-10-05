@@ -20,7 +20,7 @@ python3 -I -B "$SKILL_DIR/scripts/workflow.py" "$PLAN" \
   --ffmpeg "$FFMPEG" --ffprobe "$FFPROBE"
 ```
 
-Agent 从实际已加载的 Video Factory 插件确认 VIDEO_FACTORY_ROOT，再确定本机媒体工具绝对路径，不猜缓存目录或自行选择重复版本。未安装外部插件或缺工具时停止并说明前置；此入口自动安装 ArtCraft 固定 Node/运行时与四领域 CLI，不全局安装或升级 FFmpeg/外部插件。未选择外部节点时不登记外部工具。
+Agent 从实际已加载的 Video Factory 插件确认 VIDEO_FACTORY_ROOT，再确定本机媒体工具绝对路径，不猜缓存目录或自行选择重复版本。未安装外部插件或缺工具时停止并说明前置；此入口自动安装 ArtCraft 固定 Node/运行时与任务图声明的领域 CLI，不全局安装或升级 FFmpeg/外部插件。未选择外部节点时不登记外部工具。
 
 注册公开 CLI、源文件、Node、FFmpeg 与 ffprobe 摘要，项目 registry 冻结该身份。工具变更需要明确的新修订，不能静默替换旧任务身份。未知结果沿用原任务恢复，不重放验证。
 

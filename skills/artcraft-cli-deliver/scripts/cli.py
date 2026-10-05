@@ -15,7 +15,7 @@ def main():
  parser.add_argument('arguments',nargs=argparse.REMAINDER);args=parser.parse_args();argv=args.arguments
  if argv[:1]==['--']:argv=argv[1:]
  if not argv or argv[0] not in ALLOWED:parser.error('unsupported_cli_subcommand')
- command=[sys.executable,'-I','-B',str(Path(__file__).with_name('bootstrap.py')),'--runtime-home',str(args.runtime_home)]
+ command=[sys.executable,'-I','-B',str(Path(__file__).with_name('bootstrap.py')),'--runtime-home',str(args.runtime_home),'--runtime-only']
  for flag,value in [('--node-archive',args.node_archive),('--bundle-dir',args.bundle_dir),('--native-archive-dir',args.native_archive_dir)]:
   if value is not None:command.extend([flag,str(value)])
  try:

@@ -30,6 +30,24 @@ def canonical(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode()
 
 
+def required_plugins(plan):
+    """只登记任务图声明的执行器，缺失或冲突身份在下载前拒绝。"""
+    domains = ('filmcraft', 'effectcraft', 'photocraft', 'vectorcraft')
+    required = set()
+    for node in plan['nodes']:
+        if not isinstance(node, dict):raise ValueError('workflow_plan_invalid')
+        identity = node.get('runtimeIdentity', {})
+        if not isinstance(identity, dict):raise ValueError('workflow_plan_invalid')
+        explicit, runtime = node.get('pluginId'), identity.get('pluginId')
+        if explicit is not None and runtime is not None and explicit != runtime:
+            raise ValueError('runtime_identity_mismatch')
+        plugin = explicit if explicit is not None else runtime
+        if not isinstance(plugin, str) or plugin not in (*domains, 'video-factory'):
+            raise ValueError('capability_missing: '+str(plugin))
+        if plugin in domains:required.add(plugin)
+    return [name for name in domains if name in required]
+
+
 def execute(plan_path, output, owner, authorization, runtime_home=None, node_archive=None, bundle_directory=None, native_archive_directory=None, assignments=(), video_factory_root=None, ffmpeg=None, ffprobe=None):
     root = Path(output).expanduser().resolve()
     if root.exists() and not (root/'.artcraft-project.json').exists() and any(path.name != '.artcraft-write.lock' for path in root.iterdir()):
@@ -46,6 +64,7 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
     source_plan = json.loads(Path(plan_path).read_text())
     if not isinstance(source_plan, dict) or not isinstance(source_plan.get('nodes'), list) or not source_plan.get('workflowId') or not source_plan.get('revision'):
         raise ValueError('workflow_plan_invalid')
+    required = required_plugins(source_plan)
     external = any(node.get('pluginId') == 'video-factory' or node.get('runtimeIdentity', {}).get('pluginId') == 'video-factory' for node in source_plan['nodes'])
     if external and not all((video_factory_root, ffmpeg, ffprobe)):
         raise ValueError('video_factory_registration_required')
@@ -89,8 +108,14 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
     args = [sys.executable, '-I', '-B', str(Path(__file__).with_name('bootstrap.py'))]
     for flag, value in [('runtime-home', runtime_home), ('node-archive', node_archive), ('bundle-dir', bundle_directory), ('native-archive-dir', native_archive_directory)]:
         if value:args += ['--'+flag, str(value)]
-    setup = json.loads(subprocess.run(args, check=True, capture_output=True, text=True, timeout=600).stdout)
-    if setup.get('schema') != 'artcraft-setup/v1':
+    if required:
+        for name in required:args += ['--plugin', name]
+    else:args += ['--runtime-only']
+    installed = subprocess.run(args, capture_output=True, text=True, timeout=600)
+    if installed.returncode:
+        raise ValueError('setup_failed: '+installed.stdout.strip())
+    setup = json.loads(installed.stdout)
+    if setup.get('schema') != 'artcraft-setup/v1' or set(setup.get('skills', {})) != set(required):
         raise ValueError('setup_incomplete')
     output.mkdir(parents=True, exist_ok=True)
     if not marker.exists():marker.write_bytes(canonical(identity))

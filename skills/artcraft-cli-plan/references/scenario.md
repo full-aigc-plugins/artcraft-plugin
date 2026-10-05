@@ -24,3 +24,5 @@
 4. 原生工程、素材清单、预览/导出及交换报告交付；技术核验和视觉审核分开记录。
 
 首次组合实例采用本技能 examples 与 references/workflow.md。此实例验证组合能力，不替代所有候选命令的逐项验收。失败保留检查点，不将无损原生交付替换成扁平结果。
+
+规划时只登记实际需要的节点和原生格式，workflow.py 根据节点执行器选择安装范围。只做 Logo 时保留 logo 节点；追加海报后保留 logo 并增加依赖它的 poster 节点和新 revision。未登记剪映执行器时明确报告 capability_missing，不用其他工程格式代替。详见本技能自己的 references/workflow.md。

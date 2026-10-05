@@ -1,0 +1,100 @@
+{
+  "schema": "craft-selected-domain-first-use/v1",
+  "date": "2026-10-06",
+  "sourceVersion": "0.1.0-dev.16",
+  "runtimeVersion": "0.1.0-dev.16",
+  "status": "bounded-native-first-use-passed",
+  "targeted": {
+    "tests": 5,
+    "passed": 5,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 37.675,
+    "archiveOverrides": false,
+    "isolatedSkill": "artcraft-cli-plan",
+    "scope": "selected and incremental install, package/clean verification, status, unsupported executor"
+  },
+  "checks": [
+    "VectorCraft-only public cold install excludes three unused domains and bundles",
+    "incremental PhotoCraft installs only required domains",
+    "unchanged Logo task and old file hashes preserved",
+    "same revision reuses tasks and budget",
+    "unknown Jianying executor rejected before runtime download",
+    "manual full setup default retained",
+    "runtime-only receipt lists no domains",
+    "package create and verify do not install unused domains",
+    "fresh verification installs orchestration runtime without any native domain",
+    "CLI status does not expand installed domain set",
+    "domain bootstrap failures retain declared error in setup_failed result"
+  ],
+  "sourceFingerprints": {
+    "tests/test_selected_setup.py": "502f7ff410039fde6902de2e5e7d6701ab8c46e7c5b62fe1b2e95522b7581442",
+    "skills/artcraft-use/scripts/bootstrap.py": "5d2892aa19e09f0c8a2c1938b1cf42f7eadc09d3ce0e6fbda63988bac5f5a842",
+    "skills/artcraft-use/scripts/setup.py": "ed5b02f34edd94dd29420d89195f0f59942f7f074c2fcc4c04caf9643db904af",
+    "skills/artcraft-use/scripts/workflow.py": "2e2b3b151b1a4a5ca32ff006ea4364f48234324797eac930aae93198612b02f4",
+    "skills/artcraft-use/scripts/package.py": "378555b07e3b0710396c501ec9e8504b1fda02cd97441c72af23c425ebfb0f0f",
+    "skills/artcraft-use/scripts/cli.py": "adc32453aca15399ee2e0ad402e0af51be7dc9197225d0ec080de89e567e2afb",
+    "skill-suite.json": "8a55680b597842cd1eb60fa06199ba5d1a3bb117099db0cbc6c07ecb64e8e9bb"
+  },
+  "unverified": [
+    "model dispatch",
+    "GUI",
+    "complete creative acceptance",
+    "plugin dev.18 installed-host native acceptance"
+  ],
+  "specAuthority": "AC-DM-002 / establish-v1-plugin",
+  "diagnosticUnit": {
+    "tests": 6,
+    "passed": 5,
+    "skipped": 1,
+    "seconds": 0.056
+  },
+  "priorRegression": {
+    "tests": 35,
+    "passed": 33,
+    "failed": 1,
+    "skipped": 1,
+    "seconds": 281.333,
+    "failure": "Chinese bootstrap subprocess failed before diagnostic output was retained; cause not established"
+  },
+  "chineseDiagnosticRepeat": {
+    "tests": 2,
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 49.914
+  },
+  "finalOnlineRegression": {
+    "tests": 36,
+    "passed": 35,
+    "failed": 0,
+    "skipped": 1,
+    "seconds": 297.92,
+    "archiveOverrides": false,
+    "skipReason": "Node-only offline archive test; default online Node exercised",
+    "environment": {
+      "CRAFT_ONLINE_FIRST_USE": "1",
+      "CRAFT_LIVE_TEST": "1",
+      "CRAFT_TASK_FIRST_USE": "1",
+      "CRAFT_MASK_FIRST_USE": "1",
+      "CRAFT_CN_MIXED_FIRST_USE": "1",
+      "CRAFT_SELECTED_FIRST_USE": "1",
+      "CRAFT_LIVE_SUITE": "1",
+      "CRAFT_VIDEO_FIRST_USE": "1"
+    },
+    "testedSourceVersion": "0.1.0-dev.15"
+  },
+  "instructionCorrection": {
+    "testedSourceVersion": "0.1.0-dev.16",
+    "sourceScriptsUnchangedFromOnlineRegression": true,
+    "tests": 7,
+    "passed": 6,
+    "skipped": 1,
+    "failed": 0,
+    "scope": "all ten SKILL.md first-use bootstrap commands select runtime-only; no stale Video Factory unsupported claim; selected setup guard regression",
+    "liveTestSkipReason": "native live case already passed in unchanged-script online regression"
+  },
+  "pluginVersion": "0.1.0-dev.18",
+  "skillSourceCommit": "f932b2ddfaf3df74f9da0f96aa4d76e0c10bc9b6",
+  "skillsLockSha256": "cfab39e14866776e210d49d6d661ec1159fe28907d833d3e131670f75ebfae00"
+}

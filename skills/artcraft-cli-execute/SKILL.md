@@ -14,13 +14,13 @@ license: Apache-2.0
 
 ## 首次使用与公共入口
 
-定位当前 SKILL.md 的真实目录。当前支持 macOS arm64、Python 3.11+；自动安装固定 Node、编排包、领域技能源和原生 CLI，不要求全局 Node。已有任务授权覆盖必要依赖时直接执行本技能安装器，不另造批准流程。
+定位当前 SKILL.md 的真实目录。当前支持 macOS arm64、Python 3.11+；基础入口安装固定 Node 与编排包；workflow.py 按任务图安装所需领域技能源和原生 CLI，不要求全局 Node。已有任务授权覆盖必要依赖时直接执行本技能安装器，不另造批准流程。
 
 将 `SKILL_DIR` 设置为宿主实际加载的本 `SKILL.md` 所在目录（绝对路径）。用户级安装可能位于 `~/.agents/skills/artcraft-cli-execute`，项目级可能位于 `.agents/skills/artcraft-cli-execute`，插件可能位于其 `skills/artcraft-cli-execute` 或宿主缓存目录；以实际加载路径为准，不按当前工作目录猜测，也不搜索后随意选择重复版本。技能目录与 CLI 的用户数据安装目录是两个独立位置。
 
 ```bash
 : "${SKILL_DIR:?请先设置为本 SKILL.md 的实际所在目录}"
-python3 -I -B "$SKILL_DIR/scripts/bootstrap.py"
+python3 -I -B "$SKILL_DIR/scripts/bootstrap.py" --runtime-only
 python3 -I -B "$SKILL_DIR/scripts/cli.py" -- --version
 python3 -I -B "$SKILL_DIR/scripts/cli.py" -- --help
 ```

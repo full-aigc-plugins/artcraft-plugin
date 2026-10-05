@@ -36,6 +36,14 @@ ArtCraft SHALL 按能力快照与用户原生格式选工具；指定剪映工�
 - **WHEN** 用户要求剪映原生工程但仅 FilmCraft 可用
 - **THEN** 报告缺失执行器，不悄悄交付 .fcproj
 
+#### Scenario: AC-DM-002-SELECT 按任务图首次安装
+
+- **WHEN** 单独安装的 ArtCraft 技能执行仅含 VectorCraft 节点的项目
+- **THEN** 只下载固定 Node、ArtCraft 运行时、VectorCraft 技能源和原生 CLI，不安装其他三个领域工具
+- **AND** 安装回执只登记实际安装依赖；新增 PhotoCraft 节点后增量安装该领域，已有 VectorCraft 内容不变
+- **AND** 状态查询、打包与移动验包只安装编排运行时，不补装未使用领域工具
+- **AND** 未登记执行器（含剪映）在依赖下载前报告缺失，不静默替换为其他原生格式
+
 ### Requirement: AC-DM-003 依赖调度与并发隔离
 
 ArtCraft SHALL 执行前检查 DAG 循环、缺失节点与输入版本；独立节点可并行，同一原生工程单写；下游只消费已验证产物。

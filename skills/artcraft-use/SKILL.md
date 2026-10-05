@@ -1,6 +1,6 @@
 ---
 name: artcraft-use
-description: 当品牌、海报、动态图形和视频需要跨工具组合、跟踪素材依赖与版本、恢复任务或更新受影响产物时使用 ArtCraft；首次使用安装锁定运行时和四个独立技能，保留所有原生工程与交付证据。
+description: 当品牌、海报、动态图形和视频需要跨工具组合、跟踪素材依赖与版本、恢复任务或更新受影响产物时使用 ArtCraft；首次使用按任务图安装锁定运行时和所需独立技能，保留所有原生工程与交付证据。
 license: Apache-2.0
 ---
 
@@ -10,22 +10,22 @@ license: Apache-2.0
 
 ## 安装与首次使用
 
-定位本技能的真实目录。用户已要求完成创作或安装且授权覆盖必要依赖时，运行公开入口；安装固定版本和摘要的官方 Node、ArtCraft 运行时及领域技能快照，再由每个领域技能的公开安装器安装官方 CLI。安装范围仅用户数据目录，不需 sudo，不修改 PATH。
+定位本技能的真实目录。用户已要求完成创作或安装且授权覆盖必要依赖时，运行公开入口；先安装固定版本和摘要的 Node 与 ArtCraft 编排运行时；执行 workflow.py 时再按任务图安装所需领域技能源和锁定 CLI。安装范围仅用户数据目录，不需 sudo，不修改 PATH。
 
 将 `SKILL_DIR` 设置为宿主实际加载的本 `SKILL.md` 所在目录（绝对路径）。用户级安装可能位于 `~/.agents/skills/artcraft-use`，项目级可能位于 `.agents/skills/artcraft-use`，插件可能位于其 `skills/artcraft-use` 或宿主缓存目录；以实际加载路径为准，不按当前工作目录猜测，也不搜索后随意选择重复版本。技能目录与 CLI 的用户数据安装目录是两个独立位置。
 
 ```bash
 : "${SKILL_DIR:?请先设置为本 SKILL.md 的实际所在目录}"
-python3 "$SKILL_DIR/scripts/bootstrap.py"
+python3 -I -B "$SKILL_DIR/scripts/bootstrap.py" --runtime-only
 ```
 
-返回 JSON 包含 `nodeExecutable`、`entryPoint` 和四个领域运行时身份。当前锁文件指向固定开发发布制品；制品缺失或摘要不符会明确失败。各领域技能保持自身版本，不跟随 ArtCraft 运行时伪升级。
+此基础安装返回 JSON 包含 `nodeExecutable`、`entryPoint`，`skills` 为空；任务图执行后的安装回执只列实际使用的领域运行时身份。当前锁文件指向固定开发发布制品；制品缺失或摘要不符会明确失败。各领域技能保持自身版本，不跟随 ArtCraft 运行时伪升级。
 
 离线制品可用 `--node-archive`、`--bundle-dir`、`--native-archive-dir` 指定；这些参数不绕过摘要、路径或版本验证。`--runtime-home` 或 `CRAFT_RUNTIME_HOME` 指定隔离安装目录。复用版本时重新核验文件；损坏版本报错并保留，不覆盖、不静默升级。
 
 ## 计划与运行
 
-先记录需求、尺寸、时长、帧率、素材、文案、交付格式和修改边界。选择满足原生交付要求的工具。图形→图层设计用 VectorCraft/PhotoCraft；动态图形→时间线用 EffectCraft/FilmCraft。已有剪映、Image Factory、Video Factory 的适配尚未接入本运行时，不假装可自动调用。
+先记录需求、尺寸、时长、帧率、素材、文案、交付格式和修改边界。选择满足原生交付要求的工具。图形→图层设计用 VectorCraft/PhotoCraft；动态图形→时间线用 EffectCraft/FilmCraft。剪映和 Image Factory 的适配仍未接入本运行时；可选 Video Factory 公开验证节点须显式登记已安装插件与媒体工具，参见本技能 references/video-factory.md。
 
 参见[计划合同](references/workflow.md)。示例 `examples/brand-campaign.json` 生成 Logo、分层海报、动态图形片头和带字幕、音频的短片。示例需要用户提供 `voice` WAV：
 

@@ -108,9 +108,13 @@ def main():
     parser.add_argument('--node-archive', type=Path)
     parser.add_argument('--node-only', action='store_true', help='仅验证 Node 安装，不代表完整 ArtCraft setup')
     parser.add_argument('--bundle-dir', type=Path, help='离线发布包目录；强制校验锁定摘要')
-    parser.add_argument('--native-archive-dir', type=Path, help='四 CLI 官方 ZIP 目录；强制校验领域锁')
+    parser.add_argument('--native-archive-dir', type=Path, help='领域 CLI 锁定 ZIP 目录；强制校验领域锁')
+    selection = parser.add_mutually_exclusive_group()
+    selection.add_argument('--plugin', action='append', choices=['filmcraft','effectcraft','photocraft','vectorcraft'], help='仅安装所需领域，可重复；省略保持完整安装兼容')
+    selection.add_argument('--runtime-only', action='store_true', help='仅安装 Node 与 ArtCraft 运行时，不安装领域工具')
     args = parser.parse_args()
     try:
+        if args.plugin and len(set(args.plugin)) != len(args.plugin):raise ValueError('plugin_selection_invalid')
         lock = json.loads(Path(__file__).with_name('node.lock.json').read_text())
         node = install_node(lock, args.runtime_home, args.node_archive)
         if args.node_only:
@@ -120,7 +124,7 @@ def main():
             spec = importlib.util.spec_from_file_location('artcraft_setup', path)
             module = importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
             distribution = json.loads(Path(__file__).with_name('distribution.lock.json').read_text())
-            result = module.setup(distribution, args.runtime_home, node, args.bundle_dir, args.native_archive_dir)
+            result = module.setup(distribution, args.runtime_home, node, args.bundle_dir, args.native_archive_dir, plugins=[] if args.runtime_only else args.plugin)
         print(json.dumps(result))
     except (OSError, ValueError, subprocess.SubprocessError, tarfile.TarError) as error:
         print(json.dumps({'error': str(error)}))

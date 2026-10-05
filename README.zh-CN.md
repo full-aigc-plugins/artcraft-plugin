@@ -144,3 +144,5 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 当前固定发布的宿主刷新：Codex 0.153.4 在隔离配置安装 FilmCraft dev.5、EffectCraft dev.7、PhotoCraft/VectorCraft dev.6、ArtCraft dev.15，加载并核对全部 58 技能身份。实际安装内容的五代表工作流通过，调用后 58 个技能摘要保持不变；显式标签矩阵生成器四项边界测试通过。[证据](docs/evidence/codex-current-release-20261006.json)。模型派发等待明确授权；GUI、创作和生产验收仍未完成。本次 QA 维护不修改已发布插件/技能/运行时标签。
 
 技能套件 dev.14 固定编排运行时 dev.16 和 FilmCraft dev.5（维护版 CLI 0.2.0-craft.1），支持完整 Git 发布 ZIP 与原工程媒体保留绑定。单返工技能默认在线冷启动完成四工程、中文配音及字幕烧录，字幕修订仅更新 FilmCraft，保留旧文件、音轨及三个任务身份；2 项测试通过，成片 72 帧，四子交付验包通过。[架构](docs/ArtCraft-Chinese-Mixed-Architecture.zh_CN.md)、[证据](docs/evidence/chinese-mixed-first-use.json)。完整创作、GUI 与模型调度验收仍待完成。
+
+插件 dev.18 内置独立技能源 dev.16，编排运行时保持 dev.16。十个技能先安装基础编排运行时，再由任务图选择领域；只做 Logo 不安装其他领域，追加海报增量安装 PhotoCraft，查询/打包/验包不补装无关 CLI。35 项默认在线回归通过、1 项 Node 离线测试未运行；指引与守卫另有 6 项通过。[架构](docs/ArtCraft-Selected-Setup-Architecture.zh_CN.md)、[证据](docs/evidence/selected-domain-first-use.json)。新发布的宿主模型调度与完整创作验收仍未完成。

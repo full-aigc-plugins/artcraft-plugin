@@ -123,3 +123,5 @@
 - [x] 11.1 [AC-RT-001] 用隔离 Git 仓库确认工作树漂移、缺失标签、摘要错误与输出冲突在旧打包器上失败；产物：tests/test_runtime_bundle.py。
 - [x] 11.2 [AC-RT-001] 按输入发行锁读取固定标签、暂存验证全部包并拒绝覆盖冲突输出；产物：scripts/build_runtime_bundle.py、双语首次使用说明。
 - [x] 11.3 [AC-RT-001] 验证隔离场景、幂等重建和当前五个锁定包摘要一致；产物：docs/evidence/locked-bundle-rebuild.json。不提升完整宿主、创作或上线验收状态。
+
+- [x] 6.22 [AC-DM-002] 按声明任务图选择首次安装领域，验证单 VectorCraft 冷启动、增量 PhotoCraft、未知执行器提前拒绝与四领域兼容；产物：独立技能源 tests/test_selected_setup.py、docs/evidence/selected-domain-first-use.json。
