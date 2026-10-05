@@ -1,0 +1,49 @@
+{
+  "observedAt": "2026-10-05T14:04:13.644615+00:00",
+  "version": "0.1.0-dev.6",
+  "platform": "darwin-arm64",
+  "result": "passed",
+  "command": "CRAFT_ONLINE_FIRST_USE=1 python3 -m unittest discover -s tests -p test_online_first_use.py",
+  "tests": {
+    "passed": 1,
+    "skipped": 0,
+    "durationSeconds": 52.278
+  },
+  "environment": {
+    "skill": "single copied directory",
+    "runtime": "fresh isolated directory",
+    "PATH": "/usr/bin:/bin",
+    "archiveOverrides": false,
+    "developmentModuleImports": false
+  },
+  "distribution": {
+    "runtimeSha256": "8c32abb108360e1e6c7077c973fdbafa2ff8bc23f3df7415f8154f97ef4772fd",
+    "runtimeBytes": 34122,
+    "sourceSkillSha": "9157b95aa6fa0a26491e48c8523f6ee86aeb4a08",
+    "pluginReleaseSha": "7d5c4e4a3d6ac34def4b88e4d0e9e04b7fa9eaf6",
+    "domainSkillVersion": "0.1.0-dev.1"
+  },
+  "checks": [
+    "default online Node/runtime/domain-skill/native-CLI installation",
+    "four native V1 deliveries with subtitles and voice",
+    "same revision reuse without native replay",
+    "Logo source-project revision and affected consumers",
+    "old native projects unchanged and voice preserved",
+    "shared budget replay unchanged; V3 denied",
+    "kill actual installed Node scheduler during native child execution",
+    "re-run same public workflow.py; original attemptId retained",
+    "crashed project has exactly four executions, zero leases and zero revision allocation",
+    "package latest ready project; delete original SQLite/deliveries and voice; move and verify four children"
+  ],
+  "runtimeReleaseCI": {
+    "implementation": "https://github.com/full-aigc-plugins/artcraft-plugin/actions/runs/37321134927",
+    "documentation": "https://github.com/full-aigc-plugins/artcraft-plugin/actions/runs/37321135004",
+    "conclusion": "success"
+  },
+  "limits": [
+    "technical readiness, not creative approval",
+    "online native acceptance is separate from full current-version host acceptance",
+    "worker-death and unknown submission outcomes retain ownership; no automatic replay",
+    "no paid provider settlement proof"
+  ]
+}

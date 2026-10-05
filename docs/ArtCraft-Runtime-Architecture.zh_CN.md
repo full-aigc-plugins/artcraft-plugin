@@ -4,13 +4,13 @@
 >
 > **版本**：1.0.0
 > **最后更新**：2026-10-05
-> **状态**：目标设计；尚未实现。事实依据与验收结果单独标注。
+> **状态**：目标设计与分阶段实现。第 10 节记录当前实现和验证范围；未验收目标不作为已交付能力。
 
 关联文档：[品牌边界](../product-docs/ArtCraft/1%E3%80%81ArtCraft-%E5%91%BD%E5%90%8D%E4%B8%8E%E5%93%81%E7%89%8C%E8%AF%B4%E6%98%8E.md) · [技术方案](../product-docs/ArtCraft/5%E3%80%81ArtCraft-%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E4%B8%8E%E8%B7%AF%E7%BA%BF.md) · [详细架构](ArtCraft-Runtime-Architecture.zh_CN.md) · [OpenSpec](../openspec/changes/establish-v1-plugin/proposal.md) · [证据](evidence/runtime-baseline.json)
 
 ## 1. 定位与证据边界
 
-ArtCraft 负责跨插件创作编排、素材依赖与局部返工。当前仓库包含文档、规格、元数据与脱敏运行时证据；`src/`、业务技能和完整宿主适配尚未实现。所有下列运行时组件均为目标设计。
+ArtCraft 负责跨插件创作编排、素材依赖与局部返工。当前仓库包含运行时源码、锁定独立技能源快照、SQLite 账本、DAG、源工程修订、项目打包和独立监督接管实现。实际验证见第 10 节与 evidence；完整宿主、创作审核、交换损失等目标仍待验收。其余章节描述目标合同，不自动代表全部实现。
 
 ## 2. 驱动与非目标
 

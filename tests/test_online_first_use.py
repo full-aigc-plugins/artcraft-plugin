@@ -9,6 +9,7 @@ import sys
 import tempfile
 import unittest
 import sqlite3
+from contextlib import closing
 import time
 import signal
 import wave
@@ -100,7 +101,7 @@ class OnlineFirstWorkflowTests(unittest.TestCase):
                     database=crashed_project/'tasks.sqlite'
                     if database.exists():
                         try:
-                            with sqlite3.connect('file:'+str(database)+'?mode=ro',uri=True) as connection:
+                            with closing(sqlite3.connect('file:'+str(database)+'?mode=ro',uri=True)) as connection:
                                 observed=connection.execute("SELECT e.pid,t.task_id,t.attempt_id FROM executions e JOIN tasks t ON e.task_id=t.task_id WHERE e.status='running' LIMIT 1").fetchone()
                         except sqlite3.Error:pass
                         if observed:
@@ -117,7 +118,7 @@ class OnlineFirstWorkflowTests(unittest.TestCase):
                 crashed_stdout,crashed_stderr=scheduler.communicate(timeout=30)
                 self.assertNotEqual(scheduler.returncode,0,crashed_stdout+crashed_stderr)
                 for _ in range(3000):
-                    with sqlite3.connect(crashed_project/'tasks.sqlite') as connection:
+                    with closing(sqlite3.connect(crashed_project/'tasks.sqlite')) as connection:
                         remaining=connection.execute("SELECT COUNT(*) FROM executions WHERE status!='stopped'").fetchone()[0]
                     if not remaining:break
                     time.sleep(.01)
@@ -125,7 +126,7 @@ class OnlineFirstWorkflowTests(unittest.TestCase):
                 recovered_run=subprocess.run(crash_args,capture_output=True,text=True,env=environment,timeout=120)
                 self.assertEqual(recovered_run.returncode,0,recovered_run.stdout+recovered_run.stderr)
                 recovered=json.loads(recovered_run.stdout);self.assertEqual(recovered['state'],'review_ready');self.assertEqual(len(recovered['nodes']),4)
-                with sqlite3.connect(crashed_project/'tasks.sqlite') as connection:
+                with closing(sqlite3.connect(crashed_project/'tasks.sqlite')) as connection:
                     self.assertEqual(connection.execute('SELECT attempt_id FROM tasks WHERE task_id=?',(observed[1],)).fetchone()[0],observed[2])
                     self.assertEqual(connection.execute('SELECT COUNT(*) FROM executions').fetchone()[0],4)
                     self.assertEqual(connection.execute('SELECT COUNT(*) FROM leases').fetchone()[0],0)

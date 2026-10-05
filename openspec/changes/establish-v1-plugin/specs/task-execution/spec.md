@@ -2,7 +2,7 @@
 
 ## Purpose
 
-本能力定义 ArtCraft 在 task-execution 范围内对用户、宿主与下游系统承诺的可观察行为、失败语义和验收证据，确保规划、执行与实际交付之间保持可验证的边界。当前为目标规范，尚未实现。
+本能力定义 ArtCraft 在 task-execution 范围内对用户、宿主与下游系统承诺的可观察行为、失败语义和验收证据，确保规划、执行与实际交付之间保持可验证的边界。本文件是规格事实源；当前已实现范围与未完成验收以 tasks.md 和 project-status.json 的证据映射为准。
 
 ## ADDED Requirements
 

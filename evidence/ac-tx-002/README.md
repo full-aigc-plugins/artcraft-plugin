@@ -5,3 +5,5 @@
 - 失败阶段：两个真实 SIGKILL 测试在原实现中均保持 running，缺少 worker 持久停止证据。
 - 当前：独立 worker 监督同一次原生执行，DAG 和相同公开 workflow 入口接管原任务；76 项并行回归通过，包含 EffectCraft 0.2.0 实际渲染与解码。
 - writer/worker 本身退出或提交窗口未知仍保留工程占用。未确认停止不重试，未创作审核不标记 completed。
+
+- 默认在线公开技能验收：[online-first-use-v6](../../docs/evidence/online-first-use-v6.json)。仅复制一个技能目录、空运行时、无离线覆盖；实际 kill 安装后的调度器再从同一公开入口恢复，原 attempt 保持且预算不重复分配。

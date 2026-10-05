@@ -4,7 +4,7 @@
 >
 > **Version**: 1.0.0
 > **Updated**: 2026-10-05
-> **Status**: Target design, not implemented. Observations and acceptance evidence are identified separately.
+> **Status**: Target design with staged implementation. Implemented behavior and evidence are recorded separately; full target acceptance remains open.
 
 Related documents: [Brand boundary](1%E3%80%81ArtCraft-Naming-and-Brand.md) · [Technical plan](5%E3%80%81ArtCraft-Technical-Plan.md) · [Detailed architecture](../../../docs/ArtCraft-Runtime-Architecture.md) · [OpenSpec](../../../openspec/changes/establish-v1-plugin/proposal.md) · [Evidence](../../../docs/evidence/runtime-baseline.json)
 

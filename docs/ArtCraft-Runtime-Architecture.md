@@ -4,13 +4,13 @@
 >
 > **Version**: 1.0.0
 > **Updated**: 2026-10-05
-> **Status**: Target design, not implemented. Observations and acceptance evidence are identified separately.
+> **Status**: Target design with staged implementation. Section 10 records implemented behavior and validation scope; unaccepted targets are not shipped capability claims.
 
 Related documents: [Brand boundary](../product-docs/ArtCraft/en/1%E3%80%81ArtCraft-Naming-and-Brand.md) · [Technical plan](../product-docs/ArtCraft/en/5%E3%80%81ArtCraft-Technical-Plan.md) · [Detailed architecture](ArtCraft-Runtime-Architecture.md) · [OpenSpec](../openspec/changes/establish-v1-plugin/proposal.md) · [Evidence](evidence/runtime-baseline.json)
 
 ## 1. Positioning and evidence boundary
 
-ArtCraft provides cross-plugin creative orchestration, asset dependencies and selective rework. This repository currently contains documentation, specifications, metadata and sanitized runtime evidence; application source, business skills and full host integration are not implemented. Runtime components below describe the target design.
+ArtCraft provides cross-plugin creative orchestration, asset dependencies and selective rework. The repository contains runtime source, pinned independent skill snapshots, a SQLite ledger, DAG scheduling, source-project revision, project packaging and independent supervision/adoption. Section 10 and evidence record actual validation; full host acceptance, creative review and exchange-loss coverage remain open. Other sections describe target contracts and do not imply complete implementation.
 
 ## 2. Drivers and non-goals
 

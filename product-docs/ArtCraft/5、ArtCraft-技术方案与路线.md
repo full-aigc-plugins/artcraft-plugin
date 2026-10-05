@@ -4,7 +4,7 @@
 >
 > **版本**：1.0.0
 > **最后更新**：2026-10-05
-> **状态**：目标设计；尚未实现。事实依据与验收结果单独标注。
+> **状态**：目标设计与分阶段实施。已实现范围与证据单独记录；完整目标仍待验收。
 
 关联文档：[品牌边界](1%E3%80%81ArtCraft-%E5%91%BD%E5%90%8D%E4%B8%8E%E5%93%81%E7%89%8C%E8%AF%B4%E6%98%8E.md) · [技术方案](5%E3%80%81ArtCraft-%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E4%B8%8E%E8%B7%AF%E7%BA%BF.md) · [详细架构](../../docs/ArtCraft-Runtime-Architecture.zh_CN.md) · [OpenSpec](../../openspec/changes/establish-v1-plugin/proposal.md) · [证据](../../docs/evidence/runtime-baseline.json)
 
