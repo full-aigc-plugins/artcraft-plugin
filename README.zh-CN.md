@@ -28,7 +28,7 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.20 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.21 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
 | 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.19 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
@@ -158,3 +158,5 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 当前固定发行版混合审阅：插件 dev.20、技能源 dev.18 的实际安装内容通过两项中文原生首次使用／返工测试。当前助手查看四个真实输出，保存摘要绑定的模型观察并重新核验。仅改字幕的 v2 测试刻意保留原配音、改变文字，因此文案与配音一致性为 FAIL；工程／技术 PASS 不代表创作验收。人工接受仍为 NOT_RUN。[证据](docs/evidence/installed-mixed-observation.json)。本次 QA 未创建新原生发行版或新模型会话。
 
 插件 dev.21 锁定技能源 dev.19，运行时仍为 dev.16。停止回执保留最近未解决观察及包／审阅身份，与最佳包分开绑定；旧日志保持 NOT_RUN。技能源原生冷启动通过，固定发行版宿主证据单独记录。[证据](docs/evidence/revision-unresolved-first-use.json)。
+
+插件 dev.21 固定发行版宿主验证通过：五插件、58 项技能、加载错误为零，执行后全部技能摘要不变。实际安装的返工技能通过原生冷启动、未解决问题交付及中断恢复，用时 50.054 秒。[宿主证据](docs/evidence/codex-release21-unresolved-first-use-20261006.json)。发布提交的文档／OpenSpec 和实现 CI 通过。完整创作、模型派发和 GUI 验收仍未完成。
