@@ -164,3 +164,7 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 独立 Skills CLI 安装验收已准备，实际执行为 NOT_RUN。验收器读取固定公开技能源版本，核验项目内 58 个安装目录并探测每个原生启动入口，不修改全局技能目录。三项计划／保护测试通过；缺少的安装工具需取得隔离安装授权后才执行。[设计](docs/ArtCraft-Independent-Install-Architecture.zh_CN.md)、[准备证据](docs/evidence/independent-install-readiness.json)。已有插件／原生证据不变。
 
 单技能在线冷启动品牌色混合工作流验证通过：图形、海报、片头、成片更新，独立图标任务复用，旧交付保留。VectorCraft 技能固定 dev.6，ArtCraft 运行时保持 dev.16。技能源 dev.20 已发布，插件 dev.22 已发布；58 个技能的固定发行版宿主发现通过，安装后单技能在线冷启动混合验证通过（54.471 秒）。实际 npx 独立安装与模型派发仍待验证。[架构](docs/ArtCraft-Brand-Token-Mixed-Architecture.zh_CN.md)、[证据](docs/evidence/brand-token-mixed-first-use.json)。
+
+默认 Homebrew Python 3.14.3 通过 58 个逐一独立复制的公开 CLI 入口验证。五领域缓存初始为空，后续同领域探测复用已核验缓存；技能摘要不变。此证据覆盖启动器安装与查询，不替代真实 npx 安装或创作验收。[架构](docs/ArtCraft-Default-Python-Architecture.zh_CN.md)、[证据](docs/evidence/default-python-cli-first-use.json)。
+
+实际宿主安装后的 ArtCraft 混合工作流也通过 Homebrew Python 3.14.3 复验：安装、原生创作、品牌色选择性返工和打包均使用该 Python（2 项测试，49.322 秒）。图像断言使用单独的测试专用 Pillow 进程。[默认 Python 证据](docs/evidence/default-python-cli-first-use.json)。
