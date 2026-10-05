@@ -94,7 +94,7 @@ export class WorkflowEngine {
         for(const input of inputs)await verifyArtifact(input.artifact,input.root);
         const refs=inputs.map(input=>({assetId:input.artifact.assetId,version:input.artifact.version,sha256:input.artifact.sha256}));
         fingerprint=planHash({payload:node.payload,inputRefs:refs,runtimeIdentity:node.runtimeIdentity,projectKey:node.projectKey,expectedRevision:node.expectedRevision});
-        const cached=this.ledger.cachedWorkflowNode(plan.ownerId,plan.workflowId,id,fingerprint) as NodeResult|null;
+        const cached=this.ledger.cachedWorkflowNode(plan.ownerId,plan.workflowId,id,fingerprint,plan.authorizationRef) as NodeResult|null;
         if(cached){await this.verifyResult(cached);save(id,{...cached,status:'reused',fingerprint});return;}
         taskId='wf-'+planHash({owner:plan.ownerId,workflow:plan.workflowId,revision:plan.revision,node:id,fingerprint}).slice(0,48);
         const request=this.request(plan,node,taskId,'wf-node:'+planHash({key,id,fingerprint}),inputs);

@@ -129,3 +129,40 @@ for(const cancel of [false,true])test((cancel ? 'cancel parent after scheduler S
   if(!cancel)assert.equal(await readFile(join(compiled.root,'output.bin.starts'),'utf8'),'x');assert.equal(f.ledger.leases().length,0);
  }finally{await f.cleanup();}
 });
+
+// 授权范围改变后，旧任务的授权不能作为新范围的执行或复用依据。
+test('new authorization scope does not reuse tasks authorized under the previous scope',async()=>{
+ const f=await fixture();try{
+  const first=await f.engine.run(f.plan);f.clear();
+  const revised=structuredClone(f.plan);revised.revision='v2';revised.authorizationRef='new-authority';
+  const result=await f.engine.run(revised);assert.equal(result.state,'review_ready');
+  assert.deepEqual(f.launches.sort(),['film','intro','logo','poster','voice']);
+  for(const id of Object.keys(result.nodes)){
+   assert.notEqual(result.nodes[id].taskId,first.nodes[id].taskId);
+   assert.equal(f.ledger.request(result.nodes[id].taskId!).authorizationRef,'new-authority');
+  }
+ }finally{await f.cleanup();}
+});
+
+test('legacy cross-scope reuse record cannot authorize its original producer in a new scope',async()=>{
+ const f=await fixture();try{
+  const first=await f.engine.run(f.plan);f.clear();
+  const revised=structuredClone(f.plan);revised.revision='v2';revised.authorizationRef='new-authority';revised.nodes=[revised.nodes[0]];
+  const key=f.ledger.beginWorkflow(revised);
+  f.ledger.saveWorkflowNode(key,'logo',{...first.nodes.logo,status:'reused'});
+  const result=await f.engine.run(revised);assert.equal(result.state,'review_ready');
+  assert.deepEqual(f.launches,['logo']);assert.notEqual(result.nodes.logo.taskId,first.nodes.logo.taskId);
+  assert.equal(f.ledger.request(result.nodes.logo.taskId!).authorizationRef,'new-authority');
+ }finally{await f.cleanup();}
+});
+
+test('changed authorization is evaluated before a cached node can bypass the authorizer',async()=>{
+ const f=await fixture();try{
+  await f.engine.run(f.plan);f.clear();
+  const revised=structuredClone(f.plan);revised.revision='v2';revised.authorizationRef='denied-authority';revised.nodes=[revised.nodes[0]];
+  let checked=0;
+  const engine=new WorkflowEngine(f.ledger,new LocalRunner(f.ledger,async request=>{checked++;assert.equal(request.authorizationRef,'denied-authority');throw new Error('scope_denied');}),{fixture:f.factory});
+  const result=await engine.run(revised);assert.equal(result.state,'blocked');assert.equal(checked,1);
+  assert.deepEqual(f.launches,[]);assert.match(result.nodes.logo.error!,/scope_denied/);
+ }finally{await f.cleanup();}
+});

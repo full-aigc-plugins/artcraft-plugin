@@ -345,10 +345,15 @@ export class TaskLedger {
     const row=this.database.prepare('SELECT record_json FROM workflow_nodes WHERE run_key=? AND node_id=?').get(key,nodeId) as {record_json:string}|undefined;
     if(!row)throw new Error('workflow_node_missing');return JSON.parse(row.record_json);
   }
-  /** 只在同一用户与逻辑项目内寻找同参数/输入版本的历史产物。 */
-  cachedWorkflowNode(ownerId:string,workflowId:string,nodeId:string,fingerprint:string):Record<string,any>|null {
-    const rows=this.database.prepare('SELECT n.record_json FROM workflow_nodes n JOIN workflow_runs w ON n.run_key=w.run_key WHERE w.owner_id=? AND w.workflow_id=? AND n.node_id=? AND n.fingerprint=? ORDER BY n.rowid DESC').all(ownerId,workflowId,nodeId,fingerprint) as {record_json:string}[];
-    for(const row of rows){const record=JSON.parse(row.record_json);if(['review_ready','reused'].includes(record.status))return record;}return null;
+  /** 只在同一用户、逻辑项目及授权范围内寻找同参数/输入版本的历史产物。 */
+  cachedWorkflowNode(ownerId:string,workflowId:string,nodeId:string,fingerprint:string,authorizationRef:string):Record<string,any>|null {
+    const rows=this.database.prepare('SELECT n.record_json,w.plan_json FROM workflow_nodes n JOIN workflow_runs w ON n.run_key=w.run_key WHERE w.owner_id=? AND w.workflow_id=? AND n.node_id=? AND n.fingerprint=? ORDER BY n.rowid DESC').all(ownerId,workflowId,nodeId,fingerprint) as {record_json:string;plan_json:string}[];
+    for(const row of rows){
+      const record=JSON.parse(row.record_json),plan=JSON.parse(row.plan_json);
+      // 双重核对兼容历史错误复用：新工作流的授权不能替原生产任务授权。
+      if(plan.authorizationRef===authorizationRef && ['review_ready','reused'].includes(record.status) && this.request(record.taskId).authorizationRef===authorizationRef)return record;
+    }
+    return null;
   }
   /** 父取消登记为意图，实际子进程停止由监督器负责。 */
   cancelWorkflow(key:string):void {

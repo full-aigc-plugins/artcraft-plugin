@@ -1,0 +1,38 @@
+{
+  "schema": "craft-authorization-reuse/v1",
+  "date": "2026-10-06",
+  "state": "runtime-contract-PASS; native-release-NOT_RUN",
+  "runtimeVersion": "0.1.0-dev.26",
+  "requirement": "AC-TX-001-CACHE",
+  "red": {
+    "tests": 1,
+    "failed": 1,
+    "seconds": 1.055475917,
+    "scope": "actual local subprocess fixture; five old-authority tasks reused under new-authority"
+  },
+  "workflow": {
+    "tests": 14,
+    "passed": 14,
+    "seconds": 13.061245292,
+    "scope": "same-scope replay and selective invalidation; new scope new tasks; legacy cross-scope producer; denied scope invokes authorizer and does not spawn"
+  },
+  "regression": {
+    "tests": 87,
+    "passed": 82,
+    "skipped": 5,
+    "seconds": 24.178531208,
+    "scope": "Node runtime suite; five optional native/provider gates are not run"
+  },
+  "files": {
+    "src/harness/task_ledger.ts": "ccf2e8bac6390cb3319e4d9ed092595e27a711826e9e2acd1a15ef255a0283b1",
+    "src/planning/workflow_engine.ts": "f93aa9c5194755e56fc40c6a810c21a3bd931904df590c934331ef7725970483",
+    "test/workflow_engine.test.ts": "684108a8bde671522df9d41e18c2f273b6d9ef5caf2509213de288242e9c51cb",
+    "package.json": "b658ed72f3e84265836f949e910ec151b50cb463e94addd78e37de7d8285ceaf"
+  },
+  "limitations": [
+    "Public pinned-release single-skill native proof pending",
+    "No generic Skills CLI or new model dispatch",
+    "No human creative or GUI acceptance",
+    "No schema or fingerprint migration; existing same-scope history retained"
+  ]
+}
