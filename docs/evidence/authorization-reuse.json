@@ -1,7 +1,7 @@
 {
   "schema": "craft-authorization-reuse/v1",
   "date": "2026-10-06",
-  "state": "runtime-contract-PASS; native-release-NOT_RUN",
+  "state": "published-runtime; source-single-skill-native-PASS; installed-final-plugin-NOT_RUN",
   "runtimeVersion": "0.1.0-dev.26",
   "requirement": "AC-TX-001-CACHE",
   "red": {
@@ -30,9 +30,92 @@
     "package.json": "b658ed72f3e84265836f949e910ec151b50cb463e94addd78e37de7d8285ceaf"
   },
   "limitations": [
-    "Public pinned-release single-skill native proof pending",
+    "Final immutable installed-plugin native proof pending",
     "No generic Skills CLI or new model dispatch",
     "No human creative or GUI acceptance",
     "No schema or fingerprint migration; existing same-scope history retained"
-  ]
+  ],
+  "skillVersion": "0.1.0-dev.24",
+  "runtimeSourceSha": "0f21e871ee18a695f479bd21f6fd7a12273e1b82",
+  "nativeRed": {
+    "tests": 1,
+    "failed": 1,
+    "seconds": 19.499,
+    "runtimeVersion": "0.1.0-dev.16",
+    "scope": "single skill fresh public native install; changed authorization revision returned old producer taskId"
+  },
+  "nativeGreen": {
+    "tests": 1,
+    "passed": 1,
+    "seconds": 20.006,
+    "runtimeVersion": "0.1.0-dev.26",
+    "scope": "single copied skill, fresh public runtime/Vector install; new scope creates native task and separate budget, same-scope replay preserves task/budget, old delivery unchanged, new-scope package verified"
+  },
+  "nativeObservation": {
+    "schema": "craft-native-authorization-observation/v1",
+    "runtimeVersion": "0.1.0-dev.26",
+    "originalFiles": {
+      "plan.json": "8dc86d739e76d61920ce0ffeaabb834229c5f80f6c7e5ff39ed9d186ccc3a78b",
+      "project.vectorcraft": "ca888c6ea5067f5a162e0af0f0604bfbb3587702356be91c11fa18b6b7950cca",
+      "exchange-loss.json": "221a681cb1222f9acb8fddb816d20a80f6c0d260e13a0a8b8263908175a610e2",
+      "native.json": "c86b97abfb2cc33bc74a66feae9a0d79ab01660fbbef5d12cb978f041fb93918",
+      "manifest.json": "8f88de03d5a2edc3927c78c0322e8c2408e845eb0fd10382d8cf151fd5189f5f",
+      "artboard-1.png": "6eebf24c8e29ec8f4b42c1aeef6ea445cc42a00ee775ecc71967fcbf49dd0750",
+      "artboard-1.svg": "901d469cbbb1f27e8cd6577163e20df428ec81eac5fd3e74ba28100a49bda7bd",
+      "operations.json": "8df2e55629a2f5586940baac2d08158ea7ce2ad0b9a811222f7ea905f94c35b9"
+    },
+    "newFiles": {
+      "plan.json": "8dc86d739e76d61920ce0ffeaabb834229c5f80f6c7e5ff39ed9d186ccc3a78b",
+      "project.vectorcraft": "ec43901910cfdcb48e7c07c3a9f30a6fb596efae1833355cc633db54a7d03a85",
+      "exchange-loss.json": "29163d531384ac86a306d0dc149a640af9d947997bc9d051932bc1e5800537b3",
+      "native.json": "dc636ba1cfbbcedd426496bc2ca673110a8e07c7c64319676120a653ce5f37d4",
+      "manifest.json": "673543072e0287bff34396f13a851f264bd5babbbdaca9b0e921fdd23616797e",
+      "artboard-1.png": "53fefcaeca6bbfe8c48f3d9dc23651464f09ee7592f4a048ff5ef9c4ec9ccbdf",
+      "artboard-1.svg": "901d469cbbb1f27e8cd6577163e20df428ec81eac5fd3e74ba28100a49bda7bd",
+      "operations.json": "8df2e55629a2f5586940baac2d08158ea7ce2ad0b9a811222f7ea905f94c35b9"
+    },
+    "packageSha256": "042cfb23fec81082e0e9e5655cd177aaf8398c5b2439f40cd87ab1f461763f17",
+    "taskIds": [
+      "wf-52e83cb50fd08751a0356ca65c51ec26f6fc6082815280a0",
+      "wf-649e649b847f12d640ad852d3dec265d93e6cb213f318e88"
+    ],
+    "authorizations": [
+      "scope-one",
+      "scope-two"
+    ],
+    "requestSha256": {
+      "wf-52e83cb50fd08751a0356ca65c51ec26f6fc6082815280a0": "ec358b78e66811c9c1af32c41c78bb81430473722fd1b825fde943ac20440933",
+      "wf-649e649b847f12d640ad852d3dec265d93e6cb213f318e88": "7c3f424510fb050f75b6eae0d6a942e98b960ae04237e507dc12d1a1a68b573c"
+    }
+  },
+  "publicHelp": {
+    "name": "artcraft",
+    "version": "0.1.0-dev.26",
+    "commands": [
+      "run",
+      "status",
+      "cancel",
+      "package",
+      "verify-package",
+      "register-video-factory"
+    ],
+    "run": "run --database ABS --registry ABS --plan ABS --owner ID --authorization REF [--concurrency 1..16]",
+    "status": "status --database ABS [--task ID]",
+    "cancel": "cancel --database ABS --task ID | --workflow RUN_KEY",
+    "package": "package --database ABS --workflow RUN_KEY --owner ID --authorization REF --output ABS",
+    "verifyPackage": "verify-package --package ABS --sha MANIFEST_SHA256",
+    "registerVideoFactory": "register-video-factory --plugin-root ABS --ffmpeg ABS --ffprobe ABS --output-root ABS"
+  },
+  "rebuiltBundles": {
+    "count": 5,
+    "source": "immutable tags",
+    "lockSha256": "df6d6792f61a053f0d29b1c3a5fa8066cda6674e40f8e91d99fb82b4fdd5fbbc"
+  },
+  "skillRegression": {
+    "tests": 60,
+    "passed": 48,
+    "skipped": 12,
+    "seconds": 5.685
+  },
+  "skillDriverSha256": "545049d92e7f61243c8bdd1abd3f313e2ebcaef4f754b7aeb7ee31e9728a2eb1"
 }

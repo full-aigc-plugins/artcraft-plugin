@@ -18,3 +18,5 @@ flowchart TD
 ```
 
 A real failing test reproduced five old tasks being reused without tasks in the new authorization scope. The minimal fix changes only ledger lookup and its caller, preserving public task, artifact and payload schemas. Actual local Node subprocess fixtures prove the contract; they are not four-domain native acceptance. Public-release cold installation and new-scope native execution need separate verification and are currently NOT_RUN.
+
+Published runtime dev.26 has 82 passes and 5 optional native/provider skips among 87 Node tests; the focused workflow suite has 14 passes, including rejected authorization. The old runtime fails the real single-skill cold native task test (19.499 seconds). Candidate skills dev.24 pin runtime dev.26 and pass the same native test (20.006 seconds). Five distribution bundles rebuild from immutable tags; public CLI help is observed at dev.26. This is source-skill evidence; the final installed plugin gate remains NOT_RUN. [Evidence](evidence/authorization-reuse.json).
