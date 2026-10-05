@@ -184,3 +184,5 @@ Plugin candidate dev.25 pins skill source dev.23, validating frozen revision bin
 Published plugin dev.25 / skills dev.23 pass actual installed single-skill native cold start, replay and metadata-preserving conflict refusal (3 tests, 90.697 seconds). Host discovery and unchanged installed hashes cover all 58 skills. [Proof](docs/evidence/codex-release27-binding-metadata-20261006.json).
 
 Runtime dev.26 fixes cross-authorization task reuse. Candidate skill suite dev.24 pins that immutable archive, preserving same-scope selective reuse and blocking reuse from old producer authorization. Cold single-skill native proof passes (20.006 seconds); final installed-plugin proof remains NOT_RUN. [Architecture](docs/ArtCraft-Authorization-Reuse-Architecture.md), [evidence](docs/evidence/authorization-reuse.json).
+
+Published plugin dev.27 / skills dev.24 / runtime dev.26 pass actual installed native authorization-scope testing (1 test, 23.649 seconds) and four-domain first-use/replay/conflict/relocated-package regression (3 tests, 95.854 seconds). All 58 installed hashes are unchanged. [Proof](docs/evidence/codex-release28-authorization-native-20261006.json).

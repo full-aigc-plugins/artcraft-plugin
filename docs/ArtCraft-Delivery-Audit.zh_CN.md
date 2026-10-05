@@ -8,7 +8,7 @@
 | EffectCraft dev.7 / 技能 dev.6，13 技能 | 合成、分层、文字／图形动画、关键帧、支持的模糊效果和可编辑蒙版、透明 PNG、视频与定点文字修订 | .ecproj、依赖素材、渲染结果、参数／操作记录 | [领域场景证据](https://github.com/full-aigc-plugins/effectcraft-plugin/blob/main/docs/evidence/task-skill-first-use.json)；支持的效果范围不代表所有效果或复杂自动抠像 |
 | PhotoCraft dev.6 / 技能 dev.5，12 技能 | 产品分层、蒙版、文字、尺寸变体、原生重开、PNG／PSD、局部改字与保护区域；实际单文字技能中文冷启动 | .pcraft、适用 PSD、平面导出 | [中文原生／PSD 证据](https://github.com/full-aigc-plugins/photocraft-plugin/blob/main/docs/evidence/chinese-text-first-use.json)；合成产品 fixture 不代表真实产品视觉质量 |
 | VectorCraft dev.8 / 技能 dev.7，12 技能 | 路径、形状、布尔、文字、颜色、画板、可复用资产、SVG／PDF／PNG、全局品牌色和中文定点修订；新版全套 42 测试零跳过 | .vectorcraft、适用 SVG／PDF／PNG | [当前全原生回归](https://github.com/full-aigc-plugins/vectorcraft-plugin/blob/main/docs/evidence/dev7-full-native-suite.json)；字体报告不代表全系统字体目录，交换格式不代替原生 |
-| ArtCraft dev.25 / 技能 dev.23，10 技能 | 明确 DAG、选择适配器、依赖指纹、恢复、预算、版本绑定、局部返工、独立节点复用和移动交付包；实际普通／中文默认模板冷启动均通过 | 项目清单、工作流／账本记录、子工程引用、技术／创作审阅状态 | [当前安装与模板验收](evidence/default-campaign-font-first-use.json)；自然语言模型规划、完整一致性审阅和外部旧插件的所有能力不由此证明 |
+| ArtCraft dev.27 / 技能 dev.24，10 技能 | 明确 DAG、选择适配器、依赖指纹、恢复、预算、版本绑定、局部返工、独立节点复用和移动交付包；实际普通／中文默认模板冷启动均通过 | 项目清单、工作流／账本记录、子工程引用、技术／创作审阅状态 | [当前安装与模板验收](evidence/default-campaign-font-first-use.json)；自然语言模型规划、完整一致性审阅和外部旧插件的所有能力不由此证明 |
 
 ## 首次使用链路
 
@@ -29,3 +29,5 @@
 当前插件 dev.25／技能 dev.23 另通过实际安装原生重放和运行时绑定冲突保全：3 项，90.697 秒；全部 58 个安装摘要不变。[证据](evidence/codex-release27-binding-metadata-20261006.json)。完整目标仍未完成。
 
 FilmCraft 维护版 CLI 0.2.0-craft.1 已补齐实际安装快照的八类任务场景证据：八个独立冷缓存，8 项通过、43.688 秒，记录输入／输出／原生／驱动摘要，全部 58 个安装摘要保持不变。旧 0.2.0 场景报告保留历史范围。[当前 FilmCraft 场景证据](https://github.com/full-aigc-plugins/filmcraft-plugin/blob/main/docs/evidence/maintained-runtime-task-first-use.json)。
+
+当前 ArtCraft 运行时 dev.26 修复跨授权范围历史复用。实际安装插件 dev.27／技能 dev.24 的原生授权测试通过（23.649 秒），四领域混合冷启动回归通过（95.854 秒），全部 58 个安装摘要保持不变。[当前证据](evidence/codex-release28-authorization-native-20261006.json)。完整目标仍未完成。

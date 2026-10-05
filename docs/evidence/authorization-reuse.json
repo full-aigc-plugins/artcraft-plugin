@@ -1,7 +1,7 @@
 {
   "schema": "craft-authorization-reuse/v1",
   "date": "2026-10-06",
-  "state": "published-runtime; source-single-skill-native-PASS; installed-final-plugin-NOT_RUN",
+  "state": "published-runtime-and-skills; installed-auth-and-mixed-native-PASS",
   "runtimeVersion": "0.1.0-dev.26",
   "requirement": "AC-TX-001-CACHE",
   "red": {
@@ -30,7 +30,7 @@
     "package.json": "b658ed72f3e84265836f949e910ec151b50cb463e94addd78e37de7d8285ceaf"
   },
   "limitations": [
-    "Final immutable installed-plugin native proof pending",
+    "Native proof covers declared local authorization references; it does not authenticate external identity or human acceptance",
     "No generic Skills CLI or new model dispatch",
     "No human creative or GUI acceptance",
     "No schema or fingerprint migration; existing same-scope history retained"
@@ -115,7 +115,21 @@
     "tests": 60,
     "passed": 48,
     "skipped": 12,
-    "seconds": 5.685
+    "seconds": 5.015
   },
-  "skillDriverSha256": "545049d92e7f61243c8bdd1abd3f313e2ebcaef4f754b7aeb7ee31e9728a2eb1"
+  "skillDriverSha256": "545049d92e7f61243c8bdd1abd3f313e2ebcaef4f754b7aeb7ee31e9728a2eb1",
+  "published": {
+    "skillRef": "v0.1.0-dev.24",
+    "skillSha": "9f0f463e62edf8eb7040b512c9d2f04d9cb2ff17",
+    "pluginRef": "v0.1.0-dev.27",
+    "pluginSha": "567615d0c28529bc418ad4ce5f340ed2923b1bc5",
+    "runtimeRef": "v0.1.0-dev.26",
+    "runtimeSha": "0f21e871ee18a695f479bd21f6fd7a12273e1b82",
+    "evidence": "docs/evidence/codex-release28-authorization-native-20261006.json",
+    "installedSkillsVerified": 58,
+    "authNativeTests": 1,
+    "authNativeSeconds": 23.649,
+    "mixedNativeTests": 3,
+    "mixedNativeSeconds": 95.854
+  }
 }
