@@ -61,11 +61,18 @@ class OnlineFirstWorkflowTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256(voice.read_bytes()).hexdigest(),first['nodes']['film']['outputs'][0]['sourceRefs'][1]['sha256'])
             old_projects={id:hashlib.sha256((Path(node['root'])/node['outputs'][0]['nativeProjectRef']['location']).read_bytes()).hexdigest() for id,node in first['nodes'].items()}
             revised=json.loads((skill/'examples/brand-campaign.json').read_text());revised['revision']='v2'
-            for operation in revised['nodes'][0]['payload']['plan']['operations']:
-                if operation['command']=='paint.setFill' or operation['command']=='text.create':operation['params']['color']='#e84032'
+            # 发布制品通过技能入口真正修订旧原生 Logo，保持原对象与绑定。
+            prior_logo=first['nodes']['logo'];prior_output=prior_logo['outputs'][0]
+            logo_node=revised['nodes'][0]
+            logo_node['expectedRevision']=prior_output['nativeProjectRef']['sha256']
+            logo_node['externalInputs']=[{'root':prior_logo['root'],'artifact':prior_output}]
+            logo_node['payload']['sourceProject']={'assetId':prior_output['assetId']}
+            logo_node['payload']['plan']={'operations':[{'command':'paint.setFill','params':{'ids':[{'$ref':'logo.ids.0'},{'$ref':'wordmark.id'}],'color':'#e84032'}}],'exports':logo_node['payload']['plan']['exports']}
             revised_file=root/'revised.json';revised_file.write_text(json.dumps(revised));revision_args=list(args);revision_args[4]=str(revised_file)
             modified_run=subprocess.run(revision_args,capture_output=True,text=True,env=environment,timeout=120)
             self.assertEqual(modified_run.returncode,0,modified_run.stdout+modified_run.stderr);modified=json.loads(modified_run.stdout)
+            changed_logo_manifest=json.loads((Path(modified['nodes']['logo']['root'])/'manifest.json').read_text())
+            self.assertEqual(changed_logo_manifest['sourceProjectSha256'],prior_output['nativeProjectRef']['sha256'])
             self.assertEqual(modified['budget']['allocated'],{'minorUnits':0,'externalCalls':0,'revisions':1})
             for id,node in first['nodes'].items():
                 self.assertNotEqual(node['taskId'],modified['nodes'][id]['taskId'])
