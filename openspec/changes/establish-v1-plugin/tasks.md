@@ -33,6 +33,8 @@
 
 - [x] 3.13 [AC-SK-003] 修正场景合同过期声明，单技能默认在线冷启动后登记四种源工程修订，验证 Logo 传播、无关节点复用、旧工程/动画/音轨/字幕保留；逐次独立安装 assets/deliver/review/recover 查询账本、移动验包与幂等取消停止任务。产物：独立技能源 tests/test_task_skill_first_use.py、docs/evidence/task-skill-first-use.json；22 项通过，1 项 Node 专用离线测试跳过，不证明 worker 崩溃恢复或创作通过。
 
+- [x] 3.14 [AC-SK-003] 升级固定 EffectCraft 技能依赖并完成默认在线单技能蒙版混合返工：保存源摘要与动画、复用图形/海报、更新片头/成片、实际 RGBA 与打包验收；产物：docs/evidence/mask-revision-first-use.json。
+
 ## 4. runtime-distribution
 
 - [x] 4.1 [AC-RT-001] 编写能暴露“运行时来源与完整性”缺失的正向与失败测试并确认预期失败。责任：Runtime owner；前置：技能/运行时合同已确定；业务调用依赖对应适配器。产物：fixture、断言及失败日志；验证：失败原因必须是目标行为缺失。

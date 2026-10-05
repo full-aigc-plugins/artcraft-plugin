@@ -1,0 +1,76 @@
+{
+  "schema": "craft-mask-revision-first-use/v1",
+  "date": "2026-10-06",
+  "sourceVersion": "0.1.0-dev.13",
+  "runtimeVersion": "0.1.0-dev.13",
+  "effectcraftDependency": {
+    "version": "0.1.0-dev.6",
+    "commit": "ed0abc27ed2179e85942d977ee143db89cff4ce3",
+    "archiveSha256": "66e2727a7e84a0e85ced2bddaba63e38a6578b2f34698485666380b3ce26b582",
+    "bytes": 409662
+  },
+  "targetedFirstUse": {
+    "passed": 1,
+    "skipped": 0,
+    "seconds": 53.645,
+    "archiveOverrides": false,
+    "skill": "artcraft-cli-revise",
+    "runtimeHome": "empty",
+    "layout": ".agents/skills",
+    "PATH": "/usr/bin:/bin"
+  },
+  "redPhase": {
+    "dependency": "EffectCraft skills dev.5",
+    "seconds": 47.286,
+    "result": "intro revision failed, consuming film blocked, Logo/poster reused"
+  },
+  "checks": [
+    "Four native projects retained",
+    "Only intro and film task/artifact identities change",
+    "All original delivery file hashes unchanged",
+    "Opacity keys and native layer identity unchanged",
+    "RGBA alpha coverage actually expands",
+    "Film audio structure and subtitle bytes unchanged",
+    "Repeat reuses all task IDs and budget",
+    "Four-child delivery package verifies"
+  ],
+  "bundleRebuild": {
+    "allFiveBundlesMatchFixedTags": true,
+    "runtimeHashUnchanged": "51bf346daf9edb0e721ff9ddd01a69d3b3ab4fe635d410652204e824bebcb4fb"
+  },
+  "files": {
+    "tests/test_mask_revision_first_use.py": "6aba1cb60c0fd55741ddd0ac6fa699b42b355fdc16c01bf794939150cd7781b8",
+    "skills/artcraft-use/scripts/distribution.lock.json": "4d6beea46c63c2bc50e0df8013174210f20380a56d4f0088dc64aca5d169eb75",
+    "skills/artcraft-use/references/workflow.md": "37222cad6a7968e97b6bc63a3384b495a7b6233061d873658e0ed7fff8be4efc",
+    "skill-suite.json": "fbecd54efdd1875f39b512cc8eee51c2500124349afbb6573e10c78276230384"
+  },
+  "fullOnlineRegression": {
+    "tests": 26,
+    "passed": 25,
+    "skipped": 1,
+    "seconds": 227.895,
+    "skipReason": "Node-only offline archive test",
+    "archiveOverrides": false,
+    "environment": {
+      "CRAFT_MASK_FIRST_USE": "1",
+      "CRAFT_TASK_FIRST_USE": "1",
+      "CRAFT_VIDEO_FIRST_USE": "1",
+      "CRAFT_ONLINE_FIRST_USE": "1",
+      "CRAFT_LIVE_TEST": "1",
+      "CRAFT_LIVE_SUITE": "1"
+    }
+  },
+  "unverified": [
+    "Host model dispatch and GUI",
+    "Creative acceptance",
+    "Automatic roto and arbitrary mask fidelity",
+    "Jianying and Image Factory adapters",
+    "Other platforms"
+  ],
+  "nativeRegression": {
+    "passed": 83,
+    "skipped": 0,
+    "seconds": 29.556721791,
+    "scope": "runtime units and declared current native skill/CLI integrations; runtime source unchanged"
+  }
+}

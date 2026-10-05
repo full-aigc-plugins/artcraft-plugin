@@ -83,3 +83,18 @@ Development version 3 accepts `payload.sourceProject = {"assetId":"old-output"}`
 上例是字段示意，artifact 必须为真实完整对象，摘要为 64 位真实值，不可把示意字符串直接执行。同一项目的新修订仍消耗共享修订预算；不能改授权绕过。继承素材由领域技能收集，旧工程保留在 sourceRefs 血缘，不假称打包了旧工程。开发版本 4 的安装锁竞争修复后，技术回归并行通过；运行时 dev.7 已具备技术交付打包与调度器退出后的原 attempt 恢复；完整创作审核、未知提交窗口恢复和跨宿主验收仍未完成。
 
 The example describes fields, not an executable fixture; artifact must be the real full object and the digest the real 64-character SHA. New revisions remain under shared budgets. Inherited media are collected; the prior project stays in source lineage. Development version 4 fixes installer lock contention and passes parallel native regression; runtime dev.7 supports technical packaging and original-attempt recovery after scheduler exit; full creative review, unknown submission windows and cross-host acceptance remain open.
+
+
+## 蒙版局部返工 / Local mask revision
+
+首次安装固定 EffectCraft 技能 dev.6，原生 CLI 保持 0.2.0。片头创建时可用公开 `mask.new`，以 `as` 保存蒙版 UID；路径使用图层坐标，闭合 Add 遮罩与实际 RGBA 输出一起检查。
+
+Source suite dev.13 pins EffectCraft skills dev.6 and native CLI 0.2.0. Save the `mask.new` return UID with an alias; closed Add paths use layer coordinates and need actual RGBA evidence.
+
+修订时，登记上一版片头产物作为 `externalInputs`，`sourceProject.assetId` 指向它，`expectedRevision` 使用其 `nativeProjectRef.sha256`。去掉新建 `document`；`mask.setVertex` 的 `layer`、`mask` 从原生回执绑定读取，另存工程。只改已有蒙版而不消费新 Logo 时，不保留未使用的 Logo 输入依赖。引用 Logo 的原工程素材仍随子交付保存。
+
+Register the prior intro as an external source artifact, bind its native hash and revise vertices using saved layer/mask IDs. Remove creation settings and unused new-media dependencies; packaged native dependencies remain in the source delivery.
+
+下游成片以新片头替换原镜头；继续保留已有音轨、字幕与无关图层。保留原工程摘要与透明度关键帧，比较 RGBA 蒙版边界；图形与海报任务应复用，只有片头和成片改变。重复同一修订时，任务和预算身份应复用。独立技能运行默认安装依赖，不需要读取其他技能目录。
+
+Replace only the consuming video clip with the new intro. Verify original hashes, opacity keys, audio and captions; compare RGBA boundaries and reuse Logo/poster tasks. Repeating the same revision must reuse task and budget identity. The isolated skill installs its own pinned dependencies.
