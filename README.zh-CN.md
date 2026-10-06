@@ -1,4 +1,4 @@
-当前插件：`0.1.0-dev.86`；技能源：`0.1.0-dev.59`；runtime83；Vector19外观分发。固定安装待验收。[架构](docs/ArtCraft-Vector-Appearance-Architecture.zh_CN.md)。
+当前插件：`0.1.0-dev.86`；技能源：`0.1.0-dev.59`；runtime83；Vector19外观分发。十项实际安装外观及更新混合工作流通过。[架构](docs/ArtCraft-Vector-Appearance-Architecture.zh_CN.md)。
 
 固定原生命令网关首用通过：48项领域安装技能与十项 Art85／技能源58 的公开入口独立冷安装、创建／重开／导出、返工并保全原交付。公开 Brief、四领域网关、五子工程、Logo选择性更新／无关图标复用、移动包、真实取消和六类未知回复故障通过；58项安装摘要不变。全2639命令／GUI／模型／通用Skills CLI／完整V1门禁保持开放。[使用指南](docs/Craft-Native-Gateway-Usage.zh_CN.md) · [固定证据](docs/evidence/codex-native-gateway-first-use-20261007.json)。
 
@@ -356,3 +356,5 @@ Art HD 源码候选通过五秒 1080p 分段编排、移动文字返工及损坏
 
 
 固定 Art 插件 dev.79／技能源 dev.53／运行时 dev.78 的有界安装验收通过：五插件58技能零加载错误；24项原生保存后故障均保留并重新打开产品原工程、阻断下游且不重放；四领域恢复模块缺失／摘要错误在写入前拒绝。十项 Art 技能分别从空运行时公开安装 Node＋Art＋四领域（451.537秒）；1080p／24 fps／五秒混合创作、Logo 返工、坏帧恢复及五子工程移动包通过（209.714秒）。58项安装身份保全，五包固定标签重建、两个公开 Art 源ZIP和四项精确插件提交CI通过。仅关闭 OpenSpec4.9；全量2639命令上下文／产物／GUI／修订、通用Skills CLI、模型与完整V1仍开放。[版本绑定证据](docs/evidence/codex-art79-failed-stage-first-use-20261007.json)。
+
+当前固定分发：十项Art＋十二项Vector独立冷启动外观和源返工通过；更新四领域混合任务与五子工程移动包通过。全量命令／GUI／模型／完整V1仍开放。 [Evidence](docs/evidence/codex-art86-vector-appearance-first-use-20261007.json).
