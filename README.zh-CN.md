@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-当前插件 dev.47／技能源 dev.35／运行时 dev.45 固定 FilmCraft 技能源 dev.7。固定公开安装和静态音轨增益局部返工首次使用复验通过，全部 58 项安装技能摘要保留。历史证据保持原发行范围；完整首版／模型／GUI／创作验收仍开放。
+当前插件 dev.55／技能源 dev.39／运行时 dev.54 的固定安装 PCM WAV 首次使用复验通过。历史证据保持原发行范围；完整首版／模型／GUI／创作验收仍开放。
+
+工作树另有尚未发布的 PNG 内容登记与核验候选，范围和未完成发布门禁见 [PNG 架构](docs/ArtCraft-PNG-Architecture.zh_CN.md)。
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 

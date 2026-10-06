@@ -2,6 +2,8 @@
 
 Current plugin dev.55 / skills dev.39 / runtime dev.54 passes fixed installed PCM WAV asset first use, ten independent Art cold starts and unchanged installed skill digests. Historical evidence retains its release scope; complete V1/model/GUI/creative acceptance remains open.
 
+The working tree also contains an unpublished PNG content-registration and verification candidate. Scope and remaining publication gates: [PNG architecture](docs/ArtCraft-PNG-Architecture.md).
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## Current release and reproducible host checks

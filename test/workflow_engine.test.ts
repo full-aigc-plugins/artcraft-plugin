@@ -259,3 +259,12 @@ test('incorrect PCM voice metadata blocks all domain launches before workflow si
   const result=await f.engine.run(f.plan);assert.equal(result.state,'blocked');assert.match(result.nodes.preflight.error!,/audio_metadata_mismatch/);assert.deepEqual(f.launches,[]);
  }finally{await f.cleanup();}
 });
+
+test('incorrect PNG dimensions block all domain launches before workflow side effects',async()=>{
+ const f=await fixture();try{
+  const bytes=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGP4z8DQAAAEgQGALFXOsAAAAABJRU5ErkJggg==','base64');
+  await writeFile(join(f.root,'product.png'),bytes);
+  (f.plan.nodes[0] as any).externalInputs=[{root:f.root,artifact:{protocolVersion:'craft-artifact/v1',assetId:'product',version:'v1',sha256:sha(bytes),bytes:bytes.length,mediaType:'image/png',producerTaskId:'provided-product',sourceRefs:[],nativeProjectRef:null,renditions:[],dependencies:[],technicalMetadata:{width:320,height:180},lossReportRef:null,evidenceRefs:[],location:'product.png'}}];
+  const result=await f.engine.run(f.plan);assert.equal(result.state,'blocked');assert.match(result.nodes.preflight.error!,/image_metadata_mismatch/);assert.deepEqual(f.launches,[]);
+ }finally{await f.cleanup();}
+});

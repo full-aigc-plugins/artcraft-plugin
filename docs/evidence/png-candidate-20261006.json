@@ -1,0 +1,82 @@
+{
+  "schema": "artcraft-png-candidate-evidence/v1",
+  "status": "candidate-tested-not-published",
+  "observedAt": "2026-10-06T09:08:11.745412+00:00",
+  "publicBaseline": {
+    "plugin": "0.1.0-dev.55",
+    "skills": "0.1.0-dev.39",
+    "runtime": "0.1.0-dev.54"
+  },
+  "checks": {
+    "red": {
+      "sourcePngTests": 3,
+      "runtimePngTests": 2,
+      "targetFailuresObserved": true
+    },
+    "runtimeRegression": {
+      "total": 153,
+      "passed": 147,
+      "failed": 0,
+      "explicitNativeGatedSkips": 6,
+      "durationSeconds": 17.006482625
+    },
+    "sourceRegression": {
+      "total": 93,
+      "passed": 72,
+      "failed": 0,
+      "explicitLiveGatedSkips": 21,
+      "durationSeconds": 5.691
+    },
+    "candidateNativeFourDomain": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "durationSeconds": 16.293128167,
+      "scope": "local candidate runtime with existing native CLI cache, Logo revision and actual PNG handoff"
+    },
+    "isolatedCandidateSkillPublicColdStart": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "durationSeconds": 18.872,
+      "scope": "copied-alone candidate execute skill; empty runtime directory; default public baseline downloads; actual binary-name PNG staging, Photo native output, moved package with one child; source image and installed skill files unchanged"
+    },
+    "suiteResourceParity": "10 independent skills matched"
+  },
+  "knownOpen": [
+    "candidate immutable runtime/skill/plugin publication",
+    "installed-host candidate repetition and ten cold starts",
+    "JPEG/video identification",
+    "creative/GUI/full V1 acceptance"
+  ],
+  "fingerprints": {
+    "runtime": {
+      "src/protocol/png_inspection.ts": "6dc6a8bc6f8d45a501d64549542345bfe5251c0a6a04b70b6747d3be85eaf6fc",
+      "src/protocol/contracts.ts": "a44bea2581d5bf3748a84c3d935001c688871c49f722bd9251f7958adc5fda34",
+      "test/png_artifact.test.ts": "72b3b7f750863dfe032c067d68ae81b242f91fdc19c3d6304b744204f1fd6690",
+      "test/workflow_engine.test.ts": "27ccea834e219e15a111b2b845a0fb69780a0f9d0b6ca1c7755918aec8d87f1f"
+    },
+    "skills": {
+      "skills/artcraft-cli/scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+      "skills/artcraft-cli/scripts/workflow.py": "acaabfa6ce774d40c083bf7d81e0ad1212eeee50f1b25e406a88ccdb84b7582e",
+      "skills/artcraft-cli-assets/scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+      "skills/artcraft-cli-assets/scripts/workflow.py": "acaabfa6ce774d40c083bf7d81e0ad1212eeee50f1b25e406a88ccdb84b7582e",
+      "skills/artcraft-cli-deliver/scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+      "skills/artcraft-cli-deliver/scripts/workflow.py": "acaabfa6ce774d40c083bf7d81e0ad1212eeee50f1b25e406a88ccdb84b7582e",
+      "skills/artcraft-cli-execute/scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+      "skills/artcraft-cli-execute/scripts/workflow.py": "acaabfa6ce774d40c083bf7d81e0ad1212eeee50f1b25e406a88ccdb84b7582e",
+      "skills/artcraft-cli-plan/scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+      "skills/artcraft-cli-plan/scripts/workflow.py": "acaabfa6ce774d40c083bf7d81e0ad1212eeee50f1b25e406a88ccdb84b7582e",
+      "skills/artcraft-cli-recover/scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+      "skills/artcraft-cli-recover/scripts/workflow.py": "acaabfa6ce774d40c083bf7d81e0ad1212eeee50f1b25e406a88ccdb84b7582e",
+      "skills/artcraft-cli-review/scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+      "skills/artcraft-cli-review/scripts/workflow.py": "acaabfa6ce774d40c083bf7d81e0ad1212eeee50f1b25e406a88ccdb84b7582e",
+      "skills/artcraft-cli-revise/scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+      "skills/artcraft-cli-revise/scripts/workflow.py": "acaabfa6ce774d40c083bf7d81e0ad1212eeee50f1b25e406a88ccdb84b7582e",
+      "skills/artcraft-cli-setup/scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+      "skills/artcraft-cli-setup/scripts/workflow.py": "acaabfa6ce774d40c083bf7d81e0ad1212eeee50f1b25e406a88ccdb84b7582e",
+      "skills/artcraft-use/scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+      "skills/artcraft-use/scripts/workflow.py": "acaabfa6ce774d40c083bf7d81e0ad1212eeee50f1b25e406a88ccdb84b7582e"
+    }
+  }
+}
