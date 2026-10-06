@@ -12,7 +12,7 @@ PNG 运行时 dev.56 已由不可变标签发布，技能源 dev.40 快照已固
 
 ## 当前版本与可复现宿主验证
 
-当前插件 `0.1.0-dev.69`，独立技能源 `0.1.0-dev.46`，运行时 `0.1.0-dev.68`。Film 技能源 dev.10 提供运动／LUT 工作流，Art 固定类型化交接。候选原生联调通过；新固定宿主安装验收待执行，历史证据保留版本范围。完整首版仍开放。
+当前插件 `0.1.0-dev.69`，独立技能源 `0.1.0-dev.46`，运行时 `0.1.0-dev.68`。Film 技能源 dev.10 提供运动／LUT 工作流，Art 固定类型化交接。候选原生联调通过；固定公开安装 LUT／运动验收与十项 Art 冷启动通过，历史证据保留版本范围。完整首版仍开放。
 
 固定 dev.38 验收：Codex 0.153.4 发现 58 项技能，加载错误为零；实际安装目录的单技能在线冷启动通过 3 项、无跳过，95.289 秒。四源返工、三领域尺寸修改、保存后产物摘要、Effect 实际视频属性、复用和源工程保全均通过，58 个安装技能摘要未变。[证据](docs/evidence/codex-release38-native-brief-first-use-20261006.json)。运行时回归 123 项通过、5 项可选跳过；完整模型／GUI／创作／生产验收仍开放。dev.37 标签因暂存失败保留历史，未创建 Release，也不作为插件快照使用。
 
@@ -290,3 +290,5 @@ Vector 素材源码候选已接入登记输入和替换核验，真实 Vector �
 固定 Art 插件 dev.67／技能源 dev.45／runtime dev.66，接入 Effect 技能源 dev.9：Codex 0.153.4 安装五个固定插件，发现全部 58 技能，加载错误为零。安装后单技能 Effect 拒绝／查询／重复执行／纠正修订验收通过（55.362 秒）；动态四领域 Logo 返工、坏帧恢复及移动五子工程打包通过（63.257 秒）。58 项独立 CLI 冷启动全部通过（422.907 秒），全部安装摘要保全；公开运行时／技能源附件、五包固定重建及默认用户目录安装已核验。[版本证据](docs/evidence/codex-release67-preflight-mixed-first-use-20261006.json)。只关闭 OpenSpec 6.40；通用 Skills CLI 安装及完整首版／模型／GUI／创作／生产验收仍开放。
 
 固定安装 Film dev.11／Effect dev.10 与候选 Art LUT／运动适配器完成一项两领域原生联调，详见[架构](docs/ArtCraft-LUT-Motion-Architecture.zh_CN.md)与[证据](docs/evidence/lut-motion-adapter-candidate-20261006.json)。Art dev.67 不含该候选能力，新的固定发行验收仍开放。
+
+固定 Art 插件 dev.69／技能源 dev.46／runtime dev.68 已通过实际安装公开 LUT／运动首次使用、局部返工和参数失败纠正恢复（一项原生门禁，37.836 秒），十项 Art 独立冷启动（111.456 秒）、全部 58 安装摘要、公开发行附件逐文件、五包重建及四项标签 CI 通过。[版本证据](docs/evidence/codex-artcraft69-lut-motion-first-use-20261006.json)。完整首版、通用 Skills CLI、模型／GUI／创作验收仍开放。
