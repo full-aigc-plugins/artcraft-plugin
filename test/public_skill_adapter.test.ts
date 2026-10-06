@@ -43,14 +43,17 @@ test('public EffectCraft skill script produces registered native project and ren
  const root=await mkdtemp(join(tmpdir(),'craft-public-skill-'));const ledger=new TaskLedger(join(root,'tasks.sqlite'));
  try{
   const python='/opt/anaconda3/bin/python3',runtimeHome=join(homedir(),'.local/share/craft-runtimes');
-  const scripts=['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'];
+  const scripts=['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py','native_workflow.py','commands.py'];
   const files=await Promise.all(scripts.map(async name=>({path:join(skill!,'scripts',name),sha256:hash(await readFile(join(skill!,'scripts',name)))})));
+  files.push({path:join(skill!,'references/command-coverage.json'),sha256:hash(await readFile(join(skill!,'references/command-coverage.json')))});
   const factory=publicSkillFactory({pluginId:'effectcraft',skillRoot:skill!,python,pythonSha256:hash(await readFile(python)),nativeExecutable:cli!,runtimeHome,files,outputRoot:join(root,'deliveries')});
   const runtimeIdentity={pluginId:'effectcraft',pluginVersion:'0.1.0',cliVersion:'0.2.0',sha256:hash(await readFile(cli!)),mode:'headless',capabilitySnapshotSha256:hash(JSON.stringify(files))};
   const plan={workflowId:'public-intro',ownerId:'test',revision:'v1',authorizationRef:'test-scope',budget:{currency:'USD',maxMinorUnits:0,maxRevisions:1,maxExternalCalls:0},deadline:new Date(Date.now()+60000).toISOString(),nodes:[{id:'intro',dependsOn:[],projectKey:'intro-project',runtimeIdentity,expectedRevision:null,payload:{schemaVersion:'craft-skill-workflow/v1',plan:{document:{name:'Public intro',width:320,height:180,frameRate:12,duration:1},operations:[{command:'layer.newText',params:{name:'Title',text:'NOVA',font:'Arial',size:30,position:[120,90]},as:'title'},{command:'prop.addKey',params:{layer:{'$ref':'title.layer'},path:'transform/opacity',time:0,value:0}},{command:'prop.addKey',params:{layer:{'$ref':'title.layer'},path:'transform/opacity',time:.5,value:100}}],frames:[0],exports:[{format:'mp4'}]},assetBindings:[],outputs:[{assetId:'intro-video',location:'intro.mp4',mediaType:'video/mp4'}]}}]};
+  plan.nodes[0].payload.plan.operations.push({command:'native.command',params:{command:'layer.setBlendMode',params:{layers:[{'$ref':'title.layer'}],mode:'Multiply'}}} as any);
   const engine=new WorkflowEngine(ledger,new LocalRunner(ledger,async request=>assert.equal(request.authorizationRef,'test-scope')),{effectcraft:factory});
   const result=await engine.run(plan);
   assert.equal(result.state,'review_ready',JSON.stringify(result));
+  assert.match(await readFile(join(result.nodes.intro.root!,'operations.json'),'utf8'),/nativeCommand/);
   const output=result.nodes.intro.outputs![0];
   assert.equal(output.assetId,'intro-video');assert.equal(output.nativeProjectRef.location,'project.ecproj');
   assert.ok(output.evidenceRefs.some((item:{location:string})=>item.location==='manifest.json'));
@@ -158,4 +161,13 @@ test('retained media binding keeps upstream dependency without reinserting sourc
   await assert.rejects(made.adapter.prepare({runtimeIdentity:node.runtimeIdentity,expectedRevision:nativeSha} as any),/artifact_digest_mismatch/);
   await assert.rejects(made.adapter.verify({runtimeIdentity:node.runtimeIdentity} as any),/artifact_digest_mismatch/);
  }finally{await rm(root,{recursive:true});}
+});
+
+// 缺少完整命令组件锁时，在写计划之前拒绝网关操作。
+test('complete native workflow gateway requires locked helper, command parser and catalog',async()=>{
+ const root=join(tmpdir(),'craft-native-lock');
+ const files=['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(name=>({path:join(root,'scripts',name),sha256:'0'.repeat(64)}));
+ const factory=publicSkillFactory({pluginId:'effectcraft',skillRoot:root,python:process.execPath,pythonSha256:'0'.repeat(64),nativeExecutable:'/usr/bin/true',runtimeHome:root,files,outputRoot:join(root,'output')});
+ const node={runtimeIdentity:{pluginId:'effectcraft'},expectedRevision:null,payload:{schemaVersion:'craft-skill-workflow/v1',plan:{operations:[{command:'native.command',params:{command:'layer.setBlendMode',params:{}}}]},assetBindings:[],outputs:[{assetId:'render',location:'intro.mp4',mediaType:'video/mp4'}]}};
+ await assert.rejects(factory(node,[],'native-lock'),/native_workflow_lock_incomplete/);
 });

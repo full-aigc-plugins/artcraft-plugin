@@ -1,0 +1,139 @@
+{
+  "schema": "craft-native-workflow-gateway-candidate/v1",
+  "date": "2026-10-07",
+  "result": "PASS",
+  "scope": "source candidate public native workflow gateway, not fixed installed release or full DAG acceptance",
+  "domains": {
+    "filmcraft": {
+      "native": {
+        "domain": "filmcraft",
+        "result": "PASS",
+        "entrySha256": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116",
+        "projectSha256": "b70b8e8c0dacc2a8b237169dcfa518a76c938cc9021b83306c110b4632d057ff",
+        "revisionSha256": "65158a598e8485213c4966fd57fa38e05b73922c67e9474d66c87850cf317766",
+        "scope": "candidate single-skill cold native workflow delivery and revision; not fixed release or full DAG acceptance"
+      },
+      "sourceSha256": {
+        "scripts/native_workflow.py": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116",
+        "scripts/workflow.py": "2546e272ea33d8dfef367fb168056570d718e0448df59b305d2d8ec3163c2264",
+        "scripts/commands.py": "d402df57f920ebb87ea852d5dcd2eb87caa1e0103dd44d098aa720e465593583",
+        "scripts/runtime.lock.json": "d479a3a39836966a1860b8cf18af5e714c948a3cae959be53a9bca00a61de8be",
+        "examples/native-workflow.json": "19818bc13fd25f02c4a0e364de7ff2901caf6e59d5d5d9e7f5ee6955ab253354",
+        "references/command-coverage.json": "36d599755ec244813a493733ab3cca775042f05a18bd3f6a161c6d398ca510e0"
+      },
+      "regression": {
+        "total": 114,
+        "passed": 88,
+        "skipped": 26,
+        "failed": 0
+      },
+      "completeCatalogValidation": "PASS",
+      "disabledAndStrictUnknown": "PASS"
+    },
+    "effectcraft": {
+      "native": {
+        "domain": "effectcraft",
+        "result": "PASS",
+        "entrySha256": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116",
+        "projectSha256": "bceb9cecb28d9ce8ce07c520ea78169653c950040a47596cde7c28f126281a6b",
+        "revisionSha256": "47349d3978c51928d2d0859d33942c8f961a18b0c621f05377440fbe434ec8a5",
+        "scope": "candidate single-skill cold native workflow delivery and revision; not fixed release or full DAG acceptance"
+      },
+      "sourceSha256": {
+        "scripts/native_workflow.py": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116",
+        "scripts/workflow.py": "b2360f3ab47a6e1ba7aa9704de9efdf5f47daa45a4bd6fe711b8616c683a91fa",
+        "scripts/commands.py": "d402df57f920ebb87ea852d5dcd2eb87caa1e0103dd44d098aa720e465593583",
+        "scripts/runtime.lock.json": "c3dc4d1443e9b74d0891904d7ec95167375cfb9a8457bfc4faa89208280d465d",
+        "examples/native-workflow.json": "0ba62e8bd042dacb028b14c84c18cb2ee10c77e54dbd13efcd7090c8fa9fae16",
+        "references/command-coverage.json": "08a94bb7f3fdb4def0e0b2342f4634d1e71592c4c264f95c1bdfad830b860f03"
+      },
+      "regression": {
+        "total": 113,
+        "passed": 87,
+        "skipped": 26,
+        "failed": 0
+      },
+      "completeCatalogValidation": "PASS",
+      "disabledAndStrictUnknown": "PASS"
+    },
+    "photocraft": {
+      "native": {
+        "domain": "photocraft",
+        "result": "PASS",
+        "entrySha256": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116",
+        "projectSha256": "240e03f21672076cc4003d6a9c2ef77bd38c8cff8c696ae34bbfbddcf758c5da",
+        "revisionSha256": "e0d36955ff92e46c905e9fa3597c42d7e15c9de5214a4223feec845fab4d2b57",
+        "scope": "candidate single-skill cold native workflow delivery and revision; not fixed release or full DAG acceptance"
+      },
+      "sourceSha256": {
+        "scripts/native_workflow.py": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116",
+        "scripts/workflow.py": "81051caf8cf391971ef6c40f5bb6d12b24614ce3793bf77ab247a6b76006974b",
+        "scripts/commands.py": "d402df57f920ebb87ea852d5dcd2eb87caa1e0103dd44d098aa720e465593583",
+        "scripts/runtime.lock.json": "b358d465bab65e3e7bf87add7b490fa6f4e37f7efb45c17580123a4a8cfa2a49",
+        "examples/native-workflow.json": "3aaeb8c32b21561fd6874faa37fca601ea205ee1452cb0d098568fa75f5be6a8",
+        "references/command-coverage.json": "4f55b3b3944a07ba0f14a7f913ab951050973e2cf5053bcb1ccf12614bcacbd2"
+      },
+      "regression": {
+        "total": 103,
+        "passed": 79,
+        "skipped": 24,
+        "failed": 0
+      },
+      "completeCatalogValidation": "PASS",
+      "disabledAndStrictUnknown": "PASS"
+    },
+    "vectorcraft": {
+      "native": {
+        "domain": "vectorcraft",
+        "result": "PASS",
+        "entrySha256": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116",
+        "projectSha256": "5269bba7279bebffeb4e1a6b0967649b597c66020dd176db93724295dfc4ac8c",
+        "revisionSha256": "6179e47f86813aa3d605de3ee30e2845c92caa3110227e09bc2173ee2073c17f",
+        "scope": "candidate single-skill cold native workflow delivery and revision; not fixed release or full DAG acceptance"
+      },
+      "sourceSha256": {
+        "scripts/native_workflow.py": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116",
+        "scripts/workflow.py": "66a4c3c66928a65d0ee4735c8d4acbfbe330b333a9580f510e3624172b220233",
+        "scripts/commands.py": "d402df57f920ebb87ea852d5dcd2eb87caa1e0103dd44d098aa720e465593583",
+        "scripts/runtime.lock.json": "7b6bd7f3fab84b757d4ea20ac91b74d89b417ec061efc6ae320dda97a422cc07",
+        "examples/native-workflow.json": "e9a89a79c3bdf0ae8ca41958f2fbbdf523ac77da47ecceda6cc97d982e38b265",
+        "references/command-coverage.json": "5a028f6aec0d8361be888afa70711bea381e7d9edc4d9cb3cd69fdbb596c1bef"
+      },
+      "regression": {
+        "total": 94,
+        "passed": 72,
+        "skipped": 22,
+        "failed": 0
+      },
+      "completeCatalogValidation": "PASS",
+      "disabledAndStrictUnknown": "PASS"
+    }
+  },
+  "artNativeAdapter": {
+    "total": 7,
+    "passed": 7,
+    "skipped": 0,
+    "includes": "actual Effect native gateway under WorkflowEngine; MP4/native delivery, source revision, non-target animation preserved and idempotent task reuse"
+  },
+  "artNodeRegression": {
+    "total": 191,
+    "passed": 174,
+    "skipped": 17,
+    "failed": 0
+  },
+  "artSourceRegression": {
+    "total": 115,
+    "passed": 87,
+    "skipped": 28,
+    "failed": 0
+  },
+  "nativeRuntimeChanges": "NONE",
+  "filmSpeedFix": "timeline duration times absolute speed checked against source duration; native speed revision passes",
+  "fixedInstalledRelease": "NOT_RUN",
+  "fullMixedGatewayDAG": "NOT_RUN",
+  "artFullGate": "OPEN:6.51",
+  "domainFullCommandGate": "OPEN:8.3",
+  "gui": "NOT_RUN",
+  "modelDispatch": "NOT_RUN",
+  "fullV1": "OPEN"
+}

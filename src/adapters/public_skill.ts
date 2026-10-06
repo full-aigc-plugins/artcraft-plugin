@@ -48,6 +48,11 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
    if('document' in plan || ('expectedProjectSha256' in plan && plan.expectedProjectSha256!==node.expectedRevision))throw new Error('skill_source_plan_invalid');
    plan.expectedProjectSha256=node.expectedRevision;
   }else if(node.expectedRevision!==null || 'expectedProjectSha256' in plan)throw new Error('skill_source_missing');
+  if(Array.isArray(plan.operations) && plan.operations.some((step:any)=>step.command==='native.command')){
+   for(const name of ['scripts/native_workflow.py','scripts/commands.py','references/command-coverage.json']){
+    if(!locked.files.some(file=>file.path===join(locked.skillRoot,name)))throw new Error('native_workflow_lock_incomplete');
+   }
+  }
   const sourceFiles:{path:string;sha256:string}[]=[];
   let sourceManifest:any;
   const checkSource=async()=>{
