@@ -234,3 +234,5 @@ ArtCraft 技能源 dev.33 固定 FilmCraft 技能 dev.6，保留运行时 dev.41
 [固定安装首次使用证据](docs/evidence/codex-release43-film-receipt-first-use-20261006.json)。保留不可变发行标签；QA 修改仅加强版本绑定与实际导出像素断言。
 
 五套技能逐项空运行时复验 **58/58 通过**（411.720 秒）：每项仅复制自身，使用独立空运行时自动安装、查询原生版本并核对命令合同；随后删除该运行时。全部原安装技能摘要不变。此项加强此前按领域共用运行时的 CLI 验收，仍不替代场景创作或模型验收。[证据](docs/evidence/codex-release43-every-skill-cold-first-use-20261006.json)。
+
+固定插件 dev.44 与未改变的四领域矩阵已公开安装复验：58 技能发现、零加载错误；单独复制安装后的 setup 技能，从空运行目录安装运行时 dev.41 并核对版本／帮助，无剪映适配命令，全部安装技能摘要保持不变。[发行范围与首次使用证据](docs/evidence/codex-release44-scope-and-cold-cli-20261006.json)。上述混合／原生证据保持其原版本范围。
