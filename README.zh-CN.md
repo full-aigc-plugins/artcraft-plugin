@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-当前插件 dev.46／技能源 dev.34／运行时 dev.45：包含原生运行中取消的存在性观察修复，固定安装后的真实取消、调度器崩溃接管及十项独立冷启动通过。剪映继续使用自己的插件，不提供 ArtCraft 适配；此前证据保持其原发行范围。
+当前插件 dev.47／技能源 dev.35／运行时 dev.45 固定 FilmCraft 技能源 dev.7，支持成片静态音轨增益局部返工。候选公开首次使用通过，固定安装副本复验待完成。剪映使用自己的插件，不在适配范围；历史证据保持原发行范围。
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
@@ -30,9 +30,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.46 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.47 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.34 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.35 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

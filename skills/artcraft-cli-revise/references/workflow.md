@@ -120,3 +120,11 @@ CLI 发现、状态查询、打包和移动验包仅安装编排运行时，不�
 ArtCraft runtime dev.41 在新交付登记、历史就绪预检、跨修订缓存复用和下游交接时核验声明 variant 的 PhotoCraft 产物；没有 Brief 也必须通过。要求 layout-variant.json、native.json、plan.json、operations.json 均由子 manifest 绑定摘要，尺寸、安全区、可编辑角色和实际尺寸回执一致。保持源角色别名稳定，或使用已核验的源图层数字 ID，避免用新对象覆盖角色绑定。
 
 旧技能曾忽略 variant、缺少记录的结果不得复用；记录陈旧或矛盾会阻止本次运行，不自动重放原生写入。恢复完全相同的已核验记录后可以复用原任务；需要实际重新设计时创建显式新修订和新交付，不修改旧缓存的验收字段来伪造通过。
+
+## 成片静态音轨增益返工 / Static film audio gain revisions
+
+固定 FilmCraft 技能源 dev.7 支持 `mixer.setStrip`，参数严格为 `{"strip":"A1","volumeDb":-6.0}`。修订 film 节点时提供前次原生产物的 externalInputs、expectedRevision 与 payload.sourceProject；保留 intro 的 assetBindings 并标记 retained，providedAssets 清空，配音继续从原交付包内保留。其余三个节点保持原计划与依赖，不能为了音量变化重建 Logo、海报或片头。
+
+复验必须解码新成片的音频幅度，核对原工程、镜头、字幕与预览保全，并检查其他节点 taskId 复用。同一修订重复执行应复用任务和预算。此入口仅支持明确 A 音轨的静态有限分贝增益，不包含录音、总线、路由和自动化。
+
+Pinned FilmCraft source dev.7 accepts `mixer.setStrip` with exactly `{"strip":"A1","volumeDb":-6.0}`. Bind the previous film artifact through externalInputs, expectedRevision and payload.sourceProject; retain the intro asset binding and clear providedAssets so packaged audio remains in the source delivery. Keep the other three plans unchanged. Verify decoded audio amplitude, preserved project/clip/caption/preview content, reused upstream task IDs and repeat budget/task identity. Recording, buses, routing and automation are outside this entry.

@@ -1,12 +1,12 @@
 # ArtCraft Agent Plugin
 
-Current plugin dev.46 / skills dev.34 / runtime dev.45: includes the live native cancellation observation repair. Fixed installed live cancellation, scheduler-crash adoption and ten independent cold starts pass. Jianying remains a separate plugin without an ArtCraft adapter; previous evidence retains its original release scope.
+Current plugin dev.47 / skills dev.35 / runtime dev.45 pins FilmCraft source dev.7 for selective static audio gain revisions. Candidate public first use passes; fixed installed-snapshot verification is pending. Jianying remains an independent plugin outside adaptation scope. Earlier evidence retains its original release scope.
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.46`; skill source: `0.1.0-dev.34`; runtime: `0.1.0-dev.45`. Historical host evidence below retains its original release scope. Codex 0.147.0 and 0.153.4 installed five fixed public releases and discovered all 58 enabled namespaced skills with zero loading errors and matching source digests. Five representative workflows passed through installed task-skill entrypoints on 0.147.0, including native projects, targeted revisions and the mixed ArtCraft online workflow. Model dispatch, desktop GUI, final creative review and full interchange fidelity remain unverified.
+Current plugin: `0.1.0-dev.47`; skill source: `0.1.0-dev.35`; runtime: `0.1.0-dev.45`. Historical host evidence below retains its original release scope. Codex 0.147.0 and 0.153.4 installed five fixed public releases and discovered all 58 enabled namespaced skills with zero loading errors and matching source digests. Five representative workflows passed through installed task-skill entrypoints on 0.147.0, including native projects, targeted revisions and the mixed ArtCraft online workflow. Model dispatch, desktop GUI, final creative review and full interchange fidelity remain unverified.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
@@ -30,9 +30,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.46 |
+| Plugin ID / version | artcraft / 0.1.0-dev.47 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.34 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.35 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |

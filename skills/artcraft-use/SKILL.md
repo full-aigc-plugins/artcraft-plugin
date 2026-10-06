@@ -25,7 +25,7 @@ python3 -I -B "$SKILL_DIR/scripts/bootstrap.py" --runtime-only
 
 ## 计划与运行
 
-先记录需求、尺寸、时长、帧率、素材、文案、交付格式和修改边界。选择满足原生交付要求的工具。图形→图层设计用 VectorCraft/PhotoCraft；动态图形→时间线用 EffectCraft/FilmCraft。剪映和 Image Factory 的适配仍未接入本运行时；可选 Video Factory 公开验证节点须显式登记已安装插件与媒体工具，参见本技能 references/video-factory.md。
+先记录需求、尺寸、时长、帧率、素材、文案、交付格式和修改边界。选择满足原生交付要求的工具。图形→图层设计用 VectorCraft/PhotoCraft；动态图形→时间线用 EffectCraft/FilmCraft。剪映由其独立插件负责，不在 ArtCraft 适配范围。Image Factory 的适配仍未接入本运行时；可选 Video Factory 公开验证节点须显式登记已安装插件与媒体工具，参见本技能 references/video-factory.md。
 
 参见[计划合同](references/workflow.md)。示例 `examples/brand-campaign.json` 生成 Logo、分层海报、动态图形片头和带字幕、音频的短片。示例需要用户提供 `voice` WAV：
 
