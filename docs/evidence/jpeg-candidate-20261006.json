@@ -1,0 +1,106 @@
+{
+  "schema": "artcraft-jpeg-candidate/v1",
+  "result": "passed",
+  "scope": "working-tree JPEG candidate; public cold installation uses existing runtime dev.56; candidate contracts check actual staged JPEG separately",
+  "tdd": {
+    "pythonTests": 3,
+    "pythonFailingSubcases": 6,
+    "runtimeTests": 2,
+    "failureReasons": [
+      "JPEG recognized as generic binary",
+      "fake JPEG reached bootstrap",
+      "wrong dimensions and truncated JPEG accepted"
+    ]
+  },
+  "regression": {
+    "runtime": {
+      "total": 156,
+      "passed": 150,
+      "failed": 0,
+      "skippedNativeGates": 6,
+      "durationSeconds": 16.564113042
+    },
+    "skills": {
+      "total": 97,
+      "passed": 75,
+      "failed": 0,
+      "skippedLiveGates": 22,
+      "durationSeconds": 5.179
+    }
+  },
+  "nativeFirstUse": {
+    "schema": "artcraft-jpeg-first-use-candidate/v1",
+    "result": "passed",
+    "runtimeVersion": "0.1.0-dev.56",
+    "mediaType": "image/jpeg",
+    "technicalMetadata": {
+      "alpha": false,
+      "bitDepth": 8,
+      "height": 5,
+      "width": 7
+    },
+    "movedPackageChildren": 1,
+    "nativeLayers": 3,
+    "sourceAndSkillPreserved": true,
+    "independentDecoder": "Pillow; original JPEG, exported PNG and PSD loaded",
+    "candidateRuntimeVerified": true,
+    "runtimeMode": "default public downloads",
+    "skillFiles": {
+      "SKILL.md": "cd545455817d664d97a6f24ea1a95b6932624f5600d6df92e105960461210f8a",
+      "references/scenario.md": "80468047d33d83e28fed4ee1173ba780789cbcd59c7f1730cd4d2e4790e4dfa4",
+      "references/revision.md": "d664983acdbb2cd83ecc2c979bd6cc81fb59696fdaddb99d702e9fe0311fcb01",
+      "references/workflow.md": "9f1f13d4f033198969032a29b979c9fe1af90ede0afdd374c03530d2c07cf0eb",
+      "references/brand-token-workflow.md": "28f955155ca50f4dfa54da53c9e20ea035171aac70681972d9d6638900d0f8c0",
+      "references/commands.json": "7691a8ead35d3da6df1e6f5e0ded964a624e5def4b089a2a9859f7667570228c",
+      "references/recovery.md": "a8c50095f8c4a47571c4a7ed50ac5b8240dcd20439232cb6aa542dab6522e78b",
+      "references/video-factory.md": "ce5edfe349cb0d74a7e5126440523c157e71aba8a26f8d71e79149343212f6b5",
+      "references/project-package.md": "3ed74526a8a93125f7f28002cf80c130298f8fb570bf0d9a2f487795c1eb343b",
+      "references/brief.md": "db2d255e41211ee3b3166e15b1758c455c65d3d0a7c4e19b59f790e30790cccf",
+      "references/exchange-loss.md": "52102251621536a3cd9251ebafcfe62f47493a1c9b24aa26471b15a52a2debb2",
+      "references/review.md": "5bd0e417ab1db9363a5fa9f40ff75fbb706cd15a4a19fa3c6002300c0c8bcb43",
+      "examples/brand-token-campaign.json": "b7cb6db186d59196a0f8bc79cc36545fc1c37a34dcf18ae379359c52ce5601c6",
+      "examples/brand-brief.json": "83bd8bcccec8fe4d9560687f85db757f4f44906ab50d817a657f573c1db9ffd0",
+      "examples/chinese-brand-campaign.json": "e98b5bb3e2eb45b5f12c02477b0f8a8d5a5f6ca4acd367b5a5d5d5b889c09712",
+      "examples/brand-campaign.json": "e06b82ff197f72634cea6888a7e23936f26e5939ee4c0b77b09eb23b3f5aa650",
+      "scripts/package.py": "378555b07e3b0710396c501ec9e8504b1fda02cd97441c72af23c425ebfb0f0f",
+      "scripts/bootstrap.py": "5d2892aa19e09f0c8a2c1938b1cf42f7eadc09d3ce0e6fbda63988bac5f5a842",
+      "scripts/jpeg_inspection.py": "6d057317962954b147864ae33966582553dc0591335af42bfdc3da333ed2257c",
+      "scripts/brief.py": "fb2809876405a682939c251c4f1673d7dd6aaa5ae3abd2e982cd302caaa92de0",
+      "scripts/review.py": "fde29e2cb937a7aa19a796a0bed28481fdcef818e9d8169d63abf9fddb5787ef",
+      "scripts/node.lock.json": "5d47b1f8b5a1738686f3033981444489eafeb99854d2102254be0375ae4462b8",
+      "scripts/setup.py": "ed5b02f34edd94dd29420d89195f0f59942f7f074c2fcc4c04caf9643db904af",
+      "scripts/cli.py": "adc32453aca15399ee2e0ad402e0af51be7dc9197225d0ec080de89e567e2afb",
+      "scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+      "scripts/revision.py": "22795a5d63fa651233db30569304aa4c79b8508eb02545c96768774e25a62eb9",
+      "scripts/workflow.py": "9164ce0033b7b52de5e8ac7b6d8cda0c29c7ab7b4998d4122b23fca9996d39a8",
+      "scripts/distribution.lock.json": "8db6574ce2fe41cc087b72abe3fdacd188b6ef7c740777b365b22c388840c184"
+    }
+  },
+  "nativeTestSeconds": 18.45,
+  "domainLaunchesOnWrongMetadata": 0,
+  "sourceFingerprints": {
+    "full-aigc-skills-repositories/artcraft-skills/skills/artcraft-use/scripts/workflow.py": "9164ce0033b7b52de5e8ac7b6d8cda0c29c7ab7b4998d4122b23fca9996d39a8",
+    "full-aigc-skills-repositories/artcraft-skills/skills/artcraft-use/scripts/jpeg_inspection.py": "6d057317962954b147864ae33966582553dc0591335af42bfdc3da333ed2257c",
+    "full-aigc-skills-repositories/artcraft-skills/tests/test_jpeg_assets.py": "13c140599c389e9aa62765beaacf617ea755f265554c2598366c34b4e027eaba",
+    "full-aigc-skills-repositories/artcraft-skills/tests/test_jpeg_first_use.py": "f1d34ca29bb47b0a61c185daab63ffb3bd9b82b9fa1cfe7acddbe60c364c0043",
+    "full-aigc-skills-repositories/artcraft-skills/tests/fixtures/jpeg-images.json": "0136ea94f2866339b61bedbf0d049b04a5730cd5face2315c06b2c10adb307a9",
+    "full-aigc-plugins-repositories/artcraft-plugin/src/protocol/contracts.ts": "187afc9efabcd9a64e2088d939f41dd21df95fdc5e7276cdd1f1e884c591ad13",
+    "full-aigc-plugins-repositories/artcraft-plugin/src/protocol/jpeg_inspection.ts": "5dc20a65aed1311dd05bccd70a2a610ac9380d2254d4ebf1ef2ba3d4eb48e865",
+    "full-aigc-plugins-repositories/artcraft-plugin/test/jpeg_artifact.test.ts": "7a9adaec1322adde4bdc90178e1b8b44bbfc83f348755ec50d8a89427b88fd46",
+    "full-aigc-plugins-repositories/artcraft-plugin/test/workflow_engine.test.ts": "6e3d4aea11e1f3c88aab3760a65822bebb95eaee1e79af39f724cd2c5e4d1c2a"
+  },
+  "independentDecoder": "Pillow 12.3.0; JPEG, PNG and PSD loaded; no production Pillow dependency",
+  "publication": "pending task 2.8; no existing release tag changed",
+  "excluded": [
+    "JPEG entropy decoding in marker inspector",
+    "EXIF orientation correctness",
+    "ICC fidelity",
+    "native CMYK fidelity",
+    "new immutable JPEG release",
+    "installed-host JPEG release verification",
+    "full V1",
+    "model dispatch",
+    "GUI",
+    "creative acceptance"
+  ]
+}

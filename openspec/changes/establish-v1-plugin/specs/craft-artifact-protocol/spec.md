@@ -10,6 +10,14 @@
 
 ArtCraft SHALL 维护 craft-artifact/v1 的唯一规范事实源；清单包含 assetId、version、sha256、bytes、mediaType、producerTaskId、sourceRefs、nativeProjectRef、renditions、dependencies、technicalMetadata、lossReportRef、evidenceRefs；依赖图仅在输入版本或影响输出的参数改变时失效。
 
+#### Scenario: AC-CP-002-JPEG 产品图的内容登记与尺寸核验
+
+- **WHEN** 独立技能首次使用 JPEG 素材，或公共素材声明 image/jpeg
+- **THEN** 按内容检查 SOI、段边界、SOF、SOS、扫描转义与 EOI，登记编码栅格 width、height、bitDepth=8、alpha=false；支持 8 位 SOF0、SOF1、SOF2 和 1／3／4 分量，文件上限 64 MiB
+- **AND** 非 JPEG 的 jpg/jpeg 文件、截断段、缺失扫描或 EOI、重复帧头、错误尺寸声明在领域启动前拒绝；其他编码过程与位深明确报告不支持
+- **AND** 原文件保持不变；原生导入器需要扩展名时，仅在项目所有权与修订绑定通过后生成摘要相同的 jpg 副本，并纳入便携交付
+- **AND** 标记结构检查不证明熵编码可解码、EXIF 方向已应用、ICC 保真或视觉质量；实际原生导入、工程重开和独立解码证据分别记录
+
 #### Scenario: AC-CP-002-P 合同条件满足
 
 - **WHEN** 请求满足本需求的来源、输入、状态和证据条件

@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+JPEG registration and dimension checks are an unpublished working-tree candidate. A copied-alone skill cold test passed with the existing public runtime dev.56; the candidate Node inspector independently verified the actual staged JPEG. New immutable publication and installed-host verification remain pending. [JPEG architecture](docs/ArtCraft-JPEG-Architecture.md).
+
 Plugin dev.57 / skills dev.40 / runtime dev.56 pins PNG registration and verification. Installed-host PNG verification passes; historical PCM WAV and candidate evidence retain their version scope. Complete V1/model/GUI/creative acceptance remains open.
 
 PNG runtime dev.56 is published from an immutable tag and the source dev.40 snapshot is pinned. Scope and remaining installed-host gates: [PNG architecture](docs/ArtCraft-PNG-Architecture.md).

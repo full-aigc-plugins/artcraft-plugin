@@ -268,3 +268,12 @@ test('incorrect PNG dimensions block all domain launches before workflow side ef
   const result=await f.engine.run(f.plan);assert.equal(result.state,'blocked');assert.match(result.nodes.preflight.error!,/image_metadata_mismatch/);assert.deepEqual(f.launches,[]);
  }finally{await f.cleanup();}
 });
+
+test('incorrect JPEG dimensions block all domain launches before workflow side effects',async()=>{
+ const f=await fixture();try{
+  const corpus=JSON.parse(await readFile(new URL('./fixtures/jpeg-images.json',import.meta.url),'utf8'));
+  const bytes=Buffer.from(corpus.images.progressive,'base64');await writeFile(join(f.root,'product.jpg'),bytes);
+  (f.plan.nodes[0] as any).externalInputs=[{root:f.root,artifact:{protocolVersion:'craft-artifact/v1',assetId:'product',version:'v1',sha256:sha(bytes),bytes:bytes.length,mediaType:'image/jpeg',producerTaskId:'provided-product',sourceRefs:[],nativeProjectRef:null,renditions:[],dependencies:[],technicalMetadata:{width:8,height:5},lossReportRef:null,evidenceRefs:[],location:'product.jpg'}}];
+  const result=await f.engine.run(f.plan);assert.equal(result.state,'blocked');assert.match(result.nodes.preflight.error!,/image_metadata_mismatch/);assert.deepEqual(f.launches,[]);
+ }finally{await f.cleanup();}
+});

@@ -6,6 +6,7 @@ import { createHash } from 'node:crypto';
 import { isDeepStrictEqual } from 'node:util';
 import { inspectPcmWav } from './wav_inspection.ts';
 import { inspectPng } from './png_inspection.ts';
+import { inspectJpeg } from './jpeg_inspection.ts';
 
 type Json = null | boolean | number | string | Json[] | { [key: string]: Json };
 type Schema = { [key: string]: any };
@@ -146,8 +147,8 @@ export async function verifyArtifact(value: unknown, root: string): Promise<Reco
     try { JSON.parse(content.toString('utf8')); } catch { throw new Error('json_artifact_invalid'); }
   }
   if (!matchesMime(prefix, artifact.mediaType)) throw new Error('media_type_mismatch');
-  if(artifact.mediaType==='image/png'){
-    const facts=await inspectPng(target,bytes),declared=artifact.technicalMetadata;
+  if(artifact.mediaType==='image/png' || artifact.mediaType==='image/jpeg'){
+    const facts=artifact.mediaType==='image/png' ? await inspectPng(target,bytes) : await inspectJpeg(target,bytes),declared=artifact.technicalMetadata;
     const current=await stat(target);
     if(after.ino!==current.ino||after.size!==current.size||after.mtimeMs!==current.mtimeMs)throw new Error('artifact_changed_during_read');
     for(const field of ['width','height','bitDepth','alpha'] as const)if(declared[field]!==undefined && declared[field]!==facts[field])throw new Error('image_metadata_mismatch');

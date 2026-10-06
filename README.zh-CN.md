@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+JPEG 内容登记与尺寸核验仍为未发布的工作树候选。单技能复制、空运行时首次使用既有公开 dev.56 通过；候选 Node 另外核验实际暂存 JPEG。新不可变发布和安装后宿主复验仍未完成。[JPEG 架构](docs/ArtCraft-JPEG-Architecture.zh_CN.md)。
+
 插件 dev.57／技能源 dev.40／运行时 dev.56 固定 PNG 内容登记与核验。安装后 PNG 宿主复验通过；历史 PCM WAV 与候选证据保持原发行范围，完整首版／模型／GUI／创作验收仍开放。
 
 PNG 运行时 dev.56 已由不可变标签发布，技能源 dev.40 快照已固定；范围和未完成安装后门禁见 [PNG 架构](docs/ArtCraft-PNG-Architecture.zh_CN.md)。
