@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+The four independent domain plugins passed fixed-install protocol recovery acceptance; see [evidence](docs/evidence/codex-protocol-fault-first-use-20261007.json). Art still pins its previous domain sources in runtime dev.71. Its bundle upgrade and mixed-scenario acceptance remain open under OpenSpec task 4.7.
+
 The current four domain plugin revisions pass their installed cold native revision samples together with Art dev.72 in isolated Codex: all58 skills are discovered and preserve digests. Art runtime and pinned domain bundles remain their established immutable releases; this does not claim arbitrary complete-command Art orchestration. [Evidence](docs/evidence/codex-complete-command-revision-first-use-20261007.json).
 
 Fixed current release first use passed: isolated Codex 0.153.4 discovers all 58 skills without loading errors; every installed skill independently cold-installs its public locked runtime (385.234 seconds); installed domain command samples and Art 1080p mixed revision/recovery/package checks pass. All installed skill digests remain unchanged; fixed CI and five-bundle rebuild pass. [Version-bound evidence](docs/evidence/codex-complete-command-first-use-20261007.json). Generic Skills CLI installation, full command/GUI and creative acceptance remain open.

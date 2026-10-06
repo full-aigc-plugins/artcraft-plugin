@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+四领域独立插件的协议故障修复已完成固定安装复验，见 [验收记录](docs/evidence/codex-protocol-fault-first-use-20261007.json)。Art当前固定运行时仍为dev.71旧领域捆绑包；升级和混合场景复验由OpenSpec任务4.7独立跟踪，尚未完成。
+
 四个领域插件的新返工版本与 Art dev.72 在隔离 Codex 中完成实际固定安装：全部58项技能发现、安装领域冷返工样例及摘要保全通过。Art运行时与领域捆绑包保持既有不可变版本，本证据不宣称 Art 自动编排任意完整命令。[证据](docs/evidence/codex-complete-command-revision-first-use-20261007.json)。
 
 当前固定发行首用通过：隔离 Codex 0.153.4 发现全部 58 项技能零加载错误；每项安装技能独立空运行时公开安装（385.234 秒）；安装后的领域新命令入口及 Art 1080p 混合返工／恢复／移动包检查通过。全部安装摘要保全，固定 CI 与五包重建通过。[版本绑定证据](docs/evidence/codex-complete-command-first-use-20261007.json)。通用 Skills CLI、全命令／GUI 与完整创作验收仍开放。
