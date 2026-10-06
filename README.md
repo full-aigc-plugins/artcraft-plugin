@@ -1,5 +1,11 @@
 # ArtCraft Agent Plugin
 
+All ten source-dev.48 standalone skills pass separate empty-runtime public runtime/domain installation and exact CLI version/help probes (105.229 seconds; zero skips), preserving every skill digest. [Evidence](docs/evidence/art48-ten-skills-cold-cli-20261007.json). Each skill creative scenario and fixed-host verification remain separately scoped.
+
+The independent source dev.48 vendored snapshot passed public cold first use: 1920×1080, 24 fps, five seconds, 120 independently decoded movie frames, four image-sequence segments, Logo consumer revisions, corruption recovery and a moved five-child package. [Evidence](docs/evidence/segmented-hd-vendor-first-use-20261007.json). This is native snapshot verification; current fixed-host installation remains pending.
+
+Local plugin candidate dev.72 pins independent skills dev.48 and runtime dev.71. The 1080p / 24 fps / five-second mixed workflow passed public cold-install verification; fixed host verification remains pending.
+
 Current runtime and source now include typed dynamic-sequence handoff. Fixed full-plugin dynamic repetition and all 58 cold CLI starts pass; see [architecture](docs/ArtCraft-Dynamic-Sequence-Architecture.md).
 
 Fixed JPEG release dev.59 / source dev.41 / runtime dev.58 passes isolated Codex discovery (five plugins, 58 skills, zero errors), installed copied-alone JPEG/PNG/PCM native delivery, ten Art cold CLI installations and all 58 installed digest checks. Progressive JPEG produces a reopened three-layer Photo project plus independently decoded PNG/PSD and a moved package. [Version-bound evidence](docs/evidence/codex-release59-jpeg-first-use-20261006.json). Full V1/model/GUI/creative acceptance remains open.
@@ -12,7 +18,7 @@ PNG runtime dev.56 is published from an immutable tag and the source dev.40 snap
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.71`; skill source: `0.1.0-dev.47`; runtime: `0.1.0-dev.68`. Photo source dev.10 provides maintained embedded-smart replacement. Four-domain candidate first use and dynamic regression pass; fixed installed smart acceptance remains open. Earlier evidence retains its version scope. Full V1 remains open. [Architecture](docs/ArtCraft-Smart-Mixed-Architecture.md).
+Current plugin: `0.1.0-dev.72`; skill source: `0.1.0-dev.48`; runtime: `0.1.0-dev.71`. Local fixed candidate includes the standalone HD segmented workflow. Current source snapshot and runtime are published; plugin publication and installed-host verification remain pending. Historical evidence retains its original version scope. Full V1 remains open.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
@@ -36,9 +42,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.71 |
+| Plugin ID / version | artcraft / 0.1.0-dev.72 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.47 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.48 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |

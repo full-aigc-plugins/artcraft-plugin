@@ -162,3 +162,18 @@ JPEG 固定运行时 dev.58 已发布；技能源 dev.41 锁定该制品，安�
 技能源 dev.46 固定运行时 dev.68 与 Film 技能源 dev.10。登记 Film 素材绑定可指定 `kind: "lut"`，只接受已登记的 `.cube`／`.3dl` 文件；由公开 `--lut-asset` 交接，非 Film 与未知类型在计划执行前拒绝。局部运动返工可保留已收集 LUT、字幕、音轨与上游产物。候选原生证据通过；本次新固定发行安装后验收仍待执行，不替代完整首版。
 
 Source dev.46 pins runtime dev.68 and Film source dev.10. Registered Film asset bindings may specify `kind: "lut"` for `.cube`/`.3dl`, handed off through public `--lut-asset`; other domains and unknown kinds are rejected before execution. Motion revisions preserve collected LUT, captions, audio and upstream results. Candidate native acceptance passes; new fixed installed-release acceptance is pending.
+
+## HD segmented brand campaign
+
+The `examples/segmented-hd-brand-campaign.json` fixture uses four native domains and five nodes: editable brand graphics, a poster, a 1920×1080 / 24 fps / five-second transparent intro, a captioned voice film, and an independent icon. Provide a five-second WAV and 1920×1080 PNG background as registered assets. The intro exports four bounded 32-frame segments; Film consumes the complete checkpoint. Native projects remain separate and editable. This fixture is a technical example; creative approval and arbitrary editorial operations remain separate.
+
+```bash
+python3 -I -B "$SKILL_DIR/scripts/workflow.py" \
+  "$SKILL_DIR/examples/segmented-hd-brand-campaign.json" \
+  --output /absolute/output/campaign \
+  --authorization brand-campaign \
+  --asset voice=/absolute/input/voice.wav \
+  --asset background=/absolute/input/background.png
+```
+
+`SKILL_DIR` is the actual loaded skill directory, including a plugin installation or `.agents/skills`; no fixed mount is assumed. Default installation uses the pinned public runtime/domain bundles. Repeating the same revision verifies outputs and reuses valid tasks; a changed Logo requires a new revision, which invalidates its consumers and preserves independent work. Do not edit existing deliveries or receipts to bypass revision identity.

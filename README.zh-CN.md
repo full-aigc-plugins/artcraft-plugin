@@ -1,5 +1,11 @@
 # ArtCraft Agent Plugin
 
+技能源 dev.48 的全部十项独立技能，分别在空运行时公开安装运行时／领域包，精确版本及帮助命令核验通过（105.229 秒，零跳过），技能摘要保全。[证据](docs/evidence/art48-ten-skills-cold-cli-20261007.json)。每项创作场景和固定宿主验证另行验收。
+
+独立技能源 dev.48 的 vendor 快照已通过公开冷首用：1920×1080／24 fps／五秒／120 帧成片独立解码、四段图片序列、Logo 依赖返工、坏帧恢复与五子工程移动包验证。[证据](docs/evidence/segmented-hd-vendor-first-use-20261007.json)。本轮是原生快照验证，当前固定宿主安装仍待完成。
+
+本地插件候选 dev.72 固定独立技能源 dev.48 与运行时 dev.71。1080p／24 fps／五秒混合流程公开冷安装验收已通过；固定宿主验收待完成。历史证据保留原版本范围。
+
 当前 runtime 与独立技能源已接入类型化动态序列；新版完整插件动态复验与全部 58 项 CLI 冷启动已通过。详见[架构](docs/ArtCraft-Dynamic-Sequence-Architecture.zh_CN.md)。
 
 历史固定 JPEG 发行 dev.59／技能源 dev.41／运行时 dev.58：隔离 Codex 发现五插件／58 技能／零错误；安装副本 JPEG、PNG、PCM 原生交付、十项 Art 冷安装及全部安装摘要保全通过。渐进 JPEG 交付重开的三层 Photo 工程及独立解码 PNG／PSD，迁移验包通过。[版本绑定证据](docs/evidence/codex-release59-jpeg-first-use-20261006.json)。完整首版／模型／GUI／创作验收仍开放。
@@ -36,9 +42,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.71 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.72 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.47 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.48 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
