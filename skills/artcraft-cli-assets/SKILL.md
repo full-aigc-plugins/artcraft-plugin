@@ -54,3 +54,5 @@ CLI argv 在 `--` 后，原生子命令必须放首位。安装参数放分隔�
 ## 动态透明序列交接
 
 混合任务需要透明动画、完整帧交接或 Logo 更换后的下游更新时，使用本技能[动态序列指南](references/dynamic-sequence.md)及 `examples/dynamic-brand-campaign.json`。按实际回执验证全部帧、时间基、原生引用和局部返工，不以首帧或普通 JSON 代替序列。
+
+保存后结果未知时，按本技能 `references/recovery.md` 核验 `failure.json`、原始暂存工程与停止证据；同一任务不重放，失败暂存不是成功交付。

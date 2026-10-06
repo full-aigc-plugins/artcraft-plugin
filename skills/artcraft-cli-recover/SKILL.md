@@ -52,3 +52,5 @@ CLI argv 在 `--` 后，原生子命令必须放首位。安装参数放分隔�
 需要通过既有 Video Factory 验证成片时，读取本技能 [公开验证交接](references/video-factory.md)。该适配保留 NOT_RUN，不替代创作审阅或原生工程。
 
 已停止失败的领域报告可通过 status 查询，读取本技能[恢复合同](references/recovery.md)；错误诊断不授权重放原任务。
+
+保存后结果未知时，按本技能 `references/recovery.md` 核验 `failure.json`、原始暂存工程与停止证据；同一任务不重放，失败暂存不是成功交付。
