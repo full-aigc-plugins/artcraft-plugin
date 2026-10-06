@@ -1,5 +1,5 @@
 /** 通过独立技能的公开 CLI 交接，禁止导入技能内部 Python 模块。 */
-import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, stat, realpath } from 'node:fs/promises';
 import { join, isAbsolute } from 'node:path';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -111,7 +111,12 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
   await mkdir(root,{recursive:true});
   await writeFile(planFile,JSON.stringify(plan),'utf8');
   const args=['-I','-B',script,planFile,'--output',delivery,'--runtime-home',locked.runtimeHome];
-  for(const asset of assets.filter(item=>!item.retained))args.push(asset.kind==='lut'?'--lut-asset':asset.input.artifact.mediaType===imageSequenceMime?'--sequence-asset':'--asset',asset.name+'='+join(asset.input.root,asset.input.artifact.location));
+  for(const asset of assets.filter(item=>!item.retained)){
+   const segmented=asset.input.artifact.mediaType===imageSequenceMime && /(^|\/)segments\.json$/.test(asset.input.artifact.location);
+   // 已登记输入仍由 prepare 再核验；规范化系统临时目录别名，保留段内反符号链接检查。
+   const sourcePath=join(asset.input.root,asset.input.artifact.location);
+   args.push(asset.kind==='lut'?'--lut-asset':asset.input.artifact.mediaType===imageSequenceMime?(segmented?'--segmented-sequence-asset':'--sequence-asset'):'--asset',asset.name+'='+(segmented?await realpath(sourcePath):sourcePath));
+  }
   if(source)args.push('--source',source.root);
   const ref=(location:string,sha256:string)=>({assetId:taskId+'-'+hash(location).slice(0,16),version:sha256,sha256,location});
   const artifact=async(location:string,sha256:string,mediaType:string,assetId:string)=>({
@@ -153,8 +158,14 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
     const dependencyRefs:ReturnType<typeof ref>[]=[];
     const sequenceRefs=async(location:string,digest:string)=>{
      const descriptor=await inspectImageSequence(delivery,location,digest);
+     const prefix=location.replace(/[^/]+$/,'');
+     for(const child of descriptor.segmentManifestRefs??[]){
+      const path=prefix+child.location;
+      if(manifest.files[path]!==child.sha256)throw new Error('skill_sequence_manifest_mismatch');
+      dependencyRefs.push(ref(path,child.sha256));
+     }
      for(const frame of descriptor.frames){
-      const path=location.slice(0,-'sequence.json'.length)+frame.location;
+      const path=prefix+frame.location;
       if(manifest.files[path]!==frame.sha256)throw new Error('skill_sequence_manifest_mismatch');
       dependencyRefs.push(ref(path,frame.sha256));
      }
@@ -166,7 +177,12 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
      if(replacements.length>1)throw new Error('skill_dependency_uncollected');
      const alias=replacements.length?replacements[0].params.asset:asset.name;
      const collected=manifest.assets?.[alias];
-     if(!collected || collected.sha256!==asset.input.artifact.sha256 || !safeLocation(collected.path))throw new Error('skill_dependency_uncollected');
+     const segmented=asset.input.artifact.mediaType===imageSequenceMime && /(^|\/)segments\.json$/.test(asset.input.artifact.location);
+     if(!collected || (segmented?collected.sourceSequenceSha256:collected.sha256)!==asset.input.artifact.sha256 || !safeLocation(collected.path))throw new Error('skill_dependency_uncollected');
+     if(segmented){
+      const normalized=await inspectImageSequence(delivery,collected.path,collected.sha256);
+      if(normalized.schema!=='filmcraft-collected-sequence/v1'||normalized.sourceSequenceSha256!==asset.input.artifact.sha256)throw new Error('skill_sequence_manifest_mismatch');
+     }
      await verifyArtifact(await artifact(collected.path,collected.sha256,'application/octet-stream',taskId),delivery);
      if(asset.kind==='lut' && collected.kind!=='lut')throw new Error('skill_dependency_uncollected');
      if(asset.input.artifact.mediaType===imageSequenceMime && collected.kind!=='image-sequence')throw new Error('skill_sequence_manifest_mismatch');

@@ -45,3 +45,5 @@ OpenSpec is the sole behavioral authority; this documentation provides explanati
 [Current host verification / 当前宿主验证](ArtCraft-Host-Verification-Architecture.md)
 
 - [Source-candidate asset handoff / 素材交接候选](ArtCraft-Vector-Assets-Architecture.md)
+
+- [Segmented animation candidate / 分段动画候选](ArtCraft-Segmented-Sequence-Architecture.md) · [中文](ArtCraft-Segmented-Sequence-Architecture.zh_CN.md)

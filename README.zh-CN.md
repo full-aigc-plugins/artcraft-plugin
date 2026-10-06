@@ -294,3 +294,7 @@ Vector 素材源码候选已接入登记输入和替换核验，真实 Vector �
 固定 Art 插件 dev.69／技能源 dev.46／runtime dev.68 已通过实际安装公开 LUT／运动首次使用、局部返工和参数失败纠正恢复（一项原生门禁，37.836 秒），十项 Art 独立冷启动（111.456 秒）、全部 58 安装摘要、公开发行附件逐文件、五包重建及四项标签 CI 通过。[版本证据](docs/evidence/codex-artcraft69-lut-motion-first-use-20261006.json)。完整首版、通用 Skills CLI、模型／GUI／创作验收仍开放。
 
 2026-10-06 固定智能对象混合验收：Art 插件 dev.70／技能源 dev.47／运行时 dev.68 与 Photo 插件 dev.11／技能源 dev.10／维护版 CLI 0.2.0-craft.1，通过安装后原生测试一项（64.957 秒）、十项 Art 独立冷启动、58 安装摘要保全、五固定包重建及四项对应提交 CI。Logo 替换保留海报智能对象变换、蒙版及非目标图层；受影响 Logo／海报／片头／影片更新，独立任务复用，成片十二帧独立解码、坏帧恢复及五子工程移动验包通过。[证据](docs/evidence/codex-artcraft70-smart-mixed-first-use-20261006.json)。完整首版、通用 Skills CLI、GUI／模型调度、持久外部链接及外部 PSD 保真仍开放。
+
+## 分段动画联调候选
+
+当前候选适配器通过 Film 公开工作流消费 Effect 完整分段，保留来源和逐帧证据。它不属于既有 dev.70 固定发布；固定发行、HD 长渲染和安装后冷使用仍开放。[架构与验收边界](docs/ArtCraft-Segmented-Sequence-Architecture.zh_CN.md)。

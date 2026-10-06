@@ -1,0 +1,112 @@
+{
+  "schema": "artcraft-segment-adapter-candidate/v1",
+  "result": "PASS",
+  "driverSha256": "68430f965b772480f07498c4914446205132e2e0e6ad24afdeef06651cc365c9",
+  "runtimeIdentities": {
+    "effectcraft": {
+      "pluginId": "effectcraft",
+      "pluginVersion": "0.1.0",
+      "cliVersion": "0.2.0",
+      "sha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+      "mode": "headless",
+      "capabilitySnapshotSha256": "c97a422f2de6da0e8f47538a0f27c77848b2bf3b759a5e02f8d965d233bbdef3"
+    },
+    "filmcraft": {
+      "pluginId": "filmcraft",
+      "pluginVersion": "0.1.0",
+      "cliVersion": "0.2.0-craft.2",
+      "sha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433",
+      "mode": "headless",
+      "capabilitySnapshotSha256": "b17f2edf61810750571bb692e74822dd8f21cba0b82ad853cdd551c9dfcd7839"
+    }
+  },
+  "sourceSkills": {
+    "effectcraft": {
+      "SKILL.md": "1cb7d64bc76c175ac366ba67ca59c875463f21774ac4f9590d03ea45a8b7b086",
+      "examples/brand-intro.json": "8d786356a69ba838cb9015175494e2d44c7ccd05e6cf6a7ced5d8395bba8c5f1",
+      "examples/layer-mask.json": "61efc2abc7274b45224659ab4aae7e847486af3f3660161a03b83b978ec7a8bc",
+      "references/commands.json": "07066739391ebce2b6f03c8aa5e097bbce228748f759688b46d2fb35b0ba96cb",
+      "references/exchange-loss.md": "eee665f62b77274ca8ce0efc4117012ade85978905cdfd40ab488af64297b8ae",
+      "references/installation-concurrency.md": "69067acebcd47f1924a8d6aa9d8a4ce6f44ad0756d44888a21eb224bcdb1c215",
+      "references/scenario.md": "97cc12674477f067b622513dd89fc833f0ad7ecf1c763a69f46a8071ea68785c",
+      "references/segmented-render.md": "983aa63835842d060ea767340bf261070b1b1d4fe09c4c8ca989d633fbdf948c",
+      "references/workflow.md": "226a69906fdc3eeccec4a6d995c41c961226c76bf9d3c4a7a3d56c4162e13912",
+      "scripts/bootstrap.py": "73eadc05f3cbb61738a4720997c829c1de1dd82d356244627d38b37e2c696f00",
+      "scripts/cli.py": "14388135cb9054d411a805f194e9e68f355bd54dcc1202265cab4348afd45e65",
+      "scripts/exchange_loss.py": "07f0ea82b8bad5062cdfa72e9bdd1b9088e49fe8837b4c856d1cecb1df6d561d",
+      "scripts/image_sequence.py": "beed6c1450c5e1742a5d3a4ef77e195876870e0594dc3552b00e3329764a3c24",
+      "scripts/mcp_session.py": "2f1e6de76d1fe12917933f4967a40c827ba80994a8441e47cb68f212b00160a4",
+      "scripts/parameter-contract.json": "bd2355a8f76f25efa6bab0b6792a4bac377ca6be0ed922f0f1cb42a5dee825d9",
+      "scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+      "scripts/runtime.lock.json": "c3dc4d1443e9b74d0891904d7ec95167375cfb9a8457bfc4faa89208280d465d",
+      "scripts/segmented_sequence.py": "9ad24b3202df84ec4d7d9c5c45b35fd472e8dd04570524e4d7fe206ce04ad7ed",
+      "scripts/workflow.py": "539cb0fef3b5c278fc71e3662e01241c382f1c1a99f268ed21caef07de503019"
+    },
+    "filmcraft": {
+      "SKILL.md": "2c063a13cac82c99e7495870d99dc06080fb6d02a5aa0efe2495a53973b7d2f8",
+      "examples/chinese-short-film.json": "a98445ad963ffea38cfb7781c91ffbbd3f8bebea4bb77456ef0167fda324a375",
+      "examples/motion-lut-film.json": "ca93a47d90b63628dbfade59b6ca61539f20ab8b7591cb6cff01fffef86a5d6b",
+      "examples/short-film.json": "01ceb137983bde7be8c1a9eac9fbdce9f4f49ec58c59b9ace8acedd7307c0223",
+      "references/commands.json": "2a2205efc4d4572e66fa52d9ce069b1f4015a3d83b2928670385d5944e7bf4ea",
+      "references/exchange-loss.md": "eee665f62b77274ca8ce0efc4117012ade85978905cdfd40ab488af64297b8ae",
+      "references/installation-concurrency.md": "69067acebcd47f1924a8d6aa9d8a4ce6f44ad0756d44888a21eb224bcdb1c215",
+      "references/scenario.md": "c37f43430d99dffed1200efc60684a5b8b67beb65902dbf3ab61b7b8b16fe1e3",
+      "references/segmented-assets.md": "df3fc7c5512978d393768d0a9b97564bf99d49b2fbdbf3784687a2cbb78c0304",
+      "references/workflow.md": "5e30810493a9a40aa2c0548c87e1fa535cfdbd0b1a52878e7ab2a4d5c26fe3cc",
+      "scripts/bootstrap.py": "e1198acce81309edef078cea2dbb80c392bff855cd35a699a939bb6c6592d7ba",
+      "scripts/cli.py": "716f8ed89db05db3fa8a8989c51bbf985e56e8ba81b6ddff92d3747c13d90e9c",
+      "scripts/exchange_loss.py": "374d7869082055a45d4c3eb60185dd97416b2b2428ddd562be5b062c0ced9bee",
+      "scripts/mcp_session.py": "2f1e6de76d1fe12917933f4967a40c827ba80994a8441e47cb68f212b00160a4",
+      "scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+      "scripts/runtime.lock.json": "d479a3a39836966a1860b8cf18af5e714c948a3cae959be53a9bca00a61de8be",
+      "scripts/sequence_assets.py": "84fed0cab46d0b20be0aa1b20a188f844f86a3edb1e215c4aa46e089fb9f85be",
+      "scripts/workflow.py": "4af6cb880875d4d1c2c507eb97b91e0cf70562dcddd716ad75923ee9a8efc82e"
+    }
+  },
+  "sourceFilesPreserved": true,
+  "frameCount": 12,
+  "segmentCount": 3,
+  "independentDecodedFrames": 12,
+  "compositePixelChecks": 6,
+  "movedFilmTextRevision": true,
+  "backgroundAndInitialFramePreserved": true,
+  "corruptSegmentBlockedAndRestored": true,
+  "restoredTaskIdsReused": true,
+  "budgetUnchangedOnRestore": true,
+  "scope": "actual candidate Art runtime adapters and current independent domain source; existing verified local native runtime",
+  "excluded": [
+    "public cold Art installation",
+    "full HD long render",
+    "immutable new plugin",
+    "full V1",
+    "GUI/model/creative acceptance"
+  ],
+  "date": "2026-10-07",
+  "nativeTest": {
+    "total": 1,
+    "passed": 1,
+    "skipped": 0,
+    "durationMs": 16820.152375
+  },
+  "artDefaultTests": {
+    "total": 180,
+    "passed": 170,
+    "skipped": 10
+  },
+  "effectDefaultTests": {
+    "total": 69,
+    "passed": 49,
+    "skipped": 20
+  },
+  "publicExportPredecessor": "committed predecessor rejects png-segmented with invalid_export",
+  "sourceHashes": {
+    "src/adapters/public_skill.ts": "f6c4b87151bd279de285992cdf36ee08624c6d9d9974f9053450d7728bc02256",
+    "src/protocol/contracts.ts": "8690d2b4cec0194e3de17fa4b5bca2a2bb8500f61a57e1d0c29272d990c78c69",
+    "src/protocol/image_sequence.ts": "e63b178aa61abf0e0bee6d407bf747acf947b880352138be70b2c26e4a3bcc56",
+    "test/segmented_sequence.test.ts": "778c37dc24ac48d93ac60098a50cd4946498cf70ae8b2262e3a2e55e0f474ec3",
+    "test/segmented_sequence_native.test.ts": "68430f965b772480f07498c4914446205132e2e0e6ad24afdeef06651cc365c9"
+  },
+  "effectTestHashes": {
+    "tests/test_workflow.py": "34771bc3f8797ad721a80ea0796424ad6f2ff9c375a3be37d32f341605678fa7"
+  }
+}

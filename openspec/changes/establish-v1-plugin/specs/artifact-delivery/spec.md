@@ -63,3 +63,11 @@
 #### Scenario: Variant evidence is consistent before handoff
 - **WHEN** a new, cached or dependent PhotoCraft delivery declares variant geometry
 - **THEN** ArtCraft SHALL verify its layout record against the declared target and safe area, saved native layer identities/bounds and the hash-bound native resize operation receipts before reporting readiness
+
+#### Scenario: AC-AR-001-SEGMENT 分段序列类型与收集来源
+
+- **WHEN** 领域输出提供摘要绑定的分段生产检查点或 Film 连续收集清单
+- **THEN** Art SHALL 在原有图像序列媒体类型下按明确 schema 区分原 v1、分段生产与领域收集，逐段验证连续有理帧范围、实际像素和资源边界；禁止仅提高旧 v1 限额
+- **AND** Film 适配器显式转交分段输入，核对转换后的新摘要与原 sourceSequenceSha256，技术元数据来自实际帧；交付证据包含各段清单及帧，不丢失非目标依赖
+- **AND** 坏帧、缺段、重叠、错位、虚假元数据或范围拒绝；恢复后不得重复执行已验证任务或重复收费
+- **AND** 固定发布、完整长片头及首次技能安装须另行验收，不以静态协议测试替代

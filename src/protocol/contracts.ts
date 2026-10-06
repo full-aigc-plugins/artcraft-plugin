@@ -182,7 +182,7 @@ export async function verifyArtifact(value: unknown, root: string): Promise<Reco
     if(artifact.mediaType===imageSequenceMime){
       const descriptor=await inspectImageSequence(root,artifact.location,artifact.sha256);
       for(const frame of descriptor.frames){
-        const location=artifact.location.slice(0,-'sequence.json'.length)+frame.location;
+        const location=artifact.location.replace(/[^/]+$/,'')+frame.location;
         if(!report.outputs.some((output:any)=>output.location===location&&output.sha256===frame.sha256&&output.format==='png'))throw new Error('loss_report_output_mismatch');
       }
     }else if(artifact.location!==report.native.location && !report.outputs.some((output:any)=>output.location===artifact.location && output.sha256===artifact.sha256))throw new Error('loss_report_output_mismatch');
