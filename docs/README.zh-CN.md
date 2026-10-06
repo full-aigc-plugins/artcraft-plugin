@@ -45,3 +45,5 @@ OpenSpec 是唯一行为事实源；本目录是解释与证据视图。
 [Current host verification / 当前宿主验证](ArtCraft-Host-Verification-Architecture.zh_CN.md)
 
 - [Source-candidate asset handoff / 素材交接候选](ArtCraft-Vector-Assets-Architecture.zh_CN.md)
+
+Art HD 源码候选通过五秒 1080p 分段编排、移动文字返工及损坏恢复；固定安装验收待完成。[架构与证据](ArtCraft-Segmented-Sequence-Architecture.zh_CN.md)。

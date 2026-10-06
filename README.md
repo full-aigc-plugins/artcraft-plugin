@@ -298,3 +298,5 @@ Fixed smart mixed acceptance (2026-10-06): Art plugin dev.70 / source dev.47 / r
 ## Segmented animation integration candidate
 
 Current candidate adapters consume verified Effect segments through public Film workflows, preserve segment provenance and validate every frame. This is separate from released dev.70; fixed publication, HD long rendering and installed cold use remain open. [Architecture](docs/ArtCraft-Segmented-Sequence-Architecture.md).
+
+Art HD source candidate passes five-second 1080p segmented orchestration, moved text revision and corruption recovery; immutable installed acceptance remains pending. [Architecture and evidence](docs/ArtCraft-Segmented-Sequence-Architecture.md).

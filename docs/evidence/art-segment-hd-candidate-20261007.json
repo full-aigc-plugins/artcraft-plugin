@@ -1,0 +1,145 @@
+{
+  "schema": "artcraft-segment-hd-adapter-candidate/v1",
+  "result": "PASS",
+  "driverSha256": "2a75a2fcc0d9f5095512739a40ac4c11aaf20cf1422e4dcc03f27477026c497e",
+  "runtimeIdentities": {
+    "effectcraft": {
+      "pluginId": "effectcraft",
+      "pluginVersion": "0.1.0",
+      "cliVersion": "0.2.0",
+      "sha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+      "mode": "headless",
+      "capabilitySnapshotSha256": "e7cb58be694a9dc5a12215162a7a655d987aca1a7fce733a561317638b3d5a85"
+    },
+    "filmcraft": {
+      "pluginId": "filmcraft",
+      "pluginVersion": "0.1.0",
+      "cliVersion": "0.2.0-craft.2",
+      "sha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433",
+      "mode": "headless",
+      "capabilitySnapshotSha256": "02240c780bb4a41a7efc33402f383195c092782b9f3dab680f163f055b5861fd"
+    }
+  },
+  "sourceSkills": {
+    "effectcraft": {
+      "SKILL.md": "1cb7d64bc76c175ac366ba67ca59c875463f21774ac4f9590d03ea45a8b7b086",
+      "examples/brand-intro.json": "8d786356a69ba838cb9015175494e2d44c7ccd05e6cf6a7ced5d8395bba8c5f1",
+      "examples/layer-mask.json": "61efc2abc7274b45224659ab4aae7e847486af3f3660161a03b83b978ec7a8bc",
+      "references/commands.json": "07066739391ebce2b6f03c8aa5e097bbce228748f759688b46d2fb35b0ba96cb",
+      "references/exchange-loss.md": "eee665f62b77274ca8ce0efc4117012ade85978905cdfd40ab488af64297b8ae",
+      "references/installation-concurrency.md": "69067acebcd47f1924a8d6aa9d8a4ce6f44ad0756d44888a21eb224bcdb1c215",
+      "references/scenario.md": "97cc12674477f067b622513dd89fc833f0ad7ecf1c763a69f46a8071ea68785c",
+      "references/segmented-render.md": "983aa63835842d060ea767340bf261070b1b1d4fe09c4c8ca989d633fbdf948c",
+      "references/workflow.md": "226a69906fdc3eeccec4a6d995c41c961226c76bf9d3c4a7a3d56c4162e13912",
+      "scripts/bootstrap.py": "73eadc05f3cbb61738a4720997c829c1de1dd82d356244627d38b37e2c696f00",
+      "scripts/cli.py": "14388135cb9054d411a805f194e9e68f355bd54dcc1202265cab4348afd45e65",
+      "scripts/exchange_loss.py": "07f0ea82b8bad5062cdfa72e9bdd1b9088e49fe8837b4c856d1cecb1df6d561d",
+      "scripts/image_sequence.py": "f74f751e42356495d624848e5fd6f3c06dc0f5eac92c905e7bb90a13f2430bef",
+      "scripts/mcp_session.py": "2f1e6de76d1fe12917933f4967a40c827ba80994a8441e47cb68f212b00160a4",
+      "scripts/parameter-contract.json": "bd2355a8f76f25efa6bab0b6792a4bac377ca6be0ed922f0f1cb42a5dee825d9",
+      "scripts/png_inspection.py": "0e3c50907c66c6dcc45256d045920da346ad77892e47401de3103c8f6232938d",
+      "scripts/runtime.lock.json": "c3dc4d1443e9b74d0891904d7ec95167375cfb9a8457bfc4faa89208280d465d",
+      "scripts/segmented_sequence.py": "9ad24b3202df84ec4d7d9c5c45b35fd472e8dd04570524e4d7fe206ce04ad7ed",
+      "scripts/workflow.py": "539cb0fef3b5c278fc71e3662e01241c382f1c1a99f268ed21caef07de503019"
+    },
+    "filmcraft": {
+      "SKILL.md": "2c063a13cac82c99e7495870d99dc06080fb6d02a5aa0efe2495a53973b7d2f8",
+      "examples/chinese-short-film.json": "a98445ad963ffea38cfb7781c91ffbbd3f8bebea4bb77456ef0167fda324a375",
+      "examples/motion-lut-film.json": "ca93a47d90b63628dbfade59b6ca61539f20ab8b7591cb6cff01fffef86a5d6b",
+      "examples/short-film.json": "01ceb137983bde7be8c1a9eac9fbdce9f4f49ec58c59b9ace8acedd7307c0223",
+      "references/commands.json": "2a2205efc4d4572e66fa52d9ce069b1f4015a3d83b2928670385d5944e7bf4ea",
+      "references/exchange-loss.md": "eee665f62b77274ca8ce0efc4117012ade85978905cdfd40ab488af64297b8ae",
+      "references/installation-concurrency.md": "69067acebcd47f1924a8d6aa9d8a4ce6f44ad0756d44888a21eb224bcdb1c215",
+      "references/scenario.md": "c37f43430d99dffed1200efc60684a5b8b67beb65902dbf3ab61b7b8b16fe1e3",
+      "references/segmented-assets.md": "df3fc7c5512978d393768d0a9b97564bf99d49b2fbdbf3784687a2cbb78c0304",
+      "references/workflow.md": "5e30810493a9a40aa2c0548c87e1fa535cfdbd0b1a52878e7ab2a4d5c26fe3cc",
+      "scripts/bootstrap.py": "e1198acce81309edef078cea2dbb80c392bff855cd35a699a939bb6c6592d7ba",
+      "scripts/cli.py": "716f8ed89db05db3fa8a8989c51bbf985e56e8ba81b6ddff92d3747c13d90e9c",
+      "scripts/exchange_loss.py": "374d7869082055a45d4c3eb60185dd97416b2b2428ddd562be5b062c0ced9bee",
+      "scripts/mcp_session.py": "2f1e6de76d1fe12917933f4967a40c827ba80994a8441e47cb68f212b00160a4",
+      "scripts/png_inspection.py": "0e3c50907c66c6dcc45256d045920da346ad77892e47401de3103c8f6232938d",
+      "scripts/runtime.lock.json": "d479a3a39836966a1860b8cf18af5e714c948a3cae959be53a9bca00a61de8be",
+      "scripts/sequence_assets.py": "e9669276f0e98b178cc0c5e3788c3b114091c1054c5bd298c6c7c16fd45e708e",
+      "scripts/workflow.py": "4af6cb880875d4d1c2c507eb97b91e0cf70562dcddd716ad75923ee9a8efc82e"
+    }
+  },
+  "sourceFilesPreserved": true,
+  "width": 1920,
+  "height": 1080,
+  "fps": 24,
+  "seconds": 5,
+  "frameCount": 120,
+  "segmentCount": 4,
+  "independentDecodedFrames": 120,
+  "independentSourceFrames": 120,
+  "animatedTitlePixelVerified": true,
+  "compositePixelChecks": 8,
+  "independentVideoProbe": {
+    "width": 1920,
+    "height": 1080,
+    "avg_frame_rate": "24/1",
+    "duration": "5.000000",
+    "nb_read_frames": "120"
+  },
+  "movedFilmTextRevision": true,
+  "backgroundAndInitialFramePreserved": true,
+  "corruptSegmentBlockedAndRestored": true,
+  "restoredTaskIdsReused": true,
+  "budgetUnchangedOnRestore": true,
+  "scope": "actual candidate Art HD runtime adapters and current independent domain source; existing verified local native runtime",
+  "excluded": [
+    "public cold Art installation",
+    "immutable new plugin",
+    "full V1",
+    "GUI/model/creative acceptance"
+  ],
+  "implementationFiles": {
+    "src/adapters/design_source_inspection.ts": "5fdf1bd17537a2dc328dfa293b3bf86b144eede3f3e176e92beae3d66e64c3fa",
+    "src/adapters/effect_export_probe.ts": "1e0569d15146913c32e948922a980d4f18e4e4bcced22b2b47ffe80fd4b873f5",
+    "src/adapters/film_source_inspection.ts": "6d6c2b0323b5e0ec510d08e894b4d807fe8106de55d2b7e32ea4bf0e9f8d14ed",
+    "src/adapters/public_skill.ts": "f6c4b87151bd279de285992cdf36ee08624c6d9d9974f9053450d7728bc02256",
+    "src/adapters/video_factory.ts": "1a5bf385baa46d06e1ce451b05d42707b0b67071584bf1239d2764d497a41e74",
+    "src/adapters/video_factory_driver.ts": "c0887a85adbf3eb119c2ac45d38e4f8de1d8f886c86ac8f6b2d3a9f9d817ce9d",
+    "src/artifacts/project_package.ts": "f57104c4a71e27f2a17b54a895c3c44eaff5c2eaa1dc0c740f7556325e5d1dd6",
+    "src/cli.ts": "6a832c2bbbe41550a20e9f29b95f11a6ce8a553f31a09f91c10c44407506796b",
+    "src/harness/budget.ts": "a8a41bc4d4f7dad1103ac674cd71ef3d18449ab6206fc414c9287b45634ebf79",
+    "src/harness/execution_worker.ts": "1500ea209189c22ef69ad80ceee94286a334445c26efad53cd0c7bf5485284da",
+    "src/harness/local_runner.ts": "d2e87c2b3d14d331b748598c4c4e5c9c9570116df19777eccec65133dedb1ca5",
+    "src/harness/native_diagnostics.ts": "3aaa72b67880594c3844a91a0e12102ed464028e0f15a1c97fb427e942b76902",
+    "src/harness/process_group.ts": "07786e43122e07b8d5cf3eacd37b7e68df6e7b9d9cfd1ad55bf4c0a38514f883",
+    "src/harness/task_ledger.ts": "fbd079ade17a3ad1251b1a5ac515e116dc56e7fc19ab457f2a743d659724e9a1",
+    "src/planning/film_duration.ts": "e25a1ec1d2eac5bc2f7a64e45bb78766d79d55a68af9bae3b133ce3dc2b9a85f",
+    "src/planning/native_brief_output.ts": "876ddcf956cc130ed932543ebe6d4f9c2623bb53e230b518a39414a03da3eaac",
+    "src/planning/photo_variant_output.ts": "225ee0e64cc2bf318cca1f9dcd0804dc3da53f99c14e910e8d64e2b2a6bd1bd6",
+    "src/planning/project_brief.ts": "c7c23ebb193baa41024cd3f6ba78eb9a83f55d1b3d6390b12c1a0b643c7cfd06",
+    "src/planning/workflow_engine.ts": "10764db5d32e99a4a4653e4f8c1ccc25ce1be265d54caa2b6b3ffd21116e8bf8",
+    "src/protocol/contracts.ts": "8690d2b4cec0194e3de17fa4b5bca2a2bb8500f61a57e1d0c29272d990c78c69",
+    "src/protocol/dependency_graph.ts": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43",
+    "src/protocol/image_sequence.ts": "e63b178aa61abf0e0bee6d407bf747acf947b880352138be70b2c26e4a3bcc56",
+    "src/protocol/jpeg_inspection.ts": "5dc20a65aed1311dd05bccd70a2a610ac9380d2254d4ebf1ef2ba3d4eb48e865",
+    "src/protocol/png_inspection.ts": "86b6d604ca3660cf2bd76fab96a266e06406bd9269e1cfa2e76e7cff0ea22265",
+    "src/protocol/wav_inspection.ts": "6ec1968f2c4a52f43ea4129ad6334158e696f9eebef981477cff803ad642e645"
+  },
+  "date": "2026-10-07",
+  "nativeTest": {
+    "passed": 1,
+    "failed": 0,
+    "durationSeconds": 189.238
+  },
+  "defaultSuite": {
+    "total": 183,
+    "passed": 172,
+    "skipped": 11
+  },
+  "filterAndSequenceRegression": {
+    "passed": 20,
+    "failed": 0
+  },
+  "singleFramePerformance": {
+    "oldSeconds": 0.044940125000000004,
+    "newSeconds": 0.023536874999999995,
+    "sameRgbaSha256": "436b66785a16dd4ec76acb15b519f10d1eba8fd46b1634c56d931090339323e3",
+    "scope": "one native 1080p frame; not general throughput"
+  },
+  "firstAttempt": "test oracle used path instead of location; not implementation failure or acceptance"
+}

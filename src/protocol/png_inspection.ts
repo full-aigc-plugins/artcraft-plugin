@@ -75,12 +75,25 @@ export async function inspectPng(path:string,size:number,rgbaPixels=false):Promi
   const paeth=(a:number,b:number,c:number)=>{const p=a+b-c,pa=Math.abs(p-a),pb=Math.abs(p-b),pc=Math.abs(p-c);return pa<=pb&&pa<=pc?a:pb<=pc?b:c;};
   for(let row=0;row<height;row++){
    const start=row*(stride+1),filter=scan![start],pixels=Buffer.alloc(stride);
-   for(let column=0;column<stride;column++){
-    const left=column>=4?pixels[column-4]:0,up=previous[column],upperLeft=column>=4?previous[column-4]:0;
-    const prediction=[0,left,up,Math.floor((left+up)/2),paeth(left,up,upperLeft)][filter];
-    pixels[column]=(scan![start+1+column]+prediction)&255;
-    if(column%4===3){minimum=Math.min(minimum,pixels[column]);maximum=Math.max(maximum,pixels[column]);}
+   // 每行只计算当前滤波器；五种预测器与模 256 语义保持不变。
+   scan!.copy(pixels,0,start+1,start+1+stride);
+   switch(filter){
+    case 0:break;
+    case 1:
+     for(let column=4;column<stride;column++)pixels[column]=(pixels[column]+pixels[column-4])&255;
+     break;
+    case 2:
+     for(let column=0;column<stride;column++)pixels[column]=(pixels[column]+previous[column])&255;
+     break;
+    case 3:
+     for(let column=0;column<stride;column++)pixels[column]=(pixels[column]+Math.floor(((column>=4?pixels[column-4]:0)+previous[column])/2))&255;
+     break;
+    case 4:
+     for(let column=0;column<stride;column++)pixels[column]=(pixels[column]+paeth(column>=4?pixels[column-4]:0,previous[column],column>=4?previous[column-4]:0))&255;
+     break;
+    default:invalid();
    }
+   for(let column=3;column<stride;column+=4){minimum=Math.min(minimum,pixels[column]);maximum=Math.max(maximum,pixels[column]);}
    digest.update(pixels);previous=pixels;
   }
   return {width,height,bitDepth:depth,alpha:true,rgbaSha256:digest.digest('hex'),alphaExtrema:[minimum,maximum],encodedSha256:createHash('sha256').update(data).digest('hex')};

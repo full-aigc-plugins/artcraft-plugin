@@ -42,3 +42,11 @@ Reproduction: run `node --test test/segmented_sequence.test.ts` for protocol bou
 [Domain HD evidence](evidence/effect-film-segment-hd-candidate-20261007.json) now proves two copied-alone source skills completing default cold native installation, a five-second 1080p / 24 fps sequence and full 120-frame Film export decode, including an animated title. This does not prove installed Art HD.
 
 [Current-source Art regression](evidence/art-segment-fast-rgba-candidate-20261007.json) passes one native case in 5.905 seconds with the optimized domain decoder: twelve frames, moved-project selective text revision, corruption refusal/restoration, preserved source files and unchanged restoration budget. Task 6.47 remains open for immutable publication and installed HD acceptance.
+
+## Art HD source acceptance
+
+[Art HD source evidence](evidence/art-segment-hd-candidate-20261007.json) passes one native case in 189.238 seconds: four segments / 120 frames at 1920×1080 / 24 fps / five seconds. Independent Pillow verifies every source pixel digest and alpha extrema; ffprobe and full video decoding verify the output and an animated title. The same case moves the Film package, revises intro text, preserves the original delivery and background / initial transparent frame, refuses a corrupt segment and restores original tasks without additional budget.
+
+Art PNG decoding now computes only the selected filter per row, retaining full CRC, bounded decompression, pixel hashes and alpha checks. Independent multirow fixtures cover all five filters, wrapping and prior-row dependencies. Twenty targeted tests and the default suite (172 pass / 11 conditional skips) pass. One native frame changed from 0.04494 to 0.02354 seconds with identical pixel facts; this is not a general throughput guarantee. The initial test-oracle field-name error was corrected before successful acceptance.
+
+Task 6.48 closes current-source acceptance only. Evidence binds all Art implementation files, the driver and domain skills. Earlier twelve-frame evidence stays historical. Task 6.47 remains open for immutable runtime / skill / plugin publication, actual installed cold first use, installation digest preservation and installed HD mixed acceptance. Model dispatch, GUI, creative and full V1 acceptance remain excluded.

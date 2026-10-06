@@ -298,3 +298,5 @@ Vector 素材源码候选已接入登记输入和替换核验，真实 Vector �
 ## 分段动画联调候选
 
 当前候选适配器通过 Film 公开工作流消费 Effect 完整分段，保留来源和逐帧证据。它不属于既有 dev.70 固定发布；固定发行、HD 长渲染和安装后冷使用仍开放。[架构与验收边界](docs/ArtCraft-Segmented-Sequence-Architecture.zh_CN.md)。
+
+Art HD 源码候选通过五秒 1080p 分段编排、移动文字返工及损坏恢复；固定安装验收待完成。[架构与证据](docs/ArtCraft-Segmented-Sequence-Architecture.zh_CN.md)。

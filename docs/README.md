@@ -47,3 +47,5 @@ OpenSpec is the sole behavioral authority; this documentation provides explanati
 - [Source-candidate asset handoff / 素材交接候选](ArtCraft-Vector-Assets-Architecture.md)
 
 - [Segmented animation candidate / 分段动画候选](ArtCraft-Segmented-Sequence-Architecture.md) · [中文](ArtCraft-Segmented-Sequence-Architecture.zh_CN.md)
+
+Art HD source candidate passes five-second 1080p segmented orchestration, moved text revision and corruption recovery; immutable installed acceptance remains pending. [Architecture and evidence](ArtCraft-Segmented-Sequence-Architecture.md).
