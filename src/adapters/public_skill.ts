@@ -74,21 +74,25 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
   };
   await checkSource();
   const names=new Set<string>();
-  const assets:{name:string;input:ArtifactInput;retained:boolean}[]=[];
+  const assets:{name:string;input:ArtifactInput;retained:boolean;kind?:'lut'}[]=[];
   for(const binding of payload.assetBindings){
-   if(Object.keys(binding).some(key=>!['name','assetId','retained'].includes(key)) || (binding.retained!==undefined && typeof binding.retained!=='boolean') || !/^[a-zA-Z][a-zA-Z0-9_-]{0,63}$/.test(binding.name) || names.has(binding.name))throw new Error('skill_asset_binding_invalid');
+   if(Object.keys(binding).some(key=>!['name','assetId','retained','kind'].includes(key)) || (binding.retained!==undefined && typeof binding.retained!=='boolean') || (binding.kind!==undefined && binding.kind!=='lut') || !/^[a-zA-Z][a-zA-Z0-9_-]{0,63}$/.test(binding.name) || names.has(binding.name))throw new Error('skill_asset_binding_invalid');
    names.add(binding.name);
    const matches=inputs.filter(input=>input.artifact.assetId===binding.assetId);
    if(matches.length!==1)throw new Error('skill_asset_missing');
    if(matches[0]===source)throw new Error('skill_source_bound_as_media');
+   if(binding.kind==='lut'){
+    if(locked.pluginId!=='filmcraft')throw new Error('skill_lut_domain_unsupported');
+    if(!/\.(cube|3dl)$/i.test(matches[0].artifact.location) || matches[0].artifact.mediaType===imageSequenceMime)throw new Error('skill_lut_format_unsupported');
+   }
    if(matches[0].artifact.mediaType===imageSequenceMime && locked.pluginId!=='filmcraft')throw new Error('skill_sequence_domain_unsupported');
-   await verifyArtifact(matches[0].artifact,matches[0].root);assets.push({name:binding.name,input:matches[0],retained:binding.retained===true});
+   await verifyArtifact(matches[0].artifact,matches[0].root);assets.push({name:binding.name,input:matches[0],retained:binding.retained===true,...(binding.kind==='lut'?{kind:'lut' as const}:{})});
   }
   // 保留绑定仍消费真实上游输入；必须与原工程已收集的同名素材一致。
   const checkRetained=async()=>{
    for(const asset of assets.filter(item=>item.retained)){
     const prior=sourceManifest?.assets?.[asset.name];
-    if(!source || !prior || !safeLocation(prior.path) || prior.sha256!==asset.input.artifact.sha256 || sourceManifest.files[prior.path]!==prior.sha256)throw new Error('skill_retained_asset_mismatch');
+    if(!source || !prior || !safeLocation(prior.path) || prior.sha256!==asset.input.artifact.sha256 || sourceManifest.files[prior.path]!==prior.sha256 || (asset.kind==='lut' && prior.kind!=='lut'))throw new Error('skill_retained_asset_mismatch');
     await verifyArtifact(asset.input.artifact,asset.input.root);
    }
   };
@@ -107,7 +111,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
   await mkdir(root,{recursive:true});
   await writeFile(planFile,JSON.stringify(plan),'utf8');
   const args=['-I','-B',script,planFile,'--output',delivery,'--runtime-home',locked.runtimeHome];
-  for(const asset of assets.filter(item=>!item.retained))args.push(asset.input.artifact.mediaType===imageSequenceMime?'--sequence-asset':'--asset',asset.name+'='+join(asset.input.root,asset.input.artifact.location));
+  for(const asset of assets.filter(item=>!item.retained))args.push(asset.kind==='lut'?'--lut-asset':asset.input.artifact.mediaType===imageSequenceMime?'--sequence-asset':'--asset',asset.name+'='+join(asset.input.root,asset.input.artifact.location));
   if(source)args.push('--source',source.root);
   const ref=(location:string,sha256:string)=>({assetId:taskId+'-'+hash(location).slice(0,16),version:sha256,sha256,location});
   const artifact=async(location:string,sha256:string,mediaType:string,assetId:string)=>({
@@ -164,6 +168,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
      const collected=manifest.assets?.[alias];
      if(!collected || collected.sha256!==asset.input.artifact.sha256 || !safeLocation(collected.path))throw new Error('skill_dependency_uncollected');
      await verifyArtifact(await artifact(collected.path,collected.sha256,'application/octet-stream',taskId),delivery);
+     if(asset.kind==='lut' && collected.kind!=='lut')throw new Error('skill_dependency_uncollected');
      if(asset.input.artifact.mediaType===imageSequenceMime && collected.kind!=='image-sequence')throw new Error('skill_sequence_manifest_mismatch');
 
     }
@@ -191,7 +196,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
       if(locked.pluginId!=='effectcraft' || manifest.imageSequence?.path!==item.location || manifest.imageSequence?.sha256!==output.sha256)throw new Error('skill_sequence_output_mismatch');
       technicalMetadata=sequenceMetadata(await sequenceRefs(item.location,output.sha256));
      }
-     const publicOutput={...output,technicalMetadata,sourceRefs,nativeProjectRef:nativeRef,lossReportRef:lossRef,evidenceRefs:[manifestRef,...dependencyRefs],dependencies:sourceRefs.filter(assetRef=>!source || assetRef.assetId!==source.artifact.assetId).map(assetRef=>({assetRef,kind:'media',packaged:true,missingReason:null}))};
+     const publicOutput={...output,technicalMetadata,sourceRefs,nativeProjectRef:nativeRef,lossReportRef:lossRef,evidenceRefs:[manifestRef,...dependencyRefs],dependencies:sourceRefs.filter(assetRef=>!source || assetRef.assetId!==source.artifact.assetId).map(assetRef=>({assetRef,kind:assets.find(asset=>asset.input.artifact.assetId===assetRef.assetId)?.kind==='lut'?'lut':'media',packaged:true,missingReason:null}))};
      await verifyArtifact(publicOutput,delivery);outputs.push(publicOutput);
     }
     return {root:delivery,outputs,evidenceRefs:[manifestRef]};

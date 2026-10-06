@@ -1,0 +1,65 @@
+{
+  "schema": "artcraft-lut-motion-native-candidate/v1",
+  "result": "PASS",
+  "scope": "candidate Art adapter with installed fixed Film dev.11 and Effect dev.10; two-domain native workflow; not fixed Art runtime or full creative acceptance",
+  "runtimeIdentities": {
+    "filmcraft": {
+      "pluginId": "filmcraft",
+      "pluginVersion": "0.1.0-dev.11",
+      "cliVersion": "0.2.0-craft.2",
+      "sha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433",
+      "mode": "headless",
+      "capabilitySnapshotSha256": "cd7c2b9f1ae46ff5fc9e88af59c88f16ddf6b2421ad411f3bc1d1b5988f40ee0"
+    },
+    "effectcraft": {
+      "pluginId": "effectcraft",
+      "pluginVersion": "0.1.0-dev.10",
+      "cliVersion": "0.2.0",
+      "sha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+      "mode": "headless",
+      "capabilitySnapshotSha256": "a5ddafc6a49981fb1ab310acd385ca778fda54b67e1371cfba8f3e60bdf19bb9"
+    }
+  },
+  "independentlyDecodedFrames": 24,
+  "lutPixel": [
+    1,
+    254,
+    1
+  ],
+  "lutDependencyTyped": true,
+  "originalLutRemoved": true,
+  "sourcePreserved": true,
+  "decodedAudioPreserved": true,
+  "captionsPreserved": true,
+  "nonTargetLutPreserved": true,
+  "upstreamTaskReused": true,
+  "repeatTasksAndBudgetPreserved": true,
+  "installedSkillFilesPreserved": true,
+  "initialTaskIds": {
+    "intro": "wf-82f40214dc1d7c1c79e34a1ace675ba04f0bf5b79fc4157b",
+    "film": "wf-7c137403816054d1de284b8d9e9ed6b78d31ca3b4c8c6ef6"
+  },
+  "revisedTaskIds": {
+    "intro": "wf-82f40214dc1d7c1c79e34a1ace675ba04f0bf5b79fc4157b",
+    "film": "wf-a7c8338a52dad2d123990c95bd591f35dbdc9ef653bb7051"
+  },
+  "adapterSha256": "8a6b6e17ac29cf7c7fc05422d8b19d2e4698dee89d682dd9b3e2b5218185752a",
+  "driverSha256": "cc126e866c07102d00ff8f6ead706b1eed385a1d8a5cbd49361485ac28023ca2",
+  "validation": {
+    "componentRegression": {
+      "passed": 1,
+      "initialFailure": "skill_asset_binding_invalid before implementation"
+    },
+    "runtimeSuite": {
+      "tests": 175,
+      "passed": 166,
+      "skipped": 9,
+      "failed": 0
+    },
+    "nativeGate": {
+      "passed": 1,
+      "skipped": 0,
+      "seconds": 15.683
+    }
+  }
+}

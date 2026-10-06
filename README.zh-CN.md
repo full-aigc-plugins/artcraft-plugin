@@ -288,3 +288,5 @@ Vector 素材源码候选已接入登记输入和替换核验，真实 Vector �
 插件 dev.67 固定技能源 dev.45 和运行时 dev.66。Effect 技能源 dev.9 在编辑前校验六类受限效果／蒙版参数合同；Art 保留类型化合同诊断，并阻断依赖它的 Film 任务。候选源码混合纠正／复用与动态渲染／修订／恢复已通过；本次固定安装后的宿主与全部 58 项 CLI 冷启动复验通过。[架构](docs/ArtCraft-Effect-Parameter-Diagnostics-Architecture.zh_CN.md)、[候选证据](docs/evidence/preflight-domain-upgrade-candidate-20261006.json)。通用 Skills CLI 安装与完整首版／模型／GUI／创作验收仍开放。
 
 固定 Art 插件 dev.67／技能源 dev.45／runtime dev.66，接入 Effect 技能源 dev.9：Codex 0.153.4 安装五个固定插件，发现全部 58 技能，加载错误为零。安装后单技能 Effect 拒绝／查询／重复执行／纠正修订验收通过（55.362 秒）；动态四领域 Logo 返工、坏帧恢复及移动五子工程打包通过（63.257 秒）。58 项独立 CLI 冷启动全部通过（422.907 秒），全部安装摘要保全；公开运行时／技能源附件、五包固定重建及默认用户目录安装已核验。[版本证据](docs/evidence/codex-release67-preflight-mixed-first-use-20261006.json)。只关闭 OpenSpec 6.40；通用 Skills CLI 安装及完整首版／模型／GUI／创作／生产验收仍开放。
+
+固定安装 Film dev.11／Effect dev.10 与候选 Art LUT／运动适配器完成一项两领域原生联调，详见[架构](docs/ArtCraft-LUT-Motion-Architecture.zh_CN.md)与[证据](docs/evidence/lut-motion-adapter-candidate-20261006.json)。Art dev.67 不含该候选能力，新的固定发行验收仍开放。

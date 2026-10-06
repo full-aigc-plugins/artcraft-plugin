@@ -231,3 +231,11 @@ PNG 固定发行证据：运行时 dev.56／技能源 dev.40／插件 dev.57；�
 - [x] 6.40 [AC-TX-002-MAPPING / AC-TX-002-PREFLIGHT] 固定升级 Effect 技能源 dev.9；保留两类参数合同错误的精确诊断及隐私边界，完成错误传播／查询／重复复用／修订恢复、动态品牌混合交付和固定发布安装验收，核对全部技能摘要；不关闭完整首版或通用 Skills CLI 安装。
 
 6.40 固定验收：Art 插件 dev.67／技能源 dev.45／runtime dev.66／Effect 技能源 dev.9；五插件 58 技能发现零错误，两项真实安装后混合验收通过（无跳过），全部 58 项独立空运行时 CLI 首用通过（422.907 秒），公开两附件逐文件、固定五包重建、默认用户安装及所有安装摘要保全。证据 docs/evidence/codex-release67-preflight-mixed-first-use-20261006.json。合同身份／schema 两码精确处理由单元回归证明，真实混合场景验证 unsupported_mapping；不扩大为全 schema 漂移、完整首版或通用 Skills CLI 验收。
+
+## 6. FilmCraft 运动与 LUT 交接
+
+- [x] 6.41 [AC-DM-004] 建立 Film 专用 LUT 类型绑定的失败用例；实现公开参数、保留依赖核验和非 Film 拒绝，普通媒体回归通过。
+- [x] 6.42 [AC-DM-004] 固定 Film dev.11 安装快照执行真实 Art 候选适配器，核验运动／LUT 渲染、局部返工、音轨／字幕／旧包及上游复用。
+- [ ] 6.43 [AC-DM-004] 发布固定 Art runtime／技能源／插件，安装后执行公开混合首次使用与恢复验收，核对全部安装身份。
+
+6.41／6.42 候选证据：`docs/evidence/lut-motion-adapter-candidate-20261006.json`；组件回归先失败再通过，运行时 166 通过九项原生跳过，另行真实原生门禁一项通过且无跳过。使用固定 Film dev.11／Effect dev.10 安装技能，不代表 Art dev.67 已含此能力；6.43 保持开放。
