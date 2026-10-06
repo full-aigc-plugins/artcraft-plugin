@@ -60,7 +60,7 @@ These are planned modules, not claims that the source exists.
 | Capability | Behavioral boundary | Status |
 | :--- | :--- | :--- |
 | Mixed brief and deliverable constraints | Create a versioned brief covering aspect ratios, brand, identities, fonts, budget and native deliverables; unresolved constraints block dependent steps but not independent inspections. | Planned |
-| Capability and deliverable driven routing | Route using capability snapshots and requested native formats; never silently replace a requested Jianying project with FilmCraft or FFmpeg; do not require every plugin for every task. | Planned |
+| Capability and deliverable driven routing | Route using capability snapshots and requested native formats; Jianying remains a separate plugin outside ArtCraft adaptation; never silently substitute an incompatible native format; do not require every plugin for every task. | Planned |
 | Dependency scheduling and concurrency isolation | Validate DAG cycles, missing nodes and input revisions; independent nodes may run concurrently, native projects have one writer, and downstream nodes consume only verified artifacts. | Planned |
 | Asset versions and selective invalidation | Separate logical asset IDs from content hashes; record derivation edges and invalidate only transitive dependents of a logo change while retaining historical reviewed versions. | Planned |
 | Cross-artifact consistency | Evaluate posters, intros and films against fixed brand and identity references; bind findings to versions and frames or regions; a shared prompt is not consistency evidence. | Planned |

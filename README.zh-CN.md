@@ -39,9 +39,11 @@ flowchart LR
 
 ## 能力与边界
 
+剪映使用自己的独立插件。ArtCraft 不包含剪映适配，也不负责安装或调用剪映；剪映原生工程需求交给独立剪映插件处理，不静默转换为 FilmCraft 工程。
+
 | 能力 | 已验证 | 尚未完成 |
 | --- | --- | --- |
-| 计划与路由 | 技能指导拆解；显式节点选择真实能力快照 | 自动约束推导；既有剪映/Factory 适配 |
+| 计划与路由 | 技能指导拆解；显式节点选择真实能力快照 | 自动约束推导；其余 Factory 适配 |
 | 依赖调度 | DAG、并发上限、同工程单写、输入核验与原任务接管 | worker/提交窗口未知时等待核对 |
 | 素材版本与返工 | 内容摘要、血缘、重跑复用、Logo 下游重建 | 完整创作修订协调 |
 | 技术交付 | 原生工程、收集素材、预览、导出、移动包和摘要绑定损失报告 | 完整媒体元数据、跨编辑器保真与创作审核 |
@@ -139,7 +141,7 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 
 此前验证插件 `0.1.0-dev.12` 固定技能源 `0.1.0-dev.11`，运行时保持 dev.7。修正场景合同中的过期预算/修订/恢复说明，验证单个返工技能默认在线冷启动和五节点项目的四种源工程修订；无关节点复用，旧工程、动画、音轨与字幕保留。逐次独立安装素材、交付、审阅和恢复技能后，账本查询、移动验包与停止任务幂等取消通过。完整回归 22 项通过、1 项 Node 专用离线测试跳过。[证据](docs/evidence/task-skill-first-use.json)。完整模型派发、创作、worker 崩溃及旧插件适配仍未完成。
 
-此前验证插件 dev.14 / 运行时 dev.13 固定技能套件 dev.12，支持可选 Video Factory 0.4.0 公开验证节点。现有插件和 FFmpeg/ffprobe 按实际路径登记并冻结摘要，模型 payload 不能选择命令或执行器。真实门禁、输入绑定、报告语法与打包保留通过验证；缺来源门禁保持 NOT_RUN，必需 FAIL 阻断交付。83 项原生回归全部通过。默认公开在线首次使用已通过：24 项通过、1 项 Node 专用离线测试跳过；单独安装的技能冷启动依赖、执行五节点并验包。插件 dev.14 修复 dev.13 快照的 OpenSpec 重复任务编号并加入回归检查；运行时 dev.13 的公开字节和摘要保持不变。[架构](docs/ArtCraft-VideoFactory-Architecture.zh_CN.md)、[候选证据](docs/evidence/video-factory-candidate.json)、[在线证据](docs/evidence/video-factory-online.json)。旧插件渲染、剪映/图片工厂适配及完整模型/创作验收仍未完成。
+此前验证插件 dev.14 / 运行时 dev.13 固定技能套件 dev.12，支持可选 Video Factory 0.4.0 公开验证节点。现有插件和 FFmpeg/ffprobe 按实际路径登记并冻结摘要，模型 payload 不能选择命令或执行器。真实门禁、输入绑定、报告语法与打包保留通过验证；缺来源门禁保持 NOT_RUN，必需 FAIL 阻断交付。83 项原生回归全部通过。默认公开在线首次使用已通过：24 项通过、1 项 Node 专用离线测试跳过；单独安装的技能冷启动依赖、执行五节点并验包。插件 dev.14 修复 dev.13 快照的 OpenSpec 重复任务编号并加入回归检查；运行时 dev.13 的公开字节和摘要保持不变。[架构](docs/ArtCraft-VideoFactory-Architecture.zh_CN.md)、[候选证据](docs/evidence/video-factory-candidate.json)、[在线证据](docs/evidence/video-factory-online.json)。旧插件渲染、图片工厂适配及完整模型/创作验收仍未完成。
 
 当前插件 dev.15 固定技能套件 dev.13，运行时保持 dev.13。EffectCraft 技能 dev.6 支持原生蒙版顶点修订，仅更新片头和消费它的成片，Logo/海报任务复用。原文件摘要、透明度关键帧、音轨与字幕保留，真实 RGBA 边界和四子交付验包通过；完整默认在线回归 25 项通过、1 项 Node 专用离线测试跳过，原生集成 83 项通过。[架构](docs/ArtCraft-Mask-Revision-Architecture.zh_CN.md)、[证据](docs/evidence/mask-revision-first-use.json)。宿主/模型、创作与更广旧插件适配仍未完成。
 
