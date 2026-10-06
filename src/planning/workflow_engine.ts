@@ -1,5 +1,6 @@
 /** 可恢复 DAG 调度，显式依赖和已核验资产版本是交接依据。 */
 import { verifyNativeBriefOutput } from './native_brief_output.ts';
+import { verifyPhotoVariantOutput } from './photo_variant_output.ts';
 import { verifyFilmDuration } from './film_duration.ts';
 import { assessBrief, nodeBriefConstraints, pendingNativeAssessment } from './project_brief.ts';
 import type { SourceInspection } from './project_brief.ts';
@@ -63,6 +64,7 @@ export class WorkflowEngine {
       await verifyArtifact(artifact,result.root);
       if(artifact.producerTaskId!==result.taskId)throw new Error('artifact_task_mismatch');
     }
+    if(node)await verifyPhotoVariantOutput(result.root,result.outputs,node);
     if(brief){
       await verifyNativeBriefOutput(result.root,result.outputs,brief,node!.runtimeIdentity.sha256);
       if(node!.runtimeIdentity.pluginId==='effectcraft' && result.outputs.some(item=>item.mediaType==='video/mp4') && !this.factories.effectcraft.verifyBriefExport)throw new Error('brief_export_inspector_missing');
@@ -147,13 +149,14 @@ export class WorkflowEngine {
           const nativeOutputCheck=blocked && blocked.reasons.every(reason=>reason==='native_output_inspection_required' || (duration(id)!==undefined && reason==='duration_inspection_required'));
           if(blocked?.reasons.length && !nativeOutputCheck)throw new Error('brief_source_plan_blocked: '+JSON.stringify(blocked));
         }
-        if(brief(id)){
+        if(brief(id) || (node.runtimeIdentity.pluginId==='photocraft' && node.payload.plan?.variant!==undefined)){
           const verify=compiled.adapter.verify.bind(compiled.adapter);
           compiled.adapter={...compiled.adapter,verify:async(request)=>{
             const verified=await verify(request);
-            await verifyNativeBriefOutput(verified.root,verified.outputs as Record<string,any>[],brief(id)!,node.runtimeIdentity.sha256);
-            if(node.runtimeIdentity.pluginId==='effectcraft' && verified.outputs.some((item:any)=>item.mediaType==='video/mp4') && !this.factories.effectcraft.verifyBriefExport)throw new Error('brief_export_inspector_missing');
-            await this.factories[node.runtimeIdentity.pluginId].verifyBriefExport?.(node,verified.root,verified.outputs as Record<string,any>[],brief(id)!);
+            await verifyPhotoVariantOutput(verified.root,verified.outputs as Record<string,any>[],node);
+            if(brief(id))await verifyNativeBriefOutput(verified.root,verified.outputs as Record<string,any>[],brief(id)!,node.runtimeIdentity.sha256);
+            if(brief(id) && node.runtimeIdentity.pluginId==='effectcraft' && verified.outputs.some((item:any)=>item.mediaType==='video/mp4') && !this.factories.effectcraft.verifyBriefExport)throw new Error('brief_export_inspector_missing');
+            if(brief(id))await this.factories[node.runtimeIdentity.pluginId].verifyBriefExport?.(node,verified.root,verified.outputs as Record<string,any>[],brief(id)!);
             if(duration(id)!==undefined)await verifyFilmDuration(verified.root,verified.outputs as Record<string,any>[],duration(id)!);
             return verified;
           }};

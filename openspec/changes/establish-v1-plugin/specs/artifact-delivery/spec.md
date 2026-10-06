@@ -55,3 +55,11 @@
 #### Scenario: A packaged variant record is altered
 - **WHEN** a layout-variant.json in a previously verified mixed package is modified
 - **THEN** package verification SHALL reject the modified delivery rather than reuse its earlier acceptance
+
+#### Scenario: Legacy variant cache lacks required geometry evidence
+- **WHEN** a cached PhotoCraft result is reused for a plan declaring variant geometry but lacks a manifest-bound layout record
+- **THEN** ArtCraft SHALL block reuse without replaying native side effects
+
+#### Scenario: Variant evidence is consistent before handoff
+- **WHEN** a new, cached or dependent PhotoCraft delivery declares variant geometry
+- **THEN** ArtCraft SHALL verify its layout record against the declared target and safe area, saved native layer identities/bounds and the hash-bound native resize operation receipts before reporting readiness

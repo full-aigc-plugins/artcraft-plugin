@@ -1,0 +1,136 @@
+{
+  "schema": "artcraft-photo-variant-gate/v1",
+  "runtimeCandidate": "0.1.0-dev.41",
+  "cacheRed": {
+    "result": "review_ready instead of blocked",
+    "logSha256": "f30867cb92c45f008b47dc2e6ce638ec152efd78e2bfb8bf7bc9b6b6e32e586b"
+  },
+  "native": {
+    "passed": 1,
+    "skipped": 0,
+    "seconds": 15.83511825,
+    "receipt": {
+      "runtimeSha256": "57cefe9ee7bda1d996c11741bef84f934cf28d4729eb237900f00d76678d6fa4",
+      "layout": {
+        "schema": "photocraft-layout-variant/v1",
+        "sourceSize": [
+          320,
+          400
+        ],
+        "targetSize": [
+          352,
+          400
+        ],
+        "safeArea": [
+          8,
+          8,
+          336,
+          384
+        ],
+        "steps": [
+          {
+            "command": "image.canvasSize",
+            "before": [
+              320,
+              400
+            ],
+            "after": [
+              352,
+              400
+            ],
+            "offset": [
+              16,
+              0
+            ],
+            "crop": {
+              "left": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "padding": {
+              "left": 16,
+              "top": 0,
+              "right": 16,
+              "bottom": 0
+            }
+          }
+        ],
+        "roles": {
+          "background": {
+            "id": 2,
+            "kind": "Pixel",
+            "name": "Background",
+            "bounds": [
+              0,
+              0,
+              352,
+              400
+            ],
+            "text": null
+          },
+          "product": {
+            "id": 5,
+            "kind": "Pixel",
+            "name": "Logo",
+            "bounds": [
+              105,
+              138,
+              142,
+              145
+            ],
+            "text": null
+          },
+          "text": {
+            "id": 6,
+            "kind": "Type",
+            "name": "Headline",
+            "bounds": [
+              45,
+              38,
+              167,
+              24
+            ],
+            "text": {
+              "font": "Arial",
+              "sizePt": 30,
+              "text": "NOVA PLUS"
+            }
+          }
+        }
+      },
+      "layoutSha256": "aef1697ca34828301441d65a6c80f905fc527a9e2f59bfe29492838d4d99ab5b",
+      "nativeProjectSha256": "e1b9879804bfcd3959f7936964a918cca6ad394f410ce141d1b0ba0adb88f7c3",
+      "newVerified": true,
+      "reused": true,
+      "staleCachedLayoutBlocked": true,
+      "restoredReused": true,
+      "sourcePreserved": true,
+      "leases": 0
+    }
+  },
+  "unitEvidence": {
+    "passed": 9,
+    "skipped": 0
+  },
+  "sourceFiles": {
+    "src/planning/photo_variant_output.ts": "225ee0e64cc2bf318cca1f9dcd0804dc3da53f99c14e910e8d64e2b2a6bd1bd6",
+    "src/planning/workflow_engine.ts": "10764db5d32e99a4a4653e4f8c1ccc25ce1be265d54caa2b6b3ffd21116e8bf8",
+    "test/photo_variant_output.test.ts": "036e0cabf67a836513c0900c45d392730e187412c44be3816f11f69f6d458e82",
+    "test/workflow_engine.test.ts": "03dfc0116242216bd83e455471c844d28359f9136214177636fdb7bb512aee5d",
+    "test/native_mixed_workflow.test.ts": "612a98d81eb376c4265d66eda83fe86bbe93086f0e042a981c1e0621f3e4e0c5"
+  },
+  "excluded": [
+    "fixed published runtime first use until verified",
+    "full creative acceptance",
+    "GUI",
+    "model dispatch",
+    "all five plugin completion"
+  ],
+  "runtimeRegression": {
+    "total": 139,
+    "passed": 134,
+    "skipped": 5,
+    "seconds": 18.1152515
+  }
+}

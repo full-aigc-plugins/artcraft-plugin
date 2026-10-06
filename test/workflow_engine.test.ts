@@ -8,6 +8,7 @@ import { createHash } from 'node:crypto';
 import { TaskLedger } from '../src/harness/task_ledger.ts';
 import { LocalRunner } from '../src/harness/local_runner.ts';
 import { WorkflowEngine } from '../src/planning/workflow_engine.ts';
+import { planHash } from '../src/protocol/contracts.ts';
 
 const sha=(data:Buffer|string)=>createHash('sha256').update(data).digest('hex');
 async function fixture(plugin='fixture'){
@@ -222,5 +223,27 @@ test('Brief brand change invalidates affected requirements and keeps independent
   const plan:any=structuredClone(f.plan);attachBrief(plan);const first=await f.engine.run(plan);assert.equal(first.state,'review_ready');f.clear();
   const revised=structuredClone(plan);revised.revision='v2';revised.projectBrief.revision='brief-v2';revised.projectBrief.brand.colors=['#2366e8'];
   const result=await f.engine.run(revised);assert.equal(result.state,'review_ready');assert.deepEqual(f.launches.sort(),['film','intro','logo','poster']);assert.equal(result.nodes.voice.taskId,first.nodes.voice.taskId);assert.notEqual(result.nodes.logo.taskId,first.nodes.logo.taskId);
+ }finally{await f.cleanup();}
+});
+
+test('legacy cached Photo variant without geometry evidence is rejected without native replay',async()=>{
+ const f=await fixture('photocraft');try{
+  f.plan.nodes=f.plan.nodes.slice(0,1);
+  const first=await f.engine.run(f.plan);assert.equal(first.state,'review_ready');f.clear();
+  const node=f.plan.nodes[0] as any;node.payload.plan.variant={width:120,height:80,safeArea:[0,0,120,80],roles:{background:1,product:2,text:3}};
+  // 模拟旧技能忽略 variant 但曾写入 ready 的历史缓存；非原生验收。
+  const fingerprint=planHash({payload:node.payload,inputRefs:[],runtimeIdentity:node.runtimeIdentity,projectKey:node.projectKey,expectedRevision:node.expectedRevision});
+  f.ledger.saveWorkflowNode(first.runKey,node.id,{...first.nodes[node.id],fingerprint});
+  const revised={...f.plan,revision:'v2'};const result=await f.engine.run(revised);
+  assert.equal(result.state,'blocked');assert.match(result.nodes[node.id].error!,/photo_variant_evidence_missing/);assert.equal(f.launches.length,0);
+ }finally{await f.cleanup();}
+});
+
+test('Photo variant without Brief cannot publish a fresh delivery lacking geometry evidence',async()=>{
+ const f=await fixture('photocraft');try{
+  f.plan.nodes=f.plan.nodes.slice(0,1);const node=f.plan.nodes[0] as any;
+  node.payload.plan.variant={width:120,height:80,safeArea:[0,0,120,80],roles:{background:1,product:2,text:3}};
+  const result=await f.engine.run(f.plan);assert.equal(result.state,'failed');
+  assert.equal(f.ledger.status(result.nodes.logo.taskId!).state,'failed');assert.deepEqual(result.nodes.logo.outputs,[]);assert.equal(f.ledger.leases().length,0);
  }finally{await f.cleanup();}
 });
