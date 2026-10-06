@@ -25,6 +25,12 @@ test('conflicting stdout and stderr codes retain digests without guessing a caus
  assert.equal(result.domainCode,null);assert.equal(result.source,null);
  assert.equal(result.stdout.complete,true);assert.equal(result.stderr.complete,true);
 });
+test('required audio failure retains its closed domain code without user text',async()=>{
+ const result=nativeDiagnostics(await observe('{"error":"export_audio_missing"}'),await observe(''));
+ assert.equal(result.domainCode,'export_audio_missing');assert.equal(result.source,'stdout');
+ const rejected=nativeDiagnostics(await observe('{"error":"export_audio_missing_suffix"}'),await observe(''));
+ assert.equal(rejected.domainCode,null);
+});
 test('unclosed stream remains incomplete and cannot report a domain code',async()=>{
  const stream=new Readable({read(){}}),observation=new OutputObservation(stream);
  stream.push('{"error":"missing_fonts"}');await new Promise(resolve=>setImmediate(resolve));stream.destroy();

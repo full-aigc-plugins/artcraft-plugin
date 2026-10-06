@@ -56,22 +56,26 @@ test('Film duration requirement cannot publish ready output without native and e
   assert.equal(f.ledger.leases().length,0);
  }finally{await f.cleanup();}
 });
-test('failed node exposes durable reported code and blocks its consumers without replay',async()=>{
+for(const domainCode of ['missing_fonts','export_audio_missing'])test(`failed ${domainCode} node exposes durable code and blocks its consumers without replay`,async()=>{
  const f=await fixture();try{
   f.plan.nodes=f.plan.nodes.slice(0,2);
   const factory=async(node:any,inputs:any[],taskId:string)=>{
    const compiled=await f.factory(node,inputs,taskId);
-   if(node.id==='logo')await writeFile(join(compiled.root,'worker.mjs'),'process.stdout.write(JSON.stringify({error:"missing_fonts: private-font"}));process.exitCode=1;');
+   if(node.id==='logo')await writeFile(join(compiled.root,'worker.mjs'),`process.stdout.write(JSON.stringify({error:${JSON.stringify(domainCode+': private-font')}}));process.exitCode=1;`);
    return compiled;
   };
   const engine=new WorkflowEngine(f.ledger,new LocalRunner(f.ledger,async()=>{}),{fixture:factory});
   const result=await engine.run(f.plan);
   assert.equal(result.state,'failed');assert.equal(result.nodes.poster.status,'blocked');
-  assert.equal((result.nodes.logo.failure as any).diagnostics.domainCode,'missing_fonts');
+  assert.equal((result.nodes.logo.failure as any).diagnostics.domainCode,domainCode);
+  assert.equal(result.nodes.poster.taskId,undefined);assert.deepEqual(result.nodes.logo.outputs,[]);
+  assert.equal(f.ledger.leases().length,0);
+  const attemptId=f.ledger.status(result.nodes.logo.taskId!).attemptId;
   assert.ok(!JSON.stringify(result).includes('private-font'));
   const before=f.ledger.execution(result.nodes.logo.taskId!)!.diagnostics;
   f.clear();const resumed=await engine.run(f.plan);assert.deepEqual(resumed.nodes.logo.failure,result.nodes.logo.failure);
   assert.deepEqual(f.ledger.execution(result.nodes.logo.taskId!)!.diagnostics,before);assert.equal(f.launches.length,0);
+  assert.equal(f.ledger.status(result.nodes.logo.taskId!).attemptId,attemptId);assert.deepEqual(resumed.budget,result.budget);
  }finally{await f.cleanup();}
 });
 test('same revision resumes from durable verified results without native replay',async()=>{
