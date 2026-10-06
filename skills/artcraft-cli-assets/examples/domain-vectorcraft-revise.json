@@ -1,0 +1,37 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "document.open",
+      "params": {
+        "path": {
+          "$ref": "project.path"
+        }
+      }
+    },
+    {
+      "command": "document.json",
+      "params": {},
+      "as": "before"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "ids": [
+          {
+            "$ref": "before.layers.0.kind.children.3.id"
+          }
+        ],
+        "color": "#ff0000"
+      }
+    },
+    {
+      "command": "document.save",
+      "params": {
+        "path": {
+          "$output": "revised.vectorcraft"
+        }
+      }
+    }
+  ]
+}

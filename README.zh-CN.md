@@ -1,8 +1,10 @@
 # ArtCraft Agent Plugin
 
+Art完整领域命令组件候选已支持2639条离线查询、实际MCP schema及只安装选定领域的公开交接。四域冷安装创建／重开／返工与目标／对照像素通过；固定安装6.50及DAG原生交付6.51仍开放。 [Evidence](docs/evidence/art-complete-domain-component-candidate-20261007.json).
+
 固定原生首次安装与完整命令恢复验收通过：新版五插件58技能逐项独立冷安装，十个Art技能分别安装四领域；四个原生下载半包SSL EOF恢复、72个原生保存后故障、四个健康命令返工及混合HD返工／恢复／移动包通过，全部安装摘要保全。仅关闭领域2.10／8.11与Art4.10；2639条命令逐项、GUI、模型、通用Skills CLI及完整V1仍开放。 [版本及证据](docs/evidence/codex-native-download-first-use-20261007.json).
 
-当前插件 dev.81／技能源 dev.55，复用runtime dev.78，发布领域原生安装下载恢复分发升级；固定安装门禁4.10已通过。
+当前插件 dev.82／技能源 dev.56，复用 runtime dev.78；完整命令组件候选已验证，固定安装门禁6.50与完整DAG门禁6.51仍开放。
 
 固定发布前的候选记录：Art原生首用恢复候选固定Film18／Effect、Photo、Vector17，复用runtime78。此前Art80冷安装在领域CLI下载遇到SSL EOF失败，保留失败证据；新固定安装验收仍开放。
 
@@ -65,9 +67,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.81 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.82 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.55 |
+| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.56 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

@@ -1,0 +1,102 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "file.new",
+      "params": {
+        "name": "Coverage",
+        "width": 96,
+        "height": 64,
+        "mode": "rgb",
+        "depth": 8
+      }
+    },
+    {
+      "command": "shape.create",
+      "params": {
+        "kind": "rect",
+        "rect": [
+          16,
+          16,
+          32,
+          32
+        ],
+        "fill": "#ff0000",
+        "name": "Subject"
+      },
+      "as": "subject"
+    },
+    {
+      "command": "layer.layerStyle.dropShadow",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "color": "#000000",
+        "distance": 3,
+        "size": 2
+      }
+    },
+    {
+      "command": "layer.newAdjustmentLayer.levels",
+      "params": {
+        "gamma": 1.1
+      }
+    },
+    {
+      "command": "layer.newAdjustmentLayer.curves",
+      "params": {
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            128,
+            160
+          ],
+          [
+            255,
+            255
+          ]
+        ]
+      }
+    },
+    {
+      "command": "edit.assignProfile",
+      "params": {
+        "profile": "srgb"
+      }
+    },
+    {
+      "command": "edit.convertToProfile",
+      "params": {
+        "profile": "display-p3",
+        "intent": "relative",
+        "bpc": true
+      }
+    },
+    {
+      "tool": "doc_inspect",
+      "params": {},
+      "as": "inspect"
+    },
+    {
+      "tool": "doc_save",
+      "params": {
+        "path": {
+          "$output": "project.pcraft"
+        }
+      }
+    },
+    {
+      "tool": "doc_export",
+      "params": {
+        "path": {
+          "$output": "preview.png"
+        },
+        "format": "png"
+      }
+    }
+  ]
+}

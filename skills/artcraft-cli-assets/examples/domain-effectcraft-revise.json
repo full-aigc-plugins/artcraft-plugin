@@ -1,0 +1,45 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "tool": "open_project",
+      "params": {
+        "path": {
+          "$ref": "project.path"
+        }
+      }
+    },
+    {
+      "tool": "get_comp",
+      "params": {},
+      "as": "before"
+    },
+    {
+      "command": "layer.select",
+      "params": {
+        "layers": [
+          "Subject"
+        ],
+        "add": false,
+        "toggle": false
+      }
+    },
+    {
+      "command": "prop.setExpression",
+      "params": {
+        "layer": "Subject",
+        "path": "transform/opacity",
+        "expression": "75 + time * 10",
+        "enabled": true
+      }
+    },
+    {
+      "tool": "save_project",
+      "params": {
+        "path": {
+          "$output": "revised.ecproj"
+        }
+      }
+    }
+  ]
+}

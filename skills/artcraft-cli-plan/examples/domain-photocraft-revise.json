@@ -1,0 +1,35 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "tool": "doc_open",
+      "params": {
+        "path": {
+          "$ref": "project.path"
+        }
+      }
+    },
+    {
+      "tool": "doc_inspect",
+      "params": {},
+      "as": "before"
+    },
+    {
+      "command": "layer.setProps",
+      "params": {
+        "layer": {
+          "$ref": "before.layers.2.id"
+        },
+        "opacity": 0.5
+      }
+    },
+    {
+      "tool": "doc_save",
+      "params": {
+        "path": {
+          "$output": "revised.pcraft"
+        }
+      }
+    }
+  ]
+}

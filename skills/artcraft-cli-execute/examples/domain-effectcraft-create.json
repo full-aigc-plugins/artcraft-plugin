@@ -1,0 +1,118 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "comp.new",
+      "params": {
+        "name": "Coverage",
+        "width": 96,
+        "height": 64,
+        "duration": 1,
+        "frameRate": 12,
+        "background": "#ffffff"
+      },
+      "as": "composition"
+    },
+    {
+      "command": "layer.newShape",
+      "params": {
+        "kind": "rect",
+        "name": "Subject",
+        "size": [
+          40,
+          40
+        ],
+        "position": [
+          32,
+          32
+        ],
+        "fill": "#ff0000"
+      },
+      "as": "subject"
+    },
+    {
+      "command": "layer.newShape",
+      "params": {
+        "kind": "ellipse",
+        "name": "Matte",
+        "size": [
+          24,
+          24
+        ],
+        "position": [
+          32,
+          32
+        ],
+        "fill": "#ffffff"
+      },
+      "as": "matte"
+    },
+    {
+      "command": "layer.setBlendMode",
+      "params": {
+        "layers": [
+          {
+            "$ref": "subject.layer"
+          }
+        ],
+        "mode": "Multiply"
+      }
+    },
+    {
+      "command": "layer.setTrackMatte",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "matte": {
+          "$ref": "matte.layer"
+        },
+        "kind": "alpha"
+      }
+    },
+    {
+      "command": "prop.setExpression",
+      "params": {
+        "layer": {
+          "$ref": "subject.layer"
+        },
+        "path": "transform/opacity",
+        "expression": "50 + time * 25",
+        "enabled": true
+      }
+    },
+    {
+      "command": "layer.setSwitch",
+      "params": {
+        "layers": [
+          {
+            "$ref": "subject.layer"
+          }
+        ],
+        "switch": "threeD",
+        "value": true
+      }
+    },
+    {
+      "command": "layer.newCamera",
+      "params": {
+        "name": "Camera",
+        "preset": "50mm"
+      },
+      "as": "camera"
+    },
+    {
+      "tool": "get_project",
+      "params": {},
+      "as": "inspect"
+    },
+    {
+      "tool": "save_project",
+      "params": {
+        "path": {
+          "$output": "project.ecproj"
+        }
+      }
+    }
+  ]
+}

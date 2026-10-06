@@ -1,0 +1,51 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "file.open",
+      "params": {
+        "path": {
+          "$ref": "project.path"
+        }
+      }
+    },
+    {
+      "command": "sequence.inspect",
+      "params": {},
+      "as": "before"
+    },
+    {
+      "command": "timeline.select",
+      "params": {
+        "clips": [
+          {
+            "$ref": "before.video.0.items.1.clip"
+          }
+        ],
+        "add": false,
+        "toggle": false
+      }
+    },
+    {
+      "command": "clip.speedDuration",
+      "params": {
+        "clips": [
+          {
+            "$ref": "before.video.0.items.1.clip"
+          }
+        ],
+        "speed": 200,
+        "reverse": true,
+        "ripple": false
+      }
+    },
+    {
+      "command": "file.saveAs",
+      "params": {
+        "path": {
+          "$output": "revised.fcproj"
+        }
+      }
+    }
+  ]
+}

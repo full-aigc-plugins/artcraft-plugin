@@ -1,0 +1,111 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "file.newProject",
+      "params": {
+        "name": "Command coverage"
+      }
+    },
+    {
+      "command": "file.newSequence",
+      "params": {
+        "name": "Coverage",
+        "width": 96,
+        "height": 64,
+        "fps": 12,
+        "video": 1,
+        "audio": 1
+      }
+    },
+    {
+      "command": "file.newColorMatte",
+      "params": {
+        "color": "#ff0000",
+        "seconds": 2
+      },
+      "as": "red"
+    },
+    {
+      "command": "timeline.place",
+      "params": {
+        "item": {
+          "$ref": "red.item"
+        },
+        "track": "V1",
+        "time": 0,
+        "duration": 508032000000,
+        "insert": false
+      },
+      "as": "first"
+    },
+    {
+      "command": "file.newColorMatte",
+      "params": {
+        "color": "#0000ff",
+        "seconds": 2
+      },
+      "as": "blue"
+    },
+    {
+      "command": "timeline.place",
+      "params": {
+        "item": {
+          "$ref": "blue.item"
+        },
+        "track": "V1",
+        "time": 508032000000,
+        "duration": 508032000000,
+        "insert": false
+      },
+      "as": "second"
+    },
+    {
+      "command": "clip.speedDuration",
+      "params": {
+        "clips": {
+          "$ref": "first.clips"
+        },
+        "speed": 50,
+        "reverse": false,
+        "ripple": true,
+        "interpolation": "frameSampling"
+      }
+    },
+    {
+      "command": "clip.speedDuration",
+      "params": {
+        "clips": {
+          "$ref": "second.clips"
+        },
+        "speed": 100,
+        "reverse": true,
+        "ripple": false
+      }
+    },
+    {
+      "command": "sequence.applyVideoTransition",
+      "params": {
+        "clip": {
+          "$ref": "first.clips.0"
+        },
+        "effect": "cross_dissolve",
+        "frames": 6,
+        "edge": "out"
+      }
+    },
+    {
+      "command": "sequence.inspect",
+      "params": {},
+      "as": "inspect"
+    },
+    {
+      "command": "file.saveAs",
+      "params": {
+        "path": {
+          "$output": "project.fcproj"
+        }
+      }
+    }
+  ]
+}

@@ -52,3 +52,7 @@ CLI argv 在 `--` 后，原生子命令必须放首位。安装参数放分隔�
 需要通过既有 Video Factory 验证成片时，读取本技能 [公开验证交接](references/video-factory.md)。该适配保留 NOT_RUN，不替代创作审阅或原生工程。
 
 保存后结果未知时，按本技能 `references/recovery.md` 核验 `failure.json`、原始暂存工程与停止证据；同一任务不重放，失败暂存不是成功交付。
+
+## 完整领域命令交接
+
+需要模板之外的原生操作时，读取本技能[完整领域命令组件](references/domain-commands.md)，使用自带domain_commands.py查询2639条命令、实际MCP参数及交接选定领域。每个技能都包含四领域创建／返工示例；unknown不重放，组件回执不代替DAG原生交付与验收。

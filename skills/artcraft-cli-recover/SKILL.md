@@ -54,3 +54,7 @@ CLI argv 在 `--` 后，原生子命令必须放首位。安装参数放分隔�
 已停止失败的领域报告可通过 status 查询，读取本技能[恢复合同](references/recovery.md)；错误诊断不授权重放原任务。
 
 保存后结果未知时，按本技能 `references/recovery.md` 核验 `failure.json`、原始暂存工程与停止证据；同一任务不重放，失败暂存不是成功交付。
+
+## 完整领域命令交接
+
+需要模板之外的原生操作时，读取本技能[完整领域命令组件](references/domain-commands.md)，使用自带domain_commands.py查询2639条命令、实际MCP参数及交接选定领域。每个技能都包含四领域创建／返工示例；unknown不重放，组件回执不代替DAG原生交付与验收。

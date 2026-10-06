@@ -1,0 +1,165 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "file.new",
+      "params": {
+        "name": "Coverage",
+        "width": 96,
+        "height": 64,
+        "units": "Pixels"
+      }
+    },
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 8,
+        "y": 8,
+        "width": 24,
+        "height": 24
+      },
+      "as": "logo"
+    },
+    {
+      "command": "select.set",
+      "params": {
+        "ids": [
+          {
+            "$ref": "logo.id"
+          }
+        ]
+      }
+    },
+    {
+      "command": "appearance.addFill",
+      "params": {}
+    },
+    {
+      "command": "paint.editGradient",
+      "params": {
+        "kind": "linear",
+        "stops": [
+          {
+            "offset": 0,
+            "color": "#0000ff"
+          },
+          {
+            "offset": 1,
+            "color": "#00ff00"
+          }
+        ]
+      }
+    },
+    {
+      "command": "appearance.addStroke",
+      "params": {}
+    },
+    {
+      "command": "symbol.new",
+      "params": {
+        "name": "Emblem"
+      },
+      "as": "symbol"
+    },
+    {
+      "command": "symbol.place",
+      "params": {
+        "name": "Emblem",
+        "x": 70,
+        "y": 20
+      },
+      "as": "instance"
+    },
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 8,
+        "y": 8,
+        "width": 20,
+        "height": 20
+      },
+      "as": "replacement"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "color": "#ff0000"
+      }
+    },
+    {
+      "command": "symbol.update",
+      "params": {
+        "name": "Emblem",
+        "ids": [
+          {
+            "$ref": "replacement.id"
+          }
+        ]
+      }
+    },
+    {
+      "command": "symbol.list",
+      "params": {},
+      "as": "inspect"
+    },
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 40,
+        "y": 44,
+        "width": 12,
+        "height": 12
+      },
+      "as": "target"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "ids": [
+          {
+            "$ref": "target.id"
+          }
+        ],
+        "color": "#0000ff"
+      }
+    },
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 80,
+        "y": 44,
+        "width": 12,
+        "height": 12
+      },
+      "as": "untouched"
+    },
+    {
+      "command": "paint.setFill",
+      "params": {
+        "ids": [
+          {
+            "$ref": "untouched.id"
+          }
+        ],
+        "color": "#00ff00"
+      }
+    },
+    {
+      "command": "document.save",
+      "params": {
+        "path": {
+          "$output": "project.vectorcraft"
+        }
+      }
+    },
+    {
+      "command": "document.export",
+      "params": {
+        "path": {
+          "$output": "preview.png"
+        },
+        "format": "png"
+      }
+    }
+  ]
+}
