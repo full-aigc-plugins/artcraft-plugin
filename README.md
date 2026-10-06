@@ -6,7 +6,7 @@ Current plugin dev.47 / skills dev.35 / runtime dev.45 pin FilmCraft source dev.
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.50`; skill source: `0.1.0-dev.37`; runtime: `0.1.0-dev.48`. Previous releases passed their documented bounded first-use checks; fixed dev.50 installed first-use revalidation is pending. Historical evidence retains its original release scope; full V1/model/GUI/creative acceptance remains open.
+Current plugin: `0.1.0-dev.50`; skill source: `0.1.0-dev.37`; runtime: `0.1.0-dev.48`. Fixed public installed dev.50 first-use revalidation passes at the documented bounded scope. Historical evidence retains its original release scope; full V1/model/GUI/creative acceptance remains open.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
@@ -250,3 +250,7 @@ Installed dev.46 deadline acceptance passes: a recover skill cold-installs selec
 Required-source-audio propagation has passed local candidate native mixed tests, retaining failure diagnostics and blocking downstream work without replay. Positive audio/gain revision also passes. Subsequent fixed public-release verification is recorded below. [Design and candidate evidence](docs/ArtCraft-Required-Audio-Architecture.md).
 
 Fixed ArtCraft dev.49 first use passes in Codex 0.153.4: 58 skills, zero loading errors; installed mixed required-audio failure and positive gain revision; ten Art skills in individual empty runtimes. All installed hashes are preserved. [Release-bound evidence](docs/evidence/codex-release49-required-audio-mixed-first-use-20261006.json). Full V1/model/GUI/creative acceptance remains open.
+
+Fixed ArtCraft dev.50 / VectorCraft dev.10 first use passes in isolated Codex 0.153.4: five plugins, 58 skills and zero loading errors; one cold native export test with cross-second revision passes (8.108s), two mixed brand tests pass (51.409s), and all installed skill hashes remain unchanged. [Release-bound evidence](docs/evidence/codex-release50-vector10-stable-export-first-use-20261006.json). Generic Skills CLI installation, model/GUI, complete domain and creative acceptance remain open.
+
+All 22 updated skills pass individual public cold first use (159.811s): each is copied alone to .agents/skills and installs into an independent empty runtime, checks exact version and command contracts, and preserves its files and all host-installed hashes. This does not establish generic Skills CLI installation or every creative scenario.

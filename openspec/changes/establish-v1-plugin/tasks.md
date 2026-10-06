@@ -126,7 +126,7 @@
 
 - [x] 6.32 [AC-TX-002] 消费固定 FilmCraft dev.8 源音轨门禁，传播 export_audio_missing；公开首次安装执行混合失败与正常增益任务，核对失败目录、后续阻断、尝试／预算幂等与固定宿主技能摘要。
 
-- [ ] 6.33 [AC-DM-004] 更新固定 VectorCraft dev.9 技能包并接入维护版 0.2.0-craft.2；真实复现旧混合品牌返工改变无关 SVG，验证不同画幅与原点的 SVG／PNG／PDF 保全、关联四节点更新、无关节点复用、重复任务／预算幂等、旧交付／输入保全及五工程打包，固定公开新版宿主安装后再次验收并核对 58 技能摘要。
+- [x] 6.33 [AC-DM-004] 更新固定 VectorCraft dev.9 技能包并接入维护版 0.2.0-craft.2；真实复现旧混合品牌返工改变无关 SVG，验证不同画幅与原点的 SVG／PNG／PDF 保全、关联四节点更新、无关节点复用、重复任务／预算幂等、旧交付／输入保全及五工程打包，固定公开新版宿主安装后再次验收并核对 58 技能摘要。
 
 ## 7. artifact-delivery
 
@@ -190,3 +190,5 @@
 独立安装身份补充：4 个误通过用例确认失败后修复，目标 7 项通过，全库 57 项中 53 项通过、4 项跳过；历史 58 个实际冷启动版本输出重新解析全部通过，仅证明解析兼容，不是重跑安装。证据：`docs/evidence/independent-install-identity-regression.json`。3.16 继续未完成。
 
 5.14 固定发行复验：dev.46／源 dev.34／运行时 dev.45；真实原生取消及调度器崩溃接管各 1 项通过，十项独立冷启动和混合 3 项回归通过。58 项安装摘要保持不变，证据 `docs/evidence/codex-release46-live-cancel-first-use-20261006.json`。3.16、worker 崩溃、截止时间、模型／GUI／创作等门禁仍开放。
+
+固定新版验收：FilmCraft dev.9、EffectCraft dev.7、PhotoCraft dev.9、VectorCraft dev.10、ArtCraft dev.50 在 Codex 0.153.4 隔离安装发现 58 技能，零加载错误。安装后单导出技能跨秒原生验收 1 项通过，混合品牌返工 2 项通过，全部 58 安装摘要保留。证据：`docs/evidence/codex-release50-vector10-stable-export-first-use-20261006.json`。不关闭通用 Skills CLI、模型／GUI、完整领域／创作／发布门禁。
