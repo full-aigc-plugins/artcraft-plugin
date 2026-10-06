@@ -1,10 +1,12 @@
+固定 ArtCraft82／技能源56 的组件首次使用通过：5插件、58技能、零加载错误；十个Art技能各自查询2639条目录，并独立从空缓存安装、调用四领域（40项原生用例，920次操作）。实际工程保存与返工后重开、目标状态及像素、非目标对象保留均通过；58个安装技能摘要不变。两个公开源包与固定标签逐字节一致，4项插件CI通过。仅关闭组件门禁6.50；完整DAG门禁6.51、2639条逐项命令、GUI／模型、通用Skills CLI及完整V1仍开放。[版本绑定证据](docs/evidence/codex-art82-complete-domain-component-first-use-20261007.json)。
+
 # ArtCraft Agent Plugin
 
 Art完整领域命令组件候选已支持2639条离线查询、实际MCP schema及只安装选定领域的公开交接。四域冷安装创建／重开／返工与目标／对照像素通过；固定安装6.50及DAG原生交付6.51仍开放。 [Evidence](docs/evidence/art-complete-domain-component-candidate-20261007.json).
 
 固定原生首次安装与完整命令恢复验收通过：新版五插件58技能逐项独立冷安装，十个Art技能分别安装四领域；四个原生下载半包SSL EOF恢复、72个原生保存后故障、四个健康命令返工及混合HD返工／恢复／移动包通过，全部安装摘要保全。仅关闭领域2.10／8.11与Art4.10；2639条命令逐项、GUI、模型、通用Skills CLI及完整V1仍开放。 [版本及证据](docs/evidence/codex-native-download-first-use-20261007.json).
 
-当前插件 dev.82／技能源 dev.56，复用 runtime dev.78；完整命令组件候选已验证，固定安装门禁6.50与完整DAG门禁6.51仍开放。
+当前插件 dev.82／技能源 dev.56，复用 runtime dev.78；固定安装组件门禁6.50已通过，完整DAG门禁6.51仍开放。
 
 固定发布前的候选记录：Art原生首用恢复候选固定Film18／Effect、Photo、Vector17，复用runtime78。此前Art80冷安装在领域CLI下载遇到SSL EOF失败，保留失败证据；新固定安装验收仍开放。
 

@@ -38,3 +38,5 @@ A successful native call produces artcraft-command-call.json, bound to the immut
 The mandatory next DAG gate must consume this component through the public interface and bind editable native projects, collected dependencies, loss reports, actual reopening/export validation, task budget/cancellation, revision invalidation/recovery and moved delivery packages. Current runtime78 continues to use the workflow adapter; this component does not silently widen that adapter.
 
 Tests separate offline all-ten query/identity/preflight/recovery contracts from actual public cold installation, native creation, targeted revision, reopening, persisted state, target/control pixel checks and source preservation. Fixed plugin installation is a further gate. The2639-command exhaustive acceptance, GUI, model and completeV1 remain open.
+
+Fixed plugin82 / source56 passes ten installed skills × four domains (40 empty-cache native cases,920 operations), with all58 installed hashes unchanged. This closes component gate6.50 only; full DAG gate6.51 stays open.

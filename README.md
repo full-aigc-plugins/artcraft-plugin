@@ -1,10 +1,12 @@
+Fixed ArtCraft82 / source56 component first use passes: five plugins,58 discovered skills and zero loading errors; ten Art skills each query2639 entries and cold-install/run all four domains independently (40 native cases,920 operations). Actual saved revisions reopen, target settings and output pixels pass, non-target objects and all58 installed identities remain unchanged. Two public source ZIPs exactly match the fixed tag; four plugin CI runs pass. Only component gate6.50 closes. Full DAG gate6.51, exhaustive2639 commands, GUI/model, generic Skills CLI and fullV1 remain open. [Version-bound evidence](docs/evidence/codex-art82-complete-domain-component-first-use-20261007.json).
+
 # ArtCraft Agent Plugin
 
 Complete domain command component candidate adds2639 offline queries, actual MCP schemas and selected-domain public handoff. Four-domain cold native creation/reopen/revision and target/control pixels pass; fixed installed6.50 and full DAG native delivery6.51 remain open. [Evidence](docs/evidence/art-complete-domain-component-candidate-20261007.json).
 
 Fixed native first-use and complete-command recovery acceptance passed:58 standalone cold installations, ten Art all-domain cold installations, four partial-download SSL EOF recoveries,72 post-save faults, four healthy command revisions and mixed HD revision/recovery/moved delivery. Installed identities remain unchanged. Only domain2.10/8.11 and Art4.10 close; exhaustive2639-command, GUI, model, generic Skills CLI and fullV1 gates remain open. [Version-bound evidence](docs/evidence/codex-native-download-first-use-20261007.json).
 
-Current plugin: `0.1.0-dev.82`; skill source: `0.1.0-dev.56`; runtime: `0.1.0-dev.78`. New fixed installed-component gate 6.50 and full DAG gate 6.51 remain open.
+Current plugin: `0.1.0-dev.82`; skill source: `0.1.0-dev.56`; runtime: `0.1.0-dev.78`. Fixed installed-component gate 6.50 passes; complete DAG gate 6.51 remains open.
 
 Previous version-bound release: plugin dev.79 / source53 / runtime78 passed gate4.9. This remains historical evidence.
 
