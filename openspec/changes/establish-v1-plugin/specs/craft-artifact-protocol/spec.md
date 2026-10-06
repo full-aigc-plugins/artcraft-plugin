@@ -52,3 +52,11 @@ ArtCraft SHALL 维护 craft-artifact/v1 的唯一规范事实源；清单包含 
 - **WHEN** 登记外部工具返回的 application/json 报告
 - **THEN** 系统 SHALL 核对完整文件摘要与 JSON 语法，超过 16 MiB 或语法损坏拒绝登记；领域适配器另行验证报告语义与任务绑定
 - **AND** 报告不得通过未定义的 technicalMetadata 字段扩展公共协议，也不得将报告存在视为创作通过
+
+#### Scenario: AC-CP-002-WAV 配音的真实 PCM WAV 登记
+
+- **WHEN** 单独安装的 ArtCraft 技能首次使用已有标准 RIFF PCM WAV 配音，或公共素材声明 mediaType 为 audio/wav
+- **THEN** 按内容识别 RIFF/WAVE、fmt 和 data 块，登记实际采样率、声道、位深及以样本帧计的十进制 durationTicks 和有理数 timeBase，不靠扩展名或通用二进制类型证明音频
+- **AND** 分发运行时检查完整块边界、数据帧对齐及实际头字段与声明音频／时间元数据一致；假 WAV、截断或错误声明在领域副作用前拒绝
+- **AND** 素材版本摘要、源配音文件、原生工程与可迁移交付包保持绑定；已有未知二进制类型行为不提升为已识别媒体
+- **AND** 非 PCM、RF64、压缩 WAV 与 WAVE_FORMAT_EXTENSIBLE 不由本场景推断为支持；拒绝时明确报告格式边界，不生成替代配音

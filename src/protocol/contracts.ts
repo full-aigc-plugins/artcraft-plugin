@@ -4,6 +4,7 @@ import { realpath, stat, readFile } from 'node:fs/promises';
 import { resolve, relative, isAbsolute } from 'node:path';
 import { createHash } from 'node:crypto';
 import { isDeepStrictEqual } from 'node:util';
+import { inspectPcmWav } from './wav_inspection.ts';
 
 type Json = null | boolean | number | string | Json[] | { [key: string]: Json };
 type Schema = { [key: string]: any };
@@ -110,6 +111,7 @@ async function allowedPath(root: string, location: string): Promise<string> {
 function matchesMime(prefix: Buffer, type: string): boolean {
   if (type === 'application/octet-stream') return true;
   if (type === 'application/json') return true; // 完整 JSON 语法在摘要核对后检查。
+  if (type === 'audio/wav') return prefix.subarray(0,4).toString() === 'RIFF' && prefix.subarray(8,12).toString() === 'WAVE';
   if (type === 'image/png') return prefix.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10]));
   if (type === 'application/pdf') return prefix.subarray(0,5).toString() === '%PDF-';
   if (type === 'image/jpeg') return prefix[0] === 255 && prefix[1] === 216 && prefix[2] === 255;
@@ -143,6 +145,13 @@ export async function verifyArtifact(value: unknown, root: string): Promise<Reco
     try { JSON.parse(content.toString('utf8')); } catch { throw new Error('json_artifact_invalid'); }
   }
   if (!matchesMime(prefix, artifact.mediaType)) throw new Error('media_type_mismatch');
+  if(artifact.mediaType==='audio/wav'){
+    const facts=await inspectPcmWav(target,bytes),declared=artifact.technicalMetadata;
+    const current=await stat(target);
+    if(after.ino!==current.ino||after.size!==current.size||after.mtimeMs!==current.mtimeMs)throw new Error('artifact_changed_during_read');
+    if(!declared.audio||declared.audio.sampleRate!==facts.sampleRate||declared.audio.channels!==facts.channels||(declared.bitDepth!==undefined&&declared.bitDepth!==facts.bitDepth))throw new Error('audio_metadata_mismatch');
+    if(declared.durationTicks!==undefined&&BigInt(declared.durationTicks)*BigInt(declared.timeBase.num)*BigInt(facts.sampleRate)!==BigInt(facts.frames)*BigInt(declared.timeBase.den))throw new Error('audio_metadata_mismatch');
+  }
   // 源工程、交换表示与证据也是当前交付的一部分，不能只核验平面输出。
   const references=[artifact.nativeProjectRef,artifact.lossReportRef,...artifact.renditions,...artifact.evidenceRefs].filter(Boolean);
   for(const reference of references){

@@ -88,3 +88,19 @@ test('native project and rendition references must match actual files, not only 
   await assert.rejects(verifyArtifact(item,root),/artifact_reference_mismatch/);
  }finally{await rm(root,{recursive:true});}
 });
+
+function pcmWave(){
+ const data=Buffer.alloc(44+16);data.write('RIFF');data.writeUInt32LE(data.length-8,4);data.write('WAVEfmt ',8);data.writeUInt32LE(16,16);data.writeUInt16LE(1,20);data.writeUInt16LE(2,22);data.writeUInt32LE(48000,24);data.writeUInt32LE(192000,28);data.writeUInt16LE(4,32);data.writeUInt16LE(16,34);data.write('data',36);data.writeUInt32LE(16,40);return data;
+}
+test('PCM WAV content verifies declared audio facts and rejects malformed or mismatched media',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'craft-wave-artifact-'));
+ try{
+  const data=pcmWave();const facts={audio:{sampleRate:48000,channels:2},bitDepth:16,durationTicks:'4',timeBase:{num:1,den:48000}};
+  const value=(bytes:Buffer,metadata:any=facts)=>({...artifact(),mediaType:'audio/wav',sha256:createHash('sha256').update(bytes).digest('hex'),bytes:bytes.length,technicalMetadata:metadata});
+  await writeFile(join(root,'logo.bin'),data);await verifyArtifact(value(data),root);
+  for(const metadata of [{...facts,audio:{sampleRate:44100,channels:2}},{...facts,audio:{sampleRate:48000,channels:1}},{...facts,bitDepth:24},{...facts,durationTicks:'5'},{}])await assert.rejects(verifyArtifact(value(data,metadata),root),/audio_metadata_mismatch/);
+  const bads=[data.subarray(0,data.length-1),Buffer.from(data),Buffer.from(data),Buffer.from(data)];bads[1].writeUInt32LE(14,40);bads[2].writeUInt16LE(3,20);bads[3].writeUInt32LE(1,28);
+  for(const bad of bads){await writeFile(join(root,'logo.bin'),bad);await assert.rejects(verifyArtifact(value(bad),root),/wav_invalid|wav_format_unsupported/);}
+  const text=Buffer.from('not WAV');await writeFile(join(root,'logo.bin'),text);await assert.rejects(verifyArtifact(value(text),root),/media_type_mismatch|wav_invalid/);
+ }finally{await rm(root,{recursive:true});}
+});
