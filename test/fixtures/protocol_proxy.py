@@ -8,7 +8,8 @@ import sys
 import threading
 
 fault, log, capture = sys.argv[1:4]
-process = subprocess.Popen(sys.argv[4:], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+native_argv = sys.argv[4:]
+process = subprocess.Popen(native_argv, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                            stderr=subprocess.DEVNULL, text=True, bufsize=1)
 saved = {}
 def forward():
@@ -17,8 +18,19 @@ def forward():
             request = json.loads(line)
             params = request.get('params', {})
             arguments = params.get('arguments', {})
-            if request.get('method') == 'tools/call' and arguments.get('command') == 'document.save':
-                saved[request['id']] = arguments['params']['path']
+            if request.get('method') == 'tools/call':
+                name = params.get('name')
+                path = None
+                if name == 'run_command' and arguments.get('command') == 'document.save':
+                    path = arguments['params']['path']
+                elif name == 'command_run' and arguments.get('id') == 'file.saveAs':
+                    path = arguments['params']['path']
+                elif name == 'save_project':
+                    path = arguments['path']
+                elif name == 'doc_save':
+                    path = str(Path(native_argv[native_argv.index('--automation-write-root') + 1]) / arguments['path'])
+                if path is not None:
+                    saved[request['id']] = path
             process.stdin.write(line)
             process.stdin.flush()
     finally:
@@ -62,3 +74,4 @@ finally:
         except subprocess.TimeoutExpired:
             process.kill()
             process.wait()
+    process.stdout.close()

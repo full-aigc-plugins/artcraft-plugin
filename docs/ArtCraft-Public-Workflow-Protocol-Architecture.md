@@ -38,3 +38,11 @@ Public creation workflows clean failed staging directories. The proxy copies the
 Domain CM-001 task 8.9 and Art AC-RT-002 task 4.7 stay open. Fixed domain source releases, vendored plugins, a new Art distribution and actual installed-copy tests remain required. Current Art dev.75's earlier pinned domain clients were not replaced by this test. Exhaustive 2639-command, GUI, model-dispatch and full V1 acceptance remain separate.
 
 Fixed installed domain copies now close bounded domain8.9; Art4.7 stays open. The published engine and installed Vector client pass six faults: [evidence](evidence/codex-public-workflow-session-first-use-20261007.json). Art dev.75 still bundles earlier sources; the updated distribution needs its own fixed mixed-task acceptance.
+
+## Updated domain-client distribution candidate dev.77
+
+Runtime dev.76 and Art source dev.52 pin Film source dev.15 and Effect/Photo/Vector dev.14. Full immutable Git source ZIPs include all48 domain clients. Earlier tags, locks and installations remain unchanged. Ten clean committed Art skills separately cold-install public Node, Art and all four native CLIs in452.970seconds; version/help and fingerprints pass.
+
+One cold copied revision skill completes a1920×1080,24fps,5-second mixed project:120 decoded frames, four RGBA segments, Logo-dependent revision, independent-node reuse, corrupt-frame recovery and a moved five-child package in227.331seconds. The actual public runtime executes24 post-save faults through all four public domain adapters: one real native save, structured outcome_unknown, unregistered blocked consumers, unchanged attempt/budget/inputs, no frozen-plan replay and native reopening of captured projects.
+
+Proxy capture does not prove product preservation of failed staged projects. Candidate source validation does not substitute for fixed installed plugin identity/first use. [Bound evidence](evidence/art-updated-domain-distribution-candidate-20261007.json). Task4.7 stays open until fixed plugin acceptance; exhaustive command/GUI/model and fullV1 gates remain separate.

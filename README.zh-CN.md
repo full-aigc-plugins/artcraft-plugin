@@ -31,7 +31,7 @@ PNG 运行时 dev.56 已由不可变标签发布，技能源 dev.40 快照已固
 
 ## 当前版本与可复现宿主验证
 
-当前插件 `0.1.0-dev.76`，独立技能源 `0.1.0-dev.51`，运行时构建 `0.1.0-dev.76`。本中间运行时发行用于新领域客户端分发升级；当前vendor技能源仍安装旧分发dev.73。新技能源与固定安装验收尚未完成。
+当前插件 `0.1.0-dev.77`，独立技能源 `0.1.0-dev.52`，运行时 `0.1.0-dev.76`。新领域分发已通过十项固定源冷安装、混合HD返工／恢复／移动包以及四领域公开工作流24个保存后故障案例；固定插件安装验收尚未完成。
 
 固定 dev.38 验收：Codex 0.153.4 发现 58 项技能，加载错误为零；实际安装目录的单技能在线冷启动通过 3 项、无跳过，95.289 秒。四源返工、三领域尺寸修改、保存后产物摘要、Effect 实际视频属性、复用和源工程保全均通过，58 个安装技能摘要未变。[证据](docs/evidence/codex-release38-native-brief-first-use-20261006.json)。运行时回归 123 项通过、5 项可选跳过；完整模型／GUI／创作／生产验收仍开放。dev.37 标签因暂存失败保留历史，未创建 Release，也不作为插件快照使用。
 
@@ -55,9 +55,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.76 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.77 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.51 |
+| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.52 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

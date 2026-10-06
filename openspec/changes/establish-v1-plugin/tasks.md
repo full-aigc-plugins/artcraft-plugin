@@ -269,3 +269,5 @@ PNG 固定发行证据：运行时 dev.56／技能源 dev.40／插件 dev.57；�
 4.8 已通过有界下载故障单测、十项固定技能源逐文件匹配的独立空运行时公开安装、dev.75实际安装副本的冷混合验收、58项安装摘要与固定标签CI；证据 `docs/evidence/codex-art75-download-recovery-first-use-20261007.json`。原use测试的工作树缓存输入已排除并由固定ZIP干净副本重验替代。4.7编排协议故障全链路仍开放；独立Skills CLI、逐命令GUI及完整V1不在本子门禁范围。
 
 4.7 公开工作流协议候选证据 `docs/evidence/public-workflow-session-candidate-20261007.json`：实际发布 dev.73 编排引擎与候选 Vector 客户端六类保存后异常通过；下游阻止、attempt／预算保持、不重放。测试代理捕获工程不证明产品保留暂存文件，新的领域／Art 固定发行与实际安装复验仍开放。
+
+4.7 新分发候选dev.76／技能源dev.52：十单技能公开冷安装、HD混合、四领域公开工作流24个真实保存后故障与源包／二进制保全通过。候选证据 `docs/evidence/art-updated-domain-distribution-candidate-20261007.json`；新固定插件dev.77安装门禁仍开放。
