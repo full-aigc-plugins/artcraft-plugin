@@ -47,3 +47,11 @@
 - **WHEN** 生成当前版本原生工程和约定导出
 - **THEN** 交付 exchange-loss.json 并由 manifest 文件摘要绑定，记录原生工程、重开检查及每个导出摘要；格式损失、实际结构观察与未验证保真分别使用 lost、observed、unknown
 - **AND** 原生工程必须保留，导出仅作 derivative；未知字体和效果保真不得标记已验证，缺失、损坏、身份错配或有损 nativeSubstitute 拒绝技术交付
+
+#### Scenario: PhotoCraft variant records survive package relocation
+- **WHEN** a source-bound mixed workflow produces a PhotoCraft size variant with a manifest-bound layout-variant.json
+- **THEN** ArtCraft SHALL retain that geometry record in the child delivery and validate its digest after package relocation
+
+#### Scenario: A packaged variant record is altered
+- **WHEN** a layout-variant.json in a previously verified mixed package is modified
+- **THEN** package verification SHALL reject the modified delivery rather than reuse its earlier acceptance

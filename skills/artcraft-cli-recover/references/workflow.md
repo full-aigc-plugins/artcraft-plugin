@@ -106,3 +106,11 @@ workflow.py 在依赖下载前读取节点 pluginId 或 runtimeIdentity.pluginId
 bootstrap.py 显式调用保持完整安装的兼容默认；可重复 --plugin vectorcraft --plugin photocraft 指定领域，或用 --runtime-only 仅安装编排运行时。四领域混合示例仍自动安装全部四个领域。手动 --node-only 仅证明 Node，不能代表 ArtCraft 已安装。
 
 CLI 发现、状态查询、打包和移动验包仅安装编排运行时，不额外下载领域工具。直接 CLI run 的 registry 必须登记已有领域运行身份；领域首次安装与登记由 workflow.py 按计划完成。
+
+## PhotoCraft 尺寸变体的混合交付
+
+当前依赖锁为 PhotoCraft skills dev.8。源工程节点仍通过 `sourceProject.assetId` 和 `expectedRevision` 绑定实际已登记的原生工程。节点 `payload.plan` 可声明 PhotoCraft `variant`：目标 width/height、最终画布坐标的 safeArea `[x,y,width,height]`、源 background/product/text 三个图层角色。角色可用实际 ID 或源 manifest 中的绑定引用，例如 `{"$ref":"title.layer"}`。背景 ID 必须来自源 native.json，不从名称猜测或照抄。
+
+尺寸操作使用受支持的 `image.canvasSize` 或 `image.imageSize`；保存重开后由独立 PhotoCraft 工作流核验目标尺寸、原图层身份、可见性和文字/产品边界。海报源 Logo 图层可以作为功能样例的前景角色，但真实产品项目应绑定真实产品图层。角色无法核验或越出安全区时，该节点失败且不发布子交付。
+
+成功子交付包含 manifest 绑定摘要的 `layout-variant.json`。ArtCraft 打包保留完整记录，包迁移后继续按可信打包回执摘要验证；记录被修改会拒绝验收。几何安全区不能代替品牌、排版审美或人工接受。
