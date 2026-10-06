@@ -21,3 +21,5 @@ The isolated online single-skill test installs only PhotoCraft, creates a real l
 Installed PhotoCraft protection proof: 1 passed (11.073 seconds); installed ArtCraft pinned-dependency handoff: 1 passed (22.114 seconds), system Python 3.14.3. All 58 skills discovered, zero loading errors and every installed hash unchanged after execution. Proof: codex-release30-protected-native-20261006.json. The overall goal and creative acceptance remain incomplete.
 
 Retouch extension: the fixed PhotoCraft source dependency is dev.7. Public layer creation and stroke operations, followed by a protected source revision, are delegated through the same native worker and portable package path. Source candidate verification and actual installed-plugin verification remain distinct; task 6.25 is open until fixed-host proof.
+
+Fixed release and installed-plugin retouch verification now passed; see evidence/codex-release31-retouch-native-20261006.json. This closes scoped task 6.25 without claiming full domain/creative acceptance.
