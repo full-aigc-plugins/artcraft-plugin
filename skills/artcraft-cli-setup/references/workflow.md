@@ -156,3 +156,9 @@ Fixed installed-host verification remains open; JPEG/video identification, ICC/v
 工作树候选支持按内容识别 8 位 SOF0／SOF1／SOF2 JPEG，登记编码栅格尺寸和 alpha=false；标记检查不代替熵解码、EXIF 或 ICC 保真。非标准扩展名暂存为摘要相同的 jpg，原文件不修改。候选首次使用仍安装公开 dev.56 运行时；新固定发行及宿主安装验收未完成前，不将此候选提升为已发布能力。
 
 JPEG 固定运行时 dev.58 已发布；技能源 dev.41 锁定该制品，安装后宿主复验待执行。既有候选证据的 dev.56 冷安装范围不改变。
+
+## LUT／运动固定依赖增量
+
+技能源 dev.46 固定运行时 dev.68 与 Film 技能源 dev.10。登记 Film 素材绑定可指定 `kind: "lut"`，只接受已登记的 `.cube`／`.3dl` 文件；由公开 `--lut-asset` 交接，非 Film 与未知类型在计划执行前拒绝。局部运动返工可保留已收集 LUT、字幕、音轨与上游产物。候选原生证据通过；本次新固定发行安装后验收仍待执行，不替代完整首版。
+
+Source dev.46 pins runtime dev.68 and Film source dev.10. Registered Film asset bindings may specify `kind: "lut"` for `.cube`/`.3dl`, handed off through public `--lut-asset`; other domains and unknown kinds are rejected before execution. Motion revisions preserve collected LUT, captions, audio and upstream results. Candidate native acceptance passes; new fixed installed-release acceptance is pending.
