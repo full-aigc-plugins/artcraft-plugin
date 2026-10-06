@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-Candidate dynamic-sequence handoff is implemented in the current working tree; the published Art runtime is unchanged. See [architecture and remaining gates](docs/ArtCraft-Dynamic-Sequence-Architecture.md).
+Current runtime and source now include typed dynamic-sequence handoff. The updated full plugin is prepared for fixed installed-host repetition; see [architecture](docs/ArtCraft-Dynamic-Sequence-Architecture.md).
 
 Fixed JPEG release dev.59 / source dev.41 / runtime dev.58 passes isolated Codex discovery (five plugins, 58 skills, zero errors), installed copied-alone JPEG/PNG/PCM native delivery, ten Art cold CLI installations and all 58 installed digest checks. Progressive JPEG produces a reopened three-layer Photo project plus independently decoded PNG/PSD and a moved package. [Version-bound evidence](docs/evidence/codex-release59-jpeg-first-use-20261006.json). Full V1/model/GUI/creative acceptance remains open.
 
@@ -12,7 +12,7 @@ PNG runtime dev.56 is published from an immutable tag and the source dev.40 snap
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.63`; skill source: `0.1.0-dev.43`; runtime: `0.1.0-dev.62`. Public source and fixed installed-host SVG/PNG/JPEG mixed validation pass; full V1 remains open. Prior evidence keeps its original scope.
+Current plugin: `0.1.0-dev.65`; skill source: `0.1.0-dev.44`; runtime: `0.1.0-dev.64`. Public-source dynamic mixed cold validation passes; updated installed-host acceptance is pending. Full V1 remains open. Prior evidence keeps its original scope.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 

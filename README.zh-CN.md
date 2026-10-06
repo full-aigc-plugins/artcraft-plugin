@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-当前工作树已实现候选动态序列交接，公开 Art runtime 尚未更新。详见[架构与剩余门禁](docs/ArtCraft-Dynamic-Sequence-Architecture.zh_CN.md)。
+当前 runtime 与独立技能源已接入类型化动态序列；新版完整插件已准备，固定安装复验待执行。详见[架构](docs/ArtCraft-Dynamic-Sequence-Architecture.zh_CN.md)。
 
 历史固定 JPEG 发行 dev.59／技能源 dev.41／运行时 dev.58：隔离 Codex 发现五插件／58 技能／零错误；安装副本 JPEG、PNG、PCM 原生交付、十项 Art 冷安装及全部安装摘要保全通过。渐进 JPEG 交付重开的三层 Photo 工程及独立解码 PNG／PSD，迁移验包通过。[版本绑定证据](docs/evidence/codex-release59-jpeg-first-use-20261006.json)。完整首版／模型／GUI／创作验收仍开放。
 
@@ -12,7 +12,7 @@ PNG 运行时 dev.56 已由不可变标签发布，技能源 dev.40 快照已固
 
 ## 当前版本与可复现宿主验证
 
-当前插件 `0.1.0-dev.63`，独立技能源 `0.1.0-dev.43`，运行时 `0.1.0-dev.62`。公开技能源及固定安装后的 SVG／PNG／JPEG 混合验收通过；完整首版仍开放，历史证据保留原范围。
+当前插件 `0.1.0-dev.65`，独立技能源 `0.1.0-dev.44`，运行时 `0.1.0-dev.64`。公开技能源动态混合冷启动已通过，新版安装宿主复验待执行；完整首版仍开放，历史证据保留原范围。
 
 固定 dev.38 验收：Codex 0.153.4 发现 58 项技能，加载错误为零；实际安装目录的单技能在线冷启动通过 3 项、无跳过，95.289 秒。四源返工、三领域尺寸修改、保存后产物摘要、Effect 实际视频属性、复用和源工程保全均通过，58 个安装技能摘要未变。[证据](docs/evidence/codex-release38-native-brief-first-use-20261006.json)。运行时回归 123 项通过、5 项可选跳过；完整模型／GUI／创作／生产验收仍开放。dev.37 标签因暂存失败保留历史，未创建 Release，也不作为插件快照使用。
 

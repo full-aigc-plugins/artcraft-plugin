@@ -86,3 +86,7 @@ ArtCraft dev.7 消费四领域 dev.2 的[交换损失报告](references/exchange
 版本化需求记录可用本技能自带 `scripts/brief.py`；参见[Brief 合同与当前边界](references/brief.md)。Python 工作流支持 `--brief` 与 `--brief-sha`，安装前拒绝阻塞需求；Node 与 Python 执行器核对需求约束，安装使用本技能分发锁固定版本；技术通过与创作接受分别记录。
 
 PhotoCraft 源工程局部修改可在领域 plan 中声明 `protectedRegions`（具名矩形 id／rect=[x,y,width,height]）；领域工作流发布前检查保护区域，对照 PNG 与报告随子工程和项目包保留。不要把保护区报告当作创作接受。
+
+## 动态透明序列交接
+
+混合任务需要透明动画、完整帧交接或 Logo 更换后的下游更新时，使用本技能[动态序列指南](references/dynamic-sequence.md)及 `examples/dynamic-brand-campaign.json`。按实际回执验证全部帧、时间基、原生引用和局部返工，不以首帧或普通 JSON 代替序列。

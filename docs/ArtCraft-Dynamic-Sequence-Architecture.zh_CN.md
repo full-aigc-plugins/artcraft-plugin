@@ -4,6 +4,8 @@
 
 本次是 `establish-v1-plugin` 下 AC-AR-003 的候选实现。公开 Art 插件 dev.63／技能源 dev.43／runtime dev.62 尚未包含该变更。固定发行安装、完整四领域 Logo 替换、通用 Skills CLI、模型／GUI／创作验收仍开放。[候选证据](evidence/dynamic-sequence-candidate-20261006.json) 记录精确测试与源码身份。
 
+runtime dev.64 与独立技能源 dev.44 已公开发布，单技能默认公开冷启动四领域五节点、Logo 替换、损坏帧恢复和移动包 1 项通过（59.343 秒）。[源码固定依赖证据](evidence/dynamic-source44-first-use-20261006.json)。完整插件 dev.65 已准备，新版安装宿主验收待执行；历史候选证据保留原范围。
+
 ## 交接合同
 
 ```mermaid

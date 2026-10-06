@@ -77,7 +77,7 @@
     "6.38": "docs/evidence/dynamic-sequence-candidate-20261006.json"
   },
   "hostValidationEvidence": "docs/evidence/codex-release50-vector10-stable-export-first-use-20261006.json",
-  "hostValidationStatus": "bounded-installed-stable-vector-export-and-mixed-brand-revision-passed",
+  "hostValidationStatus": "pending-updated-dynamic-fixed-release",
   "versionedBriefEvidence": "docs/evidence/versioned-brief-first-use.json",
   "filmReceiptIntegrationEvidence": "docs/evidence/film-receipt-integration-native.json",
   "everySkillColdFirstUseEvidence": "docs/evidence/codex-release43-every-skill-cold-first-use-20261006.json",
@@ -87,7 +87,11 @@
   "dynamicSequenceCandidate": {
     "status": "bounded-native-candidate-passed",
     "evidence": "docs/evidence/dynamic-sequence-candidate-20261006.json",
-    "fixedArtReleaseAcceptance": "pending",
-    "task": "6.39"
-  }
+    "fixedArtReleaseAcceptance": "pending-dev.65",
+    "task": "6.39",
+    "publishedRuntime": "0.1.0-dev.64",
+    "publishedSkillSource": "0.1.0-dev.44",
+    "sourceFirstUseEvidence": "docs/evidence/dynamic-source44-first-use-20261006.json"
+  },
+  "priorHostValidationEvidence": "docs/evidence/codex-release50-vector10-stable-export-first-use-20261006.json"
 }

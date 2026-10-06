@@ -4,6 +4,8 @@
 
 This is a candidate implementation under `establish-v1-plugin`, requirement AC-AR-003. Public Art plugin dev.63 / source dev.43 / runtime dev.62 does not contain this change. Fixed-release installation, a full four-domain Logo replacement workflow, generic Skills CLI and model/GUI/creative acceptance remain open. [Candidate evidence](evidence/dynamic-sequence-candidate-20261006.json) owns the exact test and source identity.
 
+Runtime dev.64 and independent source dev.44 are published. Copied-alone default public cold four-domain/five-node execution, Logo replacement, corrupt-frame recovery and moved packaging pass one test (59.343s). [Pinned source evidence](evidence/dynamic-source44-first-use-20261006.json). Full plugin dev.65 is prepared; its installed-host acceptance remains pending. Historical candidate evidence keeps its original scope.
+
 ## Handoff contract
 
 ```mermaid

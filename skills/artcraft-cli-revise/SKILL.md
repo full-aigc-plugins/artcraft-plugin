@@ -63,3 +63,7 @@ python3 -I -B "$SKILL_DIR/scripts/revision.py" status --project "$PROJECT_ROOT"
 ## 品牌色板混合返工
 
 本技能自带品牌图形／海报／片头／成片和独立图标的五节点示例。按本技能 [品牌色板指南](references/brand-token-workflow.md) 执行并核对受影响产物；首次安装所需领域由固定依赖锁决定。
+
+## 动态透明序列交接
+
+混合任务需要透明动画、完整帧交接或 Logo 更换后的下游更新时，使用本技能[动态序列指南](references/dynamic-sequence.md)及 `examples/dynamic-brand-campaign.json`。按实际回执验证全部帧、时间基、原生引用和局部返工，不以首帧或普通 JSON 代替序列。

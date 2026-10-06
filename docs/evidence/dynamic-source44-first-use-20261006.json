@@ -1,0 +1,89 @@
+{
+  "schema": "artcraft-dynamic-four-domain-first-use/v1",
+  "result": "PASS",
+  "scope": "one copied skill; empty runtime; default public downloads; four-domain five-node native workflow",
+  "runtimeVersion": "0.1.0-dev.64",
+  "distributionLockSha256": "f5cec2f250431c8acc99bb998e9fb289b7af08a111d9e93858bafcd0da813163",
+  "skillFiles": {
+    "SKILL.md": "77545f7e99593cf30855c9bd68ed55553989a614e7f68051a0aad6a4ddfb3fb7",
+    "examples/brand-brief.json": "83bd8bcccec8fe4d9560687f85db757f4f44906ab50d817a657f573c1db9ffd0",
+    "examples/brand-campaign.json": "e06b82ff197f72634cea6888a7e23936f26e5939ee4c0b77b09eb23b3f5aa650",
+    "examples/brand-token-campaign.json": "b7cb6db186d59196a0f8bc79cc36545fc1c37a34dcf18ae379359c52ce5601c6",
+    "examples/chinese-brand-campaign.json": "e98b5bb3e2eb45b5f12c02477b0f8a8d5a5f6ca4acd367b5a5d5d5b889c09712",
+    "examples/dynamic-brand-campaign.json": "306ea8a7de3f1ea11f33a9357e616a523b5244a58a0e9f5284c1c882000b10c2",
+    "references/brand-token-workflow.md": "28f955155ca50f4dfa54da53c9e20ea035171aac70681972d9d6638900d0f8c0",
+    "references/brief.md": "db2d255e41211ee3b3166e15b1758c455c65d3d0a7c4e19b59f790e30790cccf",
+    "references/commands.json": "7691a8ead35d3da6df1e6f5e0ded964a624e5def4b089a2a9859f7667570228c",
+    "references/dynamic-sequence.md": "24e8246c7c82fe1641b8cdc3aa252d1dc4903c8944110e9a384ab7652040979b",
+    "references/exchange-loss.md": "52102251621536a3cd9251ebafcfe62f47493a1c9b24aa26471b15a52a2debb2",
+    "references/project-package.md": "3ed74526a8a93125f7f28002cf80c130298f8fb570bf0d9a2f487795c1eb343b",
+    "references/recovery.md": "a8c50095f8c4a47571c4a7ed50ac5b8240dcd20439232cb6aa542dab6522e78b",
+    "references/review.md": "5bd0e417ab1db9363a5fa9f40ff75fbb706cd15a4a19fa3c6002300c0c8bcb43",
+    "references/revision.md": "d664983acdbb2cd83ecc2c979bd6cc81fb59696fdaddb99d702e9fe0311fcb01",
+    "references/scenario.md": "e8820ef0b632b32393375754957d177b21b36595b79442a05aa0b6845c1c02c8",
+    "references/video-factory.md": "ce5edfe349cb0d74a7e5126440523c157e71aba8a26f8d71e79149343212f6b5",
+    "references/workflow.md": "c3bdb0696b400fa26fb349e9bd21416f5473db37f1f0ace5c8df9f29e4be9633",
+    "scripts/bootstrap.py": "5d2892aa19e09f0c8a2c1938b1cf42f7eadc09d3ce0e6fbda63988bac5f5a842",
+    "scripts/brief.py": "fb2809876405a682939c251c4f1673d7dd6aaa5ae3abd2e982cd302caaa92de0",
+    "scripts/cli.py": "adc32453aca15399ee2e0ad402e0af51be7dc9197225d0ec080de89e567e2afb",
+    "scripts/distribution.lock.json": "f5cec2f250431c8acc99bb998e9fb289b7af08a111d9e93858bafcd0da813163",
+    "scripts/jpeg_inspection.py": "6d057317962954b147864ae33966582553dc0591335af42bfdc3da333ed2257c",
+    "scripts/node.lock.json": "5d47b1f8b5a1738686f3033981444489eafeb99854d2102254be0375ae4462b8",
+    "scripts/package.py": "378555b07e3b0710396c501ec9e8504b1fda02cd97441c72af23c425ebfb0f0f",
+    "scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+    "scripts/review.py": "fde29e2cb937a7aa19a796a0bed28481fdcef818e9d8169d63abf9fddb5787ef",
+    "scripts/revision.py": "22795a5d63fa651233db30569304aa4c79b8508eb02545c96768774e25a62eb9",
+    "scripts/setup.py": "ed5b02f34edd94dd29420d89195f0f59942f7f074c2fcc4c04caf9643db904af",
+    "scripts/workflow.py": "9164ce0033b7b52de5e8ac7b6d8cda0c29c7ab7b4998d4122b23fca9996d39a8"
+  },
+  "domainVersions": {
+    "effectcraft": "0.1.0-dev.8",
+    "filmcraft": "0.1.0-dev.9",
+    "photocraft": "0.1.0-dev.9",
+    "vectorcraft": "0.1.0-dev.10"
+  },
+  "frameCount": 12,
+  "frameRate": {
+    "num": 12,
+    "den": 1
+  },
+  "independentlyDecodedFrames": 12,
+  "compositePixelChecks": 6,
+  "logoReplacementConsumersRebuilt": [
+    "logo",
+    "poster",
+    "intro",
+    "film"
+  ],
+  "independentTaskReused": true,
+  "backgroundVoiceAndInitialFramePreserved": true,
+  "actualLogoAndPosterPixelsChanged": true,
+  "originalInputsDeliveriesAndSkillsPreserved": true,
+  "sameRevisionTasksAndBudgetReused": true,
+  "corruptFrameBlockedAndRestoredWithoutReexecution": true,
+  "movedPackageChildren": 5,
+  "excluded": [
+    "updated fixed Art plugin host until bound to host receipt",
+    "generic Skills CLI",
+    "model dispatch",
+    "GUI",
+    "complete creative approval"
+  ],
+  "sourceVersion": "0.1.0-dev.44",
+  "baseCommit": "5012420f2d9a2f8faa86727690b75d0cb54c6bb3",
+  "driverSha256": "43cddde8a44e1a378d860913bf4732ba7542652c242676e4a92e133389bdf2b9",
+  "testExecution": {
+    "passed": 1,
+    "skipped": 0,
+    "seconds": 59.343,
+    "logSha256": "718137ab63cfd8bb01d6b1847596a41c87c682aaf9e88edbc226edbcb6a3b47e"
+  },
+  "regression": {
+    "tests": 100,
+    "passed": 75,
+    "skipped": 25,
+    "seconds": 6.33,
+    "logSha256": "826c648e9e66ec27e62802d3a8c599f491f8794234ba1d039e214c351cec7596"
+  },
+  "lockedFiveBundlesRebuilt": true
+}

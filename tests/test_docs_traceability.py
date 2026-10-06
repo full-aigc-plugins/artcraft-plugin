@@ -40,6 +40,6 @@ class DocumentationTraceabilityTests(unittest.TestCase):
                 return subprocess.run([sys.executable,'-B',str(root/'scripts/validate_docs.py')],cwd=root,capture_output=True,text=True)
             positive=validate();self.assertEqual(positive.returncode,0,positive.stdout+positive.stderr)
             task=next(line for line in baseline.splitlines() if line.startswith('- [ ] 1.1 '))
-            path.write_text(baseline.replace(task+'\n','')+'\n'+task+'\n')
+            path.write_text(baseline.replace(task+'\n','')+'\n## 11. 错放任务测试分组\n\n'+task+'\n')
             negative=validate();self.assertEqual(negative.returncode,1,negative.stdout+negative.stderr)
             self.assertIn('task 1.1 is under group 11, expected group 1',json.loads(negative.stdout)['errors'])
