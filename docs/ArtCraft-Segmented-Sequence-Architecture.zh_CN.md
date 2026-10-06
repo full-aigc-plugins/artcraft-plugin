@@ -36,3 +36,9 @@ Film 生成 `filmcraft-collected-sequence/v1`，保留每段来源摘要与原 `
 本验证使用已有核验原生执行器及当前领域源码，不是 Art 空运行时安装，也不是新固定插件安装。6.46 覆盖候选联调；6.47 保留 HD 长序列、固定领域及 Art runtime／技能源／插件发布、安装快照、公开冷使用、移动包和安装摘要验收。完整 V1、GUI／模型派发／创作接受仍开放，Art 不含剪映适配。
 
 协议复验：`node --test test/segmented_sequence.test.ts`。原生驱动为 `test/segmented_sequence_native.test.ts`，通过 `CRAFT_ART_SEGMENT_NATIVE=1` 及显式核验的 Python／领域技能／原生 CLI 路径启用；本机路径仅作运行配置，不进入公开证据。
+
+## HD 领域候选与当前源码回归
+
+[领域 HD 证据](evidence/effect-film-segment-hd-candidate-20261007.json) 证明两个单独复制的技能源从空运行时使用默认下载，完成五秒 1080p／24 fps 序列及完整 120 帧 Film 成片解码，包含动态标题。这不证明安装版 Art HD。
+
+[当前源码 Art 回归](evidence/art-segment-fast-rgba-candidate-20261007.json) 使用优化后的领域解码器，一项原生用例在 5.905 秒通过，覆盖十二帧、移动工程后的局部文字修订、损坏拒绝／恢复、源文件保全和恢复预算不变。任务 6.47 保持开放，等待不可变发行和安装版 HD 验收。

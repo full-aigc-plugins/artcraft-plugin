@@ -36,3 +36,9 @@ Source artifacts carry every child manifest and frame reference. Film artifacts 
 The candidate uses existing verified native executables and current domain source. It is not an empty-runtime Art installation or an installed new immutable plugin. Task 6.46 covers this candidate; 6.47 remains open for HD long rendering, pinned domain and Art runtime/source/plugin publication, installed snapshots, cold public use, moved packaging and installation hash preservation. GUI/model/creative approval and full V1 remain open. Art has no Jianying adapter.
 
 Reproduction: run `node --test test/segmented_sequence.test.ts` for protocol boundaries. The native driver is `test/segmented_sequence_native.test.ts`, enabled by `CRAFT_ART_SEGMENT_NATIVE=1` with explicit verified Python, domain skill and native CLI paths. Environment paths are local configuration and are never published in evidence.
+
+## HD domain candidate and current-source regression
+
+[Domain HD evidence](evidence/effect-film-segment-hd-candidate-20261007.json) now proves two copied-alone source skills completing default cold native installation, a five-second 1080p / 24 fps sequence and full 120-frame Film export decode, including an animated title. This does not prove installed Art HD.
+
+[Current-source Art regression](evidence/art-segment-fast-rgba-candidate-20261007.json) passes one native case in 5.905 seconds with the optimized domain decoder: twelve frames, moved-project selective text revision, corruption refusal/restoration, preserved source files and unchanged restoration budget. Task 6.47 remains open for immutable publication and installed HD acceptance.
