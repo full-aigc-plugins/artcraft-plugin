@@ -140,3 +140,13 @@ A required-audio Film node without a timeline audio source reports `export_audio
 首次使用已有标准 PCM WAV 配音时，workflow.py 按 RIFF/WAVE 内容登记 audio/wav、采样率、声道、位深、十进制样本帧数和 timeBase=1/sampleRate；运行时核对实际文件、块边界、帧对齐及声明。假 .wav、截断与非 PCM 格式在安装或领域执行前明确拒绝，不转码替换。其他未知输入维持二进制类型，不推断为已识别音频。独立技能不依赖兄弟目录；原配音及技能文件保留。
 
 Standard PCM WAV narration is identified from content, carries exact sample-based facts, and is verified again by the runtime. Invalid WAV files and unsupported compression are rejected explicitly; no replacement voice is generated. Native FilmCraft export/decode and creative/audio review remain separate checks.
+
+## PNG 固定合同 / PNG pinned contract
+
+运行时 dev.56 与技能源 dev.40 按内容登记静态 PNG 的 width、height、bitDepth、alpha，检查 CRC、块结构、有限解压扫描数据及过滤字节。Alpha 仅表示通道或 tRNS，不证明实际像素透明。支持标准位深／颜色类型及 Adam7，限制输入 64 MiB、扫描数据 128 MiB，明确拒绝 APNG。错误 PNG 在安装前拒绝，声明属性不匹配由候选运行时在领域执行前拒绝。
+
+原生 Photo 导入按扩展名路由。识别为 PNG 的非 .png 输入在项目身份与修订绑定通过后原样复制到 provided-assets/<sha>.png；两份摘要须一致，不改写原输入。副本进入登记和可迁移交付包。
+
+Runtime dev.56 and skill source dev.40 recognize static PNG by content and records width, height, bitDepth and alpha representation. It checks CRC, chunk structure, bounded decompressed scan data and filter bytes, including standard depths/colors and Adam7. Limits: 64 MiB input, 128 MiB scan data; APNG is explicitly unsupported. Alpha representation does not prove visually transparent pixels. A non-.png input recognized as PNG is copied byte-for-byte to project-owned provided-assets/<sha>.png only after owner/revision binding; both hashes must match. The original is preserved and the copy enters portable packaging.
+
+Fixed installed-host verification remains open; JPEG/video identification, ICC/visual fidelity and creative acceptance are not implied.

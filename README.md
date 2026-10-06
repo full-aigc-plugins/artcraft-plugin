@@ -1,14 +1,14 @@
 # ArtCraft Agent Plugin
 
-Current plugin dev.55 / skills dev.39 / runtime dev.54 passes fixed installed PCM WAV asset first use, ten independent Art cold starts and unchanged installed skill digests. Historical evidence retains its release scope; complete V1/model/GUI/creative acceptance remains open.
+Plugin dev.57 / skills dev.40 / runtime dev.56 pins PNG registration and verification. Installed-host verification is pending; historical PCM WAV and candidate evidence retain their version scope. Complete V1/model/GUI/creative acceptance remains open.
 
-The working tree also contains an unpublished PNG content-registration and verification candidate. Scope and remaining publication gates: [PNG architecture](docs/ArtCraft-PNG-Architecture.md).
+PNG runtime dev.56 is published from an immutable tag and the source dev.40 snapshot is pinned. Scope and remaining installed-host gates: [PNG architecture](docs/ArtCraft-PNG-Architecture.md).
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.55`; skill source: `0.1.0-dev.39`; runtime: `0.1.0-dev.54`. Fixed installed public PCM WAV first-use verification passes at the bounded scope below.
+Current plugin: `0.1.0-dev.57`; skill source: `0.1.0-dev.40`; runtime: `0.1.0-dev.56`. Current fixed installed-host PNG verification is pending. Previous PCM WAV evidence keeps its original release scope.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 

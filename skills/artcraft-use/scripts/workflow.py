@@ -10,6 +10,8 @@ import re
 import subprocess
 import struct
 import sys
+import importlib.util
+import shutil
 
 
 def digest(value):
@@ -32,6 +34,14 @@ def provided_metadata(path):
     before = path.stat()
     with path.open('rb') as stream:
         header = stream.read(12)
+        if header[:8] == b'\x89PNG\r\n\x1a\n':
+            spec=importlib.util.spec_from_file_location('craft_png',Path(__file__).with_name('png_inspection.py'))
+            module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+            facts=module.inspect_png(path)
+            after=path.stat()
+            if (before.st_ino,before.st_size,before.st_mtime_ns)!=(after.st_ino,after.st_size,after.st_mtime_ns):raise ValueError('provided_asset_changed')
+            return 'image/png',facts
+        if path.suffix.lower()=='.png':raise ValueError('provided_png_invalid')
         recognized = header[:4] == b'RIFF' and header[8:12] == b'WAVE'
         if not recognized:
             if path.suffix.lower() == '.wav':raise ValueError('provided_wav_invalid')
@@ -112,6 +122,7 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
         if not (video_factory_root / 'bin/video-factory').is_file() or not ffmpeg.is_file() or not ffprobe.is_file():
             raise ValueError('video_factory_registration_required')
     assets = {}
+    png_staging = []
     for assignment in assignments:
         name, filename = assignment.split('=', 1)
         if not re.fullmatch(r'[A-Za-z][A-Za-z0-9_-]{0,63}', name) or name in assets:
@@ -121,7 +132,14 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
             raise ValueError('provided_asset_invalid')
         sha, size = file_digest(path)
         media_type, metadata = provided_metadata(path)
-        if media_type == 'audio/wav' and file_digest(path) != (sha, size):raise ValueError('provided_asset_changed')
+        if media_type in ('audio/wav','image/png') and file_digest(path) != (sha, size):raise ValueError('provided_asset_changed')
+        # 部分原生导入器按扩展名选解码器；内容已验证的 PNG 复制为规范暂存名。
+        # 原文件不改名不写入，暂存副本必须与原摘要完全相同并进入项目交付。
+        if media_type == 'image/png' and path.suffix.lower() != '.png':
+            directory=output/'provided-assets'
+            staged=directory/(sha+'.png')
+            png_staging.append((path,staged,sha,size))
+            path=staged
         assets[name] = {'root': str(path.parent), 'artifact': {'protocolVersion': 'craft-artifact/v1', 'assetId': name, 'version': sha, 'sha256': sha, 'bytes': size, 'mediaType': media_type, 'producerTaskId': 'provided-'+name, 'sourceRefs': [], 'nativeProjectRef': None, 'renditions': [], 'dependencies': [], 'technicalMetadata': metadata, 'lossReportRef': None, 'evidenceRefs': [], 'location': path.name}}
     used = set()
     plan = json.loads(json.dumps(source_plan))
@@ -196,6 +214,13 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
         receipt_path.write_bytes(canonical({'bindingSha256': binding_hash, 'compiledSha256': digest(compiled_path.read_bytes())}))
     # 冻结修订绑定通过后才发布当前安装身份，冲突不得改变旧项目材料。
     if not marker.exists():marker.write_bytes(canonical(identity))
+    for original_path,staged,sha,size in png_staging:
+        if staged.parent.is_symlink() or staged.is_symlink():raise ValueError('provided_asset_staging_invalid')
+        staged.parent.mkdir(exist_ok=True)
+        if file_digest(original_path)!=(sha,size):raise ValueError('provided_asset_changed')
+        if not staged.exists():
+            with original_path.open('rb') as original,staged.open('xb') as target:shutil.copyfileobj(original,target,1024*1024)
+        if file_digest(original_path)!=(sha,size) or file_digest(staged)!=(sha,size):raise ValueError('provided_asset_changed')
     if not registry_path.exists():registry_path.write_bytes(canonical(registry))
     (output/'installation-receipt.json').write_bytes(canonical(setup))
     result = subprocess.run([setup['nodeExecutable'], setup['entryPoint'], 'run', '--database', str(output/'tasks.sqlite'), '--registry', str(registry_path), '--plan', str(compiled_path), '--owner', owner, '--authorization', authorization], capture_output=True, text=True, timeout=600)

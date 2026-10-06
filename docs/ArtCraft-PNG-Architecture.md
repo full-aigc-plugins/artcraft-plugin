@@ -2,7 +2,7 @@
 
 ## Status and scope
 
-This is an unpublished working-tree candidate. Plugin dev.55, skill source dev.39 and runtime dev.54 remain the public baseline. Independent skill registration and runtime verification have separate tests; a candidate skill using baseline public downloads does not establish publication of the candidate runtime.
+Runtime dev.56 is published from its immutable tag; source dev.40 is being fixed for plugin dev.57. Installed-host verification remains pending. Historical dev.55/dev.39/dev.54 and candidate evidence keep their original scope. Independent skill registration and runtime verification have separate tests; a candidate skill using baseline public downloads does not establish publication of the candidate runtime.
 
 ## Contract
 
