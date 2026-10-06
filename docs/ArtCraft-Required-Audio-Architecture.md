@@ -31,3 +31,5 @@ The missing domain-code test failed before the minimal fix. Target scheduler/dig
 Candidate runs may use `--bundle-dir` with a locally built digest-bound runtime and unchanged fixed domain releases. This does not prove downloading a newly published release. OpenSpec task 6.32 remains unchecked until public release and fixed-host revalidation. These checks do not close all first-use, GUI or creative acceptance gates.
 
 Actual candidate negative first use passed once (40.599 s), and positive four-project gain revision passed once (36.998 s). Python regression passed 66 with 18 skipped. [Candidate evidence](evidence/required-audio-mixed-candidate.json).
+
+Default public runtime dev.48 first use now passes: negative 58.653 s; positive 56.587 s. All five locked bundles rebuild identically. Fixed plugin host revalidation remains pending. [Public runtime evidence](evidence/required-audio-public-runtime.json).

@@ -1,0 +1,132 @@
+{
+  "schema": "artcraft-required-audio-public-runtime/v1",
+  "status": "passed",
+  "scope": "source skill copied alone with default public Node/runtime/native CLI/skill bundle downloads; fixed host still pending",
+  "negative": {
+    "schema": "artcraft-required-audio-mixed-first-use/v1",
+    "scope": "copied single skill; empty runtime; three successful upstream native domains; actual failed Film export; consumer blocked; synthetic silent input",
+    "diagnostics": {
+      "schema": "craft-native-diagnostics/v1",
+      "domainCode": "export_audio_missing",
+      "source": "stdout",
+      "stdout": {
+        "bytes": 34,
+        "sha256": "02df93a79ec8dc21b3c7e7c6533d66a0a34e2cc6552014aa10f0c333c54875b0",
+        "truncated": false,
+        "complete": true
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "truncated": false,
+        "complete": true
+      }
+    },
+    "failedFiles": {
+      "audio-check.json": "f728651d55b6a10f1946f8f84c7e9005648ebac0ec0005ab1035e03539ff4dac",
+      "export-probe.json": "1ea37a04db031a5df57e8a253dc55fa053f12503a837b1afc21784afaa2f1242",
+      "film.mp4": "1284fa354d27b391c0e6972d9c4c2174304d0f4aac35e72df48c7cf7edccc0d7",
+      "shot.mp4": "fa220af3f585a22d21ac51c7e8d0d45b7fd9322ad9b8dc372ba905045d34c4ad",
+      "frame-0000.png": "3a447f118d817cc14e4055de08afee243033d52f48f55319302cd6334899be68",
+      "intro.mp4": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9",
+      "failure.json": "b76e2898c28e6088826f8095810905e9557f611143324ed880a2a4a4062fc180",
+      "project.fcproj": "9b25e28bf166bea12c431c3698be35c5cfd556a423df61ceac904dc6cd9c5821"
+    },
+    "audioCheck": {
+      "schema": "filmcraft-audio-check/v1",
+      "required": true,
+      "sourceAliases": [],
+      "exportedAudio": {
+        "bits_per_sample": null,
+        "channels": 2,
+        "codec": "AAC",
+        "sample_rate": 48000
+      }
+    },
+    "attemptId": "16e7e782-1bdc-4210-a614-2c278374e0b9",
+    "repeatBudgetAndAttemptPreserved": true,
+    "upstreamAndSkillFilesPreserved": true,
+    "bundleHashes": {
+      "artcraft-runtime": "88d8d02240e37be188f88f127f78115691068e494c6f71b357b39b14026e22dd",
+      "effectcraft-skills": "66e2727a7e84a0e85ced2bddaba63e38a6578b2f34698485666380b3ce26b582",
+      "filmcraft-skills": "bf770a732614508ec7fd9bc9bd82a52d2946736b64db476e4171065499d49bd2",
+      "photocraft-skills": "24116bb882fd33d419cb8c039fb5070adb187ac52cec372932fb756682a84bc7",
+      "vectorcraft-skills": "3d320881db7808da55956dd8a9b5a36a20283cfa43cc2bb425c4c2708ce08835"
+    },
+    "runtimeVersion": "0.1.0-dev.48",
+    "nodeVersion": "24.21.0"
+  },
+  "positive": {
+    "schema": "artcraft-audio-gain-mixed-first-use/v1",
+    "scope": "single copied revise skill; empty default public runtime/domain install; four native projects; static A1 gain only; synthetic existing audio",
+    "decodedRmsRatio": 0.5011835808162544,
+    "expectedRatio": 0.5011872336272722,
+    "runtimeVersion": "0.1.0-dev.48",
+    "filmRuntimeIdentity": {
+      "capabilitySnapshotSha256": "5bb8782fba5e75932f519f428fa40139c01a894b461ff11f2571dc1cbfee6cab",
+      "cliVersion": "0.2.0-craft.1",
+      "mode": "headless",
+      "pluginId": "filmcraft",
+      "pluginVersion": "0.1.0-dev.8",
+      "sha256": "4bd79931912c591d1cb1b47690949512ffb4361c3ec4f57664024f9a4847ae38"
+    },
+    "initialTaskIds": {
+      "logo": "wf-7ee72fc5e658a9fbf3150c75aa3d90642f00dbbe72ef68d9",
+      "poster": "wf-7184da94bb822f96055edf22c4ab740524498fee47067f92",
+      "intro": "wf-72ff3069b92220e7c28b70bdcc7258e360d9876ea0ab9445",
+      "film": "wf-183ac1d32c7a63ce2355fd69a4c180d627359dfe87700c6a"
+    },
+    "revisedTaskIds": {
+      "logo": "wf-7ee72fc5e658a9fbf3150c75aa3d90642f00dbbe72ef68d9",
+      "poster": "wf-7184da94bb822f96055edf22c4ab740524498fee47067f92",
+      "intro": "wf-72ff3069b92220e7c28b70bdcc7258e360d9876ea0ab9445",
+      "film": "wf-166eefbc7abbf1a0406e87a35dab350157cfb9ceed72e845"
+    },
+    "originalDeliveryPreserved": true,
+    "nativeSequenceCaptionsPreviewPreserved": true,
+    "repeatBudgetAndTasksPreserved": true,
+    "skillFilesPreserved": true,
+    "initialFilmFiles": {
+      "audio-check.json": "34c3ecca733e7e1dc4e19ffbdb7cfad1ec81575a4663afb0c9f359c2c265d316",
+      "plan.json": "cbe85fb686e2b2c6c913291fd0187a53c40ad149e0c517a02594949a257d7dc7",
+      "decode.txt": "b45c4f39fce59291dcf3d5f4721d1c078b274e1c8b66af51813e798c3cad44be",
+      "export-probe.json": "c5108fb36723cea19cf6f6403f7eba9af5c5c566c17e5599ae77cd5110a4c696",
+      "captions.json": "95c9946fc399bc4d8939f7e2f5cfdc6186d2e312ddc9ffba717f1e7e42bf5225",
+      "exchange-loss.json": "c919fd028b6219c27e636288d61f7a31811a7ea3bff6c6e8b12ae0c0b581a367",
+      "film.mp4": "a77beb5af5664144e3a7aec0ad92762d80cec09719167f557136bf103f1bcc0a",
+      "captions.srt": "d6e9c991985b034a42fd59cad3b0c9383a6ea294fecd0b5067ebe1ddf0d7f34a",
+      "native.json": "7e9f75831c9baf730a3a9480904a2533ba9cdfa97b6dd0fc2b8e49e4ef7121c6",
+      "voice.wav": "bf6ee9b267cc34c946f1c251dd93c8aedb87e1bbb061cb2d334727cf19121c42",
+      "frame-0000.png": "1c510f991fe5606eabe575583337108b8f7ce684d71ffece5f93d0f2bc0a450d",
+      "manifest.json": "e93685d41861065f027764897196df4910494a3772a3fb9c5044ee62b83813b0",
+      "intro.mp4": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9",
+      "project.fcproj": "68c210855835bf7862597e4090818779057a01484218b271cc27e1e50f844543",
+      "operations.json": "59ee05718319c0bb4cc24adc09e5b8068c787c606a591cefc86327fe8200ca96"
+    },
+    "revisedFilmFiles": {
+      "audio-check.json": "34c3ecca733e7e1dc4e19ffbdb7cfad1ec81575a4663afb0c9f359c2c265d316",
+      "plan.json": "c4ad3b5ad5e18a397fe304d38931c57051ea5b86645087ea9af48377bb95394f",
+      "decode.txt": "1fefee978b4db51c9463a9e6715836048c5f51882db2758ed483386dcc9bed62",
+      "export-probe.json": "4a2679b5c947fb8f0c636c688c83d84e61559fbc00f84a44881fdacc370e9ca2",
+      "captions.json": "95c9946fc399bc4d8939f7e2f5cfdc6186d2e312ddc9ffba717f1e7e42bf5225",
+      "exchange-loss.json": "5b611b608417c048f96a83c319d72a28741cd17f483f5aa09b0af8db24095bdf",
+      "film.mp4": "49575b24a317d2e59f6d2643c0f43ce9292638943d9ef01094efa8fad2838541",
+      "captions.srt": "d6e9c991985b034a42fd59cad3b0c9383a6ea294fecd0b5067ebe1ddf0d7f34a",
+      "native.json": "3cb577d5d6ce4e57afef334c8681905799c258db0c71522083bda1b783cc9b28",
+      "voice.wav": "bf6ee9b267cc34c946f1c251dd93c8aedb87e1bbb061cb2d334727cf19121c42",
+      "frame-0000.png": "1c510f991fe5606eabe575583337108b8f7ce684d71ffece5f93d0f2bc0a450d",
+      "manifest.json": "c2d50aca71dfdfd6e93007789811fd0d3d436e37f2a942ff51b1afb189445ecf",
+      "intro.mp4": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9",
+      "project.fcproj": "f0ac62b2e5bbc3ecd34a16250dc6f983c61318a39461aab2b95c0f506b44d38f",
+      "operations.json": "0f51f2f31eb98d2e7df5320aea98ac61cf92b0952bc39d0c5f8e10caa65f61bd"
+    }
+  },
+  "runtimeAssetDigest": "88d8d02240e37be188f88f127f78115691068e494c6f71b357b39b14026e22dd",
+  "negativeSeconds": 58.653,
+  "positiveSeconds": 56.587,
+  "lockedBundleRebuildCount": 5,
+  "notVerified": [
+    "fixed new plugin host installation",
+    "GUI/model/complete creative acceptance"
+  ]
+}

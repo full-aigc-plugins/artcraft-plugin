@@ -31,3 +31,5 @@ flowchart LR
 候选可通过 `--bundle-dir` 读取本地摘要绑定运行时，其他固定领域包保持其原发行字节。这不是公开新版本下载证明；OpenSpec 6.32 在公开制品和固定宿主复验完成前保持未勾选。不得据此关闭全部首次使用、GUI 或创作验收。
 
 真实候选负向 1 项通过（40.599 秒），正常四工程与增益返工 1 项通过（36.998 秒）；Python 回归 66 项通过、18 项跳过。[候选证据](evidence/required-audio-mixed-candidate.json)。
+
+默认公开运行时 dev.48 首次使用已通过：负向 58.653 秒、正向 56.587 秒；五个锁定包重建一致。固定插件宿主复验待完成。[公开运行时证据](evidence/required-audio-public-runtime.json)。

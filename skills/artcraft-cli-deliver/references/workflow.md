@@ -123,8 +123,14 @@ ArtCraft runtime dev.41 在新交付登记、历史就绪预检、跨修订缓�
 
 ## 成片静态音轨增益返工 / Static film audio gain revisions
 
-固定 FilmCraft 技能源 dev.7 支持 `mixer.setStrip`，参数严格为 `{"strip":"A1","volumeDb":-6.0}`。修订 film 节点时提供前次原生产物的 externalInputs、expectedRevision 与 payload.sourceProject；保留 intro 的 assetBindings 并标记 retained，providedAssets 清空，配音继续从原交付包内保留。其余三个节点保持原计划与依赖，不能为了音量变化重建 Logo、海报或片头。
+固定 FilmCraft 技能源 dev.8 支持 `mixer.setStrip`，参数严格为 `{"strip":"A1","volumeDb":-6.0}`。修订 film 节点时提供前次原生产物的 externalInputs、expectedRevision 与 payload.sourceProject；保留 intro 的 assetBindings 并标记 retained，providedAssets 清空，配音继续从原交付包内保留。其余三个节点保持原计划与依赖，不能为了音量变化重建 Logo、海报或片头。
 
 复验必须解码新成片的音频幅度，核对原工程、镜头、字幕与预览保全，并检查其他节点 taskId 复用。同一修订重复执行应复用任务和预算。此入口仅支持明确 A 音轨的静态有限分贝增益，不包含录音、总线、路由和自动化。
 
-Pinned FilmCraft source dev.7 accepts `mixer.setStrip` with exactly `{"strip":"A1","volumeDb":-6.0}`. Bind the previous film artifact through externalInputs, expectedRevision and payload.sourceProject; retain the intro asset binding and clear providedAssets so packaged audio remains in the source delivery. Keep the other three plans unchanged. Verify decoded audio amplitude, preserved project/clip/caption/preview content, reused upstream task IDs and repeat budget/task identity. Recording, buses, routing and automation are outside this entry.
+Pinned FilmCraft source dev.8 accepts `mixer.setStrip` with exactly `{"strip":"A1","volumeDb":-6.0}`. Bind the previous film artifact through externalInputs, expectedRevision and payload.sourceProject; retain the intro asset binding and clear providedAssets so packaged audio remains in the source delivery. Keep the other three plans unchanged. Verify decoded audio amplitude, preserved project/clip/caption/preview content, reused upstream task IDs and repeat budget/task identity. Recording, buses, routing and automation are outside this entry.
+
+## 必需源音轨 / Required source audio
+
+要求音频的 Film 节点缺少真实时间线源音轨时返回 `export_audio_missing`；自动静音 AAC 不代表成功。失败保留工程、预览、成片、audio-check.json、export-probe.json 与 failure.json，不发布成功输出。依赖该节点的任务阻断；同一冻结计划重复执行保留原尝试与预算。明确 audioRequired=false 或真实静音源仍按领域契约处理。
+
+A required-audio Film node without a timeline audio source reports `export_audio_missing`. Generated silent AAC is insufficient. Retain native project, preview, film and diagnostic JSON without success outputs; block consumers and preserve attempt/budget identity on replay. Explicit optional audio and intentional silent sources follow the domain contract.
