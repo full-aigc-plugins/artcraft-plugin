@@ -48,3 +48,7 @@ flowchart LR
 ```
 
 [Source upgrade candidate / 源码升级候选](evidence/preflight-domain-upgrade-candidate-20261006.json): Art runtime dev.66 / source dev.45 / Effect source dev.9; source 75 passed / 25 gated skips; mixed mapping 1 passed (53.793s), dynamic brand 1 passed (61.581s), five locked bundles rebuilt. Immutable installed release acceptance remains pending.
+
+## 固定 dev.67 首次使用验收
+
+插件 dev.67 固定技能源 dev.45／运行时 dev.66／Effect 技能源 dev.9。安装后真实拒绝传播、查询、重复记录保全、修订恢复与上游复用通过；动态四领域帧合成、Logo 替换、坏帧恢复和迁移包通过。58 项独立空运行时 CLI 首用通过，安装摘要保持固定；公开附件逐文件与固定重建核验一致。[版本证据](evidence/codex-release67-preflight-mixed-first-use-20261006.json)。两类合同码的精确白名单来自运行时单元回归；原生混合验收观察到 unsupported_mapping，不声称人为触发了真实 schema 漂移。仅关闭 6.40，通用安装器、完整首版／模型／GUI／创作仍开放。

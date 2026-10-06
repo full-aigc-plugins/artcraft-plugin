@@ -228,4 +228,6 @@ PNG 固定发行证据：运行时 dev.56／技能源 dev.40／插件 dev.57；�
 
 6.39 固定发行验收：Art 插件 dev.65／技能源 dev.44／runtime dev.64；五插件 58 技能发现零错误，安装后的动态混合冷启动 1 项与原生局部返工场景 1 项通过，58 项独立空运行时 CLI 首用全部通过（408.253 秒），默认用户数据目录安装四原生 CLI 和 Art runtime，全部安装摘要保留。公开两发行附件及逐文件摘要、五包固定重建一致。证据 docs/evidence/codex-release65-dynamic-first-use-20261006.json。仅关闭动态序列固定交接增量；3.16、完整首版场景、模型／GUI／创作与生产门禁仍开放。
 
-- [ ] 6.40 [AC-TX-002-MAPPING / AC-TX-002-PREFLIGHT] 固定升级 Effect 技能源 dev.9；保留两类参数合同错误的精确诊断及隐私边界，完成错误传播／查询／重复复用／修订恢复、动态品牌混合交付和固定发布安装验收，核对全部技能摘要；不关闭完整首版或通用 Skills CLI 安装。
+- [x] 6.40 [AC-TX-002-MAPPING / AC-TX-002-PREFLIGHT] 固定升级 Effect 技能源 dev.9；保留两类参数合同错误的精确诊断及隐私边界，完成错误传播／查询／重复复用／修订恢复、动态品牌混合交付和固定发布安装验收，核对全部技能摘要；不关闭完整首版或通用 Skills CLI 安装。
+
+6.40 固定验收：Art 插件 dev.67／技能源 dev.45／runtime dev.66／Effect 技能源 dev.9；五插件 58 技能发现零错误，两项真实安装后混合验收通过（无跳过），全部 58 项独立空运行时 CLI 首用通过（422.907 秒），公开两附件逐文件、固定五包重建、默认用户安装及所有安装摘要保全。证据 docs/evidence/codex-release67-preflight-mixed-first-use-20261006.json。合同身份／schema 两码精确处理由单元回归证明，真实混合场景验证 unsupported_mapping；不扩大为全 schema 漂移、完整首版或通用 Skills CLI 验收。

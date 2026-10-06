@@ -48,3 +48,7 @@ flowchart LR
 ```
 
 [Source upgrade candidate / 源码升级候选](evidence/preflight-domain-upgrade-candidate-20261006.json): Art runtime dev.66 / source dev.45 / Effect source dev.9; source 75 passed / 25 gated skips; mixed mapping 1 passed (53.793s), dynamic brand 1 passed (61.581s), five locked bundles rebuilt. Immutable installed release acceptance remains pending.
+
+## Fixed dev.67 first-use acceptance
+
+Plugin dev.67 pins source dev.45/runtime dev.66/Effect source dev.9. Installed native rejection propagation, query/repeat preservation, corrected revision and upstream reuse pass; dynamic four-domain frame compositing, Logo replacement, corrupt-frame recovery and portable packaging pass. All 58 independent empty-runtime CLI starts and installed digests pass; public archive file digests and fixed bundle rebuilds match. [Version-bound evidence](evidence/codex-release67-preflight-mixed-first-use-20261006.json). Exact contract-code whitelisting is proven by runtime units; native mixed acceptance observed unsupported_mapping, not an artificially induced real schema drift. Only 6.40 closes; generic installer/full V1/model/GUI/creative gates remain open.

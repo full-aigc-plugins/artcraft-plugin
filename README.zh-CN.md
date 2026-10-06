@@ -12,7 +12,7 @@ PNG 运行时 dev.56 已由不可变标签发布，技能源 dev.40 快照已固
 
 ## 当前版本与可复现宿主验证
 
-当前插件 `0.1.0-dev.67`，独立技能源 `0.1.0-dev.45`，运行时 `0.1.0-dev.66`；固定 Effect 技能源 dev.9 参数预检。源码混合失败恢复与动态序列验证已通过，本次完整插件安装后的复验仍待执行；完整首版仍开放，历史证据保留原范围。
+当前插件 `0.1.0-dev.67`，独立技能源 `0.1.0-dev.45`，运行时 `0.1.0-dev.66`；固定 Effect 技能源 dev.9 参数预检。源码混合失败恢复与动态序列验证已通过，本次完整插件安装后的混合拒绝／纠正和动态复验及全部 58 项 CLI 冷启动通过；完整首版仍开放，历史证据保留原范围。
 
 固定 dev.38 验收：Codex 0.153.4 发现 58 项技能，加载错误为零；实际安装目录的单技能在线冷启动通过 3 项、无跳过，95.289 秒。四源返工、三领域尺寸修改、保存后产物摘要、Effect 实际视频属性、复用和源工程保全均通过，58 个安装技能摘要未变。[证据](docs/evidence/codex-release38-native-brief-first-use-20261006.json)。运行时回归 123 项通过、5 项可选跳过；完整模型／GUI／创作／生产验收仍开放。dev.37 标签因暂存失败保留历史，未创建 Release，也不作为插件快照使用。
 
@@ -285,4 +285,6 @@ Vector 素材源码候选已接入登记输入和替换核验，真实 Vector �
 
 ## 固定 Effect 参数预检集成
 
-插件 dev.67 固定技能源 dev.45 和运行时 dev.66。Effect 技能源 dev.9 在编辑前校验六类受限效果／蒙版参数合同；Art 保留类型化合同诊断，并阻断依赖它的 Film 任务。候选源码混合纠正／复用与动态渲染／修订／恢复已通过；本次固定安装后的宿主与 CLI 冷启动复验仍待执行。[架构](docs/ArtCraft-Effect-Parameter-Diagnostics-Architecture.zh_CN.md)、[候选证据](docs/evidence/preflight-domain-upgrade-candidate-20261006.json)。通用 Skills CLI 安装与完整首版／模型／GUI／创作验收仍开放。
+插件 dev.67 固定技能源 dev.45 和运行时 dev.66。Effect 技能源 dev.9 在编辑前校验六类受限效果／蒙版参数合同；Art 保留类型化合同诊断，并阻断依赖它的 Film 任务。候选源码混合纠正／复用与动态渲染／修订／恢复已通过；本次固定安装后的宿主与全部 58 项 CLI 冷启动复验通过。[架构](docs/ArtCraft-Effect-Parameter-Diagnostics-Architecture.zh_CN.md)、[候选证据](docs/evidence/preflight-domain-upgrade-candidate-20261006.json)。通用 Skills CLI 安装与完整首版／模型／GUI／创作验收仍开放。
+
+固定 Art 插件 dev.67／技能源 dev.45／runtime dev.66，接入 Effect 技能源 dev.9：Codex 0.153.4 安装五个固定插件，发现全部 58 技能，加载错误为零。安装后单技能 Effect 拒绝／查询／重复执行／纠正修订验收通过（55.362 秒）；动态四领域 Logo 返工、坏帧恢复及移动五子工程打包通过（63.257 秒）。58 项独立 CLI 冷启动全部通过（422.907 秒），全部安装摘要保全；公开运行时／技能源附件、五包固定重建及默认用户目录安装已核验。[版本证据](docs/evidence/codex-release67-preflight-mixed-first-use-20261006.json)。只关闭 OpenSpec 6.40；通用 Skills CLI 安装及完整首版／模型／GUI／创作／生产验收仍开放。
