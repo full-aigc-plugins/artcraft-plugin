@@ -37,3 +37,15 @@ test('unclosed stream remains incomplete and cannot report a domain code',async(
  const result=nativeDiagnostics(observation,await observe(''));
  assert.equal(result.stdout.complete,false);assert.equal(result.domainCode,null);
 });
+test('effect parameter mapping failures retain only the exact known domain code',async()=>{
+ const payload=JSON.stringify({error:'unsupported_mapping: effect.apply: private-field-name'});
+ const result=nativeDiagnostics(await observe(payload),await observe(''));
+ assert.equal(result.domainCode,'unsupported_mapping');assert.equal(result.source,'stdout');
+ assert.equal(result.stdout.sha256,createHash('sha256').update(payload).digest('hex'));
+ assert.ok(!JSON.stringify(result).includes('private-field-name'));
+ for(const value of ['{"error":"unsupported_mapping_suffix"}','{"error":"unsupported_mapping","extra":"secret"}','private unsupported_mapping']){
+  assert.equal(nativeDiagnostics(await observe(value),await observe('')).domainCode,null);
+ }
+ const conflict=nativeDiagnostics(await observe(payload),await observe('{"error":"revision_conflict"}'));
+ assert.equal(conflict.domainCode,null);
+});

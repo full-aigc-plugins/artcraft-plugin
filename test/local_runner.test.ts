@@ -257,3 +257,15 @@ test('worker SIGKILL leaves outcome unknown and cannot authorize native replay',
   assert.equal(fixture.ledger.execution('task1')?.status,'running');assert.equal(fixture.ledger.execution('task1')?.groupStopped,false);
  }finally{await fixture.cleanup();}
 });
+test('unsupported mapping survives a real failed process and persisted status without replay',async()=>{
+ const fixture=await context('failure');try{
+  const payload=JSON.stringify({error:'unsupported_mapping: mask.new: private-mask-field'})+'\n';
+  await writeFile(join(fixture.root,'worker.mjs'),`process.stdout.write(${JSON.stringify(payload)});process.exitCode=1;`);
+  const receipt=await fixture.runner.execute('task1',fixture.adapter);const diagnostics=(receipt.error as any).diagnostics;
+  assert.equal(receipt.state,'failed');assert.equal(diagnostics.domainCode,'unsupported_mapping');
+  const reopened=new TaskLedger(join(fixture.root,'tasks.sqlite'));
+  try{assert.deepEqual((reopened.status('task1').error as any).diagnostics,diagnostics);}finally{reopened.close();}
+  assert.deepEqual((await fixture.runner.reconcile('task1',fixture.adapter)).error,receipt.error);assert.equal(fixture.starts,1);
+  assert.equal(fixture.ledger.leases().length,0);assert.ok(!JSON.stringify(fixture.ledger.events('task1')).includes('private-mask-field'));
+ }finally{await fixture.cleanup();}
+});
