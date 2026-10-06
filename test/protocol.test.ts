@@ -98,6 +98,7 @@ test('PCM WAV content verifies declared audio facts and rejects malformed or mis
   const data=pcmWave();const facts={audio:{sampleRate:48000,channels:2},bitDepth:16,durationTicks:'4',timeBase:{num:1,den:48000}};
   const value=(bytes:Buffer,metadata:any=facts)=>({...artifact(),mediaType:'audio/wav',sha256:createHash('sha256').update(bytes).digest('hex'),bytes:bytes.length,technicalMetadata:metadata});
   await writeFile(join(root,'logo.bin'),data);await verifyArtifact(value(data),root);
+  const extraChunk=Buffer.from([74,85,78,75,3,0,0,0,1,2,3,0]);const withMetadata=Buffer.concat([data.subarray(0,12),extraChunk,data.subarray(12)]);withMetadata.writeUInt32LE(withMetadata.length-8,4);await writeFile(join(root,'logo.bin'),withMetadata);await verifyArtifact(value(withMetadata),root);await writeFile(join(root,'logo.bin'),data);
   for(const metadata of [{...facts,audio:{sampleRate:44100,channels:2}},{...facts,audio:{sampleRate:48000,channels:1}},{...facts,bitDepth:24},{...facts,durationTicks:'5'},{}])await assert.rejects(verifyArtifact(value(data,metadata),root),/audio_metadata_mismatch/);
   const bads=[data.subarray(0,data.length-1),Buffer.from(data),Buffer.from(data),Buffer.from(data)];bads[1].writeUInt32LE(14,40);bads[2].writeUInt16LE(3,20);bads[3].writeUInt32LE(1,28);
   for(const bad of bads){await writeFile(join(root,'logo.bin'),bad);await assert.rejects(verifyArtifact(value(bad),root),/wav_invalid|wav_format_unsupported/);}

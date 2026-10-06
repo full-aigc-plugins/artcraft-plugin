@@ -1,12 +1,12 @@
 # ArtCraft Agent Plugin
 
-Current plugin dev.55 / skills dev.39 / runtime dev.54 add real PCM WAV asset registration and verification. Candidate native cold delivery passes; fixed new installed acceptance remains pending. Earlier evidence retains its release scope; full V1/model/GUI/creative acceptance remains open.
+Current plugin dev.55 / skills dev.39 / runtime dev.54 passes fixed installed PCM WAV asset first use, ten independent Art cold starts and unchanged installed skill digests. Historical evidence retains its release scope; complete V1/model/GUI/creative acceptance remains open.
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.55`; skill source: `0.1.0-dev.39`; runtime: `0.1.0-dev.54`. Native candidate WAV first use passes; fixed new plugin installed public verification remains pending.
+Current plugin: `0.1.0-dev.55`; skill source: `0.1.0-dev.39`; runtime: `0.1.0-dev.54`. Fixed installed public PCM WAV first-use verification passes at the bounded scope below.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
@@ -260,3 +260,5 @@ All 22 updated skills pass individual public cold first use (159.811s): each is 
 Fixed dev.53 first use: 58 discovered / zero errors, ten independent Art cold starts (110.577s), installed native failure/corrected mixed delivery (56.202s), five reproducible locked bundles and 58 unchanged installed skill hashes. [Evidence](docs/evidence/codex-release53-effect-mapping-first-use-20261006.json). Generic Skills CLI, full creative V1, model/GUI and production remain open.
 
 [PCM WAV input architecture](docs/ArtCraft-PCM-WAV-Architecture.md) and [candidate evidence](docs/evidence/pcm-wav-repair-20261006.json): declared audio facts bind actual RIFF PCM data; false/truncated WAV and metadata mismatch are rejected before domain execution.
+
+Fixed dev.55 PCM WAV first use passes: 58 skills / zero errors; five-child native delivery and moved package (53.972s); ten independent Art cold starts (111.799s); all 58 installed skill hashes preserved. [Evidence](docs/evidence/codex-release55-pcm-wav-first-use-20261006.json). This does not close generic Skills CLI, complete V1, model/GUI or creative acceptance.

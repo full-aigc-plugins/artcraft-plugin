@@ -2,7 +2,7 @@
 
 ## Purpose
 
-本能力定义 ArtCraft 在 craft-artifact-protocol 范围内对用户、宿主与下游系统承诺的可观察行为、失败语义和验收证据，确保规划、执行与实际交付之间保持可验证的边界。当前为目标规范，尚未实现。
+本能力定义 ArtCraft 在 craft-artifact-protocol 范围内对用户、宿主与下游系统承诺的可观察行为、失败语义和验收证据，确保规划、执行与实际交付之间保持可验证的边界。本文件定义目标合同；PCM WAV 登记与核验已有固定首次使用证据，完整协议验收以 tasks 和绑定证据为准。
 
 ## ADDED Requirements
 

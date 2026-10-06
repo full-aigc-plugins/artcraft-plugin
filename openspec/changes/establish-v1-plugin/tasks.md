@@ -14,7 +14,7 @@
 - [ ] 2.2 [AC-CP-002] 在 公共 craft-artifact/v1 schema 与派生图 fixture 实现“公共素材协议与失效规则”的最小行为，不扩大支持范围。责任：Harness owner；前置：2.1。产物：对应源码/独立技能源/锁定材料；验证：目标测试和受影响回归通过。
 - [ ] 2.3 [AC-CP-002] 完成“公共素材协议与失效规则”真实边界验收并记录版本、平台、输入输出摘要及未验证项。责任：QA owner；前置：2.2。产物：evidence/ac-cp-002/；验证：规范所有场景有证据，且 README 能力状态与证据一致。
 
-- [ ] 2.4 [AC-CP-002] 补齐标准 PCM WAV 配音登记及真实格式／元数据核对：先复现 audio/wav 不受支持与假 WAV 进入安装的失败，实现流式摘要和有界 RIFF 块检查；真实单技能冷启动交付与可迁移打包，固定运行时／技能源／插件发布后安装验收，检查配音与原安装技能保全。
+- [x] 2.4 [AC-CP-002] 补齐标准 PCM WAV 配音登记及真实格式／元数据核对：先复现 audio/wav 不受支持与假 WAV 进入安装的失败，实现流式摘要和有界 RIFF 块检查；真实单技能冷启动交付与可迁移打包，固定运行时／技能源／插件发布后安装验收，检查配音与原安装技能保全。
 
 ## 3. skills-distribution
 
@@ -198,3 +198,5 @@
 固定新版验收：FilmCraft dev.9、EffectCraft dev.7、PhotoCraft dev.9、VectorCraft dev.10、ArtCraft dev.50 在 Codex 0.153.4 隔离安装发现 58 技能，零加载错误。安装后单导出技能跨秒原生验收 1 项通过，混合品牌返工 2 项通过，全部 58 安装摘要保留。证据：`docs/evidence/codex-release50-vector10-stable-export-first-use-20261006.json`。不关闭通用 Skills CLI、模型／GUI、完整领域／创作／发布门禁。
 
 5.16 固定安装验收：插件 dev.53／技能源 dev.38／runtime dev.52，接入 Effect dev.7；58 技能发现、零错误，安装后单执行技能真实参数拒绝／修正交付 1 项通过，十项 Art 独立冷启动通过，原安装 58 项摘要保留。五包固定标签重建一致。dev.51 标签与附件来源不一致，保留并明确禁用，不作为安装证据。证据 `docs/evidence/codex-release53-effect-mapping-first-use-20261006.json`。不关闭 3.16、完整领域、模型／GUI、创作或生产门禁。
+
+2.4 固定验收：插件 dev.55／源 dev.39／runtime dev.54，58 技能发现零错误，安装后单技能默认公开 PCM WAV 原生交付及迁移验包通过；十项独立冷启动通过，原安装 58 摘要保全，五包重建一致。运行时 143 通过六项原生跳过，技能源 68 通过二十项真实场景跳过。证据 `docs/evidence/codex-release55-pcm-wav-first-use-20261006.json`。完整首版及通用 Skills CLI、模型／GUI、创作门禁仍开放。

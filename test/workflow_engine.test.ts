@@ -251,3 +251,11 @@ test('Photo variant without Brief cannot publish a fresh delivery lacking geomet
   assert.equal(f.ledger.status(result.nodes.logo.taskId!).state,'failed');assert.deepEqual(result.nodes.logo.outputs,[]);assert.equal(f.ledger.leases().length,0);
  }finally{await f.cleanup();}
 });
+
+test('incorrect PCM voice metadata blocks all domain launches before workflow side effects',async()=>{
+ const f=await fixture();try{
+  const bytes=Buffer.alloc(46);bytes.write('RIFF');bytes.writeUInt32LE(38,4);bytes.write('WAVEfmt ',8);bytes.writeUInt32LE(16,16);bytes.writeUInt16LE(1,20);bytes.writeUInt16LE(1,22);bytes.writeUInt32LE(48000,24);bytes.writeUInt32LE(96000,28);bytes.writeUInt16LE(2,32);bytes.writeUInt16LE(16,34);bytes.write('data',36);bytes.writeUInt32LE(2,40);await writeFile(join(f.root,'voice.wav'),bytes);
+  (f.plan.nodes[0] as any).externalInputs=[{root:f.root,artifact:{protocolVersion:'craft-artifact/v1',assetId:'voice',version:'v1',sha256:sha(bytes),bytes:bytes.length,mediaType:'audio/wav',producerTaskId:'provided-voice',sourceRefs:[],nativeProjectRef:null,renditions:[],dependencies:[],technicalMetadata:{audio:{sampleRate:44100,channels:1}},lossReportRef:null,evidenceRefs:[],location:'voice.wav'}}];
+  const result=await f.engine.run(f.plan);assert.equal(result.state,'blocked');assert.match(result.nodes.preflight.error!,/audio_metadata_mismatch/);assert.deepEqual(f.launches,[]);
+ }finally{await f.cleanup();}
+});
