@@ -18,7 +18,7 @@ export interface WorkflowPlan {
   budget:Record<string,any>;deadline:string;nodes:WorkflowNode[];projectBrief?:Record<string,any>;
 }
 export type AdapterFactory=(node:WorkflowNode,inputs:ArtifactInput[],taskId:string)=>Promise<{adapter:ExecutionAdapter;root:string}>;
-type NodeResult={status:string;fingerprint?:string;taskId?:string;root?:string;outputs?:Record<string,any>[];error?:string};
+type NodeResult={status:string;fingerprint?:string;taskId?:string;root?:string;outputs?:Record<string,any>[];error?:string;failure?:unknown};
 export type WorkflowResult={runKey:string;state:string;nodes:Record<string,NodeResult>;budget:BudgetSnapshot};
 
 /** 领域工厂只通过公开接口编译；图中不允许模型自行注入可执行代码。 */
@@ -114,7 +114,7 @@ export class WorkflowEngine {
         if(recovering && !(stopped?.status==='stopped' && stopped.groupStopped)){
           save(id,{status:'waiting',fingerprint,taskId,root,error:'outcome_pending'});return;
         }
-        if(['failed','cancelled'].includes(registered.state)){save(id,{status:registered.state,fingerprint,taskId,root});return;}
+        if(['failed','cancelled'].includes(registered.state)){save(id,{status:registered.state,fingerprint,taskId,root,...(registered.state==='failed' ? {failure:registered.error} : {})});return;}
         if(registered.state==='review_ready' || registered.state==='completed'){
           const result={status:'review_ready',fingerprint,taskId,root,outputs:registered.outputRefs as Record<string,any>[]};
           await this.verifyResult(result);save(id,result);return;
@@ -127,7 +127,7 @@ export class WorkflowEngine {
         if(this.ledger.workflowCancelled(key)){this.ledger.cancel(taskId);save(id,{status:'cancelled',fingerprint,taskId,root});return;}
         activeTasks.add(taskId);
         const receipt=recovering ? await this.runner.reconcile(taskId,compiled.adapter) : await this.runner.execute(taskId,compiled.adapter);
-        const result={status:['review_ready','completed'].includes(receipt.state) ? 'review_ready' : ['failed','cancelled'].includes(receipt.state) ? receipt.state : 'waiting',fingerprint,taskId,root,outputs:receipt.outputRefs as Record<string,any>[]};
+        const result={status:['review_ready','completed'].includes(receipt.state) ? 'review_ready' : ['failed','cancelled'].includes(receipt.state) ? receipt.state : 'waiting',fingerprint,taskId,root,outputs:receipt.outputRefs as Record<string,any>[],...(receipt.state==='failed' ? {failure:receipt.error} : {})};
         if(result.status==='review_ready')await this.verifyResult(result);
         save(id,result);
       }catch(error){save(id,{status:'blocked',fingerprint,taskId,root,error:(error as Error).message});}

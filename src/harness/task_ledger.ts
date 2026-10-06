@@ -5,10 +5,11 @@ import { resolve } from 'node:path';
 import { validateTask, planHash, verifyArtifact } from '../protocol/contracts.ts';
 import { budgetLimits, budgetUsage, allocateBudget } from './budget.ts';
 import type { BudgetSnapshot, BudgetLimits } from './budget.ts';
+import type { NativeDiagnostics } from './native_diagnostics.ts';
 
 type TaskRow = {task_id:string;request_json:string;state:string;epoch:number;attempt_id:string|null;project_key:string;binding_hash:string};
 export type TaskReceipt = {taskId:string;attemptId:string|null;state:string;epoch:number;runtimeIdentity:Record<string,unknown>;outputRefs:unknown[];evidenceRefs:unknown[];error:unknown};
-export type ExecutionRecord = {token:string;status:string;pid:number|null;commandHash:string;exitCode:number|null;signal:string|null;groupStopped:boolean};
+export type ExecutionRecord = {token:string;status:string;pid:number|null;commandHash:string;exitCode:number|null;signal:string|null;groupStopped:boolean;diagnostics?:NativeDiagnostics};
 
 /** SQLite 本地账本；关闭连接不会释放不明确结果的工程占用。 */
 export class TaskLedger {
@@ -216,7 +217,7 @@ export class TaskLedger {
   }
 
   /** 仅供可信监督器调用：close 事件与进程组停止核对写入持久证据。 */
-  recordExit(taskId:string,epoch:number,token:string,evidence:{exitCode:number|null;signal:string|null;groupStopped:boolean;spawnError?:string}):void {
+  recordExit(taskId:string,epoch:number,token:string,evidence:{exitCode:number|null;signal:string|null;groupStopped:boolean;spawnError?:string;diagnostics?:NativeDiagnostics}):void {
     this.transaction(()=>{
       const row=this.row(taskId);this.requireLease(row,epoch);const execution=this.execution(taskId);
       if(execution?.token!==token || !['prepared','running'].includes(execution.status)) throw new Error('execution_identity_conflict');
@@ -238,7 +239,8 @@ export class TaskLedger {
     return this.transaction(()=>{
       const row=this.row(taskId);this.requireLease(row,epoch);this.requireStopped(taskId,token);
       if(state==='cancelled' ? row.state!=='cancel_requested' : !['running','reconciling','verifying'].includes(row.state)) throw new Error('invalid_transition');
-      this.database.prepare('UPDATE tasks SET state=?,error_json=? WHERE task_id=?').run(state,state==='failed' ? JSON.stringify({code}) : null,taskId);
+      const diagnostics=code==='native_execution_failed' ? this.execution(taskId)?.diagnostics : undefined;
+      this.database.prepare('UPDATE tasks SET state=?,error_json=? WHERE task_id=?').run(state,state==='failed' ? JSON.stringify({code,...(diagnostics ? {diagnostics} : {})}) : null,taskId);
       this.database.prepare('DELETE FROM leases WHERE task_id=? AND epoch=?').run(taskId,epoch);
       this.event(taskId,row.state,state,epoch,{code});
       return this.receipt(this.row(taskId));
@@ -280,8 +282,9 @@ export class TaskLedger {
 
   /** 返回副作用的持久身份与停止证据，不把 PID 不存在作为自动重试许可。 */
   execution(taskId:string):ExecutionRecord|null {
-    const row=this.database.prepare('SELECT * FROM executions WHERE task_id=?').get(taskId) as {token:string;status:string;pid:number|null;command_hash:string;exit_code:number|null;signal:string|null;group_stopped:number}|undefined;
-    return row ? {token:row.token,status:row.status,pid:row.pid,commandHash:row.command_hash,exitCode:row.exit_code,signal:row.signal,groupStopped:row.group_stopped===1} : null;
+    const row=this.database.prepare('SELECT * FROM executions WHERE task_id=?').get(taskId) as {token:string;status:string;pid:number|null;command_hash:string;exit_code:number|null;signal:string|null;group_stopped:number;stop_evidence_json:string|null}|undefined;
+    const diagnostics=row?.stop_evidence_json ? JSON.parse(row.stop_evidence_json).diagnostics : undefined;
+    return row ? {token:row.token,status:row.status,pid:row.pid,commandHash:row.command_hash,exitCode:row.exit_code,signal:row.signal,groupStopped:row.group_stopped===1,...(diagnostics ? {diagnostics} : {})} : null;
   }
 
   /** 执行器读取已锁定请求，不允许更改原始计划绑定。 */

@@ -1,0 +1,69 @@
+{
+  "schema": "craft-native-failure-diagnostics-evidence/v1",
+  "date": "2026-10-06",
+  "status": "local-candidate-process-tests-passed-native-publication-pending",
+  "spec": "AC-TX-002-DIAG",
+  "task": "5.12",
+  "processRed": {
+    "tests": 21,
+    "passed": 19,
+    "failed": 2,
+    "reason": "receipt diagnostics absent on old worker"
+  },
+  "workflowRed": {
+    "reason": "repeated failed workflow dropped failure diagnostics"
+  },
+  "processGreen": {
+    "tests": 25,
+    "passed": 25,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 8.08343325
+  },
+  "finalNodeRegression": {
+    "tests": 101,
+    "passed": 96,
+    "failed": 0,
+    "skipped": 5,
+    "seconds": 15.204549625,
+    "node": "24.18.0",
+    "scope": "real child-process and DAG fixtures; five optional native integrations not run"
+  },
+  "nativeRed": {
+    "tests": 1,
+    "errors": 1,
+    "seconds": 18.75,
+    "runtime": "0.1.0-dev.28",
+    "sourceSkills": "0.1.0-dev.27",
+    "reason": "public PhotoCraft failure has no failure/diagnostics field",
+    "scope": "fresh copied single ArtCraft skill, default online fixed runtime and native Photo dependency; confirms missing public behavior"
+  },
+  "checks": [
+    "recognized structured reported code",
+    "no raw child text in event/receipt",
+    "hash and byte counts for observed stdout/stderr",
+    "16KiB bounded parsing buffer",
+    "unknown/oversized/incomplete/conflicting output cannot report code",
+    "closed and reopened durable ledger",
+    "reconcile and repeated workflow do not replay",
+    "inherited pipes bounded drain while alive group retains lease",
+    "historical stop evidence without diagnostics remains readable"
+  ],
+  "files": {
+    "src/harness/native_diagnostics.ts": "67f4a9b14610d5c64c7fc704216c6045cb9801ec3a762786a6ba1e9348fc5c28",
+    "src/harness/execution_worker.ts": "be731e322bc3b349c8d6f864f5e41219f224f6ff89273472a0ee674f3e85ed21",
+    "src/harness/task_ledger.ts": "fbd079ade17a3ad1251b1a5ac515e116dc56e7fc19ab457f2a743d659724e9a1",
+    "src/planning/workflow_engine.ts": "53300894f3fa9571b33afca0b3b662376869ad1750b354cb27cb7eaa65f222fd",
+    "test/local_runner.test.ts": "aab3a2a8b3c4a2d7f8fe5e12874f2a5091b837c532a7d6c34195daf9ddd8585b",
+    "test/native_diagnostics.test.ts": "240895c654186217cd32b0f0fbfb838382be8d91f18179ed7a3dc14131153a43",
+    "test/workflow_engine.test.ts": "58f91f18f0e825386ecf7a83321974dc5aea8454915b926380f4c5b7a956b0c6"
+  },
+  "excluded": [
+    "fixed candidate runtime publication",
+    "candidate public native GREEN",
+    "installed plugin cold acceptance",
+    "generic Skills CLI install",
+    "agent model dispatch",
+    "creative acceptance"
+  ]
+}

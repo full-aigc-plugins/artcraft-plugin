@@ -6,6 +6,7 @@ import { isAbsolute } from 'node:path';
 import { TaskLedger } from './task_ledger.ts';
 import { planHash } from '../protocol/contracts.ts';
 import type { ExecutionPlan } from './local_runner.ts';
+import { OutputObservation, nativeDiagnostics } from './native_diagnostics.ts';
 
 const delay=(ms:number)=>new Promise(resolve=>setTimeout(resolve,ms));
 function groupAlive(pid:number):boolean {
@@ -32,7 +33,11 @@ async function main(){
    if(status.state!=='cancel_requested')ledger.cancel(taskId);
    ledger.recordExit(taskId,epoch,token,{exitCode:null,signal:null,groupStopped:true,spawnError:'cancelled_before_spawn'});return;
   }
-  const child=spawn(plan.executable,plan.args,{cwd:plan.cwd,detached:true,shell:false,stdio:'ignore'});
+  const child=spawn(plan.executable,plan.args,{cwd:plan.cwd,detached:true,shell:false,stdio:['ignore','pipe','pipe']});
+  const stdout=new OutputObservation(child.stdout),stderr=new OutputObservation(child.stderr);
+  // 后代可能继承管道；主进程 exit 后只等待有界排空，进程组停止仍另行核验。
+  let drain:ReturnType<typeof setTimeout>|undefined;
+  child.once('exit',()=>{drain=setTimeout(()=>{child.stdout.destroy();child.stderr.destroy();},250);});
   const closed=new Promise<{code:number|null;signal:string|null;spawnError?:string}>(resolve=>{
    let spawnError:string|undefined;child.once('error',error=>{spawnError=String(error)});
    child.once('close',(code,signal)=>resolve({code,signal,spawnError}));
@@ -51,11 +56,11 @@ async function main(){
     }
    }catch(error){observationError=error;}
   },50);
-  const result=await closed;clearInterval(monitor);
+  const result=await closed;clearInterval(monitor);if(drain)clearTimeout(drain);
   let stopped=true;
   try{if(child.pid){stopped=!groupAlive(child.pid);for(let n=0;!stopped && n<10;n++){await delay(50);stopped=!groupAlive(child.pid);}}}catch(error){stopped=false;observationError=error;}
   if(escalation)clearTimeout(escalation);
-  ledger.recordExit(taskId,epoch,token,{exitCode:result.code,signal:result.signal,groupStopped:stopped && !observationError,spawnError:result.spawnError});
+  ledger.recordExit(taskId,epoch,token,{exitCode:result.code,signal:result.signal,groupStopped:stopped && !observationError,spawnError:result.spawnError,diagnostics:nativeDiagnostics(stdout,stderr)});
   if(!stopped || observationError)ledger.unknown(taskId,epoch,'process_group_stop_unverified');
  }finally{ledger.close();}
 }

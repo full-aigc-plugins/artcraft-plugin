@@ -41,6 +41,44 @@ test('known nonzero exit fails with recorded stop evidence and releases ownershi
   assert.equal(fixture.ledger.execution('task1')?.exitCode,3);assert.equal(fixture.ledger.leases().length,0);
  }finally{await fixture.cleanup();}
 });
+test('structured native failure is durable and queryable without persisting raw output or replay',async()=>{
+ const fixture=await context('failure');try{
+  const stdout=JSON.stringify({error:'protected_region_changed: private-title: 7 pixels'})+'\n';
+  const stderr='private-path-and-credential\n';
+  await writeFile(join(fixture.root,'worker.mjs'),`process.stdout.write(${JSON.stringify(stdout)});process.stderr.write(${JSON.stringify(stderr)});process.exitCode=3;`);
+  const receipt=await fixture.runner.execute('task1',fixture.adapter);
+  const error=receipt.error as any;
+  assert.equal(error.code,'native_execution_failed');assert.equal(error.diagnostics.domainCode,'protected_region_changed');
+  assert.equal(error.diagnostics.stdout.bytes,Buffer.byteLength(stdout));assert.equal(error.diagnostics.stdout.sha256,hash(stdout));
+  assert.equal(error.diagnostics.stderr.bytes,Buffer.byteLength(stderr));assert.equal(error.diagnostics.stderr.sha256,hash(stderr));
+  const reopened=new TaskLedger(join(fixture.root,'tasks.sqlite'));
+  try{assert.deepEqual(reopened.status('task1').error,error);}finally{reopened.close();}
+  assert.deepEqual((await fixture.runner.reconcile('task1',fixture.adapter)).error,error);assert.equal(fixture.starts,1);
+  const events=JSON.stringify(fixture.ledger.events('task1'));
+  assert.ok(!events.includes('private-title'));assert.ok(!events.includes('private-path-and-credential'));
+ }finally{await fixture.cleanup();}
+});
+test('excessive or unrecognized child text is hashed and cannot become a domain error',async()=>{
+ for(const stdout of ['x'.repeat(70000),JSON.stringify({error:'unknown_secret_material: private-token'})]){
+  const fixture=await context('failure');try{
+   await writeFile(join(fixture.root,'worker.mjs'),`process.stdout.write(${JSON.stringify(stdout)});process.exitCode=3;`);
+   const receipt=await fixture.runner.execute('task1',fixture.adapter);const diagnostics=(receipt.error as any).diagnostics;
+   assert.equal(receipt.state,'failed');assert.equal(diagnostics.domainCode,null);
+   assert.equal(diagnostics.stdout.bytes,Buffer.byteLength(stdout));assert.equal(diagnostics.stdout.sha256,hash(stdout));
+   assert.equal(diagnostics.stdout.truncated,Buffer.byteLength(stdout)>16384);
+   assert.equal(fixture.ledger.leases().length,0);
+  }finally{await fixture.cleanup();}
+ }
+});
+test('inherited output pipes cannot hang worker close or fake group stop',async()=>{
+ const fixture=await context('failure');try{
+  await writeFile(join(fixture.root,'worker.mjs'),`import{spawn}from'node:child_process';spawn(process.execPath,['-e','setInterval(()=>{},1000)'],{stdio:['ignore','inherit','inherit']}).unref();process.exitCode=3;`);
+  const start=Date.now(),receipt=await fixture.runner.execute('task1',fixture.adapter);
+  assert.ok(Date.now()-start<5000);assert.equal(receipt.state,'reconciling');
+  assert.equal(fixture.ledger.execution('task1')?.groupStopped,false);assert.equal(fixture.ledger.leases().length,1);
+  assert.equal(fixture.ledger.execution('task1')?.diagnostics?.stdout.complete,false);
+ }finally{await fixture.cleanup();}
+});
 test('live cancel intent becomes cancelled only after process close and group stop',async()=>{
  const fixture=await context('wait');try{
   const executing=fixture.runner.execute('task1',fixture.adapter);
