@@ -30,7 +30,7 @@ def file_digest(path):
 
 
 def provided_metadata(path):
-    """按内容登记标准 PCM WAV；其他格式保留明确未识别的二进制类型。"""
+    """按内容登记 PNG、JPEG 和标准 PCM WAV；未知格式不推断媒体属性。"""
     before = path.stat()
     with path.open('rb') as stream:
         header = stream.read(12)
@@ -41,7 +41,15 @@ def provided_metadata(path):
             after=path.stat()
             if (before.st_ino,before.st_size,before.st_mtime_ns)!=(after.st_ino,after.st_size,after.st_mtime_ns):raise ValueError('provided_asset_changed')
             return 'image/png',facts
+        if header[:2]==b'\xff\xd8':
+            spec=importlib.util.spec_from_file_location('craft_jpeg',Path(__file__).with_name('jpeg_inspection.py'))
+            module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+            facts=module.inspect_jpeg(path)
+            after=path.stat()
+            if (before.st_ino,before.st_size,before.st_mtime_ns)!=(after.st_ino,after.st_size,after.st_mtime_ns):raise ValueError('provided_asset_changed')
+            return 'image/jpeg',facts
         if path.suffix.lower()=='.png':raise ValueError('provided_png_invalid')
+        if path.suffix.lower() in ('.jpg','.jpeg'):raise ValueError('provided_jpeg_invalid')
         recognized = header[:4] == b'RIFF' and header[8:12] == b'WAVE'
         if not recognized:
             if path.suffix.lower() == '.wav':raise ValueError('provided_wav_invalid')
@@ -122,7 +130,7 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
         if not (video_factory_root / 'bin/video-factory').is_file() or not ffmpeg.is_file() or not ffprobe.is_file():
             raise ValueError('video_factory_registration_required')
     assets = {}
-    png_staging = []
+    image_staging = []
     for assignment in assignments:
         name, filename = assignment.split('=', 1)
         if not re.fullmatch(r'[A-Za-z][A-Za-z0-9_-]{0,63}', name) or name in assets:
@@ -132,13 +140,15 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
             raise ValueError('provided_asset_invalid')
         sha, size = file_digest(path)
         media_type, metadata = provided_metadata(path)
-        if media_type in ('audio/wav','image/png') and file_digest(path) != (sha, size):raise ValueError('provided_asset_changed')
-        # 部分原生导入器按扩展名选解码器；内容已验证的 PNG 复制为规范暂存名。
+        if media_type in ('audio/wav','image/png','image/jpeg') and file_digest(path) != (sha, size):raise ValueError('provided_asset_changed')
+        # 部分原生导入器按扩展名选解码器；按内容识别的图片复制为规范暂存名。
         # 原文件不改名不写入，暂存副本必须与原摘要完全相同并进入项目交付。
-        if media_type == 'image/png' and path.suffix.lower() != '.png':
+        extension={ 'image/png':'.png','image/jpeg':'.jpg' }.get(media_type)
+        suffixes=('.jpg','.jpeg') if media_type=='image/jpeg' else ('.png',)
+        if extension and path.suffix.lower() not in suffixes:
             directory=output/'provided-assets'
-            staged=directory/(sha+'.png')
-            png_staging.append((path,staged,sha,size))
+            staged=directory/(sha+extension)
+            image_staging.append((path,staged,sha,size))
             path=staged
         assets[name] = {'root': str(path.parent), 'artifact': {'protocolVersion': 'craft-artifact/v1', 'assetId': name, 'version': sha, 'sha256': sha, 'bytes': size, 'mediaType': media_type, 'producerTaskId': 'provided-'+name, 'sourceRefs': [], 'nativeProjectRef': None, 'renditions': [], 'dependencies': [], 'technicalMetadata': metadata, 'lossReportRef': None, 'evidenceRefs': [], 'location': path.name}}
     used = set()
@@ -214,7 +224,7 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
         receipt_path.write_bytes(canonical({'bindingSha256': binding_hash, 'compiledSha256': digest(compiled_path.read_bytes())}))
     # 冻结修订绑定通过后才发布当前安装身份，冲突不得改变旧项目材料。
     if not marker.exists():marker.write_bytes(canonical(identity))
-    for original_path,staged,sha,size in png_staging:
+    for original_path,staged,sha,size in image_staging:
         if staged.parent.is_symlink() or staged.is_symlink():raise ValueError('provided_asset_staging_invalid')
         staged.parent.mkdir(exist_ok=True)
         if file_digest(original_path)!=(sha,size):raise ValueError('provided_asset_changed')

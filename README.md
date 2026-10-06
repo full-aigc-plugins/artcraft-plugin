@@ -1,8 +1,8 @@
 # ArtCraft Agent Plugin
 
-JPEG registration and dimension checks are an unpublished working-tree candidate. A copied-alone skill cold test passed with the existing public runtime dev.56; the candidate Node inspector independently verified the actual staged JPEG. New immutable publication and installed-host verification remain pending. [JPEG architecture](docs/ArtCraft-JPEG-Architecture.md).
+JPEG runtime dev.58 and source dev.41 are fixed. Full plugin host verification remains pending. [JPEG architecture](docs/ArtCraft-JPEG-Architecture.md).
 
-Plugin dev.57 / skills dev.40 / runtime dev.56 pins PNG registration and verification. Installed-host PNG verification passes; historical PCM WAV and candidate evidence retain their version scope. Complete V1/model/GUI/creative acceptance remains open.
+Plugin dev.59 / source dev.41 / runtime dev.58 pins JPEG registration and property verification. Source copied-alone cold native delivery passes; fixed installed-host verification is pending. Full V1/model/GUI/creative acceptance remains open.
 
 PNG runtime dev.56 is published from an immutable tag and the source dev.40 snapshot is pinned. Scope and remaining installed-host gates: [PNG architecture](docs/ArtCraft-PNG-Architecture.md).
 
@@ -10,7 +10,7 @@ PNG runtime dev.56 is published from an immutable tag and the source dev.40 snap
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.57`; skill source: `0.1.0-dev.40`; runtime: `0.1.0-dev.56`. Current fixed installed-host PNG verification passes. Previous PCM WAV evidence keeps its original release scope.
+Current plugin: `0.1.0-dev.59`; skill source: `0.1.0-dev.41`; runtime: `0.1.0-dev.58`. Fixed JPEG installed-host verification is pending; previous evidence retains its original scope.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
@@ -34,9 +34,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.57 |
+| Plugin ID / version | artcraft / 0.1.0-dev.59 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.40 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.41 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |

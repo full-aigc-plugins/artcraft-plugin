@@ -150,3 +150,9 @@ Standard PCM WAV narration is identified from content, carries exact sample-base
 Runtime dev.56 and skill source dev.40 recognize static PNG by content and records width, height, bitDepth and alpha representation. It checks CRC, chunk structure, bounded decompressed scan data and filter bytes, including standard depths/colors and Adam7. Limits: 64 MiB input, 128 MiB scan data; APNG is explicitly unsupported. Alpha representation does not prove visually transparent pixels. A non-.png input recognized as PNG is copied byte-for-byte to project-owned provided-assets/<sha>.png only after owner/revision binding; both hashes must match. The original is preserved and the copy enters portable packaging.
 
 Fixed installed-host verification remains open; JPEG/video identification, ICC/visual fidelity and creative acceptance are not implied.
+
+## JPEG 候选输入合同
+
+工作树候选支持按内容识别 8 位 SOF0／SOF1／SOF2 JPEG，登记编码栅格尺寸和 alpha=false；标记检查不代替熵解码、EXIF 或 ICC 保真。非标准扩展名暂存为摘要相同的 jpg，原文件不修改。候选首次使用仍安装公开 dev.56 运行时；新固定发行及宿主安装验收未完成前，不将此候选提升为已发布能力。
+
+JPEG 固定运行时 dev.58 已发布；技能源 dev.41 锁定该制品，安装后宿主复验待执行。既有候选证据的 dev.56 冷安装范围不改变。
