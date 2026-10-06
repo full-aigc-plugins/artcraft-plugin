@@ -188,3 +188,5 @@ Runtime dev.26 fixes cross-authorization task reuse. Candidate skill suite dev.2
 Published plugin dev.27 / skills dev.24 / runtime dev.26 pass actual installed native authorization-scope testing (1 test, 23.649 seconds) and four-domain first-use/replay/conflict/relocated-package regression (3 tests, 95.854 seconds). All 58 installed hashes are unchanged. [Proof](docs/evidence/codex-release28-authorization-native-20261006.json).
 
 Plugin candidate dev.29 vendors released ArtCraft skills dev.25 and pins runtime dev.28 for versioned Brief validation. Isolated single-skill online testing passed 3 tests in 98.048 seconds; final installed-host Brief acceptance remains pending. [Architecture](docs/ArtCraft-Versioned-Brief-Architecture.md), [proof](docs/evidence/versioned-brief-first-use.json).
+
+Published plugin dev.29 / skills dev.25 / runtime dev.28 pass installed-skill online Brief first use (3 tests, 89.841 seconds). All 58 skills across five plugins are discovered and retain their hashes after execution. Overall implementation remains incomplete. [Proof](docs/evidence/codex-release29-brief-native-20261006.json).
