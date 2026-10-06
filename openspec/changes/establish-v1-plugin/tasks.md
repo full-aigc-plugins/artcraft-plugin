@@ -85,7 +85,7 @@
 
 - [x] 5.15 [AC-TX-003] 固定安装后的独立恢复技能完成空运行目录公开安装，再对真实渲染设置四秒执行期限；期限自动终止原生组后释放占用，依赖不启动、重跑不重放，原 attempt 与预算保留。证据 `docs/evidence/codex-artcraft46-deadline-first-use-20261006.json`；不包含四秒内安装或完整 5.9 门禁。
 
-- [ ] 5.16 [AC-TX-002] 修复 unsupported_mapping 未被编排诊断白名单保留：先复现原生进程／持久状态丢失，接入固定 EffectCraft dev.7 技能源，真实混合首次使用检查下游阻断、上游保全、失败查询和重复幂等、修正后复用及打包；不可变运行时／技能／插件发布后安装复验，核对 58 个安装摘要。
+- [x] 5.16 [AC-TX-002] 修复 unsupported_mapping 未被编排诊断白名单保留：先复现原生进程／持久状态丢失，接入固定 EffectCraft dev.7 技能源，真实混合首次使用检查下游阻断、上游保全、失败查询和重复幂等、修正后复用及打包；不可变运行时／技能／插件发布后安装复验，核对 58 个安装摘要。
 
 ## 6. domain-workflow
 
@@ -194,3 +194,5 @@
 5.14 固定发行复验：dev.46／源 dev.34／运行时 dev.45；真实原生取消及调度器崩溃接管各 1 项通过，十项独立冷启动和混合 3 项回归通过。58 项安装摘要保持不变，证据 `docs/evidence/codex-release46-live-cancel-first-use-20261006.json`。3.16、worker 崩溃、截止时间、模型／GUI／创作等门禁仍开放。
 
 固定新版验收：FilmCraft dev.9、EffectCraft dev.7、PhotoCraft dev.9、VectorCraft dev.10、ArtCraft dev.50 在 Codex 0.153.4 隔离安装发现 58 技能，零加载错误。安装后单导出技能跨秒原生验收 1 项通过，混合品牌返工 2 项通过，全部 58 安装摘要保留。证据：`docs/evidence/codex-release50-vector10-stable-export-first-use-20261006.json`。不关闭通用 Skills CLI、模型／GUI、完整领域／创作／发布门禁。
+
+5.16 固定安装验收：插件 dev.53／技能源 dev.38／runtime dev.52，接入 Effect dev.7；58 技能发现、零错误，安装后单执行技能真实参数拒绝／修正交付 1 项通过，十项 Art 独立冷启动通过，原安装 58 项摘要保留。五包固定标签重建一致。dev.51 标签与附件来源不一致，保留并明确禁用，不作为安装证据。证据 `docs/evidence/codex-release53-effect-mapping-first-use-20261006.json`。不关闭 3.16、完整领域、模型／GUI、创作或生产门禁。

@@ -1,12 +1,12 @@
 # ArtCraft Agent Plugin
 
-Current plugin dev.53 / skills dev.38 / runtime dev.52 pin EffectCraft source dev.7. Source single-skill public mixed first use passes; fixed dev.53 host installation remains pending. Invalid-provenance runtime dev.51 must not be installed. Full V1/model/GUI/creative acceptance remains open.
+Current plugin dev.53 / skills dev.38 / runtime dev.52 pins EffectCraft source dev.7. Fixed installed scoped acceptance passes; runtime dev.51 is invalid provenance and must not be installed. Complete V1/model/GUI/creative acceptance remains open.
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.53`; skill source: `0.1.0-dev.38`; runtime: `0.1.0-dev.52`. Public mixed first use passed in 47.850 seconds; fixed plugin installed acceptance remains pending. Historical evidence retains its release scope.
+Current plugin: `0.1.0-dev.53`; skill source: `0.1.0-dev.38`; runtime: `0.1.0-dev.52`. Fixed installed acceptance passes at the bounded scope below; historical evidence retains its release scope.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
@@ -256,3 +256,5 @@ Fixed ArtCraft dev.50 / VectorCraft dev.10 first use passes in isolated Codex 0.
 All 22 updated skills pass individual public cold first use (159.811s): each is copied alone to .agents/skills and installs into an independent empty runtime, checks exact version and command contracts, and preserves its files and all host-installed hashes. This does not establish generic Skills CLI installation or every creative scenario.
 
 [Effect parameter diagnostics and immutable-release correction](docs/ArtCraft-Effect-Parameter-Diagnostics-Architecture.md): exact rejection blocks Film, preserves upstream work, and a corrected revision packages all five children. Runtime dev.52 and all four locked source bundles reproduce from fixed tags; dev.51 remains invalid and must not be installed.
+
+Fixed dev.53 first use: 58 discovered / zero errors, ten independent Art cold starts (110.577s), installed native failure/corrected mixed delivery (56.202s), five reproducible locked bundles and 58 unchanged installed skill hashes. [Evidence](docs/evidence/codex-release53-effect-mapping-first-use-20261006.json). Generic Skills CLI, full creative V1, model/GUI and production remain open.
