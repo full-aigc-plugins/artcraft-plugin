@@ -1,6 +1,6 @@
 # ArtCraft Failed Stage Integration Architecture
 
-> Runtime dev.78 published; candidate source dev.53 binds updated clients; fixed installed acceptance pending. Updated: 2026-10-07.
+> Fixed Art79/source53/runtime78 installed gate4.9 passed; fullV1 remains open. Updated: 2026-10-07.
 
 ## Authority and current state
 
@@ -9,7 +9,7 @@ OpenSpec AC-RT-002 task4.9 owns the next incremental distribution upgrade. Domai
 ```mermaid
 flowchart LR
     D[Independent domain source16/15] --> P[Domain plugins18/17]
-    D --> U[Pending immutable Art bundle upgrade]
+    D --> U[Fixed immutable Art79 bundle upgrade]
     U --> H[Bind recovery module identity]
     H --> T[Installed mixed and failure acceptance]
     O[Existing Art77 bundles15/14] --> E[Existing version-bound evidence]
@@ -42,4 +42,9 @@ sequenceDiagram
     Ledger-->>Setup: Read original attempt status
 ```
 
-The post-save fault driver now reopens the product-retained original, verifies every retained file hash and byte count, checks the submitted last attempt and absence of a successful manifest, and tests no second prepare/save. The test proxy copy is only an independent checksum witness. The fixed installed gate remains open until the new plugin host, ten cold skills and native mixed/recovery cases pass.
+The post-save fault driver now reopens the product-retained original, verifies every retained file hash and byte count, checks the submitted last attempt and absence of a successful manifest, and tests no second prepare/save. The test proxy copy is only an independent checksum witness. The fixed installed gate4.9 now passes through the evidence below; fullV1 remains open.
+
+
+## Fixed installed gate
+
+Fixed Art plugin dev.79 / source dev.53 / runtime dev.78 passes bounded installed acceptance: five plugins and58 skills discover without loading errors; all24 native post-save faults preserve and reopen the product original, block consumers and prohibit replay. Four recovery-module missing/tampered bindings reject before writes. Ten independently copied Art skills cold-install Node, Art and all four domains (451.537s); 1080p/24fps/five-second mixed creation, Logo revision, corrupt-frame recovery and a moved five-child package pass (209.714s). All58 installed identities remain unchanged; five public bundles reproduce from tags, both public Art source ZIPs match and four exact plugin-commit CI runs pass. Only OpenSpec4.9 closes. Full2639-command context/output/GUI/revision, generic Skills CLI, model and fullV1 acceptance remain open. [Version-bound evidence](evidence/codex-art79-failed-stage-first-use-20261007.json).

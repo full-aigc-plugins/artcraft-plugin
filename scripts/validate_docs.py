@@ -123,6 +123,9 @@ if len(lock.get('sources', [])) != 1:
     errors.append('current README identity: one skill authority required')
 else:
     source = lock['sources'][0]
+    source_plan = json.loads((ROOT / 'docs/skills-source-plan.json').read_text())
+    if any(source_plan.get(field) != source.get(key) for field, key in [('package', 'package'), ('sourceRef', 'ref'), ('sourceSha', 'sha')]):
+        errors.append('source plan identity differs from immutable skill lock')
     version_pattern = r'(?:^|\s|/)v?(\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.+-]+)?)'
     for language in ('README.md', 'README.zh-CN.md'):
         text = (ROOT / language).read_text()
