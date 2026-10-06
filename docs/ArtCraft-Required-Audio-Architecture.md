@@ -28,8 +28,10 @@ Failure retains the `.fcproj`, preview, film, `audio-check.json`, `export-probe.
 
 The missing domain-code test failed before the minimal fix. Target scheduler/digest tests passed 25 cases; full Node regression passed 139 with 6 skipped. The independent source test `tests/test_required_audio_mixed_first_use.py` exercises silent video and a four-domain graph, checking actual native failure, blocked consumer, retained files, status, replay identity, budget and source preservation.
 
-Candidate runs may use `--bundle-dir` with a locally built digest-bound runtime and unchanged fixed domain releases. This does not prove downloading a newly published release. OpenSpec task 6.32 remains unchecked until public release and fixed-host revalidation. These checks do not close all first-use, GUI or creative acceptance gates.
+Candidate runs may use `--bundle-dir` with a locally built digest-bound runtime and unchanged fixed domain releases. This does not prove downloading a newly published release. OpenSpec task 6.32 required public release and fixed-host revalidation, completed in the evidence below. These checks do not close all first-use, GUI or creative acceptance gates.
 
 Actual candidate negative first use passed once (40.599 s), and positive four-project gain revision passed once (36.998 s). Python regression passed 66 with 18 skipped. [Candidate evidence](evidence/required-audio-mixed-candidate.json).
 
-Default public runtime dev.48 first use now passes: negative 58.653 s; positive 56.587 s. All five locked bundles rebuild identically. Fixed plugin host revalidation remains pending. [Public runtime evidence](evidence/required-audio-public-runtime.json).
+Default public runtime dev.48 first use now passes: negative 58.653 s; positive 56.587 s. All five locked bundles rebuild identically. Fixed plugin host revalidation subsequently passed as recorded below. [Public runtime evidence](evidence/required-audio-public-runtime.json).
+
+Fixed plugin dev.49 / skills dev.36 / runtime dev.48 now passes installed public first use: missing-source-audio failure and downstream blocking (66.696 s), positive four-project gain revision (82.108 s), and ten independent Art skill cold starts (119.288 s). All 58 installed hashes remain unchanged. Task 6.32 is complete at this bounded scope; full V1 remains open. [Evidence / 证据](evidence/codex-release49-required-audio-mixed-first-use-20261006.json).

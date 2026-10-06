@@ -6,7 +6,7 @@ Current plugin dev.47 / skills dev.35 / runtime dev.45 pin FilmCraft source dev.
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.49`; skill source: `0.1.0-dev.36`; runtime: `0.1.0-dev.48`. The required-source-audio fix passed candidate native mixed checks; fixed public plugin first-use revalidation is pending. Historical evidence below retains its original release scope. Full V1/model/GUI/creative acceptance remains open.
+Current plugin: `0.1.0-dev.49`; skill source: `0.1.0-dev.36`; runtime: `0.1.0-dev.48`. Fixed public installed first-use revalidation passes at the documented bounded scope. Historical evidence retains its original release scope; full V1/model/GUI/creative acceptance remains open.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
@@ -247,4 +247,6 @@ Fixed plugin dev.46 / skills dev.34 / runtime dev.45 now passes public installed
 
 Installed dev.46 deadline acceptance passes: a recover skill cold-installs selected dependencies, then a four-second execution deadline stops an observed native render before lease release; its dependent consumer never starts. Repeating the cancelled plan preserves the native attempt and budget without replay. [Deadline proof](docs/ArtCraft-Deadline-Acceptance.md). Installation time is outside that execution deadline.
 
-Required-source-audio propagation has passed local candidate native mixed tests, retaining failure diagnostics and blocking downstream work without replay. Positive audio/gain revision also passes. The new runtime is not publicly released or fixed-host verified yet. [Design and candidate evidence](docs/ArtCraft-Required-Audio-Architecture.md).
+Required-source-audio propagation has passed local candidate native mixed tests, retaining failure diagnostics and blocking downstream work without replay. Positive audio/gain revision also passes. Subsequent fixed public-release verification is recorded below. [Design and candidate evidence](docs/ArtCraft-Required-Audio-Architecture.md).
+
+Fixed ArtCraft dev.49 first use passes in Codex 0.153.4: 58 skills, zero loading errors; installed mixed required-audio failure and positive gain revision; ten Art skills in individual empty runtimes. All installed hashes are preserved. [Release-bound evidence](docs/evidence/codex-release49-required-audio-mixed-first-use-20261006.json). Full V1/model/GUI/creative acceptance remains open.
