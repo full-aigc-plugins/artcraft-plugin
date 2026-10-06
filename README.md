@@ -1,6 +1,8 @@
+Current plugin: `0.1.0-dev.86`; skill source: `0.1.0-dev.59`; runtime83; Vector19 appearance distribution. Fixed installed acceptance pending. [Architecture](docs/ArtCraft-Vector-Appearance-Architecture.md).
+
 Fixed native gateway first use passes:48 independently installed domain skills and ten Art85/source58 public workflows cold-install, create/reopen/export, revise and preserve original deliveries. Art public Brief, all four gateway domains, five child nodes, selective Logo revision/icon reuse, moved package, native cancellation and six unknown faults pass. All58 installed identities are unchanged. Full2639-command/GUI/model/generic Skills CLI/V1 gates remain open. [Usage](docs/Craft-Native-Gateway-Usage.md) · [Fixed evidence](docs/evidence/codex-native-gateway-first-use-20261007.json).
 
-Current plugin dev.85 pins source58/runtime83; fixed public Python Brief gateway first use passes. Full per-command/GUI/model/V1 remains open.
+Historical release record: Current plugin dev.85 pins source58/runtime83; fixed public Python Brief gateway first use passes. Full per-command/GUI/model/V1 remains open.
 
 Historical prerelease note: Published native gateway plugin dev.84 / source57 / runtime83 pins Film19 and Effect/Photo/Vector18. Fixed installed DAG retest pending; historical evidence retains its original scope.
 
@@ -16,7 +18,7 @@ Complete domain command component candidate adds2639 offline queries, actual MCP
 
 Fixed native first-use and complete-command recovery acceptance passed:58 standalone cold installations, ten Art all-domain cold installations, four partial-download SSL EOF recoveries,72 post-save faults, four healthy command revisions and mixed HD revision/recovery/moved delivery. Installed identities remain unchanged. Only domain2.10/8.11 and Art4.10 close; exhaustive2639-command, GUI, model, generic Skills CLI and fullV1 gates remain open. [Version-bound evidence](docs/evidence/codex-native-download-first-use-20261007.json).
 
-Current plugin: `0.1.0-dev.85`; skill source: `0.1.0-dev.58`; runtime: `0.1.0-dev.83`. Bounded fixed native gateway first use passes; exhaustive commands/GUI/model/full V1 remain open.
+Historical release record: Current plugin: `0.1.0-dev.85`; skill source: `0.1.0-dev.58`; runtime: `0.1.0-dev.83`. Bounded fixed native gateway first use passes; exhaustive commands/GUI/model/full V1 remain open.
 
 Previous version-bound release: plugin dev.79 / source53 / runtime78 passed gate4.9. This remains historical evidence.
 
@@ -81,9 +83,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.85 |
+| Plugin ID / version | artcraft / 0.1.0-dev.86 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.58 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.59 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -194,7 +196,7 @@ Previously verified plugin `0.1.0-dev.12` pins skill suite `0.1.0-dev.11` and ru
 
 Previously verified plugin dev.14 / runtime dev.13 pins skill suite dev.12 and supports optional Video Factory 0.4.0 public validation nodes. Explicit existing plugin/FFmpeg/ffprobe paths are hashed and frozen; model payloads cannot choose commands or executables. Real gates, input binding, report syntax and package retention are verified; missing provenance stays NOT_RUN and required FAIL blocks delivery. All 83 native runtime tests pass. Default public online first use now passes: 24 tests passed and one Node-only offline test skipped. The single installed skill cold-installs its dependencies, executes five nodes and verifies their delivery package. Plugin dev.14 fixes duplicated OpenSpec task IDs from snapshot dev.13 and adds a regression guard; runtime dev.13 retains its published bytes and digest. [Architecture](docs/ArtCraft-VideoFactory-Architecture.md), [candidate evidence](docs/evidence/video-factory-candidate.json), [online evidence](docs/evidence/video-factory-online.json). Legacy rendering, Image Factory adapters and full model/creative acceptance remain pending.
 
-Current plugin dev.15 pins skill suite dev.13 and retains runtime dev.13. EffectCraft skills dev.6 enable native mask vertex revision; only intro and consuming video change while Logo/poster tasks reuse. Original file hashes, opacity keys, audio and captions stay intact; actual RGBA boundaries and the four-child package verify. Full default-online regression: 25 passed, one Node-only offline test skipped; 83 native integration tests pass. [Architecture](docs/ArtCraft-Mask-Revision-Architecture.md), [evidence](docs/evidence/mask-revision-first-use.json). Host/model, creative and broader legacy-adapter acceptance remain open.
+Historical release record: Current plugin dev.15 pins skill suite dev.13 and retains runtime dev.13. EffectCraft skills dev.6 enable native mask vertex revision; only intro and consuming video change while Logo/poster tasks reuse. Original file hashes, opacity keys, audio and captions stay intact; actual RGBA boundaries and the four-child package verify. Full default-online regression: 25 passed, one Node-only offline test skipped; 83 native integration tests pass. [Architecture](docs/ArtCraft-Mask-Revision-Architecture.md), [evidence](docs/evidence/mask-revision-first-use.json). Host/model, creative and broader legacy-adapter acceptance remain open.
 
 Current fixed-release host refresh: Codex 0.153.4 installs FilmCraft dev.5, EffectCraft dev.7, PhotoCraft/VectorCraft dev.6 and ArtCraft dev.15 in an isolated configuration, discovers all 58 skills and verifies every locked identity. All five representative workflows pass from installed skill content; all 58 skill hashes remain unchanged afterward. The explicit-tag matrix generator has four passing boundary tests. [Evidence](docs/evidence/codex-current-release-20261006.json). Model dispatch awaits explicit authorization; GUI, creative and production acceptance remain open. Published plugin/skill/runtime tags are unchanged by this QA maintenance.
 

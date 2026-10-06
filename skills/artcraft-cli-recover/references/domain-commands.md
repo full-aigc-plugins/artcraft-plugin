@@ -25,4 +25,6 @@ check/run只安装指定领域及Art自身运行时，核对固定目录、全�
 
 组件回执的dagDeliveryAcceptance始终NOT_RUN。该入口不注册DAG任务、计预算或创建可迁移craft-artifact包；预算／取消、原生依赖／交换报告、完整DAG失效／恢复／移动包由OpenSpec6.51继续实现。原有workflow.py仍负责已支持的混合交付。
 
-English: list/describe are offline. check/run install the selected fixed domain and invoke its public commands.py; every Art skill contains all four paired examples. Actual references and live native prerequisites apply. Preserve unknown outcomes and use a new revision rather than replaying. Native call acceptance is distinct from DAG native delivery; gate6.51 remains open. Complete per-command and GUI acceptance are separate.
+English: list/describe are offline. check/run install the selected fixed domain and invoke its public commands.py; every Art skill contains all four paired examples. Actual references and live native prerequisites apply. Preserve unknown outcomes and use a new revision rather than replaying. Native call acceptance is distinct from DAG native delivery; gateway DAG evidence is version-bound; the new appearance distribution requires its own fixed install proof. Complete per-command and GUI acceptance are separate.
+
+`usageRecipes` 路径相对于安装回执的领域 `skillRoot`，不能相对于 Art 技能根目录解析。高级外观DAG用法见当前技能内 [Vector外观](vector-appearance.md)；使用领域本身技能可安装 `npx skills add full-aigc-skills/vectorcraft-skills --skill vectorcraft-cli-appearance`。

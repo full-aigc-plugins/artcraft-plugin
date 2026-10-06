@@ -1,0 +1,66 @@
+{
+  "operations": [
+    {
+      "command": "select.set",
+      "params": {
+        "ids": [
+          {
+            "$ref": "badge.id"
+          }
+        ]
+      }
+    },
+    {
+      "command": "native.command",
+      "params": {
+        "command": "appearance.setActiveItem",
+        "params": {
+          "index": 0
+        }
+      }
+    },
+    {
+      "command": "native.command",
+      "params": {
+        "command": "gradient.selectStop",
+        "params": {
+          "index": 0
+        }
+      }
+    },
+    {
+      "command": "native.command",
+      "params": {
+        "command": "swatch.edit",
+        "params": {
+          "name": {
+            "$ref": "brandEnd.name"
+          },
+          "color": "#8e44ad"
+        }
+      }
+    },
+    {
+      "command": "native.command",
+      "params": {
+        "command": "swatch.list",
+        "params": {}
+      },
+      "as": "revisedSwatchAudit"
+    }
+  ],
+  "exports": [
+    {
+      "format": "svg",
+      "artboard": 0
+    },
+    {
+      "format": "png",
+      "artboard": 0
+    },
+    {
+      "format": "pdf",
+      "artboard": 0
+    }
+  ]
+}

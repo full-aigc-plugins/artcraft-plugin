@@ -69,3 +69,5 @@ python3 -I -B "$SKILL_DIR/scripts/review.py" verify --package "$PACKAGE_ROOT" --
 ## 完整领域命令交接
 
 需要模板之外的原生操作时，读取本技能[完整领域命令组件](references/domain-commands.md)，使用自带domain_commands.py查询2639条命令、实际MCP参数及交接选定领域。每个技能都包含四领域创建／返工示例；unknown不重放，组件回执不代替DAG原生交付与验收。
+
+原生渐变、多重填充及源工程改色返工：使用当前技能的 [Vector外观指南](references/vector-appearance.md)。

@@ -1,0 +1,302 @@
+{
+  "workflowId": "vector-appearance",
+  "revision": "v1",
+  "ownerId": "local-user",
+  "authorizationRef": "vector-appearance-local",
+  "budget": {
+    "currency": "USD",
+    "maxMinorUnits": 0,
+    "maxRevisions": 2,
+    "maxExternalCalls": 0
+  },
+  "nodes": [
+    {
+      "id": "badge",
+      "dependsOn": [],
+      "projectKey": "badge-project",
+      "expectedRevision": null,
+      "pluginId": "vectorcraft",
+      "payload": {
+        "schemaVersion": "craft-skill-workflow/v1",
+        "plan": {
+          "document": {
+            "name": "Gradient appearance",
+            "width": 128,
+            "height": 64,
+            "units": "Pixels"
+          },
+          "operations": [
+            {
+              "command": "native.command",
+              "params": {
+                "command": "swatch.new",
+                "params": {
+                  "name": "Brand start",
+                  "color": "#ef5b36",
+                  "global": true
+                }
+              },
+              "as": "brandStart"
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "swatch.new",
+                "params": {
+                  "name": "Brand end",
+                  "color": "#2366e8",
+                  "global": true
+                }
+              },
+              "as": "brandEnd"
+            },
+            {
+              "command": "shape.rectangle",
+              "params": {
+                "x": 8,
+                "y": 8,
+                "width": 52,
+                "height": 48
+              },
+              "as": "badge"
+            },
+            {
+              "command": "select.set",
+              "params": {
+                "ids": [
+                  {
+                    "$ref": "badge.id"
+                  }
+                ]
+              }
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "paint.setFill",
+                "params": {
+                  "ids": [
+                    {
+                      "$ref": "badge.id"
+                    }
+                  ],
+                  "gradient": {
+                    "kind": "linear",
+                    "stops": [
+                      {
+                        "offset": 0,
+                        "swatch": {
+                          "$ref": "brandStart.name"
+                        }
+                      },
+                      {
+                        "offset": 1,
+                        "swatch": {
+                          "$ref": "brandEnd.name"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "command": "paint.setStroke",
+              "params": {
+                "ids": [
+                  {
+                    "$ref": "badge.id"
+                  }
+                ],
+                "none": true
+              }
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "appearance.addFill",
+                "params": {
+                  "ids": [
+                    {
+                      "$ref": "badge.id"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "appearance.setItem",
+                "params": {
+                  "ids": [
+                    {
+                      "$ref": "badge.id"
+                    }
+                  ],
+                  "index": 2,
+                  "color": "#ffffff",
+                  "opacity": 20
+                }
+              }
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "appearance.setActiveItem",
+                "params": {
+                  "index": 0
+                }
+              }
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "paint.setGradientGeom",
+                "params": {
+                  "ids": [
+                    {
+                      "$ref": "badge.id"
+                    }
+                  ],
+                  "item": 0,
+                  "start": [
+                    8,
+                    32
+                  ],
+                  "end": [
+                    60,
+                    32
+                  ]
+                }
+              }
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "paint.editGradient",
+                "params": {
+                  "ids": [
+                    {
+                      "$ref": "badge.id"
+                    }
+                  ],
+                  "item": 0,
+                  "reverse": true
+                }
+              }
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "gradient.selectStop",
+                "params": {
+                  "index": 1
+                }
+              }
+            },
+            {
+              "command": "shape.rectangle",
+              "params": {
+                "x": 76,
+                "y": 8,
+                "width": 44,
+                "height": 48
+              },
+              "as": "control"
+            },
+            {
+              "command": "paint.setFill",
+              "params": {
+                "ids": [
+                  {
+                    "$ref": "control.id"
+                  }
+                ],
+                "color": "#27ae60"
+              }
+            },
+            {
+              "command": "paint.setStroke",
+              "params": {
+                "ids": [
+                  {
+                    "$ref": "control.id"
+                  }
+                ],
+                "none": true
+              }
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "swatch.list",
+                "params": {}
+              },
+              "as": "swatchAudit"
+            }
+          ],
+          "exports": [
+            {
+              "format": "svg",
+              "artboard": 0
+            },
+            {
+              "format": "png",
+              "artboard": 0
+            },
+            {
+              "format": "pdf",
+              "artboard": 0
+            }
+          ]
+        },
+        "assetBindings": [],
+        "outputs": [
+          {
+            "assetId": "badge-png",
+            "location": "artboard-1.png",
+            "mediaType": "image/png"
+          }
+        ]
+      }
+    }
+  ],
+  "projectBrief": {
+    "schema": "craft-brief/v1",
+    "workflowId": "vector-appearance",
+    "revision": "brief-v1",
+    "ownerId": "local-user",
+    "authorizationRef": "vector-appearance-local",
+    "budget": {
+      "currency": "USD",
+      "maxMinorUnits": 0,
+      "maxRevisions": 2,
+      "maxExternalCalls": 0
+    },
+    "brand": {
+      "name": "NOVA",
+      "colors": [],
+      "fonts": [],
+      "appliesTo": [
+        "badge"
+      ],
+      "referenceAssets": []
+    },
+    "subjects": [],
+    "dataPolicy": {
+      "allowUpload": false
+    },
+    "ambiguities": [],
+    "deliverables": [
+      {
+        "id": "badge",
+        "nativeFormat": ".vectorcraft",
+        "width": 128,
+        "height": 64,
+        "dependsOn": [],
+        "execution": "local"
+      }
+    ]
+  }
+}

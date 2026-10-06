@@ -1,6 +1,8 @@
+当前插件：`0.1.0-dev.86`；技能源：`0.1.0-dev.59`；runtime83；Vector19外观分发。固定安装待验收。[架构](docs/ArtCraft-Vector-Appearance-Architecture.zh_CN.md)。
+
 固定原生命令网关首用通过：48项领域安装技能与十项 Art85／技能源58 的公开入口独立冷安装、创建／重开／导出、返工并保全原交付。公开 Brief、四领域网关、五子工程、Logo选择性更新／无关图标复用、移动包、真实取消和六类未知回复故障通过；58项安装摘要不变。全2639命令／GUI／模型／通用Skills CLI／完整V1门禁保持开放。[使用指南](docs/Craft-Native-Gateway-Usage.zh_CN.md) · [固定证据](docs/evidence/codex-native-gateway-first-use-20261007.json)。
 
-当前插件 dev.85 固定技能源58／runtime83，公开 Brief 网关首用通过；全量逐命令／GUI／模型／完整V1仍开放。
+历史发行记录：当前插件 dev.85 固定技能源58／runtime83，公开 Brief 网关首用通过；全量逐命令／GUI／模型／完整V1仍开放。
 
 历史预发布记录：原生命令网关插件 dev.84／技能源57／runtime83 固定 Film19 与 Effect／Photo／Vector18。固定安装完整 DAG 复验待执行；历史证据保持原版本范围。
 
@@ -16,7 +18,7 @@ Art完整领域命令组件候选已支持2639条离线查询、实际MCP schema
 
 固定原生首次安装与完整命令恢复验收通过：新版五插件58技能逐项独立冷安装，十个Art技能分别安装四领域；四个原生下载半包SSL EOF恢复、72个原生保存后故障、四个健康命令返工及混合HD返工／恢复／移动包通过，全部安装摘要保全。仅关闭领域2.10／8.11与Art4.10；2639条命令逐项、GUI、模型、通用Skills CLI及完整V1仍开放。 [版本及证据](docs/evidence/codex-native-download-first-use-20261007.json).
 
-当前插件 dev.85／技能源58／runtime83；固定原生网关与公开Brief首用通过，全量逐命令／GUI／模型／完整V1仍开放。
+历史发行记录：当前插件 dev.85／技能源58／runtime83；固定原生网关与公开Brief首用通过，全量逐命令／GUI／模型／完整V1仍开放。
 
 固定发布前的候选记录：Art原生首用恢复候选固定Film18／Effect、Photo、Vector17，复用runtime78。此前Art80冷安装在领域CLI下载遇到SSL EOF失败，保留失败证据；新固定安装验收仍开放。
 
@@ -79,9 +81,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.85 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.86 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.58 |
+| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.59 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
