@@ -6,7 +6,7 @@ Current plugin dev.47 / skills dev.35 / runtime dev.45 pin FilmCraft source dev.
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.49`; skill source: `0.1.0-dev.36`; runtime: `0.1.0-dev.48`. Fixed public installed first-use revalidation passes at the documented bounded scope. Historical evidence retains its original release scope; full V1/model/GUI/creative acceptance remains open.
+Current plugin: `0.1.0-dev.50`; skill source: `0.1.0-dev.37`; runtime: `0.1.0-dev.48`. Previous releases passed their documented bounded first-use checks; fixed dev.50 installed first-use revalidation is pending. Historical evidence retains its original release scope; full V1/model/GUI/creative acceptance remains open.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
@@ -30,9 +30,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.49 |
+| Plugin ID / version | artcraft / 0.1.0-dev.50 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.36 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.37 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
