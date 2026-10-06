@@ -33,6 +33,17 @@ test('DAG executes verified dependencies and joins independent branches',async()
   assert.equal(result.nodes.film.outputs[0].sourceRefs.length,2);
  }finally{await f.cleanup();}
 });
+test('Film duration requirement cannot publish ready output without native and export evidence',async()=>{
+ const f=await fixture('filmcraft');try{
+  f.plan.nodes=f.plan.nodes.slice(0,1);const node=f.plan.nodes[0] as any;
+  node.payload.plan.document={name:'Film',width:320,height:180,frameRate:{num:12,den:1}};
+  node.payload.plan.operations=[{command:'timeline.place',params:{time:'0',duration:'254016000000',insert:false}}];
+  const plan={...f.plan,projectBrief:{schema:'craft-brief/v1',workflowId:'brand',revision:'brief-v1',ownerId:'user',authorizationRef:'test-authority',budget:f.plan.budget,brand:null,subjects:[],dataPolicy:{allowUpload:false},ambiguities:[],deliverables:[{id:'logo',nativeFormat:'.fcproj',width:320,height:180,dependsOn:[],execution:'local',durationSeconds:1}]}};
+  const result=await f.engine.run(plan);assert.equal(result.state,'failed');
+  assert.equal(f.ledger.status(result.nodes.logo.taskId!).state,'failed');assert.deepEqual(result.nodes.logo.outputs,[]);
+  assert.equal(f.ledger.leases().length,0);
+ }finally{await f.cleanup();}
+});
 test('failed node exposes durable reported code and blocks its consumers without replay',async()=>{
  const f=await fixture();try{
   f.plan.nodes=f.plan.nodes.slice(0,2);

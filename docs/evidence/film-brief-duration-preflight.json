@@ -1,0 +1,52 @@
+{
+  "schema": "craft-film-brief-duration-preflight/v1",
+  "date": "2026-10-06",
+  "status": "local-static-preflight-candidate-native-output-and-publication-pending",
+  "spec": "AC-DM-001-TIME",
+  "task": "6.26 remains open",
+  "red": {
+    "pythonTests": 14,
+    "pythonFailures": 3,
+    "nodeTests": 7,
+    "nodeFailures": 2,
+    "reason": "Film duration wrongly required document.duration and did not inspect explicit timeline endpoints"
+  },
+  "green": {
+    "pythonTargetTests": 14,
+    "nodeTargetTests": 7,
+    "publicSingleSkillCliTests": 1,
+    "failed": 0
+  },
+  "regression": {
+    "pythonBaseTests": 75,
+    "pythonPassed": 62,
+    "pythonOptionalSkipped": 13,
+    "pythonSeconds": 6.588,
+    "nodeTests": 103,
+    "nodePassed": 98,
+    "nodeOptionalSkipped": 5,
+    "nodeSeconds": 16.129121167,
+    "scope": "process/plan tests, not updated installed native duration acceptance"
+  },
+  "files": {
+    "skills/artcraft-use/scripts/brief.py": "c6a621ec55a22d43c89a282bee35b0ea6e52f4d32957575686ccde911eb4750e",
+    "tests/test_brief.py": "432d1dc9e674ed925fd04320fa33d639f4683b238325afc8f052d87e1b6faef6",
+    "tests/test_film_brief_cli.py": "0617a2a4f234c207c9f407bcb9e9522f79228e81ee0d2dacd2a4b21a74c1b61c",
+    "src/planning/project_brief.ts": "9d3be287e769271923e3702c53d110558ac401b44f92b8b1355bb46537411402",
+    "test/project_brief.test.ts": "b914b2440f6793fd34c82fc867c3116997e695b3b22921eb455cd347aad2114d"
+  },
+  "scope": [
+    "all-track maximum explicit placement endpoint",
+    "BigInt/Fraction ticks with at most one tick decimal representation tolerance",
+    "explicit non-insert fresh timeline only",
+    "unknown edits/source/implicit duration require native inspection",
+    "single copied planning skill public CLI with system-only PATH and no runtime install"
+  ],
+  "pending": [
+    "native saved-project and exported-video Brief gate",
+    "source-project duration inspection",
+    "fixed runtime/skills/plugin publication",
+    "actual installed native duration first use",
+    "full creative acceptance"
+  ]
+}

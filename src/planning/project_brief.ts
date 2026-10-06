@@ -49,6 +49,31 @@ export function nodeBriefConstraints(value:any,nodeId:string):Record<string,any>
  const select=(component:any)=>Object.fromEntries(Object.entries(component).filter(([key])=>key!=='appliesTo'));
  return {deliverable,brand:value.brand?.appliesTo.includes(nodeId)?select(value.brand):null,subjects:value.subjects.filter(item=>item.appliesTo.includes(nodeId)).map(select)};
 }
+/** 新建非插入 placement 的精确边界；编辑和源工程不得用声明冒充检查。 */
+function filmDurationTicks(node:any):bigint|null {
+ const plan=node.payload?.plan;
+ if(Object.hasOwn(node.payload??{},'sourceProject') || !object(plan?.document) || !Object.keys(plan.document).length || !Array.isArray(plan.operations))return null;
+ const neutral=new Set(['asset.import','timeline.setTrack','timeline.select','captions.newTrack','captions.setStyle','caption.add','captions.setText','captions.delete','captions.setTrack']);
+ let end=0n;
+ for(const operation of plan.operations){
+  if(!object(operation))return null;if(neutral.has(operation.command))continue;
+  const params=operation.params;
+  if(operation.command!=='timeline.place' || !object(params) || params.insert!==false)return null;
+  if([params.time,params.duration].some(v=>typeof v!=='string' || v.length>19 || !/^(0|[1-9][0-9]*)$/.test(v)))return null;
+  const start=BigInt(params.time),duration=BigInt(params.duration);
+  if(duration<=0n || start+duration>9223372036854775807n)return null;
+  if(start+duration>end)end=start+duration;
+ }
+ return end;
+}
+/** 按十进制需求数的有理表示比较，允许不足一个 tick 的浮点表示误差。 */
+export function durationMatches(ticks:bigint,seconds:number,tolerance=1n):boolean {
+ const [mantissa,exponent]=String(seconds).split('e'),parts=mantissa.split('.');
+ const digits=BigInt(parts.join('')),power=Number(exponent??0)-(parts[1]?.length??0);
+ const numerator=digits*(power>=0?10n**BigInt(power):1n),denominator=power<0?10n**BigInt(-power):1n;
+ const difference=ticks*denominator-numerator*254016000000n;
+ return ticks>0n && (difference<0n?-difference:difference)<=denominator*tolerance;
+}
 /** 检查声明计划并列出局部阻塞；文件真实性与原生输出仍由各自验收负责。 */
 export function assessBrief(value:any,plan:any):{schema:string;state:string;ready:string[];blocked:{nodeId:string;reasons:string[]}[];scope:string}{
  validateBrief(value);
@@ -75,7 +100,12 @@ export function assessBrief(value:any,plan:any):{schema:string;state:string;read
   const document=node.payload?.plan?.document??{};
   if(!object(document) || !Object.keys(document).length)reasons.push('source_inspection_required');else if(['width','height'].some(k=>document[k]!==item[k]))reasons.push('document_size_mismatch');
   if(item.frameRate){const rate=document.frameRate;const actual=object(rate)&&Number.isSafeInteger(rate.num)&&Number.isSafeInteger(rate.den)&&rate.den>0?rate.num/rate.den:rate;if(typeof actual!=='number' || !Number.isFinite(actual) || Math.abs(actual-item.frameRate.num/item.frameRate.den)>1e-9)reasons.push('frame_rate_mismatch');}
-  if(Object.hasOwn(item,'durationSeconds') && document.duration!==item.durationSeconds)reasons.push('duration_inspection_required');
+  if(Object.hasOwn(item,'durationSeconds')){
+   if(formats[item.nativeFormat]==='filmcraft'){
+    const duration=filmDurationTicks(node);
+    if(duration===null)reasons.push('duration_inspection_required');else if(!durationMatches(duration,item.durationSeconds))reasons.push('duration_mismatch');
+   }else if(document.duration!==item.durationSeconds)reasons.push('duration_inspection_required');
+  }
   const constraints=nodeBriefConstraints(value,node.id);
   for(const component of [constraints.brand,...constraints.subjects])if(component && component.referenceAssets.some(r=>!available.has(JSON.stringify([r.assetId,r.version,r.sha256]))))reasons.push('reference_asset_missing_or_stale');
   if(constraints.brand)style(node.payload?.plan?.operations??[],constraints.brand,reasons);

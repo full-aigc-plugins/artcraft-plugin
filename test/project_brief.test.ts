@@ -32,3 +32,23 @@ test('Brief refuses format substitution, upload, stale references and document c
 test('Brief cannot omit a requested deliverable from the execution plan',()=>{
  const {brief,plan}=fixture();plan.nodes=plan.nodes.filter(node=>node.id!=='icon');assert.throws(()=>assessBrief(brief,plan),/brief_plan_deliverable_missing/);
 });
+test('Film Brief derives all-track duration from precise ticks instead of a document claim',()=>{
+ const {brief,plan}=fixture();const item=brief.deliverables[0] as any,node=plan.nodes[0] as any;
+ item.nativeFormat='.fcproj';item.durationSeconds=1;node.runtimeIdentity.pluginId='filmcraft';
+ const domain=node.payload.plan;domain.operations=[{command:'timeline.place',params:{time:'0',duration:'254016000000',insert:false}}];
+ assert.equal(assessBrief(brief,plan).state,'ready');domain.document.duration=1;
+ domain.operations.push({command:'timeline.place',params:{time:'0',duration:'508032000000',insert:false,track:'A1'}});
+ assert.ok(assessBrief(brief,plan).blocked[0].reasons.includes('duration_mismatch'));
+ domain.operations=[{command:'timeline.trim',params:{delta:'1'}}];
+ assert.ok(assessBrief(brief,plan).blocked[0].reasons.includes('duration_inspection_required'));
+});
+test('Film Brief does not round large ticks or guess source and implicit durations',()=>{
+ const {brief,plan}=fixture();const item=brief.deliverables[0] as any,node=plan.nodes[0] as any;
+ item.nativeFormat='.fcproj';item.durationSeconds=86400;node.runtimeIdentity.pluginId='filmcraft';
+ const placement={command:'timeline.place',params:{time:'0',duration:String(86400n*254016000000n),insert:false}};
+ node.payload.plan.operations=[placement];assert.equal(assessBrief(brief,plan).state,'ready');
+ placement.params.duration=String(86400n*254016000000n+2n);assert.ok(assessBrief(brief,plan).blocked[0].reasons.includes('duration_mismatch'));
+ item.durationSeconds=1/3;placement.params.duration='84672000000';assert.equal(assessBrief(brief,plan).state,'ready');
+ placement.params.insert=true;assert.ok(assessBrief(brief,plan).blocked[0].reasons.includes('duration_inspection_required'));
+ placement.params.insert=false;node.payload.sourceProject={assetId:'source'};assert.ok(assessBrief(brief,plan).blocked[0].reasons.includes('duration_inspection_required'));
+});

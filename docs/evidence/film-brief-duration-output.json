@@ -1,0 +1,64 @@
+{
+  "schema": "craft-film-duration-output-evidence/v1",
+  "status": "local-candidate",
+  "requirement": "AC-DM-001-TIME",
+  "task": "6.26 remains open",
+  "briefFilmDurationSeconds": 1,
+  "nativeObservations": [
+    {
+      "files": {
+        "project.fcproj": "f3c8a8384f08db4103383e87ebab1da02ff5a16e4ea70a231a8ec800c09b7b1b",
+        "film.mp4": "b727d7081c27289bc7254a2c47a1836f3f959a10c6280865f23e1699ec381ee3",
+        "native.json": "8d25a675b8bc27a83a738c638b917b40a40e005735281ad87f85115d79310ce2",
+        "export-probe.json": "f73c40b184a2deabf368fe7e5d57d2601373e076dc396bc15d8023775bc045ab"
+      },
+      "nativeDurationTicks": "254016000000",
+      "exportDurationTicks": "254016000000",
+      "nativeFrameRate": {
+        "den": 1,
+        "num": 12
+      },
+      "exportFrameRate": {
+        "den": 1,
+        "num": 12
+      }
+    }
+  ],
+  "nativeTest": {
+    "passed": 1,
+    "skipped": 0,
+    "durationMs": 6716.948833,
+    "scope": "current local runtime with existing installed domain CLIs; mixed generation, reuse, revision and moved package; not a cold installed new release"
+  },
+  "redTest": {
+    "passed": 0,
+    "failed": 1,
+    "observed": "review_ready without required Film evidence"
+  },
+  "unitTests": {
+    "passed": 7,
+    "failed": 0,
+    "scope": "synthetic evidence fixture; no native rendering claim"
+  },
+  "remaining": [
+    "immutable runtime and skill release",
+    "fresh installed first-use duration acceptance",
+    "source-project Brief inspection",
+    "creative acceptance"
+  ],
+  "runtimeSources": {
+    "src/planning/film_duration.ts": "e25a1ec1d2eac5bc2f7a64e45bb78766d79d55a68af9bae3b133ce3dc2b9a85f",
+    "src/planning/project_brief.ts": "bdee8d0b80b58bb4702e887aac690e700f667374784cb0b8fa140e628ff27420",
+    "src/planning/workflow_engine.ts": "b689785fa15b84c75f88dacea5b62b63c060dca96999013121012528673e12b2",
+    "test/film_duration.test.ts": "40642a51a8ea45c28bc295dd9c627993ae80f3c734c92e4f0633b73ec766b68e",
+    "test/workflow_engine.test.ts": "58d66b74001cce9aa5a5748de7d1e53e8e0e0d86eb8cd49fb36de35d80dc3d52",
+    "test/native_mixed_workflow.test.ts": "99f1eb9c5fd81bcf46f62d344afe2cc888c478b180befe43b5ab4f9eb88f0ba9"
+  },
+  "nodeRegression": {
+    "tests": 111,
+    "passed": 106,
+    "skipped": 5,
+    "failed": 0,
+    "scope": "default suite; optional native integrations skipped; numeric tick case subsequently verified in seven-test target"
+  }
+}

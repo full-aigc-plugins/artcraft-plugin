@@ -1,4 +1,5 @@
 /** 可恢复 DAG 调度，显式依赖和已核验资产版本是交接依据。 */
+import { verifyFilmDuration } from './film_duration.ts';
 import { assessBrief, nodeBriefConstraints } from './project_brief.ts';
 import { orderGraph } from '../protocol/dependency_graph.ts';
 import { planHash, validateTask, verifyArtifact } from '../protocol/contracts.ts';
@@ -52,7 +53,7 @@ export class WorkflowEngine {
     return order;
   }
 
-  private async verifyResult(result:NodeResult):Promise<void> {
+  private async verifyResult(result:NodeResult,duration?:number):Promise<void> {
     if(!result.taskId || !result.root || !result.outputs?.length)throw new Error('artifact_missing');
     const state=this.ledger.status(result.taskId).state;
     if(!['review_ready','completed'].includes(state))throw new Error('dependency_not_verified');
@@ -60,6 +61,7 @@ export class WorkflowEngine {
       await verifyArtifact(artifact,result.root);
       if(artifact.producerTaskId!==result.taskId)throw new Error('artifact_task_mismatch');
     }
+    if(duration!==undefined)await verifyFilmDuration(result.root,result.outputs,duration);
   }
 
   /** 复用只核对历史产物；未终结子任务继续等待，不重新提交原生副作用。 */
@@ -67,6 +69,7 @@ export class WorkflowEngine {
     if(!Number.isInteger(concurrency) || concurrency<1 || concurrency>16)throw new Error('concurrency_invalid');
     const plan=structuredClone(value),order=this.validate(plan),key=this.ledger.beginWorkflow(plan);
     const byId=new Map(plan.nodes.map(node=>[node.id,node]));
+    const duration=(id:string):number|undefined=>plan.projectBrief?.deliverables.find((item:any)=>item.id===id && item.nativeFormat==='.fcproj')?.durationSeconds;
     const results:Record<string,NodeResult>={};
     const pending=new Set(order),active=new Map<string,Promise<void>>(),resources=new Set<string>();
     const activeTasks=new Set<string>();
@@ -75,7 +78,7 @@ export class WorkflowEngine {
     try{
       for(const id of order){
         const existing=this.ledger.workflowNode(key,id) as NodeResult;
-        if(['review_ready','reused'].includes(existing.status))await this.verifyResult(existing);
+        if(['review_ready','reused'].includes(existing.status))await this.verifyResult(existing,duration(id));
       }
       for(const node of plan.nodes)for(const input of node.externalInputs ?? [])await verifyArtifact(input.artifact,input.root);
     }catch(error){return {runKey:key,state:'blocked',nodes:{preflight:{status:'blocked',error:(error as Error).message}},budget:this.ledger.workflowBudget(key)};}
@@ -89,7 +92,7 @@ export class WorkflowEngine {
       try{
         let inputs:ArtifactInput[]=[];
         for(const parent of node.dependsOn){
-          const result=results[parent];await this.verifyResult(result);
+          const result=results[parent];await this.verifyResult(result,duration(parent));
           const requested=node.inputBindings?.filter(binding=>binding.from===parent);
           const selected=requested ? result.outputs!.filter(artifact=>requested.some(binding=>binding.assetId===artifact.assetId)) : result.outputs!;
           if(requested && selected.length!==requested.length)throw new Error('dependency_asset_missing');
@@ -102,7 +105,7 @@ export class WorkflowEngine {
         // 无 Brief 时保留历史指纹；按节点提取约束，不引入全局修订号。
         fingerprint=planHash(plan.projectBrief===undefined ? content : {...content,briefConstraints:nodeBriefConstraints(plan.projectBrief,id)});
         const cached=this.ledger.cachedWorkflowNode(plan.ownerId,plan.workflowId,id,fingerprint,plan.authorizationRef) as NodeResult|null;
-        if(cached){await this.verifyResult(cached);save(id,{...cached,status:'reused',fingerprint});return;}
+        if(cached){await this.verifyResult(cached,duration(id));save(id,{...cached,status:'reused',fingerprint});return;}
         taskId='wf-'+planHash({owner:plan.ownerId,workflow:plan.workflowId,revision:plan.revision,node:id,fingerprint}).slice(0,48);
         const request=this.request(plan,node,taskId,'wf-node:'+planHash({key,id,fingerprint}),inputs);
         const registered=this.ledger.register(plan.ownerId,node.projectKey,request,key);
@@ -117,18 +120,26 @@ export class WorkflowEngine {
         if(['failed','cancelled'].includes(registered.state)){save(id,{status:registered.state,fingerprint,taskId,root,...(registered.state==='failed' ? {failure:registered.error} : {})});return;}
         if(registered.state==='review_ready' || registered.state==='completed'){
           const result={status:'review_ready',fingerprint,taskId,root,outputs:registered.outputRefs as Record<string,any>[]};
-          await this.verifyResult(result);save(id,result);return;
+          await this.verifyResult(result,duration(id));save(id,result);return;
         }
         save(id,{status:'preparing',fingerprint,taskId,root});
         const compiled=await this.factories[node.runtimeIdentity.pluginId](node,inputs,taskId);
         root=compiled.root;
+        if(duration(id)!==undefined){
+          const verify=compiled.adapter.verify.bind(compiled.adapter);
+          compiled.adapter={...compiled.adapter,verify:async(request)=>{
+            const verified=await verify(request);
+            await verifyFilmDuration(verified.root,verified.outputs as Record<string,any>[],duration(id)!);
+            return verified;
+          }};
+        }
         save(id,{status:'running',fingerprint,taskId,root});
         if(registered.state==='planned')this.ledger.ready(taskId);
         if(this.ledger.workflowCancelled(key)){this.ledger.cancel(taskId);save(id,{status:'cancelled',fingerprint,taskId,root});return;}
         activeTasks.add(taskId);
         const receipt=recovering ? await this.runner.reconcile(taskId,compiled.adapter) : await this.runner.execute(taskId,compiled.adapter);
         const result={status:['review_ready','completed'].includes(receipt.state) ? 'review_ready' : ['failed','cancelled'].includes(receipt.state) ? receipt.state : 'waiting',fingerprint,taskId,root,outputs:receipt.outputRefs as Record<string,any>[],...(receipt.state==='failed' ? {failure:receipt.error} : {})};
-        if(result.status==='review_ready')await this.verifyResult(result);
+        if(result.status==='review_ready')await this.verifyResult(result,duration(id));
         save(id,result);
       }catch(error){save(id,{status:'blocked',fingerprint,taskId,root,error:(error as Error).message});}
       finally{if(taskId)activeTasks.delete(taskId);}
