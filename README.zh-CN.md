@@ -190,3 +190,5 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 插件候选 dev.29 同步已发布技能 dev.25 并锁定运行时 dev.28，支持版本化 Brief。独立单技能在线冷启动通过（3 项，98.048 秒），最终安装宿主 Brief 验收尚待完成。[架构](docs/ArtCraft-Versioned-Brief-Architecture.zh_CN.md)、[证据](docs/evidence/versioned-brief-first-use.json)。
 
 已发布插件 dev.29／技能 dev.25／运行时 dev.28 的实际安装 Brief 在线首次使用复验通过（3 项，89.841 秒），五插件 58 个技能发现通过且执行后摘要不变。整体实现仍未完成。[证据](docs/evidence/codex-release29-brief-native-20261006.json)。
+
+候选插件 dev.30 同步 ArtCraft 技能 dev.26，锁定 PhotoCraft 技能 dev.6 保护修改交接，运行时保持 dev.28。独立在线验收通过，实际安装宿主复验尚待完成。[架构](docs/ArtCraft-Photo-Protection-Architecture.zh_CN.md)、[证据](docs/evidence/photo-protection-first-use.json)。

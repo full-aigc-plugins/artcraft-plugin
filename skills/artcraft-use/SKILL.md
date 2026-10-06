@@ -83,4 +83,6 @@ ArtCraft dev.7 消费四领域 dev.2 的[交换损失报告](references/exchange
 
 本技能自带品牌图形／海报／片头／成片和独立图标的五节点示例。按本技能 [品牌色板指南](references/brand-token-workflow.md) 执行并核对受影响产物；首次安装所需领域由固定依赖锁决定。
 
-版本化需求记录可用本技能自带 `scripts/brief.py`；参见[Brief 合同与当前边界](references/brief.md)。Python 工作流支持 `--brief` 与 `--brief-sha`，安装前拒绝阻塞需求；Node 源实现与有界原生联调已通过，固定安装制品和插件快照尚待更新。
+版本化需求记录可用本技能自带 `scripts/brief.py`；参见[Brief 合同与当前边界](references/brief.md)。Python 工作流支持 `--brief` 与 `--brief-sha`，安装前拒绝阻塞需求；Node 与 Python 执行器核对需求约束，安装使用本技能分发锁固定版本；技术通过与创作接受分别记录。
+
+PhotoCraft 源工程局部修改可在领域 plan 中声明 `protectedRegions`（具名矩形 id／rect=[x,y,width,height]）；领域工作流发布前检查保护区域，对照 PNG 与报告随子工程和项目包保留。不要把保护区报告当作创作接受。

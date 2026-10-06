@@ -190,3 +190,5 @@ Published plugin dev.27 / skills dev.24 / runtime dev.26 pass actual installed n
 Plugin candidate dev.29 vendors released ArtCraft skills dev.25 and pins runtime dev.28 for versioned Brief validation. Isolated single-skill online testing passed 3 tests in 98.048 seconds; final installed-host Brief acceptance remains pending. [Architecture](docs/ArtCraft-Versioned-Brief-Architecture.md), [proof](docs/evidence/versioned-brief-first-use.json).
 
 Published plugin dev.29 / skills dev.25 / runtime dev.28 pass installed-skill online Brief first use (3 tests, 89.841 seconds). All 58 skills across five plugins are discovered and retain their hashes after execution. Overall implementation remains incomplete. [Proof](docs/evidence/codex-release29-brief-native-20261006.json).
+
+Candidate plugin dev.30 vendors ArtCraft skills dev.26 with PhotoCraft skills dev.6 protected-source handoff. Runtime remains dev.28. Independent online proof passed; installed-plugin proof is pending. [Architecture](docs/ArtCraft-Photo-Protection-Architecture.md), [evidence](docs/evidence/photo-protection-first-use.json).
