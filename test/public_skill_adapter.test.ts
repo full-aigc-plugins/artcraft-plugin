@@ -12,6 +12,24 @@ import { WorkflowEngine } from '../src/planning/workflow_engine.ts';
 const hash=(value:Buffer|string)=>createHash('sha256').update(value).digest('hex');
 const cli=process.env.CRAFT_EFFECTCRAFT_CLI;
 const skill=process.env.CRAFT_EFFECTCRAFT_SKILL;
+test('public VectorCraft binding forwards registered input and rejects unbound or inline paths',async()=>{
+ const {writeFile,mkdir}=await import('node:fs/promises');
+ const root=await mkdtemp(join(tmpdir(),'craft-vector-binding-'));
+ try{
+  const skillRoot=join(root,'skill');await mkdir(join(skillRoot,'scripts'),{recursive:true});
+  const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'contract fixture');return {path,sha256:hash('contract fixture')};}));
+  const factory=publicSkillFactory({pluginId:'vectorcraft',skillRoot,python:process.execPath,pythonSha256:hash(await readFile(process.execPath)),nativeExecutable:'/usr/bin/true',runtimeHome:root,files,outputRoot:join(root,'output')});
+  const data=Buffer.from('registered fixture; no native format acceptance');await writeFile(join(root,'input.bin'),data);
+  const digest=hash(data);
+  const input={root,artifact:{protocolVersion:'craft-artifact/v1',assetId:'image',version:digest,sha256:digest,bytes:data.length,mediaType:'application/octet-stream',producerTaskId:'provided',sourceRefs:[],nativeProjectRef:null,renditions:[],dependencies:[],technicalMetadata:{},lossReportRef:null,evidenceRefs:[],location:'input.bin'}};
+  const node={id:'brand',dependsOn:[],projectKey:'brand',runtimeIdentity:{pluginId:'vectorcraft'},expectedRevision:null,payload:{schemaVersion:'craft-skill-workflow/v1',plan:{operations:[{command:'asset.place',params:{asset:'product'}}]},assetBindings:[{name:'product',assetId:'image'}],outputs:[{assetId:'brand',location:'project.vectorcraft',mediaType:'application/octet-stream'}]}};
+  const made=await factory(node,[input],'new');
+  const prepared=await made.adapter.prepare({runtimeIdentity:node.runtimeIdentity,expectedRevision:null} as any);
+  assert.deepEqual(prepared.args.slice(-2),['--asset','product='+join(root,'input.bin')]);
+  await assert.rejects(factory({...node,payload:{...node.payload,assetBindings:[]}},[input],'unbound'),/skill_input_unbound/);
+  await assert.rejects(factory({...node,payload:{...node.payload,plan:{assets:{product:{path:'/outside'}}}}},[input],'path'),/skill_payload_invalid/);
+ }finally{await rm(root,{recursive:true});}
+});
 test('public EffectCraft skill script produces registered native project and render',{skip:!cli||!skill},async()=>{
  const root=await mkdtemp(join(tmpdir(),'craft-public-skill-'));const ledger=new TaskLedger(join(root,'tasks.sqlite'));
  try{

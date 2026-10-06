@@ -34,7 +34,6 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
   const payload=node.payload;
   if(payload.schemaVersion!=='craft-skill-workflow/v1' || Object.keys(payload).some(key=>!['schemaVersion','plan','assetBindings','outputs','sourceProject'].includes(key)) || !payload.plan || typeof payload.plan!=='object' || Array.isArray(payload.plan) || 'assets' in payload.plan)throw new Error('skill_payload_invalid');
   if(!Array.isArray(payload.assetBindings) || !Array.isArray(payload.outputs) || !payload.outputs.length)throw new Error('skill_payload_invalid');
-  if(locked.pluginId==='vectorcraft' && payload.assetBindings.length)throw new Error('skill_assets_unsupported');
   // 源工程只从登记输入解析，不能由 payload 提供本机路径。
   let source:ArtifactInput|undefined;
   const plan=structuredClone(payload.plan);
@@ -146,8 +145,8 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
     if(source && manifest.sourceProjectSha256!==node.expectedRevision)throw new Error('skill_source_revision_mismatch');
     const dependencyRefs=[];
     for(const asset of assets){
-     // EffectCraft 替换会把新素材归入原别名；只接受计划显式声明的替换映射。
-     const replacements=locked.pluginId==='effectcraft'?(plan.operations??[]).filter((operation:any)=>operation.command==='asset.replace' && operation.params?.replacement===asset.name):[];
+     // 原生素材替换归入原别名；只接受计划显式声明的替换映射。
+     const replacements=['effectcraft','vectorcraft'].includes(locked.pluginId)?(plan.operations??[]).filter((operation:any)=>operation.command==='asset.replace' && operation.params?.replacement===asset.name):[];
      if(replacements.length>1)throw new Error('skill_dependency_uncollected');
      const alias=replacements.length?replacements[0].params.asset:asset.name;
      const collected=manifest.assets?.[alias];

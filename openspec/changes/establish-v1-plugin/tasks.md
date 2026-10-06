@@ -208,3 +208,8 @@
 2.4 固定验收：插件 dev.55／源 dev.39／runtime dev.54，58 技能发现零错误，安装后单技能默认公开 PCM WAV 原生交付及迁移验包通过；十项独立冷启动通过，原安装 58 摘要保全，五包重建一致。运行时 143 通过六项原生跳过，技能源 68 通过二十项真实场景跳过。证据 `docs/evidence/codex-release55-pcm-wav-first-use-20261006.json`。完整首版及通用 Skills CLI、模型／GUI、创作门禁仍开放。
 
 PNG 固定发行证据：运行时 dev.56／技能源 dev.40／插件 dev.57；安装后 PNG 单技能冷使用及 Photo 迁移验包、PCM 五子工程交付、十项 Art 独立冷安装、全部 58 项安装技能摘要核验通过。证据：docs/evidence/codex-release57-png-first-use-20261006.json；不关闭完整首版、模型／GUI、通用 Skills CLI 或创作验收。
+
+## 6. VectorCraft 登记素材增量验收
+
+- [x] 6.34 [AC-DM-007] 完成登记素材公开合同、预期失败测试与候选实现，真实单技能冷安装／原生交付及相关选择性返工通过；产物：docs/evidence/vector-assets-candidate-20261006.json。仅关闭所列 PNG／JPEG／自包含 SVG 候选范围，不替代固定发行宿主验收。
+- [ ] 6.35 [AC-DM-007] 发布不可变技能源、插件及 Art runtime／bundle，重建固定发行，使用真实安装技能复验素材迁移、替换、选择性返工及安装摘要；候选测试不能代替本任务。

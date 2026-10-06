@@ -1,0 +1,145 @@
+{
+  "schema": "craft-vector-assets-candidate/v1",
+  "result": "passed",
+  "scope": "current independent Vector skills and candidate Art runtime; unchanged published locks",
+  "red": {
+    "vector": "asset.place unsupported; unused input ignored and runtime incorrectly installed",
+    "art": "skill_assets_unsupported"
+  },
+  "vectorFirstUse": {
+    "schema": "vectorcraft-assets-first-use/v1",
+    "result": "passed",
+    "mode": "copied-alone skill; empty runtime; default public download",
+    "runtimeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+    "skillFiles": {
+      "SKILL.md": "96e56de1d61ab50020672a6d6e190d5165ad924fc237bf3503fad75a98375287",
+      "references/scenario.md": "1aeb81e89719a9b3fbf3c79a0713e7963daab571de9dd26cf971a1bbf9b08e1d",
+      "references/chinese-text.md": "b2229e5054fe2a71ee069b4aba6fa6d87c3ebbf4afaf3d1a2f85a80256948294",
+      "references/workflow.md": "787f56425ff1258ec31896a55a94d1358ff15e7f51c19c176ad576358e09b1c8",
+      "references/commands.json": "267f304c21397cd6fc0dcb002eef146d682cf83a48059386a25db8382227befc",
+      "references/brand-tokens.md": "939a1af8751c99d2bb21bcfe6a3b3fd578f35e74b09e5b5bff189f5c35dd4701",
+      "references/installation-concurrency.md": "69067acebcd47f1924a8d6aa9d8a4ce6f44ad0756d44888a21eb224bcdb1c215",
+      "references/exchange-loss.md": "eee665f62b77274ca8ce0efc4117012ade85978905cdfd40ab488af64297b8ae",
+      "examples/chinese-text.json": "a5f1310bfba6102606079b62712096ae9e4298dffe860dcbab64448619613762",
+      "examples/brand-assets.json": "d4c342c68791d7fb9ca0a966448947d7f9597af66e00245aec3c4d4c43cc6950",
+      "examples/provided-assets.json": "f5a3e15cc7a44b912fd87fc833c00c2e51893b553d90daa6f3682bd9ff4336cd",
+      "examples/brand-token-assets.json": "07f3a8acb45b3dd03ecbe96b75c53571a6b7960eb29b6bb10b777194ba3c1202",
+      "scripts/bootstrap.py": "53742867ba67584a0147c9513439412c1eeb9d0beea22c80fb58f65cc5f21434",
+      "scripts/exchange_loss.py": "b1e68eb2e4887dc52b3c2e4d071ea4364c1254b3f96ffb6511ad42f9dfc0dff6",
+      "scripts/asset_inputs.py": "b2868a4239ef50648f201be99bb29ad4ddf0d8bdeb5a626c54b3fc1aac701758",
+      "scripts/mcp_session.py": "2f1e6de76d1fe12917933f4967a40c827ba80994a8441e47cb68f212b00160a4",
+      "scripts/runtime.lock.json": "7b6bd7f3fab84b757d4ea20ac91b74d89b417ec061efc6ae320dda97a422cc07",
+      "scripts/cli.py": "88185c45bbb282a16bd5f3ca701500d4db2b2709eeceed07d04555d018d5ccf1",
+      "scripts/workflow.py": "9354ca27da6e1d978a43ef3f7a8cabb36715f4c7a0f517e6fe3a64c2181ff134"
+    },
+    "inputs": [
+      "linked PNG",
+      "embedded PNG",
+      "embedded SVG",
+      "JPEG replacement retaining link/embed mode",
+      "SVG replacement"
+    ],
+    "nativeRelocation": {
+      "missing": 0,
+      "modified": 0,
+      "links": 1
+    },
+    "rasterIdentity": "retained",
+    "vectorIdentity": "replaced",
+    "unrelatedObjectPreserved": true,
+    "sourceAndSkillsPreserved": true,
+    "excluded": [
+      "fixed new plugin release",
+      "model dispatch",
+      "GUI",
+      "complete asset format coverage",
+      "font portability"
+    ]
+  },
+  "artNative": {
+    "schema": "artcraft-vector-assets-candidate/v1",
+    "result": "passed",
+    "scope": "current source public Vector/Photo scripts and candidate Art adapter",
+    "runtimeIdentities": {
+      "vectorcraft": {
+        "pluginId": "vectorcraft",
+        "pluginVersion": "candidate-assets",
+        "cliVersion": "0.2.0-craft.2",
+        "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+        "mode": "headless",
+        "capabilitySnapshotSha256": "2c8f60996ff712946b92ad8012abce6208c0bffedb81f402bed14e0d7bf5defd"
+      },
+      "photocraft": {
+        "pluginId": "photocraft",
+        "pluginVersion": "candidate-assets",
+        "cliVersion": "0.2.0",
+        "sha256": "57cefe9ee7bda1d996c11741bef84f934cf28d4729eb237900f00d76678d6fa4",
+        "mode": "headless",
+        "capabilitySnapshotSha256": "0e22e63b34d60f8c77193beff746a55271e7d8142340946d366d834c2160bfc2"
+      }
+    },
+    "checks": [
+      "real PNG input and collected dependency",
+      "native Vector to layered Photo PNG/PSD",
+      "JPEG replacement retains raster object IDs",
+      "only brand and poster rebuilt",
+      "independent icon task reused",
+      "all original delivery hashes preserved",
+      "repeat allocates no additional task",
+      "actual output pixels changed"
+    ],
+    "excluded": [
+      "fixed new release host acceptance",
+      "agent model dispatch",
+      "full four-domain creative acceptance"
+    ]
+  },
+  "regression": {
+    "vector": {
+      "total": 53,
+      "passed": 53,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 92.223,
+      "scope": "source skills, including source-copy cold boolean/export skills; not fixed new host snapshots",
+      "followup": "asset cold case rerun after evidence fields and embedded-image branch were added; native production files unchanged"
+    },
+    "art": {
+      "total": 158,
+      "passed": 151,
+      "failed": 0,
+      "skipped": 7,
+      "seconds": 17.880163625,
+      "scope": "default runtime tests; live Vector/Photo separately passed"
+    },
+    "fourNativeDomains": {
+      "tests": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 16.401024167,
+      "scope": "current source four native public skills and candidate Art runtime; no new fixed host install"
+    }
+  },
+  "runnerCorrections": [
+    "initial Vector regression had two missing path-variable errors; corrected source skill paths then full suite passed",
+    "zsh summary wrapper used a read-only status variable after tests completed; original test log confirms 53 tests OK"
+  ],
+  "sourceFiles": {
+    "vector/skills/vectorcraft-use/scripts/workflow.py": "9354ca27da6e1d978a43ef3f7a8cabb36715f4c7a0f517e6fe3a64c2181ff134",
+    "vector/skills/vectorcraft-use/scripts/asset_inputs.py": "b2868a4239ef50648f201be99bb29ad4ddf0d8bdeb5a626c54b3fc1aac701758",
+    "vector/tests/test_workflow.py": "e3feb28af0eb46d128738c0b5ee6c9ee74dedce2e7805cdd025fc07732ed76ef",
+    "vector/tests/test_asset_first_use.py": "04dc033d68ec9718c86d4e57bdc595f06e7b7b68a033de7701634745e487e078",
+    "art/src/adapters/public_skill.ts": "bef4ff9d2e96ca9a9b6d062b100fd81399dfa041fd10b540be4b29bf6918dcea",
+    "art/test/public_skill_adapter.test.ts": "ea2b73690eb1655ec00d33abd155e5babde20759d3a2e76f3cbf8f9978bddd2d",
+    "art/test/vector_asset_workflow.test.ts": "41e8256f4f5ee6b38cc205c5e9838adad37333e255712c74e42cf66c7bea0c14"
+  },
+  "excluded": [
+    "new immutable release installation",
+    "model dispatch",
+    "GUI",
+    "full V1 creative acceptance",
+    "all upstream input formats",
+    "cross-machine font fidelity"
+  ]
+}

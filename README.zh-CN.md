@@ -268,3 +268,5 @@ dev.44 首次使用已知取消问题：原生运行中取消后，短暂进程�
 固定 dev.55 PCM WAV 首次使用通过：58 技能／零错误；五子工程原生交付及迁移验包（53.972 秒）；十项 Art 独立冷启动（111.799 秒）；原安装 58 技能摘要保全。[证据](docs/evidence/codex-release55-pcm-wav-first-use-20261006.json)。不关闭通用 Skills CLI、完整首版、模型／GUI 或创作验收。
 
 固定 dev.57 PNG 首次使用：五插件／58 项技能发现／零加载错误；安装副本的单独 PNG 输入、原样暂存及 Photo 迁移验包通过；PCM 五子工程交付亦通过。十项 Art 独立冷安装用时 132.642 秒，全部 58 项安装技能摘要保全。[版本绑定证据](docs/evidence/codex-release57-png-first-use-20261006.json)。模型／GUI、通用 Skills CLI、完整首版与创作验收仍开放。
+
+Vector 素材源码候选已接入登记输入和替换核验，真实 Vector 到 Photo 交付与选择性复用通过。固定 dev.59 对应 runtime／bundle 未改动；新版不可变发行和安装首次使用仍待完成。[架构](docs/ArtCraft-Vector-Assets-Architecture.zh_CN.md)。

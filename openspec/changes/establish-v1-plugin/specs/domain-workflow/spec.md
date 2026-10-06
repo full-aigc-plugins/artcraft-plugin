@@ -6,6 +6,21 @@
 
 ## ADDED Requirements
 
+### Requirement: AC-DM-007 VectorCraft 素材交接
+
+ArtCraft SHALL 通过公开技能素材绑定把已校验输入交给 VectorCraft，禁止由模型提供本机路径；替换素材的输出依赖 SHALL 对应显式替换别名及真实收集文件。
+
+#### Scenario: AC-DM-007-P 登记输入与局部返工
+
+- **WHEN** VectorCraft 节点消费登记图片或 SVG，并在后续版本以新素材替换旧别名
+- **THEN** 执行公开技能入口，核验原生工程、依赖文件及摘要，记录新素材血缘并保留旧交付
+- **AND** 只重建受影响节点，无关对象和产物不得由素材替换隐式修改
+
+#### Scenario: AC-DM-007-N 绑定不成立
+
+- **WHEN** 素材未绑定、原工程保留素材摘要不符或多个替换映射指向同一个输入
+- **THEN** 拒绝交付，不制造未消费输入的血缘
+
 ### Requirement: AC-DM-001 混合需求与交付约束
 
 ArtCraft SHALL 将用户需求转为可版本化 Brief，记录画幅、品牌、角色、字体、预算与原生交付要求；歧义阻止依赖它的步骤，不阻塞独立检查。
