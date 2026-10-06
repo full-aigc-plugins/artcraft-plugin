@@ -1,10 +1,12 @@
 # ArtCraft Agent Plugin
 
-All ten source-dev.48 standalone skills pass separate empty-runtime public runtime/domain installation and exact CLI version/help probes (105.229 seconds; zero skips), preserving every skill digest. [Evidence](docs/evidence/art48-ten-skills-cold-cli-20261007.json). Each skill creative scenario and fixed-host verification remain separately scoped.
+Fixed current release first use passed: isolated Codex 0.153.4 discovers all 58 skills without loading errors; every installed skill independently cold-installs its public locked runtime (385.234 seconds); installed domain command samples and Art 1080p mixed revision/recovery/package checks pass. All installed skill digests remain unchanged; fixed CI and five-bundle rebuild pass. [Version-bound evidence](docs/evidence/codex-complete-command-first-use-20261007.json). Generic Skills CLI installation, full command/GUI and creative acceptance remain open.
 
-The independent source dev.48 vendored snapshot passed public cold first use: 1920×1080, 24 fps, five seconds, 120 independently decoded movie frames, four image-sequence segments, Logo consumer revisions, corruption recovery and a moved five-child package. [Evidence](docs/evidence/segmented-hd-vendor-first-use-20261007.json). This is native snapshot verification; current fixed-host installation remains pending.
+All ten source-dev.48 standalone skills pass separate empty-runtime public runtime/domain installation and exact CLI version/help probes (105.229 seconds; zero skips), preserving every skill digest. [Evidence](docs/evidence/art48-ten-skills-cold-cli-20261007.json). Each skill creative scenario remains separately scoped; the fixed installed-host proof above supplements this earlier source check.
 
-Local plugin candidate dev.72 pins independent skills dev.48 and runtime dev.71. The 1080p / 24 fps / five-second mixed workflow passed public cold-install verification; fixed host verification remains pending.
+The independent source dev.48 vendored snapshot passed public cold first use: 1920×1080, 24 fps, five seconds, 120 independently decoded movie frames, four image-sequence segments, Logo consumer revisions, corruption recovery and a moved five-child package. [Evidence](docs/evidence/segmented-hd-vendor-first-use-20261007.json). This is native snapshot verification; the fixed installed-host proof above separately verifies current publication.
+
+Published development plugin dev.72 pins independent skills dev.48 and runtime dev.71. The 1080p / 24 fps / five-second mixed workflow passed public cold-install verification; bounded fixed-host first-use verification passed.
 
 Current runtime and source now include typed dynamic-sequence handoff. Fixed full-plugin dynamic repetition and all 58 cold CLI starts pass; see [architecture](docs/ArtCraft-Dynamic-Sequence-Architecture.md).
 
@@ -18,7 +20,7 @@ PNG runtime dev.56 is published from an immutable tag and the source dev.40 snap
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.72`; skill source: `0.1.0-dev.48`; runtime: `0.1.0-dev.71`. Local fixed candidate includes the standalone HD segmented workflow. Current source snapshot and runtime are published; plugin publication and installed-host verification remain pending. Historical evidence retains its original version scope. Full V1 remains open.
+Current plugin: `0.1.0-dev.72`; skill source: `0.1.0-dev.48`; runtime: `0.1.0-dev.71`. Published fixed development snapshot includes the standalone HD segmented workflow. Current source snapshot and runtime are published; plugin publication and bounded installed-host first use passed. Historical evidence retains its original version scope. Full V1 remains open.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
