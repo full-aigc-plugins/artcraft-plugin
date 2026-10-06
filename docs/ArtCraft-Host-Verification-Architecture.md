@@ -49,9 +49,9 @@ The online check downloads public releases. Six verifier tests passed, including
 
 This QA update does not alter runtime bundles, skill content or immutable tags. `marketplaceEligible` stays false and `supportedPluginHosts` stays empty until full release requirements pass. RL-001 tasks retain their unmet P0 prerequisites. See [evidence](evidence/codex-current-release.json) and [tasks](../openspec/changes/establish-v1-plugin/tasks.md).
 
-## Current fixed-release refresh: 2026-10-06
+## Historical fixed-release refresh: 2026-10-06
 
-The current matrix pins FilmCraft dev.5, EffectCraft dev.7, PhotoCraft/VectorCraft dev.6 and ArtCraft dev.15. Codex 0.153.4 installs all five into an isolated home and discovers all 58 skills with exact metadata and content hashes. Native tests select the actual installed skill paths; all five representative workflows pass, followed by another immutable-content check of every skill. The previous dev.3 matrix remains in host-acceptance-v3.lock.json.
+This historical matrix pins FilmCraft dev.5, EffectCraft dev.7, PhotoCraft/VectorCraft dev.6 and ArtCraft dev.15. Codex 0.153.4 installs all five into an isolated home and discovers all 58 skills with exact metadata and content hashes. Native tests select the actual installed skill paths; all five representative workflows pass, followed by another immutable-content check of every skill. The previous dev.3 matrix remains in host-acceptance-v3.lock.json.
 
 Generate a new candidate lock from explicit local immutable tags; the installer independently verifies remote tag SHAs. Dirty working trees never become release content and conflicting outputs are refused.
 
@@ -63,3 +63,16 @@ python3 -B scripts/build_host_release_lock.py --repositories PLUGIN_REPOSITORIES
 ```
 
 Use the existing host verifier with the candidate lock and a new output directory. This QA refresh changes tooling, matrix and evidence; plugin/skill/runtime release contents stay unchanged. Model dispatch awaits explicit authorization and remains unverified. [Current evidence](evidence/codex-current-release-20261006.json).
+
+## Independent cold start for every skill
+
+The current fixed matrix is FilmCraft dev.7, EffectCraft dev.7, PhotoCraft dev.9, VectorCraft dev.8 and ArtCraft dev.43. `verify_single_skill_cold_start.py` consumes the host verifier local receipt and release lock. It verifies installed identity, copies each skill alone into `.agents/skills/<name>`, invokes version and command discovery with an empty runtime, verifies command contracts and checks unchanged skill digests. Each skill and runtime is removed before the next skill; no per-domain runtime reuse occurs. Downloads use default public releases without local archive overrides. This check does not invoke models or replace scene-specific creative tasks.
+
+```bash
+python3 -B scripts/verify_single_skill_cold_start.py \
+  --host-receipt HOST_OUTPUT/host-receipt.json \
+  --lock host-acceptance.lock.json --python ABSOLUTE_PYTHON \
+  --output NEW_EVIDENCE_JSON
+```
+
+Observed result: all 58 independent empty-runtime cold starts pass in 411.720 s. All 58 original installed skill digests still match the fixed lock. Environment: Python 3.14.3, macOS arm64, system-only PATH. QA regression: 48 passes and 4 optional skips. [Fixed identities and per-skill records](evidence/codex-release43-every-skill-cold-first-use-20261006.json).

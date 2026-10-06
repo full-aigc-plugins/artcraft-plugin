@@ -162,3 +162,7 @@
 ## 固定领域依赖验收补充
 
 任务 3.12 / 11.3 的当前升级证据：ArtCraft 技能源 dev.33 固定 FilmCraft dev.6，保留运行时 dev.41 和其余三领域包；单技能默认公开冷启动 3 项通过，领域回执异常拒绝、完整项目保留、恢复后原任务复用及四种源工程修订有实际记录。五个包从固定标签重建一致。证据：`docs/evidence/film-receipt-integration-native.json`。固定插件 dev.43 安装复验已完成：3 项冷启动混合测试、58 项单技能 CLI 调用和 2 项中文真实配音／字幕局部返工通过；原安装 58 项摘要保持一致。当前证据：`docs/evidence/codex-release43-film-receipt-first-use-20261006.json`。任务 3.15 的中文补充包含初始 Logo 可见和返工后非字幕区域保留断言；不改变完整创作／发布任务状态。
+
+## 逐技能空运行时首次调用补充
+
+任务 3.13 / 3.20 的安装与 CLI 发现补充：固定五插件中的 58 项技能分别单独复制，每项使用独立空运行时执行默认公开自动安装、完整原生版本和命令合同核对；58/58 通过（411.720 秒）。调用后全部原安装技能摘要保持不变。QA 解析器覆盖带构建信息的 PhotoCraft 文本版本、ArtCraft JSON 版本及错误身份拒绝。证据：`docs/evidence/codex-release43-every-skill-cold-first-use-20261006.json`。该证据不关闭通用 Skills CLI 安装任务 3.16、模型／GUI 或完整领域创作任务。

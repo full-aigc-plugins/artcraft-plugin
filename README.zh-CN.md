@@ -230,3 +230,5 @@ Fixed-release proof / 固定发行验收：[dev.40 Photo variant mixed first use
 ArtCraft 技能源 dev.33 固定 FilmCraft 技能 dev.6，保留运行时 dev.41。公开冷启动 3/3 通过，覆盖原生回执异常拒绝、全部项目文件保留、恢复后复用原任务 ID、四种源工程修订和移动包验证。默认回归 66 项通过、13 项可选跳过。[架构](docs/ArtCraft-Film-Receipt-Integration-Architecture.zh_CN.md)、[源码证据](docs/evidence/film-receipt-integration-native.json)。固定插件 dev.43 宿主证据见下方；完整创作验收仍待完成。
 
 [固定安装首次使用证据](docs/evidence/codex-release43-film-receipt-first-use-20261006.json)。保留不可变发行标签；QA 修改仅加强版本绑定与实际导出像素断言。
+
+五套技能逐项空运行时复验 **58/58 通过**（411.720 秒）：每项仅复制自身，使用独立空运行时自动安装、查询原生版本并核对命令合同；随后删除该运行时。全部原安装技能摘要不变。此项加强此前按领域共用运行时的 CLI 验收，仍不替代场景创作或模型验收。[证据](docs/evidence/codex-release43-every-skill-cold-first-use-20261006.json)。

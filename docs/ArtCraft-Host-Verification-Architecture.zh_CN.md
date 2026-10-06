@@ -49,9 +49,9 @@ CRAFT_HOST_TEST=1 CRAFT_CODEX_CLI=<absolute-codex> \
 
 本次 QA 更新不改变运行时包、技能内容或不可变标签。完整发布需求通过前，`marketplaceEligible` 保持 false、`supportedPluginHosts` 保持空数组；RL-001 任务保留未满足的 P0 前置条件。参见[证据](evidence/codex-current-release.json)与[任务](../openspec/changes/establish-v1-plugin/tasks.md)。
 
-## 当前固定发布刷新：2026-10-06
+## 历史固定发布刷新：2026-10-06
 
-矩阵固定 FilmCraft dev.5、EffectCraft dev.7、PhotoCraft/VectorCraft dev.6、ArtCraft dev.15。Codex 0.153.4 在隔离配置中安装五插件，加载全部 58 技能，逐项匹配元数据和内容摘要；原生测试从实际安装路径调用，五代表工作流通过，调用后再次核对全部技能不可变内容。此前 dev.3 矩阵保留于 host-acceptance-v3.lock.json。
+该历史矩阵固定 FilmCraft dev.5、EffectCraft dev.7、PhotoCraft/VectorCraft dev.6、ArtCraft dev.15。Codex 0.153.4 在隔离配置中安装五插件，加载全部 58 技能，逐项匹配元数据和内容摘要；原生测试从实际安装路径调用，五代表工作流通过，调用后再次核对全部技能不可变内容。此前 dev.3 矩阵保留于 host-acceptance-v3.lock.json。
 
 候选矩阵只从显式本地不可变标签生成，安装验收另外核对公开远程标签 SHA；脏工作树不能成为发行内容，冲突输出拒绝覆盖。
 
@@ -63,3 +63,16 @@ python3 -B scripts/build_host_release_lock.py --repositories PLUGIN_REPOSITORIES
 ```
 
 再用既有宿主验收器、候选锁与新的输出目录执行安装核验。本次只刷新 QA 工具、矩阵和证据，插件/技能/运行时发行内容保持不变。模型派发等待明确授权，仍未验证。[当前证据](evidence/codex-current-release-20261006.json)。
+
+## 逐技能独立冷启动验证
+
+当前固定矩阵为 FilmCraft dev.7、EffectCraft dev.7、PhotoCraft dev.9、VectorCraft dev.8、ArtCraft dev.43。`verify_single_skill_cold_start.py` 使用宿主验证器生成的本地回执和锁；逐项核对真实安装身份，单独复制技能到 `.agents/skills/<name>`，使用全新运行时执行 CLI 版本与命令发现，核对命令合同和调用后技能摘要。每项结束删除其技能及运行时后才开始下一项；不复用领域运行时。首次运行需从默认公开发行地址下载，不使用本地归档覆盖。该检查不调用模型，也不替代具体创作任务。
+
+```bash
+python3 -B scripts/verify_single_skill_cold_start.py \
+  --host-receipt HOST_OUTPUT/host-receipt.json \
+  --lock host-acceptance.lock.json --python ABSOLUTE_PYTHON \
+  --output NEW_EVIDENCE_JSON
+```
+
+实际结果：58 项逐技能空运行时冷启动全部通过，411.720 秒；调用后 58 项原安装摘要仍匹配固定锁。Python 3.14.3、macOS arm64、仅系统 PATH。QA 回归 48 项通过、4 项可选跳过。[固定来源及逐项记录](evidence/codex-release43-every-skill-cold-first-use-20261006.json)。
