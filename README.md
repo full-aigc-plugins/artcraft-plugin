@@ -1,3 +1,5 @@
+Plugin dev.85 pins source58 / runtime83 and fixes public Python Brief gateway preflight. Installed public-workflow retest pending.
+
 Published native gateway plugin dev.84 / source57 / runtime83 pins Film19 and Effect/Photo/Vector18. Fixed installed DAG retest pending; historical evidence retains its original scope.
 
 Full native-gateway DAG source candidate passes mixed delivery, five-child packaging/icon reuse, native revisions, moved reopening, budget rejection, corruption recovery, live cancellation and six unknown-response faults. Immutable installed-release retesting remains pending;6.51 stays open. [Evidence](docs/evidence/native-gateway-joint-candidate-20261007.json).
@@ -12,7 +14,7 @@ Complete domain command component candidate adds2639 offline queries, actual MCP
 
 Fixed native first-use and complete-command recovery acceptance passed:58 standalone cold installations, ten Art all-domain cold installations, four partial-download SSL EOF recoveries,72 post-save faults, four healthy command revisions and mixed HD revision/recovery/moved delivery. Installed identities remain unchanged. Only domain2.10/8.11 and Art4.10 close; exhaustive2639-command, GUI, model, generic Skills CLI and fullV1 gates remain open. [Version-bound evidence](docs/evidence/codex-native-download-first-use-20261007.json).
 
-Current plugin: `0.1.0-dev.84`; skill source: `0.1.0-dev.57`; runtime: `0.1.0-dev.83`. Native gateway included; fixed installed DAG retest pending.
+Current plugin: `0.1.0-dev.85`; skill source: `0.1.0-dev.58`; runtime: `0.1.0-dev.83`. Native gateway included; fixed installed DAG retest pending.
 
 Previous version-bound release: plugin dev.79 / source53 / runtime78 passed gate4.9. This remains historical evidence.
 
@@ -77,9 +79,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.84 |
+| Plugin ID / version | artcraft / 0.1.0-dev.85 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.57 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.58 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |

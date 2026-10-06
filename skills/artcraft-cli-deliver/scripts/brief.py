@@ -168,7 +168,11 @@ def assess(value,plan,owner,authorization):
         if item['execution']=='cloud':reasons.append('cloud_executor_missing' if value['dataPolicy']['allowUpload'] else 'upload_forbidden')
         domain=node.get('payload',{}).get('plan',{});document=domain.get('document',{})
         commands={'photocraft':{'image.imageSize','image.canvasSize'},'effectcraft':{'comp.settings'},'vectorcraft':{'artboard.new','artboard.setProps'}}
-        metadata_changes=any(operation.get('command') in commands.get(plugin,set()) for operation in domain.get('operations',[]) if isinstance(operation,dict))
+        # 完整命令可能改变尺寸或时长；只延后结构正确的显式网关，实际保存／导出仍须核验。
+        def valid_gateway(operation):
+            params=operation.get('params')
+            return operation.get('command')=='native.command' and isinstance(params,dict) and set(params)=={'command','params'} and isinstance(params['command'],str) and bool(params['command']) and isinstance(params['params'],dict)
+        metadata_changes=any(operation.get('command') in commands.get(plugin,set()) or valid_gateway(operation) for operation in domain.get('operations',[]) if isinstance(operation,dict))
         if plugin not in ('filmcraft','effectcraft') and ('frameRate' in item or 'durationSeconds' in item):reasons.append('capability_missing')
         if metadata_changes:reasons.append('native_output_inspection_required')
         if not document:reasons.append('source_inspection_required')
