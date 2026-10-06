@@ -1,0 +1,96 @@
+{
+  "schema": "craft-film-source-brief-evidence/v1",
+  "status": "local-implementation-candidate-fixed-first-use-pending",
+  "date": "2026-10-06",
+  "spec": "AC-DM-001-SOURCE-FILM",
+  "task": "6.27 remains open",
+  "red": {
+    "planTests": 1,
+    "planFailures": 1,
+    "nativeTests": 1,
+    "nativeFailures": 1,
+    "pythonTests": 15,
+    "pythonErrors": 1,
+    "cause": "source metadata blocked despite valid source; native inspector and safe deferral absent"
+  },
+  "regression": {
+    "nodeTests": 116,
+    "nodePassed": 111,
+    "nodeOptionalSkipped": 5,
+    "nodeMilliseconds": 25272.603292,
+    "pythonTests": 78,
+    "pythonPassed": 65,
+    "pythonOptionalSkipped": 13,
+    "scope": "default suites, not fixed installed source Brief first use"
+  },
+  "actualNative": {
+    "tests": 1,
+    "passed": 1,
+    "skipped": 0,
+    "milliseconds": 15594.703209,
+    "inspection": {
+      "schema": "craft-source-inspection/v1",
+      "pluginId": "filmcraft",
+      "nativeInspectionSha256": "0c4a348913970eb6b026cbcd8329a02b01d884e1c25bca5f2b812c06a198f96d",
+      "document": {
+        "width": 320,
+        "height": 180,
+        "frameRate": {
+          "den": 1,
+          "num": 12
+        }
+      },
+      "durationTicks": "254016000000",
+      "nativeProjectSha256": "0c39fdbdfe0e099d96d1c4844c8e4c2b7813181d10eeeab6f0ac9617de1bd60e",
+      "nativeRuntimeSha256": "4bd79931912c591d1cb1b47690949512ffb4361c3ec4f57664024f9a4847ae38"
+    },
+    "subtitleRevision": "review_ready",
+    "reuseStatus": "reused",
+    "replacementStatus": "review_ready",
+    "wrongSizeError": "brief_source_plan_blocked: {\"nodeId\":\"film\",\"reasons\":[\"document_size_mismatch\"]}",
+    "wrongDurationFailure": {
+      "code": "artifact_invalid"
+    },
+    "nativeWrongDurationExitCode": 0,
+    "sourceFilesUnchanged": {
+      "captions.json": "95c9946fc399bc4d8939f7e2f5cfdc6186d2e312ddc9ffba717f1e7e42bf5225",
+      "captions.srt": "d6e9c991985b034a42fd59cad3b0c9383a6ea294fecd0b5067ebe1ddf0d7f34a",
+      "decode.txt": "07471a37ccab3358e9c2f4e89e7f0c18a3164d33adcdc76ba321a370a2c05c79",
+      "exchange-loss.json": "7e3c8c9680f5e5e76878b404189a935e52f28136a449e673c129b03222f45a20",
+      "export-probe.json": "f73c40b184a2deabf368fe7e5d57d2601373e076dc396bc15d8023775bc045ab",
+      "film.mp4": "b727d7081c27289bc7254a2c47a1836f3f959a10c6280865f23e1699ec381ee3",
+      "frame-0000.png": "451f28b781b4edfdac273dbdd320390405a7d36aebbff144ccdeda54af1c0fc7",
+      "intro.mp4": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9",
+      "manifest.json": "54f0579ef6b70851767997ebca5e5b5e3fce7bbf47d9165df24df246126caa5c",
+      "native.json": "6bd87020258692e768f723e15f0b760d3ad96cfb0421a1334256ac9ec7070314",
+      "operations.json": "81d681332f96864c8ba9130be115f78442bb16730a84504b0832f145a023b9b7",
+      "plan.json": "4a02cb00c48f5f14671da76ac2c8185a9d0959fa56abe84a499e8b09941d75a1",
+      "project.fcproj": "0c39fdbdfe0e099d96d1c4844c8e4c2b7813181d10eeeab6f0ac9617de1bd60e",
+      "replacement.mp4": "6366e7101a5a95b4971acabf67f31d1d3fdce0b76a9f3fa6d590f2a4fae60f7a",
+      "voice.wav": "75230ab4b54bdf5433f55d823afa81bb2193224df0f4dbc62be64951980dd685"
+    },
+    "scope": "current local runtime and existing domain CLIs; source preservation asserted after each operation; procedural branding and tone audio only"
+  },
+  "pending": [
+    "fixed immutable runtime/source/plugin release",
+    "fresh installed public first-use source Brief",
+    "Photo/Effect/Vector source Brief inspection",
+    "creative and complete specification acceptance"
+  ],
+  "runtimeFiles": {
+    "src/adapters/film_source_inspection.ts": "6d6c2b0323b5e0ec510d08e894b4d807fe8106de55d2b7e32ea4bf0e9f8d14ed",
+    "src/adapters/public_skill.ts": "2db8e646da7962fffc721e1426f78e0a3716e85aea0714372b6526525cdc6c74",
+    "src/harness/local_runner.ts": "d2e87c2b3d14d331b748598c4c4e5c9c9570116df19777eccec65133dedb1ca5",
+    "src/planning/project_brief.ts": "6808d2cb18aface6d29b5527c71d0f0c721a5af41751c5df4802aaf8c74dc3ac",
+    "src/planning/workflow_engine.ts": "db3b138b0eaa07baad1ccdae18d7ae96550c60f582dde1d44dcfc482d51320ed",
+    "src/cli.ts": "b8d00ad4092a86589cfc37f21e526a261ce7ecf1e0f92b16116978b70877bca9",
+    "test/project_brief.test.ts": "1bff29e91a9e93eb86b1e32ef0beda29385fff411178363bdca32bce8d61ad17",
+    "test/film_source_inspection.test.ts": "2a4688d8c23a7c86a01af567232aa10cf344b0cedbd016e2b49eee0d05e03988",
+    "test/native_mixed_workflow.test.ts": "844706e45fd82fc1edda9dac9353349c74ec9fe0dd9aabf54883de2939ed6534"
+  },
+  "skillFiles": {
+    "skills/artcraft-use/scripts/brief.py": "407dc7526adca7346aaf6860523f40af089c853902f813c3776957c6d980bf1e",
+    "skills/artcraft-use/scripts/workflow.py": "463037df29d88211631c48535b0a5188a5ad4b610f89e167c22483d14e330361",
+    "tests/test_brief.py": "e85e22f5d6874901d6a772999fd34fc949901e60d0c22a9cee20ce3ddc5741ae"
+  }
+}

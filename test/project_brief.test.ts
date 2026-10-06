@@ -1,7 +1,7 @@
 /** 需求记录的闭合字段、授权与按交付检查。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { assessBrief, nodeBriefConstraints, validateBrief } from '../src/planning/project_brief.ts';
+import { assessBrief, nodeBriefConstraints, validateBrief, pendingNativeAssessment } from '../src/planning/project_brief.ts';
 function fixture(){
  const budget={currency:'USD',maxMinorUnits:0,maxRevisions:2,maxExternalCalls:0};
  const deliverables=[{id:'logo',nativeFormat:'.vectorcraft',width:320,height:180,dependsOn:[],execution:'local'},{id:'poster',nativeFormat:'.pcraft',width:320,height:400,dependsOn:['logo'],execution:'local'},{id:'icon',nativeFormat:'.vectorcraft',width:32,height:32,dependsOn:[],execution:'local'}];
@@ -51,4 +51,45 @@ test('Film Brief does not round large ticks or guess source and implicit duratio
  item.durationSeconds=1/3;placement.params.duration='84672000000';assert.equal(assessBrief(brief,plan).state,'ready');
  placement.params.insert=true;assert.ok(assessBrief(brief,plan).blocked[0].reasons.includes('duration_inspection_required'));
  placement.params.insert=false;node.payload.sourceProject={assetId:'source'};assert.ok(assessBrief(brief,plan).blocked[0].reasons.includes('duration_inspection_required'));
+});
+
+test('Film Brief uses trusted native source inspection for duration-preserving edits',()=>{
+ const {brief,plan}=fixture();const item=brief.deliverables[0] as any,node=plan.nodes[0] as any;
+ item.nativeFormat='.fcproj';item.durationSeconds=1;item.frameRate={num:12,den:1};node.runtimeIdentity.pluginId='filmcraft';
+ delete node.payload.plan.document;node.payload.sourceProject={assetId:'source'};node.expectedRevision='a'.repeat(64);node.externalInputs=[{artifact:{assetId:'source',nativeProjectRef:{sha256:node.expectedRevision}}}];
+ node.payload.plan.operations=[{command:'captions.setStyle',params:{track:'C1',color:'#ef5b36'}}];
+ const inspected=new Map([['logo',{document:{width:320,height:180,frameRate:{num:12,den:1}},durationTicks:'254016000000',nativeProjectSha256:'a'.repeat(64)}]]);
+ assert.equal((assessBrief as any)(brief,plan,inspected).state,'ready');
+ item.width=321;assert.ok((assessBrief as any)(brief,plan,inspected).blocked[0].reasons.includes('document_size_mismatch'));
+ item.width=320;node.payload.plan.operations=[{command:'timeline.trim',params:{}}];assert.ok((assessBrief as any)(brief,plan,inspected).blocked[0].reasons.includes('duration_inspection_required'));
+});
+
+test('Film source deferral never bypasses ambiguity, authority or unbound source identity',()=>{
+ const {brief,plan}=fixture();const item=brief.deliverables[0] as any,node=plan.nodes[0] as any;
+ item.nativeFormat='.fcproj';item.durationSeconds=1;item.frameRate={num:12,den:1};node.runtimeIdentity.pluginId='filmcraft';
+ delete node.payload.plan.document;node.payload.sourceProject={assetId:'source'};node.expectedRevision='a'.repeat(64);node.externalInputs=[{artifact:{assetId:'source',nativeProjectRef:{sha256:node.expectedRevision}}}];
+ assert.equal(pendingNativeAssessment(assessBrief(brief,plan),plan),true);
+ (brief.ambiguities as any[]).push({id:'title',question:'Confirm',affects:['logo']});assert.equal(pendingNativeAssessment(assessBrief(brief,plan),plan),false);
+ brief.ambiguities=[];node.expectedRevision='invalid';assert.equal(pendingNativeAssessment(assessBrief(brief,plan),plan),false);
+ node.expectedRevision='a'.repeat(64);node.runtimeIdentity.pluginId='photocraft';item.nativeFormat='.pcraft';assert.equal(pendingNativeAssessment(assessBrief(brief,plan),plan),false);
+});
+
+test('design source deferral requires resolvable source and leaves unsupported timing blocked',()=>{
+ const {brief,plan}=fixture();const node=plan.nodes[0] as any,item=brief.deliverables[0] as any;
+ delete node.payload.plan.document;node.payload.sourceProject={assetId:'source'};node.expectedRevision='a'.repeat(64);node.externalInputs=[{artifact:{assetId:'source',nativeProjectRef:{sha256:node.expectedRevision}}}];
+ assert.equal(pendingNativeAssessment(assessBrief(brief,plan),plan),true);
+ item.durationSeconds=1;assert.equal(pendingNativeAssessment(assessBrief(brief,plan),plan),false);
+ delete item.durationSeconds;item.frameRate={num:12,den:1};assert.equal(pendingNativeAssessment(assessBrief(brief,plan),plan),false);
+});
+test('metadata-changing source edits defer only actual metadata, never unrelated conflicts',()=>{
+ const {brief,plan}=fixture();const node=plan.nodes[0] as any,item=brief.deliverables[0] as any;
+ item.nativeFormat='.pcraft';node.runtimeIdentity.pluginId='photocraft';delete node.payload.plan.document;
+ node.payload.sourceProject={assetId:'source'};node.expectedRevision='a'.repeat(64);node.externalInputs=[{artifact:{assetId:'source',nativeProjectRef:{sha256:node.expectedRevision}}}];
+ node.payload.plan.operations=[{command:'image.canvasSize',params:{width:320,height:180}}];
+ const inspected=new Map([['logo',{document:{width:256,height:256},nativeProjectSha256:node.expectedRevision}]]);
+ const assessment=(assessBrief as any)(brief,plan,inspected);
+ assert.deepEqual(assessment.blocked.find((row:any)=>row.nodeId==='logo').reasons,['native_output_inspection_required']);
+ assert.equal(pendingNativeAssessment(assessment,plan),true);
+ node.payload.plan.operations.push({command:'type.edit',params:{font:'Other'}});
+ assert.equal(pendingNativeAssessment((assessBrief as any)(brief,plan,inspected),plan),false);
 });

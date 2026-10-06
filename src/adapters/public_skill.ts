@@ -1,7 +1,12 @@
 /** 通过独立技能的公开 CLI 交接，禁止导入技能内部 Python 模块。 */
 import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
 import { join, isAbsolute } from 'node:path';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { createHash } from 'node:crypto';
+import { parseEffectExportProbe } from './effect_export_probe.ts';
+import { parseDesignSourceInspection } from './design_source_inspection.ts';
+import { parseFilmSourceInspection } from './film_source_inspection.ts';
 import { verifyArtifact, validateExchangeLossReport } from '../protocol/contracts.ts';
 import type { AdapterFactory, ArtifactInput } from '../planning/workflow_engine.ts';
 
@@ -10,6 +15,7 @@ export interface PublicSkillConfig {
  skillRoot:string;python:string;pythonSha256:string;nativeExecutable:string;runtimeHome:string;
  files:{path:string;sha256:string}[];outputRoot:string;
 }
+const executeNative=promisify(execFile);
 const projects={filmcraft:'project.fcproj',effectcraft:'project.ecproj',photocraft:'project.pcraft',vectorcraft:'project.vectorcraft'};
 const hash=(value:Buffer|string)=>createHash('sha256').update(value).digest('hex');
 const safeLocation=(value:string)=>typeof value==='string' && value.length>0 && !isAbsolute(value) && !/[\\:\x00]/.test(value) && !value.split('/').some(part=>['','..','.'].includes(part));
@@ -22,7 +28,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
  for(const name of ['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py']){
   if(!locked.files.some(file=>file.path===join(locked.skillRoot,'scripts',name)))throw new Error('skill_lock_incomplete');
  }
- return async(nodeValue,inputValues,taskId)=>{
+ const factory:AdapterFactory=async(nodeValue,inputValues,taskId)=>{
   const node=structuredClone(nodeValue),inputs=structuredClone(inputValues);
   if(node.runtimeIdentity.pluginId!==locked.pluginId)throw new Error('skill_plugin_mismatch');
   const payload=node.payload;
@@ -107,6 +113,19 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
    protocolVersion:'craft-artifact/v1',assetId,version:sha256,sha256,bytes:(await stat(join(delivery,location))).size,mediaType,producerTaskId:taskId,sourceRefs:[],nativeProjectRef:null,renditions:[],dependencies:[],technicalMetadata:{},lossReportRef:null,evidenceRefs:[],location
   });
   return {root:delivery,adapter:{
+   ...(source ? {inspectSource:async()=>{
+    await checkSource();
+    if(hash(await readFile(locked.nativeExecutable))!==node.runtimeIdentity.sha256)throw new Error('brief_source_runtime_identity_mismatch');
+    const project=join(source!.root,projects[locked.pluginId]);
+    const args=locked.pluginId==='filmcraft' ? ['--project',project,'inspect'] : locked.pluginId==='effectcraft' ? ['--project',project,'run','comp.info',JSON.stringify({comp:sourceManifest?.bindings?.composition?.comp}),'--json'] : ['info',project];
+    const inspected=await executeNative(locked.nativeExecutable,args,{timeout:30000,maxBuffer:8*1024*1024,encoding:'utf8'}).catch(()=>{throw new Error('brief_source_inspection_failed');});
+    const primary=locked.pluginId==='vectorcraft' && plan.operations?.some((operation:any)=>operation.command==='artboard.new') ? source!.artifact.location : payload.outputs[0].location;
+    const board=/^artboard-([1-9][0-9]*)\.(png|svg|pdf)$/.exec(primary);
+    const inspection=locked.pluginId==='filmcraft' ? parseFilmSourceInspection(inspected.stdout,node.expectedRevision!,node.runtimeIdentity.sha256) : parseDesignSourceInspection(locked.pluginId,inspected.stdout,node.expectedRevision!,node.runtimeIdentity.sha256,{artboard:board ? Number(board[1])-1 : undefined,composition:sourceManifest?.bindings?.composition?.comp});
+    await checkSource();
+    if(hash(await readFile(locked.nativeExecutable))!==node.runtimeIdentity.sha256)throw new Error('brief_source_runtime_identity_mismatch');
+    return inspection;
+   }} : {}),
    prepare:async(request)=>{
     if(request.runtimeIdentity.pluginId!==locked.pluginId)throw new Error('skill_plugin_mismatch');
     if(request.expectedRevision!==node.expectedRevision)throw new Error('skill_source_revision_mismatch');
@@ -160,4 +179,22 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
    }
   }};
  };
+
+ factory.verifyBriefExport=async(node,root,outputs,brief)=>{
+  if(locked.pluginId!=='effectcraft')return;
+  if(node.runtimeIdentity.pluginId!==locked.pluginId)throw new Error('skill_plugin_mismatch');
+  for(const output of outputs.filter(item=>item.mediaType==='video/mp4')){
+   await verifyArtifact(output,root);
+   if(hash(await readFile(locked.nativeExecutable))!==node.runtimeIdentity.sha256)throw new Error('brief_source_runtime_identity_mismatch');
+   // 空内存工程仅导入已核验视频、查询元数据；不打开或保存任何创作工程。
+   const result=await executeNative(locked.nativeExecutable,['--empty','run','file.import',JSON.stringify({paths:[join(root,output.location)]}),'project.summary','{}','file.interpretFootage','{"items":[1]}','--json'],{timeout:30000,maxBuffer:8*1024*1024,encoding:'utf8'}).catch(()=>{throw new Error('brief_export_probe_failed');});
+   const probe=parseEffectExportProbe(result.stdout);
+   if(probe.width!==brief.width || probe.height!==brief.height)throw new Error('brief_export_size_mismatch');
+   if(brief.frameRate && Math.abs(probe.frameRate-brief.frameRate.num/brief.frameRate.den)>1e-9)throw new Error('brief_export_frame_rate_mismatch');
+   if(Object.hasOwn(brief,'durationSeconds') && Math.abs(probe.duration-brief.durationSeconds)>1/probe.frameRate+1e-9)throw new Error('brief_export_duration_mismatch');
+   await verifyArtifact(output,root);
+   if(hash(await readFile(locked.nativeExecutable))!==node.runtimeIdentity.sha256)throw new Error('brief_source_runtime_identity_mismatch');
+  }
+ };
+ return factory;
 }

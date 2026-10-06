@@ -49,16 +49,39 @@ export function nodeBriefConstraints(value:any,nodeId:string):Record<string,any>
  const select=(component:any)=>Object.fromEntries(Object.entries(component).filter(([key])=>key!=='appliesTo'));
  return {deliverable,brand:value.brand?.appliesTo.includes(nodeId)?select(value.brand):null,subjects:value.subjects.filter(item=>item.appliesTo.includes(nodeId)).map(select)};
 }
+/** 仅由可信原生适配器生成；不从任务 payload 或缓存元数据读取。 */
+export interface SourceInspection {schema:'craft-source-inspection/v1';pluginId:'filmcraft'|'effectcraft'|'photocraft'|'vectorcraft';nativeInspectionSha256:string;document:Record<string,any>;durationTicks?:string;nativeProjectSha256:string;nativeRuntimeSha256:string;}
+/** 只延后可定位源工程或受支持元数据修改的原生检查，其他冲突仍拒绝。 */
+export function pendingNativeAssessment(assessment:any,plan:any):boolean {
+ if(assessment.state==='ready')return true;
+ return assessment.blocked.length>0 && assessment.blocked.every((item:any)=>{
+  if(item.reasons.every((reason:string)=>reason==='dependency_blocked'))return true;
+  const node=plan.nodes.find((value:any)=>value.id===item.nodeId);
+  const binding=node?.payload?.sourceProject;
+  const resolvable=object(binding) && typeof binding.assetId==='string' && binding.assetId.length>0 && Object.keys(binding).length===1 && ((node.externalInputs??[]).some((input:any)=>input?.artifact?.assetId===binding.assetId && input.artifact.nativeProjectRef?.sha256===node.expectedRevision) || (node.inputBindings??[]).some((input:any)=>input.assetId===binding.assetId && node.dependsOn.includes(input.from)));
+  const plugin=node?.runtimeIdentity?.pluginId;
+  const source=resolvable && !Object.hasOwn(node.payload.plan??{},'document') && /^[a-f0-9]{64}$/.test(node.expectedRevision??'');
+  const fresh=!binding && node?.expectedRevision===null && object(node.payload?.plan?.document) && Object.keys(node.payload.plan.document).length>0;
+  return ['filmcraft','effectcraft','photocraft','vectorcraft'].includes(plugin) && (source || fresh) && item.reasons.every((reason:string)=>['source_inspection_required','duration_inspection_required','native_output_inspection_required'].includes(reason)) && (source || item.reasons.every((reason:string)=>reason==='native_output_inspection_required'));
+ });
+}
+/** 这些公开命令可能改变交付元数据；最终值必须由保存后记录决定。 */
+function changesMetadata(node:any):boolean {
+ const commands:Record<string,string[]>={photocraft:['image.imageSize','image.canvasSize'],effectcraft:['comp.settings'],vectorcraft:['artboard.new','artboard.setProps'],filmcraft:[]};
+ return (node.payload?.plan?.operations??[]).some((operation:any)=>commands[node.runtimeIdentity?.pluginId]?.includes(operation.command));
+}
 /** 新建非插入 placement 的精确边界；编辑和源工程不得用声明冒充检查。 */
-function filmDurationTicks(node:any):bigint|null {
+function filmDurationTicks(node:any,inspection?:SourceInspection):bigint|null {
  const plan=node.payload?.plan;
- if(Object.hasOwn(node.payload??{},'sourceProject') || !object(plan?.document) || !Object.keys(plan.document).length || !Array.isArray(plan.operations))return null;
+ if(!Array.isArray(plan?.operations))return null;
+ const source=Object.hasOwn(node.payload??{},'sourceProject');
+ if(source ? !inspection : !object(plan?.document) || !Object.keys(plan.document).length)return null;
  const neutral=new Set(['asset.import','timeline.setTrack','timeline.select','captions.newTrack','captions.setStyle','caption.add','captions.setText','captions.delete','captions.setTrack']);
- let end=0n;
+ let end=source ? BigInt(inspection!.durationTicks!) : 0n;
  for(const operation of plan.operations){
   if(!object(operation))return null;if(neutral.has(operation.command))continue;
   const params=operation.params;
-  if(operation.command!=='timeline.place' || !object(params) || params.insert!==false)return null;
+  if(source || operation.command!=='timeline.place' || !object(params) || params.insert!==false)return null;
   if([params.time,params.duration].some(v=>typeof v!=='string' || v.length>19 || !/^(0|[1-9][0-9]*)$/.test(v)))return null;
   const start=BigInt(params.time),duration=BigInt(params.duration);
   if(duration<=0n || start+duration>9223372036854775807n)return null;
@@ -75,7 +98,7 @@ export function durationMatches(ticks:bigint,seconds:number,tolerance=1n):boolea
  return ticks>0n && (difference<0n?-difference:difference)<=denominator*tolerance;
 }
 /** 检查声明计划并列出局部阻塞；文件真实性与原生输出仍由各自验收负责。 */
-export function assessBrief(value:any,plan:any):{schema:string;state:string;ready:string[];blocked:{nodeId:string;reasons:string[]}[];scope:string}{
+export function assessBrief(value:any,plan:any,inspections=new Map<string,SourceInspection>()):{schema:string;state:string;ready:string[];blocked:{nodeId:string;reasons:string[]}[];scope:string}{
  validateBrief(value);
  if(plan.ownerId!==value.ownerId || plan.authorizationRef!==value.authorizationRef)fail('brief_authorization_mismatch');
  if(plan.workflowId!==value.workflowId)fail('brief_workflow_mismatch');if(!isDeepStrictEqual(plan.budget,value.budget))fail('brief_budget_mismatch');
@@ -97,12 +120,17 @@ export function assessBrief(value:any,plan:any):{schema:string;state:string;read
   if(!Object.hasOwn(formats,item.nativeFormat))reasons.push('capability_missing');else if((node.pluginId??node.runtimeIdentity?.pluginId)!==formats[item.nativeFormat])reasons.push('native_format_mismatch');
   if(!Array.isArray(node.dependsOn) || !isDeepStrictEqual([...node.dependsOn].sort(),[...item.dependsOn].sort()))reasons.push('brief_dependency_mismatch');
   if(item.execution==='cloud')reasons.push(value.dataPolicy.allowUpload?'cloud_executor_missing':'upload_forbidden');
-  const document=node.payload?.plan?.document??{};
-  if(!object(document) || !Object.keys(document).length)reasons.push('source_inspection_required');else if(['width','height'].some(k=>document[k]!==item[k]))reasons.push('document_size_mismatch');
-  if(item.frameRate){const rate=document.frameRate;const actual=object(rate)&&Number.isSafeInteger(rate.num)&&Number.isSafeInteger(rate.den)&&rate.den>0?rate.num/rate.den:rate;if(typeof actual!=='number' || !Number.isFinite(actual) || Math.abs(actual-item.frameRate.num/item.frameRate.den)>1e-9)reasons.push('frame_rate_mismatch');}
-  if(Object.hasOwn(item,'durationSeconds')){
+  const inspection=inspections.get(node.id);
+  if(inspection && (!Object.hasOwn(node.payload??{},'sourceProject') || inspection.nativeProjectSha256!==node.expectedRevision))fail('brief_source_inspection_binding_mismatch');
+  const document=inspection?.document??node.payload?.plan?.document??{},metadataChanges=changesMetadata(node);
+  const plugin=formats[item.nativeFormat];
+  if(!['filmcraft','effectcraft'].includes(plugin) && (item.frameRate || Object.hasOwn(item,'durationSeconds')))reasons.push('capability_missing');
+  if(metadataChanges)reasons.push('native_output_inspection_required');
+  if(!object(document) || !Object.keys(document).length)reasons.push('source_inspection_required');else if(!metadataChanges && ['width','height'].some(k=>document[k]!==item[k]))reasons.push('document_size_mismatch');
+  if(item.frameRate && !metadataChanges && object(document) && Object.keys(document).length){const rate=document.frameRate;const actual=object(rate)&&Number.isSafeInteger(rate.num)&&Number.isSafeInteger(rate.den)&&rate.den>0?rate.num/rate.den:rate;if(typeof actual!=='number' || !Number.isFinite(actual) || Math.abs(actual-item.frameRate.num/item.frameRate.den)>1e-9)reasons.push('frame_rate_mismatch');}
+  if(Object.hasOwn(item,'durationSeconds') && !metadataChanges){
    if(formats[item.nativeFormat]==='filmcraft'){
-    const duration=filmDurationTicks(node);
+    const duration=filmDurationTicks(node,inspection);
     if(duration===null)reasons.push('duration_inspection_required');else if(!durationMatches(duration,item.durationSeconds))reasons.push('duration_mismatch');
    }else if(document.duration!==item.durationSeconds)reasons.push('duration_inspection_required');
   }

@@ -5,7 +5,7 @@ import { isAbsolute, dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { TaskLedger } from './harness/task_ledger.ts';
 import { LocalRunner } from './harness/local_runner.ts';
-import { assessBrief } from './planning/project_brief.ts';
+import { assessBrief, pendingNativeAssessment } from './planning/project_brief.ts';
 import { WorkflowEngine } from './planning/workflow_engine.ts';
 import { publicSkillFactory } from './adapters/public_skill.ts';
 import { videoFactoryFactory, videoFactoryConfiguration } from './adapters/video_factory.ts';
@@ -65,7 +65,7 @@ export async function main(argv:string[]):Promise<unknown> {
   if(node.runtimeIdentity && planHash(node.runtimeIdentity)!==planHash(entry.runtimeIdentity))throw new Error('runtime_identity_mismatch');
   delete node.pluginId;node.runtimeIdentity=structuredClone(entry.runtimeIdentity);
  }
- if(plan.projectBrief!==undefined){const assessment=assessBrief(plan.projectBrief,plan);if(assessment.state!=='ready')throw new Error('brief_plan_blocked: '+JSON.stringify(assessment));}
+ if(plan.projectBrief!==undefined){const assessment=assessBrief(plan.projectBrief,plan);if(!pendingNativeAssessment(assessment,plan))throw new Error('brief_plan_blocked: '+JSON.stringify(assessment));}
  const concurrency=flags.concurrency?Number(flags.concurrency):2;
  if(!Number.isInteger(concurrency) || concurrency<1 || concurrency>16)throw new Error('concurrency_invalid');
  await mkdir(dirname(flags.database),{recursive:true});

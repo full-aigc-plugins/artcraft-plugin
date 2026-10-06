@@ -146,11 +146,88 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
    payload:{schemaVersion:'craft-skill-workflow/v1',sourceProject:{assetId:child.outputs[0].assetId},assetBindings:[],outputs:[{assetId:'reopened-'+child.nodeId,location:child.outputs[0].location,mediaType:child.outputs[0].mediaType}],plan:child.nodeId==='logo'?{operations:[],exports:vectorPlan.exports}:child.nodeId==='poster'?{operations:[],minimumLayers:3,exports:[{format:'png'},{format:'psd'}]}:child.nodeId==='intro'?{operations:[],frames:[0,.5],exports:[{format:'mp4'}]}:{operations:[],frames:['127008000000'],export:{audioRequired:true}}}
   }))};
   delete (reopen as any).projectBrief;
+  // 只读设计源检查直接使用摘要锁定的公开 CLI，不启用尚未完成的 Brief 后置门禁。
+  const designInspections:Record<string,any>={};
+  for(const sourceNode of reopen.nodes.filter(node=>node.id!=='film')){
+   const source=sourceNode.externalInputs[0],manifestBefore=await readFile(join(source.root,'manifest.json'));
+   const manifest=JSON.parse(manifestBefore.toString());
+   const compiled=await factories[sourceNode.runtimeIdentity.pluginId](sourceNode,sourceNode.externalInputs,'source-inspect-'+sourceNode.id);
+   assert.ok(compiled.adapter.inspectSource);
+   const inspected=await compiled.adapter.inspectSource();
+   assert.equal(inspected.nativeProjectSha256,sourceNode.expectedRevision);
+   assert.equal(inspected.nativeRuntimeSha256,sourceNode.runtimeIdentity.sha256);
+   const expected=sourceNode.id==='logo'?{width:256,height:256}:sourceNode.id==='poster'?{width:320,height:400}:{width:320,height:180,frameRate:12,duration:1};
+   assert.deepEqual(inspected.document,expected);
+   assert.equal(hash(await readFile(join(source.root,'manifest.json'))),hash(manifestBefore));
+   for(const [file,digest] of Object.entries(manifest.files))assert.equal(hash(await readFile(join(source.root,file))),digest,'readonly source '+file);
+   assert.equal(ledger.leases().length,0);
+   designInspections[sourceNode.id]=inspected;
+  }
+  await writeFile(join(root,'design-source-inspection-receipt.json'),JSON.stringify(designInspections,null,2));
   const reopened=await engine.run(reopen,2);assert.equal(reopened.state,'review_ready',JSON.stringify(reopened));
   const movedFilm=JSON.parse(await readFile(join(reopened.nodes.film.root!,'manifest.json'),'utf8'));
   assert.equal(movedFilm.assets.voice.sha256,voiceHash);
   assert.ok((await decode(join(reopened.nodes.film.root!,'film.mp4'))).streams.some((stream:any)=>stream.codec_type==='audio'));
   await writeFile(join(root,'package-receipt.json'),JSON.stringify({packed,checked,reopened},null,2));
+  const sourceDesignBriefResults:Record<string,any>={};
+  for(const sourceNode of reopen.nodes.filter(node=>node.id!=='film')){
+   const source=sourceNode.externalInputs[0],before=await readFile(join(source.root,'manifest.json')),sourceManifest=JSON.parse(before.toString());
+   const verifySource=async()=>{assert.equal(hash(await readFile(join(source.root,'manifest.json'))),hash(before));for(const [file,digest] of Object.entries(sourceManifest.files))assert.equal(hash(await readFile(join(source.root,file))),digest);assert.equal(ledger.leases().length,0);};
+   const briefPlan:any={...structuredClone(reopen),workflowId:'source-design-brief-'+sourceNode.id,nodes:[structuredClone(sourceNode)]};
+   const dims=sourceNode.id==='logo'?{width:256,height:256}:sourceNode.id==='poster'?{width:320,height:400}:{width:320,height:180,frameRate:{num:12,den:1},durationSeconds:1};
+   const nativeFormat=sourceNode.id==='logo'?'.vectorcraft':sourceNode.id==='poster'?'.pcraft':'.ecproj';
+   briefPlan.projectBrief={schema:'craft-brief/v1',workflowId:briefPlan.workflowId,revision:'design-brief-v1',ownerId:briefPlan.ownerId,authorizationRef:briefPlan.authorizationRef,budget:structuredClone(briefPlan.budget),brand:null,subjects:[],dataPolicy:{allowUpload:false},ambiguities:[],deliverables:[{id:sourceNode.id,nativeFormat,...dims,dependsOn:[],execution:'local'}]};
+   const result=await engine.run(briefPlan);assert.equal(result.state,'review_ready',JSON.stringify(result));await verifySource();
+   const replay=await engine.run(briefPlan);assert.equal(replay.nodes[sourceNode.id].status,'reused');await verifySource();
+   const wrong=structuredClone(briefPlan);wrong.workflowId+='-wrong';wrong.projectBrief.workflowId=wrong.workflowId;wrong.projectBrief.deliverables[0].width++;
+   const blocked=await engine.run(wrong);assert.equal(blocked.state,'blocked');assert.match(blocked.nodes[sourceNode.id].error!,/document_size_mismatch/);await verifySource();
+   const resized=structuredClone(briefPlan);resized.workflowId+='-resize';resized.projectBrief.workflowId=resized.workflowId;resized.projectBrief.deliverables[0].width=352;
+   resized.nodes[0].payload.plan.operations=[sourceNode.id==='logo'?operation('artboard.setProps',{index:0,width:352,height:256}):sourceNode.id==='poster'?operation('image.canvasSize',{width:352,height:400}):operation('comp.settings',{comp:sourceManifest.bindings.composition.comp,width:352})];
+   const updated=await engine.run(resized);assert.equal(updated.state,'review_ready',JSON.stringify(updated));await verifySource();
+   const violated=structuredClone(resized);violated.workflowId+='-violate';violated.projectBrief.workflowId=violated.workflowId;violated.nodes[0].payload.plan.operations[0].params.width=384;
+   const rejected=await engine.run(violated);assert.equal(rejected.state,'failed',JSON.stringify(rejected));assert.deepEqual(rejected.nodes[sourceNode.id].outputs,[]);assert.equal(ledger.execution(rejected.nodes[sourceNode.id].taskId!)!.exitCode,0);await verifySource();
+   if(sourceNode.id==='intro'){
+    await factories.effectcraft.verifyBriefExport(sourceNode,source.root,[source.artifact],briefPlan.projectBrief.deliverables[0]);
+    await assert.rejects(factories.effectcraft.verifyBriefExport(sourceNode,source.root,[source.artifact],{...briefPlan.projectBrief.deliverables[0],durationSeconds:2}),/brief_export_duration_mismatch/);
+    await verifySource();
+   }
+   let addedBoard:any;
+   if(sourceNode.id==='logo'){
+    const count=JSON.parse(await readFile(join(source.root,'native.json'),'utf8')).artboards.length;
+    const expanded=structuredClone(briefPlan);expanded.workflowId+='-new-board';expanded.projectBrief.workflowId=expanded.workflowId;expanded.projectBrief.deliverables[0].width=352;
+    expanded.nodes[0].payload.plan.operations=[operation('artboard.new',{width:352,height:256,name:'Brief Variant'})];
+    expanded.nodes[0].payload.plan.exports=[{format:'png',artboard:count}];expanded.nodes[0].payload.outputs[0].location='artboard-'+(count+1)+'.png';
+    addedBoard=await engine.run(expanded);assert.equal(addedBoard.state,'review_ready',JSON.stringify(addedBoard));await verifySource();
+   }
+   sourceDesignBriefResults[sourceNode.id]={result,replay,blocked,updated,rejected,...(addedBoard?{addedBoard}:{})};
+  }
+  await writeFile(join(root,'source-design-brief-receipt.json'),JSON.stringify(sourceDesignBriefResults,null,2));
+  const sourceFilm=structuredClone(reopen);sourceFilm.workflowId='source-film-brief';sourceFilm.nodes=sourceFilm.nodes.filter(node=>node.id==='film');
+  sourceFilm.nodes[0].payload.plan.operations=[operation('captions.setStyle',{track:'C1',font:'Arial',size:18,color:'#ff6600',background:true})];
+  (sourceFilm as any).projectBrief={schema:'craft-brief/v1',workflowId:sourceFilm.workflowId,revision:'source-brief-v1',ownerId:sourceFilm.ownerId,authorizationRef:sourceFilm.authorizationRef,budget:structuredClone(sourceFilm.budget),brand:null,subjects:[],dataPolicy:{allowUpload:false},ambiguities:[],deliverables:[{id:'film',nativeFormat:'.fcproj',width:320,height:180,frameRate:{num:12,den:1},durationSeconds:1,dependsOn:[],execution:'local'}]};
+  const sourceRoot=sourceFilm.nodes[0].externalInputs![0].root;
+  const sourceSnapshot=async()=>{const fs=await import('node:fs/promises');const values:Record<string,string>={};const visit=async(directory:string,prefix='')=>{for(const entry of await fs.readdir(directory,{withFileTypes:true})){const name=prefix+entry.name;if(entry.isDirectory())await visit(join(directory,entry.name),name+'/');else values[name]=hash(await readFile(join(directory,entry.name)));}};await visit(sourceRoot);return values;};
+  const sourceBefore=await sourceSnapshot();
+  const sourceEdited=await engine.run(sourceFilm);assert.equal(sourceEdited.state,'review_ready',JSON.stringify(sourceEdited));
+  assert.equal(sourceEdited.nodes.film.sourceInspection!.durationTicks,tick);
+  assert.equal(sourceEdited.nodes.film.sourceInspection!.nativeProjectSha256,sourceFilm.nodes[0].expectedRevision);
+  const sourceReused=await engine.run(sourceFilm);assert.equal(sourceReused.nodes.film.taskId,sourceEdited.nodes.film.taskId);
+  assert.equal(sourceReused.nodes.film.status,'reused');
+  assert.deepEqual(await sourceSnapshot(),sourceBefore);
+  const wrongSourceBrief=structuredClone(sourceFilm);wrongSourceBrief.workflowId='source-film-wrong-size';(wrongSourceBrief as any).projectBrief.workflowId=wrongSourceBrief.workflowId;(wrongSourceBrief as any).projectBrief.deliverables[0].width=321;
+  const blockedSource=await engine.run(wrongSourceBrief);assert.equal(blockedSource.state,'blocked');assert.ok(blockedSource.nodes.film.error!.includes('document_size_mismatch'));assert.equal(ledger.leases().length,0);assert.deepEqual(await sourceSnapshot(),sourceBefore);
+  const sourceNative=JSON.parse(await readFile(join(sourceRoot,'native.json'),'utf8'));
+  const replacedSource=structuredClone(sourceFilm);replacedSource.workflowId='source-film-replace';(replacedSource as any).projectBrief.workflowId=replacedSource.workflowId;
+  const introChild=checked.children.find((child:any)=>child.nodeId==='intro')!;
+  replacedSource.nodes[0].externalInputs!.push({root:introChild.root,artifact:introChild.outputs[0]});
+  replacedSource.nodes[0].payload.assetBindings=[{name:'briefReplacement',assetId:introChild.outputs[0].assetId}];
+  replacedSource.nodes[0].payload.plan.operations=[operation('asset.import',{asset:'briefReplacement'},'briefReplacement'),operation('clip.replaceFromBin',{clips:ref('introClip.clips'),item:ref('briefReplacement.item')})];
+  const sourceReplaced=await engine.run(replacedSource);assert.equal(sourceReplaced.state,'review_ready',JSON.stringify(sourceReplaced));assert.deepEqual(await sourceSnapshot(),sourceBefore);
+  const wrongDurationSource=structuredClone(sourceFilm);wrongDurationSource.workflowId='source-film-wrong-duration';(wrongDurationSource as any).projectBrief.workflowId=wrongDurationSource.workflowId;
+  const moves=[...sourceNative.sequence.video,...sourceNative.sequence.audio].flatMap((track:any)=>track.items.map((clip:any)=>({clip:clip.clip,track:track.id,time:'21168000000'})));
+  wrongDurationSource.nodes[0].payload.plan.operations=[operation('timeline.move',{moves,insert:false})];
+  const durationRejected=await engine.run(wrongDurationSource);assert.equal(durationRejected.state,'failed',JSON.stringify(durationRejected));assert.deepEqual(durationRejected.nodes.film.outputs,[]);assert.equal(ledger.execution(durationRejected.nodes.film.taskId!)!.exitCode,0);assert.equal((durationRejected.nodes.film.failure as any).code,'artifact_invalid');assert.equal(ledger.leases().length,0);assert.deepEqual(await sourceSnapshot(),sourceBefore);
+  await writeFile(join(root,'source-film-brief-receipt.json'),JSON.stringify({plan:sourceFilm,result:sourceEdited,reused:sourceReused,replaced:sourceReplaced,wrongSize:blockedSource,wrongDuration:durationRejected,sourceFiles:sourceBefore},null,2));
   if(process.env.CRAFT_KEEP_NATIVE_EVIDENCE==='1')console.log('Native mixed evidence: '+root);
  }finally{ledger.close();if(process.env.CRAFT_KEEP_NATIVE_EVIDENCE!=='1')await rm(root,{recursive:true});}
 });

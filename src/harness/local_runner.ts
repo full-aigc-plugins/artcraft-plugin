@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { planHash } from '../protocol/contracts.ts';
 import { TaskLedger } from './task_ledger.ts';
 import type { TaskReceipt } from './task_ledger.ts';
+import type { SourceInspection } from '../planning/project_brief.ts';
 import type { BudgetUsage } from './budget.ts';
 
 /** 可信适配器的锁定启动器；模型 payload 不能提供此对象。 */
@@ -17,6 +18,8 @@ export interface LauncherIdentity {
 }
 export interface ExecutionPlan {executable:string;args:string[];cwd:string;actualRevision:string|null;budgetUsage?:BudgetUsage;launcherIdentity?:LauncherIdentity;}
 export interface ExecutionAdapter {
+  /** 可信适配器只读重开源工程；从不接受模型提供的检查结果。 */
+  inspectSource?():Promise<SourceInspection>;
   /** 只读准备和编译；授权已检查，不启动副作用。 */
   prepare(request:Record<string,any>):Promise<ExecutionPlan>;
   /** 专业技术核验后返回公共素材；执行器再次核对文件摘要。 */

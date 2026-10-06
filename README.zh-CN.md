@@ -210,3 +210,9 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 插件候选 dev.35 同步固定独立技能源 dev.29 和运行时 dev.34。一秒 Film Brief 技能源在线冷安装通过（3 项、93.401 秒）；实际安装宿主首次使用待完成。
 
 固定 ArtCraft 插件 dev.35／技能源 dev.29／运行时 dev.34 已通过实际安装技能的在线首次使用（3 项、94.638 秒），包含一秒原生 Film 时长与成片探测摘要绑定检查。58 个安装技能摘要保持不变。源工程 Brief 检查及完整实施／创作验收仍未完成。 [Evidence](docs/evidence/codex-release35-film-duration-native-20261006.json)。
+
+本地 Film 源工程 Brief 候选在写入前使用固定原生 CLI 读取真实元数据，支持字幕与镜头修订，并在就绪发布前拒绝原生导出成功但时长不符的结果。实际本地原生回归通过；固定发行及安装后的源工程首次使用待完成。Photo／Effect／Vector 源工程 Brief 检查及整体验收仍未完成。 [Architecture](docs/ArtCraft-Film-Source-Brief-Architecture.zh_CN.md)。
+
+本地候选：Photo／Effect／Vector 源适配器已支持绑定身份的原生只读元数据检查；移动交付真实测试通过，源文件不变、零租约。保存后 Brief 门禁与固定安装验收仍在任务 6.28 中开放，本候选尚未发布。
+
+本地候选更新：Photo／Effect／Vector 源 Brief 已接入保存后原生门禁、主 PNG 尺寸、Effect 实际视频探测与缓存复验。真实源返工、尺寸调整与错误结果拒绝本地通过；固定发布冷启动验收仍开放，尚未发布新版本或更新托管技能快照。

@@ -1,0 +1,84 @@
+{
+  "schema": "craft-candidate-evidence/v1",
+  "status": "local_candidate_passed",
+  "scope": "read-only source metadata and integrity, not saved-output Brief acceptance or cold installation",
+  "specification": "AC-DM-001-SOURCE-DESIGN",
+  "task": "6.28",
+  "taskComplete": false,
+  "sources": {
+    "src/adapters/design_source_inspection.ts": "16d7d4e8d3073427061df959863f579c4c3cdff5ce556a0138440fe60c87b9ed",
+    "src/adapters/public_skill.ts": "f82a8fc398914cd71cba56f211f3a772aeedbb5007d13610c4751e0e66558716",
+    "src/planning/project_brief.ts": "edddbc3d9d3181a0612b0dde10ff6aaa553dd7e4de89f9e51a65e16667aed469",
+    "test/design_source_inspection.test.ts": "8c58e26a754320672ef41fe4594bdae5ab10c708f085d83bc5b8a53a4cf4409f",
+    "test/native_mixed_workflow.test.ts": "d76cdc371fc229b062469632582934ddcc3420f62e15ea4c8029143284951063"
+  },
+  "red": {
+    "result": "failed before implementation: missing parser module",
+    "logSha256": "a8d74c286475327dc2844e9f33342287544120d51825c03f1a8645ab0f79dd8d"
+  },
+  "targeted": {
+    "tests": 15,
+    "passed": 15,
+    "skipped": 0
+  },
+  "regression": {
+    "tests": 119,
+    "passed": 114,
+    "skipped": 5,
+    "failed": 0,
+    "logSha256": "9e9de4399fd71fa94fa207e0e259c2d023fd0eb315c4ddf2b952f9014e5d152e"
+  },
+  "native": {
+    "tests": 1,
+    "passed": 1,
+    "skipped": 0,
+    "seconds": 9.289112083,
+    "sourceFilesUnchanged": true,
+    "writeLeases": 0,
+    "inspections": {
+      "logo": {
+        "schema": "craft-source-inspection/v1",
+        "pluginId": "vectorcraft",
+        "nativeInspectionSha256": "9206504a873796176d0cbc80d6a8a824c948938909177bf51e8bbeb74fe524ae",
+        "document": {
+          "width": 256,
+          "height": 256
+        },
+        "nativeProjectSha256": "b0cb211bb7fe63e0918baaedacc0bde43a13963ab1270be502357731dca764ee",
+        "nativeRuntimeSha256": "4ba62138ff64d7f701fd2d8fd4c833bd3bb077b6ed78244a8909a4fa0129b766"
+      },
+      "poster": {
+        "schema": "craft-source-inspection/v1",
+        "pluginId": "photocraft",
+        "nativeInspectionSha256": "bfb8fc43ac06016a862734a307668ac2f8a6c1293a80172672ea7532927adaa8",
+        "document": {
+          "width": 320,
+          "height": 400
+        },
+        "nativeProjectSha256": "350eaa91e4754837afcd62650ff4f4aa295985aff673007207891041e157a157",
+        "nativeRuntimeSha256": "57cefe9ee7bda1d996c11741bef84f934cf28d4729eb237900f00d76678d6fa4"
+      },
+      "intro": {
+        "schema": "craft-source-inspection/v1",
+        "pluginId": "effectcraft",
+        "nativeInspectionSha256": "5559b3e4c6026a7f64673b61e0d1a2b12de67d046a6cd29f7dee8b29195b0b89",
+        "document": {
+          "width": 320,
+          "height": 180,
+          "frameRate": 12,
+          "duration": 1
+        },
+        "nativeProjectSha256": "af314b4b79359cab016827509acbc54d614ae34cb4eb11b7d24c7a787fbf9803",
+        "nativeRuntimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+      }
+    },
+    "logSha256": "2e6c34607594d030a91d0bd5f5dabc59222aa2e4f5abde0d57a655e41abff941"
+  },
+  "remaining": [
+    "Saved-project geometry and actual export gates",
+    "Safe metadata-changing operations",
+    "Multi-composition target inspection",
+    "Brief entry and cache integration",
+    "Fixed-release cold first-use verification"
+  ]
+}

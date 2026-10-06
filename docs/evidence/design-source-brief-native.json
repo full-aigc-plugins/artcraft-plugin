@@ -1,0 +1,144 @@
+{
+  "schema": "craft-candidate-evidence/v1",
+  "status": "local_candidate_passed",
+  "task": "6.28",
+  "taskComplete": false,
+  "scope": "real source revisions, saved native/PNG/Effect video gates and reuse; fixed-release cold acceptance pending",
+  "sourceFiles": {
+    "src/adapters/public_skill.ts": "0f0cae4fffd47c30b80fe11ce2859fea19295e9a59a6ad8986bac09b6d60bb9f",
+    "src/adapters/design_source_inspection.ts": "5fdf1bd17537a2dc328dfa293b3bf86b144eede3f3e176e92beae3d66e64c3fa",
+    "src/adapters/effect_export_probe.ts": "1e0569d15146913c32e948922a980d4f18e4e4bcced22b2b47ffe80fd4b873f5",
+    "src/planning/project_brief.ts": "c7c23ebb193baa41024cd3f6ba78eb9a83f55d1b3d6390b12c1a0b643c7cfd06",
+    "src/planning/workflow_engine.ts": "ac60095a93172ee7c157c3506b6fe47aa0c5a25896ae50d9ab516fa1a368b348",
+    "src/planning/native_brief_output.ts": "876ddcf956cc130ed932543ebe6d4f9c2623bb53e230b518a39414a03da3eaac",
+    "src/planning/film_duration.ts": "e25a1ec1d2eac5bc2f7a64e45bb78766d79d55a68af9bae3b133ce3dc2b9a85f",
+    "test/native_mixed_workflow.test.ts": "932f67bb62ed1e3a12c5825079c5fa5e6df42070ef02aac923c2903a71467876",
+    "test/native_brief_output.test.ts": "3ead6188187e4f4d4444ed9783b0debf055541f9678d6cde3105f39d076c3601",
+    "test/effect_export_probe.test.ts": "2888df83c28d3c150744fb0644d9b393eb3a7f2f2d0383414866754d758fd088"
+  },
+  "pythonFiles": {
+    "skills/artcraft-use/scripts/brief.py": "fb2809876405a682939c251c4f1673d7dd6aaa5ae3abd2e982cd302caaa92de0",
+    "skills/artcraft-use/scripts/workflow.py": "3bab9fb53772440cdd8a08f58aab96cbb88ec8b68fa10b0c4234e82d181fd6d2",
+    "tests/test_workflow_first_use.py": "e07305d9d937bafc61b8c0399d9bc8f59983c0a601de47be2c199398a627d340"
+  },
+  "regression": {
+    "tests": 128,
+    "passed": 123,
+    "skipped": 5,
+    "failed": 0
+  },
+  "python": {
+    "tests": 79,
+    "passed": 66,
+    "skipped": 13,
+    "failed": 0
+  },
+  "native": {
+    "passed": 1,
+    "skipped": 0,
+    "seconds": 19.074051541,
+    "originalSourceFilesPreserved": true,
+    "leases": 0,
+    "cases": {
+      "logo": {
+        "result": {
+          "state": "review_ready",
+          "nodeStatus": "review_ready",
+          "publishedOutputCount": 1
+        },
+        "replay": {
+          "state": "review_ready",
+          "nodeStatus": "reused",
+          "publishedOutputCount": 1
+        },
+        "blocked": {
+          "state": "blocked",
+          "nodeStatus": "blocked",
+          "publishedOutputCount": 0
+        },
+        "updated": {
+          "state": "review_ready",
+          "nodeStatus": "review_ready",
+          "publishedOutputCount": 1
+        },
+        "rejected": {
+          "state": "failed",
+          "nodeStatus": "failed",
+          "publishedOutputCount": 0
+        },
+        "addedBoard": {
+          "state": "review_ready",
+          "nodeStatus": "review_ready",
+          "publishedOutputCount": 1
+        }
+      },
+      "poster": {
+        "result": {
+          "state": "review_ready",
+          "nodeStatus": "review_ready",
+          "publishedOutputCount": 1
+        },
+        "replay": {
+          "state": "review_ready",
+          "nodeStatus": "reused",
+          "publishedOutputCount": 1
+        },
+        "blocked": {
+          "state": "blocked",
+          "nodeStatus": "blocked",
+          "publishedOutputCount": 0
+        },
+        "updated": {
+          "state": "review_ready",
+          "nodeStatus": "review_ready",
+          "publishedOutputCount": 1
+        },
+        "rejected": {
+          "state": "failed",
+          "nodeStatus": "failed",
+          "publishedOutputCount": 0
+        }
+      },
+      "intro": {
+        "result": {
+          "state": "review_ready",
+          "nodeStatus": "review_ready",
+          "publishedOutputCount": 1
+        },
+        "replay": {
+          "state": "review_ready",
+          "nodeStatus": "reused",
+          "publishedOutputCount": 1
+        },
+        "blocked": {
+          "state": "blocked",
+          "nodeStatus": "blocked",
+          "publishedOutputCount": 0
+        },
+        "updated": {
+          "state": "review_ready",
+          "nodeStatus": "review_ready",
+          "publishedOutputCount": 1
+        },
+        "rejected": {
+          "state": "failed",
+          "nodeStatus": "failed",
+          "publishedOutputCount": 0
+        }
+      }
+    }
+  },
+  "logs": {
+    "artcraft-design-source-entry-red-20261006.log": "b1153ade0f2f758ff1965fad73771705154c7637779bc8f9d0b70587756bf178",
+    "artcraft-native-brief-output-red-20261006.log": "992ba7a9e5bb337e5f083168d745316f887bde8db10bfce49f2849f35c729adf",
+    "artcraft-native-brief-png-red-20261006.log": "eeba06aa0e81b9dc7bf54937a37abdc1547a64826333318faa93bde7a5a5ba9a",
+    "artcraft-design-source-python-red-20261006.log": "c2fd883e0cbe11d991b952855a88c8b9a6e14be40b2d469d11c204f407f3647f",
+    "artcraft-design-source-brief-release-native-20261006.log": "fb86668f5ba800dbcab68b57a9d949765bedd40df3b40f94a9ef7280adc86e1b",
+    "artcraft-design-source-brief-release-regression-20261006.log": "245461c51c4d5df1a83070469db72134204ca3995b7348c26c21f420c5ac399e",
+    "artcraft-design-source-brief-release-python-20261006.log": "e4f96871b8e93e14d59ae9b53a4f430c68c3094880407703e4025ee8b96618fe"
+  },
+  "remaining": [
+    "Immutable release and fixed-host cold first use",
+    "Broader domain boundary and creative acceptance"
+  ]
+}
