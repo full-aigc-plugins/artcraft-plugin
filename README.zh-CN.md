@@ -12,7 +12,7 @@ PNG 运行时 dev.56 已由不可变标签发布，技能源 dev.40 快照已固
 
 ## 当前版本与可复现宿主验证
 
-当前插件 `0.1.0-dev.65`，独立技能源 `0.1.0-dev.44`，运行时 `0.1.0-dev.64`。公开技能源动态混合冷启动已通过，固定安装后的动态交接复验通过；完整首版仍开放，历史证据保留原范围。
+当前插件 `0.1.0-dev.67`，独立技能源 `0.1.0-dev.45`，运行时 `0.1.0-dev.66`；固定 Effect 技能源 dev.9 参数预检。源码混合失败恢复与动态序列验证已通过，本次完整插件安装后的复验仍待执行；完整首版仍开放，历史证据保留原范围。
 
 固定 dev.38 验收：Codex 0.153.4 发现 58 项技能，加载错误为零；实际安装目录的单技能在线冷启动通过 3 项、无跳过，95.289 秒。四源返工、三领域尺寸修改、保存后产物摘要、Effect 实际视频属性、复用和源工程保全均通过，58 个安装技能摘要未变。[证据](docs/evidence/codex-release38-native-brief-first-use-20261006.json)。运行时回归 123 项通过、5 项可选跳过；完整模型／GUI／创作／生产验收仍开放。dev.37 标签因暂存失败保留历史，未创建 Release，也不作为插件快照使用。
 
@@ -36,9 +36,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.65 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.67 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.44 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.45 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
@@ -282,3 +282,7 @@ Vector 素材源码候选已接入登记输入和替换核验，真实 Vector �
 固定 Art dev.65／技能源 dev.44／runtime dev.64：五插件 58 技能发现零错误；安装后单技能动态四领域交付与 Logo 替换／恢复通过（1 项，62.100 秒），普通原生源工程局部返工回归通过（1 项原生场景＋1 项合同测试，52.541 秒），全部 58 项独立 CLI 冷启动通过（408.253 秒）。安装摘要保持固定，公开附件、固定重建及默认用户数据目录原生安装已核验。[证据](docs/evidence/codex-release65-dynamic-first-use-20261006.json)。完整首版、通用 Skills CLI、模型／GUI／创作／生产验收仍开放。
 
 当前固定发行领域场景矩阵：FilmCraft dev.10、EffectCraft dev.9、PhotoCraft dev.10、VectorCraft dev.11 共 37 个原生场景及 6 项合同检查通过，零跳过。每个场景仅复制对应安装技能，从空运行时目录使用默认公开附件安装原生 CLI；核验原生工程、实际像素／音频及局部修改保持，全部 58 项安装身份保持一致。[版本绑定证据](docs/evidence/codex-current-domain-task-matrix-20261006.json)。完整首版、通用 Skills CLI 安装、模型派发、GUI 与创作验收仍开放。
+
+## 固定 Effect 参数预检集成
+
+插件 dev.67 固定技能源 dev.45 和运行时 dev.66。Effect 技能源 dev.9 在编辑前校验六类受限效果／蒙版参数合同；Art 保留类型化合同诊断，并阻断依赖它的 Film 任务。候选源码混合纠正／复用与动态渲染／修订／恢复已通过；本次固定安装后的宿主与 CLI 冷启动复验仍待执行。[架构](docs/ArtCraft-Effect-Parameter-Diagnostics-Architecture.zh_CN.md)、[候选证据](docs/evidence/preflight-domain-upgrade-candidate-20261006.json)。通用 Skills CLI 安装与完整首版／模型／GUI／创作验收仍开放。

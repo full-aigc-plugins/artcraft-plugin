@@ -12,7 +12,7 @@ PNG runtime dev.56 is published from an immutable tag and the source dev.40 snap
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.65`; skill source: `0.1.0-dev.44`; runtime: `0.1.0-dev.64`. Public-source dynamic mixed cold validation passes; fixed installed-host dynamic acceptance passes. Full V1 remains open. Prior evidence keeps its original scope.
+Current plugin: `0.1.0-dev.67`; skill source: `0.1.0-dev.45`; runtime: `0.1.0-dev.66`. Effect skill source dev.9 parameter preflight is pinned. Source mixed failure/recovery and dynamic-sequence validation pass; this full-plugin installed-host repetition is pending. Full V1 remains open. Prior evidence keeps its original scope.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
@@ -36,9 +36,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.65 |
+| Plugin ID / version | artcraft / 0.1.0-dev.67 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.44 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.45 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -282,3 +282,7 @@ Fixed ArtCraft plugin dev.63 / skill source dev.43 / runtime dev.62 passes isola
 Fixed Art dev.65 / source dev.44 / runtime dev.64: five plugins and 58 skills discovered with zero errors; installed single-skill dynamic four-domain delivery and Logo replacement/recovery pass (1 test, 62.100s), ordinary native source revision regression passes (1 native scenario plus 1 contract test, 52.541s), and all 58 independent cold CLI starts pass (408.253s). All installed hashes remain fixed; public archives, locked rebuilds and default user-data native installation are verified. [Evidence](docs/evidence/codex-release65-dynamic-first-use-20261006.json). Full V1, generic Skills CLI, model/GUI/creative/production acceptance remain open.
 
 Current fixed-release domain task matrix: 37 native scenarios and 6 contract checks passed with zero skips across FilmCraft dev.10, EffectCraft dev.9, PhotoCraft dev.10 and VectorCraft dev.11. Each task copied only its selected installed skill and installed the native CLI into a fresh runtime directory from the default public archive. Native projects, actual pixels/audio and targeted preservation were checked; all 58 installed skill identities remained unchanged. [Version-bound evidence](docs/evidence/codex-current-domain-task-matrix-20261006.json). This does not close full V1, generic Skills CLI installation, model dispatch, GUI or creative acceptance.
+
+## Fixed Effect parameter-preflight integration
+
+Plugin dev.67 pins source dev.45 and runtime dev.66. Effect source dev.9 validates the six bounded effect/mask parameter contracts before editing; Art preserves typed contract diagnostics and blocks dependent Film tasks. Candidate source mixed correction/reuse and dynamic rendering/revision/recovery pass. Fixed installed-host and cold CLI repetition remain pending for this release. [Architecture](docs/ArtCraft-Effect-Parameter-Diagnostics-Architecture.md), [candidate evidence](docs/evidence/preflight-domain-upgrade-candidate-20261006.json). Generic Skills CLI installation and full V1/model/GUI/creative acceptance remain open.

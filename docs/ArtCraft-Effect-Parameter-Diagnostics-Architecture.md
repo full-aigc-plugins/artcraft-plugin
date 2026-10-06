@@ -46,3 +46,5 @@ flowchart LR
  D --> E[Correct plan revision]
  E --> F[Reuse Logo and poster; rebuild intro and film]
 ```
+
+[Source upgrade candidate / 源码升级候选](evidence/preflight-domain-upgrade-candidate-20261006.json): Art runtime dev.66 / source dev.45 / Effect source dev.9; source 75 passed / 25 gated skips; mixed mapping 1 passed (53.793s), dynamic brand 1 passed (61.581s), five locked bundles rebuilt. Immutable installed release acceptance remains pending.

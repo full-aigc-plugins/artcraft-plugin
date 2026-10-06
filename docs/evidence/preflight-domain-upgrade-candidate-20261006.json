@@ -1,0 +1,74 @@
+{
+  "schema": "artcraft-preflight-domain-upgrade-candidate/v1",
+  "date": "2026-10-06",
+  "result": "passed",
+  "runtimeVersion": "0.1.0-dev.66",
+  "sourceVersion": "0.1.0-dev.45",
+  "effectSourceVersion": "0.1.0-dev.9",
+  "sourceDefaultRegression": {
+    "tests": 100,
+    "pass": 75,
+    "skip": 25
+  },
+  "mixedMapping": {
+    "schema": "artcraft-effect-mapping-mixed-first-use/v1",
+    "result": "passed",
+    "runtimeVersion": "0.1.0-dev.66",
+    "effectRuntimeIdentity": {
+      "capabilitySnapshotSha256": "f1d261e3d17ab09adc6f7419d2d53477b266fb6893fc882b866f2ac2d99a9e67",
+      "cliVersion": "0.2.0",
+      "mode": "headless",
+      "pluginId": "effectcraft",
+      "pluginVersion": "0.1.0-dev.9",
+      "sha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+    },
+    "diagnostics": {
+      "schema": "craft-native-diagnostics/v1",
+      "domainCode": "unsupported_mapping",
+      "source": "stdout",
+      "stdout": {
+        "bytes": 93,
+        "sha256": "a9316219de9aab7412bc4d52dd4c38bc9b345abd24461f8d2128a853d9a7f991",
+        "truncated": false,
+        "complete": true
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "truncated": false,
+        "complete": true
+      }
+    },
+    "failedTaskId": "wf-1bc939ec2120105fab3ce496d4f64c39a5644f62d55aca06",
+    "failedAttemptId": "094da72f-0fd8-476b-84c8-e5b9a8438e63",
+    "correctedTaskId": "wf-1827eb207a082f4a0fbcc733b781adedf953ce1cee86f002",
+    "reusedNodes": [
+      "logo",
+      "poster",
+      "badge"
+    ],
+    "downstreamBlockedBeforeCorrection": true,
+    "repeatAttemptDiagnosticsAndBudgetPreserved": true,
+    "priorFilesVoiceAndSkillPreserved": true,
+    "packageChildren": 5,
+    "runtimeMode": "default public download"
+  },
+  "dynamicSourceRegression": {
+    "tests": 1,
+    "pass": 1,
+    "skip": 0,
+    "seconds": 61.581,
+    "testDriverSha256": "ffad36b11199a8e5a739452f8aaa6efe1efbfd2283710d1f7c773b7cd7ed03e3",
+    "scope": "source copied single skill; default public download; assertion-based native output/revision/recovery/package acceptance"
+  },
+  "distributionLockSha256": "3a11580a652735b21033ca807228c87a07f90bf140847286a327e113cb7621ed",
+  "allFiveFixedBundlesRebuilt": true,
+  "excluded": [
+    "immutable Art plugin installation",
+    "generic Skills CLI install",
+    "full V1",
+    "GUI",
+    "model dispatch",
+    "creative acceptance"
+  ]
+}
