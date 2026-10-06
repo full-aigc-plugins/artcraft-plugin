@@ -8,6 +8,8 @@ import os
 from unittest.mock import patch
 from types import SimpleNamespace
 import unittest
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"scripts"))
 ROOT=Path(__file__).resolve().parents[1]
 class IndependentInstallTests(unittest.TestCase):
  def module(self):
@@ -30,18 +32,18 @@ class IndependentInstallTests(unittest.TestCase):
    folder=Path(d);(folder/'target').write_text('file');(folder/'link').symlink_to('target')
    with self.assertRaisesRegex(ValueError,'independent_skill_symlink'):m.skill_hash(folder)
 class NativeVersionGateTests(unittest.TestCase):
- def fixture(self,callback):
-  m=IndependentInstallTests().module();m.NAMES=('filmcraft',)
+ def fixture(self,callback,domain="filmcraft",expected="0.2.0-craft.1"):
+  m=IndependentInstallTests().module();m.NAMES=(domain,)
   with tempfile.TemporaryDirectory() as temporary:
    root=Path(temporary);source=root/'source';scripts=source/'scripts';scripts.mkdir(parents=True)
    (source/'SKILL.md').write_text('fixture skill')
    (scripts/'cli.py').write_text('fixture launcher')
-   (scripts/'runtime.lock.json').write_text(json.dumps({'resolvedVersion':'0.2.0-craft.1'}))
+   (scripts/('distribution.lock.json' if domain=='artcraft' else 'runtime.lock.json')).write_text(json.dumps({'bundles':{'artcraft-runtime':{'version':expected}}} if domain=='artcraft' else {'resolvedVersion':expected}))
    for name in ('node','cli','python'):(root/name).write_text('fixture tool')
-   lock={'plugins':{'filmcraft':{'skillSourceRef':'v0.1.0-dev.5','skillSourceSha':'a'*40,'skills':{'filmcraft-cli':m.skill_hash(source)}}}}
+   lock={'plugins':{domain:{'skillSourceRef':'v0.1.0-dev.5','skillSourceSha':'a'*40,'skills':{domain+'-cli':m.skill_hash(source)}}}}
    output=root/'output';native_environments=[]
    def run(argv,**kwargs):
-    if 'add' in argv:shutil.copytree(source,Path(kwargs['cwd'])/'.agents/skills/filmcraft-cli');value='installed'
+    if 'add' in argv:shutil.copytree(source,Path(kwargs['cwd'])/'.agents/skills'/ (domain+'-cli'));value='installed'
     elif '-I' in argv:native_environments.append(kwargs['env']);value=callback
     else:value='1.7.0'
     return SimpleNamespace(returncode=0,stdout=value,stderr='')
@@ -51,6 +53,22 @@ class NativeVersionGateTests(unittest.TestCase):
   for m,root,lock,output,environments in self.fixture('filmcraft-cli 0.2.0-craft.10'):
    with self.assertRaisesRegex(ValueError,'independent_runtime_version_mismatch'):m.verify(root/'node',root/'cli',root/'python',lock,output)
    self.assertFalse((output/'receipt.json').exists())
+ def test_same_version_from_wrong_cli_cannot_publish_receipt(self):
+  for actual in ('unrelated-cli 0.2.0-craft.1', 'error: expected filmcraft-cli 0.2.0-craft.1'):
+   with self.subTest(actual=actual):
+    for m,root,lock,output,environments in self.fixture(actual):
+     with self.assertRaisesRegex(ValueError,'independent_runtime_version_mismatch'):m.verify(root/'node',root/'cli',root/'python',lock,output)
+     self.assertFalse((output/'receipt.json').exists())
+ def test_artcraft_requires_its_json_identity(self):
+  for actual in ('{"name":"unrelated","version":"0.1.0-dev.41"}', 'artcraft 0.1.0-dev.41', '{"name":"artcraft","version":"0.1.0-dev.41"}'):
+   with self.subTest(actual=actual):
+    for m,root,lock,output,environments in self.fixture(actual,domain='artcraft',expected='0.1.0-dev.41'):
+     if actual == '{"name":"artcraft","version":"0.1.0-dev.41"}':
+      receipt=m.verify(root/'node',root/'cli',root/'python',lock,output)
+      self.assertEqual(receipt['plugins'][0]['nativeVersions']['artcraft-cli']['actual'],actual)
+     else:
+      with self.assertRaisesRegex(ValueError,'independent_runtime_version_mismatch'):m.verify(root/'node',root/'cli',root/'python',lock,output)
+      self.assertFalse((output/'receipt.json').exists())
  def test_locked_native_version_is_recorded_and_offline_overrides_are_excluded(self):
   for m,root,lock,output,environments in self.fixture('filmcraft-cli 0.2.0-craft.1'):
    receipt=m.verify(root/'node',root/'cli',root/'python',lock,output)

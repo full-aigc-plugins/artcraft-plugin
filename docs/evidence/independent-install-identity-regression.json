@@ -1,0 +1,41 @@
+{
+  "schema": "craft-independent-install-identity-regression/v1",
+  "date": "2026-10-06",
+  "scope": "QA verifier identity gate; no new actual Skills CLI installation",
+  "red": {
+    "tests": 7,
+    "failures": 4,
+    "cases": [
+      "different CLI same version",
+      "error text with expected version",
+      "ArtCraft JSON wrong name",
+      "ArtCraft text instead of JSON"
+    ]
+  },
+  "green": {
+    "targetTests": 7,
+    "failures": 0,
+    "regressionTests": 57,
+    "passed": 53,
+    "skipped": 4,
+    "seconds": 3.074
+  },
+  "priorColdVersionCompatibility": {
+    "records": 58,
+    "passed": 58,
+    "evidence": "docs/evidence/codex-release43-every-skill-cold-first-use-20261006.json",
+    "evidenceSha256": "4d1f398b11c26cc6a4b36b1fc2df0e6b840aa89f2f0b52f1759930eacd691cbf",
+    "scope": "reparse recorded prior native outputs, not rerun cold installation"
+  },
+  "sourceSha256": {
+    "scripts/verify_independent_skill_install.py": "024229996bb40e4ab6f1c9d76e5c7b810f3bd71ed0129998a2abfd2ba55199b3",
+    "scripts/verify_single_skill_cold_start.py": "bf94fd3b6cedc346b25a1ea73738a434824d82238406d3ac367bd8df2e778b64",
+    "tests/test_independent_skill_install.py": "6f0e4b51adad8b094331f79d32d4ebd7d36d8a1e8948909832e05e23607ec544"
+  },
+  "unverified": [
+    "actual Skills CLI installation task 3.16",
+    "model dispatch",
+    "GUI",
+    "full creative acceptance"
+  ]
+}

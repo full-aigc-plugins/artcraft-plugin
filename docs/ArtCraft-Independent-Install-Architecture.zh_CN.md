@@ -43,3 +43,9 @@ python3 -I -B scripts/verify_independent_skill_install.py \
 ## 6. 完整原生版本门禁
 
 验收工具从每个摘要已核验的安装技能锁读取预期原生版本。退出码零但完整维护或预发布后缀不同，拒绝产出成功回执；通过后逐技能记录预期与实际版本。执行前移除继承的 CRAFT_RUNTIME_HOME、CRAFT_NODE_ARCHIVE、CRAFT_BUNDLE_DIRECTORY 和 CRAFT_NATIVE_ARCHIVE_DIRECTORY。修复前预期 craft.1 却接受 craft.10 的失败用例已复现；修复后五项单元测试通过。子进程均为模拟，因此实际公开 Skills CLI 安装仍为 NOT_RUN，任务 3.16 保持未完成。安装计划同步到当前 VectorCraft dev.7 与 ArtCraft dev.21 技能源。
+
+## 原生身份验收
+
+版本探测共用独立冷启动验收解析器：四领域 CLI 必须返回自身 `*-cli` 名称和完整锁定版本；ArtCraft 必须返回 `name=artcraft` 且 `version` 精确匹配的 JSON 对象。PhotoCraft 的构建信息仍受支持。退出码零、同号其他工具及包含预期版本的诊断文本均不能生成成功回执。
+
+回归证据：[身份门禁](evidence/independent-install-identity-regression.json)。实际 Skills CLI 安装保持 NOT_RUN；重新解析历史输出仅证明兼容性。

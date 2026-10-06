@@ -9,6 +9,8 @@ from pathlib import Path
 import subprocess
 import sys
 
+from verify_single_skill_cold_start import native_version_matches
+
 ROOT = Path(__file__).resolve().parents[1]
 NAMES = ('filmcraft', 'effectcraft', 'photocraft', 'vectorcraft', 'artcraft')
 
@@ -72,7 +74,7 @@ def verify(node, cli, python, lock, output):
             if not isinstance(expected, str) or not re.fullmatch(r'\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?', expected):
                 raise ValueError('independent_runtime_lock_invalid')
             actual = run([python, '-I', '-B', script, '--runtime-home', runtime, '--', '--version'], project, native=True).strip()
-            if re.search(r'(?<![0-9A-Za-z.-])'+re.escape(expected)+r'(?![0-9A-Za-z.-])', actual) is None:
+            if not native_version_matches(actual, item['plugin'], expected):
                 raise ValueError('independent_runtime_version_mismatch: '+name)
             native_versions[name] = {'expected': expected, 'actual': actual}
         after = {name: skill_hash(directory/name) for name in item['skills']}
