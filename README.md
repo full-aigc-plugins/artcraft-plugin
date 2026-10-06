@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Fixed download-recovery acceptance passed: ten exact immutable source51 skills independently cold-installed all domains; actual installed75 cold mixed/revision/recovery/package checks, 58 post-run identities and fixed-tag CI passed. [Evidence](docs/evidence/codex-art75-download-recovery-first-use-20261007.json). OpenSpec4.8 closes; orchestration protocol faults under4.7, Skills CLI and full V1 remain open.
+
 The download-recovery snapshot pins independent source dev.51, with at most three read-only attempts, mandatory digest checks and no native edit replay. [Design](docs/ArtCraft-Download-Recovery-Architecture.md). Dev.74 installed mixed acceptance and all58 post-run identities passed; [fixed historical evidence](docs/evidence/codex-art74-domain-distribution-first-use-20261007.json). Dev.75 acceptance is tracked separately.
 
 Candidate distribution dev.73 pins the four complete-command/protocol-repair domain sources. Public cold mixed creation, dependent revisions, recovery, moved delivery and 24 downloaded-domain fault cases passed. [Candidate evidence](docs/evidence/art-domain-distribution-candidate-20261007.json). New immutable source/plugin installed-host checks and ten full skill installations remain separately tracked.
@@ -28,7 +30,7 @@ PNG runtime dev.56 is published from an immutable tag and the source dev.40 snap
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.75`; skill source: `0.1.0-dev.51`; runtime: `0.1.0-dev.73`. This snapshot adds bounded read-only download recovery. Dev.74 installed mixed/revision/recovery/package acceptance passed; dev.75 installed-host and all-ten full-domain cold installation remain open. Full V1 remains open.
+Current plugin: `0.1.0-dev.75`; skill source: `0.1.0-dev.51`; runtime: `0.1.0-dev.73`. Bounded download-recovery acceptance, ten immutable-source cold installations and actual installed mixed checks passed. Orchestration protocol faults, Skills CLI and full V1 remain open.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
