@@ -36,3 +36,5 @@ Public creation workflows clean failed staging directories. The proxy copies the
 ## 5. Delivery and specification
 
 Domain CM-001 task 8.9 and Art AC-RT-002 task 4.7 stay open. Fixed domain source releases, vendored plugins, a new Art distribution and actual installed-copy tests remain required. Current Art dev.75's earlier pinned domain clients were not replaced by this test. Exhaustive 2639-command, GUI, model-dispatch and full V1 acceptance remain separate.
+
+Fixed installed domain copies now close bounded domain8.9; Art4.7 stays open. The published engine and installed Vector client pass six faults: [evidence](evidence/codex-public-workflow-session-first-use-20261007.json). Art dev.75 still bundles earlier sources; the updated distribution needs its own fixed mixed-task acceptance.

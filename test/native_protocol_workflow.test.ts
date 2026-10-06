@@ -12,6 +12,7 @@ import { promisify } from 'node:util';
 const installationFile=process.env.CRAFT_PROTOCOL_INSTALLATION;
 const candidateSkill=process.env.CRAFT_PROTOCOL_VECTOR_SKILL;
 const output=process.env.CRAFT_PROTOCOL_WORKFLOW_EVIDENCE;
+const pluginVersion=process.env.CRAFT_PROTOCOL_PLUGIN_VERSION||'0.1.0-candidate';
 const sha=(value:Buffer|string)=>createHash('sha256').update(value).digest('hex');
 const exec=promisify(execFile),records:any[]=[];
 for(const fault of ['malformed','scalar','missing','ambiguous','nonfinite','tool-content']){
@@ -29,7 +30,7 @@ for(const fault of ['malformed','scalar','missing','ambiguous','nonfinite','tool
    const skillRoot=candidateSkill!;
    const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'].map(async name=>({path:join(skillRoot,'scripts',name),sha256:sha(await readFile(join(skillRoot,'scripts',name)))})));
    const nativeHash=sha(await readFile(domain.executable));
-   const identity={...domain.runtimeIdentity,pluginVersion:'0.1.0-candidate',sha256:nativeHash};
+   const identity={...domain.runtimeIdentity,pluginVersion,sha256:nativeHash};
    const factory=publicSkillFactory({pluginId:'vectorcraft',skillRoot,python:installation.pythonExecutable,pythonSha256:installation.pythonSha256,nativeExecutable:domain.executable,runtimeHome:installation.runtimeHome,files,outputRoot:join(root,'deliveries')});
    const proxy=fileURLToPath(new URL('./fixtures/protocol_proxy.py',import.meta.url));
    const wrapper=fileURLToPath(new URL('./fixtures/workflow_protocol_injection.py',import.meta.url));
@@ -71,8 +72,8 @@ for(const fault of ['malformed','scalar','missing','ambiguous','nonfinite','tool
    assert.equal(await readFile(log,'utf8'),saveLog);
    assert.equal(sha(await readFile(capture)),capturedHash);assert.equal(sha(await readFile(domain.executable)),nativeHash);
    for(const file of files)assert.equal(sha(await readFile(file.path)),file.sha256);
-   records.push({fault,result:'PASS',runtimeVersion:installation.version,nativeSha256:nativeHash,clientSha256:files.find(file=>file.path.endsWith('mcp_session.py'))!.sha256,saveCount:1,nativeReopen:true,consumerBlocked:true,publicUnknownReply:true,attemptPreserved:true,budgetPreserved:true,noReplay:true});
-   if(output)await writeFile(output,JSON.stringify({schema:'art-native-protocol-workflow-candidate/v1',result:records.length===6?'PASS':'RUNNING',cases:records,scope:'actual published runtime + trusted public Vector adapter; transparent post-save response test hook; current candidate client',excluded:['updated fixed domain and Art installation','all four domain public workflow fault injection','new native partial file preservation by product: capture is test-only']},null,2)+'\n');
+   records.push({fault,result:'PASS',pluginVersion,runtimeVersion:installation.version,nativeSha256:nativeHash,clientSha256:files.find(file=>file.path.endsWith('mcp_session.py'))!.sha256,saveCount:1,nativeReopen:true,consumerBlocked:true,publicUnknownReply:true,attemptPreserved:true,budgetPreserved:true,noReplay:true});
+   if(output)await writeFile(output,JSON.stringify({schema:'art-native-protocol-workflow-candidate/v1',result:records.length===6?'PASS':'RUNNING',cases:records,scope:'actual published runtime + trusted public Vector adapter; transparent post-save response test hook; separately hash-bound supplied client',excluded:['updated Art bundled domain client distribution','all four domain public workflow fault injection','new native partial file preservation by product: capture is test-only']},null,2)+'\n');
   }finally{ledger.close();await rm(root,{recursive:true,force:true});}
  });
 }
