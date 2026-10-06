@@ -156,3 +156,21 @@ ArtCraft SHALL 汇总子工程、素材、输出、损失报告和验收记录�
 - **WHEN** 用户选择已安装的 Video Factory 0.4.0 验证登记的 MP4 成片，并显式提供实际插件、FFmpeg 和 ffprobe 路径
 - **THEN** ArtCraft SHALL 固定公开 CLI、源文件、Node 与媒体工具摘要，只调用 probe、validate-plan、evaluate 接口，绑定输入、期望输出与验收报告，执行前后核验输入并保留原工程
 - **AND** 报告 SHALL 保留 PASS、FAIL、NOT_RUN 状态；accepted、退出零或缺失来源账本不构成验收通过；失败门禁阻断交付，技术待审报告可随项目包保存
+
+
+#### Scenario: AC-DM-006-JY 公开剪映草稿交接
+
+- **WHEN** 用户选择剪映原生工程，并登记固定发行 CLI、supported 能力、输入素材摘要与明确的创建或隔离编辑授权
+- **THEN** ArtCraft SHALL 仅使用公开 CLI 编译并执行 Job v2，保留草稿目录、素材闭包、源版本、转换损失和任务证据；重新核验源工程保全及输出后才允许下游消费
+- **AND** 移动交付包 SHALL 重新核验依赖和公开 inspect/verify；结构通过不代表真实编辑器重开或原生成片验收通过
+
+#### Scenario: AC-DM-006-JY-R 回执前中断
+
+- **WHEN** job run 已可能提交但 ArtCraft 尚未收到 task_id，或 job show 只返回 succeeded 状态而没有业务结果
+- **THEN** ArtCraft SHALL 保留工程占用，确认原执行者停止，通过冻结的独占状态根和 Job／输出路径核对唯一任务，并重新验证实际产物；不得自动再 run 或 retry
+- **AND** 无唯一匹配、输入漂移、缺产物或无法确认停止 SHALL 保持待核对，不能伪造完成
+
+#### Scenario: AC-DM-006-JY-U 未实现的导出
+
+- **WHEN** 剪映 CLI schema 声明 native 或 draft_archive，但固定执行器或 capability 状态不支持该操作
+- **THEN** ArtCraft SHALL 在执行前拒绝自动路由，保留需求和已有产物；proxy SHALL 仅记录为代理预览，不能替代原生成片或可编辑工程

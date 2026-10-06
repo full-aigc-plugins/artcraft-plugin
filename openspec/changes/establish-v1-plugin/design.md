@@ -83,3 +83,8 @@
 ## CLI 场景技能增量设计
 
 参考 Dreamina 的 use / CLI / setup / 业务场景分层，但按真实命令划分任务。四原生 CLI 保持各自 argv 和工程保存语义；每个技能打包自己的最小运行资源，禁止跨技能文件路径。共有资源在仓库发布脚本中按摘要同步，避免手工维护多份逻辑。上游 ArtCraft 的 scene 保存、生成请求与异步轮询仅作为设计参考，不复制受限代码；本项目 ArtCraft CLI 的事实源为现有 src/cli.ts。原有 use 公开入口保持兼容。插件从新不可变技能源标签同步全部清单，宿主验收锁按新版本单独更新。
+
+
+## 剪映公开适配设计补充
+
+固定 v1.6.31 的 Job 成功回执与持久 JobRecord 是不同对象；恢复只收到状态时重新核验产物。失 task_id 通过冻结的独占状态根、Job 路径与输出路径收敛，不重放未知提交。native／draft_archive 的 schema 枚举不代表执行支持；原生工程以草稿目录及素材闭包交付。双语设计见 [中文](../../../docs/ArtCraft-Jianying-Adapter.zh_CN.md) 与 [English](../../../docs/ArtCraft-Jianying-Adapter.md)，实施与真实验收由任务 12.2–12.6 跟踪。
