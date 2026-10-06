@@ -6,7 +6,7 @@
 
 ## 当前版本与可复现宿主验证
 
-当前插件 `0.1.0-dev.50`，独立技能源 `0.1.0-dev.37`，运行时 `0.1.0-dev.48`。固定公开 dev.50 安装后的首次使用复验在已记录范围通过。历史证据保持原发行范围；完整首版／模型／GUI／创作验收仍开放。
+当前插件 `0.1.0-dev.53`，独立技能源 `0.1.0-dev.38`，运行时 `0.1.0-dev.52`。单独源码技能公开混合首次使用已通过（47.850 秒），固定新版插件安装验收仍待完成。runtime dev.51 来源无效，请勿安装；历史证据保持原范围，完整首版／模型／GUI／创作验收仍开放。
 
 固定 dev.38 验收：Codex 0.153.4 发现 58 项技能，加载错误为零；实际安装目录的单技能在线冷启动通过 3 项、无跳过，95.289 秒。四源返工、三领域尺寸修改、保存后产物摘要、Effect 实际视频属性、复用和源工程保全均通过，58 个安装技能摘要未变。[证据](docs/evidence/codex-release38-native-brief-first-use-20261006.json)。运行时回归 123 项通过、5 项可选跳过；完整模型／GUI／创作／生产验收仍开放。dev.37 标签因暂存失败保留历史，未创建 Release，也不作为插件快照使用。
 
@@ -30,9 +30,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.50 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.53 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.37 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.38 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
@@ -254,3 +254,5 @@ dev.44 首次使用已知取消问题：原生运行中取消后，短暂进程�
 固定 ArtCraft dev.50／VectorCraft dev.10 的 Codex 0.153.4 隔离首次使用通过：五插件 58 技能发现、零加载错误；单导出技能空运行时跨秒原生验收 1 项通过（8.108 秒），混合品牌返工 2 项通过（51.409 秒），全部安装摘要保留。[发行绑定证据](docs/evidence/codex-release50-vector10-stable-export-first-use-20261006.json)。通用 Skills CLI 安装、模型／GUI、完整领域与创作验收仍开放。
 
 本次更新的 22 个技能逐项公开冷启动全部通过（159.811 秒）：每项只复制自身目录到 .agents/skills，独立空运行时完成版本与命令合同检查，目录摘要和全部宿主安装摘要保留。该证据不代表通用 Skills CLI 安装或全部创作场景。
+
+[效果参数诊断与不可变发行纠正](docs/ArtCraft-Effect-Parameter-Diagnostics-Architecture.zh_CN.md)：精确参数拒绝阻断 Film、保全上游，修正后完成五子工程打包。runtime dev.52 与四个领域锁定技能源可从固定标签重建；dev.51 来源无效，请勿安装。

@@ -1,6 +1,6 @@
 {
   "schema": "artcraft-mapping-propagation-repair/v1",
-  "status": "candidate-native-passed-public-and-installed-pending",
+  "status": "public-source-native-passed-fixed-plugin-install-pending",
   "oldPublicFailure": {
     "schema": "artcraft-mapping-propagation-failure/v1",
     "diagnostics": {
@@ -233,5 +233,54 @@
     "passed": 1,
     "seconds": 37.798,
     "targetRuntimePassed": 28
-  }
+  },
+  "publicSourceMixed": {
+    "schema": "artcraft-effect-mapping-mixed-first-use/v1",
+    "result": "passed",
+    "runtimeVersion": "0.1.0-dev.52",
+    "effectRuntimeIdentity": {
+      "capabilitySnapshotSha256": "26c3d4ddb0178e48a5b1c9510ef2b9b57a78a24ae3c4191a8bdf716175c3d219",
+      "cliVersion": "0.2.0",
+      "mode": "headless",
+      "pluginId": "effectcraft",
+      "pluginVersion": "0.1.0-dev.7",
+      "sha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+    },
+    "diagnostics": {
+      "schema": "craft-native-diagnostics/v1",
+      "domainCode": "unsupported_mapping",
+      "source": "stdout",
+      "stdout": {
+        "bytes": 215,
+        "sha256": "8627ed7df5c5a1cb78b5662eef47d979a817897d053de00204e66ae84eef2559",
+        "truncated": false,
+        "complete": true
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "truncated": false,
+        "complete": true
+      }
+    },
+    "failedTaskId": "wf-362e5b46e4e9cf1ceabaf6a1881020aca2a206b8a9255ef6",
+    "failedAttemptId": "2010a922-f3f7-4c9f-b126-ab5c4338b237",
+    "correctedTaskId": "wf-1d0c3a9edc93e59819316df86fda99aeddd7c52186042db8",
+    "reusedNodes": [
+      "logo",
+      "poster",
+      "badge"
+    ],
+    "downstreamBlockedBeforeCorrection": true,
+    "repeatAttemptDiagnosticsAndBudgetPreserved": true,
+    "priorFilesVoiceAndSkillPreserved": true,
+    "packageChildren": 5,
+    "runtimeMode": "default public download"
+  },
+  "publicSourceMixedTests": {
+    "run": 1,
+    "passed": 1,
+    "seconds": 47.85
+  },
+  "lockedBundlesReproduced": 5
 }
