@@ -62,3 +62,14 @@ test('external SVG dependency failures preserve only the exact closed code',asyn
  const conflict=nativeDiagnostics(await observe(payload),await observe('{"error":"revision_conflict"}'));
  assert.equal(conflict.domainCode,null);
 });
+
+test('pinned parameter contract failures retain codes without exposing private details',async()=>{
+ for(const code of ['parameter_contract_identity_mismatch','parameter_schema_mismatch']){
+  const payload=JSON.stringify({error:code+': private-command-detail'});
+  const result=nativeDiagnostics(await observe(payload),await observe(''));
+  assert.equal(result.domainCode,code);assert.equal(result.source,'stdout');
+  assert.ok(!JSON.stringify(result).includes('private-command-detail'));
+  assert.equal(nativeDiagnostics(await observe(JSON.stringify({error:code+'_suffix'})),await observe('')).domainCode,null);
+  assert.equal(nativeDiagnostics(await observe(payload),await observe('{"error":"revision_conflict"}')).domainCode,null);
+ }
+});

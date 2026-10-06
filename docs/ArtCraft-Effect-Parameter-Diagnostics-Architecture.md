@@ -33,3 +33,16 @@ Release correction: candidate dev.51 passed the scoped test, but its publication
 ## Fixed installed acceptance
 
 Plugin dev.53 / skill source dev.38 / runtime dev.52 with Film dev.9, Effect dev.8, Photo dev.9 and Vector dev.10 installed in isolated Codex 0.153.4: all 58 skills discovered, zero loading errors. Installed execute copied alone passes the default-public native rejection and corrected five-child delivery (56.202s). Each of ten Art skills independently cold-installs dev.52 and checks CLI identity/help (110.577s); all 58 original installed skill hashes remain unchanged. All five distribution bundles reproduce exactly from immutable tags. [Version-bound evidence](evidence/codex-release53-effect-mapping-first-use-20261006.json). This closes only task 5.16; the generic Skills CLI, complete V1, model/GUI and creative gates remain open. Earlier pending statements describe the candidate/publication stages.
+
+## Fixed Effect preflight upgrade
+
+Runtime dev.66 prepares Effect source dev.9, preserving exact parameter_contract_identity_mismatch and parameter_schema_mismatch diagnostics alongside unsupported_mapping. Only bounded closed JSON reports are parsed; private command/field details are hashed and not persisted as prose. Failed children block consumers; corrected revisions reuse unaffected upstream outputs. [Runtime candidate evidence](evidence/effect-preflight-runtime-candidate-20261006.json): one red test, seven diagnosis tests pass; full runtime 165 passed / eight explicit skips. Fixed publication and installed mixed acceptance are separate.
+
+```mermaid
+flowchart LR
+ A[Effect whole-plan preflight] -->|Failure| B[Stopped task with closed diagnostic code]
+ B --> C[Film dependency blocked]
+ B --> D[Query and repeat preserve attempt]
+ D --> E[Correct plan revision]
+ E --> F[Reuse Logo and poster; rebuild intro and film]
+```

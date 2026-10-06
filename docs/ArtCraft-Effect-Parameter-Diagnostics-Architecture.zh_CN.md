@@ -33,3 +33,16 @@ flowchart LR
 ## 固定安装验收
 
 插件 dev.53／技能源 dev.38／runtime dev.52 与 Film dev.9、Effect dev.8、Photo dev.9、Vector dev.10 在 Codex 0.153.4 隔离安装：58 技能发现、零加载错误。安装后的 execute 单独复制，默认公开冷安装完成参数拒绝和修正后五子工程交付（56.202 秒）；十项 Art 技能分别从空运行时自动安装并核对 CLI 身份及帮助（110.577 秒），原安装 58 项技能摘要均保持不变。五个分发包从固定标签重建完全一致。[版本绑定证据](evidence/codex-release53-effect-mapping-first-use-20261006.json)。仅关闭 5.16；通用 Skills CLI、完整首版、模型／GUI 与创作门禁仍开放。前文待验状态保留候选及发布阶段的历史范围。
+
+## 固定 Effect 预检升级
+
+运行时 dev.66 准备绑定 Effect 技能源 dev.9，保留 parameter_contract_identity_mismatch 和 parameter_schema_mismatch 精确诊断及已有 unsupported_mapping。仍只解析有界闭合 JSON；私有命令／字段正文只计算摘要，不持久化为诊断文本。失败子任务阻断消费者，修正的新版本复用未受影响的上游产物。[运行时候选证据](evidence/effect-preflight-runtime-candidate-20261006.json)：一个预期失败测试，七项诊断测试通过；完整运行时165项通过／八项现场跳过。固定发行与安装后混合验收另行记录。
+
+```mermaid
+flowchart LR
+ A[Effect 整份计划预检] -->|失败| B[任务停止及闭合诊断码]
+ B --> C[Film 后续依赖阻断]
+ B --> D[查询与重复执行保留尝试]
+ D --> E[修正计划的新版本]
+ E --> F[复用Logo及海报；重建片头与影片]
+```

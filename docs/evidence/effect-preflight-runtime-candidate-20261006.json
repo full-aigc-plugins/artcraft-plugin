@@ -1,0 +1,40 @@
+{
+  "schema": "artcraft-effect-preflight-runtime-candidate/v1",
+  "date": "2026-10-06",
+  "result": "passed",
+  "requirements": [
+    "AC-TX-002-MAPPING",
+    "AC-TX-002-PREFLIGHT"
+  ],
+  "red": {
+    "tests": 7,
+    "pass": 6,
+    "fail": 1,
+    "missing": "parameter contract mismatch domain code"
+  },
+  "diagnosticsRegression": {
+    "tests": 7,
+    "pass": 7,
+    "skip": 0
+  },
+  "runtimeRegression": {
+    "tests": 173,
+    "pass": 165,
+    "skip": 8,
+    "seconds": 18.723
+  },
+  "sourceFingerprints": {
+    "src/harness/native_diagnostics.ts": "3aaa72b67880594c3844a91a0e12102ed464028e0f15a1c97fb427e942b76902",
+    "test/native_diagnostics.test.ts": "4562b3feab30ad1f91ba43c05f644ddff595d6fe0e25d443caa5a15a35ff0f7e",
+    "package.json": "3847b0d76e2963ccba0a82d588899b849fc0a5c85025507747c496639d4d467a"
+  },
+  "excluded": [
+    "fixed domain bundle update",
+    "installed mixed first use",
+    "full V1",
+    "generic Skills CLI install",
+    "model dispatch",
+    "GUI",
+    "creative approval"
+  ]
+}
