@@ -1,6 +1,12 @@
 # ArtCraft Agent Plugin
 
-Current plugin: `0.1.0-dev.80`; skill source: `0.1.0-dev.54`; runtime: `0.1.0-dev.78`. Complete-command inner JSON bundle upgrade published; new fixed installed gate4.10 pending.
+Current plugin: `0.1.0-dev.81`; skill source: `0.1.0-dev.55`; runtime: `0.1.0-dev.78`. Bounded native download recovery bundles published; fixed installed gate4.10 pending.
+
+Previous version-bound release: plugin dev.79 / source53 / runtime78 passed gate4.9. This remains historical evidence.
+
+Art native first-use recovery candidate pins Film18 / Effect, Photo, Vector17 and reuses runtime78. Earlier Art80 cold installation failed on a domain native SSL EOF; this is preserved evidence. New fixed installed acceptance remains open.
+
+Previous version-bound release: plugin dev.79 / source53 / runtime78 passed gate4.9. This remains historical evidence.
 
 Previous version-bound release: plugin dev.79 / source53 / runtime78 passed gate4.9. This remains historical evidence.
 
@@ -59,9 +65,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.80 |
+| Plugin ID / version | artcraft / 0.1.0-dev.81 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.54 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.55 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
