@@ -53,3 +53,10 @@ Actual acceptance covers brand graphics, poster and intro input to a Jianying dr
 2. Public registration, Job compiler, supervised driver, persistent queries, project closure packaging and independent skill entry; preserve four-domain and Video Factory compatibility.
 3. Pinned candidate CLI/runtime/skills/plugin releases, actual empty-runtime first use and failure recovery.
 4. Separate editor reopen, selective revision and native export acceptance; close AC-DM-006 only with evidence for every requirement.
+
+
+## Contract module implementation
+
+`src/adapters/jianying_contract.ts` now unwraps envelopes, preserves failed task_id values, checks pinned release identity and supported capabilities, rejects unavailable operations and reconciles unique persisted tasks. History sequence, transitions, revision, attempts, last_error and paths must agree. Reconciliation requires the original worker to have stopped; succeeded yields only verify_candidate, without publishing delivery or replaying commands. Target coverage is in `test/jianying_contract.test.ts`.
+
+This is candidate source code, not a registered public workflow or a published runtime/installed skill. Actual CLI execution, missing-artifact verification, source-tree comparisons, closure packaging and host/editor acceptance remain in tasks 12.2–12.6. Fixture regressions do not replace that acceptance.

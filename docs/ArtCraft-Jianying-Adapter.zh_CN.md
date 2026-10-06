@@ -53,3 +53,10 @@ JobRecord 不含原始业务结果，必须重建只读证据，不伪造旧回�
 2. 实现公开登记、Job 编译、监督驱动、持久查询、闭包交付和独立技能入口，保持四领域与 Video Factory 兼容。
 3. 固定候选 CLI/运行时/技能/插件发布；真实空运行目录首次使用及失败恢复验收。
 4. 编辑器重开、选择性返工与原生导出分别验收；全部要求有证据后再关闭 AC-DM-006。
+
+
+## 契约模块实施记录
+
+源码 `src/adapters/jianying_contract.ts` 已实现 envelope 解包、失败 task_id 保留、固定发行身份／supported 能力检查、操作范围拒绝和唯一持久任务收敛。历史序列、状态转移、revision、attempts、last_error 与路径需一致；仅原 worker 已停止时判断任务，succeeded 只产生 verify_candidate，不发布交付或重放命令。目标测试为 `test/jianying_contract.test.ts`。
+
+这是候选源码模块，尚未登记到公开工作流，也尚未发布到固定运行时或安装技能。真实 CLI 调用、缺产物核验、源目录差分、闭包打包和宿主／编辑器验收继续按 12.2–12.6 推进。fixture 回归不替代这些验收。

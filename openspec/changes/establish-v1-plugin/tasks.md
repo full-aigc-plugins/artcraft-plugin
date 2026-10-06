@@ -176,3 +176,5 @@
 - [ ] 12.4 实现草稿素材闭包、移动包重新核验、源工程保全、Logo 局部返工和依赖选择性失效；覆盖损坏／缺素材／越界失败。
 - [ ] 12.5 固定制品发布后执行真实单技能空运行目录首次使用、剪映创建／隔离编辑、回执前中断恢复，记录 CLI／输入／产物摘要；未授权安装不得静默执行。
 - [ ] 12.6 在受支持剪映版本真实重开与对象编辑验收；原生导出若不可用保持该项未完成，不用 proxy 代替。完成全部场景前保持 6.18 未完成。
+
+- [x] 12.7 [AC-DM-006] 完成公开契约模块目标 RED→GREEN：真实 envelope 和失败任务 ID、固定发行身份、supported 能力、不可用导出、状态历史及失回执唯一任务判断；succeeded 仅待产物核验。产物：src/adapters/jianying_contract.ts、test/jianying_contract.test.ts、docs/evidence/jianying-contract-module-20261006.json。该补充不关闭 12.2–12.6 或 6.18。
