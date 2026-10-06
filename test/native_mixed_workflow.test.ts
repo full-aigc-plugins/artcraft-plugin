@@ -34,7 +34,7 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
    const runtimeLock=JSON.parse(await readFile(join(skillRoot,'scripts/runtime.lock.json'),'utf8'));
    const nativeVersion=runtimeLock.resolvedVersion;
    const nativeExecutable=join(runtimeHome!,pluginId,nativeVersion,pluginId+'-cli');
-   const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'].map(async name=>({path:join(skillRoot,'scripts',name),sha256:hash(await readFile(join(skillRoot,'scripts',name)))})));
+   const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(async name=>({path:join(skillRoot,'scripts',name),sha256:hash(await readFile(join(skillRoot,'scripts',name)))})));
    configs[pluginId]={pluginId,skillRoot,python,pythonSha256:pythonHash,nativeExecutable,runtimeHome:runtimeHome!,files,outputRoot:join(root,'deliveries')};
    factories[pluginId]=publicSkillFactory(configs[pluginId]);
    identities[pluginId]={pluginId,pluginVersion:'0.1.0',cliVersion:nativeVersion,sha256:hash(await readFile(nativeExecutable)),mode:'headless',capabilitySnapshotSha256:hash(JSON.stringify(files))};

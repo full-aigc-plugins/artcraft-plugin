@@ -26,7 +26,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
  const locked=structuredClone(config);
  if(!Object.hasOwn(projects,locked.pluginId) || ![locked.skillRoot,locked.python,locked.nativeExecutable,locked.runtimeHome,locked.outputRoot].every(isAbsolute))throw new Error('skill_config_invalid');
  const script=join(locked.skillRoot,'scripts','workflow.py');
- for(const name of ['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py']){
+ for(const name of ['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py']){
   if(!locked.files.some(file=>file.path===join(locked.skillRoot,'scripts',name)))throw new Error('skill_lock_incomplete');
  }
  const factory:AdapterFactory=async(nodeValue,inputValues,taskId)=>{

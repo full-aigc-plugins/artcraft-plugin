@@ -1,8 +1,8 @@
 /** 真实原生保存后的协议故障：运行实际发布的编排引擎，测试钩子不进入产品。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { mkdtemp, readFile, rm, writeFile, readdir } from 'node:fs/promises';
+import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
@@ -30,7 +30,7 @@ for(const domainId of domains)for(const fault of ['malformed','scalar','missing'
   try{
    const domain=installation.skills[domainId];
    const skillRoot=domainId==='vectorcraft'&&candidateSkill?candidateSkill:domain.skillRoot;
-   const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'].map(async name=>({path:join(skillRoot,'scripts',name),sha256:sha(await readFile(join(skillRoot,'scripts',name)))})));
+   const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(async name=>({path:join(skillRoot,'scripts',name),sha256:sha(await readFile(join(skillRoot,'scripts',name)))})));
    const nativeHash=sha(await readFile(domain.executable));
    const pluginVersion=process.env.CRAFT_PROTOCOL_PLUGIN_VERSION||(candidateSkill&&domainId==='vectorcraft'?'0.1.0-candidate':domain.runtimeIdentity.pluginVersion);
    const identity={...domain.runtimeIdentity,pluginVersion,sha256:nativeHash};
@@ -39,12 +39,13 @@ for(const domainId of domains)for(const fault of ['malformed','scalar','missing'
    const wrapper=fileURLToPath(new URL('./fixtures/workflow_protocol_injection.py',import.meta.url));
    const suffix=({filmcraft:'fcproj',effectcraft:'ecproj',photocraft:'pcraft',vectorcraft:'vectorcraft'} as Record<string,string>)[domainId];
    const log=join(root,'native-saves.jsonl'),capture=join(root,'saved.'+suffix),replyFile=join(root,'public-workflow-reply.json');
-   let preparations=0;
+   let preparations=0,delivery='';
    const injected=async(node:any,inputs:any[],taskId:string)=>{
     const compiled=await factory(node,inputs,taskId);
     return {...compiled,adapter:{...compiled.adapter,prepare:async(request:any)=>{
      preparations++;
      const plan=await compiled.adapter.prepare(request);
+     delivery=plan.args[plan.args.indexOf('--output')+1];
      return {...plan,args:['-I','-B',wrapper,proxy,fault,log,capture,replyFile,...plan.args.slice(2)],launcherIdentity:{...plan.launcherIdentity,files:[...plan.launcherIdentity.files,{path:wrapper,sha256:sha(await readFile(wrapper))},{path:proxy,sha256:sha(await readFile(proxy))}]}};
     }}};
    };
@@ -84,21 +85,37 @@ for(const domainId of domains)for(const fault of ['malformed','scalar','missing'
    const saves=saveLog.trim().split('\n').map(line=>JSON.parse(line));
    assert.equal(saves.length,1);assert.equal(saves[0].saveSucceeded,true);
    const capturedHash=sha(await readFile(capture));assert.equal(capturedHash,saves[0].sha256);
+   const failure=JSON.parse(await readFile(join(delivery,'failure.json'),'utf8'));
+   assert.equal(failure.schema,'craft-failed-stage/v1');
+   assert.equal(failure.outcome,'outcome_unknown');assert.equal(failure.replayAllowed,false);
+   assert.equal(failure.acceptance,'not-a-successful-delivery');
+   assert.equal(failure.lastAttempt.phase,'submitted');
+   const saveCommand=({filmcraft:'file.saveAs',effectcraft:'save_project',photocraft:'doc_save',vectorcraft:'document.save'} as Record<string,string>)[domainId];
+   assert.ok(JSON.stringify(failure.lastAttempt).includes(saveCommand));
+   const stage=resolve(delivery,failure.stage);
+   assert.deepEqual(JSON.parse(await readFile(join(stage,'failure.json'),'utf8')),failure);
+   const originals=(await readdir(stage)).filter(name=>name.endsWith('.'+suffix));assert.equal(originals.length,1);
+   const original=join(stage,originals[0]);assert.equal(sha(await readFile(original)),capturedHash);
+   for(const [name,entry] of Object.entries(failure.files) as [string,{sha256:string;bytes:number}][]){
+    const bytes=await readFile(join(stage,name));assert.equal(sha(bytes),entry.sha256);assert.equal(bytes.length,entry.bytes);
+   }
+   await assert.rejects(readFile(join(delivery,'manifest.json')),/ENOENT/);
    const reference={path:{$ref:'project.path'}};
    const inspectPlans:Record<string,any[]>={filmcraft:[{command:'file.open',params:reference},{command:'sequence.inspect',params:{}}],effectcraft:[{tool:'open_project',params:reference},{tool:'get_comp',params:{}}],photocraft:[{tool:'doc_open',params:reference},{tool:'doc_inspect',params:{}}],vectorcraft:[{command:'document.open',params:reference},{command:'document.json',params:{}}]};
    const inspectionPlan=join(root,'inspection-plan.json');
    await writeFile(inspectionPlan,JSON.stringify({schema:'craft-command-plan/v1',operations:inspectPlans[domainId]}));
-   const reopened=JSON.parse((await exec(installation.pythonExecutable,['-I','-B',join(skillRoot,'scripts/commands.py'),'run',inspectionPlan,'--input','project='+capture,'--output',join(root,'reopened'),'--runtime-home',installation.runtimeHome])).stdout);
+   const reopened=JSON.parse((await exec(installation.pythonExecutable,['-I','-B',join(skillRoot,'scripts/commands.py'),'run',inspectionPlan,'--input','project='+original,'--output',join(root,'reopened'),'--runtime-home',installation.runtimeHome])).stdout);
    assert.equal(reopened.result,'PASS');
    const second=await engine.run(plan);
    assert.equal(preparations,1);assert.equal(second.nodes.logo.taskId,taskId);
    assert.equal(ledger.status(taskId).attemptId,receipt.attemptId);assert.deepEqual(second.budget,first.budget);
    assert.equal(await readFile(log,'utf8'),saveLog);
    assert.equal(sha(await readFile(capture)),capturedHash);assert.equal(sha(await readFile(domain.executable)),nativeHash);
+   assert.equal(sha(await readFile(original)),capturedHash);
    for(const input of externalInputs)assert.equal(sha(await readFile(join(input.root,input.artifact.location))),input.artifact.sha256);
    for(const file of files)assert.equal(sha(await readFile(file.path)),file.sha256);
-   records.push({domainId,fault,result:'PASS',pluginVersion,runtimeVersion:installation.version,nativeSha256:nativeHash,clientSha256:files.find(file=>file.path.endsWith('mcp_session.py'))!.sha256,saveCount:1,nativeReopen:true,consumerBlocked:true,publicUnknownReply:true,attemptPreserved:true,budgetPreserved:true,registeredInputCount:externalInputs.length,registeredInputsPreserved:true,noReplay:true});
-   if(output)await writeFile(output,JSON.stringify({schema:'art-native-protocol-workflow-candidate/v1',result:records.length===domains.length*6?'PASS':'RUNNING',cases:records,scope:'actual public downloaded runtime + trusted public domain adapters; transparent post-save response test hook; separately hash-bound supplied clients',excluded:['complete per-command or GUI acceptance','new native partial file preservation by product: capture is test-only']},null,2)+'\n');
+   records.push({domainId,fault,result:'PASS',pluginVersion,runtimeVersion:installation.version,nativeSha256:nativeHash,clientSha256:files.find(file=>file.path.endsWith('mcp_session.py'))!.sha256,recoveryModuleSha256:files.find(file=>file.path.endsWith('preserved_stage.py'))!.sha256,originalStagePreserved:true,retainedFileCount:Object.keys(failure.files).length,lastAttemptPreserved:true,saveCount:1,nativeReopen:true,consumerBlocked:true,publicUnknownReply:true,attemptPreserved:true,budgetPreserved:true,registeredInputCount:externalInputs.length,registeredInputsPreserved:true,noReplay:true});
+   if(output)await writeFile(output,JSON.stringify({schema:'art-native-protocol-workflow-candidate/v1',result:records.length===domains.length*6?'PASS':'RUNNING',cases:records,scope:'actual public downloaded runtime + trusted public domain adapters; original product-retained stage inspected and reopened; transparent post-save response test hook; proxy capture used only as hash witness',excluded:['complete per-command or GUI acceptance','force-kill or filesystem-crash durability']},null,2)+'\n');
   }finally{ledger.close();await rm(root,{recursive:true,force:true});}
  });
 }

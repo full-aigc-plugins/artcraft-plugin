@@ -12,12 +12,17 @@ import { WorkflowEngine } from '../src/planning/workflow_engine.ts';
 const hash=(value:Buffer|string)=>createHash('sha256').update(value).digest('hex');
 const cli=process.env.CRAFT_EFFECTCRAFT_CLI;
 const skill=process.env.CRAFT_EFFECTCRAFT_SKILL;
+test('public skill refuses a launcher lock that omits failed-stage preservation',()=>{
+ const root=join(tmpdir(),'craft-missing-preservation');
+ const files=['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'].map(name=>({path:join(root,'scripts',name),sha256:'0'.repeat(64)}));
+ assert.throws(()=>publicSkillFactory({pluginId:'filmcraft',skillRoot:root,python:process.execPath,pythonSha256:'0'.repeat(64),nativeExecutable:'/usr/bin/true',runtimeHome:root,files,outputRoot:join(root,'output')}),/skill_lock_incomplete/);
+});
 test('public VectorCraft binding forwards registered input and rejects unbound or inline paths',async()=>{
  const {writeFile,mkdir}=await import('node:fs/promises');
  const root=await mkdtemp(join(tmpdir(),'craft-vector-binding-'));
  try{
   const skillRoot=join(root,'skill');await mkdir(join(skillRoot,'scripts'),{recursive:true});
-  const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'contract fixture');return {path,sha256:hash('contract fixture')};}));
+  const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'contract fixture');return {path,sha256:hash('contract fixture')};}));
   const factory=publicSkillFactory({pluginId:'vectorcraft',skillRoot,python:process.execPath,pythonSha256:hash(await readFile(process.execPath)),nativeExecutable:'/usr/bin/true',runtimeHome:root,files,outputRoot:join(root,'output')});
   const data=Buffer.from('registered fixture; no native format acceptance');await writeFile(join(root,'input.bin'),data);
   const digest=hash(data);
@@ -26,6 +31,10 @@ test('public VectorCraft binding forwards registered input and rejects unbound o
   const made=await factory(node,[input],'new');
   const prepared=await made.adapter.prepare({runtimeIdentity:node.runtimeIdentity,expectedRevision:null} as any);
   assert.deepEqual(prepared.args.slice(-2),['--asset','product='+join(root,'input.bin')]);
+  const preserved=files.find(file=>file.path.endsWith('/preserved_stage.py'))!;
+  assert.ok(prepared.launcherIdentity!.files.some(file=>file.path===preserved.path && file.sha256===preserved.sha256));
+  const tampered=publicSkillFactory({pluginId:'vectorcraft',skillRoot,python:process.execPath,pythonSha256:hash(await readFile(process.execPath)),nativeExecutable:'/usr/bin/true',runtimeHome:root,files:files.map(file=>file.path===preserved.path?{...file,sha256:'0'.repeat(64)}:file),outputRoot:join(root,'tampered')});
+  await assert.rejects(tampered(node,[input],'tampered'),/launcher_file_identity_mismatch/);
   await assert.rejects(factory({...node,payload:{...node.payload,assetBindings:[]}},[input],'unbound'),/skill_input_unbound/);
   await assert.rejects(factory({...node,payload:{...node.payload,plan:{assets:{product:{path:'/outside'}}}}},[input],'path'),/skill_payload_invalid/);
  }finally{await rm(root,{recursive:true});}
@@ -34,7 +43,7 @@ test('public EffectCraft skill script produces registered native project and ren
  const root=await mkdtemp(join(tmpdir(),'craft-public-skill-'));const ledger=new TaskLedger(join(root,'tasks.sqlite'));
  try{
   const python='/opt/anaconda3/bin/python3',runtimeHome=join(homedir(),'.local/share/craft-runtimes');
-  const scripts=['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'];
+  const scripts=['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'];
   const files=await Promise.all(scripts.map(async name=>({path:join(skill!,'scripts',name),sha256:hash(await readFile(join(skill!,'scripts',name)))})));
   const factory=publicSkillFactory({pluginId:'effectcraft',skillRoot:skill!,python,pythonSha256:hash(await readFile(python)),nativeExecutable:cli!,runtimeHome,files,outputRoot:join(root,'deliveries')});
   const runtimeIdentity={pluginId:'effectcraft',pluginVersion:'0.1.0',cliVersion:'0.2.0',sha256:hash(await readFile(cli!)),mode:'headless',capabilitySnapshotSha256:hash(JSON.stringify(files))};
@@ -70,7 +79,7 @@ test('public EffectCraft skill script produces registered native project and ren
 test('public skill preflight rejects arbitrary paths, inline assets and unbound revisions before writes',async()=>{
  const root=await mkdtemp(join(tmpdir(),'craft-skill-preflight-'));
  try{
-  const files=['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'].map(name=>({path:join(root,'scripts',name),sha256:'0'.repeat(64)}));
+  const files=['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(name=>({path:join(root,'scripts',name),sha256:'0'.repeat(64)}));
   const factory=publicSkillFactory({pluginId:'effectcraft',skillRoot:root,python:process.execPath,pythonSha256:'0'.repeat(64),nativeExecutable:'/usr/bin/true',runtimeHome:root,files,outputRoot:join(root,'output')});
   const node={id:'intro',dependsOn:[],projectKey:'intro',runtimeIdentity:{pluginId:'effectcraft'},expectedRevision:null,payload:{schemaVersion:'craft-skill-workflow/v1',plan:{},assetBindings:[],outputs:[{assetId:'render',location:'../outside.mp4',mediaType:'video/mp4'}]}};
   await assert.rejects(factory(node,[],'task'),/skill_output_invalid/);
@@ -91,7 +100,7 @@ test('source binding derives public source argv and refuses revision drift',asyn
   await writeFile(join(source,'project.ecproj'),native);
   const manifest={schema:'effectcraft-delivery/v1',runtimeSha256:'a'.repeat(64),files:{'project.ecproj':digest},assets:{},bindings:{}};
   const manifestText=JSON.stringify(manifest);await writeFile(join(source,'manifest.json'),manifestText);
-  const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'fixture');return {path,sha256:hash('fixture')};}));
+  const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'fixture');return {path,sha256:hash('fixture')};}));
   const factory=publicSkillFactory({pluginId:'effectcraft',skillRoot,python:process.execPath,pythonSha256:hash(await readFile(process.execPath)),nativeExecutable:'/usr/bin/true',runtimeHome:root,files,outputRoot:join(root,'output')});
   const reference={assetId:'native',version:digest,sha256:digest,location:'project.ecproj'};
   const artifact={protocolVersion:'craft-artifact/v1',assetId:'old-project',version:digest,sha256:digest,bytes:native.length,mediaType:'application/octet-stream',producerTaskId:'old-task',sourceRefs:[],nativeProjectRef:reference,renditions:[],dependencies:[],technicalMetadata:{},lossReportRef:null,evidenceRefs:[{assetId:'manifest',version:hash(manifestText),sha256:hash(manifestText),location:'manifest.json'}],location:'project.ecproj'};
@@ -132,7 +141,7 @@ test('retained media binding keeps upstream dependency without reinserting sourc
   await writeFile(join(source,'project.fcproj'),native);await writeFile(join(source,'intro.mp4'),media);await writeFile(join(upstream,'intro.mp4'),media);
   const manifest={schema:'filmcraft-delivery/v1',runtimeSha256:'a'.repeat(64),files:{'project.fcproj':nativeSha,'intro.mp4':mediaSha},assets:{intro:{path:'intro.mp4',sha256:mediaSha}},bindings:{}};
   const text=JSON.stringify(manifest);await writeFile(join(source,'manifest.json'),text);
-  const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'fixture');return {path,sha256:hash('fixture')};}));
+  const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'fixture');return {path,sha256:hash('fixture')};}));
   const factory=publicSkillFactory({pluginId:'filmcraft',skillRoot,python:process.execPath,pythonSha256:hash(await readFile(process.execPath)),nativeExecutable:'/usr/bin/true',runtimeHome:root,files,outputRoot:join(root,'output')});
   const base={protocolVersion:'craft-artifact/v1',producerTaskId:'previous',sourceRefs:[],renditions:[],dependencies:[],technicalMetadata:{},lossReportRef:null};
   const old={...base,assetId:'old-film',version:nativeSha,sha256:nativeSha,bytes:native.length,mediaType:'application/octet-stream',nativeProjectRef:{assetId:'native',version:nativeSha,sha256:nativeSha,location:'project.fcproj'},evidenceRefs:[{assetId:'manifest',version:hash(text),sha256:hash(text),location:'manifest.json'}],location:'project.fcproj'};

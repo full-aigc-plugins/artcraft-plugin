@@ -20,7 +20,7 @@ test('Film binding forwards typed sequence and other domains refuse it',async()=
  const {publicSkillFactory}=await import('../src/adapters/public_skill.ts');const f=await fixture();
  try{
   const skillRoot=join(f.root,'skill');await mkdir(join(skillRoot,'scripts'),{recursive:true});
-  const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'fixture');return {path,sha256:sha('fixture')};}));
+  const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'fixture');return {path,sha256:sha('fixture')};}));
   const config={pluginId:'filmcraft' as const,skillRoot,python:process.execPath,pythonSha256:sha(await readFile(process.execPath)),nativeExecutable:'/usr/bin/true',runtimeHome:f.root,files,outputRoot:join(f.root,'output')};
   const node:any={id:'film',dependsOn:[],projectKey:'film',runtimeIdentity:{pluginId:'filmcraft'},expectedRevision:null,payload:{schemaVersion:'craft-skill-workflow/v1',plan:{operations:[]},assetBindings:[{name:'intro',assetId:'animation'}],outputs:[{assetId:'film',location:'project.fcproj',mediaType:'application/octet-stream'}]}};
   const input={root:f.root,artifact:f.artifact},factory=publicSkillFactory(config),made=await factory(node,[input],'sequence-film');
@@ -38,7 +38,7 @@ for(const filter of [0,1,2,3,4])test('RGBA pixel facts decode PNG filter '+filte
 test('sequence Brief checks actual dimensions, rational rate and duration',async()=>{
  const {publicSkillFactory}=await import('../src/adapters/public_skill.ts');const f=await fixture();
  try{
-  const files=['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py'].map(name=>({path:join(f.root,'scripts',name),sha256:'a'.repeat(64)}));
+  const files=['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(name=>({path:join(f.root,'scripts',name),sha256:'a'.repeat(64)}));
   const factory=publicSkillFactory({pluginId:'effectcraft',skillRoot:f.root,python:process.execPath,pythonSha256:'a'.repeat(64),nativeExecutable:'/usr/bin/true',runtimeHome:f.root,files,outputRoot:join(f.root,'output')}),node:any={runtimeIdentity:{pluginId:'effectcraft'}},brief={width:2,height:1,frameRate:{num:12,den:1},durationSeconds:1/6};
   await factory.verifyBriefExport!(node,f.root,[f.artifact],brief);
   for(const [change,error] of [[{width:3},'size'],[{frameRate:{num:24,den:1}},'frame_rate'],[{durationSeconds:1},'duration']] as const)await assert.rejects(factory.verifyBriefExport!(node,f.root,[f.artifact],{...brief,...change}),new RegExp('brief_export_'+error+'_mismatch'));
