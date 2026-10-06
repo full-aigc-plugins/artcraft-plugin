@@ -31,7 +31,7 @@ PNG runtime dev.56 is published from an immutable tag and the source dev.40 snap
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.75`; skill source: `0.1.0-dev.51`; runtime: `0.1.0-dev.73`. Bounded download-recovery acceptance, ten immutable-source cold installations and actual installed mixed checks passed. Orchestration protocol faults, Skills CLI and full V1 remain open.
+Current plugin: `0.1.0-dev.76`; skill source: `0.1.0-dev.51`; runtime build: `0.1.0-dev.76`. This intermediate runtime release prepares the domain-client upgrade; the currently vendored source still installs distribution dev.73. Updated source and fixed installed acceptance remain pending.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
@@ -55,7 +55,7 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.75 |
+| Plugin ID / version | artcraft / 0.1.0-dev.76 |
 | Specification authority | openspec/changes/establish-v1-plugin |
 | Skill authority | Independent artcraft-skills / published v0.1.0-dev.51 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
