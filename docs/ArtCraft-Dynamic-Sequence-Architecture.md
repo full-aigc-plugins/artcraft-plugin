@@ -2,9 +2,9 @@
 
 ## Status and authority
 
-This is a candidate implementation under `establish-v1-plugin`, requirement AC-AR-003. Public Art plugin dev.63 / source dev.43 / runtime dev.62 does not contain this change. Fixed-release installation, a full four-domain Logo replacement workflow, generic Skills CLI and model/GUI/creative acceptance remain open. [Candidate evidence](evidence/dynamic-sequence-candidate-20261006.json) owns the exact test and source identity.
+This is bounded fixed-installed acceptance under `establish-v1-plugin`, requirement AC-AR-003. Public Art plugin dev.63 / source dev.43 / runtime dev.62 does not contain this change. Bounded fixed-release installation and four-domain Logo replacement pass; generic Skills CLI and model/GUI/full creative acceptance remain open. [Candidate evidence](evidence/dynamic-sequence-candidate-20261006.json) owns the exact test and source identity.
 
-Runtime dev.64 and independent source dev.44 are published. Copied-alone default public cold four-domain/five-node execution, Logo replacement, corrupt-frame recovery and moved packaging pass one test (59.343s). [Pinned source evidence](evidence/dynamic-source44-first-use-20261006.json). Full plugin dev.65 is prepared; its installed-host acceptance remains pending. Historical candidate evidence keeps its original scope.
+Runtime dev.64 and independent source dev.44 are published. Copied-alone default public cold four-domain/five-node execution, Logo replacement, corrupt-frame recovery and moved packaging pass one test (59.343s). [Pinned source evidence](evidence/dynamic-source44-first-use-20261006.json). Full plugin dev.65 installed dynamic mixed first use and all 58 cold CLI starts pass. Historical candidate evidence keeps its original scope.
 
 ## Handoff contract
 
@@ -33,4 +33,6 @@ The MIME is `application/vnd.craft.image-sequence+json`; its descriptor schema i
 
 The candidate native test uses fixed installed Effect dev.9 and Film dev.10 skills through their public scripts, without importing private Python modules. Art's current working-tree WorkflowEngine/ledger/runner creates the Effect animation, consumes it as a Film sequence, independently decodes the 12-frame video and checks sampled alpha composites. After moving the Film project and deleting the original background, retained media is read from the moved package and a title-only Effect revision replaces the overlay; background and initial frame remain unchanged, the animated title frame changes, and all prior Film files retain their hashes. A corrupt intermediate frame is rejected; rerunning the scheduler enters blocked state before further consumption.
 
-This proves the tested candidate route. It does not prove an updated installed Art skill, a cold Art bundle, complete mixed branding, all failure recovery, or artistic approval. Tasks 6.37–6.39 separate protocol, candidate mapping and fixed-release acceptance. Research repositories and existing immutable releases remain unchanged; Art contains no Jianying adapter.
+Historical candidate evidence proves only the tested candidate route. It does not prove an updated installed Art skill, a cold Art bundle, complete mixed branding, all failure recovery, or artistic approval. Tasks 6.37–6.39 separate protocol, candidate mapping and fixed-release acceptance. Research repositories and existing immutable releases remain unchanged; Art contains no Jianying adapter.
+
+[Fixed dev.65 evidence](evidence/codex-release65-dynamic-first-use-20261006.json) binds installed dynamic four-domain Logo replacement/recovery and moved packaging, ordinary native source revisions, all 58 cold CLI starts and retained installation hashes. Default user-data storage now contains all four pinned native CLIs and Art runtime. Full V1 and creative gates remain open.

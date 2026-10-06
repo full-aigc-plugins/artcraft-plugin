@@ -2,9 +2,9 @@
 
 ## 状态与事实源
 
-本次是 `establish-v1-plugin` 下 AC-AR-003 的候选实现。公开 Art 插件 dev.63／技能源 dev.43／runtime dev.62 尚未包含该变更。固定发行安装、完整四领域 Logo 替换、通用 Skills CLI、模型／GUI／创作验收仍开放。[候选证据](evidence/dynamic-sequence-candidate-20261006.json) 记录精确测试与源码身份。
+本次是 `establish-v1-plugin` 下 AC-AR-003 的固定安装增量验收。公开 Art 插件 dev.63／技能源 dev.43／runtime dev.62 尚未包含该变更。固定发行安装与四领域 Logo 替换的有界验收已通过；通用 Skills CLI、模型／GUI／完整创作验收仍开放。[候选证据](evidence/dynamic-sequence-candidate-20261006.json) 记录精确测试与源码身份。
 
-runtime dev.64 与独立技能源 dev.44 已公开发布，单技能默认公开冷启动四领域五节点、Logo 替换、损坏帧恢复和移动包 1 项通过（59.343 秒）。[源码固定依赖证据](evidence/dynamic-source44-first-use-20261006.json)。完整插件 dev.65 已准备，新版安装宿主验收待执行；历史候选证据保留原范围。
+runtime dev.64 与独立技能源 dev.44 已公开发布，单技能默认公开冷启动四领域五节点、Logo 替换、损坏帧恢复和移动包 1 项通过（59.343 秒）。[源码固定依赖证据](evidence/dynamic-source44-first-use-20261006.json)。完整插件 dev.65 固定安装后的动态混合首用和 58 项 CLI 冷启动已通过；历史候选证据保留原范围。
 
 ## 交接合同
 
@@ -33,4 +33,6 @@ MIME 为 `application/vnd.craft.image-sequence+json`，描述文件 schema 为 `
 
 候选原生测试通过公开脚本调用固定安装的 Effect dev.9 与 Film dev.10 技能，不导入其私有 Python 模块。Art 当前工作树的 WorkflowEngine／ledger／runner 生成动画并交给 Film，独立解码 12 帧视频并检查抽样 Alpha 合成。移动 Film 工程并删除原背景文件后，仅从移动包读取保留背景，修改 Effect 标题并替换叠加片段：背景与初始帧不变，动画文字帧改变，旧 Film 全部文件摘要保留。中间帧损坏会被拒绝，再次调度进入 blocked 状态，禁止下游继续消费。
 
-上述仅证明本次候选路径，不代表新版 Art 安装技能、Art 空运行时、完整混合品牌项目、全部故障恢复或创作批准。任务 6.37–6.39 分开记录协议、候选映射和固定发行验收。research 与旧不可变发行保持原样；Art 不含剪映适配器。
+历史候选证据仅证明当时的候选路径，不代表新版 Art 安装技能、Art 空运行时、完整混合品牌项目、全部故障恢复或创作批准。任务 6.37–6.39 分开记录协议、候选映射和固定发行验收。research 与旧不可变发行保持原样；Art 不含剪映适配器。
+
+固定 dev.65 安装验收见 [版本证据](evidence/codex-release65-dynamic-first-use-20261006.json)：动态四领域 Logo 替换／恢复与移动包、普通原生工程返工、58 项独立 CLI 冷启动及安装摘要保全均有实际记录；默认用户数据目录包含锁定四领域 CLI 与 Art runtime。完整首版和创作门禁未关闭。

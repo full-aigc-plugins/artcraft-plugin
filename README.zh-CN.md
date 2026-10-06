@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-当前 runtime 与独立技能源已接入类型化动态序列；新版完整插件已准备，固定安装复验待执行。详见[架构](docs/ArtCraft-Dynamic-Sequence-Architecture.zh_CN.md)。
+当前 runtime 与独立技能源已接入类型化动态序列；新版完整插件动态复验与全部 58 项 CLI 冷启动已通过。详见[架构](docs/ArtCraft-Dynamic-Sequence-Architecture.zh_CN.md)。
 
 历史固定 JPEG 发行 dev.59／技能源 dev.41／运行时 dev.58：隔离 Codex 发现五插件／58 技能／零错误；安装副本 JPEG、PNG、PCM 原生交付、十项 Art 冷安装及全部安装摘要保全通过。渐进 JPEG 交付重开的三层 Photo 工程及独立解码 PNG／PSD，迁移验包通过。[版本绑定证据](docs/evidence/codex-release59-jpeg-first-use-20261006.json)。完整首版／模型／GUI／创作验收仍开放。
 
@@ -12,7 +12,7 @@ PNG 运行时 dev.56 已由不可变标签发布，技能源 dev.40 快照已固
 
 ## 当前版本与可复现宿主验证
 
-当前插件 `0.1.0-dev.65`，独立技能源 `0.1.0-dev.44`，运行时 `0.1.0-dev.64`。公开技能源动态混合冷启动已通过，新版安装宿主复验待执行；完整首版仍开放，历史证据保留原范围。
+当前插件 `0.1.0-dev.65`，独立技能源 `0.1.0-dev.44`，运行时 `0.1.0-dev.64`。公开技能源动态混合冷启动已通过，固定安装后的动态交接复验通过；完整首版仍开放，历史证据保留原范围。
 
 固定 dev.38 验收：Codex 0.153.4 发现 58 项技能，加载错误为零；实际安装目录的单技能在线冷启动通过 3 项、无跳过，95.289 秒。四源返工、三领域尺寸修改、保存后产物摘要、Effect 实际视频属性、复用和源工程保全均通过，58 个安装技能摘要未变。[证据](docs/evidence/codex-release38-native-brief-first-use-20261006.json)。运行时回归 123 项通过、5 项可选跳过；完整模型／GUI／创作／生产验收仍开放。dev.37 标签因暂存失败保留历史，未创建 Release，也不作为插件快照使用。
 
@@ -278,3 +278,5 @@ Vector 素材源码候选已接入登记输入和替换核验，真实 Vector �
 固定已安装矩阵 Film9／Effect8／Photo10／Vector11／Art61 通过登记 PNG／JPEG 的 Vector→Photo 替换复用（1 项）、四领域原生首用／恢复／打包（3 项），以及更新的 Photo／Art 全部 22 技能独立空缓存 CLI 检查（190.051 秒）；58 个安装技能摘要保持不变。SVG 混合输入、动态透明序列与完整创作验收仍开放。[证据](docs/evidence/codex-release61-vector-photo-first-use-20261006.json)。
 
 固定 ArtCraft 插件 dev.63／技能源 dev.43／runtime dev.62：隔离 Codex 发现五插件／58 技能／零错误；安装后 PNG／JPEG 与 SVG 混合首用 2 项通过（76.574 秒）、四领域回归 3 项通过（116.076 秒）、Art 十项独立冷启动通过（133.395 秒）。原安装全部 58 项摘要保全，五包固定重建一致，两份公开发行附件及逐文件摘要匹配。SVG 拒绝保留领域代码；替换只重建消费者，非目标像素保持，PNG／PSD 独立核对且迁移包通过。仅关闭有界固定 SVG 交接门禁；SVG 类型元数据、动态透明序列及完整首版／创作／模型／GUI 仍开放。[固定证据](docs/evidence/codex-release63-svg-first-use-20261006.json)。
+
+固定 Art dev.65／技能源 dev.44／runtime dev.64：五插件 58 技能发现零错误；安装后单技能动态四领域交付与 Logo 替换／恢复通过（1 项，62.100 秒），普通原生源工程局部返工回归通过（1 项原生场景＋1 项合同测试，52.541 秒），全部 58 项独立 CLI 冷启动通过（408.253 秒）。安装摘要保持固定，公开附件、固定重建及默认用户数据目录原生安装已核验。[证据](docs/evidence/codex-release65-dynamic-first-use-20261006.json)。完整首版、通用 Skills CLI、模型／GUI／创作／生产验收仍开放。
