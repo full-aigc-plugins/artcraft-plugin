@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-Current plugin dev.47 / skills dev.35 / runtime dev.45 pins FilmCraft source dev.7 for selective static audio gain revisions. Candidate public first use passes; fixed installed-snapshot verification is pending. Jianying remains an independent plugin outside adaptation scope. Earlier evidence retains its original release scope.
+Current plugin dev.47 / skills dev.35 / runtime dev.45 pin FilmCraft source dev.7. Fixed public installation and selective static audio gain first-use verification pass; all 58 installed skill hashes are preserved. Earlier evidence retains its original release scope; full V1/model/GUI/creative acceptance remains open.
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
