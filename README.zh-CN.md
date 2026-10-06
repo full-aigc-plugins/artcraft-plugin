@@ -238,3 +238,5 @@ ArtCraft 技能源 dev.33 固定 FilmCraft 技能 dev.6，保留运行时 dev.41
 固定插件 dev.44 与未改变的四领域矩阵已公开安装复验：58 技能发现、零加载错误；单独复制安装后的 setup 技能，从空运行目录安装运行时 dev.41 并核对版本／帮助，无剪映适配命令，全部安装技能摘要保持不变。[发行范围与首次使用证据](docs/evidence/codex-release44-scope-and-cold-cli-20261006.json)。上述混合／原生证据保持其原版本范围。
 
 独立安装验证器现已拒绝同版本的其他工具、包含预期版本的错误诊断和错误的 ArtCraft JSON 身份。目标 7 项通过；全库 57 项中 53 项通过、4 项跳过。重新解析此前记录的 58 项原生输出全部通过，此检查不代表重新执行安装。[身份门禁证据](docs/evidence/independent-install-identity-regression.json)。
+
+安装后的恢复技能从空运行目录首次使用，真实调度器 SIGKILL 后独立 worker 留下停止证据；公开工作流重开同一原生 attempt，不重放、不增加预算，视频确认 96 帧。[崩溃接管验收](docs/ArtCraft-Scheduler-Crash-Acceptance.zh_CN.md)。worker 崩溃、模型及创作验收仍需独立证据。

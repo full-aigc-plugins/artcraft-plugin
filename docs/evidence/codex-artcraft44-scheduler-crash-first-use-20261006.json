@@ -1,0 +1,73 @@
+{
+  "schema": "craft-installed-scheduler-crash-first-use/v1",
+  "result": "passed",
+  "skillSha256": "325765ebd1731dd8e2f5a0b8b9d0ec9a35c65b957e3faeeef3661b507cc793c8",
+  "planSha256": "46bad2ec61102d1fdafb0d57175ae1e44cb1756538fd7c0674127caa7bea5a47",
+  "runtimeMode": "single installed recover skill; empty runtime; default public installation",
+  "injectedFault": "SIGKILL only the owned ArtCraft scheduler child; independent worker remains",
+  "attemptId": "41f1ac92-72ec-4405-9bfc-7228c6d16edf",
+  "epoch": 1,
+  "commandSha256": "48bb562ba7205ef4a985b2c46c0c1ee1abaa4cf6bce85e7243ea2371c2003931",
+  "nativeSpawnCount": 1,
+  "budgetPreserved": true,
+  "decodedVideo": {
+    "width": 640,
+    "height": 360,
+    "frames": 96,
+    "frameRate": 24
+  },
+  "artifactFiles": {
+    "project.ecproj": "a0d258d4635a51f0cf18cf67f7b454bc0bcbe37288e075f88907a2f601a0092f",
+    "plan.json": "af48db9ec01946c0e5230846f7caa06d1cc0aa477d7258b416c335ea176a1377",
+    "exchange-loss.json": "4134149ec645a5fcbd227f3586a3f1c46d59fef99c1eee3c1de9691cfc451edf",
+    "native.json": "e3207fa232f4d1975e65b8cff48accd053af22ec0d72ac7f49e62e37a4dda5dc",
+    "frame-0000.png": "2af5a19c85ac6515c152fe6d1a40956d7fa54135a78b8db0fe7446a6709acb0d",
+    "frame-0001.png": "2af5a19c85ac6515c152fe6d1a40956d7fa54135a78b8db0fe7446a6709acb0d",
+    "manifest.json": "b24900d27d2a2a2aeba8380b88bb142e43c59ffe963bdbcd46153de8a7faed45",
+    "intro.mp4": "f9c0700fcac7dab546445e18862abb7835fd0b7cbbdf5e1b303537c6cdccfdbe",
+    "operations.json": "314e30c4865defd633c2764cb1d82c47fb3ca2e2897f8dd5ba9844627b7fed63"
+  },
+  "sameAttemptRecovered": true,
+  "repeatReusesTask": true,
+  "installedSkillBytesPreserved": true,
+  "unverified": [
+    "worker itself crashes",
+    "unknown submission window",
+    "concurrent recoverers",
+    "GUI/model dispatch",
+    "creative acceptance"
+  ],
+  "pluginVersion": "0.1.0-dev.44",
+  "pluginSha": "9546b4d5aa4eca16bc522045f37fb6269a0629dd",
+  "skillSourceRef": "v0.1.0-dev.33",
+  "skillSourceSha": "e25228c37074ff104ec77b7426231f95065d4817",
+  "runtimeVersion": "0.1.0-dev.41",
+  "runtimeSha": "61be3aa8fab287d058e958c4126d71d145f26ba4",
+  "testSha256": "e306636db20488cad7466769f254dad3879289fc89034ffb8fa3a321d9246fb3",
+  "environment": {
+    "python": "3.13.5",
+    "offlineOverridesExcluded": true
+  },
+  "liveTests": {
+    "passed": 1,
+    "seconds": 22.932
+  },
+  "regression": {
+    "source": {
+      "tests": 80,
+      "passed": 66,
+      "skipped": 14,
+      "seconds": 6.255
+    },
+    "plugin": {
+      "tests": 57,
+      "passed": 53,
+      "skipped": 4,
+      "seconds": 3.094
+    }
+  },
+  "installedSkillHashCheck": {
+    "checked": 10,
+    "unchanged": 10
+  }
+}
