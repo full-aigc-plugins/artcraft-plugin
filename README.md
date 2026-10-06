@@ -10,7 +10,7 @@ PNG runtime dev.56 is published from an immutable tag and the source dev.40 snap
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.63`; skill source: `0.1.0-dev.43`; runtime: `0.1.0-dev.62`. Public source mixed validation passes; fixed installed-host repetition is pending. Prior evidence keeps its original scope.
+Current plugin: `0.1.0-dev.63`; skill source: `0.1.0-dev.43`; runtime: `0.1.0-dev.62`. Public source and fixed installed-host SVG/PNG/JPEG mixed validation pass; full V1 remains open. Prior evidence keeps its original scope.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
@@ -274,3 +274,5 @@ Vector asset source candidate adds registered inputs and replacement verificatio
 Plugin dev.61 pins source dev.42 / runtime dev.60 / Vector source dev.10 / Photo source dev.9. Public source cold mixed acceptance passed; the fixed plugin host repetition remains pending. [Architecture](docs/ArtCraft-Vector-Assets-Architecture.md).
 
 Fixed installed matrix Film9 / Effect8 / Photo10 / Vector11 / Art61 passes registered PNG/JPEG Vector→Photo replacement/reuse (1 test), four-domain native first use/recovery/package (3 tests), and all 22 updated Photo/Art single-skill cold CLI starts (190.051s). All 58 installed skill hashes are preserved. SVG mixed input, dynamic transparent sequence and full creative acceptance remain open. [Proof](docs/evidence/codex-release61-vector-photo-first-use-20261006.json).
+
+Fixed ArtCraft plugin dev.63 / skill source dev.43 / runtime dev.62 passes isolated Codex discovery (five plugins, 58 skills, zero errors), installed PNG/JPEG and SVG mixed first use (2 tests, 76.574s), four-domain regression (3 tests, 116.076s), and ten Art independent cold CLI starts (133.395s). All 58 installed digests remain unchanged, five locked bundles rebuild identically and both public release archives match their file hashes. SVG rejection preserves its domain code; replacement changes only consumers, retains non-target pixels and independently verified PNG/PSD composites, and packages relocate. This closes the bounded fixed SVG handoff gate; SVG type metadata, dynamic transparent sequence and full V1/creative/model/GUI remain open. [Fixed evidence](docs/evidence/codex-release63-svg-first-use-20261006.json).

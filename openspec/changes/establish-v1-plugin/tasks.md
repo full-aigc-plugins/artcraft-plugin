@@ -212,8 +212,10 @@ PNG 固定发行证据：运行时 dev.56／技能源 dev.40／插件 dev.57；�
 ## 6. VectorCraft 登记素材增量验收
 
 - [x] 6.34 [AC-DM-007] 完成登记素材公开合同、预期失败测试与候选实现，真实单技能冷安装／原生交付及相关选择性返工通过；产物：docs/evidence/vector-assets-candidate-20261006.json。仅关闭所列 PNG／JPEG／自包含 SVG 候选范围，不替代固定发行宿主验收。
-- [ ] 6.35 [AC-DM-007] 发布不可变技能源、插件及 Art runtime／bundle，重建固定发行，使用真实安装技能复验素材迁移、替换、选择性返工及安装摘要；候选测试不能代替本任务。
+- [x] 6.35 [AC-DM-007] 发布不可变技能源、插件及 Art runtime／bundle，重建固定发行，使用真实安装技能复验素材迁移、替换、选择性返工及安装摘要；候选测试不能代替本任务。
 
 6.35 固定 PNG／JPEG 发行部分已完成：runtime dev.60／技能源 dev.42／插件 dev.61 公开固定安装，Vector→Photo 替换复用与移动包验收 1 项、四领域首用 3 项通过；Photo／Art 22 项冷启动和全部 58 安装摘要保全。证据 `docs/evidence/codex-release61-vector-photo-first-use-20261006.json`。SVG 登记输入的固定混合宿主验收仍未完成，本任务保持开放。
 
 - [x] 6.36 [AC-DM-007-SVG] 以两项预期失败回归暴露 SVG 领域错误码丢失，最小白名单修复并验证消费者阻断、隐私边界及同修订不重放；证据：docs/evidence/svg-domain-diagnostics-candidate-20261006.json。固定发行及真实 SVG 混合首用继续由 6.35 验收。
+
+6.35 固定 SVG 混合验收已完成：Art 插件 dev.63／技能源 dev.43／runtime dev.62、Vector 插件 dev.11／技能源 dev.10；五插件 58 技能发现、两项安装后 PNG／JPEG／SVG 原生混合验收、三项四领域回归、Art 十项冷启动和全部安装摘要保全通过。证据 docs/evidence/codex-release63-svg-first-use-20261006.json。只关闭登记素材交接增量，完整领域、类型化 SVG、动态透明序列和创作门禁仍开放。
