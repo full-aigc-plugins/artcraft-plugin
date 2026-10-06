@@ -272,3 +272,5 @@ dev.44 首次使用已知取消问题：原生运行中取消后，短暂进程�
 Vector 素材源码候选已接入登记输入和替换核验，真实 Vector 到 Photo 交付与选择性复用通过。固定 dev.59 对应 runtime／bundle 未改动；新版不可变发行和安装首次使用仍待完成。[架构](docs/ArtCraft-Vector-Assets-Architecture.zh_CN.md)。
 
 插件 dev.61 固定技能源 dev.42／runtime dev.60／Vector 技能源 dev.10／Photo 技能源 dev.9。公开技能源冷启动混合验收通过；固定插件宿主复验仍待完成。[架构](docs/ArtCraft-Vector-Assets-Architecture.zh_CN.md)。
+
+固定已安装矩阵 Film9／Effect8／Photo10／Vector11／Art61 通过登记 PNG／JPEG 的 Vector→Photo 替换复用（1 项）、四领域原生首用／恢复／打包（3 项），以及更新的 Photo／Art 全部 22 技能独立空缓存 CLI 检查（190.051 秒）；58 个安装技能摘要保持不变。SVG 混合输入、动态透明序列与完整创作验收仍开放。[证据](docs/evidence/codex-release61-vector-photo-first-use-20261006.json)。

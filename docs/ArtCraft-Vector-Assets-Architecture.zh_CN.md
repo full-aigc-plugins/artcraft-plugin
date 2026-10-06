@@ -37,3 +37,5 @@ sequenceDiagram
 证据：[候选验证](evidence/vector-assets-candidate-20261006.json)。新版分发锁、不可变技能源／runtime／插件发行、安装宿主首次使用、四领域完整创作及模型／GUI 门禁仍开放。ArtCraft 不增加剪映适配。
 
 公开冷启动候选验收现已通过：runtime dev.60、Vector 技能源 dev.10、Photo 技能源 dev.9，1 项原生混合测试 29.988 秒。Photo 纯图片字体前置条件在其独立技能源修复。固定完整插件安装仍待复验。[证据](evidence/vector-assets-public-candidate-20261006.json)。
+
+固定已安装插件 dev.61 现通过登记 PNG／JPEG 混合复验（35.090 秒）、原有四工具首用（3 项，116.788 秒）及更新的 Art／Photo 全部 22 技能独立冷启动 CLI 检查（190.051 秒）；58 项安装摘要保持不变。此证据完成上文该有界范围的待执行宿主检查；SVG 登记混合输入与完整创作验收仍待完成。[固定证据](evidence/codex-release61-vector-photo-first-use-20261006.json)。

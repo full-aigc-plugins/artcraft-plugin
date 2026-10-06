@@ -272,3 +272,5 @@ Fixed dev.57 PNG first use: five plugins / 58 discovered skills / zero loading e
 Vector asset source candidate adds registered inputs and replacement verification to the public adapter. Native Vector-to-Photo delivery and selective reuse pass; the fixed dev.59 runtime/bundles remain unchanged. [Architecture](docs/ArtCraft-Vector-Assets-Architecture.md). New immutable releases and installed first-use acceptance are pending.
 
 Plugin dev.61 pins source dev.42 / runtime dev.60 / Vector source dev.10 / Photo source dev.9. Public source cold mixed acceptance passed; the fixed plugin host repetition remains pending. [Architecture](docs/ArtCraft-Vector-Assets-Architecture.md).
+
+Fixed installed matrix Film9 / Effect8 / Photo10 / Vector11 / Art61 passes registered PNG/JPEG Vector→Photo replacement/reuse (1 test), four-domain native first use/recovery/package (3 tests), and all 22 updated Photo/Art single-skill cold CLI starts (190.051s). All 58 installed skill hashes are preserved. SVG mixed input, dynamic transparent sequence and full creative acceptance remain open. [Proof](docs/evidence/codex-release61-vector-photo-first-use-20261006.json).
