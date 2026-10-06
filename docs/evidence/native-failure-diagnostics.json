@@ -1,7 +1,7 @@
 {
   "schema": "craft-native-failure-diagnostics-evidence/v1",
   "date": "2026-10-06",
-  "status": "fixed-runtime-source-native-passed-installed-plugin-pending",
+  "status": "fixed-runtime-and-installed-native-diagnostics-passed",
   "spec": "AC-TX-002-DIAG",
   "task": "5.12",
   "processRed": {
@@ -59,10 +59,10 @@
     "test/workflow_engine.test.ts": "58f91f18f0e825386ecf7a83321974dc5aea8454915b926380f4c5b7a956b0c6"
   },
   "excluded": [
-    "installed plugin cold acceptance",
     "generic Skills CLI install",
     "agent model dispatch",
-    "creative acceptance"
+    "creative acceptance",
+    "full implementation acceptance"
   ],
   "runtime": {
     "version": "0.1.0-dev.32",
@@ -205,5 +205,6 @@
     "passed": 59,
     "skipped": 13,
     "seconds": 5.736
-  }
+  },
+  "installedProof": "docs/evidence/codex-release33-diagnostics-native-20261006.json"
 }

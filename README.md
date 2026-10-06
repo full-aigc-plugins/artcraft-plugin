@@ -202,3 +202,5 @@ Fixed PhotoCraft plugin dev.8 / skills dev.7 and ArtCraft plugin dev.31 / skills
 Local runtime candidate preserves bounded native-failure diagnostics without raw output text and retains them across repeated workflow queries. Immutable release and installed-native revalidation remain pending. [Architecture](docs/ArtCraft-Native-Failure-Diagnostics-Architecture.md).
 
 Candidate plugin dev.33 pins ArtCraft skills dev.28 / runtime dev.32 with bounded native-failure diagnostics and durable public status/repeat queries. Source online-native proof passed; fixed installed-plugin proof remains pending.
+
+Fixed ArtCraft plugin dev.33 / skills dev.28 / runtime dev.32 pass installed-native failure/status/repeat testing (1 test, 26.233s) and four-domain online first-use regression (3 tests, 95.701s). All 58 installed skill hashes remain unchanged. Scoped task 5.12 is verified; full implementation and creative acceptance remain incomplete. [Proof](docs/evidence/codex-release33-diagnostics-native-20261006.json).
