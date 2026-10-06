@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-插件 dev.57／技能源 dev.40／运行时 dev.56 固定 PNG 内容登记与核验。安装后宿主复验待执行；历史 PCM WAV 与候选证据保持原发行范围，完整首版／模型／GUI／创作验收仍开放。
+插件 dev.57／技能源 dev.40／运行时 dev.56 固定 PNG 内容登记与核验。安装后 PNG 宿主复验通过；历史 PCM WAV 与候选证据保持原发行范围，完整首版／模型／GUI／创作验收仍开放。
 
 PNG 运行时 dev.56 已由不可变标签发布，技能源 dev.40 快照已固定；范围和未完成安装后门禁见 [PNG 架构](docs/ArtCraft-PNG-Architecture.zh_CN.md)。
 
@@ -8,7 +8,7 @@ PNG 运行时 dev.56 已由不可变标签发布，技能源 dev.40 快照已固
 
 ## 当前版本与可复现宿主验证
 
-当前插件 `0.1.0-dev.57`，独立技能源 `0.1.0-dev.40`，运行时 `0.1.0-dev.56`。当前固定安装 PNG 宿主复验待执行；既有证据保持原版本范围，完整首版／模型／GUI／创作验收仍开放。
+当前插件 `0.1.0-dev.57`，独立技能源 `0.1.0-dev.40`，运行时 `0.1.0-dev.56`。当前固定安装 PNG 宿主复验通过；既有证据保持原版本范围，完整首版／模型／GUI／创作验收仍开放。
 
 固定 dev.38 验收：Codex 0.153.4 发现 58 项技能，加载错误为零；实际安装目录的单技能在线冷启动通过 3 项、无跳过，95.289 秒。四源返工、三领域尺寸修改、保存后产物摘要、Effect 实际视频属性、复用和源工程保全均通过，58 个安装技能摘要未变。[证据](docs/evidence/codex-release38-native-brief-first-use-20261006.json)。运行时回归 123 项通过、5 项可选跳过；完整模型／GUI／创作／生产验收仍开放。dev.37 标签因暂存失败保留历史，未创建 Release，也不作为插件快照使用。
 
@@ -32,9 +32,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.55 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.57 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.39 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.40 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
@@ -264,3 +264,5 @@ dev.44 首次使用已知取消问题：原生运行中取消后，短暂进程�
 [PCM WAV 输入架构](docs/ArtCraft-PCM-WAV-Architecture.zh_CN.md)与[候选证据](docs/evidence/pcm-wav-repair-20261006.json)：音频声明绑定实际 RIFF PCM 数据；假／截断 WAV 及元数据不符在领域执行前拒绝。
 
 固定 dev.55 PCM WAV 首次使用通过：58 技能／零错误；五子工程原生交付及迁移验包（53.972 秒）；十项 Art 独立冷启动（111.799 秒）；原安装 58 技能摘要保全。[证据](docs/evidence/codex-release55-pcm-wav-first-use-20261006.json)。不关闭通用 Skills CLI、完整首版、模型／GUI 或创作验收。
+
+固定 dev.57 PNG 首次使用：五插件／58 项技能发现／零加载错误；安装副本的单独 PNG 输入、原样暂存及 Photo 迁移验包通过；PCM 五子工程交付亦通过。十项 Art 独立冷安装用时 132.642 秒，全部 58 项安装技能摘要保全。[版本绑定证据](docs/evidence/codex-release57-png-first-use-20261006.json)。模型／GUI、通用 Skills CLI、完整首版与创作验收仍开放。

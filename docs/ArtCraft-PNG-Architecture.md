@@ -2,7 +2,7 @@
 
 ## Status and scope
 
-Runtime dev.56 is published from its immutable tag; source dev.40 is being fixed for plugin dev.57. Installed-host verification remains pending. Historical dev.55/dev.39/dev.54 and candidate evidence keep their original scope. Independent skill registration and runtime verification have separate tests; a candidate skill using baseline public downloads does not establish publication of the candidate runtime.
+Runtime dev.56, source dev.40 and plugin dev.57 are published from immutable tags. Fixed installed-host discovery, PNG native first use and ten independent Art cold installations pass. Historical dev.55/dev.39/dev.54 and candidate evidence keep their original scope. Independent skill registration and runtime verification have separate tests; a candidate skill using baseline public downloads does not establish publication of the candidate runtime.
 
 ## Contract
 
@@ -28,6 +28,8 @@ The verifier checks filtered scan data; it does not reconstruct every pixel, eva
 
 Tests cover signature versus extension, palette transparency, all standard depth/color combinations, Adam7, truncation, corrupt CRC, malformed scan data, false declarations and zero domain launches after preflight rejection. A real four-domain native test covers generated PNG handoff and Logo revision. A separate isolated candidate skill uses existing public downloads for PNG registration, Photo native delivery and moved-package verification.
 
-Fixed candidate publication, installed-host repetition, JPEG/video identification and complete creative/GUI acceptance remain open. OpenSpec scenario AC-CP-002-PNG is the behavioral authority; the change remains active.
+Fixed publication and bounded installed-host repetition pass. JPEG/video identification and complete creative/GUI acceptance remain open. OpenSpec scenario AC-CP-002-PNG is the behavioral authority; the change remains active.
 
 [Candidate evidence / 候选证据](evidence/png-candidate-20261006.json)
+
+[Fixed release evidence / 固定发行证据](evidence/codex-release57-png-first-use-20261006.json)
