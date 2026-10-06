@@ -21,6 +21,12 @@ ArtCraft SHALL 通过公开技能素材绑定把已校验输入交给 VectorCraf
 - **WHEN** 素材未绑定、原工程保留素材摘要不符或多个替换映射指向同一个输入
 - **THEN** 拒绝交付，不制造未消费输入的血缘
 
+#### Scenario: AC-DM-007-SVG 外部依赖拒绝与原因保留
+
+- **WHEN** 固定 VectorCraft 技能拒绝带外部依赖的 SVG，并返回完整的单字段 JSON 错误 `asset_svg_external_dependency`
+- **THEN** ArtCraft SHALL 保留该已知领域错误码及输出摘要，阻断消费者且不发布失败节点的产物
+- **AND** 错误详情中的用户文本不得持久化；同一修订恢复不得重放失败任务或重复计费；无关节点及原输入和旧交付保持原有处理边界
+
 ### Requirement: AC-DM-001 混合需求与交付约束
 
 ArtCraft SHALL 将用户需求转为可版本化 Brief，记录画幅、品牌、角色、字体、预算与原生交付要求；歧义阻止依赖它的步骤，不阻塞独立检查。

@@ -49,3 +49,16 @@ test('effect parameter mapping failures retain only the exact known domain code'
  const conflict=nativeDiagnostics(await observe(payload),await observe('{"error":"revision_conflict"}'));
  assert.equal(conflict.domainCode,null);
 });
+
+test('external SVG dependency failures preserve only the exact closed code',async()=>{
+ const payload=JSON.stringify({error:'asset_svg_external_dependency: private-svg-url'});
+ const result=nativeDiagnostics(await observe(payload),await observe(''));
+ assert.equal(result.domainCode,'asset_svg_external_dependency');assert.equal(result.source,'stdout');
+ assert.equal(result.stdout.sha256,createHash('sha256').update(payload).digest('hex'));
+ assert.ok(!JSON.stringify(result).includes('private-svg-url'));
+ for(const value of ['{"error":"asset_svg_external_dependency_suffix"}','{"error":"asset_svg_external_dependency","extra":"secret"}','private asset_svg_external_dependency']){
+  assert.equal(nativeDiagnostics(await observe(value),await observe('')).domainCode,null);
+ }
+ const conflict=nativeDiagnostics(await observe(payload),await observe('{"error":"revision_conflict"}'));
+ assert.equal(conflict.domainCode,null);
+});

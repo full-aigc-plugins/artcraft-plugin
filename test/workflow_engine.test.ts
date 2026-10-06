@@ -56,7 +56,7 @@ test('Film duration requirement cannot publish ready output without native and e
   assert.equal(f.ledger.leases().length,0);
  }finally{await f.cleanup();}
 });
-for(const domainCode of ['missing_fonts','export_audio_missing'])test(`failed ${domainCode} node exposes durable code and blocks its consumers without replay`,async()=>{
+for(const domainCode of ['missing_fonts','export_audio_missing','asset_svg_external_dependency'])test(`failed ${domainCode} node exposes durable code and blocks its consumers without replay`,async()=>{
  const f=await fixture();try{
   f.plan.nodes=f.plan.nodes.slice(0,2);
   const factory=async(node:any,inputs:any[],taskId:string)=>{

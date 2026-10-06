@@ -39,3 +39,9 @@ Evidence: [candidate verification](evidence/vector-assets-candidate-20261006.jso
 Public cold candidate acceptance now passes with runtime dev.60, Vector source dev.10 and Photo source dev.9 (1 native mixed test, 29.988s). Photo image-only font preconditions are fixed in its independent source. Fixed full-plugin installation remains pending. [Evidence](evidence/vector-assets-public-candidate-20261006.json).
 
 Fixed installed plugin dev.61 now passes registered PNG/JPEG mixed repetition (35.090s), existing four-domain first use (3 tests, 116.788s), and all 22 updated Art/Photo isolated cold CLI checks (190.051s). All 58 installed skill hashes remain intact. This completes the pending installed checks for that bounded scope; SVG registered mixed input and complete creative acceptance remain pending. [Fixed proof](evidence/codex-release61-vector-photo-first-use-20261006.json).
+
+## SVG failure diagnostics candidate
+
+AC-DM-007-SVG requires a complete one-field JSON error from the fixed Vector skill to preserve `asset_svg_external_dependency`. The collector exposes only the exact closed code and output digests; private error details, unknown suffixes, extra fields and conflicting causes remain excluded. Two new tests first failed because the code was null. After the whitelist change, runtime regression passes 153 tests with seven optional native skips; durable failure blocks the consumer and resumes without replay or extra budget. Source regression passes 75 tests with 24 first-use skips.
+
+[Candidate evidence](evidence/svg-domain-diagnostics-candidate-20261006.json) proves current-source diagnostics, not a new installed runtime. Task 6.35 remains open until immutable runtime/source/plugin publication and actual installed SVG mixed acceptance. The strengthened source fixture explicitly paints an independent green object and compares its pixels, checks SVG replacement IDs and independently compares PSD composite pixels to PNG.

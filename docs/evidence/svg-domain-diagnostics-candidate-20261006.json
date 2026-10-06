@@ -1,0 +1,47 @@
+{
+  "schema": "craft-svg-domain-diagnostics-candidate/v1",
+  "result": "PASS",
+  "scope": "current source diagnostics and durable workflow regression; no installed fixed runtime claim",
+  "red": {
+    "targetFailures": 2,
+    "actual": null,
+    "expected": "asset_svg_external_dependency",
+    "logSha256": "e2ea843f8737c66b8080a619e40712f774395966062d921f4ffb667996e801b5"
+  },
+  "regression": {
+    "tests": 160,
+    "pass": 153,
+    "fail": 0,
+    "skipped": 7,
+    "durationMs": 18322.263875,
+    "logSha256": "d0165c268bba23b3e5538b4d852972809ad2251a99e4842e9029b86c8830e9da"
+  },
+  "sourceRegression": {
+    "tests": 99,
+    "pass": 75,
+    "skipped": 24,
+    "durationSeconds": 6.6,
+    "logSha256": "1091b3d147511ca083f816ff0b852a2c01456a29dc3e4bcc3acb5a9fb8583f64"
+  },
+  "sourceFiles": {
+    "src/harness/native_diagnostics.ts": "6b2c4a663e9c3c0e70384c2f91f9c9ce4d63e6c474608093e7c808850e0d50d7",
+    "test/native_diagnostics.test.ts": "ecc8ffa131ee283c98839524a29957bbe2e9bad45d27d4680807b724650e43bf",
+    "test/workflow_engine.test.ts": "0a988c75639462ced6a427bf32423e913b38b13c485b7909945527e1efd61e31"
+  },
+  "assertions": [
+    "exact closed error preserved",
+    "private detail omitted",
+    "unknown suffix and extra fields rejected",
+    "conflicting causes omitted",
+    "failed consumer blocked",
+    "no failed outputs",
+    "durable cause survives resume",
+    "same revision does not replay or recharge"
+  ],
+  "excluded": [
+    "fixed published runtime installation",
+    "SVG native mixed first use",
+    "dynamic transparent sequence",
+    "full V1 creative/model/GUI/production acceptance"
+  ]
+}
