@@ -320,3 +320,5 @@ Current candidate adapters consume verified Effect segments through public Film 
 Art HD source candidate passes five-second 1080p segmented orchestration, moved text revision and corruption recovery; immutable installed acceptance remains pending. [Architecture and evidence](docs/ArtCraft-Segmented-Sequence-Architecture.md).
 
 Runtime release candidate dev.71 includes HD segmented adaptation and bounded PNG verification optimization. The current skill-source lock remains dev.47; the final plugin snapshot and installed acceptance are published separately. Full V1 remains incomplete.
+
+Public-workflow reply validation is synchronized in the domain source candidates and has bounded native/Art protocol evidence. Fixed updated domain and Art distributions are still pending. [Candidate architecture](docs/ArtCraft-Public-Workflow-Protocol-Architecture.md) · [Evidence](docs/evidence/public-workflow-session-candidate-20261007.json).

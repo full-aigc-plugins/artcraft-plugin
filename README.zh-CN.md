@@ -320,3 +320,5 @@ Vector 素材源码候选已接入登记输入和替换核验，真实 Vector �
 Art HD 源码候选通过五秒 1080p 分段编排、移动文字返工及损坏恢复；固定安装验收待完成。[架构与证据](docs/ArtCraft-Segmented-Sequence-Architecture.zh_CN.md)。
 
 运行时发行候选 dev.71 包含 HD 分段适配与有界 PNG 校验优化；当前技能源锁保持 dev.47，最终插件快照及实际安装验收将另行发布。完整 V1 仍未完成。
+
+公开工作流回复检查已同步领域技能源候选，并通过有界原生／Art 协议验证。新的固定领域和 Art 分发包仍待发行与实际安装验收。[候选架构](docs/ArtCraft-Public-Workflow-Protocol-Architecture.zh_CN.md) · [证据](docs/evidence/public-workflow-session-candidate-20261007.json)。
