@@ -194,3 +194,5 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 候选插件 dev.30 同步 ArtCraft 技能 dev.26，锁定 PhotoCraft 技能 dev.6 保护修改交接，运行时保持 dev.28。独立在线验收通过，实际安装宿主复验尚待完成。[架构](docs/ArtCraft-Photo-Protection-Architecture.zh_CN.md)、[证据](docs/evidence/photo-protection-first-use.json)。
 
 固定 PhotoCraft 插件 dev.7／技能 dev.6 与 ArtCraft 插件 dev.30／技能 dev.26 的实际安装原生保护／交接复验通过；五插件全部 58 个技能摘要不变。只完成对应保护任务，整体实现和创作接受仍未完成。[证据](docs/evidence/codex-release30-protected-native-20261006.json)。
+
+候选插件 dev.31 固定 ArtCraft 技能源 dev.27 与 PhotoCraft 技能源 dev.7，支持带保护检查的修图交接。源码在线原生测试通过；固定插件安装后证据待完成。运行时仍为 dev.28。
