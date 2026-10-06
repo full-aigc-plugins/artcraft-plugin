@@ -1,6 +1,6 @@
 # ArtCraft Film Source Brief Architecture
 
-Status: local implementation candidate for AC-DM-001-SOURCE-FILM / task 6.27. Published plugin dev.35 / skills dev.29 / runtime dev.34 do not contain this source-inspection change. Fixed release and installed first-use proof remain pending.
+Status: runtime dev.36 / independent source dev.30 / plugin dev.38 passed bounded technical first-use acceptance. Tasks 6.26, 6.27 and 6.28 are complete; full creative and overall acceptance remain open. Evidence: evidence/codex-release38-native-brief-first-use-20261006.json.
 
 ## Problem and execution contract
 
@@ -45,4 +45,4 @@ Wrong dimensions block before the native write child starts. A source edit that 
 
 Evidence: evidence/film-source-brief-native.json. Local tests cover source metadata, large ticks, malformed native responses, ambiguity and source-binding refusal; actual mixed workflow covers subtitle revision, shot replacement, reuse, source preservation, wrong dimensions and a successful native export rejected for Brief duration mismatch.
 
-Cold installed use of a newly fixed release, other three domains' source Brief inspection and complete creative acceptance remain open. Procedural brand assets and tone audio are technical fixtures.
+Fixed installed cold use and all four source Briefs now pass, including saved-output gates and three design geometry changes. Complete creative acceptance remains open. Procedural brand assets and tone audio are technical fixtures.

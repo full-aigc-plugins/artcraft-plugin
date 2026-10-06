@@ -1,6 +1,6 @@
 # ArtCraft design source Brief inspection architecture
 
-Status: local candidate only. Task `6.28` remains open. The specification authority is `AC-DM-001-SOURCE-DESIGN` in `establish-v1-plugin`.
+Status: runtime dev.36 / independent source dev.30 / plugin dev.38 passed bounded technical first-use acceptance. Tasks 6.26, 6.27 and 6.28 are complete; full creative and overall acceptance remain open. Evidence: evidence/codex-release38-native-brief-first-use-20261006.json.
 
 ## Identity and read-only inspection
 
@@ -43,4 +43,4 @@ Unit cases cover invalid board indexes, composition mismatch and invalid dimensi
 
 Real revisions cover source Briefs for all three domains, reuse, wrong-size early rejection, legal resizing and native exit-zero results that fail the saved-output gate with no published outputs. Additional cases cover Vector board creation and actual Effect video duration rejection. Original source/dependency digests remain intact and no leases remain.
 
-Python declaration policy is synchronized across ten independent self-contained skills. Fixed runtime and skill releases still point to the previous versions. These changes have not been published or vendored, so installed availability is not established. Fixed-release cold acceptance, broader boundaries and creative acceptance remain required; task 6.28 stays open.
+Python policy is synchronized across ten self-contained skills. Source dev.30 is vendored by plugin dev.38 and pins runtime dev.36. Fixed host installation and cold online first use pass, including geometry changes and four source revisions. Bounded technical task 6.28 is complete; broader boundaries, creative review and overall acceptance remain open.
