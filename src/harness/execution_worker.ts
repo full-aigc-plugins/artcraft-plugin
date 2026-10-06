@@ -6,12 +6,10 @@ import { isAbsolute } from 'node:path';
 import { TaskLedger } from './task_ledger.ts';
 import { planHash } from '../protocol/contracts.ts';
 import type { ExecutionPlan } from './local_runner.ts';
+import { groupAlive } from './process_group.ts';
 import { OutputObservation, nativeDiagnostics } from './native_diagnostics.ts';
 
 const delay=(ms:number)=>new Promise(resolve=>setTimeout(resolve,ms));
-function groupAlive(pid:number):boolean {
- try{process.kill(-pid,0);return true;}catch(error){if((error as NodeJS.ErrnoException).code==='ESRCH')return false;throw error;}
-}
 async function main(){
  let input='';for await(const chunk of process.stdin){input+=chunk;if(input.length>2*1024*1024)throw new Error('worker_input_too_large');}
  const {database,taskId,epoch,token,plan}:{database:string;taskId:string;epoch:number;token:string;plan:ExecutionPlan}=JSON.parse(input);

@@ -240,3 +240,5 @@ ArtCraft 技能源 dev.33 固定 FilmCraft 技能 dev.6，保留运行时 dev.41
 独立安装验证器现已拒绝同版本的其他工具、包含预期版本的错误诊断和错误的 ArtCraft JSON 身份。目标 7 项通过；全库 57 项中 53 项通过、4 项跳过。重新解析此前记录的 58 项原生输出全部通过，此检查不代表重新执行安装。[身份门禁证据](docs/evidence/independent-install-identity-regression.json)。
 
 安装后的恢复技能从空运行目录首次使用，真实调度器 SIGKILL 后独立 worker 留下停止证据；公开工作流重开同一原生 attempt，不重放、不增加预算，视频确认 96 帧。[崩溃接管验收](docs/ArtCraft-Scheduler-Crash-Acceptance.zh_CN.md)。worker 崩溃、模型及创作验收仍需独立证据。
+
+dev.44 首次使用已知取消问题：原生运行中取消后，短暂进程组存在性 EPERM 使监督器停止观察，可能保持 `cancel_requested`。源码修复已通过真实原生取消及回归，但新固定运行时／技能／插件发布与公开首次使用复验仍待完成。[修复与证据](docs/ArtCraft-Live-Cancel-Architecture.zh_CN.md)。

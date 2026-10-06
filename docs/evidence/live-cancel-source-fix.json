@@ -1,0 +1,69 @@
+{
+  "schema": "craft-live-cancel-source-fix/v1",
+  "date": "2026-10-06",
+  "status": "source_verified_public_release_pending",
+  "affectedPublicPlugin": "0.1.0-dev.44",
+  "affectedRuntime": "0.1.0-dev.41",
+  "publicFirstUseRed": {
+    "runs": 2,
+    "result": "cancel_requested instead of cancelled",
+    "seconds": [
+      22.451,
+      22.102
+    ],
+    "execution": {
+      "status": "stopped",
+      "signal": "SIGTERM",
+      "group_stopped": 0
+    },
+    "scope": "single installed recover skill, fresh default public installation, observed native rendering"
+  },
+  "rootCause": "existence probe after child close raises EPERM; previous supervisor immediately abandons bounded observation",
+  "fix": "EPERM means group may still exist; continue bounded probes and retain lease until actual absence; signal errors remain errors",
+  "sourceNativeRegression": {
+    "red": {
+      "passed": 0,
+      "failed": 1,
+      "reason": "cancel_requested instead of cancelled"
+    },
+    "green": {
+      "targetTests": 26,
+      "passed": 26,
+      "seconds": 8.1555015,
+      "scope": "source supervisor and installed EffectCraft native skill; not new ArtCraft public first use"
+    }
+  },
+  "fullRegression": {
+    "node": {
+      "tests": 143,
+      "passed": 137,
+      "skipped": 6,
+      "seconds": 28.790789541
+    },
+    "skillsPython": {
+      "tests": 81,
+      "passed": 66,
+      "skipped": 15,
+      "seconds": 6.355
+    }
+  },
+  "sourceHashes": {
+    "src/harness/execution_worker.ts": "1500ea209189c22ef69ad80ceee94286a334445c26efad53cd0c7bf5485284da",
+    "src/harness/process_group.ts": "07786e43122e07b8d5cf3eacd37b7e68df6e7b9d9cfd1ad55bf4c0a38514f883",
+    "test/process_group.test.ts": "954bd56cf6a63708492b5cace904f03cfe51b9583b20010e409eae13a1bf110a",
+    "test/native_cancel_runner.test.ts": "320ee86e4e7f041a6c3f2aa1acf5869bbbeabf34804bb567cd26ce49519cd993"
+  },
+  "installedFirstUseTestSha256": "09d8cc96a157870d75692fd59ad562e76930c5efad91e90ea50743039d5cbee8",
+  "pending": [
+    "new immutable runtime release",
+    "updated independent skill distribution locks",
+    "plugin vendor and public release",
+    "new fixed host install and actual default-public live cancel rerun"
+  ],
+  "unverified": [
+    "worker crash recovery",
+    "model dispatch",
+    "GUI",
+    "creative acceptance"
+  ]
+}
