@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-The four independent domain plugins passed fixed-install protocol recovery acceptance; see [evidence](docs/evidence/codex-protocol-fault-first-use-20261007.json). Art still pins its previous domain sources in runtime dev.71. Its bundle upgrade and mixed-scenario acceptance remain open under OpenSpec task 4.7.
+Candidate distribution dev.73 pins the four complete-command/protocol-repair domain sources. Public cold mixed creation, dependent revisions, recovery, moved delivery and 24 downloaded-domain fault cases passed. [Candidate evidence](docs/evidence/art-domain-distribution-candidate-20261007.json). New immutable source/plugin installed-host checks and ten full skill installations remain separately tracked.
+
+The four independent domain plugins passed fixed-install protocol recovery acceptance; see [evidence](docs/evidence/codex-protocol-fault-first-use-20261007.json). That historical host receipt used runtime dev.71. The new dev.73 bundle candidate has separate evidence; OpenSpec task 4.7 remains open for installed-host and full cold-install checks.
 
 The current four domain plugin revisions pass their installed cold native revision samples together with Art dev.72 in isolated Codex: all58 skills are discovered and preserve digests. Art runtime and pinned domain bundles remain their established immutable releases; this does not claim arbitrary complete-command Art orchestration. [Evidence](docs/evidence/codex-complete-command-revision-first-use-20261007.json).
 
@@ -24,7 +26,7 @@ PNG runtime dev.56 is published from an immutable tag and the source dev.40 snap
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.72`; skill source: `0.1.0-dev.48`; runtime: `0.1.0-dev.71`. Published fixed development snapshot includes the standalone HD segmented workflow. Current source snapshot and runtime are published; plugin publication and bounded installed-host first use passed. Historical evidence retains its original version scope. Full V1 remains open.
+Current plugin: `0.1.0-dev.74`; skill source: `0.1.0-dev.49`; runtime: `0.1.0-dev.73`. Public source cold mixed creation and downloaded domain fault samples passed. This new immutable plugin snapshot still requires installed-host acceptance and all-ten full-domain cold installation. Historical evidence retains its original version scope. Full V1 remains open.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
@@ -48,9 +50,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.72 |
+| Plugin ID / version | artcraft / 0.1.0-dev.74 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.48 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.49 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |

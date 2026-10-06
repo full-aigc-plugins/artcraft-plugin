@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-四领域独立插件的协议故障修复已完成固定安装复验，见 [验收记录](docs/evidence/codex-protocol-fault-first-use-20261007.json)。Art当前固定运行时仍为dev.71旧领域捆绑包；升级和混合场景复验由OpenSpec任务4.7独立跟踪，尚未完成。
+领域分发候选已升级至dev.73：四领域固定完整命令／协议修复技能源，公开冷安装混合创作、依赖返工、恢复、移动包和24个领域故障案例通过。[候选证据](docs/evidence/art-domain-distribution-candidate-20261007.json)。新技能源／插件固定安装与十技能完整安装验收另行跟踪。
+
+四领域独立插件的协议故障修复已完成固定安装复验，见 [验收记录](docs/evidence/codex-protocol-fault-first-use-20261007.json)。该历史宿主验收使用dev.71旧领域包；新dev.73分发的候选验证另有证据。OpenSpec任务4.7仍等待新固定宿主及十技能完整冷安装。
 
 四个领域插件的新返工版本与 Art dev.72 在隔离 Codex 中完成实际固定安装：全部58项技能发现、安装领域冷返工样例及摘要保全通过。Art运行时与领域捆绑包保持既有不可变版本，本证据不宣称 Art 自动编排任意完整命令。[证据](docs/evidence/codex-complete-command-revision-first-use-20261007.json)。
 
@@ -24,7 +26,7 @@ PNG 运行时 dev.56 已由不可变标签发布，技能源 dev.40 快照已固
 
 ## 当前版本与可复现宿主验证
 
-当前插件 `0.1.0-dev.70`，独立技能源 `0.1.0-dev.47`，运行时 `0.1.0-dev.68`。Photo 源 dev.10 提供维护版嵌入智能对象替换；四领域候选首次使用与动态回归通过，固定安装智能对象验收仍开放。历史证据保留版本范围，完整首版仍开放。[架构](docs/ArtCraft-Smart-Mixed-Architecture.zh_CN.md)。
+当前插件 `0.1.0-dev.74`，独立技能源 `0.1.0-dev.49`，运行时 `0.1.0-dev.73`。公开候选混合创作与下载领域包故障案例通过；新固定宿主与十技能完整冷安装仍开放，历史证据保留原版本范围，完整首版仍开放。
 
 固定 dev.38 验收：Codex 0.153.4 发现 58 项技能，加载错误为零；实际安装目录的单技能在线冷启动通过 3 项、无跳过，95.289 秒。四源返工、三领域尺寸修改、保存后产物摘要、Effect 实际视频属性、复用和源工程保全均通过，58 个安装技能摘要未变。[证据](docs/evidence/codex-release38-native-brief-first-use-20261006.json)。运行时回归 123 项通过、5 项可选跳过；完整模型／GUI／创作／生产验收仍开放。dev.37 标签因暂存失败保留历史，未创建 Release，也不作为插件快照使用。
 
@@ -48,9 +50,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.72 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.74 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.48 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.49 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

@@ -1,0 +1,479 @@
+{
+  "schema": "artcraft-domain-distribution-candidate/v1",
+  "result": "PASS",
+  "distributionVersion": "0.1.0-dev.73",
+  "distributionLockSha256": "ad6e14e75a2e7e5d78b3ea2437b2285a995bca591d42fd4a01f5994997961094",
+  "bundles": {
+    "artcraft-runtime": {
+      "version": "0.1.0-dev.73",
+      "filename": "artcraft-runtime-0.1.0-dev.73.zip",
+      "url": "https://github.com/full-aigc-plugins/artcraft-plugin/releases/download/v0.1.0-dev.73/artcraft-runtime-0.1.0-dev.73.zip",
+      "sha256": "a351b8a5a0e9a04633ef188475071e4e442b7bda42a4dd2d5b154997cab63669",
+      "bytes": 71085,
+      "sourceRepository": "https://github.com/full-aigc-plugins/artcraft-plugin"
+    },
+    "filmcraft-skills": {
+      "version": "0.1.0-dev.14",
+      "filename": "filmcraft-skills-0.1.0-dev.14.zip",
+      "url": "https://github.com/full-aigc-skills/filmcraft-skills/releases/download/v0.1.0-dev.14/filmcraft-skills-0.1.0-dev.14.zip",
+      "sha256": "828eb12ff110a39d7aa0fd5e517aefc6dc33a6d34ef9380f7614f062b1b21e39",
+      "bytes": 1886435,
+      "sourceRepository": "https://github.com/full-aigc-skills/filmcraft-skills",
+      "archiveFormat": "git-archive-zip",
+      "sourceCommit": "cdc9316afbe08facaf55c42c93cae7d677555a0c"
+    },
+    "effectcraft-skills": {
+      "version": "0.1.0-dev.13",
+      "filename": "effectcraft-skills-0.1.0-dev.13.zip",
+      "url": "https://github.com/full-aigc-skills/effectcraft-skills/releases/download/v0.1.0-dev.13/effectcraft-skills-0.1.0-dev.13.zip",
+      "sha256": "c6c38c6cb504fc6f65571bf76e308bc1f7ac60b0a9e7ab3717f104fd42daecac",
+      "bytes": 2351088,
+      "sourceRepository": "https://github.com/full-aigc-skills/effectcraft-skills",
+      "archiveFormat": "git-archive-zip",
+      "sourceCommit": "84b30d39f1caabeff3e495ba9145c5e8f6983fe9"
+    },
+    "photocraft-skills": {
+      "version": "0.1.0-dev.13",
+      "filename": "photocraft-skills-0.1.0-dev.13.zip",
+      "url": "https://github.com/full-aigc-skills/photocraft-skills/releases/download/v0.1.0-dev.13/photocraft-skills-0.1.0-dev.13.zip",
+      "sha256": "fdd98cd2307270b63eab56832d0003615a825cb46a35cc3d718e2eba9fa8a6ea",
+      "bytes": 2506228,
+      "sourceRepository": "https://github.com/full-aigc-skills/photocraft-skills",
+      "archiveFormat": "git-archive-zip",
+      "sourceCommit": "da8596c606f4f1758cf57466e80f6dc57608af12"
+    },
+    "vectorcraft-skills": {
+      "version": "0.1.0-dev.13",
+      "filename": "vectorcraft-skills-0.1.0-dev.13.zip",
+      "url": "https://github.com/full-aigc-skills/vectorcraft-skills/releases/download/v0.1.0-dev.13/vectorcraft-skills-0.1.0-dev.13.zip",
+      "sha256": "545acbbd3d3b9a09743bf53499d4a00694f571037376b4d1aad2dad0aa3e7f55",
+      "bytes": 3100304,
+      "sourceRepository": "https://github.com/full-aigc-skills/vectorcraft-skills",
+      "archiveFormat": "git-archive-zip",
+      "sourceCommit": "b06eafd7d2e57ecc3ea8d314c23f4cee44160bae"
+    }
+  },
+  "mixedWorkflow": {
+    "schema": "artcraft-segmented-hd-four-domain-first-use/v1",
+    "result": "PASS",
+    "scope": "one copied skill; empty runtime; default public downloads; four-domain five-node native workflow",
+    "runtimeVersion": "0.1.0-dev.73",
+    "driverSha256": "fde2f7219dd8ae21c915c151076acb50316e4f97b70ff5eab30a5007b149ae4f",
+    "width": 1920,
+    "height": 1080,
+    "seconds": 5,
+    "segmentCount": 4,
+    "independentSourceFrames": 120,
+    "animatedLogoPixelVerified": true,
+    "independentVideoProbe": {
+      "width": 1920,
+      "height": 1080,
+      "avg_frame_rate": "24/1",
+      "duration": "5.000000",
+      "nb_read_frames": "120"
+    },
+    "distributionLockSha256": "ad6e14e75a2e7e5d78b3ea2437b2285a995bca591d42fd4a01f5994997961094",
+    "skillFiles": {
+      "SKILL.md": "77545f7e99593cf30855c9bd68ed55553989a614e7f68051a0aad6a4ddfb3fb7",
+      "examples/brand-brief.json": "83bd8bcccec8fe4d9560687f85db757f4f44906ab50d817a657f573c1db9ffd0",
+      "examples/brand-campaign.json": "e06b82ff197f72634cea6888a7e23936f26e5939ee4c0b77b09eb23b3f5aa650",
+      "examples/brand-token-campaign.json": "b7cb6db186d59196a0f8bc79cc36545fc1c37a34dcf18ae379359c52ce5601c6",
+      "examples/chinese-brand-campaign.json": "e98b5bb3e2eb45b5f12c02477b0f8a8d5a5f6ca4acd367b5a5d5d5b889c09712",
+      "examples/dynamic-brand-campaign.json": "306ea8a7de3f1ea11f33a9357e616a523b5244a58a0e9f5284c1c882000b10c2",
+      "examples/segmented-hd-brand-campaign.json": "14d7cea358da18da488b76f73e53c6f820fe0236440f168efe0720ce729b97c1",
+      "examples/smart-dynamic-brand-campaign.json": "35e2669e1bbded136b7fbd8116ad107ab8c6b0431aed0ce7e8473ec976be101e",
+      "references/brand-token-workflow.md": "28f955155ca50f4dfa54da53c9e20ea035171aac70681972d9d6638900d0f8c0",
+      "references/brief.md": "db2d255e41211ee3b3166e15b1758c455c65d3d0a7c4e19b59f790e30790cccf",
+      "references/commands.json": "7691a8ead35d3da6df1e6f5e0ded964a624e5def4b089a2a9859f7667570228c",
+      "references/dynamic-sequence.md": "24e8246c7c82fe1641b8cdc3aa252d1dc4903c8944110e9a384ab7652040979b",
+      "references/exchange-loss.md": "52102251621536a3cd9251ebafcfe62f47493a1c9b24aa26471b15a52a2debb2",
+      "references/project-package.md": "3ed74526a8a93125f7f28002cf80c130298f8fb570bf0d9a2f487795c1eb343b",
+      "references/recovery.md": "a8c50095f8c4a47571c4a7ed50ac5b8240dcd20439232cb6aa542dab6522e78b",
+      "references/review.md": "5bd0e417ab1db9363a5fa9f40ff75fbb706cd15a4a19fa3c6002300c0c8bcb43",
+      "references/revision.md": "d664983acdbb2cd83ecc2c979bd6cc81fb59696fdaddb99d702e9fe0311fcb01",
+      "references/scenario.md": "e8820ef0b632b32393375754957d177b21b36595b79442a05aa0b6845c1c02c8",
+      "references/video-factory.md": "ce5edfe349cb0d74a7e5126440523c157e71aba8a26f8d71e79149343212f6b5",
+      "references/workflow.md": "fb737b2c71e3a1cbd9f754c3e91febe63736fc492e88f356123a9c89017b0dfd",
+      "scripts/bootstrap.py": "5d2892aa19e09f0c8a2c1938b1cf42f7eadc09d3ce0e6fbda63988bac5f5a842",
+      "scripts/brief.py": "fb2809876405a682939c251c4f1673d7dd6aaa5ae3abd2e982cd302caaa92de0",
+      "scripts/cli.py": "adc32453aca15399ee2e0ad402e0af51be7dc9197225d0ec080de89e567e2afb",
+      "scripts/distribution.lock.json": "ad6e14e75a2e7e5d78b3ea2437b2285a995bca591d42fd4a01f5994997961094",
+      "scripts/jpeg_inspection.py": "6d057317962954b147864ae33966582553dc0591335af42bfdc3da333ed2257c",
+      "scripts/node.lock.json": "5d47b1f8b5a1738686f3033981444489eafeb99854d2102254be0375ae4462b8",
+      "scripts/package.py": "378555b07e3b0710396c501ec9e8504b1fda02cd97441c72af23c425ebfb0f0f",
+      "scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+      "scripts/review.py": "fde29e2cb937a7aa19a796a0bed28481fdcef818e9d8169d63abf9fddb5787ef",
+      "scripts/revision.py": "22795a5d63fa651233db30569304aa4c79b8508eb02545c96768774e25a62eb9",
+      "scripts/setup.py": "ed5b02f34edd94dd29420d89195f0f59942f7f074c2fcc4c04caf9643db904af",
+      "scripts/workflow.py": "9164ce0033b7b52de5e8ac7b6d8cda0c29c7ab7b4998d4122b23fca9996d39a8"
+    },
+    "domainVersions": {
+      "effectcraft": "0.1.0-dev.13",
+      "filmcraft": "0.1.0-dev.14",
+      "photocraft": "0.1.0-dev.13",
+      "vectorcraft": "0.1.0-dev.13"
+    },
+    "frameCount": 120,
+    "frameRate": {
+      "num": 24,
+      "den": 1
+    },
+    "independentlyDecodedFrames": 120,
+    "compositePixelChecks": 8,
+    "logoReplacementConsumersRebuilt": [
+      "logo",
+      "poster",
+      "intro",
+      "film"
+    ],
+    "independentTaskReused": true,
+    "backgroundVoiceAndInitialFramePreserved": true,
+    "actualLogoAndPosterPixelsChanged": true,
+    "originalInputsDeliveriesAndSkillsPreserved": true,
+    "sameRevisionTasksAndBudgetReused": true,
+    "corruptFrameBlockedAndRestoredWithoutReexecution": true,
+    "movedPackageChildren": 5,
+    "excluded": [
+      "updated fixed Art plugin host until bound to host receipt",
+      "generic Skills CLI",
+      "model dispatch",
+      "GUI",
+      "complete creative approval"
+    ]
+  },
+  "actualDownloadedBundleFaults": {
+    "filmcraft": {
+      "schema": "craft-native-protocol-fault-first-use/v1",
+      "domain": "filmcraft",
+      "result": "PASS",
+      "coldInstall": "PASS",
+      "cases": [
+        {
+          "fault": "malformed",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 11,
+          "reopen": "PASS",
+          "projectSha256": "47bbe1a399f8626150a009744fabc407b624adc5ed1834cf690724788d67e1c5",
+          "runtimeSha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433"
+        },
+        {
+          "fault": "scalar",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 11,
+          "reopen": "PASS",
+          "projectSha256": "47bbe1a399f8626150a009744fabc407b624adc5ed1834cf690724788d67e1c5",
+          "runtimeSha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433"
+        },
+        {
+          "fault": "missing",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 11,
+          "reopen": "PASS",
+          "projectSha256": "47bbe1a399f8626150a009744fabc407b624adc5ed1834cf690724788d67e1c5",
+          "runtimeSha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433"
+        },
+        {
+          "fault": "ambiguous",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 11,
+          "reopen": "PASS",
+          "projectSha256": "47bbe1a399f8626150a009744fabc407b624adc5ed1834cf690724788d67e1c5",
+          "runtimeSha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433"
+        },
+        {
+          "fault": "nonfinite",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 11,
+          "reopen": "PASS",
+          "projectSha256": "47bbe1a399f8626150a009744fabc407b624adc5ed1834cf690724788d67e1c5",
+          "runtimeSha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433"
+        },
+        {
+          "fault": "tool-content",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 11,
+          "reopen": "PASS",
+          "projectSha256": "47bbe1a399f8626150a009744fabc407b624adc5ed1834cf690724788d67e1c5",
+          "runtimeSha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433"
+        }
+      ],
+      "entrySha256": "d9b1fd19c18aaef7e51b5dd03b8e14e0802883f5e8d58f1094ea2fafc2f4adc4",
+      "transportSha256": "40f31e45cf21d237f0df2bdcf09cf5a880309616d44b9b7a1b58c952b181ec7d",
+      "testSha256": "db92ee754ed0a9884b9e74ccf6d30cb3a07cca768ceedbcfbee6ac4961739f95",
+      "checks": [
+        "single skill copy",
+        "fresh public locked runtime",
+        "native save before injected response fault",
+        "one save request",
+        "unknown journal and failure receipt",
+        "no later operations",
+        "saved native project reopened",
+        "original delivery and skills unchanged"
+      ],
+      "scope": "six injected response faults after real native save; not exhaustive commands or GUI acceptance"
+    },
+    "effectcraft": {
+      "schema": "craft-native-protocol-fault-first-use/v1",
+      "domain": "effectcraft",
+      "result": "PASS",
+      "coldInstall": "PASS",
+      "cases": [
+        {
+          "fault": "malformed",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 10,
+          "reopen": "PASS",
+          "projectSha256": "df3c3adfb12c0e0a3f0373f80bb7ae02f571810e0940cc74dfa2170062bd59a0",
+          "runtimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+        },
+        {
+          "fault": "scalar",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 10,
+          "reopen": "PASS",
+          "projectSha256": "df3c3adfb12c0e0a3f0373f80bb7ae02f571810e0940cc74dfa2170062bd59a0",
+          "runtimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+        },
+        {
+          "fault": "missing",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 10,
+          "reopen": "PASS",
+          "projectSha256": "df3c3adfb12c0e0a3f0373f80bb7ae02f571810e0940cc74dfa2170062bd59a0",
+          "runtimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+        },
+        {
+          "fault": "ambiguous",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 10,
+          "reopen": "PASS",
+          "projectSha256": "df3c3adfb12c0e0a3f0373f80bb7ae02f571810e0940cc74dfa2170062bd59a0",
+          "runtimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+        },
+        {
+          "fault": "nonfinite",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 10,
+          "reopen": "PASS",
+          "projectSha256": "df3c3adfb12c0e0a3f0373f80bb7ae02f571810e0940cc74dfa2170062bd59a0",
+          "runtimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+        },
+        {
+          "fault": "tool-content",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 10,
+          "reopen": "PASS",
+          "projectSha256": "df3c3adfb12c0e0a3f0373f80bb7ae02f571810e0940cc74dfa2170062bd59a0",
+          "runtimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+        }
+      ],
+      "entrySha256": "d9b1fd19c18aaef7e51b5dd03b8e14e0802883f5e8d58f1094ea2fafc2f4adc4",
+      "transportSha256": "40f31e45cf21d237f0df2bdcf09cf5a880309616d44b9b7a1b58c952b181ec7d",
+      "testSha256": "db92ee754ed0a9884b9e74ccf6d30cb3a07cca768ceedbcfbee6ac4961739f95",
+      "checks": [
+        "single skill copy",
+        "fresh public locked runtime",
+        "native save before injected response fault",
+        "one save request",
+        "unknown journal and failure receipt",
+        "no later operations",
+        "saved native project reopened",
+        "original delivery and skills unchanged"
+      ],
+      "scope": "six injected response faults after real native save; not exhaustive commands or GUI acceptance"
+    },
+    "photocraft": {
+      "schema": "craft-native-protocol-fault-first-use/v1",
+      "domain": "photocraft",
+      "result": "PASS",
+      "coldInstall": "PASS",
+      "cases": [
+        {
+          "fault": "malformed",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 9,
+          "reopen": "PASS",
+          "projectSha256": "7234025c4cdf9cdecd007ca6614df50081def684929b0caaadfd123adf3a88b3",
+          "runtimeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf"
+        },
+        {
+          "fault": "scalar",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 9,
+          "reopen": "PASS",
+          "projectSha256": "7234025c4cdf9cdecd007ca6614df50081def684929b0caaadfd123adf3a88b3",
+          "runtimeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf"
+        },
+        {
+          "fault": "missing",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 9,
+          "reopen": "PASS",
+          "projectSha256": "7234025c4cdf9cdecd007ca6614df50081def684929b0caaadfd123adf3a88b3",
+          "runtimeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf"
+        },
+        {
+          "fault": "ambiguous",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 9,
+          "reopen": "PASS",
+          "projectSha256": "7234025c4cdf9cdecd007ca6614df50081def684929b0caaadfd123adf3a88b3",
+          "runtimeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf"
+        },
+        {
+          "fault": "nonfinite",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 9,
+          "reopen": "PASS",
+          "projectSha256": "7234025c4cdf9cdecd007ca6614df50081def684929b0caaadfd123adf3a88b3",
+          "runtimeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf"
+        },
+        {
+          "fault": "tool-content",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 9,
+          "reopen": "PASS",
+          "projectSha256": "7234025c4cdf9cdecd007ca6614df50081def684929b0caaadfd123adf3a88b3",
+          "runtimeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf"
+        }
+      ],
+      "entrySha256": "d9b1fd19c18aaef7e51b5dd03b8e14e0802883f5e8d58f1094ea2fafc2f4adc4",
+      "transportSha256": "40f31e45cf21d237f0df2bdcf09cf5a880309616d44b9b7a1b58c952b181ec7d",
+      "testSha256": "db92ee754ed0a9884b9e74ccf6d30cb3a07cca768ceedbcfbee6ac4961739f95",
+      "checks": [
+        "single skill copy",
+        "fresh public locked runtime",
+        "native save before injected response fault",
+        "one save request",
+        "unknown journal and failure receipt",
+        "no later operations",
+        "saved native project reopened",
+        "original delivery and skills unchanged"
+      ],
+      "scope": "six injected response faults after real native save; not exhaustive commands or GUI acceptance"
+    },
+    "vectorcraft": {
+      "schema": "craft-native-protocol-fault-first-use/v1",
+      "domain": "vectorcraft",
+      "result": "PASS",
+      "coldInstall": "PASS",
+      "cases": [
+        {
+          "fault": "malformed",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 13,
+          "reopen": "PASS",
+          "projectSha256": "34027aae7464d522026b69d17be6c3eb4752dc13c3c64659f6659d4d8fefb7ae",
+          "runtimeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+        },
+        {
+          "fault": "scalar",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 13,
+          "reopen": "PASS",
+          "projectSha256": "34027aae7464d522026b69d17be6c3eb4752dc13c3c64659f6659d4d8fefb7ae",
+          "runtimeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+        },
+        {
+          "fault": "missing",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 13,
+          "reopen": "PASS",
+          "projectSha256": "b48cc2480e9aab154776fd4bb44cb8004a27c9e4fe2c2399113f92671c7e804a",
+          "runtimeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+        },
+        {
+          "fault": "ambiguous",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 13,
+          "reopen": "PASS",
+          "projectSha256": "b48cc2480e9aab154776fd4bb44cb8004a27c9e4fe2c2399113f92671c7e804a",
+          "runtimeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+        },
+        {
+          "fault": "nonfinite",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 13,
+          "reopen": "PASS",
+          "projectSha256": "b48cc2480e9aab154776fd4bb44cb8004a27c9e4fe2c2399113f92671c7e804a",
+          "runtimeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+        },
+        {
+          "fault": "tool-content",
+          "nativeSaveCount": 1,
+          "result": "unknown",
+          "startedSteps": 13,
+          "reopen": "PASS",
+          "projectSha256": "b48cc2480e9aab154776fd4bb44cb8004a27c9e4fe2c2399113f92671c7e804a",
+          "runtimeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+        }
+      ],
+      "entrySha256": "d9b1fd19c18aaef7e51b5dd03b8e14e0802883f5e8d58f1094ea2fafc2f4adc4",
+      "transportSha256": "40f31e45cf21d237f0df2bdcf09cf5a880309616d44b9b7a1b58c952b181ec7d",
+      "testSha256": "db92ee754ed0a9884b9e74ccf6d30cb3a07cca768ceedbcfbee6ac4961739f95",
+      "checks": [
+        "single skill copy",
+        "fresh public locked runtime",
+        "native save before injected response fault",
+        "one save request",
+        "unknown journal and failure receipt",
+        "no later operations",
+        "saved native project reopened",
+        "original delivery and skills unchanged"
+      ],
+      "scope": "six injected response faults after real native save; not exhaustive commands or GUI acceptance"
+    }
+  },
+  "sourceRegression": {
+    "tests": 103,
+    "passed": 76,
+    "optionalSkipped": 27
+  },
+  "runtimeRegression": {
+    "tests": 183,
+    "passed": 172,
+    "optionalSkipped": 11
+  },
+  "builderRegression": {
+    "tests": 5,
+    "passed": 5
+  },
+  "redBaseline": {
+    "test": "tests/test_distribution_protocol.py",
+    "result": "FAIL before lock update",
+    "subcaseFailures": 40,
+    "reason": "all ten skills pinned older domain source versions"
+  },
+  "scope": "candidate Art single-skill default public bootstrap and actual downloaded domain helpers; not updated immutable Art source/plugin installation",
+  "excluded": [
+    "ten-skill full install until separate receipt",
+    "updated Art fixed installed-host acceptance",
+    "end-to-end orchestration response-fault injection",
+    "all-command GUI semantics",
+    "model dispatch",
+    "creative approval"
+  ]
+}
