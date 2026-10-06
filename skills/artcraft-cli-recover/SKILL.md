@@ -50,3 +50,5 @@ CLI argv 在 `--` 后，原生子命令必须放首位。安装参数放分隔�
 本技能不提供虚构的登录接口；本地 headless 不要求云账户。完整 GUI、跨编辑器保真与创作质量按实际证据陈述。
 
 需要通过既有 Video Factory 验证成片时，读取本技能 [公开验证交接](references/video-factory.md)。该适配保留 NOT_RUN，不替代创作审阅或原生工程。
+
+已停止失败的领域报告可通过 status 查询，读取本技能[恢复合同](references/recovery.md)；错误诊断不授权重放原任务。

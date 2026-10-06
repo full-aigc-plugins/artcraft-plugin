@@ -1,6 +1,6 @@
 # 原任务恢复合同
 
-当前运行时版本由本技能 scripts/distribution.lock.json 固定；领域技能源版本各自读取 bundles，不假设与运行时相同。下文恢复合同自运行时 dev.6 引入，当前 dev.7 保留。
+当前运行时版本由本技能 scripts/distribution.lock.json 固定；领域技能源版本各自读取 bundles，不假设与运行时相同。下文恢复合同自运行时 dev.6 引入；当前行为以固定运行时及对应验证证据为准。
 
 ## 操作
 
@@ -19,3 +19,16 @@
 - SQLite schema 仍为 v2；旧账本已运行但没有停止证据的任务不自动升级为已完成。
 - 当前实测 macOS arm64 的 Node 24 与 EffectCraft 0.2.0；Linux 通用执行器未做本机实测，Windows 不支持。
 - `review_ready` 是技术待审，仍需视觉、文案与音频审核。
+
+## 已停止失败的诊断（运行时 dev.32 起）
+
+使用本技能 cli.py 查询原任务：安装参数放在 `--` 前，CLI 参数放在其后。
+
+```bash
+: "${SKILL_DIR:?本技能实际加载目录}" "${DATABASE:?原账本绝对路径}" "${TASK_ID:?原任务 ID}"
+python3 -I -B "$SKILL_DIR/scripts/cli.py" -- status --database "$DATABASE" --task "$TASK_ID"
+```
+
+failed 状态以非零退出码返回可读 JSON。error.code 仍为 native_execution_failed；error.diagnostics.domainCode 只表示子进程报告的已知错误，例如 protected_region_changed、missing_fonts、unsupported_command 或 revision_conflict。stdout/stderr 仅记录 bytes、sha256、truncated、complete，不保存原始文本。null 不能被猜测为某个领域原因。
+
+同一工作流失败节点的 failure 保留上述诊断；再次查询或执行同一冻结计划保留原 taskId／attemptId，不重新启动子任务。修正输入后需要新的显式 revision，仍受授权与预算约束。不明确停止、监督器崩溃或后代尚存时，诊断不能代替停止证据。每条管道最多 16 KiB 用于 JSON 解析；不完整、超限、未知或冲突输出只保留摘要。

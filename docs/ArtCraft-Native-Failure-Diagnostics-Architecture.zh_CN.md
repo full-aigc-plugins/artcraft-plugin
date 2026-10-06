@@ -36,3 +36,5 @@ craft-native-diagnostics/v1 包含 domainCode、source、stdout/stderr 的 bytes
 ## 证据与剩余门禁
 
 真实子进程测试覆盖结构化失败、超限／未知文本、关闭重开账本、重复恢复、不保存原文及继承管道。DAG 测试覆盖阻断消费者与重复查询的失败信息。当前已发布运行时的真实 PhotoCraft 失败用例先暴露诊断缺失；固定候选运行时发布与安装前，增强后的原生测试尚未通过。单元／进程测试不代替公开冷安装和创作验收。
+
+固定运行时 dev.32 与源码候选 dev.28 已通过默认在线公开 PhotoCraft 失败／查询／重复执行／修订／打包测试。报告码 protected_region_changed 可公开查询，attemptId 保持不变；安装后插件复验仍待完成。

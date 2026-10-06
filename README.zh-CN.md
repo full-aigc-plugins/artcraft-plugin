@@ -200,3 +200,5 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 固定 PhotoCraft 插件 dev.8／技能源 dev.7 与 ArtCraft 插件 dev.31／技能源 dev.27 通过安装后的原生修图和交接测试（13.260 秒／23.264 秒）。58 个安装后技能摘要全部保持不变。仅完成有界修图任务；完整目标仍未完成。[证据](docs/evidence/codex-release31-retouch-native-20261006.json)。
 
 本地运行时候选支持有界原生失败诊断，不保存原始输出，并在重复查询工作流时保留诊断。固定发布和安装后的原生复验仍待完成。[架构](docs/ArtCraft-Native-Failure-Diagnostics-Architecture.zh_CN.md)。
+
+候选插件 dev.33 固定 ArtCraft 技能源 dev.28／运行时 dev.32，提供有界失败诊断及持久公开状态／重复查询。源码在线原生证据通过，固定安装后插件复验待完成。

@@ -200,3 +200,5 @@ Candidate plugin dev.31 pins ArtCraft skills dev.27 and PhotoCraft skills dev.7 
 Fixed PhotoCraft plugin dev.8 / skills dev.7 and ArtCraft plugin dev.31 / skills dev.27 pass installed native retouch/handoff testing (13.260s and 23.264s). All 58 installed skill hashes remain unchanged. Only scoped retouch tasks are complete; the full goal remains incomplete. [Proof](docs/evidence/codex-release31-retouch-native-20261006.json).
 
 Local runtime candidate preserves bounded native-failure diagnostics without raw output text and retains them across repeated workflow queries. Immutable release and installed-native revalidation remain pending. [Architecture](docs/ArtCraft-Native-Failure-Diagnostics-Architecture.md).
+
+Candidate plugin dev.33 pins ArtCraft skills dev.28 / runtime dev.32 with bounded native-failure diagnostics and durable public status/repeat queries. Source online-native proof passed; fixed installed-plugin proof remains pending.

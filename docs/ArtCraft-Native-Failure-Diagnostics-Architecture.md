@@ -36,3 +36,5 @@ Pipes are continuously drained. After the primary child exit, a 250 ms drain win
 ## Evidence and remaining gate
 
 Actual child-process tests cover known JSON failure, oversized and unknown text, reopened ledger, repeated recovery, privacy and inherited descriptors. DAG tests cover blocked consumers and repeated workflow failure. Native PhotoCraft public failure on the currently released runtime first demonstrates missing diagnostics; the strengthened native test is not green until a fixed candidate runtime is published and installed. Unit/process tests do not substitute for cold public native installation or creative acceptance.
+
+Fixed runtime dev.32 and source candidate dev.28 pass default online public PhotoCraft failure/status/repeat/revision/package testing. Reported protected_region_changed survives public queries with unchanged attemptId; installed-plugin verification remains pending.

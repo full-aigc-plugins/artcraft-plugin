@@ -1,7 +1,7 @@
 {
   "schema": "craft-native-failure-diagnostics-evidence/v1",
   "date": "2026-10-06",
-  "status": "local-candidate-process-tests-passed-native-publication-pending",
+  "status": "fixed-runtime-source-native-passed-installed-plugin-pending",
   "spec": "AC-TX-002-DIAG",
   "task": "5.12",
   "processRed": {
@@ -59,11 +59,151 @@
     "test/workflow_engine.test.ts": "58f91f18f0e825386ecf7a83321974dc5aea8454915b926380f4c5b7a956b0c6"
   },
   "excluded": [
-    "fixed candidate runtime publication",
-    "candidate public native GREEN",
     "installed plugin cold acceptance",
     "generic Skills CLI install",
     "agent model dispatch",
     "creative acceptance"
-  ]
+  ],
+  "runtime": {
+    "version": "0.1.0-dev.32",
+    "commit": "3ff1ed3d0d6d6de56ae992f2b2a10fd8d0b9aee6",
+    "bundleSha256": "df30b6c99c811b3920ad8a53a7e48ea1378410b9ecf05ae74c99fc0fcf625b2b"
+  },
+  "sourceNativeGreen": {
+    "tests": 1,
+    "passed": 1,
+    "seconds": 21.66,
+    "python": "3.14.3",
+    "observation": {
+      "schema": "craft-photo-protection-first-use/v1",
+      "runtimeVersion": "0.1.0-dev.32",
+      "photoSourceVersion": "0.1.0-dev.7",
+      "photoSourceSha256": "bd8e472067222bbc73578ad90b80936451cb0bd7aba857de7b819638a909fb22",
+      "originalFiles": {
+        "design.png": "7ce9681c78febcb554bab05e43512957245e1f69dd76b241cb966088ef943897",
+        "plan.json": "4a3277e77573033ef48d75747716510805d902afc95b870be4bf5801eb37684b",
+        "exchange-loss.json": "84f477da025c8f21973a945f5591248ff6a10c806fbd01f16b2f43d889fe28ae",
+        "native.json": "03323b42814b5398d25e41121ac6c6c432b05eb9227e637bbd5d5c1e6418614c",
+        "project.pcraft": "3bb4839bf6afdba6e51e380d1e7f1a047a57feb4b87413f395972d1f545a1e46",
+        "manifest.json": "5ab9861393d21d468deb78f4e0afc76683fa59e2efb81b73f9ab0010c89b6078",
+        "operations.json": "04019ef3391692508ecfe91e83566ca605bf3dbcb6d2cd89281d061d353b1c8d"
+      },
+      "updatedManifest": {
+        "schema": "photocraft-delivery/v1",
+        "sourceProjectSha256": "3bb4839bf6afdba6e51e380d1e7f1a047a57feb4b87413f395972d1f545a1e46",
+        "runtimeSha256": "57cefe9ee7bda1d996c11741bef84f934cf28d4729eb237900f00d76678d6fa4",
+        "bindings": {
+          "headline": {
+            "bounds": [
+              29,
+              36,
+              118,
+              62
+            ],
+            "layer": 3
+          },
+          "product": {
+            "layer": 4
+          }
+        },
+        "assets": {},
+        "outputs": [
+          {
+            "path": "design.png",
+            "warnings": [
+              "3 layer(s) flattened; layers, masks and blend modes are not kept"
+            ]
+          }
+        ],
+        "nativeWarnings": [],
+        "files": {
+          "design.png": "585ec33ae4f02e89da2943327c863051270c0b5c15a04ae97b62869fcfca36ae",
+          "protection-after.png": "585ec33ae4f02e89da2943327c863051270c0b5c15a04ae97b62869fcfca36ae",
+          "plan.json": "cfe3dbe0ae39c9009e6d17b732e9c9f95352097fcd01682f451ba39eeed835f8",
+          "exchange-loss.json": "3c8ddf3b1f4dd400316192ce35bbfebbc3c2c77f3f026c3df91e3bd47c267178",
+          "pixel-protection.json": "d510cf966420cf08e65f026dc206efef531cd233f3c97bf5a25b357e39d101e2",
+          "native.json": "2eb7473e6050a44814ddc73c1f328f7c59c03e6935ee1dd9b78635e9c9fbe0b2",
+          "protection-before.png": "7ce9681c78febcb554bab05e43512957245e1f69dd76b241cb966088ef943897",
+          "project.pcraft": "9f7ae318eceb74eb916cb2144260a1972aa24d86583321df60d4503af95d2d1c",
+          "operations.json": "9e908cd800d244f43ac6e18f0ddd43de1502a525984d02251606c6ccdfeea962"
+        },
+        "lossReport": {
+          "path": "exchange-loss.json",
+          "sha256": "3c8ddf3b1f4dd400316192ce35bbfebbc3c2c77f3f026c3df91e3bd47c267178"
+        },
+        "acceptance": "requires-domain-and-visual-review"
+      },
+      "protection": {
+        "schema": "photocraft-pixel-protection/v1",
+        "canvas": {
+          "width": 320,
+          "height": 400
+        },
+        "regions": [
+          {
+            "id": "footer",
+            "rect": [
+              0,
+              240,
+              320,
+              160
+            ],
+            "pixels": 51200,
+            "changedPixels": 0,
+            "beforeSha256": "2abec3612e1f0966639ce485b38a84b6b901052b9219bc5605d5c8593bb68e0e",
+            "afterSha256": "2abec3612e1f0966639ce485b38a84b6b901052b9219bc5605d5c8593bb68e0e"
+          }
+        ],
+        "scope": "exact 8-bit RGB/RGBA noninterlaced PNG samples and equal color-profile chunks; no visual or creative acceptance"
+      },
+      "packageSha256": "f32c3b940a0f05aa03da9a78247a74454105ed8454005d656d497ec066093839",
+      "taskIds": [
+        "wf-a36d5e523fa02a803812cd5b97b4226b5bfb2b3815d50229",
+        "wf-b81f4389f9c17b66cfedbaa8e77f4ba54d943605696f1ecb",
+        "wf-2b6c31c1be3d0a5ad7706488487e6b3d1c389aec8381e248"
+      ],
+      "budget": {
+        "accountKey": "93d8cb23f8afd1e52cc19141f699b0224890389c51232449299ac35e794e91fc",
+        "limits": {
+          "currency": "USD",
+          "maxExternalCalls": 0,
+          "maxMinorUnits": 0,
+          "maxRevisions": 2
+        },
+        "allocated": {
+          "minorUnits": 0,
+          "externalCalls": 0,
+          "revisions": 2
+        }
+      },
+      "retouchStrokeRecorded": true,
+      "failureDiagnostics": {
+        "schema": "craft-native-diagnostics/v1",
+        "domainCode": "protected_region_changed",
+        "source": "stdout",
+        "stdout": {
+          "bytes": 58,
+          "sha256": "95a94f3ae69a79a70b81e669ae787d17876d9b611ac5c66d500d85241b5b3a22",
+          "truncated": false,
+          "complete": true
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "truncated": false,
+          "complete": true
+        }
+      },
+      "failedAttemptId": "3d6a27d5-c1c6-4f3e-99ca-82d4c8d93282",
+      "repeatedFailureKeepsAttempt": true,
+      "scope": "single copied ArtCraft skill, online Photo-only install, generic worker failure on rejected region, valid native revision and moved package; no creative acceptance"
+    },
+    "testSha256": "14adbec6b99372718c1f4ec7f4cb8a3b314c8321fc44b188bc3f964fcd5468e5"
+  },
+  "sourceDefaultRegression": {
+    "tests": 72,
+    "passed": 59,
+    "skipped": 13,
+    "seconds": 5.736
+  }
 }
