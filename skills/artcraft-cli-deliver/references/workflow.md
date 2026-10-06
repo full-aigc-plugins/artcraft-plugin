@@ -134,3 +134,9 @@ Pinned FilmCraft source dev.8 accepts `mixer.setStrip` with exactly `{"strip":"A
 要求音频的 Film 节点缺少真实时间线源音轨时返回 `export_audio_missing`；自动静音 AAC 不代表成功。失败保留工程、预览、成片、audio-check.json、export-probe.json 与 failure.json，不发布成功输出。依赖该节点的任务阻断；同一冻结计划重复执行保留原尝试与预算。明确 audioRequired=false 或真实静音源仍按领域契约处理。
 
 A required-audio Film node without a timeline audio source reports `export_audio_missing`. Generated silent AAC is insufficient. Retain native project, preview, film and diagnostic JSON without success outputs; block consumers and preserve attempt/budget identity on replay. Explicit optional audio and intentional silent sources follow the domain contract.
+
+## PCM WAV 配音登记 / PCM WAV narration
+
+首次使用已有标准 PCM WAV 配音时，workflow.py 按 RIFF/WAVE 内容登记 audio/wav、采样率、声道、位深、十进制样本帧数和 timeBase=1/sampleRate；运行时核对实际文件、块边界、帧对齐及声明。假 .wav、截断与非 PCM 格式在安装或领域执行前明确拒绝，不转码替换。其他未知输入维持二进制类型，不推断为已识别音频。独立技能不依赖兄弟目录；原配音及技能文件保留。
+
+Standard PCM WAV narration is identified from content, carries exact sample-based facts, and is verified again by the runtime. Invalid WAV files and unsupported compression are rejected explicitly; no replacement voice is generated. Native FilmCraft export/decode and creative/audio review remain separate checks.

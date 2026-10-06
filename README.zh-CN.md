@@ -6,7 +6,7 @@
 
 ## 当前版本与可复现宿主验证
 
-当前插件 `0.1.0-dev.53`，独立技能源 `0.1.0-dev.38`，运行时 `0.1.0-dev.52`。固定安装后的有界首次使用验收通过，详见下方证据。runtime dev.51 来源无效，请勿安装；历史证据保持原范围，完整首版／模型／GUI／创作验收仍开放。
+当前插件 `0.1.0-dev.55`，独立技能源 `0.1.0-dev.39`，运行时 `0.1.0-dev.54`。PCM WAV 候选原生首次使用通过，固定新版安装公开验收仍待完成；既有证据保持原版本范围，完整首版／模型／GUI／创作验收仍开放。
 
 固定 dev.38 验收：Codex 0.153.4 发现 58 项技能，加载错误为零；实际安装目录的单技能在线冷启动通过 3 项、无跳过，95.289 秒。四源返工、三领域尺寸修改、保存后产物摘要、Effect 实际视频属性、复用和源工程保全均通过，58 个安装技能摘要未变。[证据](docs/evidence/codex-release38-native-brief-first-use-20261006.json)。运行时回归 123 项通过、5 项可选跳过；完整模型／GUI／创作／生产验收仍开放。dev.37 标签因暂存失败保留历史，未创建 Release，也不作为插件快照使用。
 
@@ -30,9 +30,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.53 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.55 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.38 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.39 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
@@ -258,3 +258,5 @@ dev.44 首次使用已知取消问题：原生运行中取消后，短暂进程�
 [效果参数诊断与不可变发行纠正](docs/ArtCraft-Effect-Parameter-Diagnostics-Architecture.zh_CN.md)：精确参数拒绝阻断 Film、保全上游，修正后完成五子工程打包。runtime dev.52 与四个领域锁定技能源可从固定标签重建；dev.51 来源无效，请勿安装。
 
 固定 dev.53 首次使用：58 技能发现／零错误、十项 Art 独立冷启动（110.577 秒）、安装后真实失败及修正混合交付（56.202 秒）、五个锁定包可重建且原安装 58 项技能摘要不变。[证据](docs/evidence/codex-release53-effect-mapping-first-use-20261006.json)。通用 Skills CLI、完整创作首版、模型／GUI 与生产门禁仍开放。
+
+[PCM WAV 输入架构](docs/ArtCraft-PCM-WAV-Architecture.zh_CN.md)与[候选证据](docs/evidence/pcm-wav-repair-20261006.json)：音频声明绑定实际 RIFF PCM 数据；假／截断 WAV 及元数据不符在领域执行前拒绝。

@@ -8,6 +8,7 @@ import os
 from pathlib import Path
 import re
 import subprocess
+import struct
 import sys
 
 
@@ -24,6 +25,40 @@ def file_digest(path):
     if (before.st_ino, before.st_size, before.st_mtime_ns) != (after.st_ino, after.st_size, after.st_mtime_ns) or size != after.st_size:
         raise ValueError('provided_asset_changed')
     return value.hexdigest(), size
+
+
+def provided_metadata(path):
+    """按内容登记标准 PCM WAV；其他格式保留明确未识别的二进制类型。"""
+    before = path.stat()
+    with path.open('rb') as stream:
+        header = stream.read(12)
+        recognized = header[:4] == b'RIFF' and header[8:12] == b'WAVE'
+        if not recognized:
+            if path.suffix.lower() == '.wav':raise ValueError('provided_wav_invalid')
+            return 'application/octet-stream', {}
+        if len(header) != 12 or struct.unpack_from('<I', header, 4)[0]+8 != before.st_size:
+            raise ValueError('provided_wav_invalid')
+        position, audio_format, data_bytes = 12, None, None
+        while position < before.st_size:
+            stream.seek(position);chunk = stream.read(8)
+            if len(chunk) != 8:raise ValueError('provided_wav_invalid')
+            length = struct.unpack_from('<I', chunk, 4)[0];end = position+8+length
+            if end+length%2 > before.st_size:raise ValueError('provided_wav_invalid')
+            if chunk[:4] == b'fmt ':
+                if audio_format is not None or not 16 <= length <= 4096:raise ValueError('provided_wav_invalid')
+                audio_format = struct.unpack('<HHIIHH', stream.read(16))
+            elif chunk[:4] == b'data':
+                if audio_format is None or data_bytes is not None:raise ValueError('provided_wav_invalid')
+                data_bytes = length
+            position = end+length%2
+        if audio_format is None or data_bytes is None:raise ValueError('provided_wav_invalid')
+        tag, channels, rate, byte_rate, align, bits = audio_format
+        if tag != 1:raise ValueError('provided_wav_format_unsupported')
+        if not channels or not rate or bits not in (8,16,24,32) or align != channels*bits//8 or byte_rate != rate*align or data_bytes%align:
+            raise ValueError('provided_wav_invalid')
+    after = path.stat()
+    if (before.st_ino,before.st_size,before.st_mtime_ns) != (after.st_ino,after.st_size,after.st_mtime_ns):raise ValueError('provided_asset_changed')
+    return 'audio/wav', {'audio':{'sampleRate':rate,'channels':channels},'bitDepth':bits,'durationTicks':str(data_bytes//align),'timeBase':{'num':1,'den':rate}}
 
 
 def canonical(value):
@@ -85,7 +120,9 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
         if not path.is_file():
             raise ValueError('provided_asset_invalid')
         sha, size = file_digest(path)
-        assets[name] = {'root': str(path.parent), 'artifact': {'protocolVersion': 'craft-artifact/v1', 'assetId': name, 'version': sha, 'sha256': sha, 'bytes': size, 'mediaType': 'application/octet-stream', 'producerTaskId': 'provided-'+name, 'sourceRefs': [], 'nativeProjectRef': None, 'renditions': [], 'dependencies': [], 'technicalMetadata': {}, 'lossReportRef': None, 'evidenceRefs': [], 'location': path.name}}
+        media_type, metadata = provided_metadata(path)
+        if media_type == 'audio/wav' and file_digest(path) != (sha, size):raise ValueError('provided_asset_changed')
+        assets[name] = {'root': str(path.parent), 'artifact': {'protocolVersion': 'craft-artifact/v1', 'assetId': name, 'version': sha, 'sha256': sha, 'bytes': size, 'mediaType': media_type, 'producerTaskId': 'provided-'+name, 'sourceRefs': [], 'nativeProjectRef': None, 'renditions': [], 'dependencies': [], 'technicalMetadata': metadata, 'lossReportRef': None, 'evidenceRefs': [], 'location': path.name}}
     used = set()
     plan = json.loads(json.dumps(source_plan))
     for node in plan['nodes']:
