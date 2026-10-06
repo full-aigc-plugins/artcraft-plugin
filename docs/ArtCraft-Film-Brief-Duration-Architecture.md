@@ -36,3 +36,5 @@ flowchart LR
 Evidence for the candidate output gate is in evidence/film-brief-duration-output.json. Immutable release and fresh installed-runtime acceptance remain required before claiming first-use delivery.
 
 Runtime dev.34 passed source-candidate dev.29 cold online first use: 3 tests, 93.401 seconds, with hash-bound one-second native Film and export evidence. Fixed source/plugin installation proof is still pending.
+
+Fixed plugin dev.35 / skills dev.29 / runtime dev.34 now pass actual installed-skill cold online first use: 3 tests in 94.638 seconds. All 58 installed skills retain their hashes. The one-second saved Film timeline and actual exported probe are hash-bound. Source-project and unknown-edit native Brief inspection, generic installer and full creative acceptance remain open. See evidence/codex-release35-film-duration-native-20261006.json.

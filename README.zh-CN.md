@@ -208,3 +208,5 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 本地运行时候选 dev.34 增加 Film Brief 时间线精确预检，以及就绪发布和复用前的保存后工程／成片时长摘要绑定检查。真实本地混合回归通过；固定发布后的首次使用证据仍待完成。 [AC-DM-001-TIME](docs/ArtCraft-Film-Brief-Duration-Architecture.zh_CN.md)。
 
 插件候选 dev.35 同步固定独立技能源 dev.29 和运行时 dev.34。一秒 Film Brief 技能源在线冷安装通过（3 项、93.401 秒）；实际安装宿主首次使用待完成。
+
+固定 ArtCraft 插件 dev.35／技能源 dev.29／运行时 dev.34 已通过实际安装技能的在线首次使用（3 项、94.638 秒），包含一秒原生 Film 时长与成片探测摘要绑定检查。58 个安装技能摘要保持不变。源工程 Brief 检查及完整实施／创作验收仍未完成。 [Evidence](docs/evidence/codex-release35-film-duration-native-20261006.json)。

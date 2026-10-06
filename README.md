@@ -208,3 +208,5 @@ Fixed ArtCraft plugin dev.33 / skills dev.28 / runtime dev.32 pass installed-nat
 Local runtime candidate dev.34 adds exact Film Brief timeline preflight and hash-bound saved-project/export duration verification before readiness and reuse. Local native mixed regression passed; fixed released first-use proof remains pending. [AC-DM-001-TIME](docs/ArtCraft-Film-Brief-Duration-Architecture.md)。
 
 Plugin candidate dev.35 vendors fixed independent skills dev.29 and runtime dev.34. One-second Film Brief cold online source first use passed (3 tests, 93.401s); installed-host first use is pending.
+
+Fixed ArtCraft plugin dev.35 / skills dev.29 / runtime dev.34 pass actual installed-skill online first use (3 tests, 94.638s), including the hash-bound one-second native Film duration and exported probe. All 58 installed skill hashes remain unchanged. Source-project Brief inspection and full implementation/creative acceptance remain open. [Evidence](docs/evidence/codex-release35-film-duration-native-20261006.json)。
