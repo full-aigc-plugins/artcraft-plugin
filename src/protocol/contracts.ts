@@ -7,6 +7,7 @@ import { isDeepStrictEqual } from 'node:util';
 import { inspectPcmWav } from './wav_inspection.ts';
 import { inspectPng } from './png_inspection.ts';
 import { inspectJpeg } from './jpeg_inspection.ts';
+import { imageSequenceMime, inspectImageSequence, sequenceMetadata } from './image_sequence.ts';
 
 type Json = null | boolean | number | string | Json[] | { [key: string]: Json };
 type Schema = { [key: string]: any };
@@ -112,7 +113,7 @@ async function allowedPath(root: string, location: string): Promise<string> {
 
 function matchesMime(prefix: Buffer, type: string): boolean {
   if (type === 'application/octet-stream') return true;
-  if (type === 'application/json') return true; // 完整 JSON 语法在摘要核对后检查。
+  if (type === 'application/json' || type === imageSequenceMime) return true; // 完整 JSON 语法在摘要核对后检查。
   if (type === 'audio/wav') return prefix.subarray(0,4).toString() === 'RIFF' && prefix.subarray(8,12).toString() === 'WAVE';
   if (type === 'image/png') return prefix.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10]));
   if (type === 'application/pdf') return prefix.subarray(0,5).toString() === '%PDF-';
@@ -128,6 +129,7 @@ export async function verifyArtifact(value: unknown, root: string): Promise<Reco
   const target = await allowedPath(root, artifact.location);
   const before = await stat(target);
   if (!before.isFile()) throw new Error('artifact_not_file');
+  if(artifact.mediaType===imageSequenceMime && before.size>4*1024*1024)throw new Error('image_sequence_descriptor_limit');
   let bytes = 0;
   let prefix = Buffer.alloc(0);
   const hash = createHash('sha256');
@@ -147,6 +149,10 @@ export async function verifyArtifact(value: unknown, root: string): Promise<Reco
     try { JSON.parse(content.toString('utf8')); } catch { throw new Error('json_artifact_invalid'); }
   }
   if (!matchesMime(prefix, artifact.mediaType)) throw new Error('media_type_mismatch');
+  if(artifact.mediaType===imageSequenceMime){
+    const descriptor=await inspectImageSequence(root,artifact.location,artifact.sha256);
+    if(!isDeepStrictEqual(artifact.technicalMetadata,sequenceMetadata(descriptor)))throw new Error('image_sequence_metadata_mismatch');
+  }
   if(artifact.mediaType==='image/png' || artifact.mediaType==='image/jpeg'){
     const facts=artifact.mediaType==='image/png' ? await inspectPng(target,bytes) : await inspectJpeg(target,bytes),declared=artifact.technicalMetadata;
     const current=await stat(target);
@@ -173,7 +179,13 @@ export async function verifyArtifact(value: unknown, root: string): Promise<Reco
     if((await stat(reportPath)).size>16*1024*1024)throw new Error('loss_report_too_large');
     const report=validateExchangeLossReport(JSON.parse(await readFile(reportPath,'utf8')));
     if(!artifact.nativeProjectRef || report.native.location!==artifact.nativeProjectRef.location || report.native.sha256!==artifact.nativeProjectRef.sha256)throw new Error('loss_report_native_mismatch');
-    if(artifact.location!==report.native.location && !report.outputs.some((output:any)=>output.location===artifact.location && output.sha256===artifact.sha256))throw new Error('loss_report_output_mismatch');
+    if(artifact.mediaType===imageSequenceMime){
+      const descriptor=await inspectImageSequence(root,artifact.location,artifact.sha256);
+      for(const frame of descriptor.frames){
+        const location=artifact.location.slice(0,-'sequence.json'.length)+frame.location;
+        if(!report.outputs.some((output:any)=>output.location===location&&output.sha256===frame.sha256&&output.format==='png'))throw new Error('loss_report_output_mismatch');
+      }
+    }else if(artifact.location!==report.native.location && !report.outputs.some((output:any)=>output.location===artifact.location && output.sha256===artifact.sha256))throw new Error('loss_report_output_mismatch');
     for(const ref of [report.inspection,report.psdInspection,...report.outputs].filter(Boolean)){
       const path=await allowedPath(root,ref.location),digest=createHash('sha256');for await(const chunk of createReadStream(path))digest.update(chunk);
       if(digest.digest('hex')!==ref.sha256)throw new Error('loss_report_evidence_mismatch');

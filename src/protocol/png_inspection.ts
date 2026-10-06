@@ -1,6 +1,7 @@
 /** 静态 PNG 的结构与扫描数据核验；Alpha 表示不等于视觉透明度。 */
 import { open } from 'node:fs/promises';
 import { inflateSync } from 'node:zlib';
+import { createHash } from 'node:crypto';
 const signature=Buffer.from([137,80,78,71,13,10,26,10]);
 const maxFile=64*1024*1024,maxScan=128*1024*1024;
 const invalid=():never=>{throw new Error('png_artifact_invalid');};
@@ -11,7 +12,7 @@ function crc32(bytes:Buffer):number{
  return (crc^0xffffffff)>>>0;
 }
 /** 支持标准颜色类型、位深和 Adam7；明确拒绝 APNG 与超限输入。 */
-export async function inspectPng(path:string,size:number):Promise<{width:number;height:number;bitDepth:number;alpha:boolean}>{
+export async function inspectPng(path:string,size:number,rgbaPixels=false):Promise<{width:number;height:number;bitDepth:number;alpha:boolean;rgbaSha256?:string;alphaExtrema?:number[];encodedSha256?:string}>{
  if(size>maxFile)throw new Error('png_artifact_too_large');
  const handle=await open(path,'r');const buffer=Buffer.alloc(size+1);let count=0;
  try{while(count<buffer.length){const read=await handle.read(buffer,count,buffer.length-count,count);if(!read.bytesRead)break;count+=read.bytesRead;}}finally{await handle.close();}
@@ -50,6 +51,7 @@ export async function inspectPng(path:string,size:number):Promise<{width:number;
   offset=end;
  }
  if(!ended)invalid();
+ if(rgbaPixels && (color!==6 || depth!==8 || interlace!==0))throw new Error('image_sequence_rgba_required');
  const channels:Record<number,number>={0:1,2:3,3:1,4:2,6:4};
  const passes=interlace?[[0,0,8,8],[4,0,8,8],[0,4,4,8],[2,0,4,4],[0,2,2,4],[1,0,2,2],[0,1,1,2]]:[[0,0,1,1]];
  const rows:number[][]=[];let expected=0;
@@ -67,5 +69,21 @@ export async function inspectPng(path:string,size:number):Promise<{width:number;
  }catch{invalid();}
  let at=0;
  for(const [stride,count] of rows)for(let row=0;row<count;row++){if(scan![at]>4)invalid();at+=stride;}
+ if(rgbaPixels){
+  // 逐行反滤波，摘要基于实际 RGBA 像素而不是压缩文件或 IHDR 声明。
+  const stride=width*4,digest=createHash('sha256');let previous=Buffer.alloc(stride),minimum=255,maximum=0;
+  const paeth=(a:number,b:number,c:number)=>{const p=a+b-c,pa=Math.abs(p-a),pb=Math.abs(p-b),pc=Math.abs(p-c);return pa<=pb&&pa<=pc?a:pb<=pc?b:c;};
+  for(let row=0;row<height;row++){
+   const start=row*(stride+1),filter=scan![start],pixels=Buffer.alloc(stride);
+   for(let column=0;column<stride;column++){
+    const left=column>=4?pixels[column-4]:0,up=previous[column],upperLeft=column>=4?previous[column-4]:0;
+    const prediction=[0,left,up,Math.floor((left+up)/2),paeth(left,up,upperLeft)][filter];
+    pixels[column]=(scan![start+1+column]+prediction)&255;
+    if(column%4===3){minimum=Math.min(minimum,pixels[column]);maximum=Math.max(maximum,pixels[column]);}
+   }
+   digest.update(pixels);previous=pixels;
+  }
+  return {width,height,bitDepth:depth,alpha:true,rgbaSha256:digest.digest('hex'),alphaExtrema:[minimum,maximum],encodedSha256:createHash('sha256').update(data).digest('hex')};
+ }
  return {width,height,bitDepth:depth,alpha:color===4||color===6||transparency};
 }

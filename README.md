@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Candidate dynamic-sequence handoff is implemented in the current working tree; the published Art runtime is unchanged. See [architecture and remaining gates](docs/ArtCraft-Dynamic-Sequence-Architecture.md).
+
 Fixed JPEG release dev.59 / source dev.41 / runtime dev.58 passes isolated Codex discovery (five plugins, 58 skills, zero errors), installed copied-alone JPEG/PNG/PCM native delivery, ten Art cold CLI installations and all 58 installed digest checks. Progressive JPEG produces a reopened three-layer Photo project plus independently decoded PNG/PSD and a moved package. [Version-bound evidence](docs/evidence/codex-release59-jpeg-first-use-20261006.json). Full V1/model/GUI/creative acceptance remains open.
 
 Plugin dev.59 / source dev.41 / runtime dev.58 pins JPEG content and property checks; fixed installed-host verification passes. Full V1/model/GUI/creative acceptance remains open.

@@ -7,6 +7,7 @@ import { createHash } from 'node:crypto';
 import { parseEffectExportProbe } from './effect_export_probe.ts';
 import { parseDesignSourceInspection } from './design_source_inspection.ts';
 import { parseFilmSourceInspection } from './film_source_inspection.ts';
+import { imageSequenceMime, inspectImageSequence, sequenceMetadata } from '../protocol/image_sequence.ts';
 import { verifyArtifact, validateExchangeLossReport } from '../protocol/contracts.ts';
 import type { AdapterFactory, ArtifactInput } from '../planning/workflow_engine.ts';
 
@@ -80,6 +81,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
    const matches=inputs.filter(input=>input.artifact.assetId===binding.assetId);
    if(matches.length!==1)throw new Error('skill_asset_missing');
    if(matches[0]===source)throw new Error('skill_source_bound_as_media');
+   if(matches[0].artifact.mediaType===imageSequenceMime && locked.pluginId!=='filmcraft')throw new Error('skill_sequence_domain_unsupported');
    await verifyArtifact(matches[0].artifact,matches[0].root);assets.push({name:binding.name,input:matches[0],retained:binding.retained===true});
   }
   // 保留绑定仍消费真实上游输入；必须与原工程已收集的同名素材一致。
@@ -105,7 +107,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
   await mkdir(root,{recursive:true});
   await writeFile(planFile,JSON.stringify(plan),'utf8');
   const args=['-I','-B',script,planFile,'--output',delivery,'--runtime-home',locked.runtimeHome];
-  for(const asset of assets.filter(item=>!item.retained))args.push('--asset',asset.name+'='+join(asset.input.root,asset.input.artifact.location));
+  for(const asset of assets.filter(item=>!item.retained))args.push(asset.input.artifact.mediaType===imageSequenceMime?'--sequence-asset':'--asset',asset.name+'='+join(asset.input.root,asset.input.artifact.location));
   if(source)args.push('--source',source.root);
   const ref=(location:string,sha256:string)=>({assetId:taskId+'-'+hash(location).slice(0,16),version:sha256,sha256,location});
   const artifact=async(location:string,sha256:string,mediaType:string,assetId:string)=>({
@@ -130,6 +132,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
     if(request.expectedRevision!==node.expectedRevision)throw new Error('skill_source_revision_mismatch');
     await checkSource();
     await checkRetained();
+    for(const asset of assets)await verifyArtifact(asset.input.artifact,asset.input.root);
     return {executable:locked.python,args,cwd:root,actualRevision:source?node.expectedRevision:null,budgetUsage:{minorUnits:0,externalCalls:0},launcherIdentity:{runtimeExecutable:locked.nativeExecutable,sha256:locked.pythonSha256,files:[...locked.files,...sourceFiles,{path:planFile,sha256:hash(JSON.stringify(plan))}]}};
    },
    verify:async(request)=>{
@@ -143,7 +146,16 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
      await verifyArtifact(await artifact(location,digest,'application/octet-stream',taskId),delivery);
     }
     if(source && manifest.sourceProjectSha256!==node.expectedRevision)throw new Error('skill_source_revision_mismatch');
-    const dependencyRefs=[];
+    const dependencyRefs:ReturnType<typeof ref>[]=[];
+    const sequenceRefs=async(location:string,digest:string)=>{
+     const descriptor=await inspectImageSequence(delivery,location,digest);
+     for(const frame of descriptor.frames){
+      const path=location.slice(0,-'sequence.json'.length)+frame.location;
+      if(manifest.files[path]!==frame.sha256)throw new Error('skill_sequence_manifest_mismatch');
+      dependencyRefs.push(ref(path,frame.sha256));
+     }
+     return descriptor;
+    };
     for(const asset of assets){
      // 原生素材替换归入原别名；只接受计划显式声明的替换映射。
      const replacements=['effectcraft','vectorcraft'].includes(locked.pluginId)?(plan.operations??[]).filter((operation:any)=>operation.command==='asset.replace' && operation.params?.replacement===asset.name):[];
@@ -152,12 +164,14 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
      const collected=manifest.assets?.[alias];
      if(!collected || collected.sha256!==asset.input.artifact.sha256 || !safeLocation(collected.path))throw new Error('skill_dependency_uncollected');
      await verifyArtifact(await artifact(collected.path,collected.sha256,'application/octet-stream',taskId),delivery);
+     if(asset.input.artifact.mediaType===imageSequenceMime && collected.kind!=='image-sequence')throw new Error('skill_sequence_manifest_mismatch');
 
     }
     // 继承的媒体也须收集并核验，局部修改不能丢失旧工程依赖。
-    for(const collected of Object.values(manifest.assets??{}) as {path:string;sha256:string}[]){
+    for(const collected of Object.values(manifest.assets??{}) as {path:string;sha256:string;kind?:string}[]){
      if(!collected || !safeLocation(collected.path) || manifest.files[collected.path]!==collected.sha256)throw new Error('skill_dependency_uncollected');
      dependencyRefs.push(ref(collected.path,collected.sha256));
+     if(collected.kind==='image-sequence')await sequenceRefs(collected.path,collected.sha256);
     }
     const nativeLocation=projects[locked.pluginId];
     if(!manifest.files[nativeLocation])throw new Error('skill_native_missing');
@@ -170,8 +184,14 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
     const outputs=[];
     for(const item of payload.outputs){
      if(!manifest.files[item.location])throw new Error('skill_output_missing');
+     if(manifest.imageSequence?.path===item.location && item.mediaType!==imageSequenceMime)throw new Error('skill_sequence_output_mismatch');
      const output=await artifact(item.location,manifest.files[item.location],item.mediaType,item.assetId);
-     const publicOutput={...output,sourceRefs,nativeProjectRef:nativeRef,lossReportRef:lossRef,evidenceRefs:[manifestRef,...dependencyRefs],dependencies:sourceRefs.filter(assetRef=>!source || assetRef.assetId!==source.artifact.assetId).map(assetRef=>({assetRef,kind:'media',packaged:true,missingReason:null}))};
+     let technicalMetadata={};
+     if(item.mediaType===imageSequenceMime){
+      if(locked.pluginId!=='effectcraft' || manifest.imageSequence?.path!==item.location || manifest.imageSequence?.sha256!==output.sha256)throw new Error('skill_sequence_output_mismatch');
+      technicalMetadata=sequenceMetadata(await sequenceRefs(item.location,output.sha256));
+     }
+     const publicOutput={...output,technicalMetadata,sourceRefs,nativeProjectRef:nativeRef,lossReportRef:lossRef,evidenceRefs:[manifestRef,...dependencyRefs],dependencies:sourceRefs.filter(assetRef=>!source || assetRef.assetId!==source.artifact.assetId).map(assetRef=>({assetRef,kind:'media',packaged:true,missingReason:null}))};
      await verifyArtifact(publicOutput,delivery);outputs.push(publicOutput);
     }
     return {root:delivery,outputs,evidenceRefs:[manifestRef]};
@@ -182,6 +202,12 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
  factory.verifyBriefExport=async(node,root,outputs,brief)=>{
   if(locked.pluginId!=='effectcraft')return;
   if(node.runtimeIdentity.pluginId!==locked.pluginId)throw new Error('skill_plugin_mismatch');
+  for(const output of outputs.filter(item=>item.mediaType===imageSequenceMime)){
+   await verifyArtifact(output,root);const facts=output.technicalMetadata;
+   if(facts.width!==brief.width || facts.height!==brief.height)throw new Error('brief_export_size_mismatch');
+   if(brief.frameRate && BigInt(facts.frameRate.num)*BigInt(brief.frameRate.den)!==BigInt(brief.frameRate.num)*BigInt(facts.frameRate.den))throw new Error('brief_export_frame_rate_mismatch');
+   if(Object.hasOwn(brief,'durationSeconds') && Math.abs(Number(facts.durationTicks)*facts.timeBase.num/facts.timeBase.den-brief.durationSeconds)>facts.frameRate.den/facts.frameRate.num+1e-9)throw new Error('brief_export_duration_mismatch');
+  }
   for(const output of outputs.filter(item=>item.mediaType==='video/mp4')){
    await verifyArtifact(output,root);
    if(hash(await readFile(locked.nativeExecutable))!==node.runtimeIdentity.sha256)throw new Error('brief_source_runtime_identity_mismatch');
