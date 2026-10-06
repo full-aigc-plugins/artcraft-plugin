@@ -1,10 +1,12 @@
 # ArtCraft Agent Plugin
 
-Current plugin: `0.1.0-dev.81`; skill source: `0.1.0-dev.55`; runtime: `0.1.0-dev.78`. Bounded native download recovery bundles published; fixed installed gate4.10 pending.
+Fixed native first-use and complete-command recovery acceptance passed:58 standalone cold installations, ten Art all-domain cold installations, four partial-download SSL EOF recoveries,72 post-save faults, four healthy command revisions and mixed HD revision/recovery/moved delivery. Installed identities remain unchanged. Only domain2.10/8.11 and Art4.10 close; exhaustive2639-command, GUI, model, generic Skills CLI and fullV1 gates remain open. [Version-bound evidence](docs/evidence/codex-native-download-first-use-20261007.json).
+
+Current plugin: `0.1.0-dev.81`; skill source: `0.1.0-dev.55`; fixed installed macOS arm64 acceptance passed; fullV1 remains open.
 
 Previous version-bound release: plugin dev.79 / source53 / runtime78 passed gate4.9. This remains historical evidence.
 
-Art native first-use recovery candidate pins Film18 / Effect, Photo, Vector17 and reuses runtime78. Earlier Art80 cold installation failed on a domain native SSL EOF; this is preserved evidence. New fixed installed acceptance remains open.
+Historical candidate observation before fixed acceptance: Art native first-use recovery candidate pins Film18 / Effect, Photo, Vector17 and reuses runtime78. Earlier Art80 cold installation failed on a domain native SSL EOF; this is preserved evidence. New fixed installed acceptance remains open.
 
 Previous version-bound release: plugin dev.79 / source53 / runtime78 passed gate4.9. This remains historical evidence.
 

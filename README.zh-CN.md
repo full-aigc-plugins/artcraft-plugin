@@ -1,12 +1,14 @@
 # ArtCraft Agent Plugin
 
-当前插件 dev.81／技能源 dev.55，复用runtime dev.78，发布领域原生安装下载恢复分发升级；新固定安装门禁4.10待验收。
+固定原生首次安装与完整命令恢复验收通过：新版五插件58技能逐项独立冷安装，十个Art技能分别安装四领域；四个原生下载半包SSL EOF恢复、72个原生保存后故障、四个健康命令返工及混合HD返工／恢复／移动包通过，全部安装摘要保全。仅关闭领域2.10／8.11与Art4.10；2639条命令逐项、GUI、模型、通用Skills CLI及完整V1仍开放。 [版本及证据](docs/evidence/codex-native-download-first-use-20261007.json).
 
-Art原生首用恢复候选固定Film18／Effect、Photo、Vector17，复用runtime78。此前Art80冷安装在领域CLI下载遇到SSL EOF失败，保留失败证据；新固定安装验收仍开放。
+当前插件 dev.81／技能源 dev.55，复用runtime dev.78，发布领域原生安装下载恢复分发升级；固定安装门禁4.10已通过。
 
-当前插件 dev.80／技能源 dev.54，复用runtime dev.78，发布完整命令内层JSON分发升级；新固定安装门禁4.10待验收。
+固定发布前的候选记录：Art原生首用恢复候选固定Film18／Effect、Photo、Vector17，复用runtime78。此前Art80冷安装在领域CLI下载遇到SSL EOF失败，保留失败证据；新固定安装验收仍开放。
 
-当前插件 dev.79／技能源 dev.53／运行时 dev.78，升级领域包并绑定失败暂存保全。固定安装门禁4.9已通过，完整V1仍开放；下方既有版本绑定结果保持原证据范围。
+历史插件版本记录 dev.80／技能源 dev.54，复用runtime dev.78，发布完整命令内层JSON分发升级；新固定安装门禁4.10待验收。
+
+历史插件版本记录 dev.79／技能源 dev.53／运行时 dev.78，升级领域包并绑定失败暂存保全。固定安装门禁4.9已通过，完整V1仍开放；下方既有版本绑定结果保持原证据范围。
 
 固定领域客户端首用复验：Film 插件 dev.16／技能源 dev.15，Effect／Photo／Vector 插件 dev.15／技能源 dev.14。隔离 Codex 发现58项零错误；实际安装副本24类保存后故障、四个健康公开工作流和已发布 Art 引擎＋安装后 Vector 客户端六类故障通过，全部58项安装摘要保全。Art dev.75 内置旧领域分发包尚需升级，全量命令／GUI／模型验收仍开放。[版本绑定证据](docs/evidence/codex-public-workflow-session-first-use-20261007.json)。
 下载恢复固定发行验收通过：十项技能源均与dev.51逐文件一致，各自空运行时公开安装全部领域；dev.75实际安装副本冷混合／返工／恢复／打包、58项安装摘要与固定标签CI通过。[证据](docs/evidence/codex-art75-download-recovery-first-use-20261007.json)。本次关闭OpenSpec4.8；4.7编排协议故障、独立Skills CLI和完整V1仍开放。
@@ -176,7 +178,7 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 
 此前验证插件 dev.14 / 运行时 dev.13 固定技能套件 dev.12，支持可选 Video Factory 0.4.0 公开验证节点。现有插件和 FFmpeg/ffprobe 按实际路径登记并冻结摘要，模型 payload 不能选择命令或执行器。真实门禁、输入绑定、报告语法与打包保留通过验证；缺来源门禁保持 NOT_RUN，必需 FAIL 阻断交付。83 项原生回归全部通过。默认公开在线首次使用已通过：24 项通过、1 项 Node 专用离线测试跳过；单独安装的技能冷启动依赖、执行五节点并验包。插件 dev.14 修复 dev.13 快照的 OpenSpec 重复任务编号并加入回归检查；运行时 dev.13 的公开字节和摘要保持不变。[架构](docs/ArtCraft-VideoFactory-Architecture.zh_CN.md)、[候选证据](docs/evidence/video-factory-candidate.json)、[在线证据](docs/evidence/video-factory-online.json)。旧插件渲染、图片工厂适配及完整模型/创作验收仍未完成。
 
-当前插件 `0.1.0-dev.63`，独立技能源 `0.1.0-dev.43`，运行时 `0.1.0-dev.62`。公开技能源及固定安装后的 SVG／PNG／JPEG 混合验收通过；完整首版仍开放，历史证据保留原范围。
+历史插件版本记录 `0.1.0-dev.63`，独立技能源 `0.1.0-dev.43`，运行时 `0.1.0-dev.62`。公开技能源及固定安装后的 SVG／PNG／JPEG 混合验收通过；完整首版仍开放，历史证据保留原范围。
 
 当前固定发布的宿主刷新：Codex 0.153.4 在隔离配置安装 FilmCraft dev.5、EffectCraft dev.7、PhotoCraft/VectorCraft dev.6、ArtCraft dev.15，加载并核对全部 58 技能身份。实际安装内容的五代表工作流通过，调用后 58 个技能摘要保持不变；显式标签矩阵生成器四项边界测试通过。[证据](docs/evidence/codex-current-release-20261006.json)。模型派发等待明确授权；GUI、创作和生产验收仍未完成。本次 QA 维护不修改已发布插件/技能/运行时标签。
 
