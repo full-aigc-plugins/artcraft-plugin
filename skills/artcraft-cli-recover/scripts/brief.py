@@ -121,6 +121,22 @@ def film_duration_ticks(node):
         end=max(end,start+duration)
     return end
 
+def pending_native_assessment(assessment,plan):
+    """声明仅延后可定位源工程或受支持元数据修改；原生运行时必须重新核验。"""
+    if assessment['state']=='ready':return True
+    if not assessment['blocked']:return False
+    for item in assessment['blocked']:
+        if all(reason=='dependency_blocked' for reason in item['reasons']):continue
+        node=next(n for n in plan['nodes'] if n['id']==item['nodeId'])
+        payload=node.get('payload',{});binding=payload.get('sourceProject')
+        resolvable=isinstance(binding,dict) and set(binding)=={'assetId'} and isinstance(binding['assetId'],str) and bool(binding['assetId']) and (any(source.get('artifact',{}).get('assetId')==binding['assetId'] and (source.get('artifact',{}).get('nativeProjectRef') or {}).get('sha256')==node.get('expectedRevision') for source in node.get('externalInputs',[])) or any(source.get('assetId')==binding['assetId'] and source.get('from') in node.get('dependsOn',[]) for source in node.get('inputBindings',[])))
+        plugin=node.get('pluginId',node.get('runtimeIdentity',{}).get('pluginId'))
+        source=resolvable and 'document' not in payload.get('plan',{}) and isinstance(node.get('expectedRevision'),str) and bool(HEX.fullmatch(node['expectedRevision']))
+        fresh=binding is None and node.get('expectedRevision') is None and isinstance(payload.get('plan',{}).get('document'),dict) and bool(payload['plan']['document'])
+        allowed={'source_inspection_required','duration_inspection_required','native_output_inspection_required'}
+        if plugin not in FORMATS.values() or not (source or fresh) or any(reason not in allowed for reason in item['reasons']) or (not source and any(reason!='native_output_inspection_required' for reason in item['reasons'])):return False
+    return True
+
 def assess(value,plan,owner,authorization):
     validate(value)
     if owner!=value['ownerId'] or authorization!=value['authorizationRef']:fail('brief_authorization_mismatch')
@@ -150,16 +166,20 @@ def assess(value,plan,owner,authorization):
         elif node.get('pluginId',node.get('runtimeIdentity',{}).get('pluginId'))!=plugin:reasons.append('native_format_mismatch')
         if set(node.get('dependsOn',[]))!=set(item['dependsOn']):reasons.append('brief_dependency_mismatch')
         if item['execution']=='cloud':reasons.append('cloud_executor_missing' if value['dataPolicy']['allowUpload'] else 'upload_forbidden')
-        document=node.get('payload',{}).get('plan',{}).get('document',{})
+        domain=node.get('payload',{}).get('plan',{});document=domain.get('document',{})
+        commands={'photocraft':{'image.imageSize','image.canvasSize'},'effectcraft':{'comp.settings'},'vectorcraft':{'artboard.new','artboard.setProps'}}
+        metadata_changes=any(operation.get('command') in commands.get(plugin,set()) for operation in domain.get('operations',[]) if isinstance(operation,dict))
+        if plugin not in ('filmcraft','effectcraft') and ('frameRate' in item or 'durationSeconds' in item):reasons.append('capability_missing')
+        if metadata_changes:reasons.append('native_output_inspection_required')
         if not document:reasons.append('source_inspection_required')
-        elif any(document.get(k)!=item[k] for k in ('width','height')):reasons.append('document_size_mismatch')
-        if 'frameRate' in item:
+        elif not metadata_changes and any(document.get(k)!=item[k] for k in ('width','height')):reasons.append('document_size_mismatch')
+        if 'frameRate' in item and document and not metadata_changes:
             rate=document.get('frameRate');expected=Fraction(item['frameRate']['num'],item['frameRate']['den'])
             if isinstance(rate,dict) and set(rate)=={'num','den'} and type(rate['num']) is int and type(rate['den']) is int and rate['den']>0:actual=float(Fraction(rate['num'],rate['den']))
             elif type(rate) in (int,float):actual=rate
             else:actual=None
             if actual is None or not math.isfinite(actual) or abs(actual-float(expected))>1e-9:reasons.append('frame_rate_mismatch')
-        if 'durationSeconds' in item:
+        if 'durationSeconds' in item and not metadata_changes:
             if plugin=='filmcraft':
                 duration=film_duration_ticks(node)
                 if duration is None:reasons.append('duration_inspection_required')

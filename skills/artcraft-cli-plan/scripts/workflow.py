@@ -107,7 +107,7 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
         value = brief_module.verify(brief_root, brief_sha) if brief_root is not None else plan['projectBrief']
         if 'projectBrief' in plan and plan['projectBrief'] != value:raise ValueError('brief_binding_conflict')
         assessment = brief_module.assess(value, plan, owner, authorization)
-        if assessment['state'] != 'ready':raise ValueError('brief_plan_blocked: '+json.dumps(assessment,ensure_ascii=False))
+        if not brief_module.pending_native_assessment(assessment,plan):raise ValueError('brief_plan_blocked: '+json.dumps(assessment,ensure_ascii=False))
         plan['projectBrief'] = value
     output = Path(output).expanduser().resolve()
     marker = output/'.artcraft-project.json'
