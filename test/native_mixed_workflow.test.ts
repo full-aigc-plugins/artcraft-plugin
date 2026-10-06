@@ -191,12 +191,16 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
     variantPlan.nodes[0].payload.plan.variant={width:352,height:400,safeArea:[8,8,336,384],roles:{background,product:ref('logo.layer'),text:ref('title.layer')}};
     const freshVariant=await engine.run(variantPlan);assert.equal(freshVariant.state,'review_ready',JSON.stringify(freshVariant));await verifySource();
     const reusedVariant=await engine.run(variantPlan);assert.equal(reusedVariant.nodes.poster.status,'reused');await verifySource();
+    const withoutBrief=structuredClone(variantPlan);withoutBrief.workflowId+='-without-brief';delete withoutBrief.projectBrief;
+    const plainVariant=await engine.run(withoutBrief);assert.equal(plainVariant.state,'review_ready',JSON.stringify(plainVariant));await verifySource();
+    const plainReuse=await engine.run(withoutBrief);assert.equal(plainReuse.nodes.poster.status,'reused');await verifySource();
+
     const variantRoot=freshVariant.nodes.poster.root!,layoutBytes=await readFile(join(variantRoot,'layout-variant.json'));
     await writeFile(join(variantRoot,'layout-variant.json'),'{}');
     const blockedVariant=await engine.run(variantPlan);assert.equal(blockedVariant.state,'blocked');assert.match(blockedVariant.nodes.preflight.error!,/photo_variant_evidence_stale/);await verifySource();
     await writeFile(join(variantRoot,'layout-variant.json'),layoutBytes);
     const restoredVariant=await engine.run(variantPlan);assert.equal(restoredVariant.nodes.poster.status,'reused');await verifySource();
-    await writeFile(join(root,'photo-variant-gate-receipt.json'),JSON.stringify({runtimeSha256:identities.photocraft.sha256,layout:JSON.parse(layoutBytes.toString()),layoutSha256:hash(layoutBytes),nativeProjectSha256:freshVariant.nodes.poster.outputs[0].nativeProjectRef.sha256,newVerified:true,reused:true,staleCachedLayoutBlocked:true,restoredReused:true,sourcePreserved:true,leases:0},null,2));
+    await writeFile(join(root,'photo-variant-gate-receipt.json'),JSON.stringify({runtimeSha256:identities.photocraft.sha256,layout:JSON.parse(layoutBytes.toString()),layoutSha256:hash(layoutBytes),nativeProjectSha256:freshVariant.nodes.poster.outputs[0].nativeProjectRef.sha256,newVerified:true,reused:true,withoutBriefVerified:true,withoutBriefReused:true,staleCachedLayoutBlocked:true,restoredReused:true,sourcePreserved:true,leases:0},null,2));
    }
 
    const violated=structuredClone(resized);violated.workflowId+='-violate';violated.projectBrief.workflowId=violated.workflowId;violated.nodes[0].payload.plan.operations[0].params.width=384;
