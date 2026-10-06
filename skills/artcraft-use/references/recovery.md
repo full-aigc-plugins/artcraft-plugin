@@ -41,3 +41,10 @@ failed 状态以非零退出码返回可读 JSON。error.code 仍为 native_exec
 原生保存成功后若响应损坏或缺失，任务仍失败并阻断消费者。同一冻结计划只查询原 attempt，不自动重放。领域交付目录内 `failure.json` 的 `stage` 指向保留在原位置的暂存目录；`files` 包含 SHA-256 和字节数，`lastAttempt` 记录未知调用，`replayAllowed` 为 false。这不是成功交付，不能作为 `--source` 的正常 manifest 使用。
 
 恢复顺序：核对账本实际停止证据；按 failure.json 核验原始暂存文件；用对应领域的完整命令技能 `commands.py run`，在新会话中打开原始工程进行检查；确认真实状态后才制定显式新 revision。不要移动或删除暂存目录：部分工程引用绝对依赖路径。只看到导出、捕获副本或 PID 消失不足以恢复。强制终止进程、断电与文件系统崩溃的保全能力尚未验收。
+
+
+## 完整命令回执与工作流暂存的区别（技能源 dev.54）
+
+完整命令入口 `commands.py run` 返回 `craft-command-receipt/v1`：`result=unknown`，最后一项 `steps[].state=unknown`，`journal.json` 与 `failure.json` 保留调用参数和运行时摘要。原生保存的文件留在原输出目录；此类回执没有 `stage` 字段。NaN／Infinity、数值溢出和重复JSON键不能成为可信返回值，也不能据此判断保存未发生。
+
+公开 `workflow.py` 的保全记录为 `craft-failed-stage/v1`，其 `stage` 指向原位置暂存。先按 schema 选择正确恢复路径，核对真正的停止证据和原工程；两类失败记录都不等于成功 manifest。原输出目录拒绝重用，不要删除记录以重放。完整命令的恢复检查在新输出目录使用原保存工程作为只读输入，再决定显式修订。其他 schema 应停止自动恢复并检查来源。

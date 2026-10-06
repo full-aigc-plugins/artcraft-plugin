@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+当前插件 dev.80／技能源 dev.54，复用runtime dev.78，发布完整命令内层JSON分发升级；新固定安装门禁4.10待验收。
+
 当前插件 dev.79／技能源 dev.53／运行时 dev.78，升级领域包并绑定失败暂存保全。固定安装门禁4.9已通过，完整V1仍开放；下方既有版本绑定结果保持原证据范围。
 
 固定领域客户端首用复验：Film 插件 dev.16／技能源 dev.15，Effect／Photo／Vector 插件 dev.15／技能源 dev.14。隔离 Codex 发现58项零错误；实际安装副本24类保存后故障、四个健康公开工作流和已发布 Art 引擎＋安装后 Vector 客户端六类故障通过，全部58项安装摘要保全。Art dev.75 内置旧领域分发包尚需升级，全量命令／GUI／模型验收仍开放。[版本绑定证据](docs/evidence/codex-public-workflow-session-first-use-20261007.json)。
@@ -57,9 +59,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.79 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.80 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.53 |
+| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.54 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

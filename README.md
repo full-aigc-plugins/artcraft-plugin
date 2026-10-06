@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-Current plugin: `0.1.0-dev.79`; skill source: `0.1.0-dev.53`; runtime: `0.1.0-dev.78`. Updated domain bundles bind failed-stage preservation. Fixed installed gate4.9 has passed; fullV1 remains open. Earlier version-bound results below retain their original scope.
+Current plugin: `0.1.0-dev.80`; skill source: `0.1.0-dev.54`; runtime: `0.1.0-dev.78`. Complete-command inner JSON bundle upgrade published; new fixed installed gate4.10 pending.
+
+Previous version-bound release: plugin dev.79 / source53 / runtime78 passed gate4.9. This remains historical evidence.
 
 Fixed domain-client first use: Film plugin dev.16 / source dev.15; Effect/Photo/Vector plugin dev.15 / source dev.14. Codex discovers 58 skills without errors. Actual installed copies pass 24 post-save faults and four healthy public workflows; the published Art engine with the installed Vector client passes six faults. All58 installed identities remain unchanged. Art dev.75 still bundles earlier domain sources; exhaustive command/GUI/model acceptance remains open. [Version-bound evidence](docs/evidence/codex-public-workflow-session-first-use-20261007.json).
 Fixed download-recovery acceptance passed: ten exact immutable source51 skills independently cold-installed all domains; actual installed75 cold mixed/revision/recovery/package checks, 58 post-run identities and fixed-tag CI passed. [Evidence](docs/evidence/codex-art75-download-recovery-first-use-20261007.json). OpenSpec4.8 closes; orchestration protocol faults under4.7, Skills CLI and full V1 remain open.
@@ -57,9 +59,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.79 |
+| Plugin ID / version | artcraft / 0.1.0-dev.80 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.53 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.54 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
