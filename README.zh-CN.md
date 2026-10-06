@@ -36,7 +36,7 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.70 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.71 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
 | 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.47 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
@@ -300,3 +300,5 @@ Vector 素材源码候选已接入登记输入和替换核验，真实 Vector �
 当前候选适配器通过 Film 公开工作流消费 Effect 完整分段，保留来源和逐帧证据。它不属于既有 dev.70 固定发布；固定发行、HD 长渲染和安装后冷使用仍开放。[架构与验收边界](docs/ArtCraft-Segmented-Sequence-Architecture.zh_CN.md)。
 
 Art HD 源码候选通过五秒 1080p 分段编排、移动文字返工及损坏恢复；固定安装验收待完成。[架构与证据](docs/ArtCraft-Segmented-Sequence-Architecture.zh_CN.md)。
+
+运行时发行候选 dev.71 包含 HD 分段适配与有界 PNG 校验优化；当前技能源锁保持 dev.47，最终插件快照及实际安装验收将另行发布。完整 V1 仍未完成。

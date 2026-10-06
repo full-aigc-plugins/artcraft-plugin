@@ -12,7 +12,7 @@ PNG runtime dev.56 is published from an immutable tag and the source dev.40 snap
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.70`; skill source: `0.1.0-dev.47`; runtime: `0.1.0-dev.68`. Photo source dev.10 provides maintained embedded-smart replacement. Four-domain candidate first use and dynamic regression pass; fixed installed smart acceptance remains open. Earlier evidence retains its version scope. Full V1 remains open. [Architecture](docs/ArtCraft-Smart-Mixed-Architecture.md).
+Current plugin: `0.1.0-dev.71`; skill source: `0.1.0-dev.47`; runtime: `0.1.0-dev.68`. Photo source dev.10 provides maintained embedded-smart replacement. Four-domain candidate first use and dynamic regression pass; fixed installed smart acceptance remains open. Earlier evidence retains its version scope. Full V1 remains open. [Architecture](docs/ArtCraft-Smart-Mixed-Architecture.md).
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
@@ -36,7 +36,7 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.70 |
+| Plugin ID / version | artcraft / 0.1.0-dev.71 |
 | Specification authority | openspec/changes/establish-v1-plugin |
 | Skill authority | Independent artcraft-skills / published v0.1.0-dev.47 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
@@ -300,3 +300,5 @@ Fixed smart mixed acceptance (2026-10-06): Art plugin dev.70 / source dev.47 / r
 Current candidate adapters consume verified Effect segments through public Film workflows, preserve segment provenance and validate every frame. This is separate from released dev.70; fixed publication, HD long rendering and installed cold use remain open. [Architecture](docs/ArtCraft-Segmented-Sequence-Architecture.md).
 
 Art HD source candidate passes five-second 1080p segmented orchestration, moved text revision and corruption recovery; immutable installed acceptance remains pending. [Architecture and evidence](docs/ArtCraft-Segmented-Sequence-Architecture.md).
+
+Runtime release candidate dev.71 includes HD segmented adaptation and bounded PNG verification optimization. The current skill-source lock remains dev.47; the final plugin snapshot and installed acceptance are published separately. Full V1 remains incomplete.
