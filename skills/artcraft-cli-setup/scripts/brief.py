@@ -98,6 +98,29 @@ def node_constraints(value,node_id):
     return {'deliverable':item,'brand':{k:v for k,v in brand.items() if k!='appliesTo'} if brand and node_id in brand['appliesTo'] else None,
             'subjects':[{k:v for k,v in s.items() if k!='appliesTo'} for s in value['subjects'] if node_id in s['appliesTo']]}
 
+def film_duration_ticks(node):
+    """只预检可确定的新建非插入时间线；源工程与编辑结果交给原生核验。"""
+    payload=node.get('payload',{});plan=payload.get('plan',{})
+    if 'sourceProject' in payload or not plan.get('document'):return None
+    operations=plan.get('operations')
+    if not isinstance(operations,list):return None
+    neutral={'asset.import','timeline.setTrack','timeline.select','captions.newTrack','captions.setStyle','caption.add','captions.setText','captions.delete','captions.setTrack'}
+    end=0
+    for operation in operations:
+        if not isinstance(operation,dict):return None
+        command=operation.get('command')
+        if not isinstance(command,str):return None
+        if command in neutral:continue
+        if command!='timeline.place':return None
+        params=operation.get('params',{})
+        if not isinstance(params,dict) or params.get('insert') is not False:return None
+        values=[params.get('time'),params.get('duration')]
+        if any(not isinstance(v,str) or len(v)>19 or not re.fullmatch(r'0|[1-9][0-9]*',v) for v in values):return None
+        start,duration=map(int,values)
+        if duration<=0 or start+duration>2**63-1:return None
+        end=max(end,start+duration)
+    return end
+
 def assess(value,plan,owner,authorization):
     validate(value)
     if owner!=value['ownerId'] or authorization!=value['authorizationRef']:fail('brief_authorization_mismatch')
@@ -136,7 +159,12 @@ def assess(value,plan,owner,authorization):
             elif type(rate) in (int,float):actual=rate
             else:actual=None
             if actual is None or not math.isfinite(actual) or abs(actual-float(expected))>1e-9:reasons.append('frame_rate_mismatch')
-        if 'durationSeconds' in item and document.get('duration')!=item['durationSeconds']:reasons.append('duration_inspection_required')
+        if 'durationSeconds' in item:
+            if plugin=='filmcraft':
+                duration=film_duration_ticks(node)
+                if duration is None:reasons.append('duration_inspection_required')
+                elif duration<=0 or abs(Fraction(duration)-Fraction(str(item['durationSeconds']))*254016000000)>1:reasons.append('duration_mismatch')
+            elif document.get('duration')!=item['durationSeconds']:reasons.append('duration_inspection_required')
         constraints=node_constraints(value,node['id'])
         for component in [constraints['brand'],*constraints['subjects']]:
             if component and any((r['assetId'],r['version'],r['sha256']) not in available for r in component['referenceAssets']):reasons.append('reference_asset_missing_or_stale')

@@ -206,3 +206,5 @@ Candidate plugin dev.33 pins ArtCraft skills dev.28 / runtime dev.32 with bounde
 Fixed ArtCraft plugin dev.33 / skills dev.28 / runtime dev.32 pass installed-native failure/status/repeat testing (1 test, 26.233s) and four-domain online first-use regression (3 tests, 95.701s). All 58 installed skill hashes remain unchanged. Scoped task 5.12 is verified; full implementation and creative acceptance remain incomplete. [Proof](docs/evidence/codex-release33-diagnostics-native-20261006.json).
 
 Local runtime candidate dev.34 adds exact Film Brief timeline preflight and hash-bound saved-project/export duration verification before readiness and reuse. Local native mixed regression passed; fixed released first-use proof remains pending. [AC-DM-001-TIME](docs/ArtCraft-Film-Brief-Duration-Architecture.md)。
+
+Plugin candidate dev.35 vendors fixed independent skills dev.29 and runtime dev.34. One-second Film Brief cold online source first use passed (3 tests, 93.401s); installed-host first use is pending.

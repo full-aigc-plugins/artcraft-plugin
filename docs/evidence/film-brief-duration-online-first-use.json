@@ -1,0 +1,117 @@
+{
+  "schema": "craft-film-duration-online-first-use/v1",
+  "status": "source-candidate-cold-online-passed-installed-plugin-pending",
+  "runtimeVersion": "0.1.0-dev.34",
+  "sourceVersion": "0.1.0-dev.29",
+  "tests": 3,
+  "passed": 3,
+  "skipped": 0,
+  "seconds": 93.401,
+  "observation": {
+    "schema": "craft-installed-mixed-first-use/v1",
+    "python": "3.14.3",
+    "runtimeVersion": "0.1.0-dev.34",
+    "briefSha256": "1ee3ec05c3a3191a95a62033ace0348d5a952c6c7d0f99269cf131eefa0cbe13",
+    "artifacts": {
+      "logo": [
+        {
+          "assetId": "logo-png",
+          "sha256": "23b86194b2d9431a9dc10bd2feb48062f5853b171fe2ee1d7015838f264e4b6a",
+          "bytes": 4303,
+          "mediaType": "image/png",
+          "nativeProjectRef": {
+            "assetId": "wf-979485cece5c519b524021a065c75da2483c3fb1345fe32c-bd874764e1b6eff2",
+            "version": "892c30e80ded50063211f11615edbb235e8fe893b242d72b88afa1def5f3f44e",
+            "sha256": "892c30e80ded50063211f11615edbb235e8fe893b242d72b88afa1def5f3f44e",
+            "location": "project.vectorcraft"
+          }
+        }
+      ],
+      "intro": [
+        {
+          "assetId": "intro-video",
+          "sha256": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9",
+          "bytes": 17398,
+          "mediaType": "video/mp4",
+          "nativeProjectRef": {
+            "assetId": "wf-3f3eabda3c6078cd7adf62ea019bbcb59bf3a142539cfbea-ccf7ce43c87e3645",
+            "version": "c5da8032f0e17e3919f9c39edb27aaf015e3f85012c3b64cdaf439994a59dc9d",
+            "sha256": "c5da8032f0e17e3919f9c39edb27aaf015e3f85012c3b64cdaf439994a59dc9d",
+            "location": "project.ecproj"
+          }
+        }
+      ],
+      "poster": [
+        {
+          "assetId": "poster-png",
+          "sha256": "7306d65b016686312fd21616c00e67d7e390d4857f2cb319fc93a4b8042265ae",
+          "bytes": 6857,
+          "mediaType": "image/png",
+          "nativeProjectRef": {
+            "assetId": "wf-5838891800dd1ffe971e43e94e7f1ba72a7c9850cb1dd1eb-db69c59fbc5bf076",
+            "version": "26979e356c2485b000b429d21938e28980f570a06a2f42e3f0cf7f443bc4e4d5",
+            "sha256": "26979e356c2485b000b429d21938e28980f570a06a2f42e3f0cf7f443bc4e4d5",
+            "location": "project.pcraft"
+          }
+        }
+      ],
+      "film": [
+        {
+          "assetId": "film-video",
+          "sha256": "d3c5467dd4c322dee8759d414973c1655919aa6372233fb3bca985c5a526c848",
+          "bytes": 59236,
+          "mediaType": "video/mp4",
+          "nativeProjectRef": {
+            "assetId": "wf-12b0b205c54de4fda0164bba5a89df3eb5268a75d218f2a8-9e6a55f19dc1283d",
+            "version": "469e436f26bd319fd8faf5a11bb479ff2439d719399fca4c62d14a97f5fcf5bf",
+            "sha256": "469e436f26bd319fd8faf5a11bb479ff2439d719399fca4c62d14a97f5fcf5bf",
+            "location": "project.fcproj"
+          }
+        }
+      ]
+    },
+    "packageSha256": "8153e92ad700add4702c99aee67df87fcfb0d64d6931af52cab999ac49d6a03a",
+    "voiceSha256": "6fc34dec7c0eb6a247b2c7f0d82059af6d00530d43a6ca1f45321da7bf4666de",
+    "sourceSkillVersions": {
+      "artcraft-runtime": "0.1.0-dev.34",
+      "filmcraft-skills": "0.1.0-dev.5",
+      "effectcraft-skills": "0.1.0-dev.6",
+      "photocraft-skills": "0.1.0-dev.7",
+      "vectorcraft-skills": "0.1.0-dev.7"
+    },
+    "filmDuration": {
+      "requiredSeconds": 1,
+      "nativeTicks": "254016000000",
+      "exportTicks": "254016000000",
+      "frameRate": {
+        "den": 1,
+        "num": 12
+      },
+      "files": {
+        "project.fcproj": "469e436f26bd319fd8faf5a11bb479ff2439d719399fca4c62d14a97f5fcf5bf",
+        "film.mp4": "d3c5467dd4c322dee8759d414973c1655919aa6372233fb3bca985c5a526c848",
+        "native.json": "2030ccddb2ac7001f52a349fe1c9553b3919f4e15f5e95dc719f27f311d433c6",
+        "export-probe.json": "317bc7bbbd1065639a6003771699900a43245bef3bf09e202b56752e5ff31de1"
+      }
+    },
+    "checks": [
+      "hash-bound native and export Film duration",
+      "four native domain deliveries",
+      "same-revision no replay",
+      "status has four tasks and zero leases",
+      "relocated runtime conflict preserves whole project",
+      "changed frozen plan refused",
+      "voice source digest bound",
+      "four-child moved package verified",
+      "portable Brief retained"
+    ],
+    "scope": "single copied installed skill, fresh default online install and system-only PATH; technical fixture, not creative acceptance"
+  },
+  "scope": "single copied independent skill; actual public downloads with fresh runtime and system-only PATH; no preseeded archive; technical fixture with tone audio",
+  "pending": [
+    "fixed source and plugin snapshot",
+    "installed-plugin first-use verification",
+    "source-project Brief inspection",
+    "full creative acceptance"
+  ]
+}

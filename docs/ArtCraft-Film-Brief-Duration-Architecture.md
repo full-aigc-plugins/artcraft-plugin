@@ -19,7 +19,7 @@ Ticks must be canonical unsigned decimal strings, at most signed 64-bit range af
 
 Only explicit insert=false placement and neutral supported asset/track/caption commands are statically known. Source-project revisions, implicit durations, insertion, trimming, moving, replacement, references in time fields, malformed or unknown commands remain blocked for native inspection. This is an honest partial preflight, not native project-duration or creative acceptance.
 
-Evidence: evidence/film-brief-duration-preflight.json. Target Python/TypeScript tests and a copied single planning skill CLI cover ready/mismatch/uncertain cases, long audio and large ticks. Published plugin dev.33/runtime dev.32 retain previous behavior until a new fixed release. The complete duration task remains open.
+Evidence: evidence/film-brief-duration-preflight.json. Target Python/TypeScript tests and a copied single planning skill CLI cover ready/mismatch/uncertain cases, long audio and large ticks. Runtime dev.34 is now published; plugin dev.33/runtime dev.32 represent the preceding installed matrix. New source and plugin acceptance are tracked separately. The complete duration task remains open.
 
 The post-output gate runs inside the adapter verification step, before the ledger can publish review_ready. It reopens hash-bound native.json and export-probe.json from the Film delivery manifest and verifies the native project and film.mp4 references. Native duration must match the Brief within one tick; exported duration may differ by one native frame for mux rounding. Missing, changed or inconsistent evidence fails the task and releases its lease. Cached and recovered ready results are checked again before reuse. These records are produced by the existing native workflow; fabricated unit fixtures prove rejection logic only.
 
@@ -34,3 +34,5 @@ flowchart LR
 ```
 
 Evidence for the candidate output gate is in evidence/film-brief-duration-output.json. Immutable release and fresh installed-runtime acceptance remain required before claiming first-use delivery.
+
+Runtime dev.34 passed source-candidate dev.29 cold online first use: 3 tests, 93.401 seconds, with hash-bound one-second native Film and export evidence. Fixed source/plugin installation proof is still pending.
