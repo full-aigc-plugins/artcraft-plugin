@@ -48,7 +48,7 @@ def required_plugins(plan):
     return [name for name in domains if name in required]
 
 
-def execute(plan_path, output, owner, authorization, runtime_home=None, node_archive=None, bundle_directory=None, native_archive_directory=None, assignments=(), video_factory_root=None, ffmpeg=None, ffprobe=None):
+def execute(plan_path, output, owner, authorization, runtime_home=None, node_archive=None, bundle_directory=None, native_archive_directory=None, assignments=(), video_factory_root=None, ffmpeg=None, ffprobe=None, brief_root=None, brief_sha=None):
     root = Path(output).expanduser().resolve()
     if root.exists() and not (root/'.artcraft-project.json').exists() and any(path.name != '.artcraft-write.lock' for path in root.iterdir()):
         raise ValueError('project_directory_not_owned')
@@ -57,10 +57,10 @@ def execute(plan_path, output, owner, authorization, runtime_home=None, node_arc
     if lock.is_symlink():raise ValueError('project_lock_invalid')
     with lock.open('a+b') as ownership:
         fcntl.flock(ownership.fileno(), fcntl.LOCK_EX)
-        return _execute(plan_path, root, owner, authorization, runtime_home, node_archive, bundle_directory, native_archive_directory, assignments, video_factory_root, ffmpeg, ffprobe)
+        return _execute(plan_path, root, owner, authorization, runtime_home, node_archive, bundle_directory, native_archive_directory, assignments, video_factory_root, ffmpeg, ffprobe, brief_root, brief_sha)
 
 
-def _execute(plan_path, output, owner, authorization, runtime_home=None, node_archive=None, bundle_directory=None, native_archive_directory=None, assignments=(), video_factory_root=None, ffmpeg=None, ffprobe=None):
+def _execute(plan_path, output, owner, authorization, runtime_home=None, node_archive=None, bundle_directory=None, native_archive_directory=None, assignments=(), video_factory_root=None, ffmpeg=None, ffprobe=None, brief_root=None, brief_sha=None):
     source_plan = json.loads(Path(plan_path).read_text())
     if not isinstance(source_plan, dict) or not isinstance(source_plan.get('nodes'), list) or not source_plan.get('workflowId') or not source_plan.get('revision'):
         raise ValueError('workflow_plan_invalid')
@@ -98,6 +98,17 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
             used.add(name);node.setdefault('externalInputs', []).append(assets[name])
     if used != set(assets):
         raise ValueError('provided_asset_unused')
+    # Brief 是需求元数据，不作为领域媒体输入；必须在安装前拒绝歧义或冲突。
+    if (brief_root is None) != (brief_sha is None):raise ValueError('brief_binding_required')
+    if brief_root is not None or 'projectBrief' in plan:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('artcraft_project_brief', Path(__file__).with_name('brief.py'))
+        brief_module = importlib.util.module_from_spec(spec);spec.loader.exec_module(brief_module)
+        value = brief_module.verify(brief_root, brief_sha) if brief_root is not None else plan['projectBrief']
+        if 'projectBrief' in plan and plan['projectBrief'] != value:raise ValueError('brief_binding_conflict')
+        assessment = brief_module.assess(value, plan, owner, authorization)
+        if assessment['state'] != 'ready':raise ValueError('brief_plan_blocked: '+json.dumps(assessment,ensure_ascii=False))
+        plan['projectBrief'] = value
     output = Path(output).expanduser().resolve()
     marker = output/'.artcraft-project.json'
     if output.exists() and not marker.exists() and any(path.name != '.artcraft-write.lock' for path in output.iterdir()):
@@ -173,9 +184,11 @@ def main():
     parser.add_argument('--video-factory-root', type=Path, help='宿主实际安装的 Video Factory 插件根目录')
     parser.add_argument('--ffmpeg', type=Path)
     parser.add_argument('--ffprobe', type=Path)
+    parser.add_argument('--brief', type=Path, help='已保存的版本化 Brief 目录')
+    parser.add_argument('--brief-sha', help='Brief manifest.json 的 SHA256')
     args = parser.parse_args()
     try:
-        print(json.dumps(execute(args.plan, args.output, args.owner, args.authorization, args.runtime_home, args.node_archive, args.bundle_dir, args.native_archive_dir, args.asset, args.video_factory_root, args.ffmpeg, args.ffprobe), ensure_ascii=False))
+        print(json.dumps(execute(args.plan, args.output, args.owner, args.authorization, args.runtime_home, args.node_archive, args.bundle_dir, args.native_archive_dir, args.asset, args.video_factory_root, args.ffmpeg, args.ffprobe, args.brief, args.brief_sha), ensure_ascii=False))
     except (ValueError, RuntimeError, OSError, subprocess.SubprocessError) as error:
         print(json.dumps({'error': str(error)}, ensure_ascii=False));raise SystemExit(1)
 

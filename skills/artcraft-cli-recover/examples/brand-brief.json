@@ -1,0 +1,75 @@
+{
+  "schema": "craft-brief/v1",
+  "workflowId": "native-brand-campaign",
+  "revision": "brief-v1",
+  "ownerId": "local-user",
+  "authorizationRef": "brand-project-authorized",
+  "budget": {
+    "currency": "USD",
+    "maxMinorUnits": 0,
+    "maxRevisions": 1,
+    "maxExternalCalls": 0
+  },
+  "brand": {
+    "name": "NOVA",
+    "colors": [],
+    "fonts": [],
+    "appliesTo": [
+      "logo",
+      "poster",
+      "intro",
+      "film"
+    ],
+    "referenceAssets": []
+  },
+  "subjects": [],
+  "dataPolicy": {
+    "allowUpload": false
+  },
+  "ambiguities": [],
+  "deliverables": [
+    {
+      "id": "logo",
+      "nativeFormat": ".vectorcraft",
+      "width": 256,
+      "height": 256,
+      "dependsOn": [],
+      "execution": "local"
+    },
+    {
+      "id": "poster",
+      "nativeFormat": ".pcraft",
+      "width": 320,
+      "height": 400,
+      "dependsOn": [
+        "logo"
+      ],
+      "execution": "local"
+    },
+    {
+      "id": "intro",
+      "nativeFormat": ".ecproj",
+      "width": 320,
+      "height": 180,
+      "dependsOn": [
+        "logo"
+      ],
+      "execution": "local",
+      "frameRate": {
+        "num": 12,
+        "den": 1
+      },
+      "durationSeconds": 1
+    },
+    {
+      "id": "film",
+      "nativeFormat": ".fcproj",
+      "width": 320,
+      "height": 180,
+      "dependsOn": [
+        "intro"
+      ],
+      "execution": "local"
+    }
+  ]
+}

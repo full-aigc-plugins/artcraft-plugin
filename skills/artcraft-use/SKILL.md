@@ -82,3 +82,5 @@ ArtCraft dev.7 消费四领域 dev.2 的[交换损失报告](references/exchange
 ## 品牌色板混合返工
 
 本技能自带品牌图形／海报／片头／成片和独立图标的五节点示例。按本技能 [品牌色板指南](references/brand-token-workflow.md) 执行并核对受影响产物；首次安装所需领域由固定依赖锁决定。
+
+版本化需求记录可用本技能自带 `scripts/brief.py`；参见[Brief 合同与当前边界](references/brief.md)。Python 工作流支持 `--brief` 与 `--brief-sha`，安装前拒绝阻塞需求；Node 源实现与有界原生联调已通过，固定安装制品和插件快照尚待更新。

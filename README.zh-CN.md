@@ -186,3 +186,5 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 运行时 dev.26 修复跨授权范围的旧任务复用。候选技能源 dev.24 固定其不可变制品，保留同范围选择性复用，同时核对原生产任务授权。单技能原生冷启动通过（20.006 秒）；最终固定插件安装复验仍为 NOT_RUN。[架构](docs/ArtCraft-Authorization-Reuse-Architecture.zh_CN.md)、[证据](docs/evidence/authorization-reuse.json)。
 
 已发布插件 dev.27／技能 dev.24／运行时 dev.26 的实际安装原生授权范围测试通过（1 项，23.649 秒），四领域首次使用／重放／冲突保全／移动验包回归通过（3 项，95.854 秒），全部 58 个安装摘要不变。[证据](docs/evidence/codex-release28-authorization-native-20261006.json)。
+
+插件候选 dev.29 同步已发布技能 dev.25 并锁定运行时 dev.28，支持版本化 Brief。独立单技能在线冷启动通过（3 项，98.048 秒），最终安装宿主 Brief 验收尚待完成。[架构](docs/ArtCraft-Versioned-Brief-Architecture.zh_CN.md)、[证据](docs/evidence/versioned-brief-first-use.json)。

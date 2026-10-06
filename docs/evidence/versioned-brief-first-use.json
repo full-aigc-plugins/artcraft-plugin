@@ -1,0 +1,134 @@
+{
+  "schema": "craft-brief-first-use-evidence/v1",
+  "status": "source-cold-online-passed-installed-host-pending",
+  "candidateSkillsVersion": "0.1.0-dev.25",
+  "runtimeVersion": "0.1.0-dev.28",
+  "runtimeArchiveSha256": "44f03ae602f04c2c84ae9b500b2d4afb40b49fdab207abbcd64accf3754fab7c",
+  "tests": {
+    "tests": 3,
+    "passed": 3,
+    "skipped": 0,
+    "seconds": 98.048
+  },
+  "python": "3.14.3",
+  "command": "CRAFT_LIVE_TEST=1 CRAFT_ONLINE_FIRST_USE=1 python3 -B -m unittest discover -s tests -p test_workflow_first_use.py -v",
+  "checks": [
+    "single copied artcraft-use directory",
+    "only system PATH; no global Node",
+    "default online immutable downloads",
+    "public Brief create and verification",
+    "four native projects and version identities",
+    "frozen projectBrief and moved portable plan retain exact data",
+    "same revision reuse",
+    "changed runtime location refuses binding and preserves project inventory",
+    "changed same-revision plan rejected",
+    "public package and moved verification"
+  ],
+  "observation": {
+    "schema": "craft-brief-cold-observation/v1",
+    "scope": "online single copied skill; fresh runtime; system-only PATH; programmatic brand fixture, no creative acceptance",
+    "runtimeVersion": "0.1.0-dev.28",
+    "briefManifestSha256": "1887277a495bdcbff245526f98013cc60221381cbb826948214d313cd1757599",
+    "frozenPlanSha256": {
+      "09dd4ccd9609ec8f944d8e4738f8775997a969fca5dfcb40b52fecc633821dcf.binding.json": "181eacc5192b84dd6aacf5a374aea5c87b7e279067bb63c93101f677e5cf81d8",
+      "09dd4ccd9609ec8f944d8e4738f8775997a969fca5dfcb40b52fecc633821dcf.json": "5108533726eb902143665ae26b48f88d4d6ffcc42e0be8fb7f6ccca7c9d882ed"
+    },
+    "nodes": [
+      {
+        "nodeId": "film",
+        "taskId": "wf-70842d99c08daec358881ce56d7b8981e86562eb7acbff02",
+        "status": "reused",
+        "outputs": [
+          {
+            "assetId": "film-video",
+            "sha256": "d3c5467dd4c322dee8759d414973c1655919aa6372233fb3bca985c5a526c848",
+            "nativeProjectSha256": "f541336e563f63c4316a5912dc6efb494edc8e20d9961e55f36eac50dfc168e8"
+          }
+        ]
+      },
+      {
+        "nodeId": "intro",
+        "taskId": "wf-b67ecc950b8961e8fde29351db83aa94f248bc2fcb246f12",
+        "status": "reused",
+        "outputs": [
+          {
+            "assetId": "intro-video",
+            "sha256": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9",
+            "nativeProjectSha256": "253692595961638f91a915d1951aa9a8cfd542d4338918bd0b6f69399bc18bed"
+          }
+        ]
+      },
+      {
+        "nodeId": "logo",
+        "taskId": "wf-d497634e54cd89952bde70e36879cb7705bd57e9d548e199",
+        "status": "reused",
+        "outputs": [
+          {
+            "assetId": "logo-png",
+            "sha256": "565ad7a6411eefb40b2b2b32e1ed11c41abc4fc49b4858ba3f9a70313db0b846",
+            "nativeProjectSha256": "d7b6e382f7ba15cf47bf7065885cc9082a7688d96cc3f80afd3ab1a05f20ba92"
+          }
+        ]
+      },
+      {
+        "nodeId": "poster",
+        "taskId": "wf-e69e762caf87317f514aa6066eba75c2711e1a3098d5987d",
+        "status": "reused",
+        "outputs": [
+          {
+            "assetId": "poster-png",
+            "sha256": "7306d65b016686312fd21616c00e67d7e390d4857f2cb319fc93a4b8042265ae",
+            "nativeProjectSha256": "26979e356c2485b000b429d21938e28980f570a06a2f42e3f0cf7f443bc4e4d5"
+          }
+        ]
+      }
+    ],
+    "domainRuntimeIdentities": {
+      "effectcraft": {
+        "capabilitySnapshotSha256": "68915448d889c974f63811e10f2df097df11ec618ceee5f830020a0cb1095dcc",
+        "cliVersion": "0.2.0",
+        "mode": "headless",
+        "pluginId": "effectcraft",
+        "pluginVersion": "0.1.0-dev.6",
+        "sha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+      },
+      "filmcraft": {
+        "capabilitySnapshotSha256": "5e259c4165491d3fd9f0f86fa9fa7cdf90815e939dc9bcfe52290435253538f7",
+        "cliVersion": "0.2.0-craft.1",
+        "mode": "headless",
+        "pluginId": "filmcraft",
+        "pluginVersion": "0.1.0-dev.5",
+        "sha256": "4bd79931912c591d1cb1b47690949512ffb4361c3ec4f57664024f9a4847ae38"
+      },
+      "photocraft": {
+        "capabilitySnapshotSha256": "87a293a21f5b012dfaf2bebde0f9a716f65dd0ab39418bbbc9c5385cda34c243",
+        "cliVersion": "0.2.0",
+        "mode": "headless",
+        "pluginId": "photocraft",
+        "pluginVersion": "0.1.0-dev.5",
+        "sha256": "57cefe9ee7bda1d996c11741bef84f934cf28d4729eb237900f00d76678d6fa4"
+      },
+      "vectorcraft": {
+        "capabilitySnapshotSha256": "a9403ecf3b968a839f302e176c467965bedc2d7f41f056828a1d1162767ea7d9",
+        "cliVersion": "0.2.0",
+        "mode": "headless",
+        "pluginId": "vectorcraft",
+        "pluginVersion": "0.1.0-dev.7",
+        "sha256": "4ba62138ff64d7f701fd2d8fd4c833bd3bb077b6ed78244a8909a4fa0129b766"
+      }
+    }
+  },
+  "sourceFiles": {
+    "tests/test_workflow_first_use.py": "3839c1fb00097fa0a192dce19f5441023e797a24d33bf719f1cc6047b0dc3426",
+    "skills/artcraft-use/scripts/brief.py": "dd6d2b7bc0e12579504c5d5abad74542bd1c9dc4cbad8d44d9a2399a7d13762f",
+    "skills/artcraft-use/scripts/workflow.py": "e16851a5d0524aff8e8d55c167de3704bda064270b8ca4862594ad4e16ee0804"
+  },
+  "notProven": [
+    "generic Skills CLI install",
+    "new model skill invocation",
+    "installed plugin Brief first use",
+    "source-project Brief inspection",
+    "complete duration assessment",
+    "creative acceptance"
+  ]
+}
