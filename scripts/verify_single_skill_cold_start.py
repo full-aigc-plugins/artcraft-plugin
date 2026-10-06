@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -22,6 +23,15 @@ def native_version_matches(output, domain, expected):
         return isinstance(identity, dict) and identity.get("name") == "artcraft" and identity.get("version") == expected
     tokens = output.strip().split()
     return len(tokens) >= 2 and tokens[0] == domain + "-cli" and tokens[1] == expected
+
+
+def locked_native_version(directory, domain):
+    filename = 'distribution.lock.json' if domain == 'artcraft' else 'runtime.lock.json'
+    locked = json.loads((Path(directory) / 'scripts' / filename).read_text())
+    expected = locked['bundles']['artcraft-runtime']['version'] if domain == 'artcraft' else locked['resolvedVersion']
+    if not isinstance(expected, str) or not re.fullmatch(r'\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?', expected):
+        raise ValueError('cold_runtime_lock_invalid')
+    return expected
 
 
 def verify(host, lock, python, output):
@@ -53,7 +63,7 @@ def verify(host, lock, python, output):
                         raise RuntimeError(name + ': ' + result.stdout + result.stderr)
                     return result.stdout
                 version = call(['--version'])
-                expected_version = '0.1.0-dev.41' if domain == 'artcraft' else ('0.2.0-craft.1' if domain == 'filmcraft' else '0.2.0')
+                expected_version = locked_native_version(target, domain)
                 if not native_version_matches(version, domain, expected_version):
                     raise ValueError('unexpected_native_version:' + name)
                 discovery = call(['--help'] if domain == 'artcraft' else ['commands', *([] if domain == 'vectorcraft' else ['--json'])])

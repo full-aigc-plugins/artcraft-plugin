@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-当前插件 dev.46／技能源 dev.34／运行时 dev.45：包含原生运行中取消的存在性观察修复，固定安装首次使用复验待完成。剪映继续使用自己的插件，不提供 ArtCraft 适配；此前证据保持其原发行范围。
+当前插件 dev.46／技能源 dev.34／运行时 dev.45：包含原生运行中取消的存在性观察修复，固定安装后的真实取消、调度器崩溃接管及十项独立冷启动通过。剪映继续使用自己的插件，不提供 ArtCraft 适配；此前证据保持其原发行范围。
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
@@ -241,4 +241,6 @@ ArtCraft 技能源 dev.33 固定 FilmCraft 技能 dev.6，保留运行时 dev.41
 
 安装后的恢复技能从空运行目录首次使用，真实调度器 SIGKILL 后独立 worker 留下停止证据；公开工作流重开同一原生 attempt，不重放、不增加预算，视频确认 96 帧。[崩溃接管验收](docs/ArtCraft-Scheduler-Crash-Acceptance.zh_CN.md)。worker 崩溃、模型及创作验收仍需独立证据。
 
-dev.44 首次使用已知取消问题：原生运行中取消后，短暂进程组存在性 EPERM 使监督器停止观察，可能保持 `cancel_requested`。源码修复已通过真实原生取消及回归，但新固定运行时／技能／插件发布与公开首次使用复验仍待完成。[修复与证据](docs/ArtCraft-Live-Cancel-Architecture.zh_CN.md)。
+dev.44 首次使用已知取消问题：原生运行中取消后，短暂进程组存在性 EPERM 使监督器停止观察，可能保持 `cancel_requested`。运行时 dev.45／技能源 dev.34／插件 dev.46 已发布修复并通过固定公开首次使用取消；dev.44 标签保留原内容。[修复与证据](docs/ArtCraft-Live-Cancel-Architecture.zh_CN.md)。
+
+固定插件 dev.46／技能源 dev.34／运行时 dev.45 已通过公开安装后首次使用：真实原生运行中取消（31.291 秒）、调度器 SIGKILL 接管（29.652 秒）、十项 ArtCraft 技能各自空运行目录冷启动（111.779 秒）及混合回归（3 项通过，114.047 秒）。五插件发现 58 技能、零错误，全部安装摘要保持不变，修复了已记录的 dev.44 取消问题。[版本绑定证据](docs/evidence/codex-release46-live-cancel-first-use-20261006.json)。

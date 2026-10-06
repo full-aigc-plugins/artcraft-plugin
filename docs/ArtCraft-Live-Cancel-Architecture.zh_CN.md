@@ -16,4 +16,8 @@ flowchart LR
 
 源码测试覆盖存在性权限失败、实际不存在和其他错误，以及安装后的真实原生技能取消。原生源码用例修复前失败、修复后通过；目标回归 26 项通过。完整 Node 回归 137 项通过、6 项跳过，独立技能回归 66 项通过、15 项跳过。[证据](evidence/live-cancel-source-fix.json)。
 
-现有不可变公开发行未修改，仍包含该缺陷。新运行时／技能／插件发布与默认公开首次使用复验在 OpenSpec 5.14 中保持待完成。实际安装用例位于技能源仓 `tests/test_live_cancel_first_use.py`；源码原生回归位于插件仓 `test/native_cancel_runner.test.ts`。发布前不宣称修复源码已通过公开首次使用。
+现有不可变公开发行未修改，仍包含该缺陷。OpenSpec 5.14 的新固定发行复验见下方。实际安装用例位于技能源仓 `tests/test_live_cancel_first_use.py`；源码原生回归位于插件仓 `test/native_cancel_runner.test.ts`。发布前不宣称修复源码已通过公开首次使用。
+
+## 固定公开发行验证
+
+运行时 dev.45、技能源 dev.34、插件 dev.46 已发布并通过固定宿主公开首次使用。安装后的恢复技能在真实原生取消中等待停止证据才完成取消，重复取消不重放。十项 ArtCraft 技能各自冷启动通过，58 项安装摘要不变。[当前证据](evidence/codex-release46-live-cancel-first-use-20261006.json)。原 dev.44 失败保留为历史记录；5.14 只完成该有界修复。

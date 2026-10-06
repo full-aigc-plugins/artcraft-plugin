@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-Current plugin dev.46 / skills dev.34 / runtime dev.45: includes the live native cancellation observation repair. Fixed installed first-use retesting is pending. Jianying remains a separate plugin without an ArtCraft adapter; previous evidence retains its original release scope.
+Current plugin dev.46 / skills dev.34 / runtime dev.45: includes the live native cancellation observation repair. Fixed installed live cancellation, scheduler-crash adoption and ten independent cold starts pass. Jianying remains a separate plugin without an ArtCraft adapter; previous evidence retains its original release scope.
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
@@ -241,4 +241,6 @@ The independent installer now rejects another CLI with the same version, diagnos
 
 Installed recover-skill cold first use survives a scheduler SIGKILL: the independent worker records stop evidence, the public workflow reopens the same native attempt without replay or extra budget, and 96 decoded video frames validate the output. [Crash acceptance](docs/ArtCraft-Scheduler-Crash-Acceptance.md). Worker-crash/model/creative acceptance remains separate.
 
-Known dev.44 first-use cancellation issue: a live native render may remain `cancel_requested` after close because a transient group existence EPERM aborts observation. The source repair passes real native cancellation and regression tests; immutable runtime/skill/plugin publication and public first-use retesting remain pending. [Fix and evidence](docs/ArtCraft-Live-Cancel-Architecture.md).
+Known dev.44 first-use cancellation issue: a live native render may remain `cancel_requested` after close because a transient group existence EPERM aborts observation. Runtime dev.45 / skills dev.34 / plugin dev.46 now publish the repair and pass fixed public first-use cancellation; the dev.44 tag remains unchanged. [Fix and evidence](docs/ArtCraft-Live-Cancel-Architecture.md).
+
+Fixed plugin dev.46 / skills dev.34 / runtime dev.45 now passes public installed first use: real live cancellation (31.291 s), scheduler SIGKILL adoption (29.652 s), all ten ArtCraft skills in separate empty runtimes (111.779 s), and mixed regression (3 passes, 114.047 s). Five-plugin host discovery finds 58 skills with zero errors; all installed hashes remain unchanged. This fixes the documented dev.44 cancellation issue. [Release-bound evidence](docs/evidence/codex-release46-live-cancel-first-use-20261006.json).
