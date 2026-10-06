@@ -36,9 +36,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.63 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.65 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.43 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.44 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
@@ -280,3 +280,5 @@ Vector 素材源码候选已接入登记输入和替换核验，真实 Vector �
 固定 ArtCraft 插件 dev.63／技能源 dev.43／runtime dev.62：隔离 Codex 发现五插件／58 技能／零错误；安装后 PNG／JPEG 与 SVG 混合首用 2 项通过（76.574 秒）、四领域回归 3 项通过（116.076 秒）、Art 十项独立冷启动通过（133.395 秒）。原安装全部 58 项摘要保全，五包固定重建一致，两份公开发行附件及逐文件摘要匹配。SVG 拒绝保留领域代码；替换只重建消费者，非目标像素保持，PNG／PSD 独立核对且迁移包通过。仅关闭有界固定 SVG 交接门禁；SVG 类型元数据、动态透明序列及完整首版／创作／模型／GUI 仍开放。[固定证据](docs/evidence/codex-release63-svg-first-use-20261006.json)。
 
 固定 Art dev.65／技能源 dev.44／runtime dev.64：五插件 58 技能发现零错误；安装后单技能动态四领域交付与 Logo 替换／恢复通过（1 项，62.100 秒），普通原生源工程局部返工回归通过（1 项原生场景＋1 项合同测试，52.541 秒），全部 58 项独立 CLI 冷启动通过（408.253 秒）。安装摘要保持固定，公开附件、固定重建及默认用户数据目录原生安装已核验。[证据](docs/evidence/codex-release65-dynamic-first-use-20261006.json)。完整首版、通用 Skills CLI、模型／GUI／创作／生产验收仍开放。
+
+当前固定发行领域场景矩阵：FilmCraft dev.10、EffectCraft dev.9、PhotoCraft dev.10、VectorCraft dev.11 共 37 个原生场景及 6 项合同检查通过，零跳过。每个场景仅复制对应安装技能，从空运行时目录使用默认公开附件安装原生 CLI；核验原生工程、实际像素／音频及局部修改保持，全部 58 项安装身份保持一致。[版本绑定证据](docs/evidence/codex-current-domain-task-matrix-20261006.json)。完整首版、通用 Skills CLI 安装、模型派发、GUI 与创作验收仍开放。

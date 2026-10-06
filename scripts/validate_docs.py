@@ -118,6 +118,26 @@ else:
     for directory, expected in [(product,10),(product/'V1',7),(product/'en',10),(product/'en/V1',7)]:
         if len(list(directory.glob('*.md'))) != expected:
             errors.append(f'{directory.relative_to(ROOT)}: wrong document count')
+# 当前身份由仓内事实源校验；不要求其他插件检出，不改写历史验收。
+if len(lock.get('sources', [])) != 1:
+    errors.append('current README identity: one skill authority required')
+else:
+    source = lock['sources'][0]
+    version_pattern = r'(?:^|\s|/)v?(\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.+-]+)?)'
+    for language in ('README.md', 'README.zh-CN.md'):
+        text = (ROOT / language).read_text()
+        for field, labels, expected in [
+            ('plugin', 'Metadata version|Plugin ID / version|Plugin ID / 版本', manifest['version']),
+            ('skills', 'Skills source|Skill authority|技能事实源', source['ref'].removeprefix('v')),
+        ]:
+            rows = re.findall(r'^\| (?:' + labels + r') \| ([^|]+) \|$', text, re.M)
+            observed = re.findall(version_pattern, rows[0]) if len(rows) == 1 else []
+            if observed != [expected] or field == 'skills' and source['package'] not in rows[0]:
+                errors.append(f'{language}: current README identity {field} differs from manifest/lock')
+        current = re.search(r'^Current plugin: `([^`]+)`; skill source: `([^`]+)`;', text, re.M)
+        if current and current.groups() != (manifest['version'], source['ref'].removeprefix('v')):
+            errors.append(f'{language}: current README identity paragraph differs from manifest/lock')
+
 for language in ['README.md','README.zh-CN.md']:
     text=(ROOT/language).read_text()
     if any(req not in (ROOT/'docs/traceability.json').read_text() for req in requirements):
