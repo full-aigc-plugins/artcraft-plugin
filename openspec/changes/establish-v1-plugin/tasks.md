@@ -161,4 +161,4 @@
 
 ## 固定领域依赖验收补充
 
-任务 3.12 / 11.3 的当前升级证据：ArtCraft 技能源 dev.33 固定 FilmCraft dev.6，保留运行时 dev.41 和其余三领域包；单技能默认公开冷启动 3 项通过，领域回执异常拒绝、完整项目保留、恢复后原任务复用及四种源工程修订有实际记录。五个包从固定标签重建一致。证据：`docs/evidence/film-receipt-integration-native.json`。固定插件安装复验仍待完成，不改变完整创作／发布任务状态。
+任务 3.12 / 11.3 的当前升级证据：ArtCraft 技能源 dev.33 固定 FilmCraft dev.6，保留运行时 dev.41 和其余三领域包；单技能默认公开冷启动 3 项通过，领域回执异常拒绝、完整项目保留、恢复后原任务复用及四种源工程修订有实际记录。五个包从固定标签重建一致。证据：`docs/evidence/film-receipt-integration-native.json`。固定插件 dev.43 安装复验已完成：3 项冷启动混合测试、58 项单技能 CLI 调用和 2 项中文真实配音／字幕局部返工通过；原安装 58 项摘要保持一致。当前证据：`docs/evidence/codex-release43-film-receipt-first-use-20261006.json`。任务 3.15 的中文补充包含初始 Logo 可见和返工后非字幕区域保留断言；不改变完整创作／发布任务状态。

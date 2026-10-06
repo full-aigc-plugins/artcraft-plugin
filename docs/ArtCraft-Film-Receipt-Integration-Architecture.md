@@ -1,6 +1,6 @@
 # ArtCraft FilmCraft Receipt Integration Architecture
 
-ArtCraft source candidate dev.33 updates only the FilmCraft skill bundle from fixed dev.5 to dev.6 (85866c064c7d91abd8da63b0570d78bee3202bf5). Orchestration runtime remains dev.41; FilmCraft native CLI remains 0.2.0-craft.1. The other three fixed domain bundles are unchanged. Plugin candidate dev.43 receives skills only through the vendor tool.
+ArtCraft fixed source dev.33 updates only the FilmCraft skill bundle from fixed dev.5 to dev.6 (85866c064c7d91abd8da63b0570d78bee3202bf5). Orchestration runtime remains dev.41; FilmCraft native CLI remains 0.2.0-craft.1. The other three fixed domain bundles are unchanged. Fixed plugin dev.43 receives skills only through the vendor tool.
 
 ## First use and reuse
 
@@ -27,3 +27,7 @@ The previous domain bundle ignored invalid receipt identity while reusing an int
 ## Acceptance boundary
 
 The integration test copies only one skill, downloads default public fixed dependencies into a fresh runtime with a system-only PATH, creates four native projects, repeats them, rejects the changed receipt, restores it and checks original task IDs. It also exercises four source-project Brief revisions, Photo variant cache checks and moved-package verification. Audio in this fixture is a sine tone; the test proves technical handoff, not spoken narration or creative acceptance. Source evidence and fixed-plugin host evidence must be recorded separately. Existing complete creative/model/GUI/other-platform release gates remain open.
+
+## Fixed installed acceptance
+
+Codex 0.153.4 installs five fixed public releases and discovers all 58 enabled skills with zero loading errors. The installed ArtCraft dev.43/source dev.33 passes three cold mixed cases (110.253 s). All 58 skills copied individually execute version and command discovery (53.999 s), with one fresh runtime per domain. A separate Chinese spoken-voice fixture passes two cases (51.620 s): 72 frames, caption-only Film rework, preserved upper-image Logo pixels and audio, unchanged other task IDs and verified four-child packaging. Every installed skill digest remains unchanged. The QA driver is fingerprinted separately from immutable source tag dev.33. [Bounded evidence](evidence/codex-release43-film-receipt-first-use-20261006.json). Full creative, model, GUI and production gates remain open.

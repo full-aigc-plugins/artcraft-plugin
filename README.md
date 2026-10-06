@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-Current plugin dev.43 / skills dev.33 pins FilmCraft skills dev.6 and retains runtime dev.41. Single-skill cold public first use: 3 passed. Fixed-plugin host repetition and complete creative acceptance remain pending.
+Current plugin dev.43 / skills dev.33 / runtime dev.41: fixed Codex discovery 58/58; isolated CLI calls 58/58; installed cold mixed cases 3/3; Chinese spoken-voice and caption revision cases 2/2. Complete creative acceptance remains pending.
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
@@ -227,4 +227,6 @@ Fixed-release proof / 固定发行验收：[dev.40 Photo variant mixed first use
 
 [Fixed dev.42 variant reuse gate / 尺寸变体复用固定验收](docs/evidence/codex-release42-variant-gate-first-use-20261006.json).
 
-ArtCraft source dev.33 pins FilmCraft skills dev.6 while retaining runtime dev.41. Cold public first use passed 3/3, including invalid native receipt refusal, whole-project preservation, restored task-ID reuse, four native source revisions and moved-package checks. Default regression: 66 passed, 13 optional skips. [Architecture](docs/ArtCraft-Film-Receipt-Integration-Architecture.md), [source evidence](docs/evidence/film-receipt-integration-native.json). Fixed plugin host proof remains pending.
+ArtCraft source dev.33 pins FilmCraft skills dev.6 while retaining runtime dev.41. Cold public first use passed 3/3, including invalid native receipt refusal, whole-project preservation, restored task-ID reuse, four native source revisions and moved-package checks. Default regression: 66 passed, 13 optional skips. [Architecture](docs/ArtCraft-Film-Receipt-Integration-Architecture.md), [source evidence](docs/evidence/film-receipt-integration-native.json). Fixed plugin dev.43 host proof is recorded below; complete creative acceptance remains pending.
+
+[Fixed installed first-use evidence](docs/evidence/codex-release43-film-receipt-first-use-20261006.json). Immutable release tags are preserved; QA changes only strengthen version and exported-pixel assertions.

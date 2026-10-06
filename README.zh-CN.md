@@ -1,12 +1,12 @@
 # ArtCraft Agent Plugin
 
-当前插件 dev.43／技能源 dev.33 固定 FilmCraft 技能 dev.6，保留运行时 dev.41；单技能公开冷启动 3 项通过。当前固定插件宿主复验仍待完成，完整创作接受未完成。
+当前插件 dev.43／技能源 dev.33／运行时 dev.41：固定 Codex 发现 58/58、独立 CLI 调用 58/58、安装后冷启动混合任务 3/3、中文真实配音与字幕返工 2/2。完整创作验收仍待完成。
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## 当前版本与可复现宿主验证
 
-当前插件 `0.1.0-dev.42`，独立技能源 `0.1.0-dev.32`，运行时 `0.1.0-dev.41`。下述历史宿主证据保持其原版本范围。Codex 0.147.0 与 0.153.4 均安装五个固定公开发布，发现全部 58 项启用的命名空间技能，加载错误为零，来源摘要一致。五项代表流程已通过 0.147.0 安装后的场景技能入口验证，包括原生工程、局部修订和 ArtCraft 在线混合流程。模型自动派发、桌面 GUI、创作最终评审和完整交换保真尚未验证。
+当前插件 `0.1.0-dev.43`，独立技能源 `0.1.0-dev.33`，运行时 `0.1.0-dev.41`。下述历史宿主证据保持其原版本范围。Codex 0.147.0 与 0.153.4 均安装五个固定公开发布，发现全部 58 项启用的命名空间技能，加载错误为零，来源摘要一致。五项代表流程已通过 0.147.0 安装后的场景技能入口验证，包括原生工程、局部修订和 ArtCraft 在线混合流程。模型自动派发、桌面 GUI、创作最终评审和完整交换保真尚未验证。
 
 固定 dev.38 验收：Codex 0.153.4 发现 58 项技能，加载错误为零；实际安装目录的单技能在线冷启动通过 3 项、无跳过，95.289 秒。四源返工、三领域尺寸修改、保存后产物摘要、Effect 实际视频属性、复用和源工程保全均通过，58 个安装技能摘要未变。[证据](docs/evidence/codex-release38-native-brief-first-use-20261006.json)。运行时回归 123 项通过、5 项可选跳过；完整模型／GUI／创作／生产验收仍开放。dev.37 标签因暂存失败保留历史，未创建 Release，也不作为插件快照使用。
 
@@ -227,4 +227,6 @@ Fixed-release proof / 固定发行验收：[dev.40 Photo variant mixed first use
 
 [Fixed dev.42 variant reuse gate / 尺寸变体复用固定验收](docs/evidence/codex-release42-variant-gate-first-use-20261006.json).
 
-ArtCraft 技能源 dev.33 固定 FilmCraft 技能 dev.6，保留运行时 dev.41。公开冷启动 3/3 通过，覆盖原生回执异常拒绝、全部项目文件保留、恢复后复用原任务 ID、四种源工程修订和移动包验证。默认回归 66 项通过、13 项可选跳过。[架构](docs/ArtCraft-Film-Receipt-Integration-Architecture.zh_CN.md)、[源码证据](docs/evidence/film-receipt-integration-native.json)。固定插件宿主证据仍待完成。
+ArtCraft 技能源 dev.33 固定 FilmCraft 技能 dev.6，保留运行时 dev.41。公开冷启动 3/3 通过，覆盖原生回执异常拒绝、全部项目文件保留、恢复后复用原任务 ID、四种源工程修订和移动包验证。默认回归 66 项通过、13 项可选跳过。[架构](docs/ArtCraft-Film-Receipt-Integration-Architecture.zh_CN.md)、[源码证据](docs/evidence/film-receipt-integration-native.json)。固定插件 dev.43 宿主证据见下方；完整创作验收仍待完成。
+
+[固定安装首次使用证据](docs/evidence/codex-release43-film-receipt-first-use-20261006.json)。保留不可变发行标签；QA 修改仅加强版本绑定与实际导出像素断言。
