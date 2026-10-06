@@ -139,6 +139,13 @@ ArtCraft SHALL 区分逻辑资产 ID 与内容哈希；显式记录派生边；�
 - **THEN** ArtCraft SHALL 通过公开 `--lut-asset` 入口交接 Film 专用 `kind: lut` 绑定，保存依赖摘要和血缘；未知类型、非 Film 使用或错误扩展名 SHALL 在写计划前拒绝
 - **AND** 局部返工 SHALL 保留 LUT、声音、字幕、原交付与不受影响的上游任务；重复修订不得重复执行；既有普通媒体绑定保持兼容
 
+#### Scenario: AC-DM-004-SMART 嵌入智能对象的混合品牌返工
+
+- **WHEN** 单个独立 ArtCraft 技能从空运行时安装固定领域版本，Vector Logo 作为 Photo 嵌入智能对象交接，并为 Effect／Film 提供品牌素材
+- **THEN** ArtCraft SHALL 使用支持智能对象的固定 Photo 技能源；替换 Logo 后在已有 `.pcraft` 上替换登记内容，保留文字、背景、蒙版、变换及原始交付
+- **AND** 受影响的 Logo、海报、片头和成片 SHALL 更新，无关节点 SHALL 复用；同修订重试不创建新任务或重复消耗预算，损坏依赖阻断下游
+- **AND** 移动后的五子工程包 SHALL 可独立验证；安装技能摘要保持不变；嵌入收集交接不得声明为持久外部链接或外部 PSD 编辑器保真
+
 #### Scenario: AC-DM-004-P 正常交付
 
 - **WHEN** 输入素材、运行时能力、授权与工程版本有效，用户请求素材版本与选择性失效
