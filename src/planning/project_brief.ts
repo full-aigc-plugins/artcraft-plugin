@@ -68,7 +68,12 @@ export function pendingNativeAssessment(assessment:any,plan:any):boolean {
 /** 这些公开命令可能改变交付元数据；最终值必须由保存后记录决定。 */
 function changesMetadata(node:any):boolean {
  const commands:Record<string,string[]>={photocraft:['image.imageSize','image.canvasSize'],effectcraft:['comp.settings'],vectorcraft:['artboard.new','artboard.setProps'],filmcraft:[]};
- return (node.payload?.plan?.operations??[]).some((operation:any)=>commands[node.runtimeIdentity?.pluginId]?.includes(operation.command));
+ return (node.payload?.plan?.operations??[]).some((operation:any)=>{
+  if(commands[node.runtimeIdentity?.pluginId]?.includes(operation.command))return true;
+  // 完整原生网关可以改变声明之外的工程状态；必须等待真实保存与导出检查。
+  const params=operation?.params;
+  return operation?.command==='native.command' && object(params) && Object.keys(params).sort().join(',')==='command,params' && typeof params.command==='string' && params.command.length>0 && object(params.params);
+ });
 }
 /** 新建非插入 placement 的精确边界；编辑和源工程不得用声明冒充检查。 */
 function filmDurationTicks(node:any,inspection?:SourceInspection):bigint|null {

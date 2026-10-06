@@ -1,3 +1,5 @@
+完整网关DAG源候选实测通过：四领域联动、五子工程及独立图标复用、源工程返工、移动包重开、预算拒绝、损坏恢复、真实取消及六类unknown保全。固定发行和安装副本复验待完成；6.51仍开放。 [Evidence](docs/evidence/native-gateway-joint-candidate-20261007.json).
+
 Source candidate: complete native workflow gateway; immutable installed acceptance and full DAG gate6.51 remain pending. [Architecture](docs/Craft-Native-Workflow-Gateway-Architecture.md).
 
 固定 ArtCraft82／技能源56 的组件首次使用通过：5插件、58技能、零加载错误；十个Art技能各自查询2639条目录，并独立从空缓存安装、调用四领域（40项原生用例，920次操作）。实际工程保存与返工后重开、目标状态及像素、非目标对象保留均通过；58个安装技能摘要不变。两个公开源包与固定标签逐字节一致，4项插件CI通过。仅关闭组件门禁6.50；完整DAG门禁6.51、2639条逐项命令、GUI／模型、通用Skills CLI及完整V1仍开放。[版本绑定证据](docs/evidence/codex-art82-complete-domain-component-first-use-20261007.json)。

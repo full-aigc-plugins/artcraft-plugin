@@ -1,0 +1,162 @@
+{
+  "schema": "artcraft-native-gateway-joint-candidate/v1",
+  "date": "2026-10-07",
+  "result": "PASS",
+  "scope": "source candidate real native DAG, not immutable installed release",
+  "sourceSha256": {
+    "src/planning/project_brief.ts": "1a5f0a9f85b16dee0f6cca73f5ba468765e2e98f9b45f710cab81c94b7177587",
+    "src/adapters/public_skill.ts": "b977c320b0332e54783d631b4369518549f5a7674f2fafac62551284c2935db8",
+    "test/native_gateway_mixed.test.ts": "d8109df49ffd4be8ab6c3b1128de65b347d179c1828357b8627da2c71326162d",
+    "test/native_gateway_cancel.test.ts": "92f9e741e8fad97112d72f8614b9a7ca441ed36c5dcde36a8cc4f5e3b96a0028",
+    "test/native_gateway_unknown.test.ts": "cd5147b4df9a80eac92465b790321b04c3ef878842d2f3f9dfc6b701245a77f3",
+    "test/project_brief.test.ts": "5dab98992cf03b13daf0b175045af5fbcb90afdc08f514f1eace40be5dc841d4"
+  },
+  "domainFilesSha256": {
+    "filmcraft": {
+      "workflow.py": "2546e272ea33d8dfef367fb168056570d718e0448df59b305d2d8ec3163c2264",
+      "native_workflow.py": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116",
+      "commands.py": "d402df57f920ebb87ea852d5dcd2eb87caa1e0103dd44d098aa720e465593583",
+      "runtime.lock.json": "d479a3a39836966a1860b8cf18af5e714c948a3cae959be53a9bca00a61de8be"
+    },
+    "effectcraft": {
+      "workflow.py": "b2360f3ab47a6e1ba7aa9704de9efdf5f47daa45a4bd6fe711b8616c683a91fa",
+      "native_workflow.py": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116",
+      "commands.py": "d402df57f920ebb87ea852d5dcd2eb87caa1e0103dd44d098aa720e465593583",
+      "runtime.lock.json": "c3dc4d1443e9b74d0891904d7ec95167375cfb9a8457bfc4faa89208280d465d"
+    },
+    "photocraft": {
+      "workflow.py": "81051caf8cf391971ef6c40f5bb6d12b24614ce3793bf77ab247a6b76006974b",
+      "native_workflow.py": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116",
+      "commands.py": "d402df57f920ebb87ea852d5dcd2eb87caa1e0103dd44d098aa720e465593583",
+      "runtime.lock.json": "b358d465bab65e3e7bf87add7b490fa6f4e37f7efb45c17580123a4a8cfa2a49"
+    },
+    "vectorcraft": {
+      "workflow.py": "66a4c3c66928a65d0ee4735c8d4acbfbe330b333a9580f510e3624172b220233",
+      "native_workflow.py": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116",
+      "commands.py": "d402df57f920ebb87ea852d5dcd2eb87caa1e0103dd44d098aa720e465593583",
+      "runtime.lock.json": "7b6bd7f3fab84b757d4ea20ac91b74d89b417ec061efc6ae320dda97a422cc07"
+    }
+  },
+  "briefUnit": {
+    "total": 13,
+    "passed": 13,
+    "failed": 0,
+    "red": "new gateway metadata deferral scenario failed before implementation"
+  },
+  "regression": {
+    "total": 196,
+    "passed": 176,
+    "skipped": 20,
+    "failed": 0
+  },
+  "mixed": {
+    "result": "PASS",
+    "childCount": 5,
+    "domains": 4,
+    "nativeGatewaysInEachCreateAndSourceRevision": true,
+    "unrelatedIconTaskAndBytesReused": true,
+    "logoConsumersUpdated": true,
+    "nativeSourcesPreserved": true,
+    "subtitleAndPCMVoicePreserved": true,
+    "actualVideoProbe": {
+      "width": 320,
+      "height": 180,
+      "frameRate": "12/1",
+      "frames": 12,
+      "audio": true
+    },
+    "overBudgetRejectedBeforeExecution": true,
+    "movedFiveChildBriefPackage": true,
+    "movedFourChildSourceRevisionPackageReopened": true,
+    "corruptOriginalDetectedAndOriginalBytesRestoredWithoutReexecution": true,
+    "recoveryBudgetUnchanged": true
+  },
+  "recovery": {
+    "schema": "craft-native-gateway-mixed/v1",
+    "result": "PASS",
+    "corruptedState": "blocked",
+    "restoredTaskIds": {
+      "icon": "wf-82d8dfe805afce373011519ecdb6580eaef1ee6bf95c29ac",
+      "logo": "wf-4df144e49558b709ac5a14e62b34a49e47549729cdbc0f01",
+      "poster": "wf-d291c29ef449b19a35580f0813e0fabc4b7c5a4c22f033e1",
+      "intro": "wf-13de8ef5d365869aaf60a67d4ebe628e0157a548afd04b4d",
+      "film": "wf-2d39b9ea59159a8212a6ea48df586fd4b39d8cb738d92b09"
+    },
+    "commandsInEachCreationAndRevision": true,
+    "fullCommandAcceptance": "NOT_RUN",
+    "installedRelease": "NOT_RUN"
+  },
+  "cancel": {
+    "schema": "craft-native-gateway-cancel/v1",
+    "result": "PASS",
+    "nativeRenderObserved": true,
+    "groupStopped": true,
+    "savedStageReopened": true,
+    "projectSha256": "b6a7937bdd65ddb0c8f29eb53d715760e069dc1512927744fe44c36d144cbf8b",
+    "spawnCount": 1,
+    "sourceUnchanged": true,
+    "installedRelease": "NOT_RUN"
+  },
+  "unknown": {
+    "schema": "craft-native-gateway-unknown/v1",
+    "result": "PASS",
+    "cases": [
+      {
+        "fault": "malformed",
+        "result": "PASS",
+        "originalStageReopened": true,
+        "savedSha256": "b8f46111352c9f28f87820dd081ecbf99f720e70d99160e39e499b956aa35eff",
+        "nativeSaveCount": 1,
+        "downstreamCalls": 0
+      },
+      {
+        "fault": "scalar",
+        "result": "PASS",
+        "originalStageReopened": true,
+        "savedSha256": "b8f46111352c9f28f87820dd081ecbf99f720e70d99160e39e499b956aa35eff",
+        "nativeSaveCount": 1,
+        "downstreamCalls": 0
+      },
+      {
+        "fault": "missing",
+        "result": "PASS",
+        "originalStageReopened": true,
+        "savedSha256": "b8f46111352c9f28f87820dd081ecbf99f720e70d99160e39e499b956aa35eff",
+        "nativeSaveCount": 1,
+        "downstreamCalls": 0
+      },
+      {
+        "fault": "ambiguous",
+        "result": "PASS",
+        "originalStageReopened": true,
+        "savedSha256": "b8f46111352c9f28f87820dd081ecbf99f720e70d99160e39e499b956aa35eff",
+        "nativeSaveCount": 1,
+        "downstreamCalls": 0
+      },
+      {
+        "fault": "nonfinite",
+        "result": "PASS",
+        "originalStageReopened": true,
+        "savedSha256": "b8f46111352c9f28f87820dd081ecbf99f720e70d99160e39e499b956aa35eff",
+        "nativeSaveCount": 1,
+        "downstreamCalls": 0
+      },
+      {
+        "fault": "tool-content",
+        "result": "PASS",
+        "originalStageReopened": true,
+        "savedSha256": "b8f46111352c9f28f87820dd081ecbf99f720e70d99160e39e499b956aa35eff",
+        "nativeSaveCount": 1,
+        "downstreamCalls": 0
+      }
+    ],
+    "installedRelease": "NOT_RUN"
+  },
+  "fixedInstalledRelease": "NOT_RUN",
+  "artFullGate": "OPEN:6.51",
+  "domainFullCommands": "OPEN:8.3",
+  "exhaustive2639": "NOT_RUN",
+  "gui": "NOT_RUN",
+  "modelDispatch": "NOT_RUN",
+  "fullV1": "OPEN"
+}

@@ -26,3 +26,9 @@ Art requires checksummed helper, command parser and command catalog files when a
 Actual Film speed revision exposed a historical normal-speed-only delivery guard. Source media consumption is now verified using timeline duration times absolute playback speed, retaining exact timebase and source checks. Invalid or zero speed is rejected; this does not establish acceptance for all time remapping commands.
 
 Coverage validation, disabled/unknown tests, four independent empty-cache native delivery/revision samples, actual Art scheduler samples, immutable installed release, full mixed revision/recovery/package and exhaustive2639/GUI/model acceptance remain separate gates. Candidate evidence does not close full6.51.
+
+## Full DAG candidate evidence
+
+Five-child real-native tests pass four-domain gateway creation, Logo consumer updates and unrelated icon reuse, native source revisions, preserved media/animation, subtitle/PCM video decoding and independently reopened moved packages. Excess budget is rejected before execution. Corruption blocks reuse; restoring original bytes adopts old task IDs and allocations. Real render cancellation stops the process group while retaining a reopenable original saved stage without repeat execution. Six post-save protocol faults preserve original native projects, block downstream work and prohibit repeat saves.
+
+Gateway operations can alter undeclared document state. Brief metadata decisions defer to real saved-native and export checks; authorization and ambiguities remain preconditions, and malformed wrappers cannot defer. This proves the source candidate only. Immutable domain sources, Art runtime, plugins and installed copies still need synchronized publication and retesting; full6.51 and exhaustive2639 remain open.

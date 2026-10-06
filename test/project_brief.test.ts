@@ -93,3 +93,22 @@ test('metadata-changing source edits defer only actual metadata, never unrelated
  node.payload.plan.operations.push({command:'type.edit',params:{font:'Other'}});
  assert.equal(pendingNativeAssessment((assessBrief as any)(brief,plan,inspected),plan),false);
 });
+
+test('native gateway metadata remains pending actual output, without bypassing authority or ambiguities',()=>{
+ const {brief,plan}=fixture();const node=plan.nodes[0] as any;node.expectedRevision=null;
+ node.payload.plan.operations=[{command:'native.command',params:{command:'artboard.setProps',params:{width:320,height:180}}}];
+ const assessment=assessBrief(brief,plan);
+ assert.ok(assessment.blocked[0].reasons.includes('native_output_inspection_required'));
+ assert.equal(pendingNativeAssessment(assessment,plan),true);
+ (brief.ambiguities as any[]).push({id:'brand',question:'Confirm',affects:['logo']});
+ assert.equal(pendingNativeAssessment(assessBrief(brief,plan),plan),false);
+ assert.throws(()=>assessBrief(brief,{...plan,authorizationRef:'different'}),/brief_authorization_mismatch/);
+});
+test('malformed native gateway cannot defer a declared document conflict',()=>{
+ const {brief,plan}=fixture();const node=plan.nodes[0] as any;
+ node.payload.plan.document.width=1;
+ node.payload.plan.operations=[{command:'native.command',params:{command:'artboard.setProps',params:{},executor:'model'}}];
+ const assessment=assessBrief(brief,plan);
+ assert.ok(assessment.blocked[0].reasons.includes('document_size_mismatch'));
+ assert.equal(pendingNativeAssessment(assessment,plan),false);
+});
