@@ -101,6 +101,8 @@
 
 - [x] 6.22 [AC-DM-002] 按声明任务图选择首次安装领域，验证单 VectorCraft 冷启动、增量 PhotoCraft、未知执行器提前拒绝与四领域兼容；产物：独立技能源 tests/test_selected_setup.py、docs/evidence/selected-domain-first-use.json。
 
+- [ ] 6.23 [AC-DM-001] 实现独立、可移动、摘要绑定的 Brief 保存／核验／只读评估；覆盖格式、画幅、预算、授权、品牌／主体参考、上传与局部歧义传播；执行前约束检查及冻结计划／移动交付包绑定另行真实验证，保持旧入口兼容。
+
 ## 7. artifact-delivery
 
 - [x] 7.1 [AC-AR-001] 编写能暴露“产物血缘与包完整性”缺失的正向与失败测试并确认预期失败。责任：Harness owner；前置：技能/运行时合同已确定；业务调用依赖对应适配器。产物：fixture、断言及失败日志；验证：失败原因必须是目标行为缺失。

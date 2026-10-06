@@ -51,6 +51,8 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
    node('intro','effectcraft',['logo'],payload({document:{name:'NOVA intro',width:320,height:180,frameRate:12,duration:1},operations:[operation('asset.import',{asset:'logo'},'logo'),operation('layer.addItem',{item:ref('logo.item'),duration:1},'logoLayer'),operation('prop.addKey',{layer:ref('logoLayer.layer'),path:'transform/opacity',time:0,value:0}),operation('prop.addKey',{layer:ref('logoLayer.layer'),path:'transform/opacity',time:.5,value:100})],frames:[0,.5],exports:[{format:'mp4'}]},[{name:'logo',assetId:'logo-png'}],'intro-video','intro.mp4','video/mp4')),
    {...node('film','filmcraft',['intro'],payload({document:{name:'NOVA campaign',width:320,height:180,frameRate:{num:12,den:1}},operations:[operation('asset.import',{asset:'intro'},'intro'),operation('asset.import',{asset:'voice'},'voice'),operation('timeline.place',{item:ref('intro.item'),track:'V1',time:'0',sourceIn:'0',duration:tick,insert:false},'introClip'),operation('timeline.place',{item:ref('voice.item'),track:'A1',audioTrack:'A1',time:'0',sourceIn:'0',duration:tick,insert:false}),operation('captions.newTrack',{format:'Subtitle',name:'Brand subtitle',language:'en'}),operation('captions.setStyle',{track:'C1',font:'Arial',size:18,color:'#ffffff',background:true}),operation('caption.add',{track:'C1',text:'NOVA essentials',startTicks:'0',durationTicks:tick})],frames:['127008000000'],export:{audioRequired:true}},[{name:'intro',assetId:'intro-video'},{name:'voice',assetId:'voice'}],'film-video','film.mp4','video/mp4')),externalInputs:[voiceInput]}
   ]};
+  // 实际领域计划携带需求元数据；不把 Brief 伪装成媒体输入。
+  (plan as any).projectBrief={schema:'craft-brief/v1',workflowId:plan.workflowId,revision:'brief-v1',ownerId:plan.ownerId,authorizationRef:plan.authorizationRef,budget:structuredClone(plan.budget),brand:{name:'NOVA',colors:[],fonts:[],appliesTo:['logo','poster','intro','film'],referenceAssets:[]},subjects:[],dataPolicy:{allowUpload:false},ambiguities:[],deliverables:plan.nodes.map(node=>({id:node.id,nativeFormat:({vectorcraft:'.vectorcraft',photocraft:'.pcraft',effectcraft:'.ecproj',filmcraft:'.fcproj'} as any)[node.runtimeIdentity.pluginId],width:node.payload.plan.document.width,height:node.payload.plan.document.height,dependsOn:node.dependsOn,execution:'local',...(node.id==='intro'?{frameRate:{num:12,den:1},durationSeconds:1}:{})}))};
   const engine=new WorkflowEngine(ledger,new LocalRunner(ledger,async request=>assert.equal(request.authorizationRef,'mixed-test-scope')),factories);
   const first=await engine.run(plan,2);await writeFile(join(root,'v1-result.json'),JSON.stringify(first,null,2));
   assert.equal(first.state,'review_ready',JSON.stringify(first)+' evidence='+root);
@@ -86,6 +88,8 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
    sourceNode('intro','effectcraft',{operations:[operation('asset.replace',{asset:'logo',replacement:'replacement'})],frames:[0,.5],exports:[{format:'mp4'}]},['logo'],[{name:'replacement',assetId:'logo-png'}]),
    sourceNode('film','filmcraft',{operations:[operation('asset.import',{asset:'replacement'},'replacement'),operation('clip.replaceFromBin',{clips:ref('introClip.clips'),item:ref('replacement.item')})],frames:['127008000000'],export:{audioRequired:true}},['intro'],[{name:'replacement',assetId:'intro-video'}])
   ]};
+  // 源工程尺寸检查仍是独立待办，不把无 document 的修订冒充 Brief 验收。
+  delete (revisionPlan as any).projectBrief;
   const nativeRevision=await engine.run(revisionPlan,2);
   assert.equal(nativeRevision.state,'review_ready',JSON.stringify(nativeRevision));
   for(const id of ['logo','poster','intro','film']){
@@ -118,12 +122,22 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
   const cliStatus=JSON.parse((await exec(runtimeNode,[cli,'status','--database',join(root,'tasks.sqlite')])).stdout);
   assert.equal(cliStatus.tasks.length,12);assert.equal(cliStatus.leases.length,0);
   await writeFile(join(root,'cli-result.json'),JSON.stringify(cliResult,null,2));
+  const briefPackage=join(root,'brief-package');
+  const briefPacked=JSON.parse((await exec(runtimeNode,[cli,'package','--database',join(root,'tasks.sqlite'),'--workflow',second.runKey,'--owner','test','--authorization','mixed-test-scope','--output',briefPackage])).stdout);
+  const movedBrief=join(root,'moved-brief-package');await rename(briefPackage,movedBrief);
+  const briefVerified=JSON.parse((await exec(runtimeNode,[cli,'verify-package','--package',movedBrief,'--sha',briefPacked.sha256])).stdout);
+  assert.equal(briefVerified.children.length,4);
+  assert.deepEqual(JSON.parse(await readFile(join(movedBrief,'workflow-plan-portable.json'),'utf8')).projectBrief,(plan as any).projectBrief);
+  await writeFile(join(root,'brief-package-receipt.json'),JSON.stringify({briefPacked,briefVerified,brief:(plan as any).projectBrief},null,2));
   const packagePath=join(root,'project-package');
   const packed=JSON.parse((await exec(runtimeNode,[cli,'package','--database',join(root,'tasks.sqlite'),'--workflow',nativeRevision.runKey,'--owner','test','--authorization','mixed-test-scope','--output',packagePath])).stdout);
   assert.equal(packed.state,'review_ready');assert.equal(packed.children.length,4);
   const moved=join(root,'moved-package');await rename(packagePath,moved);
   // 删除所有原交付和外部音频，移动包必须独立核验并能重关联原生素材。
   await rm(join(root,'deliveries'),{recursive:true});await rm(voice);
+  const independentBrief=JSON.parse((await exec(runtimeNode,[cli,'verify-package','--package',movedBrief,'--sha',briefPacked.sha256])).stdout);
+  assert.equal(independentBrief.children.length,4);
+  assert.deepEqual(JSON.parse(await readFile(join(movedBrief,'workflow-plan-portable.json'),'utf8')).projectBrief,(plan as any).projectBrief);
   const checked=JSON.parse((await exec(runtimeNode,[cli,'verify-package','--package',moved,'--sha',packed.sha256])).stdout);
   assert.equal(checked.children.length,4);
   const reopen={...plan,workflowId:'moved-package-reopen',revision:'v1',nodes:checked.children.map((child:any)=>({
@@ -131,6 +145,7 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
    externalInputs:[{root:child.root,artifact:child.outputs[0]}],
    payload:{schemaVersion:'craft-skill-workflow/v1',sourceProject:{assetId:child.outputs[0].assetId},assetBindings:[],outputs:[{assetId:'reopened-'+child.nodeId,location:child.outputs[0].location,mediaType:child.outputs[0].mediaType}],plan:child.nodeId==='logo'?{operations:[],exports:vectorPlan.exports}:child.nodeId==='poster'?{operations:[],minimumLayers:3,exports:[{format:'png'},{format:'psd'}]}:child.nodeId==='intro'?{operations:[],frames:[0,.5],exports:[{format:'mp4'}]}:{operations:[],frames:['127008000000'],export:{audioRequired:true}}}
   }))};
+  delete (reopen as any).projectBrief;
   const reopened=await engine.run(reopen,2);assert.equal(reopened.state,'review_ready',JSON.stringify(reopened));
   const movedFilm=JSON.parse(await readFile(join(reopened.nodes.film.root!,'manifest.json'),'utf8'));
   assert.equal(movedFilm.assets.voice.sha256,voiceHash);

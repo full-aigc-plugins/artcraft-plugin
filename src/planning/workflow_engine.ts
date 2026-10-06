@@ -1,4 +1,5 @@
 /** 可恢复 DAG 调度，显式依赖和已核验资产版本是交接依据。 */
+import { assessBrief, nodeBriefConstraints } from './project_brief.ts';
 import { orderGraph } from '../protocol/dependency_graph.ts';
 import { planHash, validateTask, verifyArtifact } from '../protocol/contracts.ts';
 import { TaskLedger } from '../harness/task_ledger.ts';
@@ -14,7 +15,7 @@ export interface WorkflowNode {
 }
 export interface WorkflowPlan {
   workflowId:string;ownerId:string;revision:string;authorizationRef:string;
-  budget:Record<string,any>;deadline:string;nodes:WorkflowNode[];
+  budget:Record<string,any>;deadline:string;nodes:WorkflowNode[];projectBrief?:Record<string,any>;
 }
 export type AdapterFactory=(node:WorkflowNode,inputs:ArtifactInput[],taskId:string)=>Promise<{adapter:ExecutionAdapter;root:string}>;
 type NodeResult={status:string;fingerprint?:string;taskId?:string;root?:string;outputs?:Record<string,any>[];error?:string};
@@ -43,6 +44,10 @@ export class WorkflowEngine {
       if(!Object.hasOwn(this.factories,node.runtimeIdentity.pluginId))throw new Error('capability_missing: '+node.runtimeIdentity.pluginId);
       if(node.inputBindings?.some(binding=>!node.dependsOn.includes(binding.from)))throw new Error('dependency_binding_invalid');
       validateTask(this.request(plan,node,'preflight','preflight',[]));
+    }
+    if(plan.projectBrief!==undefined){
+      const assessment=assessBrief(plan.projectBrief,plan);
+      if(assessment.state!=='ready')throw new Error('brief_plan_blocked: '+JSON.stringify(assessment));
     }
     return order;
   }
@@ -93,7 +98,9 @@ export class WorkflowEngine {
         inputs.push(...(node.externalInputs ?? []));
         for(const input of inputs)await verifyArtifact(input.artifact,input.root);
         const refs=inputs.map(input=>({assetId:input.artifact.assetId,version:input.artifact.version,sha256:input.artifact.sha256}));
-        fingerprint=planHash({payload:node.payload,inputRefs:refs,runtimeIdentity:node.runtimeIdentity,projectKey:node.projectKey,expectedRevision:node.expectedRevision});
+        const content={payload:node.payload,inputRefs:refs,runtimeIdentity:node.runtimeIdentity,projectKey:node.projectKey,expectedRevision:node.expectedRevision};
+        // 无 Brief 时保留历史指纹；按节点提取约束，不引入全局修订号。
+        fingerprint=planHash(plan.projectBrief===undefined ? content : {...content,briefConstraints:nodeBriefConstraints(plan.projectBrief,id)});
         const cached=this.ledger.cachedWorkflowNode(plan.ownerId,plan.workflowId,id,fingerprint,plan.authorizationRef) as NodeResult|null;
         if(cached){await this.verifyResult(cached);save(id,{...cached,status:'reused',fingerprint});return;}
         taskId='wf-'+planHash({owner:plan.ownerId,workflow:plan.workflowId,revision:plan.revision,node:id,fingerprint}).slice(0,48);

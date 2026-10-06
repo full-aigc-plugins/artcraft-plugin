@@ -10,17 +10,17 @@ import { LocalRunner } from '../src/harness/local_runner.ts';
 import { WorkflowEngine } from '../src/planning/workflow_engine.ts';
 
 const sha=(data:Buffer|string)=>createHash('sha256').update(data).digest('hex');
-async function fixture(){
+async function fixture(plugin='fixture'){
  const root=await mkdtemp(join(tmpdir(),'craft-workflow-')),ledger=new TaskLedger(join(root,'ledger.sqlite'));
  const runtime=sha(await readFile(process.execPath));let launches:string[]=[];
- const identity={pluginId:'fixture',pluginVersion:'0.1.0',cliVersion:process.version,sha256:runtime,mode:'headless',capabilitySnapshotSha256:sha('fixture')};
+ const identity={pluginId:plugin,pluginVersion:'0.1.0',cliVersion:process.version,sha256:runtime,mode:'headless',capabilitySnapshotSha256:sha('fixture')};
  const factory=async(node:any,inputs:any[],taskId:string)=>{
   const directory=join(root,taskId);await mkdir(directory,{recursive:true});const script=join(directory,'worker.mjs'),output=join(directory,'output.bin');
   const content=node.payload.plan.text+'|'+inputs.map(item=>item.artifact.sha256).join('|');
   await writeFile(script,`import{writeFileSync}from'node:fs';setTimeout(()=>{writeFileSync(process.argv[2],${JSON.stringify(content)});},30);`);
   return {root:directory,adapter:{prepare:async()=>{launches.push(node.id);return {executable:process.execPath,args:[script,output],cwd:directory,actualRevision:null,budgetUsage:{minorUnits:0,externalCalls:0}};},verify:async()=>{const bytes=await readFile(output);return {root:directory,evidenceRefs:[],outputs:[{protocolVersion:'craft-artifact/v1',assetId:node.id,version:sha(bytes),sha256:sha(bytes),bytes:bytes.length,mediaType:'application/octet-stream',producerTaskId:taskId,sourceRefs:inputs.map(item=>({assetId:item.artifact.assetId,version:item.artifact.version,sha256:item.artifact.sha256})),nativeProjectRef:null,renditions:[],dependencies:[],technicalMetadata:{},lossReportRef:null,evidenceRefs:[],location:'output.bin'}]};}}};
  };
- const engine=new WorkflowEngine(ledger,new LocalRunner(ledger,async()=>{}),{fixture:factory});
+ const engine=new WorkflowEngine(ledger,new LocalRunner(ledger,async()=>{}),{[plugin]:factory});
  const node=(id:string,dependsOn:string[]=[])=>({id,dependsOn,projectKey:'project-'+id,runtimeIdentity:identity,payload:{schemaVersion:'fixture/v1',plan:{text:id}},expectedRevision:null});
  const plan={workflowId:'brand',ownerId:'user',revision:'v1',authorizationRef:'test-authority',budget:{currency:'USD',maxMinorUnits:0,maxRevisions:1,maxExternalCalls:0},deadline:new Date(Date.now()+60000).toISOString(),nodes:[node('logo'),node('poster',['logo']),node('intro',['logo']),node('voice'),node('film',['intro','voice'])]};
  return {root,ledger,engine,factory,plan,get launches(){return launches;},clear(){launches=[];},cleanup:async()=>{ledger.close();await rm(root,{recursive:true});}};
@@ -164,5 +164,23 @@ test('changed authorization is evaluated before a cached node can bypass the aut
   const engine=new WorkflowEngine(f.ledger,new LocalRunner(f.ledger,async request=>{checked++;assert.equal(request.authorizationRef,'denied-authority');throw new Error('scope_denied');}),{fixture:f.factory});
   const result=await engine.run(revised);assert.equal(result.state,'blocked');assert.equal(checked,1);
   assert.deepEqual(f.launches,[]);assert.match(result.nodes.logo.error!,/scope_denied/);
+ }finally{await f.cleanup();}
+});
+
+function attachBrief(plan:any){
+ for(const node of plan.nodes)node.payload.plan.document={width:320,height:180};
+ plan.projectBrief={schema:'craft-brief/v1',workflowId:plan.workflowId,revision:'brief-v1',ownerId:plan.ownerId,authorizationRef:plan.authorizationRef,budget:structuredClone(plan.budget),brand:{name:'NOVA',colors:['#ef5b36'],fonts:[],appliesTo:['logo','poster','intro','film'],referenceAssets:[]},subjects:[],ambiguities:[],dataPolicy:{allowUpload:false},deliverables:plan.nodes.map((node:any)=>({id:node.id,nativeFormat:'.vectorcraft',width:320,height:180,dependsOn:node.dependsOn,execution:'local'}))};
+}
+test('direct runtime blocks unresolved Brief before ledger registration or native preparation',async()=>{
+ const f=await fixture('vectorcraft');try{
+  const plan:any=structuredClone(f.plan);attachBrief(plan);plan.projectBrief.ambiguities=[{id:'name',question:'Confirm name',affects:['logo']}];
+  await assert.rejects(f.engine.run(plan),/brief_plan_blocked/);assert.equal(f.ledger.list().length,0);assert.equal(f.launches.length,0);
+ }finally{await f.cleanup();}
+});
+test('Brief brand change invalidates affected requirements and keeps independent voice reusable',async()=>{
+ const f=await fixture('vectorcraft');try{
+  const plan:any=structuredClone(f.plan);attachBrief(plan);const first=await f.engine.run(plan);assert.equal(first.state,'review_ready');f.clear();
+  const revised=structuredClone(plan);revised.revision='v2';revised.projectBrief.revision='brief-v2';revised.projectBrief.brand.colors=['#2366e8'];
+  const result=await f.engine.run(revised);assert.equal(result.state,'review_ready');assert.deepEqual(f.launches.sort(),['film','intro','logo','poster']);assert.equal(result.nodes.voice.taskId,first.nodes.voice.taskId);assert.notEqual(result.nodes.logo.taskId,first.nodes.logo.taskId);
  }finally{await f.cleanup();}
 });

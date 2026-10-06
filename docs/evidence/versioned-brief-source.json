@@ -1,0 +1,130 @@
+{
+  "schema": "craft-versioned-brief-source-evidence/v1",
+  "status": "bounded-source-and-cached-native-passed-unpublished",
+  "scope": "source validation and existing local native runtimes; not cold install, released plugin, model planning or creative acceptance",
+  "sourceFiles": {
+    "src/cli.ts": "c59ed92631c0ea26aec5c0f02dbaa83c41c51c397970f7f214f9f3396633045d",
+    "src/planning/project_brief.ts": "19538979d00d449f8bce6e931377ebd6aadea2884b3d548122318b26b7e44303",
+    "src/planning/workflow_engine.ts": "33427ffd2701bfcb9d1c06138d6f68d9072650c1e6943e28ac2cd5699585793a",
+    "test/project_brief.test.ts": "229a820d97c0877d3512f587afc674cfbe99952bfc78a4756848674312abac24",
+    "test/workflow_engine.test.ts": "29a63a75c2c373c4e0676e8a45e1746561039eed11d2869fe58f3aca647343a4",
+    "test/native_mixed_workflow.test.ts": "4837bb1218d5603efd9fc9489aa5d18325393a171cac6528fc4957e1cfb5c269"
+  },
+  "nodeTests": {
+    "tests": 94,
+    "passed": 89,
+    "skipped": 5,
+    "seconds": 16.949688875
+  },
+  "sourceSkillTests": {
+    "tests": 71,
+    "passed": 59,
+    "skipped": 12,
+    "seconds": 8.309
+  },
+  "nativeTests": {
+    "tests": 1,
+    "passed": 1,
+    "skipped": 0,
+    "seconds": 6.45255075,
+    "checks": [
+      "four real native CLI deliveries",
+      "same revision no replay",
+      "Logo change updates consumers",
+      "separate source revisions preserve old files and audio",
+      "Brief retained in portable plan",
+      "moved Brief package verifies after original outputs and voice removed",
+      "source-revision package moves and reopens native projects"
+    ]
+  },
+  "briefPackage": {
+    "manifestSha256": "8aae4a8e5c9182909eca4e9919e49ae0b80e685eb3d312c412b7f53178a0106e",
+    "receiptSha256": "8aae4a8e5c9182909eca4e9919e49ae0b80e685eb3d312c412b7f53178a0106e",
+    "portablePlanSha256": "e69ed6f2abe7635aff2239adee6e26ac7378444c9422252b6827c25cea938cdd",
+    "children": [
+      {
+        "nodeId": "logo",
+        "taskId": "wf-fb26cb0658af511e61c07499fbed2539ebedef583fae3fc4",
+        "runtimeIdentity": {
+          "pluginId": "vectorcraft",
+          "pluginVersion": "0.1.0",
+          "cliVersion": "0.2.0",
+          "sha256": "4ba62138ff64d7f701fd2d8fd4c833bd3bb077b6ed78244a8909a4fa0129b766",
+          "mode": "headless",
+          "capabilitySnapshotSha256": "2d0f5a5132d8c22d21ed8a19ca608b42971869481f44d459e3828eccc332741c"
+        },
+        "outputs": [
+          {
+            "assetId": "logo-png",
+            "sha256": "48a08d9e892b5a52baa6a721ca638bd37e0bb27aa5393e1206b470f75dbbf419",
+            "nativeProjectSha256": "f6357adb413757f15791a5e8c9c354033bd59af0588d3be9c11e53b980685002"
+          }
+        ]
+      },
+      {
+        "nodeId": "poster",
+        "taskId": "wf-ae3cf5db9e41b2c3e44731c13fc18a2f8757c30d46f1ae0b",
+        "runtimeIdentity": {
+          "pluginId": "photocraft",
+          "pluginVersion": "0.1.0",
+          "cliVersion": "0.2.0",
+          "sha256": "57cefe9ee7bda1d996c11741bef84f934cf28d4729eb237900f00d76678d6fa4",
+          "mode": "headless",
+          "capabilitySnapshotSha256": "3f779bea67adad2bbb8ffc8f5656f50754c4f7c96fb4e83720c03ab28f3b940f"
+        },
+        "outputs": [
+          {
+            "assetId": "poster-png",
+            "sha256": "7306d65b016686312fd21616c00e67d7e390d4857f2cb319fc93a4b8042265ae",
+            "nativeProjectSha256": "26979e356c2485b000b429d21938e28980f570a06a2f42e3f0cf7f443bc4e4d5"
+          }
+        ]
+      },
+      {
+        "nodeId": "intro",
+        "taskId": "wf-1f1ef88eeee24ebb456a9a73bec59f14cd7bb82f2addc0e9",
+        "runtimeIdentity": {
+          "pluginId": "effectcraft",
+          "pluginVersion": "0.1.0",
+          "cliVersion": "0.2.0",
+          "sha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+          "mode": "headless",
+          "capabilitySnapshotSha256": "f8e8e115a12761e90ac5e53f485940e5c1919e5fd3f6c26253b0dbc8d262808f"
+        },
+        "outputs": [
+          {
+            "assetId": "intro-video",
+            "sha256": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9",
+            "nativeProjectSha256": "0c68bdfa5ed42e97c06b9c9d1cc38c83d9fb2ac78de8b2dd5620bf028656efc2"
+          }
+        ]
+      },
+      {
+        "nodeId": "film",
+        "taskId": "wf-144b66dc21a035b1564c1ed088f1b8350f6354d2b8afc1fb",
+        "runtimeIdentity": {
+          "pluginId": "filmcraft",
+          "pluginVersion": "0.1.0",
+          "cliVersion": "0.2.0-craft.1",
+          "sha256": "4bd79931912c591d1cb1b47690949512ffb4361c3ec4f57664024f9a4847ae38",
+          "mode": "headless",
+          "capabilitySnapshotSha256": "5069ab9ab02cb18bd584080d57e64101932200bf2a328628710ff3125e3876be"
+        },
+        "outputs": [
+          {
+            "assetId": "film-video",
+            "sha256": "cef39814ae629490305d47b83fad36792c82590d7b81b833eed02fcccf697fe3",
+            "nativeProjectSha256": "38842f00092edcfc338c4e46652bc6ea122acf242ccf371cd6113335aadeb15e"
+          }
+        ]
+      }
+    ]
+  },
+  "remaining": [
+    "immutable runtime and skill release",
+    "cold isolated single-skill Brief first use",
+    "plugin snapshot sync and installed host proof",
+    "source-project document inspection",
+    "complete duration assessment"
+  ]
+}
