@@ -10,6 +10,8 @@ The four pinned reflected registries own the complete native command catalog. Do
 | VectorCraft | 585 | 28 | dev.18 | dev.20 |
 | ArtCraft | 2639 domain entries | Domain DAG orchestration | dev.58 | dev.85 / runtime83 |
 
+`workflowMapped` marks convenience-operation mapping only. A false value does not disable `native.command` or establish a failed native execution. The gateway uses pinned membership and actual live context.
+
 Every one of the 48 domain skills carries its own installer, query/call scripts, verbatim parameter reference, actual MCP schemas and creation/revision examples. All ten Art skills contain the complete domain index and independent installation entry. Scripts do not import sibling skill directories.
 
 ## First use and entry selection
@@ -66,8 +68,18 @@ For revisions use `workflow.py PLAN --source /absolute/original-delivery --outpu
 
 ## ArtCraft and runtime boundaries
 
+Art skill directories use their own domain query component:
+
+```bash
+python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" list --domain effectcraft
+python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" describe effectcraft layer.setBlendMode
+python3 -I -B "$SKILL_DIR/scripts/workflow.py" /absolute/mixed-plan.json --output /absolute/new-project --owner local-user --authorization TASK_SCOPE --asset voice=/absolute/voice.wav
+```
+
+Mixed plans declare pluginId, dependencies, domain payload.plan and artifact bindings. Put native gateways in payload.plan.operations. The public installer binds runtime identity; do not copy runtimeIdentity from another test session. Adapt the skill's brand plan to actual requirements and assets. TASK_SCOPE references the already authorized task scope.
+
 ArtCraft dev.85 publicly installs pinned runtime83 and Film19/Effect18/Photo18/Vector18. Its trusted launcher locks `native_workflow.py`, `commands.py`, `command-coverage.json` and existing scripts. Plans cannot choose executors or replace scripts. Actual native saving, dependency collection, exports and loss reports must pass before a result becomes a DAG delivery.
 
 GUI commands remain in the complete catalog even when disabled in a headless session; use the actual running application and explicit bridge mode. Native implementation, project, selection and permission guards remain enforced. Disabled commands report their reason; parameter errors stop; unknown edits preserve the stage and are not replayed. Catalog coverage is distinct from exhaustive 2639-command execution acceptance.
 
-Fixed first-use and joint-gateway evidence: `evidence/codex-native-gateway-first-use-20261007.json` beside this guide, added after acceptance. Frozen skill references marked source candidate describe their authoring stage; current acceptance requires the exact version, file hashes and evidence. Full per-command, GUI, model and V1 gates remain separately tracked.
+Fixed first-use and joint-gateway evidence: `evidence/codex-native-gateway-first-use-20261007.json` beside this guide. Frozen skill references marked source candidate describe their authoring stage; current acceptance requires the exact version, file hashes and evidence. Full per-command, GUI, model and V1 gates remain separately tracked.

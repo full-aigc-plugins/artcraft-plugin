@@ -1,0 +1,31 @@
+{
+  "schema": "artcraft-public-native-gateway-brief-candidate/v1",
+  "result": "PASS",
+  "scope": "source candidate public Python preflight and actual public workflow; fixed installed85 acceptance pending",
+  "sourceVersion": "0.1.0-dev.58",
+  "runtimeVersion": "0.1.0-dev.83",
+  "red": {
+    "installed84PublicPreflightRejectedValidGateway": true,
+    "reason": "duration_inspection_required",
+    "logSha256": "1ceb14995f542eb7f28fea746bbf9cb0366ea05fb7055052cc85d11ff0d61048"
+  },
+  "green": {
+    "tenStandaloneBriefModules": true,
+    "malformedWrapperStillRejected": true,
+    "authorizationStillChecked": true,
+    "actualPublicMixedWorkflow": "review_ready",
+    "fiveNodes": 5,
+    "logSha256": "2c84f60191390c9181145426bcddfebe0b8acc51835c85da295880943d021609"
+  },
+  "briefSha256": "a1b2e526c4f631e60998c777e1d8332ed6d2f61ca4afa106bf9068f15f3f3124",
+  "regression": {
+    "tests": 116,
+    "passed": 88,
+    "optionalSkipped": 28
+  },
+  "fixedInstalledRelease": "NOT_RUN",
+  "exhaustive2639Commands": "NOT_RUN",
+  "GUI": "NOT_RUN",
+  "model": "NOT_RUN",
+  "fullV1": "OPEN"
+}

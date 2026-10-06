@@ -1,10 +1,12 @@
-插件 dev.85 固定技能源58／runtime83，修复公开 Python Brief 网关预检。安装后的公开工作流复验待执行。
+固定原生命令网关首用通过：48项领域安装技能与十项 Art85／技能源58 的公开入口独立冷安装、创建／重开／导出、返工并保全原交付。公开 Brief、四领域网关、五子工程、Logo选择性更新／无关图标复用、移动包、真实取消和六类未知回复故障通过；58项安装摘要不变。全2639命令／GUI／模型／通用Skills CLI／完整V1门禁保持开放。[使用指南](docs/Craft-Native-Gateway-Usage.zh_CN.md) · [固定证据](docs/evidence/codex-native-gateway-first-use-20261007.json)。
 
-原生命令网关插件 dev.84／技能源57／runtime83 固定 Film19 与 Effect／Photo／Vector18。固定安装完整 DAG 复验待执行；历史证据保持原版本范围。
+当前插件 dev.85 固定技能源58／runtime83，公开 Brief 网关首用通过；全量逐命令／GUI／模型／完整V1仍开放。
+
+历史预发布记录：原生命令网关插件 dev.84／技能源57／runtime83 固定 Film19 与 Effect／Photo／Vector18。固定安装完整 DAG 复验待执行；历史证据保持原版本范围。
 
 完整网关DAG源候选实测通过：四领域联动、五子工程及独立图标复用、源工程返工、移动包重开、预算拒绝、损坏恢复、真实取消及六类unknown保全。固定发行和安装副本复验待完成；6.51仍开放。 [Evidence](docs/evidence/native-gateway-joint-candidate-20261007.json).
 
-Source candidate: complete native workflow gateway; immutable installed acceptance and full DAG gate6.51 remain pending. [Architecture](docs/Craft-Native-Workflow-Gateway-Architecture.md).
+Historical source-candidate note: Source candidate: complete native workflow gateway; immutable installed acceptance and full DAG gate6.51 remain pending. [Architecture](docs/Craft-Native-Workflow-Gateway-Architecture.md).
 
 固定 ArtCraft82／技能源56 的组件首次使用通过：5插件、58技能、零加载错误；十个Art技能各自查询2639条目录，并独立从空缓存安装、调用四领域（40项原生用例，920次操作）。实际工程保存与返工后重开、目标状态及像素、非目标对象保留均通过；58个安装技能摘要不变。两个公开源包与固定标签逐字节一致，4项插件CI通过。仅关闭组件门禁6.50；完整DAG门禁6.51、2639条逐项命令、GUI／模型、通用Skills CLI及完整V1仍开放。[版本绑定证据](docs/evidence/codex-art82-complete-domain-component-first-use-20261007.json)。
 
@@ -14,7 +16,7 @@ Art完整领域命令组件候选已支持2639条离线查询、实际MCP schema
 
 固定原生首次安装与完整命令恢复验收通过：新版五插件58技能逐项独立冷安装，十个Art技能分别安装四领域；四个原生下载半包SSL EOF恢复、72个原生保存后故障、四个健康命令返工及混合HD返工／恢复／移动包通过，全部安装摘要保全。仅关闭领域2.10／8.11与Art4.10；2639条命令逐项、GUI、模型、通用Skills CLI及完整V1仍开放。 [版本及证据](docs/evidence/codex-native-download-first-use-20261007.json).
 
-当前插件 dev.85／技能源 dev.58／runtime dev.83；原生命令网关已纳入固定发行，安装副本完整 DAG 复验待执行。
+当前插件 dev.85／技能源58／runtime83；固定原生网关与公开Brief首用通过，全量逐命令／GUI／模型／完整V1仍开放。
 
 固定发布前的候选记录：Art原生首用恢复候选固定Film18／Effect、Photo、Vector17，复用runtime78。此前Art80冷安装在领域CLI下载遇到SSL EOF失败，保留失败证据；新固定安装验收仍开放。
 

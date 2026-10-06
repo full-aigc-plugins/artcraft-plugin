@@ -225,3 +225,10 @@ ArtCraft SHALL 汇总子工程、素材、输出、损失报告和验收记录�
 - **WHEN** 用户选择已安装的 Video Factory 0.4.0 验证登记的 MP4 成片，并显式提供实际插件、FFmpeg 和 ffprobe 路径
 - **THEN** ArtCraft SHALL 固定公开 CLI、源文件、Node 与媒体工具摘要，只调用 probe、validate-plan、evaluate 接口，绑定输入、期望输出与验收报告，执行前后核验输入并保留原工程
 - **AND** 报告 SHALL 保留 PASS、FAIL、NOT_RUN 状态；accepted、退出零或缺失来源账本不构成验收通过；失败门禁阻断交付，技术待审报告可随项目包保存
+
+#### Scenario: AC-DM-002-PUBLIC-GATEWAY-BRIEF 公开技能需求预检
+
+- **WHEN** 首次使用独立Art技能的公开workflow.py并提交带Brief的完整网关计划
+- **THEN** Python预检 SHALL 与固定运行时一致，仅对结构有效网关延后尺寸／时长到实际保存原生工程与导出核验
+- **AND** 授权、歧义、依赖和畸形网关 SHALL 仍被阻断，不以声明或目录覆盖充当实际结果
+- **AND** 十项安装技能的公开冷启动、局部返工与交付 SHALL 按固定版本记录，与源候选、内部适配器和逐命令验收分开

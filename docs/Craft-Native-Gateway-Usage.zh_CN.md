@@ -10,6 +10,8 @@
 | VectorCraft | 585 | 28 | dev.18 | dev.20 |
 | ArtCraft | 2639 个领域目录条目 | 编排上述领域节点 | dev.58 | dev.85，runtime dev.83 |
 
+目录中的 `workflowMapped` 只标记领域快捷操作映射；`false` 不表示无法使用 `native.command`，也不表示原生命令已经运行失败。网关依据完整固定 ID 及实时原生上下文调用。
+
 每个领域的任意单技能均自带查询、调用、安装脚本、完整命令参考、参数原文、实际 MCP 工具 schema、创建及返工示例。共 48 项领域技能；ArtCraft 的十项技能均有完整领域目录与独立安装入口。无需通过兄弟技能目录访问脚本。
 
 ## 首次使用及选择入口
@@ -66,8 +68,18 @@ python3 -I -B "$SKILL_DIR/scripts/workflow.py"   "$SKILL_DIR/examples/native-wor
 
 ## ArtCraft 与运行边界
 
+ArtCraft 技能目录使用自己的领域查询组件：
+
+```bash
+python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" list --domain effectcraft
+python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" describe effectcraft layer.setBlendMode
+python3 -I -B "$SKILL_DIR/scripts/workflow.py" /absolute/mixed-plan.json --output /absolute/new-project --owner local-user --authorization TASK_SCOPE --asset voice=/absolute/voice.wav
+```
+
+混合计划声明 `pluginId`、依赖、领域 `payload.plan` 与产物绑定；领域原生操作写入 `payload.plan.operations` 的网关。运行时身份由公开安装器绑定，不复制另一个测试会话的 `runtimeIdentity`。以技能内品牌计划为结构基础，再按实际需求和源素材修改；`TASK_SCOPE` 是本次已经授权的任务范围引用。
+
 ArtCraft dev.85 的公开安装器固定 runtime83、Film19、Effect18、Photo18、Vector18，并为 `native_workflow.py`、`commands.py`、`command-coverage.json` 与既有启动文件建立摘要锁。任务不能选择执行器或替换脚本。领域成功回执仍须通过原生保存、依赖、导出与损失报告校验才能成为 DAG 交付。
 
 目录中的 GUI 命令不因 headless 当前禁用而被删除；使用实际运行中的应用和明确 bridge 模式。原生命令受其实现、当前工程、选择和权限约束；禁用时报告原因，参数错误停止，未知结果保全且不重放。完整目录覆盖不等于全部 2639 条命令的运行验收。
 
-固定首用与网关联合验收：见同目录 `evidence/codex-native-gateway-first-use-20261007.json`（发布验收后写入）。冻结技能参考中“source candidate”描述的是编写时状态；当前版本是否通过固定安装验收以版本、文件摘要及此证据为准。完整逐命令、GUI、模型与完整 V1 门禁保持单独记录。
+固定首用与网关联合验收：见同目录 `evidence/codex-native-gateway-first-use-20261007.json`。冻结技能参考中“source candidate”描述的是编写时状态；当前版本是否通过固定安装验收以版本、文件摘要及此证据为准。完整逐命令、GUI、模型与完整 V1 门禁保持单独记录。

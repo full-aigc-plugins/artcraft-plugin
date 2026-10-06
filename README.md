@@ -1,10 +1,12 @@
-Plugin dev.85 pins source58 / runtime83 and fixes public Python Brief gateway preflight. Installed public-workflow retest pending.
+Fixed native gateway first use passes:48 independently installed domain skills and ten Art85/source58 public workflows cold-install, create/reopen/export, revise and preserve original deliveries. Art public Brief, all four gateway domains, five child nodes, selective Logo revision/icon reuse, moved package, native cancellation and six unknown faults pass. All58 installed identities are unchanged. Full2639-command/GUI/model/generic Skills CLI/V1 gates remain open. [Usage](docs/Craft-Native-Gateway-Usage.md) · [Fixed evidence](docs/evidence/codex-native-gateway-first-use-20261007.json).
 
-Published native gateway plugin dev.84 / source57 / runtime83 pins Film19 and Effect/Photo/Vector18. Fixed installed DAG retest pending; historical evidence retains its original scope.
+Current plugin dev.85 pins source58/runtime83; fixed public Python Brief gateway first use passes. Full per-command/GUI/model/V1 remains open.
+
+Historical prerelease note: Published native gateway plugin dev.84 / source57 / runtime83 pins Film19 and Effect/Photo/Vector18. Fixed installed DAG retest pending; historical evidence retains its original scope.
 
 Full native-gateway DAG source candidate passes mixed delivery, five-child packaging/icon reuse, native revisions, moved reopening, budget rejection, corruption recovery, live cancellation and six unknown-response faults. Immutable installed-release retesting remains pending;6.51 stays open. [Evidence](docs/evidence/native-gateway-joint-candidate-20261007.json).
 
-Source candidate: complete native workflow gateway; immutable installed acceptance and full DAG gate6.51 remain pending. [Architecture](docs/Craft-Native-Workflow-Gateway-Architecture.md).
+Historical source-candidate note: Source candidate: complete native workflow gateway; immutable installed acceptance and full DAG gate6.51 remain pending. [Architecture](docs/Craft-Native-Workflow-Gateway-Architecture.md).
 
 Fixed ArtCraft82 / source56 component first use passes: five plugins,58 discovered skills and zero loading errors; ten Art skills each query2639 entries and cold-install/run all four domains independently (40 native cases,920 operations). Actual saved revisions reopen, target settings and output pixels pass, non-target objects and all58 installed identities remain unchanged. Two public source ZIPs exactly match the fixed tag; four plugin CI runs pass. Only component gate6.50 closes. Full DAG gate6.51, exhaustive2639 commands, GUI/model, generic Skills CLI and fullV1 remain open. [Version-bound evidence](docs/evidence/codex-art82-complete-domain-component-first-use-20261007.json).
 
@@ -14,7 +16,7 @@ Complete domain command component candidate adds2639 offline queries, actual MCP
 
 Fixed native first-use and complete-command recovery acceptance passed:58 standalone cold installations, ten Art all-domain cold installations, four partial-download SSL EOF recoveries,72 post-save faults, four healthy command revisions and mixed HD revision/recovery/moved delivery. Installed identities remain unchanged. Only domain2.10/8.11 and Art4.10 close; exhaustive2639-command, GUI, model, generic Skills CLI and fullV1 gates remain open. [Version-bound evidence](docs/evidence/codex-native-download-first-use-20261007.json).
 
-Current plugin: `0.1.0-dev.85`; skill source: `0.1.0-dev.58`; runtime: `0.1.0-dev.83`. Native gateway included; fixed installed DAG retest pending.
+Current plugin: `0.1.0-dev.85`; skill source: `0.1.0-dev.58`; runtime: `0.1.0-dev.83`. Bounded fixed native gateway first use passes; exhaustive commands/GUI/model/full V1 remain open.
 
 Previous version-bound release: plugin dev.79 / source53 / runtime78 passed gate4.9. This remains historical evidence.
 
