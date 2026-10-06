@@ -1,6 +1,6 @@
 # ArtCraft PhotoCraft Protection Handoff Architecture
 
-Status: candidate skills dev.26 pass independent online integration; fixed plugin and installed-host proof remain pending. Runtime stays at dev.28; the pinned PhotoCraft skill dependency advances from dev.5 to dev.6. Specification: AC-DM-005-PHOTO; task 6.24 remains open.
+Status: fixed skills dev.26 and plugin dev.30 pass independent online and installed-host integration. Runtime stays at dev.28; the pinned PhotoCraft skill dependency advances from dev.5 to dev.6. Specification: AC-DM-005-PHOTO; task 6.24 is verified.
 
 ```mermaid
 flowchart LR
@@ -17,3 +17,5 @@ ArtCraft forwards protectedRegions in the domain plan to the immutable PhotoCraf
 Valid revisions use a new workflow revision and preserve previous native files and their hashes. The domain manifest binds the report and both comparison PNGs, which travel with child and portable project packages. Moved-package verification checks these files. This is technical evidence, not visual, creative or human acceptance.
 
 The isolated online single-skill test installs only PhotoCraft, creates a real layered source, rejects a protected title change, permits a title revision with unchanged background samples, and packages/moves/verifies the result. It uses no global Node, Pillow or sibling skill path. Source-project Brief inspection remains a separate gap; this revision uses the existing no-Brief path.
+
+Installed PhotoCraft protection proof: 1 passed (11.073 seconds); installed ArtCraft pinned-dependency handoff: 1 passed (22.114 seconds), system Python 3.14.3. All 58 skills discovered, zero loading errors and every installed hash unchanged after execution. Proof: codex-release30-protected-native-20261006.json. The overall goal and creative acceptance remain incomplete.
