@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+下载恢复快照固定独立技能源dev.51，最多三次只读尝试，保留摘要校验与编辑不重放。[方案](docs/ArtCraft-Download-Recovery-Architecture.zh_CN.md)。dev.74实际安装副本混合验收与全部58项摘要保全通过，[历史固定证据](docs/evidence/codex-art74-domain-distribution-first-use-20261007.json)；dev.75验收另行跟踪。
+
 领域分发候选已升级至dev.73：四领域固定完整命令／协议修复技能源，公开冷安装混合创作、依赖返工、恢复、移动包和24个领域故障案例通过。[候选证据](docs/evidence/art-domain-distribution-candidate-20261007.json)。新技能源／插件固定安装与十技能完整安装验收另行跟踪。
 
 四领域独立插件的协议故障修复已完成固定安装复验，见 [验收记录](docs/evidence/codex-protocol-fault-first-use-20261007.json)。该历史宿主验收使用dev.71旧领域包；新dev.73分发的候选验证另有证据。OpenSpec任务4.7仍等待新固定宿主及十技能完整冷安装。
@@ -26,7 +28,7 @@ PNG 运行时 dev.56 已由不可变标签发布，技能源 dev.40 快照已固
 
 ## 当前版本与可复现宿主验证
 
-当前插件 `0.1.0-dev.74`，独立技能源 `0.1.0-dev.49`，运行时 `0.1.0-dev.73`。公开候选混合创作与下载领域包故障案例通过；新固定宿主与十技能完整冷安装仍开放，历史证据保留原版本范围，完整首版仍开放。
+当前插件 `0.1.0-dev.75`，独立技能源 `0.1.0-dev.51`，运行时 `0.1.0-dev.73`。新快照补充有界只读下载恢复；dev.74固定安装混合／返工／恢复／打包通过，dev.75固定宿主与十技能完整冷安装仍开放，完整首版仍开放。
 
 固定 dev.38 验收：Codex 0.153.4 发现 58 项技能，加载错误为零；实际安装目录的单技能在线冷启动通过 3 项、无跳过，95.289 秒。四源返工、三领域尺寸修改、保存后产物摘要、Effect 实际视频属性、复用和源工程保全均通过，58 个安装技能摘要未变。[证据](docs/evidence/codex-release38-native-brief-first-use-20261006.json)。运行时回归 123 项通过、5 项可选跳过；完整模型／GUI／创作／生产验收仍开放。dev.37 标签因暂存失败保留历史，未创建 Release，也不作为插件快照使用。
 
@@ -50,9 +52,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.74 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.75 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.49 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.51 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

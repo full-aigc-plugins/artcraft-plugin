@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """安装固定 ArtCraft 运行时与独立领域技能快照，只使用领域公开安装入口。"""
 import fcntl
+import importlib.util
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
@@ -59,13 +60,9 @@ def install_bundle(lock, target, archive=None):
     try:
         archive_path = Path(archive) if archive else stage/'download.zip'
         if archive is None:
-            with urllib.request.urlopen(lock['url'], timeout=60) as response, archive_path.open('wb') as output:
-                count = 0
-                while block := response.read(1024*1024):
-                    count += len(block)
-                    if count > 32*1024*1024:
-                        raise ValueError('bundle_size_limit')
-                    output.write(block)
+            spec = importlib.util.spec_from_file_location('craft_download', Path(__file__).with_name('download.py'))
+            module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
+            module.download(lock['url'], archive_path, 32*1024*1024, 'bundle_size_limit')
         if archive_path.stat().st_size != lock['bytes'] or sha(archive_path) != lock['sha256']:
             raise ValueError('bundle_archive_digest_mismatch')
         seen = set();total = 0

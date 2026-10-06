@@ -58,13 +58,9 @@ def install_node(lock, runtime_home, archive=None, platform_key=None):
         try:
             archive_path = Path(archive) if archive else stage/'download.tar.gz'
             if archive is None:
-                with urllib.request.urlopen(expected_url, timeout=60) as response, archive_path.open('wb') as output:
-                    count = 0
-                    while block := response.read(1024 * 1024):
-                        count += len(block)
-                        if count > 512 * 1024 * 1024:
-                            raise ValueError('archive_size_limit')
-                        output.write(block)
+                spec = importlib.util.spec_from_file_location('craft_download', Path(__file__).with_name('download.py'))
+                module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
+                module.download(expected_url, archive_path, 512*1024*1024, 'archive_size_limit')
             if archive_path.stat().st_size > 512 * 1024 * 1024 or sha(archive_path) != lock['archiveSha256']:
                 raise ValueError('archive_digest_mismatch')
             prefix = f'node-v{version}-darwin-arm64'
