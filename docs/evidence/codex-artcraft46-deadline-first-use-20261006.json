@@ -1,0 +1,47 @@
+{
+  "schema": "craft-installed-deadline-first-use/v1",
+  "result": "passed",
+  "skillSha256": "9245d0e313151789dd3a91dceb4554803bb24adf02783ff8b69d955360fab3c6",
+  "planSha256": "733fd7e00339460f0810a2c883587c7829ded3344327bbfe95377677741a877b",
+  "runtimeVersion": "0.1.0-dev.45",
+  "firstUse": "single copied recover skill; empty runtime default-public bootstrap selects EffectCraft; same runtime reused for bounded-deadline workflow",
+  "relativeDeadlineSeconds": 4,
+  "actualNativeRenderObserved": true,
+  "terminationSignal": "SIGTERM",
+  "nativeSpawnCount": 1,
+  "consumerTaskCount": 0,
+  "stopBeforeCancelled": true,
+  "leaseCountAfterStop": 0,
+  "publishedOutcomeCount": 0,
+  "sameAttempt": true,
+  "budgetPreserved": true,
+  "repeatDoesNotReplay": true,
+  "installedSkillBytesPreserved": true,
+  "unverified": [
+    "installation time within four-second deadline",
+    "worker crash",
+    "model dispatch",
+    "GUI",
+    "creative acceptance"
+  ],
+  "date": "2026-10-06",
+  "pluginVersion": "0.1.0-dev.46",
+  "pluginSha": "735673948576e8c922d3db4e76dc90aa14fe61a6",
+  "skillSourceVersion": "0.1.0-dev.34",
+  "skillSourceSha": "cc7a0faf7074ab78d683b43c57fb7d9c247ccd29",
+  "testSha256": "12830ed7091412acb46f9581cd763295a86f50698967cfa3469a3a1611c3b7f1",
+  "liveTests": {
+    "passed": 1,
+    "seconds": 25.845
+  },
+  "regression": {
+    "tests": 82,
+    "passed": 66,
+    "skipped": 16,
+    "seconds": 5.382
+  },
+  "installedHashVerification": {
+    "checked": 58,
+    "unchanged": 58
+  }
+}
