@@ -1,6 +1,8 @@
 # ArtCraft JPEG 架构
 
-状态：工作树候选，尚非 JPEG 不可变发行。行为事实源为 OpenSpec AC-CP-002-JPEG。已发布基线仍为插件 dev.57／技能源 dev.40／运行时 dev.56。
+固定发布与安装后 JPEG 验收：插件 dev.59、技能源 dev.41、运行时 dev.58。[证据](evidence/codex-release59-jpeg-first-use-20261006.json)。下面的候选描述保留原始观察范围；任务 2.8 已有固定发行证据，完整首版／模型／GUI／创作门禁仍开放。
+
+历史候选状态：工作树候选，尚非 JPEG 不可变发行。行为事实源为 OpenSpec AC-CP-002-JPEG。已发布基线仍为插件 dev.57／技能源 dev.40／运行时 dev.56。
 
 ## 用户结果
 

@@ -1,6 +1,8 @@
 # ArtCraft JPEG Architecture
 
-Status: working-tree candidate, not an immutable JPEG release. OpenSpec AC-CP-002-JPEG is the behavioral authority. Plugin dev.57 / source dev.40 / runtime dev.56 remain the published baseline.
+Fixed publication and installed-host JPEG acceptance: plugin dev.59, source dev.41, runtime dev.58. [Evidence](evidence/codex-release59-jpeg-first-use-20261006.json). The candidate description below retains its original observation scope; task 2.8 now has fixed-release proof. Full V1/model/GUI/creative gates remain open.
+
+Historical candidate status: working-tree candidate, not an immutable JPEG release. OpenSpec AC-CP-002-JPEG is the behavioral authority. Plugin dev.57 / source dev.40 / runtime dev.56 remain the published baseline.
 
 ## User outcome
 

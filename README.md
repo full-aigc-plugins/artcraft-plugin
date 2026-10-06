@@ -1,8 +1,8 @@
 # ArtCraft Agent Plugin
 
-JPEG runtime dev.58 and source dev.41 are fixed. Full plugin host verification remains pending. [JPEG architecture](docs/ArtCraft-JPEG-Architecture.md).
+Fixed JPEG release dev.59 / source dev.41 / runtime dev.58 passes isolated Codex discovery (five plugins, 58 skills, zero errors), installed copied-alone JPEG/PNG/PCM native delivery, ten Art cold CLI installations and all 58 installed digest checks. Progressive JPEG produces a reopened three-layer Photo project plus independently decoded PNG/PSD and a moved package. [Version-bound evidence](docs/evidence/codex-release59-jpeg-first-use-20261006.json). Full V1/model/GUI/creative acceptance remains open.
 
-Plugin dev.59 / source dev.41 / runtime dev.58 pins JPEG registration and property verification. Source copied-alone cold native delivery passes; fixed installed-host verification is pending. Full V1/model/GUI/creative acceptance remains open.
+Plugin dev.59 / source dev.41 / runtime dev.58 pins JPEG content and property checks; fixed installed-host verification passes. Full V1/model/GUI/creative acceptance remains open.
 
 PNG runtime dev.56 is published from an immutable tag and the source dev.40 snapshot is pinned. Scope and remaining installed-host gates: [PNG architecture](docs/ArtCraft-PNG-Architecture.md).
 
@@ -10,7 +10,7 @@ PNG runtime dev.56 is published from an immutable tag and the source dev.40 snap
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.59`; skill source: `0.1.0-dev.41`; runtime: `0.1.0-dev.58`. Fixed JPEG installed-host verification is pending; previous evidence retains its original scope.
+Current plugin: `0.1.0-dev.59`; skill source: `0.1.0-dev.41`; runtime: `0.1.0-dev.58`. Fixed installed-host JPEG verification passes; prior evidence keeps its original scope.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
