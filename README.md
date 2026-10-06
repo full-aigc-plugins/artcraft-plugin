@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-Cross-tool project planning, asset dependencies, version propagation and selective rework. The independent `artcraft-use` skill runs a pinned runtime and invokes four independent domain skills through public scripts.
+Current plugin dev.43 / skills dev.33 pins FilmCraft skills dev.6 and retains runtime dev.41. Single-skill cold public first use: 3 passed. Fixed-plugin host repetition and complete creative acceptance remain pending.
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
@@ -226,3 +226,5 @@ Fixed-release proof / 固定发行验收：[dev.40 Photo variant mixed first use
 [Variant reuse gate](docs/ArtCraft-Photo-Variant-Gate-Architecture.md) · [中文](docs/ArtCraft-Photo-Variant-Gate-Architecture.zh_CN.md) · [Native evidence](docs/evidence/photo-variant-gate-native.json). Plugin dev.42 / skills dev.32 / runtime dev.41; fixed installed repetition passed; full creative acceptance open.
 
 [Fixed dev.42 variant reuse gate / 尺寸变体复用固定验收](docs/evidence/codex-release42-variant-gate-first-use-20261006.json).
+
+ArtCraft source dev.33 pins FilmCraft skills dev.6 while retaining runtime dev.41. Cold public first use passed 3/3, including invalid native receipt refusal, whole-project preservation, restored task-ID reuse, four native source revisions and moved-package checks. Default regression: 66 passed, 13 optional skips. [Architecture](docs/ArtCraft-Film-Receipt-Integration-Architecture.md), [source evidence](docs/evidence/film-receipt-integration-native.json). Fixed plugin host proof remains pending.

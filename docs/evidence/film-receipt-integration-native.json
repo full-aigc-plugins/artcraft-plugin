@@ -1,0 +1,364 @@
+{
+  "schema": "craft-artcraft-film-receipt-integration/v1",
+  "date": "2026-10-06",
+  "result": "source-cold-first-use-passed",
+  "candidate": {
+    "skillVersion": "0.1.0-dev.33",
+    "pluginVersion": "0.1.0-dev.43",
+    "runtimeVersion": "0.1.0-dev.41",
+    "filmSkillVersion": "0.1.0-dev.6",
+    "filmSourceSha": "85866c064c7d91abd8da63b0570d78bee3202bf5"
+  },
+  "red": {
+    "tests": 3,
+    "passed": 2,
+    "failed": 1,
+    "seconds": 49.521,
+    "reason": "old FilmCraft bundle returns review_ready after platform receipt mutation",
+    "logSha256": "5ffb5449fa549060032cc728a350951eb2afd827a9a6dba1007212eb5b253c27"
+  },
+  "sourceFirstUse": {
+    "tests": 3,
+    "passed": 3,
+    "skipped": 0,
+    "seconds": 98.423,
+    "logSha256": "e273abc9aa07718afb2cbc309ccebd78d3b2a81c0c80a26f0258fc087dcaef27",
+    "proof": {
+      "schema": "craft-installed-mixed-first-use/v1",
+      "python": "3.14.3",
+      "runtimeVersion": "0.1.0-dev.41",
+      "briefSha256": "1ee3ec05c3a3191a95a62033ace0348d5a952c6c7d0f99269cf131eefa0cbe13",
+      "artifacts": {
+        "logo": [
+          {
+            "assetId": "logo-png",
+            "sha256": "926188172adbd9a07fc2bda1af950e0a1d38df53406356c14d8beb0e88a32b81",
+            "bytes": 4303,
+            "mediaType": "image/png",
+            "nativeProjectRef": {
+              "assetId": "wf-707a37502a6b3d4b5b0e35419c197cd376b5808ccb832dec-bd874764e1b6eff2",
+              "version": "ffdd11866ff8a7fc77e4ebc2723e592d3c1a5774fba950ff2ee3915c8489b67f",
+              "sha256": "ffdd11866ff8a7fc77e4ebc2723e592d3c1a5774fba950ff2ee3915c8489b67f",
+              "location": "project.vectorcraft"
+            }
+          }
+        ],
+        "poster": [
+          {
+            "assetId": "poster-png",
+            "sha256": "7306d65b016686312fd21616c00e67d7e390d4857f2cb319fc93a4b8042265ae",
+            "bytes": 6857,
+            "mediaType": "image/png",
+            "nativeProjectRef": {
+              "assetId": "wf-f8614eab80629310675e80401f2055f85f8f3edd726dbba7-db69c59fbc5bf076",
+              "version": "26979e356c2485b000b429d21938e28980f570a06a2f42e3f0cf7f443bc4e4d5",
+              "sha256": "26979e356c2485b000b429d21938e28980f570a06a2f42e3f0cf7f443bc4e4d5",
+              "location": "project.pcraft"
+            }
+          }
+        ],
+        "intro": [
+          {
+            "assetId": "intro-video",
+            "sha256": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9",
+            "bytes": 17398,
+            "mediaType": "video/mp4",
+            "nativeProjectRef": {
+              "assetId": "wf-2865b7961018b65d18586330de7291fdf5389b05d906a284-ccf7ce43c87e3645",
+              "version": "d8865f7f31fe917d0430ef3ad5ae7c8dbac14112fbdeb84d5098631d98aaaaad",
+              "sha256": "d8865f7f31fe917d0430ef3ad5ae7c8dbac14112fbdeb84d5098631d98aaaaad",
+              "location": "project.ecproj"
+            }
+          }
+        ],
+        "film": [
+          {
+            "assetId": "film-video",
+            "sha256": "d3c5467dd4c322dee8759d414973c1655919aa6372233fb3bca985c5a526c848",
+            "bytes": 59236,
+            "mediaType": "video/mp4",
+            "nativeProjectRef": {
+              "assetId": "wf-6228e93cc496734c72da39f8e7be8b1c957507089e3590cc-9e6a55f19dc1283d",
+              "version": "c906b2e0063ba7988ff42abf8e35df374957badad82d36811d45653127de3363",
+              "sha256": "c906b2e0063ba7988ff42abf8e35df374957badad82d36811d45653127de3363",
+              "location": "project.fcproj"
+            }
+          }
+        ]
+      },
+      "packageSha256": "7db43c5a5b36682255f7b8c58f3656d448ce58fd3bd0799c18b463bd7d678436",
+      "voiceSha256": "6fc34dec7c0eb6a247b2c7f0d82059af6d00530d43a6ca1f45321da7bf4666de",
+      "sourceSkillVersions": {
+        "artcraft-runtime": "0.1.0-dev.41",
+        "filmcraft-skills": "0.1.0-dev.6",
+        "effectcraft-skills": "0.1.0-dev.6",
+        "photocraft-skills": "0.1.0-dev.8",
+        "vectorcraft-skills": "0.1.0-dev.7"
+      },
+      "photoVariant": {
+        "layout": {
+          "schema": "photocraft-layout-variant/v1",
+          "sourceSize": [
+            320,
+            400
+          ],
+          "targetSize": [
+            352,
+            400
+          ],
+          "safeArea": [
+            8,
+            8,
+            336,
+            384
+          ],
+          "steps": [
+            {
+              "command": "image.canvasSize",
+              "before": [
+                320,
+                400
+              ],
+              "after": [
+                352,
+                400
+              ],
+              "offset": [
+                16,
+                0
+              ],
+              "crop": {
+                "left": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0
+              },
+              "padding": {
+                "left": 16,
+                "top": 0,
+                "right": 16,
+                "bottom": 0
+              }
+            }
+          ],
+          "roles": {
+            "background": {
+              "id": 2,
+              "kind": "Pixel",
+              "name": "Background",
+              "bounds": [
+                16,
+                0,
+                320,
+                400
+              ],
+              "text": null
+            },
+            "product": {
+              "id": 5,
+              "kind": "Pixel",
+              "name": "Logo",
+              "bounds": [
+                105,
+                138,
+                142,
+                145
+              ],
+              "text": null
+            },
+            "text": {
+              "id": 6,
+              "kind": "Type",
+              "name": "Headline",
+              "bounds": [
+                45,
+                38,
+                83,
+                24
+              ],
+              "text": {
+                "font": "Arial",
+                "sizePt": 30.0,
+                "text": "NOVA"
+              }
+            }
+          }
+        },
+        "packageSha256": "e8b2d8eca2a726e4b655d655f9ceef8d2996dee1820a5d6cb527ce2289c0c728",
+        "movedPackageVerified": true,
+        "tamperedLayoutRejected": true,
+        "staleCachedLayoutBlocked": true,
+        "restoredWithoutReplay": true
+      },
+      "sourceBrief": {
+        "savedOutputs": {
+          "logo": {
+            "width": 352.0,
+            "height": 256.0,
+            "files": {
+              "native.json": "b67d3cd39e7b527af46ed99ed66f86558d381936fa1b9e2980db14c3e0469cc2",
+              "artboard-1.png": "f0af901135358d9a09e14e67903dfea427547fdc7323798d9740d0cc2e63d4ac",
+              "project.vectorcraft": "3ea7981f32f605b43759ea0626e2f507a34fc492f2c48927955dad05368807b9"
+            }
+          },
+          "poster": {
+            "width": 352,
+            "height": 400,
+            "files": {
+              "native.json": "3ff17f5cfdb057076cd10fa62bddde043954164876972eb87168793d971cdb4c",
+              "design.png": "ac9f8cab691593b1730081e90994d422ce92d8d9409f61a662eb09612d78350c",
+              "project.pcraft": "2cee07dfb32806de75dd8aa5f33066ae8dfbf2e26e7f19e6f0b648380ab094f2"
+            }
+          },
+          "intro": {
+            "width": 352,
+            "height": 180,
+            "files": {
+              "native.json": "a6fd48cc48c554c366b1c7913f2366fcefb4649403837836bf5ddf4a77c3a7e1",
+              "intro.mp4": "9afd83daf7df2118fd86492362d8c195aeea26e34c34042a03d906b82bbf8b5b",
+              "project.ecproj": "564349252e5cb86e140b24100360861414ab4d9bf73ce4320bfebc0c6f6a6c78"
+            },
+            "exportProbe": {
+              "width": 352,
+              "height": 180,
+              "durationSeconds": 1,
+              "frameRate": 12,
+              "responseSha256": "1b7ac6c8902f35a246c7b76adb57f0d4c75ed855ba4a7e7ecbefcdc866aa4cd0"
+            }
+          },
+          "film": {
+            "width": 320,
+            "height": 180,
+            "files": {
+              "native.json": "f902dd678bc4ffa8513d14de9e5f3f8f804d45426a3976fbc11bf02da794c05f",
+              "film.mp4": "d3c5467dd4c322dee8759d414973c1655919aa6372233fb3bca985c5a526c848",
+              "project.fcproj": "35cde0c581e7dba00fca92af7d171fba42ee089ca35f20ffc656d08ccfe44966"
+            }
+          }
+        },
+        "nativeProjectHashes": {
+          "logo": "ffdd11866ff8a7fc77e4ebc2723e592d3c1a5774fba950ff2ee3915c8489b67f",
+          "poster": "26979e356c2485b000b429d21938e28980f570a06a2f42e3f0cf7f443bc4e4d5",
+          "intro": "d8865f7f31fe917d0430ef3ad5ae7c8dbac14112fbdeb84d5098631d98aaaaad",
+          "film": "c906b2e0063ba7988ff42abf8e35df374957badad82d36811d45653127de3363"
+        },
+        "inspections": {
+          "logo": {
+            "schema": "craft-source-inspection/v1",
+            "pluginId": "vectorcraft",
+            "nativeInspectionSha256": "76f46eab5aa157b79045ba20a229c0eb5056c0fbd5f02b72156f63dd55f5926e",
+            "document": {
+              "width": 256,
+              "height": 256
+            },
+            "nativeProjectSha256": "ffdd11866ff8a7fc77e4ebc2723e592d3c1a5774fba950ff2ee3915c8489b67f",
+            "nativeRuntimeSha256": "4ba62138ff64d7f701fd2d8fd4c833bd3bb077b6ed78244a8909a4fa0129b766"
+          },
+          "poster": {
+            "schema": "craft-source-inspection/v1",
+            "pluginId": "photocraft",
+            "nativeInspectionSha256": "b0d9e3aeb628db04bc4f17144b9728e399f2db9713d85aa7b7c99b2acde9ef67",
+            "document": {
+              "width": 320,
+              "height": 400
+            },
+            "nativeProjectSha256": "26979e356c2485b000b429d21938e28980f570a06a2f42e3f0cf7f443bc4e4d5",
+            "nativeRuntimeSha256": "57cefe9ee7bda1d996c11741bef84f934cf28d4729eb237900f00d76678d6fa4"
+          },
+          "intro": {
+            "schema": "craft-source-inspection/v1",
+            "pluginId": "effectcraft",
+            "nativeInspectionSha256": "6b654cfec5e184f42e170fceece2932ade35931b420cf4a2d04d2a996f5df3e4",
+            "document": {
+              "width": 320,
+              "height": 180,
+              "frameRate": 12,
+              "duration": 1
+            },
+            "nativeProjectSha256": "d8865f7f31fe917d0430ef3ad5ae7c8dbac14112fbdeb84d5098631d98aaaaad",
+            "nativeRuntimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+          },
+          "film": {
+            "schema": "craft-source-inspection/v1",
+            "pluginId": "filmcraft",
+            "nativeInspectionSha256": "3c31e9ad286d7e0215cf918a8977c662b2f3a201cf5e5416bbfb5800a715d475",
+            "document": {
+              "width": 320,
+              "height": 180,
+              "frameRate": {
+                "den": 1,
+                "num": 12
+              }
+            },
+            "durationTicks": "254016000000",
+            "nativeProjectSha256": "c906b2e0063ba7988ff42abf8e35df374957badad82d36811d45653127de3363",
+            "nativeRuntimeSha256": "4bd79931912c591d1cb1b47690949512ffb4361c3ec4f57664024f9a4847ae38"
+          }
+        },
+        "originalFilesPreserved": true,
+        "reused": true,
+        "leases": 0
+      },
+      "filmDuration": {
+        "requiredSeconds": 1,
+        "nativeTicks": "254016000000",
+        "exportTicks": "254016000000",
+        "frameRate": {
+          "den": 1,
+          "num": 12
+        },
+        "files": {
+          "project.fcproj": "c906b2e0063ba7988ff42abf8e35df374957badad82d36811d45653127de3363",
+          "film.mp4": "d3c5467dd4c322dee8759d414973c1655919aa6372233fb3bca985c5a526c848",
+          "native.json": "9a17631ca6c7418109ecaba70f5568e2ffa007f94ad08eb0a177da8b86eefa0c",
+          "export-probe.json": "317bc7bbbd1065639a6003771699900a43245bef3bf09e202b56752e5ff31de1"
+        }
+      },
+      "nativeReceipt": {
+        "mismatchRejected": true,
+        "installationPreserved": true,
+        "projectFilesPreserved": true,
+        "restoredTaskIdsReused": true
+      },
+      "checks": [
+        "Film installation receipt checked before mixed reuse",
+        "hash-bound native and export Film duration",
+        "four native domain source Brief revisions and reuse",
+        "four native domain deliveries",
+        "same-revision no replay",
+        "status has four tasks and zero leases",
+        "relocated runtime conflict preserves whole project",
+        "changed frozen plan refused",
+        "voice source digest bound",
+        "four-child moved package verified",
+        "portable Brief retained"
+      ],
+      "scope": "single copied installed skill, fresh default online install and system-only PATH; technical fixture, not creative acceptance"
+    }
+  },
+  "defaultRegression": {
+    "tests": 79,
+    "passed": 66,
+    "skipped": 13,
+    "seconds": 5.934
+  },
+  "bundleRebuild": {
+    "count": 5,
+    "lockSha256": "917531e1526451b26219e0844a87b036287b70e9d1d62422dd13ee0d7a549092",
+    "filmBytes": 441867,
+    "filmArchiveSha256": "c40b4f7d0d8194618e126fc96ba19c0fd443bc42b222f3fb881b2262115eaa8c",
+    "unchangedBundles": [
+      "artcraft-runtime",
+      "effectcraft-skills",
+      "photocraft-skills",
+      "vectorcraft-skills"
+    ]
+  },
+  "testDriverSha256": "66ffd8fe31a3d23e4207a7ddcdfb290dc2451938388bc7beb85ef0e3cc756a91",
+  "limits": [
+    "fixed plugin installed proof pending",
+    "technical sine-tone fixture, not speech or creative acceptance",
+    "only FilmCraft receipt handling changed; no blanket claim for other native installers",
+    "no model/GUI/other-platform/production acceptance"
+  ]
+}

@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-跨工具项目规划、素材依赖、版本传播和选择性返工。独立 `artcraft-use` 技能调用锁定运行时，再通过四个独立领域技能的公开脚本执行。
+当前插件 dev.43／技能源 dev.33 固定 FilmCraft 技能 dev.6，保留运行时 dev.41；单技能公开冷启动 3 项通过。当前固定插件宿主复验仍待完成，完整创作接受未完成。
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
@@ -226,3 +226,5 @@ Fixed-release proof / 固定发行验收：[dev.40 Photo variant mixed first use
 [Variant reuse gate](docs/ArtCraft-Photo-Variant-Gate-Architecture.md) · [中文](docs/ArtCraft-Photo-Variant-Gate-Architecture.zh_CN.md) · [Native evidence](docs/evidence/photo-variant-gate-native.json). Plugin dev.42 / skills dev.32 / runtime dev.41; fixed installed repetition passed; full creative acceptance open.
 
 [Fixed dev.42 variant reuse gate / 尺寸变体复用固定验收](docs/evidence/codex-release42-variant-gate-first-use-20261006.json).
+
+ArtCraft 技能源 dev.33 固定 FilmCraft 技能 dev.6，保留运行时 dev.41。公开冷启动 3/3 通过，覆盖原生回执异常拒绝、全部项目文件保留、恢复后复用原任务 ID、四种源工程修订和移动包验证。默认回归 66 项通过、13 项可选跳过。[架构](docs/ArtCraft-Film-Receipt-Integration-Architecture.zh_CN.md)、[源码证据](docs/evidence/film-receipt-integration-native.json)。固定插件宿主证据仍待完成。

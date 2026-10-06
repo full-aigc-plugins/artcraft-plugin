@@ -158,3 +158,7 @@
 - [x] 11.1 [AC-RT-001] 用隔离 Git 仓库确认工作树漂移、缺失标签、摘要错误与输出冲突在旧打包器上失败；产物：tests/test_runtime_bundle.py。
 - [x] 11.2 [AC-RT-001] 按输入发行锁读取固定标签、暂存验证全部包并拒绝覆盖冲突输出；产物：scripts/build_runtime_bundle.py、双语首次使用说明。
 - [x] 11.3 [AC-RT-001] 验证隔离场景、幂等重建和当前五个锁定包摘要一致；产物：docs/evidence/locked-bundle-rebuild.json。不提升完整宿主、创作或上线验收状态。
+
+## 固定领域依赖验收补充
+
+任务 3.12 / 11.3 的当前升级证据：ArtCraft 技能源 dev.33 固定 FilmCraft dev.6，保留运行时 dev.41 和其余三领域包；单技能默认公开冷启动 3 项通过，领域回执异常拒绝、完整项目保留、恢复后原任务复用及四种源工程修订有实际记录。五个包从固定标签重建一致。证据：`docs/evidence/film-receipt-integration-native.json`。固定插件安装复验仍待完成，不改变完整创作／发布任务状态。
