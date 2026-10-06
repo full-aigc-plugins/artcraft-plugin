@@ -10,7 +10,7 @@ PNG runtime dev.56 is published from an immutable tag and the source dev.40 snap
 
 ## Current release and reproducible host checks
 
-Current plugin: `0.1.0-dev.59`; skill source: `0.1.0-dev.41`; runtime: `0.1.0-dev.58`. Fixed installed-host JPEG verification passes; prior evidence keeps its original scope.
+Current plugin: `0.1.0-dev.61`; skill source: `0.1.0-dev.42`; runtime: `0.1.0-dev.60`. Public source mixed validation passes; fixed installed-host repetition is pending. Prior evidence keeps its original scope.
 
 Fixed dev.38 acceptance: Codex 0.153.4 discovered 58 skills with zero loading errors; installed single-skill cold online use passed 3 tests with no skips in 95.289 seconds. Four native source revisions, three geometry changes, saved-output digests, actual Effect video facts, reuse and source preservation pass; all 58 installed skills remain unchanged. [Evidence](docs/evidence/codex-release38-native-brief-first-use-20261006.json). Runtime regression: 123 passed, 5 optional skipped. Full model/GUI/creative/production acceptance remains open. Tag dev.37 is reserved after a staging failure, has no Release and is not used as a plugin snapshot.
 
@@ -34,9 +34,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.59 |
+| Plugin ID / version | artcraft / 0.1.0-dev.61 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.41 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.42 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -270,3 +270,5 @@ Fixed dev.55 PCM WAV first use passes: 58 skills / zero errors; five-child nativ
 Fixed dev.57 PNG first use: five plugins / 58 discovered skills / zero loading errors; installed copied-alone PNG input, byte-identical native staging and moved Photo package pass; PCM five-child delivery also passes. Ten independent Art cold installations pass in 132.642s, and all 58 installed skill digests are preserved. [Version-bound evidence](docs/evidence/codex-release57-png-first-use-20261006.json). Model/GUI, generic Skills CLI, complete V1 and creative acceptance remain open.
 
 Vector asset source candidate adds registered inputs and replacement verification to the public adapter. Native Vector-to-Photo delivery and selective reuse pass; the fixed dev.59 runtime/bundles remain unchanged. [Architecture](docs/ArtCraft-Vector-Assets-Architecture.md). New immutable releases and installed first-use acceptance are pending.
+
+Plugin dev.61 pins source dev.42 / runtime dev.60 / Vector source dev.10 / Photo source dev.9. Public source cold mixed acceptance passed; the fixed plugin host repetition remains pending. [Architecture](docs/ArtCraft-Vector-Assets-Architecture.md).

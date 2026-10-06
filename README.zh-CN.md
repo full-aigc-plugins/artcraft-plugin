@@ -1,8 +1,8 @@
 # ArtCraft Agent Plugin
 
-固定 JPEG 发行 dev.59／技能源 dev.41／运行时 dev.58：隔离 Codex 发现五插件／58 技能／零错误；安装副本 JPEG、PNG、PCM 原生交付、十项 Art 冷安装及全部安装摘要保全通过。渐进 JPEG 交付重开的三层 Photo 工程及独立解码 PNG／PSD，迁移验包通过。[版本绑定证据](docs/evidence/codex-release59-jpeg-first-use-20261006.json)。完整首版／模型／GUI／创作验收仍开放。
+历史固定 JPEG 发行 dev.59／技能源 dev.41／运行时 dev.58：隔离 Codex 发现五插件／58 技能／零错误；安装副本 JPEG、PNG、PCM 原生交付、十项 Art 冷安装及全部安装摘要保全通过。渐进 JPEG 交付重开的三层 Photo 工程及独立解码 PNG／PSD，迁移验包通过。[版本绑定证据](docs/evidence/codex-release59-jpeg-first-use-20261006.json)。完整首版／模型／GUI／创作验收仍开放。
 
-插件 dev.59／技能源 dev.41／运行时 dev.58 固定 JPEG 内容和属性核验，安装后宿主复验通过；完整首版／模型／GUI／创作验收仍开放。
+历史插件 dev.59／技能源 dev.41／运行时 dev.58 固定 JPEG 内容和属性核验，安装后宿主复验通过；完整首版／模型／GUI／创作验收仍开放。
 
 PNG 运行时 dev.56 已由不可变标签发布，技能源 dev.40 快照已固定；范围和未完成安装后门禁见 [PNG 架构](docs/ArtCraft-PNG-Architecture.zh_CN.md)。
 
@@ -10,7 +10,7 @@ PNG 运行时 dev.56 已由不可变标签发布，技能源 dev.40 快照已固
 
 ## 当前版本与可复现宿主验证
 
-当前插件 `0.1.0-dev.59`，独立技能源 `0.1.0-dev.41`，运行时 `0.1.0-dev.58`。固定安装后 JPEG 宿主复验通过；历史证据保留原范围。
+当前插件 `0.1.0-dev.61`，独立技能源 `0.1.0-dev.42`，运行时 `0.1.0-dev.60`。公开技能源混合验收通过，固定安装后宿主复验待执行；历史证据保留原范围。
 
 固定 dev.38 验收：Codex 0.153.4 发现 58 项技能，加载错误为零；实际安装目录的单技能在线冷启动通过 3 项、无跳过，95.289 秒。四源返工、三领域尺寸修改、保存后产物摘要、Effect 实际视频属性、复用和源工程保全均通过，58 个安装技能摘要未变。[证据](docs/evidence/codex-release38-native-brief-first-use-20261006.json)。运行时回归 123 项通过、5 项可选跳过；完整模型／GUI／创作／生产验收仍开放。dev.37 标签因暂存失败保留历史，未创建 Release，也不作为插件快照使用。
 
@@ -34,9 +34,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.59 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.61 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.41 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.42 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
@@ -147,7 +147,7 @@ dev.7 默认在线首次使用 53.106 秒通过：单个复制技能、空运行
 
 此前验证插件 dev.14 / 运行时 dev.13 固定技能套件 dev.12，支持可选 Video Factory 0.4.0 公开验证节点。现有插件和 FFmpeg/ffprobe 按实际路径登记并冻结摘要，模型 payload 不能选择命令或执行器。真实门禁、输入绑定、报告语法与打包保留通过验证；缺来源门禁保持 NOT_RUN，必需 FAIL 阻断交付。83 项原生回归全部通过。默认公开在线首次使用已通过：24 项通过、1 项 Node 专用离线测试跳过；单独安装的技能冷启动依赖、执行五节点并验包。插件 dev.14 修复 dev.13 快照的 OpenSpec 重复任务编号并加入回归检查；运行时 dev.13 的公开字节和摘要保持不变。[架构](docs/ArtCraft-VideoFactory-Architecture.zh_CN.md)、[候选证据](docs/evidence/video-factory-candidate.json)、[在线证据](docs/evidence/video-factory-online.json)。旧插件渲染、图片工厂适配及完整模型/创作验收仍未完成。
 
-当前插件 `0.1.0-dev.59`，独立技能源 `0.1.0-dev.41`，运行时 `0.1.0-dev.58`。固定安装后 JPEG 宿主复验通过；历史证据保留原范围。
+当前插件 `0.1.0-dev.61`，独立技能源 `0.1.0-dev.42`，运行时 `0.1.0-dev.60`。公开技能源混合验收通过，固定安装后宿主复验待执行；历史证据保留原范围。
 
 当前固定发布的宿主刷新：Codex 0.153.4 在隔离配置安装 FilmCraft dev.5、EffectCraft dev.7、PhotoCraft/VectorCraft dev.6、ArtCraft dev.15，加载并核对全部 58 技能身份。实际安装内容的五代表工作流通过，调用后 58 个技能摘要保持不变；显式标签矩阵生成器四项边界测试通过。[证据](docs/evidence/codex-current-release-20261006.json)。模型派发等待明确授权；GUI、创作和生产验收仍未完成。本次 QA 维护不修改已发布插件/技能/运行时标签。
 
@@ -270,3 +270,5 @@ dev.44 首次使用已知取消问题：原生运行中取消后，短暂进程�
 固定 dev.57 PNG 首次使用：五插件／58 项技能发现／零加载错误；安装副本的单独 PNG 输入、原样暂存及 Photo 迁移验包通过；PCM 五子工程交付亦通过。十项 Art 独立冷安装用时 132.642 秒，全部 58 项安装技能摘要保全。[版本绑定证据](docs/evidence/codex-release57-png-first-use-20261006.json)。模型／GUI、通用 Skills CLI、完整首版与创作验收仍开放。
 
 Vector 素材源码候选已接入登记输入和替换核验，真实 Vector 到 Photo 交付与选择性复用通过。固定 dev.59 对应 runtime／bundle 未改动；新版不可变发行和安装首次使用仍待完成。[架构](docs/ArtCraft-Vector-Assets-Architecture.zh_CN.md)。
+
+插件 dev.61 固定技能源 dev.42／runtime dev.60／Vector 技能源 dev.10／Photo 技能源 dev.9。公开技能源冷启动混合验收通过；固定插件宿主复验仍待完成。[架构](docs/ArtCraft-Vector-Assets-Architecture.zh_CN.md)。

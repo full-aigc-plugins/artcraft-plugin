@@ -2,7 +2,7 @@
 
 ## 事实源与候选范围
 
-现有 OpenSpec 中 AC-DM-007 持有 VectorCraft 逻辑素材交接行为。当前 TypeScript 适配器为源码候选；已发布插件 dev.59／技能源 dev.41／runtime dev.58 及固定 bundle 锁保持不变，新不可变发行验收前，既有安装仍使用旧行为。
+现有 OpenSpec 中 AC-DM-007 持有 VectorCraft 逻辑素材交接行为。技能源 dev.42 固定已发布 runtime dev.60 和 VectorCraft 技能源 dev.10。旧完整插件 dev.59 保持不可变；完整插件 dev.61 安装复验单独进行。
 
 ## 输入与执行合同
 
@@ -35,3 +35,5 @@ sequenceDiagram
 `test/public_skill_adapter.test.ts` 先因 skill_assets_unsupported 失败，随后验证公开 argv、未绑定输入与路径拒绝。`test/vector_asset_workflow.test.ts` 执行真实当前 Vector／Photo 脚本：用户提供 PNG、原生依赖收集、分层海报、JPEG 源替换、真实像素变化、独立图标复用、旧包全部摘要保全及计划重放。这不能替代新版固定 ArtCraft 技能安装验收。
 
 证据：[候选验证](evidence/vector-assets-candidate-20261006.json)。新版分发锁、不可变技能源／runtime／插件发行、安装宿主首次使用、四领域完整创作及模型／GUI 门禁仍开放。ArtCraft 不增加剪映适配。
+
+公开冷启动候选验收现已通过：runtime dev.60、Vector 技能源 dev.10、Photo 技能源 dev.9，1 项原生混合测试 29.988 秒。Photo 纯图片字体前置条件在其独立技能源修复。固定完整插件安装仍待复验。[证据](evidence/vector-assets-public-candidate-20261006.json)。
