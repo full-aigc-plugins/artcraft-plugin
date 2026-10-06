@@ -76,3 +76,11 @@ python3 -B scripts/verify_single_skill_cold_start.py \
 ```
 
 实际结果：58 项逐技能空运行时冷启动全部通过，411.720 秒；调用后 58 项原安装摘要仍匹配固定锁。Python 3.14.3、macOS arm64、仅系统 PATH。QA 回归 48 项通过、4 项可选跳过。[固定来源及逐项记录](evidence/codex-release43-every-skill-cold-first-use-20261006.json)。
+
+## 当前版本文档核对
+
+首次使用前，当前 README 元数据必须与 plugin.json、skills.lock.json 一致。共享只读检查发现并修正 15 处漂移，10 份 README 全部通过；历史证据不改写。此检查不执行安装或运行验收。[纠正证据](evidence/current-readme-metadata-20261006.json)。
+
+```bash
+python3 -B scripts/validate_release_readmes.py --repositories PLUGIN_REPOSITORIES
+```

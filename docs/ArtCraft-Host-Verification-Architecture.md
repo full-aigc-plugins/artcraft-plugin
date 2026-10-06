@@ -76,3 +76,11 @@ python3 -B scripts/verify_single_skill_cold_start.py \
 ```
 
 Observed result: all 58 independent empty-runtime cold starts pass in 411.720 s. All 58 original installed skill digests still match the fixed lock. Environment: Python 3.14.3, macOS arm64, system-only PATH. QA regression: 48 passes and 4 optional skips. [Fixed identities and per-skill records](evidence/codex-release43-every-skill-cold-first-use-20261006.json).
+
+## Current release documentation check
+
+Before first use, current README metadata must agree with plugin.json and skills.lock.json. The shared read-only audit found and corrected 15 mismatches; all 10 README files pass while historical evidence stays unchanged. This check does not install or validate runtimes. [Correction evidence](evidence/current-readme-metadata-20261006.json).
+
+```bash
+python3 -B scripts/validate_release_readmes.py --repositories PLUGIN_REPOSITORIES
+```
