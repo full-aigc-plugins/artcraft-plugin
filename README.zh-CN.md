@@ -1,4 +1,6 @@
-当前插件：`0.1.0-dev.90`；技能源：`0.1.0-dev.63`。完整反射命令入口、独立CLI与桌面安装已提供；固定版本58项独立冷启动、四领域进阶GUI保存／重开／渲染及Art混合返工通过。逐条原生命令执行验收与完整V1保持开放。[固定验收记录](docs/evidence/craft-full-command-fixed-first-use-20261007.json)。
+当前插件：`0.1.0-dev.91`；技能源：`0.1.0-dev.64`；runtime83；四领域source23分发及自有桌面交接。固定安装桌面首用待验收。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
+
+历史发行记录：当前插件：`0.1.0-dev.90`；技能源：`0.1.0-dev.63`。完整反射命令入口、独立CLI与桌面安装已提供；固定版本58项独立冷启动、四领域进阶GUI保存／重开／渲染及Art混合返工通过。逐条原生命令执行验收与完整V1保持开放。[固定验收记录](docs/evidence/craft-full-command-fixed-first-use-20261007.json)。
 
 历史发行记录：当前插件：`0.1.0-dev.89`；技能源：`0.1.0-dev.62`；runtime83；四领域source21分发及自有桌面交接。固定安装桌面首用待验收。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
 
@@ -95,9 +97,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.90 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.91 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.63 |
+| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.64 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

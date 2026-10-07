@@ -1,4 +1,6 @@
-Current plugin: `0.1.0-dev.90`; skill source: `0.1.0-dev.63`; Complete reflected-command entries and standalone CLI/desktop bootstrap are available. Fixed releases passed 58 standalone cold cases, four advanced GUI save/reopen/render cases and Art mixed revision. Exhaustive native command execution and full V1 remain open. [Fixed evidence](docs/evidence/craft-full-command-fixed-first-use-20261007.json).
+Current plugin: `0.1.0-dev.91`; skill source: `0.1.0-dev.64`; runtime83; All four source23 domain bundles; owned desktop handoff. Fixed installed desktop acceptance pending. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
+
+Historical release record: Current plugin: `0.1.0-dev.90`; skill source: `0.1.0-dev.63`; Complete reflected-command entries and standalone CLI/desktop bootstrap are available. Fixed releases passed 58 standalone cold cases, four advanced GUI save/reopen/render cases and Art mixed revision. Exhaustive native command execution and full V1 remain open. [Fixed evidence](docs/evidence/craft-full-command-fixed-first-use-20261007.json).
 
 Historical release record: Current plugin: `0.1.0-dev.89`; skill source: `0.1.0-dev.62`; runtime83; All four source21 domain bundles; owned desktop handoff. Fixed installed desktop acceptance pending. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
 
@@ -97,9 +99,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.90 |
+| Plugin ID / version | artcraft / 0.1.0-dev.91 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.63 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.64 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |

@@ -77,3 +77,5 @@ python3 -I -B "$SKILL_DIR/scripts/review.py" verify --package "$PACKAGE_ROOT" --
 Photo原生调整层、选区蒙版与可信源返工见 [局部调整指南](references/photo-adjustment.md)。
 
 需要独立启动领域 GUI 命令时见 [自有桌面交接](references/desktop-handoff.md)。
+
+混合任务参考 [业务场景手册](references/business-scenes.md)，先确认依赖与输入版本，再执行子工程、局部返工和交付核验。
