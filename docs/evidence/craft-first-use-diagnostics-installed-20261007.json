@@ -3652,5 +3652,1598 @@
       "pluginCommit": "43660a61523ab947f31005e3a45e83600d33f0dc",
       "sourceCommit": "12148f270e2ee4da9e2b907814fe901d67d66e23"
     }
+  },
+  "art10OwnedDesktop": {
+    "schema": "artcraft-fixed-owned-desktop-first-use/v1",
+    "result": "PASS",
+    "cases": 10,
+    "records": [
+      {
+        "schema": "artcraft-owned-desktop-first-use/v1",
+        "result": "PASS",
+        "skill": "artcraft-cli",
+        "domain": "filmcraft",
+        "emptyRuntime": true,
+        "standaloneSkillUnchanged": true,
+        "ownedProcessesStopped": true,
+        "ownedListenerVerified": true,
+        "sourceBundleSha256": "8b52b2732a83af7ae0c47268e1a70d37708769878819e07142bda7996894632c",
+        "runtimeSha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433",
+        "desktopBinarySha256": "f47862a07ce43aa3d3bc14344dc2d9015cc3ca5a21f9868271007cba8f7f99fa",
+        "bridgeUIInspection": null,
+        "operations": 5,
+        "nativeProject": {
+          "name": "project.fcproj",
+          "sha256": "0eed45780700b180d5f54eae8d5c2e2138ebe20af72a35ed5e2917a6d934034b",
+          "bytes": 2002
+        },
+        "finalInspection": {
+          "activeSequence": 3,
+          "dirty": false,
+          "name": "project",
+          "path": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/art-owned-desktop-first-use-x5x5h14k/output/project.fcproj",
+          "revision": 4,
+          "root": {
+            "children": [
+              {
+                "duration": 0,
+                "item": 3,
+                "label": "Forest",
+                "name": "Sequence",
+                "type": "Sequence"
+              }
+            ],
+            "id": 0,
+            "name": "project"
+          },
+          "sourceItem": null
+        },
+        "scope": "one standalone Art skill, selected domain desktop cold install/native save/reopen/cleanup; not mixed DAG or exhaustive commands",
+        "pluginVersion": "0.1.0-dev.93",
+        "pluginCommit": "43660a61523ab947f31005e3a45e83600d33f0dc",
+        "sourceCommit": "12148f270e2ee4da9e2b907814fe901d67d66e23",
+        "installedSkillSha256": "2a8fe20b055202382ee7b84e7ed6cca9acd235eec40677d1f114cb359da85afe"
+      },
+      {
+        "schema": "artcraft-owned-desktop-first-use/v1",
+        "result": "PASS",
+        "skill": "artcraft-cli-assets",
+        "domain": "effectcraft",
+        "emptyRuntime": true,
+        "standaloneSkillUnchanged": true,
+        "ownedProcessesStopped": true,
+        "ownedListenerVerified": true,
+        "sourceBundleSha256": "6115471e6eff84d10608b9b126d121ee7953d6b647afc9dba97b246cdac6d3d0",
+        "runtimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "desktopBinarySha256": "e7db491a0b7af0a12977e32fa1da23490df8087f38a56c60a9ae2a7d914a22de",
+        "bridgeUIInspection": {
+          "activeComp": 1,
+          "dialog": null,
+          "elements": 150,
+          "fps": 167.07699584960938,
+          "pixelsPerPoint": 1.0,
+          "playing": false,
+          "renderMs": 0.393292,
+          "selectedKeys": 0,
+          "selectedLayers": [],
+          "time": 0.0,
+          "ui": {
+            "align_to_selection": false,
+            "anim_tools": {
+              "sketch_armed": false,
+              "sketch_background": true,
+              "sketch_smoothing": 1.0,
+              "sketch_speed": 100.0,
+              "sketch_wireframe": false,
+              "smooth_tolerance": 1.0,
+              "wiggle_dim": 0,
+              "wiggle_dims": "independent",
+              "wiggle_frequency": 5.0,
+              "wiggle_magnitude": 1.0,
+              "wiggle_smooth": true,
+              "wiggle_spatial": true
+            },
+            "cache_when_idle": false,
+            "dock": {
+              "Split": {
+                "a": {
+                  "Split": {
+                    "a": {
+                      "Split": {
+                        "a": {
+                          "Tabs": {
+                            "active": 0,
+                            "panels": [
+                              "Project",
+                              "EffectControls"
+                            ]
+                          }
+                        },
+                        "b": {
+                          "Tabs": {
+                            "active": 0,
+                            "panels": [
+                              "Composition",
+                              "Layer"
+                            ]
+                          }
+                        },
+                        "size": {
+                          "FixedA": 300.0
+                        },
+                        "vertical": false
+                      }
+                    },
+                    "b": {
+                      "Tabs": {
+                        "active": 0,
+                        "panels": [
+                          "Timeline",
+                          "RenderQueue"
+                        ]
+                      }
+                    },
+                    "size": {
+                      "Ratio": 0.5600000023841858
+                    },
+                    "vertical": true
+                  }
+                },
+                "b": {
+                  "Stack": {
+                    "entries": [
+                      {
+                        "height": 46.0,
+                        "open": true,
+                        "panel": "Preview"
+                      },
+                      {
+                        "height": null,
+                        "open": true,
+                        "panel": "Properties"
+                      },
+                      {
+                        "height": null,
+                        "open": false,
+                        "panel": "Align"
+                      },
+                      {
+                        "height": null,
+                        "open": false,
+                        "panel": "Audio"
+                      },
+                      {
+                        "height": null,
+                        "open": false,
+                        "panel": "EffectsPresets"
+                      }
+                    ]
+                  }
+                },
+                "size": {
+                  "FixedB": 300.0
+                },
+                "vertical": false
+              }
+            },
+            "effects_favorites": [],
+            "effects_open": [],
+            "effects_recent": [],
+            "effects_search": "",
+            "effects_view": {
+              "alphabetical": false,
+              "depth": "all",
+              "presets": true
+            },
+            "fill_color": [
+              0.23999999463558197,
+              0.550000011920929,
+              0.9599999785423279
+            ],
+            "floating": [],
+            "flowchart": {
+              "effects": false,
+              "layers": false,
+              "root": null,
+              "solids": true,
+              "vertical": false
+            },
+            "focused": "Composition",
+            "fx_closed": [],
+            "fx_curve_channel": {},
+            "fx_curve_pencil": [],
+            "fx_levels_channel": {},
+            "fx_pick": null,
+            "fx_slider_open": [],
+            "home_learn": false,
+            "home_templates": false,
+            "layer_panel": null,
+            "layer_view": null,
+            "locked_tabs": [],
+            "maximized": null,
+            "mini_flowchart": null,
+            "project_columns": [
+              "type",
+              "size",
+              "duration",
+              "fps"
+            ],
+            "project_hscroll": 0.0,
+            "project_open_folders": [],
+            "project_scroll": 0.0,
+            "project_search": "",
+            "project_sort": "name",
+            "project_sort_desc": false,
+            "saved_floating": {},
+            "saved_workspaces": {},
+            "scopes": {
+              "clamp": true,
+              "float": false,
+              "scope": "waveformRgb",
+              "standard": "rec709"
+            },
+            "script_console": {
+              "history": [],
+              "input": "",
+              "log": []
+            },
+            "show_menu_bar": false,
+            "slot_tools": [
+              "Selection",
+              "Hand",
+              "Zoom",
+              "Orbit",
+              "PanCamera",
+              "Dolly",
+              "Rotate",
+              "PanBehind",
+              "Rectangle",
+              "Pen",
+              "Type",
+              "Brush",
+              "Clone",
+              "Eraser",
+              "RotoBrush",
+              "Puppet"
+            ],
+            "snapping": true,
+            "start_screen": false,
+            "status": "",
+            "stroke_color": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "stroke_width": 0.0,
+            "theme": "Dark",
+            "timeline": {
+              "columns": [
+                "av",
+                "label",
+                "num",
+                "parent",
+                "switches"
+              ],
+              "columns_w": 560.0,
+              "expr_closed": [],
+              "graph_auto_zoom": true,
+              "graph_editor": false,
+              "graph_mode": "auto",
+              "graph_range": null,
+              "graph_reference": false,
+              "graph_show_selected": true,
+              "graph_snap": true,
+              "graph_transform_box": true,
+              "open_groups": [],
+              "open_layers": [],
+              "outline_scroll": 0.0,
+              "pps": null,
+              "reveal": [],
+              "reveal_props": [],
+              "scroll_y": 0.0,
+              "search": "",
+              "show_modes": false,
+              "source_name": false,
+              "start": 0.0
+            },
+            "tool": "Selection",
+            "tool_creates_shape": true,
+            "tracker_source": null,
+            "viewer": {
+              "channel": "RGB",
+              "custom_pasteboard": [
+                128,
+                128,
+                128
+              ],
+              "fast_preview": false,
+              "grid": false,
+              "guides": true,
+              "lock_guides": false,
+              "pan": [
+                0.0,
+                0.0
+              ],
+              "pasteboard": null,
+              "proportional_grid": false,
+              "res": "Auto",
+              "roi_draw": false,
+              "ruler_origin": [
+                0.0,
+                0.0
+              ],
+              "rulers": false,
+              "safe_margins": false,
+              "show_layer_controls": true,
+              "show_masks": true,
+              "snap_grid": false,
+              "snap_guides": false,
+              "transparency_grid": false,
+              "zoom": null
+            },
+            "workspace": "Default"
+          },
+          "window": [
+            1680.0,
+            934.0
+          ]
+        },
+        "operations": 6,
+        "nativeProject": {
+          "name": "project.ecproj",
+          "sha256": "e23d1f635a66806ca5390e630932de2a0b1d7a7d05e7d54210304510a14baaab",
+          "bytes": 36924
+        },
+        "finalInspection": {
+          "activeComp": 1,
+          "bitDepth": "8 bpc",
+          "dirty": false,
+          "items": [
+            {
+              "duration": 1.0,
+              "frameRate": 12.0,
+              "id": 1,
+              "label": "Sandstone",
+              "layers": 1,
+              "name": "Desktop first use",
+              "parent": null,
+              "size": [
+                96,
+                64
+              ],
+              "type": "Composition"
+            }
+          ],
+          "path": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/art-owned-desktop-first-use-zi3etfsa/output/project.ecproj",
+          "renderer": {
+            "active": "gpu",
+            "adapter": "Apple M4 Pro (Metal)",
+            "gpuAcceleration": true,
+            "renderer": "Mercury GPU Acceleration"
+          },
+          "selectedLayers": [],
+          "time": 0.0,
+          "undo": []
+        },
+        "scope": "one standalone Art skill, selected domain desktop cold install/native save/reopen/cleanup; not mixed DAG or exhaustive commands",
+        "pluginVersion": "0.1.0-dev.93",
+        "pluginCommit": "43660a61523ab947f31005e3a45e83600d33f0dc",
+        "sourceCommit": "12148f270e2ee4da9e2b907814fe901d67d66e23",
+        "installedSkillSha256": "b3ed55636da88d38216bc58efd53dc8550aa40933557dc45bc1558d195358eeb"
+      },
+      {
+        "schema": "artcraft-owned-desktop-first-use/v1",
+        "result": "PASS",
+        "skill": "artcraft-cli-deliver",
+        "domain": "photocraft",
+        "emptyRuntime": true,
+        "standaloneSkillUnchanged": true,
+        "ownedProcessesStopped": true,
+        "ownedListenerVerified": true,
+        "sourceBundleSha256": "bac76439c07ed4a17eba3038a1e123abed85ad5bd989e653e776e3b65227d043",
+        "runtimeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+        "desktopBinarySha256": "8a4ea2ec9164b818af193b35e3dc59ab51da9ca92165565b88eab729b32baa31",
+        "bridgeUIInspection": null,
+        "operations": 5,
+        "nativeProject": {
+          "name": "project.pcraft",
+          "sha256": "2dec03b2e43e8a3e0fe99efefa20cd10236c2efe34497dd7fdad28607ae0855c",
+          "bytes": 8387
+        },
+        "finalInspection": {
+          "activeLayer": 3,
+          "canRedo": false,
+          "canUndo": false,
+          "channels": {
+            "alpha": [],
+            "colors": [
+              {
+                "name": "Red",
+                "visible": true
+              },
+              {
+                "name": "Green",
+                "visible": true
+              },
+              {
+                "name": "Blue",
+                "visible": true
+              }
+            ],
+            "composite": "RGB",
+            "compositeVisible": true,
+            "quickMask": null,
+            "target": {
+              "kind": "composite"
+            }
+          },
+          "depth": 8,
+          "hasSelection": false,
+          "height": 64,
+          "history": [
+            "Open"
+          ],
+          "isolatedLayers": [],
+          "lastAppliedComp": null,
+          "layerComps": [],
+          "layers": [
+            {
+              "blend": "Normal",
+              "bounds": [
+                8,
+                8,
+                24,
+                24
+              ],
+              "clipped": false,
+              "fill": 1.0,
+              "hasMask": false,
+              "id": 3,
+              "kind": "Shape",
+              "linkGroup": null,
+              "name": "Subject",
+              "opacity": 1.0,
+              "selected": true,
+              "visible": true
+            },
+            {
+              "blend": "Normal",
+              "bounds": [
+                0,
+                0,
+                96,
+                64
+              ],
+              "clipped": false,
+              "fill": 1.0,
+              "hasMask": false,
+              "id": 2,
+              "kind": "Pixel",
+              "linkGroup": null,
+              "name": "Background",
+              "opacity": 1.0,
+              "selected": false,
+              "visible": true
+            }
+          ],
+          "measurement": {
+            "count": 0,
+            "countGroups": 0,
+            "ruler": null,
+            "scale": "1 pixels = 1.0000 pixels"
+          },
+          "mode": "Rgb",
+          "name": "Desktop first use",
+          "notes": [],
+          "quickMask": false,
+          "resolution": 72.0,
+          "revision": 1,
+          "selectedLayers": [
+            3
+          ],
+          "selectionBounds": null,
+          "timeline": null,
+          "variables": null,
+          "width": 96
+        },
+        "scope": "one standalone Art skill, selected domain desktop cold install/native save/reopen/cleanup; not mixed DAG or exhaustive commands",
+        "pluginVersion": "0.1.0-dev.93",
+        "pluginCommit": "43660a61523ab947f31005e3a45e83600d33f0dc",
+        "sourceCommit": "12148f270e2ee4da9e2b907814fe901d67d66e23",
+        "installedSkillSha256": "e425b62a55126fbd897ec097b146261b1a92fc71487680fe6eda2875c7c33703"
+      },
+      {
+        "schema": "artcraft-owned-desktop-first-use/v1",
+        "result": "PASS",
+        "skill": "artcraft-cli-execute",
+        "domain": "vectorcraft",
+        "emptyRuntime": true,
+        "standaloneSkillUnchanged": true,
+        "ownedProcessesStopped": true,
+        "ownedListenerVerified": true,
+        "sourceBundleSha256": "476ecd6449367e75500d56c0fb8c5918d17c365c29c2c39e062d6a58dd4a6a46",
+        "runtimeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+        "desktopBinarySha256": "46d7846a765dd0c2a64a72dea17796f49d725203d2c5d91c339432572048f856",
+        "bridgeUIInspection": null,
+        "operations": 6,
+        "nativeProject": {
+          "name": "project.vectorcraft",
+          "sha256": "c7da94c11f6fec7e5f10d3ab4a47e7a8acf32f9533c35c493e3adf6c034d4950",
+          "bytes": 24237
+        },
+        "finalInspection": {
+          "artboards": [
+            {
+              "height": 64.0,
+              "name": "Artboard 1",
+              "width": 96.0,
+              "x": 0.0,
+              "y": 0.0
+            }
+          ],
+          "colorMode": "Rgb",
+          "currentLayer": 1,
+          "dirty": false,
+          "history": [],
+          "isolation": null,
+          "layers": [
+            {
+              "bounds": {
+                "height": 24.0,
+                "width": 24.0,
+                "x": 8.0,
+                "y": 8.0
+              },
+              "children": [
+                {
+                  "anchors": 4,
+                  "bounds": {
+                    "height": 24.0,
+                    "width": 24.0,
+                    "x": 8.0,
+                    "y": 8.0
+                  },
+                  "closed": true,
+                  "fill": "#ffffff",
+                  "id": 2,
+                  "kind": "Rectangle",
+                  "locked": false,
+                  "name": "<Rectangle>",
+                  "stroke": "#000000",
+                  "strokeOptions": {
+                    "align": "center",
+                    "alignDashes": false,
+                    "arrowAlign": "extend",
+                    "cap": "butt",
+                    "dash": null,
+                    "dashOffset": 0.0,
+                    "endArrow": null,
+                    "gradientMode": "within",
+                    "join": "miter",
+                    "miterLimit": 10.0,
+                    "profile": "uniform",
+                    "startArrow": null,
+                    "widthPoints": null
+                  },
+                  "strokeWidth": 1.0,
+                  "visible": true
+                }
+              ],
+              "id": 1,
+              "kind": "Layer",
+              "locked": false,
+              "name": "Layer 1",
+              "visible": true
+            }
+          ],
+          "objects": 2,
+          "paint": {
+            "appearanceItem": null,
+            "fill": "#ffffff",
+            "fillActive": true,
+            "stroke": "#000000",
+            "strokeWidth": 1.0
+          },
+          "pasteRemembersLayers": false,
+          "path": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/art-owned-desktop-first-use-5gw_pt83/output/project.vectorcraft",
+          "redo": [],
+          "revision": 1,
+          "selection": [],
+          "selectionBounds": null,
+          "target": null,
+          "title": "project.vectorcraft",
+          "tool": "selection",
+          "units": "Pixels"
+        },
+        "scope": "one standalone Art skill, selected domain desktop cold install/native save/reopen/cleanup; not mixed DAG or exhaustive commands",
+        "pluginVersion": "0.1.0-dev.93",
+        "pluginCommit": "43660a61523ab947f31005e3a45e83600d33f0dc",
+        "sourceCommit": "12148f270e2ee4da9e2b907814fe901d67d66e23",
+        "installedSkillSha256": "09e69e47187659ebeb2ce2528e1ee62fc7ccf09a46bb5df80f32e2f2e8b2beba"
+      },
+      {
+        "schema": "artcraft-owned-desktop-first-use/v1",
+        "result": "PASS",
+        "skill": "artcraft-cli-plan",
+        "domain": "filmcraft",
+        "emptyRuntime": true,
+        "standaloneSkillUnchanged": true,
+        "ownedProcessesStopped": true,
+        "ownedListenerVerified": true,
+        "sourceBundleSha256": "8b52b2732a83af7ae0c47268e1a70d37708769878819e07142bda7996894632c",
+        "runtimeSha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433",
+        "desktopBinarySha256": "f47862a07ce43aa3d3bc14344dc2d9015cc3ca5a21f9868271007cba8f7f99fa",
+        "bridgeUIInspection": null,
+        "operations": 5,
+        "nativeProject": {
+          "name": "project.fcproj",
+          "sha256": "0eed45780700b180d5f54eae8d5c2e2138ebe20af72a35ed5e2917a6d934034b",
+          "bytes": 2002
+        },
+        "finalInspection": {
+          "activeSequence": 3,
+          "dirty": false,
+          "name": "project",
+          "path": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/art-owned-desktop-first-use-xnlujqbz/output/project.fcproj",
+          "revision": 4,
+          "root": {
+            "children": [
+              {
+                "duration": 0,
+                "item": 3,
+                "label": "Forest",
+                "name": "Sequence",
+                "type": "Sequence"
+              }
+            ],
+            "id": 0,
+            "name": "project"
+          },
+          "sourceItem": null
+        },
+        "scope": "one standalone Art skill, selected domain desktop cold install/native save/reopen/cleanup; not mixed DAG or exhaustive commands",
+        "pluginVersion": "0.1.0-dev.93",
+        "pluginCommit": "43660a61523ab947f31005e3a45e83600d33f0dc",
+        "sourceCommit": "12148f270e2ee4da9e2b907814fe901d67d66e23",
+        "installedSkillSha256": "44074e4a78c007c0752b43512f79f72f703dea95dc68a21c0affdb166bd43008"
+      },
+      {
+        "schema": "artcraft-owned-desktop-first-use/v1",
+        "result": "PASS",
+        "skill": "artcraft-cli-recover",
+        "domain": "effectcraft",
+        "emptyRuntime": true,
+        "standaloneSkillUnchanged": true,
+        "ownedProcessesStopped": true,
+        "ownedListenerVerified": true,
+        "sourceBundleSha256": "6115471e6eff84d10608b9b126d121ee7953d6b647afc9dba97b246cdac6d3d0",
+        "runtimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "desktopBinarySha256": "e7db491a0b7af0a12977e32fa1da23490df8087f38a56c60a9ae2a7d914a22de",
+        "bridgeUIInspection": {
+          "activeComp": 1,
+          "dialog": null,
+          "elements": 150,
+          "fps": 155.02357482910156,
+          "pixelsPerPoint": 1.0,
+          "playing": false,
+          "renderMs": 0.216958,
+          "selectedKeys": 0,
+          "selectedLayers": [],
+          "time": 0.0,
+          "ui": {
+            "align_to_selection": false,
+            "anim_tools": {
+              "sketch_armed": false,
+              "sketch_background": true,
+              "sketch_smoothing": 1.0,
+              "sketch_speed": 100.0,
+              "sketch_wireframe": false,
+              "smooth_tolerance": 1.0,
+              "wiggle_dim": 0,
+              "wiggle_dims": "independent",
+              "wiggle_frequency": 5.0,
+              "wiggle_magnitude": 1.0,
+              "wiggle_smooth": true,
+              "wiggle_spatial": true
+            },
+            "cache_when_idle": false,
+            "dock": {
+              "Split": {
+                "a": {
+                  "Split": {
+                    "a": {
+                      "Split": {
+                        "a": {
+                          "Tabs": {
+                            "active": 0,
+                            "panels": [
+                              "Project",
+                              "EffectControls"
+                            ]
+                          }
+                        },
+                        "b": {
+                          "Tabs": {
+                            "active": 0,
+                            "panels": [
+                              "Composition",
+                              "Layer"
+                            ]
+                          }
+                        },
+                        "size": {
+                          "FixedA": 300.0
+                        },
+                        "vertical": false
+                      }
+                    },
+                    "b": {
+                      "Tabs": {
+                        "active": 0,
+                        "panels": [
+                          "Timeline",
+                          "RenderQueue"
+                        ]
+                      }
+                    },
+                    "size": {
+                      "Ratio": 0.5600000023841858
+                    },
+                    "vertical": true
+                  }
+                },
+                "b": {
+                  "Stack": {
+                    "entries": [
+                      {
+                        "height": 46.0,
+                        "open": true,
+                        "panel": "Preview"
+                      },
+                      {
+                        "height": null,
+                        "open": true,
+                        "panel": "Properties"
+                      },
+                      {
+                        "height": null,
+                        "open": false,
+                        "panel": "Align"
+                      },
+                      {
+                        "height": null,
+                        "open": false,
+                        "panel": "Audio"
+                      },
+                      {
+                        "height": null,
+                        "open": false,
+                        "panel": "EffectsPresets"
+                      }
+                    ]
+                  }
+                },
+                "size": {
+                  "FixedB": 300.0
+                },
+                "vertical": false
+              }
+            },
+            "effects_favorites": [],
+            "effects_open": [],
+            "effects_recent": [],
+            "effects_search": "",
+            "effects_view": {
+              "alphabetical": false,
+              "depth": "all",
+              "presets": true
+            },
+            "fill_color": [
+              0.23999999463558197,
+              0.550000011920929,
+              0.9599999785423279
+            ],
+            "floating": [],
+            "flowchart": {
+              "effects": false,
+              "layers": false,
+              "root": null,
+              "solids": true,
+              "vertical": false
+            },
+            "focused": "Composition",
+            "fx_closed": [],
+            "fx_curve_channel": {},
+            "fx_curve_pencil": [],
+            "fx_levels_channel": {},
+            "fx_pick": null,
+            "fx_slider_open": [],
+            "home_learn": false,
+            "home_templates": false,
+            "layer_panel": null,
+            "layer_view": null,
+            "locked_tabs": [],
+            "maximized": null,
+            "mini_flowchart": null,
+            "project_columns": [
+              "type",
+              "size",
+              "duration",
+              "fps"
+            ],
+            "project_hscroll": 0.0,
+            "project_open_folders": [],
+            "project_scroll": 0.0,
+            "project_search": "",
+            "project_sort": "name",
+            "project_sort_desc": false,
+            "saved_floating": {},
+            "saved_workspaces": {},
+            "scopes": {
+              "clamp": true,
+              "float": false,
+              "scope": "waveformRgb",
+              "standard": "rec709"
+            },
+            "script_console": {
+              "history": [],
+              "input": "",
+              "log": []
+            },
+            "show_menu_bar": false,
+            "slot_tools": [
+              "Selection",
+              "Hand",
+              "Zoom",
+              "Orbit",
+              "PanCamera",
+              "Dolly",
+              "Rotate",
+              "PanBehind",
+              "Rectangle",
+              "Pen",
+              "Type",
+              "Brush",
+              "Clone",
+              "Eraser",
+              "RotoBrush",
+              "Puppet"
+            ],
+            "snapping": true,
+            "start_screen": false,
+            "status": "",
+            "stroke_color": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "stroke_width": 0.0,
+            "theme": "Dark",
+            "timeline": {
+              "columns": [
+                "av",
+                "label",
+                "num",
+                "parent",
+                "switches"
+              ],
+              "columns_w": 560.0,
+              "expr_closed": [],
+              "graph_auto_zoom": true,
+              "graph_editor": false,
+              "graph_mode": "auto",
+              "graph_range": null,
+              "graph_reference": false,
+              "graph_show_selected": true,
+              "graph_snap": true,
+              "graph_transform_box": true,
+              "open_groups": [],
+              "open_layers": [],
+              "outline_scroll": 0.0,
+              "pps": null,
+              "reveal": [],
+              "reveal_props": [],
+              "scroll_y": 0.0,
+              "search": "",
+              "show_modes": false,
+              "source_name": false,
+              "start": 0.0
+            },
+            "tool": "Selection",
+            "tool_creates_shape": true,
+            "tracker_source": null,
+            "viewer": {
+              "channel": "RGB",
+              "custom_pasteboard": [
+                128,
+                128,
+                128
+              ],
+              "fast_preview": false,
+              "grid": false,
+              "guides": true,
+              "lock_guides": false,
+              "pan": [
+                0.0,
+                0.0
+              ],
+              "pasteboard": null,
+              "proportional_grid": false,
+              "res": "Auto",
+              "roi_draw": false,
+              "ruler_origin": [
+                0.0,
+                0.0
+              ],
+              "rulers": false,
+              "safe_margins": false,
+              "show_layer_controls": true,
+              "show_masks": true,
+              "snap_grid": false,
+              "snap_guides": false,
+              "transparency_grid": false,
+              "zoom": null
+            },
+            "workspace": "Default"
+          },
+          "window": [
+            1680.0,
+            934.0
+          ]
+        },
+        "operations": 6,
+        "nativeProject": {
+          "name": "project.ecproj",
+          "sha256": "e23d1f635a66806ca5390e630932de2a0b1d7a7d05e7d54210304510a14baaab",
+          "bytes": 36924
+        },
+        "finalInspection": {
+          "activeComp": 1,
+          "bitDepth": "8 bpc",
+          "dirty": false,
+          "items": [
+            {
+              "duration": 1.0,
+              "frameRate": 12.0,
+              "id": 1,
+              "label": "Sandstone",
+              "layers": 1,
+              "name": "Desktop first use",
+              "parent": null,
+              "size": [
+                96,
+                64
+              ],
+              "type": "Composition"
+            }
+          ],
+          "path": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/art-owned-desktop-first-use-76tbvv2h/output/project.ecproj",
+          "renderer": {
+            "active": "gpu",
+            "adapter": "Apple M4 Pro (Metal)",
+            "gpuAcceleration": true,
+            "renderer": "Mercury GPU Acceleration"
+          },
+          "selectedLayers": [],
+          "time": 0.0,
+          "undo": []
+        },
+        "scope": "one standalone Art skill, selected domain desktop cold install/native save/reopen/cleanup; not mixed DAG or exhaustive commands",
+        "pluginVersion": "0.1.0-dev.93",
+        "pluginCommit": "43660a61523ab947f31005e3a45e83600d33f0dc",
+        "sourceCommit": "12148f270e2ee4da9e2b907814fe901d67d66e23",
+        "installedSkillSha256": "3c879cff17b226e4b5bba3a1e9940776d352aeb9b75bb20966953fe260eba310"
+      },
+      {
+        "schema": "artcraft-owned-desktop-first-use/v1",
+        "result": "PASS",
+        "skill": "artcraft-cli-review",
+        "domain": "photocraft",
+        "emptyRuntime": true,
+        "standaloneSkillUnchanged": true,
+        "ownedProcessesStopped": true,
+        "ownedListenerVerified": true,
+        "sourceBundleSha256": "bac76439c07ed4a17eba3038a1e123abed85ad5bd989e653e776e3b65227d043",
+        "runtimeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+        "desktopBinarySha256": "8a4ea2ec9164b818af193b35e3dc59ab51da9ca92165565b88eab729b32baa31",
+        "bridgeUIInspection": null,
+        "operations": 5,
+        "nativeProject": {
+          "name": "project.pcraft",
+          "sha256": "2dec03b2e43e8a3e0fe99efefa20cd10236c2efe34497dd7fdad28607ae0855c",
+          "bytes": 8387
+        },
+        "finalInspection": {
+          "activeLayer": 3,
+          "canRedo": false,
+          "canUndo": false,
+          "channels": {
+            "alpha": [],
+            "colors": [
+              {
+                "name": "Red",
+                "visible": true
+              },
+              {
+                "name": "Green",
+                "visible": true
+              },
+              {
+                "name": "Blue",
+                "visible": true
+              }
+            ],
+            "composite": "RGB",
+            "compositeVisible": true,
+            "quickMask": null,
+            "target": {
+              "kind": "composite"
+            }
+          },
+          "depth": 8,
+          "hasSelection": false,
+          "height": 64,
+          "history": [
+            "Open"
+          ],
+          "isolatedLayers": [],
+          "lastAppliedComp": null,
+          "layerComps": [],
+          "layers": [
+            {
+              "blend": "Normal",
+              "bounds": [
+                8,
+                8,
+                24,
+                24
+              ],
+              "clipped": false,
+              "fill": 1.0,
+              "hasMask": false,
+              "id": 3,
+              "kind": "Shape",
+              "linkGroup": null,
+              "name": "Subject",
+              "opacity": 1.0,
+              "selected": true,
+              "visible": true
+            },
+            {
+              "blend": "Normal",
+              "bounds": [
+                0,
+                0,
+                96,
+                64
+              ],
+              "clipped": false,
+              "fill": 1.0,
+              "hasMask": false,
+              "id": 2,
+              "kind": "Pixel",
+              "linkGroup": null,
+              "name": "Background",
+              "opacity": 1.0,
+              "selected": false,
+              "visible": true
+            }
+          ],
+          "measurement": {
+            "count": 0,
+            "countGroups": 0,
+            "ruler": null,
+            "scale": "1 pixels = 1.0000 pixels"
+          },
+          "mode": "Rgb",
+          "name": "Desktop first use",
+          "notes": [],
+          "quickMask": false,
+          "resolution": 72.0,
+          "revision": 1,
+          "selectedLayers": [
+            3
+          ],
+          "selectionBounds": null,
+          "timeline": null,
+          "variables": null,
+          "width": 96
+        },
+        "scope": "one standalone Art skill, selected domain desktop cold install/native save/reopen/cleanup; not mixed DAG or exhaustive commands",
+        "pluginVersion": "0.1.0-dev.93",
+        "pluginCommit": "43660a61523ab947f31005e3a45e83600d33f0dc",
+        "sourceCommit": "12148f270e2ee4da9e2b907814fe901d67d66e23",
+        "installedSkillSha256": "ac0ddc2ce5fc8cfc031efb89a9db9ff0a17f8a769c2e3bb690783e0476124059"
+      },
+      {
+        "schema": "artcraft-owned-desktop-first-use/v1",
+        "result": "PASS",
+        "skill": "artcraft-cli-revise",
+        "domain": "vectorcraft",
+        "emptyRuntime": true,
+        "standaloneSkillUnchanged": true,
+        "ownedProcessesStopped": true,
+        "ownedListenerVerified": true,
+        "sourceBundleSha256": "476ecd6449367e75500d56c0fb8c5918d17c365c29c2c39e062d6a58dd4a6a46",
+        "runtimeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+        "desktopBinarySha256": "46d7846a765dd0c2a64a72dea17796f49d725203d2c5d91c339432572048f856",
+        "bridgeUIInspection": null,
+        "operations": 6,
+        "nativeProject": {
+          "name": "project.vectorcraft",
+          "sha256": "1b85e7917d3d49252cca5c3a76f3377fd3c9218dfac109f8ea5a90f44761c770",
+          "bytes": 24237
+        },
+        "finalInspection": {
+          "artboards": [
+            {
+              "height": 64.0,
+              "name": "Artboard 1",
+              "width": 96.0,
+              "x": 0.0,
+              "y": 0.0
+            }
+          ],
+          "colorMode": "Rgb",
+          "currentLayer": 1,
+          "dirty": false,
+          "history": [],
+          "isolation": null,
+          "layers": [
+            {
+              "bounds": {
+                "height": 24.0,
+                "width": 24.0,
+                "x": 8.0,
+                "y": 8.0
+              },
+              "children": [
+                {
+                  "anchors": 4,
+                  "bounds": {
+                    "height": 24.0,
+                    "width": 24.0,
+                    "x": 8.0,
+                    "y": 8.0
+                  },
+                  "closed": true,
+                  "fill": "#ffffff",
+                  "id": 2,
+                  "kind": "Rectangle",
+                  "locked": false,
+                  "name": "<Rectangle>",
+                  "stroke": "#000000",
+                  "strokeOptions": {
+                    "align": "center",
+                    "alignDashes": false,
+                    "arrowAlign": "extend",
+                    "cap": "butt",
+                    "dash": null,
+                    "dashOffset": 0.0,
+                    "endArrow": null,
+                    "gradientMode": "within",
+                    "join": "miter",
+                    "miterLimit": 10.0,
+                    "profile": "uniform",
+                    "startArrow": null,
+                    "widthPoints": null
+                  },
+                  "strokeWidth": 1.0,
+                  "visible": true
+                }
+              ],
+              "id": 1,
+              "kind": "Layer",
+              "locked": false,
+              "name": "Layer 1",
+              "visible": true
+            }
+          ],
+          "objects": 2,
+          "paint": {
+            "appearanceItem": null,
+            "fill": "#ffffff",
+            "fillActive": true,
+            "stroke": "#000000",
+            "strokeWidth": 1.0
+          },
+          "pasteRemembersLayers": false,
+          "path": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/art-owned-desktop-first-use-40psavgw/output/project.vectorcraft",
+          "redo": [],
+          "revision": 1,
+          "selection": [],
+          "selectionBounds": null,
+          "target": null,
+          "title": "project.vectorcraft",
+          "tool": "freeTransform",
+          "units": "Pixels"
+        },
+        "scope": "one standalone Art skill, selected domain desktop cold install/native save/reopen/cleanup; not mixed DAG or exhaustive commands",
+        "pluginVersion": "0.1.0-dev.93",
+        "pluginCommit": "43660a61523ab947f31005e3a45e83600d33f0dc",
+        "sourceCommit": "12148f270e2ee4da9e2b907814fe901d67d66e23",
+        "installedSkillSha256": "1f14b7c7cb8406b2230fa34a2b14e2b1de28708b541b6b91683ac44625789d4d"
+      },
+      {
+        "schema": "artcraft-owned-desktop-first-use/v1",
+        "result": "PASS",
+        "skill": "artcraft-cli-setup",
+        "domain": "filmcraft",
+        "emptyRuntime": true,
+        "standaloneSkillUnchanged": true,
+        "ownedProcessesStopped": true,
+        "ownedListenerVerified": true,
+        "sourceBundleSha256": "8b52b2732a83af7ae0c47268e1a70d37708769878819e07142bda7996894632c",
+        "runtimeSha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433",
+        "desktopBinarySha256": "f47862a07ce43aa3d3bc14344dc2d9015cc3ca5a21f9868271007cba8f7f99fa",
+        "bridgeUIInspection": null,
+        "operations": 5,
+        "nativeProject": {
+          "name": "project.fcproj",
+          "sha256": "0eed45780700b180d5f54eae8d5c2e2138ebe20af72a35ed5e2917a6d934034b",
+          "bytes": 2002
+        },
+        "finalInspection": {
+          "activeSequence": 3,
+          "dirty": false,
+          "name": "project",
+          "path": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/art-owned-desktop-first-use-x3kdbfwu/output/project.fcproj",
+          "revision": 4,
+          "root": {
+            "children": [
+              {
+                "duration": 0,
+                "item": 3,
+                "label": "Forest",
+                "name": "Sequence",
+                "type": "Sequence"
+              }
+            ],
+            "id": 0,
+            "name": "project"
+          },
+          "sourceItem": null
+        },
+        "scope": "one standalone Art skill, selected domain desktop cold install/native save/reopen/cleanup; not mixed DAG or exhaustive commands",
+        "pluginVersion": "0.1.0-dev.93",
+        "pluginCommit": "43660a61523ab947f31005e3a45e83600d33f0dc",
+        "sourceCommit": "12148f270e2ee4da9e2b907814fe901d67d66e23",
+        "installedSkillSha256": "387d716ccff3e170a0fbd8d9dab49757d34cf97ee84d317aedb4f84babc91c46"
+      },
+      {
+        "schema": "artcraft-owned-desktop-first-use/v1",
+        "result": "PASS",
+        "skill": "artcraft-use",
+        "domain": "effectcraft",
+        "emptyRuntime": true,
+        "standaloneSkillUnchanged": true,
+        "ownedProcessesStopped": true,
+        "ownedListenerVerified": true,
+        "sourceBundleSha256": "6115471e6eff84d10608b9b126d121ee7953d6b647afc9dba97b246cdac6d3d0",
+        "runtimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "desktopBinarySha256": "e7db491a0b7af0a12977e32fa1da23490df8087f38a56c60a9ae2a7d914a22de",
+        "bridgeUIInspection": {
+          "activeComp": 1,
+          "dialog": null,
+          "elements": 150,
+          "fps": 109.58168029785156,
+          "pixelsPerPoint": 1.0,
+          "playing": false,
+          "renderMs": 0.182625,
+          "selectedKeys": 0,
+          "selectedLayers": [],
+          "time": 0.0,
+          "ui": {
+            "align_to_selection": false,
+            "anim_tools": {
+              "sketch_armed": false,
+              "sketch_background": true,
+              "sketch_smoothing": 1.0,
+              "sketch_speed": 100.0,
+              "sketch_wireframe": false,
+              "smooth_tolerance": 1.0,
+              "wiggle_dim": 0,
+              "wiggle_dims": "independent",
+              "wiggle_frequency": 5.0,
+              "wiggle_magnitude": 1.0,
+              "wiggle_smooth": true,
+              "wiggle_spatial": true
+            },
+            "cache_when_idle": false,
+            "dock": {
+              "Split": {
+                "a": {
+                  "Split": {
+                    "a": {
+                      "Split": {
+                        "a": {
+                          "Tabs": {
+                            "active": 0,
+                            "panels": [
+                              "Project",
+                              "EffectControls"
+                            ]
+                          }
+                        },
+                        "b": {
+                          "Tabs": {
+                            "active": 0,
+                            "panels": [
+                              "Composition",
+                              "Layer"
+                            ]
+                          }
+                        },
+                        "size": {
+                          "FixedA": 300.0
+                        },
+                        "vertical": false
+                      }
+                    },
+                    "b": {
+                      "Tabs": {
+                        "active": 0,
+                        "panels": [
+                          "Timeline",
+                          "RenderQueue"
+                        ]
+                      }
+                    },
+                    "size": {
+                      "Ratio": 0.5600000023841858
+                    },
+                    "vertical": true
+                  }
+                },
+                "b": {
+                  "Stack": {
+                    "entries": [
+                      {
+                        "height": 46.0,
+                        "open": true,
+                        "panel": "Preview"
+                      },
+                      {
+                        "height": null,
+                        "open": true,
+                        "panel": "Properties"
+                      },
+                      {
+                        "height": null,
+                        "open": false,
+                        "panel": "Align"
+                      },
+                      {
+                        "height": null,
+                        "open": false,
+                        "panel": "Audio"
+                      },
+                      {
+                        "height": null,
+                        "open": false,
+                        "panel": "EffectsPresets"
+                      }
+                    ]
+                  }
+                },
+                "size": {
+                  "FixedB": 300.0
+                },
+                "vertical": false
+              }
+            },
+            "effects_favorites": [],
+            "effects_open": [],
+            "effects_recent": [],
+            "effects_search": "",
+            "effects_view": {
+              "alphabetical": false,
+              "depth": "all",
+              "presets": true
+            },
+            "fill_color": [
+              0.23999999463558197,
+              0.550000011920929,
+              0.9599999785423279
+            ],
+            "floating": [],
+            "flowchart": {
+              "effects": false,
+              "layers": false,
+              "root": null,
+              "solids": true,
+              "vertical": false
+            },
+            "focused": "Composition",
+            "fx_closed": [],
+            "fx_curve_channel": {},
+            "fx_curve_pencil": [],
+            "fx_levels_channel": {},
+            "fx_pick": null,
+            "fx_slider_open": [],
+            "home_learn": false,
+            "home_templates": false,
+            "layer_panel": null,
+            "layer_view": null,
+            "locked_tabs": [],
+            "maximized": null,
+            "mini_flowchart": null,
+            "project_columns": [
+              "type",
+              "size",
+              "duration",
+              "fps"
+            ],
+            "project_hscroll": 0.0,
+            "project_open_folders": [],
+            "project_scroll": 0.0,
+            "project_search": "",
+            "project_sort": "name",
+            "project_sort_desc": false,
+            "saved_floating": {},
+            "saved_workspaces": {},
+            "scopes": {
+              "clamp": true,
+              "float": false,
+              "scope": "waveformRgb",
+              "standard": "rec709"
+            },
+            "script_console": {
+              "history": [],
+              "input": "",
+              "log": []
+            },
+            "show_menu_bar": false,
+            "slot_tools": [
+              "Selection",
+              "Hand",
+              "Zoom",
+              "Orbit",
+              "PanCamera",
+              "Dolly",
+              "Rotate",
+              "PanBehind",
+              "Rectangle",
+              "Pen",
+              "Type",
+              "Brush",
+              "Clone",
+              "Eraser",
+              "RotoBrush",
+              "Puppet"
+            ],
+            "snapping": true,
+            "start_screen": false,
+            "status": "",
+            "stroke_color": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "stroke_width": 0.0,
+            "theme": "Dark",
+            "timeline": {
+              "columns": [
+                "av",
+                "label",
+                "num",
+                "parent",
+                "switches"
+              ],
+              "columns_w": 560.0,
+              "expr_closed": [],
+              "graph_auto_zoom": true,
+              "graph_editor": false,
+              "graph_mode": "auto",
+              "graph_range": null,
+              "graph_reference": false,
+              "graph_show_selected": true,
+              "graph_snap": true,
+              "graph_transform_box": true,
+              "open_groups": [],
+              "open_layers": [],
+              "outline_scroll": 0.0,
+              "pps": null,
+              "reveal": [],
+              "reveal_props": [],
+              "scroll_y": 0.0,
+              "search": "",
+              "show_modes": false,
+              "source_name": false,
+              "start": 0.0
+            },
+            "tool": "Selection",
+            "tool_creates_shape": true,
+            "tracker_source": null,
+            "viewer": {
+              "channel": "RGB",
+              "custom_pasteboard": [
+                128,
+                128,
+                128
+              ],
+              "fast_preview": false,
+              "grid": false,
+              "guides": true,
+              "lock_guides": false,
+              "pan": [
+                0.0,
+                0.0
+              ],
+              "pasteboard": null,
+              "proportional_grid": false,
+              "res": "Auto",
+              "roi_draw": false,
+              "ruler_origin": [
+                0.0,
+                0.0
+              ],
+              "rulers": false,
+              "safe_margins": false,
+              "show_layer_controls": true,
+              "show_masks": true,
+              "snap_grid": false,
+              "snap_guides": false,
+              "transparency_grid": false,
+              "zoom": null
+            },
+            "workspace": "Default"
+          },
+          "window": [
+            1680.0,
+            934.0
+          ]
+        },
+        "operations": 6,
+        "nativeProject": {
+          "name": "project.ecproj",
+          "sha256": "e23d1f635a66806ca5390e630932de2a0b1d7a7d05e7d54210304510a14baaab",
+          "bytes": 36924
+        },
+        "finalInspection": {
+          "activeComp": 1,
+          "bitDepth": "8 bpc",
+          "dirty": false,
+          "items": [
+            {
+              "duration": 1.0,
+              "frameRate": 12.0,
+              "id": 1,
+              "label": "Sandstone",
+              "layers": 1,
+              "name": "Desktop first use",
+              "parent": null,
+              "size": [
+                96,
+                64
+              ],
+              "type": "Composition"
+            }
+          ],
+          "path": "/var/folders/_s/9_xnnkz141920t1yv5zhvd1r0000gn/T/art-owned-desktop-first-use-6wkkgicx/output/project.ecproj",
+          "renderer": {
+            "active": "gpu",
+            "adapter": "Apple M4 Pro (Metal)",
+            "gpuAcceleration": true,
+            "renderer": "Mercury GPU Acceleration"
+          },
+          "selectedLayers": [],
+          "time": 0.0,
+          "undo": []
+        },
+        "scope": "one standalone Art skill, selected domain desktop cold install/native save/reopen/cleanup; not mixed DAG or exhaustive commands",
+        "pluginVersion": "0.1.0-dev.93",
+        "pluginCommit": "43660a61523ab947f31005e3a45e83600d33f0dc",
+        "sourceCommit": "12148f270e2ee4da9e2b907814fe901d67d66e23",
+        "installedSkillSha256": "0aed6802efd4e69942269f7041785ed71f7804f497fd11151b74c86424ab0aef"
+      }
+    ],
+    "seconds": 566.412,
+    "scope": "ten fixed source67/plugin93 Codex-discovered skill copies, selected-domain desktop cold install/native save/reopen/owned cleanup",
+    "excluded": [
+      "all2639 commands",
+      "mixed GUI DAG",
+      "fullV1"
+    ]
   }
 }
