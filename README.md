@@ -1,3 +1,5 @@
+Every-skill cold first use: **64/64 passed** on macOS arm64 / Python3.13.5 (620.155s). Each single skill used its own empty runtime and default public downloads; locked native version and command discovery passed, installed hashes unchanged. Generic Skills CLI installation and complete V1 remain open. [Evidence](docs/evidence/craft-fixed64-every-skill-cold-first-use-20261007.json).
+
 Fixed ArtCraft97 / source71 acceptance: five public plugins expose 64 skills with zero loading errors; all64 copied-skill CLI probes pass (five fresh domain caches, subsequent reuse). Installed Art passes240 strict JSON rejection calls and cold native mixed creation/revision/crash recovery/portable delivery. Installed hashes remain unchanged. Generic Skills CLI and complete V1 remain open. [Evidence](docs/evidence/artcraft97-strict-plan-fixed-first-use-20261007.json).
 
 Published plugin: **0.1.0-dev.97**, immutable skill source **0.1.0-dev.71**. Ten Art skills pin Film/Effect/Vector source dev.28 and Photo dev.29, retaining runtime dev.83 and 2,646 classified commands. Candidate and fixed installed cold mixed workflows pass; complete V1 remains open.

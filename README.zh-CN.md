@@ -1,3 +1,5 @@
+逐技能独立冷启动：**64／64通过**（macOS arm64、Python3.13.5，620.155秒）。每个单技能分别使用独立空运行时与默认公开下载；锁定原生版本和命令发现通过，安装技能摘要不变。通用Skills CLI安装及完整首版仍开放。[证据](docs/evidence/craft-fixed64-every-skill-cold-first-use-20261007.json)。
+
 固定 ArtCraft97／技能源71 验收：五个公开插件发现64技能，加载错误0；64个独立副本CLI探测通过（五个新领域缓存，后续复用）。已安装 Art 通过240次严格JSON拒绝，以及冷原生混合创作、返工、崩溃恢复和移动交付验证。全部安装摘要保持不变。通用Skills CLI及完整首版门禁仍开放。[证据](docs/evidence/artcraft97-strict-plan-fixed-first-use-20261007.json)。
 
 已发布插件：**0.1.0-dev.97**，固定技能源 **0.1.0-dev.71**。十个 Art 技能固定 Film／Effect／Vector dev.28 和 Photo dev.29，保留 runtime dev.83 与 2,646 条分类命令。候选和固定安装冷启动混合流程通过，完整首版验收仍开放。
