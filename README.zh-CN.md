@@ -22,7 +22,7 @@
 
 固定发布安装验证：四领域插件 dev.29／ArtCraft dev.95，共 64 技能在隔离 Codex 0.147.0 中发现，零加载错误；64 独立副本 CLI 探测通过（五个新领域缓存），实际安装 Art 技能的四领域原生创建／返工／重开检查通过。发现 PhotoCraft 755 原生命令中有 7 条缺分类使用说明，待补齐；全量命令和完整首版保持开放。[证据](docs/evidence/craft-fixed64-first-use-20261007.json)。
 
-当前插件：`0.1.0-dev.97`；技能源：`0.1.0-dev.71`；runtime dev.83；Film／Effect／Vector 源 dev.28、Photo dev.29。本次分发升级固定安装验收通过。
+当前插件：`0.1.0-dev.98`；技能源：`0.1.0-dev.72`；runtime dev.83；Film／Vector源dev.28、Effect／Photo源dev.29。候选混合验收通过，固定安装待复验。
 
 历史发行记录：当前插件：`0.1.0-dev.93`；技能源：`0.1.0-dev.67`；runtime83；四领域source25分发及自有桌面交接。固定安装桌面首用待验收。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
 
@@ -133,9 +133,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.97 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.98 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.71 |
+| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.72 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

@@ -22,7 +22,7 @@ The current fixed candidate pins PhotoCraft source dev.28 with 2,646 domain comm
 
 Fixed installation verification: domain plugins dev.29 / ArtCraft dev.95 expose 64 skills in isolated Codex 0.147.0 with zero loading errors. All 64 standalone-copy CLI probes pass with five fresh domain caches; four native create/revise/reopen checks pass using the installed Art skill. Seven of PhotoCraft's 755 native commands still lack classified usage guidance. Complete command and V1 acceptance remain open. [Evidence](docs/evidence/craft-fixed64-first-use-20261007.json).
 
-Current plugin: `0.1.0-dev.97`; skill source: `0.1.0-dev.71`; runtime dev.83; Film/Effect/Vector source dev.28 and Photo dev.29. Fixed installed acceptance passed for the bounded release upgrade.
+Current plugin: `0.1.0-dev.98`; skill source: `0.1.0-dev.72`; runtime dev.83; Film/Vector source dev.28 and Effect/Photo dev.29. Candidate mixed acceptance passed; fixed installation remains pending.
 
 Historical release record: Current plugin: `0.1.0-dev.93`; skill source: `0.1.0-dev.67`; runtime83; All four source25 domain bundles; owned desktop handoff. Fixed installed desktop acceptance pending. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
 
@@ -135,9 +135,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.97 |
+| Plugin ID / version | artcraft / 0.1.0-dev.98 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.71 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.72 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |

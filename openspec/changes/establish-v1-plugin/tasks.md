@@ -330,3 +330,7 @@ SC-005 固定安装证据：`docs/evidence/artcraft97-strict-plan-fixed-first-us
 2026-10-07 专项补证：`docs/evidence/craft-fixed-additional-task-scenes-20261007.json`。新增多机位、时间文本转录、滤镜和Puppet四项固定安装原生验收通过，累计42项测试／41个领域场景技能；跟踪合成可渲染，但视频纹理未出现在预期像素且实际分析关键帧为0，未通过且保留失败回归。64个安装摘要保持。自动ASR、Art角色专项、实际Skills CLI及完整V1继续开放；未修改发行技能或原生运行时。
 
 2026-10-07 跟踪根因与固定安装复验：`docs/evidence/craft-fixed-tracking-supported-input-20261007.json`。原输入使用原生不支持的lossless transform bypass；受支持H.264 High下独立冷安装、参考像素、12个实际关键帧、应用与重开及控制对象保全通过，累计43项／42个领域场景技能。每种编码、全部跟踪命令、Art角色、通用Skills CLI及完整V1仍开放；指南更新尚为技能源候选。
+
+## Effect tracking guidance distribution / Effect 跟踪指南分发
+
+- [ ] [SC-006] Art 十个独立技能固定 Effect 技能源 dev.29 公开归档、逐文件摘要和不可变命令索引，保留 runtime83；发布后在固定安装副本复验冷混合工作流及分发身份。目录、源候选和固定安装分别记录，完整V1继续开放。

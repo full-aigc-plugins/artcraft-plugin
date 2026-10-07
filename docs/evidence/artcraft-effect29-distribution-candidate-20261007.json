@@ -1,0 +1,52 @@
+{
+  "schema": "artcraft-effect29-distribution-candidate/v1",
+  "result": "PASS",
+  "sourceCandidate": "0.1.0-dev.72",
+  "runtime": "0.1.0-dev.83",
+  "domainVersions": {
+    "artcraft-runtime": "0.1.0-dev.83",
+    "filmcraft-skills": "0.1.0-dev.28",
+    "effectcraft-skills": "0.1.0-dev.29",
+    "photocraft-skills": "0.1.0-dev.29",
+    "vectorcraft-skills": "0.1.0-dev.28"
+  },
+  "distributionLockSha256": "1324bac18d1f7c45238dcf18c47163b8041967ad1fcb96d4c0b76f973c0989e9",
+  "effectArchiveSha256": "f1e7040db932a32b3d9df4cefc30279d4c08c5450db1a7b276647c15adaaad2e",
+  "effectSourceCommit": "444ed7fda07a7ea212010458a04502c2a52fb1f6",
+  "effectArchiveFiles": 876,
+  "domainIndexSha256": "5c36fff86959ea1733270bcf7c35a0e384084fc650e975180f5c146a8191a999",
+  "regression": {
+    "tests": 136,
+    "passed": 104,
+    "skipped": 32,
+    "seconds": 38.271
+  },
+  "onlineFirstUse": {
+    "command": "CRAFT_LIVE_TEST=1 CRAFT_ONLINE_FIRST_USE=1 python3 -B -m unittest discover -s tests -p test_workflow_first_use.py",
+    "tests": 3,
+    "nativeWorkflowTests": 1,
+    "contractTests": 2,
+    "skipped": 0,
+    "seconds": 143.962,
+    "driverSha256": "66ffd8fe31a3d23e4207a7ddcdfb290dc2451938388bc7beb85ef0e3cc756a91",
+    "scope": "single copied source candidate, fresh public runtime/domains, four native projects, source revisions/reuse, receipt mismatch rejection and moved delivery"
+  },
+  "redBeforeChange": {
+    "test": "test_distribution_protocol.py",
+    "failedSubcases": 10,
+    "reason": "Effect source28 versus expected29"
+  },
+  "checks": [
+    "immutable tag catalogs verified",
+    "ten skill resources synchronized",
+    "10 skills carry Effect29 lock with15 tracking guides",
+    "SKILL command count corrected to2646"
+  ],
+  "excluded": [
+    "fixed plugin installation until published and revalidated",
+    "role-specific Art acceptance",
+    "generic Skills CLI",
+    "all command contexts",
+    "fullV1"
+  ]
+}

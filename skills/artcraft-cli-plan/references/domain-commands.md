@@ -30,3 +30,9 @@ English: list/describe are offline. check/run install the selected fixed domain 
 `usageRecipes` 路径相对于安装回执的领域 `skillRoot`，不能相对于 Art 技能根目录解析。高级外观DAG用法见当前技能内 [Vector外观](vector-appearance.md)；使用领域本身技能可安装 `npx skills add full-aigc-skills/vectorcraft-skills --skill vectorcraft-cli-appearance`。
 
 父级与表达式DAG见本技能的 [Effect表达式指南](effect-expression.md)。使用领域独立技能可安装 `npx skills add full-aigc-skills/effectcraft-skills --skill effectcraft-cli-expressions`。usageRecipes仍属于领域安装回执skillRoot。
+
+## Effect 跟踪输入与结果 / Effect tracking input and result
+
+分发锁固定 Effect 技能源 dev.29，含 `motion-tracking.md`。普通 H.264 High 位置跟踪已验收；无损 transform bypass 输入不受原生0.2.0解码器支持。检查原生源像素及 `track.status.tracker.points[].keys`，不能把计划帧数或 stopped 状态当作成功。应用后保存重开并核对目标位置和控制对象。领域专项交给 **effectcraft-cli-tracking**；独立安装命令：`npx skills add full-aigc-skills/effectcraft-skills --skill effectcraft-cli-tracking`。
+
+The pinned Effect source dev.29 includes the [tracking guide](https://github.com/full-aigc-skills/effectcraft-skills/blob/444ed7fda07a7ea212010458a04502c2a52fb1f6/skills/effectcraft-use/references/motion-tracking.md). Inspect actual source pixels and point keys, then verify applied target positions after reopening. Planned frame count and stopped execution are insufficient. Lossless transform-bypass input remains unsupported; preserve the original asset and only create an authorized separate proxy.
