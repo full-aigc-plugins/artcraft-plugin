@@ -19,3 +19,5 @@ flowchart TD
 十个独立技能各自携带镜像入口和恢复说明。测试先暴露字段缺失，再校验保存与返回一致、仅调用一次运行时以及普通输入错误不伪造回执。候选公开下载worker故障测试验证三次结构化等待观察，原生启动一次且保全原产物。固定插件101／源75发布、隔离宿主安装、十技能冷启动及原生安装验收分别执行。
 
 [Candidate evidence / 候选证据](evidence/artcraft75-structured-workflow-receipt-candidate-20261007.json).
+
+固定插件101／源75现已通过隔离宿主64技能发现、Art10项独立冷启动、原生混合流程及两个归档合同、原生worker故障结构化回执门禁。64个安装摘要保持。64项冷启动记录按精确摘要组合未变领域运行与新Art10运行。error字符串和非零退出保持兼容，不自动释放或重放未知任务。 [Fixed evidence / 固定证据](evidence/artcraft101-structured-workflow-receipt-fixed-first-use-20261007.json).
