@@ -24,6 +24,8 @@ python3 -I -B "$SKILL_DIR/scripts/cli.py" -- --help
 
 固定安装路径验收：独立技能及 Art 混合工作流在含中文和空格的路径下，通过原生创建与重开、定点返工及导出；Art 另验证移动交付包。技能与运行时身份保持不变。该结果仅覆盖 macOS arm64 的本次首次使用场景。 [路径验收证据](docs/evidence/craft-fixed-unicode-path-first-use-20261007.json).
 
+源码修复候选：结构损坏的 runtime／Node 锁在写运行时目录或下载前返回本地恢复诊断。五项候选原生首次使用通过；发布插件快照保持不变，新不可变发行安装需另行验收。 [锁诊断候选](docs/ArtCraft-Lock-Shape-Architecture.zh_CN.md).
+
 ---
 
 Art完整领域命令组件候选已支持2639条离线查询、实际MCP schema及只安装选定领域的公开交接。四域冷安装创建／重开／返工与目标／对照像素通过；固定安装6.50及DAG原生交付6.51仍开放。 [Evidence](docs/evidence/art-complete-domain-component-candidate-20261007.json).

@@ -1,0 +1,3393 @@
+{
+  "schema": "craft-candidate-lock-shape-diagnostics/v1",
+  "result": "PASS",
+  "releaseStatus": "source candidate; no new immutable source or plugin release; installed snapshots still previous versions",
+  "red": [
+    {
+      "domain": "filmcraft",
+      "redLogSha256": "91ade28a62b159b6b5acaec4c2f4177ccf08c44a6ab0394bc6662936ade59f00",
+      "failures": 12,
+      "targetBehavior": "Malformed lock reaches traceback or wrong diagnostic; selected wrong digest type can reach download before rejection."
+    },
+    {
+      "domain": "effectcraft",
+      "redLogSha256": "31c6bafa8649ce58bb452abecb4bc0bbff9cad588961969a5f2f198213e811ca",
+      "failures": 12,
+      "targetBehavior": "Malformed lock reaches traceback or wrong diagnostic; selected wrong digest type can reach download before rejection."
+    },
+    {
+      "domain": "photocraft",
+      "redLogSha256": "b4c9b8d8e653db3ac504c08f8cab5b1c9bc1a61c0881bab7b8b674cac685c313",
+      "failures": 12,
+      "targetBehavior": "Malformed lock reaches traceback or wrong diagnostic; selected wrong digest type can reach download before rejection."
+    },
+    {
+      "domain": "vectorcraft",
+      "redLogSha256": "83639c97a305eac15c5c1af3c2807a4a7a9abdafae6b2f1c5f461959b202b248",
+      "failures": 12,
+      "targetBehavior": "Malformed lock reaches traceback or wrong diagnostic; selected wrong digest type can reach download before rejection."
+    },
+    {
+      "domain": "artcraft",
+      "redLogSha256": "d846aca0600b56fbd9105692dc03a0037ac8386e3614059c52b836632e6b92a3",
+      "failures": 8,
+      "targetBehavior": "Malformed lock reaches traceback or wrong diagnostic; selected wrong digest type can reach download before rejection."
+    }
+  ],
+  "all64PublicDiagnostics": {
+    "schema": "craft-candidate-all64-malformed-lock-diagnostics/v1",
+    "result": "PASS",
+    "skills": 64,
+    "publicCalls": 256,
+    "records": [
+      {
+        "plugin": "filmcraft",
+        "skill": "filmcraft-use",
+        "candidateOriginalSkillSha256": "82c309919a7844f63ecf79896aeb55e581d51926a1878b672052e92404d508e4",
+        "corruptedCopySha256": "b67cc73b58ddbf40b06dc12873c184135d52f2d074c8f689ae92ac843437e0ae",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "filmcraft",
+        "skill": "filmcraft-cli",
+        "candidateOriginalSkillSha256": "8750ae344bdf2ca44213eb12bbfbd8cdcdb65cf8ffef478db35caa49d1142cf1",
+        "corruptedCopySha256": "272a426d967cfecf9d5845926c49c4a3fc9f8ae0513902439fcbbd25bfb10bf4",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "filmcraft",
+        "skill": "filmcraft-cli-setup",
+        "candidateOriginalSkillSha256": "691dc220b20c1121cbfdc5cb60e7f9ea270a969336c1ec77d2ad6c56cae01807",
+        "corruptedCopySha256": "4a2de047c1b708106d5122b5293a4ca3d3546626517c38681343a093515c8bee",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "filmcraft",
+        "skill": "filmcraft-cli-project",
+        "candidateOriginalSkillSha256": "7883b421a2f300b5ae733cf67bf95bfecbfde5e0f713b753b6e0998182fd7a60",
+        "corruptedCopySha256": "824249a30741f63b295130a4799efe9792bbd05ef1511f08ecb2b66f2931531f",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "filmcraft",
+        "skill": "filmcraft-cli-media",
+        "candidateOriginalSkillSha256": "ad9a2c79f7b20abafddd9397c4280c3a885cc501bdb3f97e868379523fa36af3",
+        "corruptedCopySha256": "b5863f2fe1b5a8bfe541b2838a533d11a41647b2ac8959d8b8ff64659de4bd49",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "filmcraft",
+        "skill": "filmcraft-cli-timeline",
+        "candidateOriginalSkillSha256": "568751337b036b090822470b41f08bb9dec40d0f9c2abe5c41f544a27e52e552",
+        "corruptedCopySha256": "762ad99ae22c36bc053886498c257eafce25c22b1ad1b2f097047a514755fae0",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "filmcraft",
+        "skill": "filmcraft-cli-audio",
+        "candidateOriginalSkillSha256": "9a1f7968edf7e419f9a7d77337e4ecadbcb3b1f947274a9554c3606e76ebb786",
+        "corruptedCopySha256": "8d3948d82b5937d9fbc5bfe47fc41b4d77b037db4d23aaebcb1fcedb723e3379",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "filmcraft",
+        "skill": "filmcraft-cli-subtitles",
+        "candidateOriginalSkillSha256": "a7f4a6d2ed21b9b5af5b8776db610df1db5485c16b3fa425c1c5f6510fe46e5d",
+        "corruptedCopySha256": "14d77420c86ab2dbe1d3430ffc071a7ead6c3cb736a93fe5947b40a8cc6d8d1e",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "filmcraft",
+        "skill": "filmcraft-cli-color",
+        "candidateOriginalSkillSha256": "aa679fb4a08bca413ebddcdefca704400763db1880a222751605791a349b2b8e",
+        "corruptedCopySha256": "1f19595b5053eedf8dea6280833533a745da95a341513911bd5be965240e2df0",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "filmcraft",
+        "skill": "filmcraft-cli-motion",
+        "candidateOriginalSkillSha256": "e2668d712978c63b1901e047251523ffb3efff22219615d8ce4e39c019e3d681",
+        "corruptedCopySha256": "111430db3e3a4754560810d9cfde8d94af5349d8fcfdfeeb7843c95644c06a6f",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "filmcraft",
+        "skill": "filmcraft-cli-export",
+        "candidateOriginalSkillSha256": "b4c56335945a70d710c2e85c268f8bcf9957776d89e9d1b8718d04e205dad7e3",
+        "corruptedCopySha256": "8e0e9f335a5dc7ae93c4a0463dc5975db28fb76b3719f04aaaab1a71ee6b55dd",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "filmcraft",
+        "skill": "filmcraft-cli-multicam",
+        "candidateOriginalSkillSha256": "d07ee0ad17f583d09d966cb0fb37c08ee18c995f0c4c02efb7cb447a6b3c73c7",
+        "corruptedCopySha256": "2c70ea00647d47ab65d8155b5fe180da7334d025e7cd96e476ae0a846447546b",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "filmcraft",
+        "skill": "filmcraft-cli-transcript",
+        "candidateOriginalSkillSha256": "0d963b87cd2889e499ddba36981056ee989bce05d5ac635ad664d65f3e673f64",
+        "corruptedCopySha256": "e94cf255ef925ca7f92f0f9a2af31b1b02a1de41c3007fcd7e566ea2141f4f7c",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "effectcraft",
+        "skill": "effectcraft-use",
+        "candidateOriginalSkillSha256": "a0bf5e7089140de67788f20333ab2010aea1b58adcb772b6f94810e96b0fb5ae",
+        "corruptedCopySha256": "5dce8b7e1decc0057cc4b72871a72854e4096909063f444a150b93d3afe3cb27",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "effectcraft",
+        "skill": "effectcraft-cli",
+        "candidateOriginalSkillSha256": "97a7933e804746ae811fb9a165e5b7c20bcd3987c47f00144547f077bda111a5",
+        "corruptedCopySha256": "8d7e4a2253e2e17770a8f0eeb6e25221039f6433ae94aea42d032dbe04a5da79",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "effectcraft",
+        "skill": "effectcraft-cli-setup",
+        "candidateOriginalSkillSha256": "543aae8cbaea6f28d08179056dc91a080079778bc7f9e8eca9f5dfe07f70f165",
+        "corruptedCopySha256": "3bba528104640adfcb4e54445d8b61930e8b13102cb4063ae9f9f8b1f85366b2",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "effectcraft",
+        "skill": "effectcraft-cli-project",
+        "candidateOriginalSkillSha256": "d9723629f87b5ba4cc8a09e6a477852f0d345dc30a33906749e69951407c3ac2",
+        "corruptedCopySha256": "015a351fd48126f9e5ee956babc35889ed49afd73d46e18a03308f4a1c8ffdb2",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "effectcraft",
+        "skill": "effectcraft-cli-footage",
+        "candidateOriginalSkillSha256": "d55b7e53a50046e44614d44a99d3227fc6a3525c65c50dbc9f9f5f58e12ca6f9",
+        "corruptedCopySha256": "62dfa765fb24295aca2d9a77e650cec7aab63bf14f636af515d8a59aab153595",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "effectcraft",
+        "skill": "effectcraft-cli-composition",
+        "candidateOriginalSkillSha256": "2c8403f1fee3ba184dceeb628b377e6d45c90ef16301bb7f71fd27668e6a645c",
+        "corruptedCopySha256": "cde11478c26db6b917f68ef365d6604bd9d07e032b2dd0a6eacf5e6d0e5be8ab",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "effectcraft",
+        "skill": "effectcraft-cli-layers",
+        "candidateOriginalSkillSha256": "ac3761ed0cc114711ea7d0a1db7767b5fef89c730d26109a3d9ca804152ad3a0",
+        "corruptedCopySha256": "7ff8982ad9b6dbc4e0c6bcb76e267561b265c271b863521e9901ca3410e8ae9f",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "effectcraft",
+        "skill": "effectcraft-cli-animation",
+        "candidateOriginalSkillSha256": "4aedb4c0ae35dd39b40123fe37f352ba7855b48c0c834370b52ed02144e36911",
+        "corruptedCopySha256": "07f7ff347fbafdb1cc17d9e8b50cc9c5113dafe7c6ae38441ec74cedbdaf33e5",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "effectcraft",
+        "skill": "effectcraft-cli-effects",
+        "candidateOriginalSkillSha256": "6908163450deb75343812bcea956d775246f42b5ed1e27783af86616fbfbdbed",
+        "corruptedCopySha256": "35311e6c77837bd02b585ee74455e51626afe171305846f6150902d4aab747d7",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "effectcraft",
+        "skill": "effectcraft-cli-masks",
+        "candidateOriginalSkillSha256": "a5af1a1439becaa85802bf78e85ddf55afc46ec43142c862b541eb593f824e7e",
+        "corruptedCopySha256": "3932f2fe5e9199a8759246cc4211c12ec10f71b0de574486517e411fb584a417",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "effectcraft",
+        "skill": "effectcraft-cli-expressions",
+        "candidateOriginalSkillSha256": "292411d38174b9f0f579b9ff410fe91cc6494ac1357df49dd4cfc06e14daa28d",
+        "corruptedCopySha256": "b0395c2ce61c09c79cbb629be2ff397b0833dbeb4f83b7c84fb674aa3bb8135e",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "effectcraft",
+        "skill": "effectcraft-cli-camera",
+        "candidateOriginalSkillSha256": "8b1b6cc758da5b505c06dac785d278b27bbdbfaf491dcae1f7879756c76e9599",
+        "corruptedCopySha256": "0e03d98bd38e508fa39c68c27c64b8de8974fe1be764cb33ad7eb22aebee0a83",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "effectcraft",
+        "skill": "effectcraft-cli-export",
+        "candidateOriginalSkillSha256": "aa5acf1698c4f21c99f07ab5a747d9184a248be4172b3ca99cd35eef8ef41a3f",
+        "corruptedCopySha256": "86907309a194e6a99c136e0dc175faf7935bceee5404ff4cad239b9da8ea2534",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "effectcraft",
+        "skill": "effectcraft-cli-tracking",
+        "candidateOriginalSkillSha256": "7f05ce2e3fb0381f11ac4e3d49b4f4e37265f1cd74e2c9efbe7e50cbaaa0f48c",
+        "corruptedCopySha256": "b73baf70c64581c13e7188b308038f7b759042c7d7f568352613f03cc3623923",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "effectcraft",
+        "skill": "effectcraft-cli-puppet",
+        "candidateOriginalSkillSha256": "a44bb1ce100267f4974e1dac5c8fc03ba41ad8ccde6b0bd0b1bed20feba8a2a4",
+        "corruptedCopySha256": "725b75884bf29cd7a1210fb47586b80e4d39f21b9ac8d09abdec8f89d820b75c",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "photocraft",
+        "skill": "photocraft-use",
+        "candidateOriginalSkillSha256": "6b0daeee2ef9c187d6ad29234fe21d99dcf54622e4c83425933f6f23beb2f6fd",
+        "corruptedCopySha256": "bd9eba8986a7170ba28390ec913dc4d8c18140ddafa3e9511d2501feaedd2a7b",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "photocraft",
+        "skill": "photocraft-cli",
+        "candidateOriginalSkillSha256": "eb8725a257e6a633ff57447df80d4b8e3fa7978a6b2736257602e1fca613b81a",
+        "corruptedCopySha256": "26eb6df9e3b4aaf9def54a4e8b80c44ef2b1b1fd873cff0069ef49591260675f",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "photocraft",
+        "skill": "photocraft-cli-setup",
+        "candidateOriginalSkillSha256": "c31681375904a0a32c12aa7d437761cc456ab4cbd5d842ddab627ca2ac95dc20",
+        "corruptedCopySha256": "6ad48342b38aed48e84f1fa72bdbb8c1f0c1dccc0603bd290efa1f164edd4e5d",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "photocraft",
+        "skill": "photocraft-cli-project",
+        "candidateOriginalSkillSha256": "ad6161e28899dccfb9c068f2516b27155c9fecdcc66a77dd17b5e165cbb57bce",
+        "corruptedCopySha256": "0cf0b407d827dfe8a91627bb8aa878f4df598acfaad19056b51b43021b70c9a1",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "photocraft",
+        "skill": "photocraft-cli-layers",
+        "candidateOriginalSkillSha256": "fa96e857fb447c3283692e2c2fcdd9f3301ee9d637e980d4dec835641eaabe44",
+        "corruptedCopySha256": "e5e79e0b3dc58c5e4b2a95d2eb94c4462415d8795e94dbc247d7515902560210",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "photocraft",
+        "skill": "photocraft-cli-selection",
+        "candidateOriginalSkillSha256": "96037ca90c0fb666f7be2d8261c42cbb1d1493c1112764ed4d5d06e66edd8566",
+        "corruptedCopySha256": "8aec17aa945f6cc2bf5630499442f83a8dd826d0766026898aab99157f35b30c",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "photocraft",
+        "skill": "photocraft-cli-masks",
+        "candidateOriginalSkillSha256": "e840fd51e5fa1f313bd54f4b36a3fa226cb5042bf01cf9584901a7beb9b1d14a",
+        "corruptedCopySha256": "ddb43d096e307b45641dca70a59c6bf424615b57b277c62353dcbf84497d57a9",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "photocraft",
+        "skill": "photocraft-cli-adjustments",
+        "candidateOriginalSkillSha256": "f50e6d8809791d949ded604e7449c5c301645c16431dd2a90c8cfad0eafb7a8a",
+        "corruptedCopySha256": "cf142d6d2f56678f3f63d64c3d0a9afac7200a2a5075ee018f08cba204c603dd",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "photocraft",
+        "skill": "photocraft-cli-retouch",
+        "candidateOriginalSkillSha256": "5a2169ddff3020e40bca55ba75800844a474b5177a69575399cd45be37579510",
+        "corruptedCopySha256": "0a088c6b24f9d64328d2a035d2953d163cd52ff7f34e31207a2647e0814c4828",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "photocraft",
+        "skill": "photocraft-cli-text",
+        "candidateOriginalSkillSha256": "457db9c042b7e5e32510bccda018b94cf3475d6e7758c75a574722718f030851",
+        "corruptedCopySha256": "928182fb044ece6dc353bc51082cab4ea6f537926eb8edecd123c25b46ce0be2",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "photocraft",
+        "skill": "photocraft-cli-resize",
+        "candidateOriginalSkillSha256": "18394c7ebf2bf18f7bb20ad5e9f349733623121b492e30b792b6e8d1378737c1",
+        "corruptedCopySha256": "0a79bbeecd42116fc46af28fdec17835c48d7191d996f22796ff14f8b512ce73",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "photocraft",
+        "skill": "photocraft-cli-export",
+        "candidateOriginalSkillSha256": "1f7f4e40fb7902cc3198aaa243cb6a702fbaa5030f516533dceb46bb84ade4ca",
+        "corruptedCopySha256": "34305b5ba698ae712b8ac9f8b39eafd9ee803fcb09197075905b9003fdca9a4b",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "photocraft",
+        "skill": "photocraft-cli-filters",
+        "candidateOriginalSkillSha256": "2725fa0f61a5d893b5fb3b8a3db16d31944285dd3e90e8f665ee335fe058c9f3",
+        "corruptedCopySha256": "e03ddafc731459be3948bcd6fda911d65fd1db9bbb9b71bbbc763556bde6a191",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "vectorcraft",
+        "skill": "vectorcraft-use",
+        "candidateOriginalSkillSha256": "251d3f4ab3b8af3c3da4f40028d975e28598e96add4a28c046e50b43f66f1d89",
+        "corruptedCopySha256": "d47f10f93aace8c70d72d0bce885acb91a821a0ca03ae4a2800ff0c12dc9e807",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "vectorcraft",
+        "skill": "vectorcraft-cli",
+        "candidateOriginalSkillSha256": "db16523fd6bb3f23f5da962f744e91f009879c4184a9aff37c74ff10dfaafa49",
+        "corruptedCopySha256": "30e45846fddd921dd77d85d2151914da9498a6e5c6a536fe1e4a55428c414190",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "vectorcraft",
+        "skill": "vectorcraft-cli-setup",
+        "candidateOriginalSkillSha256": "6060a2f644086128d6d6312bc5c62185b802c614374139d2af3a1822255fa915",
+        "corruptedCopySha256": "5817d783b31ff5b773378ff331c494e35af4d9fc1147198beadb549c32edd44d",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "vectorcraft",
+        "skill": "vectorcraft-cli-project",
+        "candidateOriginalSkillSha256": "ef66522b7d91c766cbce2b550c385c23236b60c2a7382e8c84b842ff70781732",
+        "corruptedCopySha256": "0385b73c5f4e32cfef7012e288bf7b30c2a4ad01f9d20a56941cfe074dcb07e6",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "vectorcraft",
+        "skill": "vectorcraft-cli-paths",
+        "candidateOriginalSkillSha256": "ccd9a42beec98a818ac75207b830a9a7d58e69a7ba4741e177aca42a007f29cf",
+        "corruptedCopySha256": "19b6010a02ea3497889b854902fd340b007b1d790381c6cf0c1aec14bdd007f0",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "vectorcraft",
+        "skill": "vectorcraft-cli-shapes",
+        "candidateOriginalSkillSha256": "50f4319013d634f0fe8bd6364c10ec13f73f4a14990540293c0017a1fad76fd5",
+        "corruptedCopySha256": "fbd640f526d038dc3d1980554571b1d250a807852e0fea97901cb3873f85e582",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "vectorcraft",
+        "skill": "vectorcraft-cli-boolean",
+        "candidateOriginalSkillSha256": "b3b38eec6bc64459514c4b0ae8885f2e1b57645a0b4a05d1d8a96240984df185",
+        "corruptedCopySha256": "1e47d37a160dba7f2d002b02f06d26c8fd602ac4000622a38ee1ff69839382d8",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "vectorcraft",
+        "skill": "vectorcraft-cli-text",
+        "candidateOriginalSkillSha256": "927d86d51016cd5317559f636c82d64d12ebad6cdaf88e156f05dbd72f36d5ec",
+        "corruptedCopySha256": "90dd79b3e2341665dc908ba77a86c998f863c7b2eee31d639e647af7abd0dbd9",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "vectorcraft",
+        "skill": "vectorcraft-cli-appearance",
+        "candidateOriginalSkillSha256": "9bbabd93525e6e8e333effa90a5ee20bb3064203788feea8781b6cb9a8697144",
+        "corruptedCopySha256": "f16574678a1f6cb45c9e3c1121bca302d90c0b000545d068616bc902be25e3ac",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "vectorcraft",
+        "skill": "vectorcraft-cli-artboards",
+        "candidateOriginalSkillSha256": "cae8b443d45154a4e6ae709d2880294f326a151faeddddc8e4d3cb7b5f431b4d",
+        "corruptedCopySha256": "82515a74aac9dc4bfeb3447a9008c43d9eb99e1c09583ab37807cc0233dbad8b",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "vectorcraft",
+        "skill": "vectorcraft-cli-assets",
+        "candidateOriginalSkillSha256": "8ba9814dafaf1401262b591048fe86eb6bed7d6582ddcc5da3ce033d919a933e",
+        "corruptedCopySha256": "0cc4a66b0f774141d3f34b66e02fb8e6c99dc3d2e4bedb6a61f6b14c92d8f54e",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "vectorcraft",
+        "skill": "vectorcraft-cli-export",
+        "candidateOriginalSkillSha256": "4f23fa20c0f346f0c79dc13303b17f36f907b0c96b9b57dc56da840dd4e5e80a",
+        "corruptedCopySha256": "1bace4ee376e91d956ee855f34073932a9bcd577701c686e7ae4b80f1b9526b0",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "vectorcraft",
+        "skill": "vectorcraft-cli-selection",
+        "candidateOriginalSkillSha256": "f690b3daf143bb507e553a770974963abd68593f6aedf400a26fa84bbc37ece4",
+        "corruptedCopySha256": "6787f24d2b78e2ca60d90063f67e30323fb1542e572ac1fc54bce00bff52d7fe",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "runtime_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-use",
+        "candidateOriginalSkillSha256": "3b94e294b91047f23cb7b18c171c8f9e34677bfa707ab524105cceb0398c31eb",
+        "corruptedCopySha256": "d59bd8cd9f57d867a0bc8ff93ea3f1f24ede310d875a46001a63b1229a02c6e8",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli",
+        "candidateOriginalSkillSha256": "fce087c5a43784e7b3cf6b888e5510a2bb1a5877bcb1191ce8a05a0fd3928b8b",
+        "corruptedCopySha256": "4ef8581bb11687d7a65ad3205655418b651a1d153336951f81e8470f04bec66a",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli-setup",
+        "candidateOriginalSkillSha256": "df031a7ce41fc8263c3c0040a29b7f451f32987980984574dae553102c1f463b",
+        "corruptedCopySha256": "a068c3c8419ca78f62e2e5ea89235c5541046bbbf070ca85f1a1d36667b1c318",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli-plan",
+        "candidateOriginalSkillSha256": "f627ca9538ff2536a750b3be6413f52cac6c12497f1bc5ad7fa71776b5c49e9e",
+        "corruptedCopySha256": "6e30004c1b42158fba5dbfbcd72cbc819976628f5a77c5525fbf01dc57e6bd62",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli-execute",
+        "candidateOriginalSkillSha256": "e43f3ab5b52cc899ac06bba6130d91ca9f7e026eb3ef4e482d830f130cd54785",
+        "corruptedCopySha256": "cbcd224c18921884cfb6c7ea4f5852a06aea05044974f0cef6d9e4ac3753314b",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli-assets",
+        "candidateOriginalSkillSha256": "fb8bb15b20456d9b697a78ddea2cc45960d694a363b0f97dc00b6e4e4c79d6ea",
+        "corruptedCopySha256": "a868e1a64e0a6a19e13560c6bcc164ed914c2b5d39ba228b0c5ccfc5e3e2da85",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli-revise",
+        "candidateOriginalSkillSha256": "b7ec67b3cdbf79d92570c521cf67e148c6dbac1ab1da29666d72845cb6c2bbbf",
+        "corruptedCopySha256": "235a41c81e37762a575cf69ec65515a7173d57dc5a27e6896c8addde1b8948eb",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli-recover",
+        "candidateOriginalSkillSha256": "0532c3d6611ef7b09b8b28173c4e5fb92d64e83f720984dd790978f36f0b7e9d",
+        "corruptedCopySha256": "748e91dbc4e24e7d4de762ef47f4f3815d585a81be81d5a866a44fef2e8cafda",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli-deliver",
+        "candidateOriginalSkillSha256": "ae53191ca2570cea7b232dd4e28c0b1771fda3e7a3dd01fb3012da0b84a2f999",
+        "corruptedCopySha256": "3bf1121978529d003e4b1572a33abe8f0ca38209bfbbdfd17b4ec97750f3429d",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli-review",
+        "candidateOriginalSkillSha256": "8058e459be735521c2e67f658cdcdb434db4c37bf5b6b24199970f33b8c8edd0",
+        "corruptedCopySha256": "3786f28e827e1bc3688e471f2f1830a4c97c1368e48497f684f91c080be2ec5b",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "node_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      }
+    ],
+    "scope": "Candidate source copies only; syntactically valid null runtime/Node locks; both bootstrap and CLI, absent and pre-existing runtimes. No original source, runtime or published skill mutation.",
+    "excluded": [
+      "Published fixed installation acceptance",
+      "All other malformed field combinations; separate use-skill matrix tests",
+      "Native healthy installation; separate candidate tests"
+    ]
+  },
+  "nativeCandidateFirstUse": [
+    {
+      "domain": "filmcraft",
+      "run": {
+        "domain": "filmcraft",
+        "exitCode": 0,
+        "seconds": 31.125,
+        "driverSha256": "23cf7a7653b6f1899f163882daf3e93335ca8e9217c872dc48ab64633fb4d604",
+        "candidate": true,
+        "publishedPluginAcceptance": false
+      },
+      "observations": {
+        "domain": "filmcraft",
+        "result": "PASS",
+        "pathCase": {
+          "unicodeAndSpaces": true,
+          "skillName": "single-skill",
+          "parentName": "首次 使用 中文路径",
+          "runtimeInitiallyAbsent": true,
+          "offlineOverridesExcluded": true
+        },
+        "guardRecords": [
+          {
+            "identity": {
+              "inputHashes": {},
+              "planHash": "2623a74cb61d43993cf4c0c670a70629d3f502e969e7824127d74fb888f0d53a",
+              "projectRevision": "b8a210e52edbe7df20767c5de077daf3fb802cb06c824f85e13cf8e69bb77c38",
+              "runtimeSha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433"
+            },
+            "ownerPid": 45247,
+            "replayAllowed": false,
+            "schema": "filmcraft-output-execution/v1",
+            "state": "finished",
+            "targetHash": "95b55f91e602cf58775b2694561241b87cb97d6e57a746fbd924a1cbd7d5160c"
+          },
+          {
+            "identity": {
+              "inputHashes": {
+                "still": "f7c0fc9fd825f0a537427adb1869dddf4af96fb260e26cbf3d2a49edfd487c47"
+              },
+              "planHash": "5daeb803a9e76b0db1903dbd66164e1ca33b280f09f57d73aa35a9bb67f8f503",
+              "projectRevision": null,
+              "runtimeSha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433"
+            },
+            "ownerPid": 41098,
+            "replayAllowed": false,
+            "schema": "filmcraft-output-execution/v1",
+            "state": "finished",
+            "targetHash": "10236f53c629408a4481a5d871593a75655c2ae2f96deffac5dd585dbaf623c5"
+          }
+        ],
+        "workflowSha256": "d073060b7f7ccc25dae89f18061bca5526f56c3bd461eab41d38606739381f77",
+        "guardSha256": "5555f0560d956678a38a2753ea0f7746fba69401940b25b49a81d3a03f4e315c",
+        "entrySha256": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116",
+        "projectSha256": "b8a210e52edbe7df20767c5de077daf3fb802cb06c824f85e13cf8e69bb77c38",
+        "revisionSha256": "e626792a78af9d7e63736a79ea7f15dfbe46a6cf434fe4848bdfdb084fbea6a2",
+        "scope": "source candidate single-skill cold native workflow delivery/revision; no full DAG acceptance"
+      }
+    },
+    {
+      "domain": "effectcraft",
+      "run": {
+        "domain": "effectcraft",
+        "exitCode": 0,
+        "seconds": 40.86,
+        "driverSha256": "a2a351f33b169f85669d1ab800880b4f66e2f721a0e756f9043dc747445b8de3",
+        "candidate": true,
+        "publishedPluginAcceptance": false
+      },
+      "observations": {
+        "domain": "effectcraft",
+        "result": "PASS",
+        "pathCase": {
+          "unicodeAndSpaces": true,
+          "skillName": "single-skill",
+          "parentName": "首次 使用 中文路径",
+          "runtimeInitiallyAbsent": true,
+          "offlineOverridesExcluded": true
+        },
+        "guardRecords": [
+          {
+            "identity": {
+              "inputHashes": {},
+              "planHash": "e2b64e9024c4429639f14ca10e51daa897030f5ba3a1a43c0c77a9e1fc055c30",
+              "projectRevision": "bceb9cecb28d9ce8ce07c520ea78169653c950040a47596cde7c28f126281a6b",
+              "runtimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+            },
+            "ownerPid": 46148,
+            "replayAllowed": false,
+            "schema": "effectcraft-output-execution/v1",
+            "state": "finished",
+            "targetHash": "9390daa1cfc16d90ef471a6770041b43529f7c5c553b3e4cb7eac417009fe8cf"
+          },
+          {
+            "identity": {
+              "inputHashes": {},
+              "planHash": "2327bf3ecd27137b88bf22783212e0f805bf32c080e8ec0dd888be957d5161c4",
+              "projectRevision": null,
+              "runtimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+            },
+            "ownerPid": 41095,
+            "replayAllowed": false,
+            "schema": "effectcraft-output-execution/v1",
+            "state": "finished",
+            "targetHash": "4f9bf6f98a808e982577c6958f27d54141b8fc21e4200eed65deefdacec28d66"
+          }
+        ],
+        "workflowSha256": "83f4ab99332b0e8b5a5eaf45728efb0620814e6002aa6dae28646930f7c4a0e9",
+        "guardSha256": "0ea957e7a0c8fb2b6f2c28461046bb3754ad794b647242472dbddd66630aa5d1",
+        "entrySha256": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116",
+        "projectSha256": "bceb9cecb28d9ce8ce07c520ea78169653c950040a47596cde7c28f126281a6b",
+        "revisionSha256": "47349d3978c51928d2d0859d33942c8f961a18b0c621f05377440fbe434ec8a5",
+        "scope": "source candidate single-skill cold native workflow delivery/revision; no full DAG acceptance"
+      }
+    },
+    {
+      "domain": "photocraft",
+      "run": {
+        "domain": "photocraft",
+        "exitCode": 0,
+        "seconds": 25.92,
+        "driverSha256": "a2a351f33b169f85669d1ab800880b4f66e2f721a0e756f9043dc747445b8de3",
+        "candidate": true,
+        "publishedPluginAcceptance": false
+      },
+      "observations": {
+        "domain": "photocraft",
+        "result": "PASS",
+        "pathCase": {
+          "unicodeAndSpaces": true,
+          "skillName": "single-skill",
+          "parentName": "首次 使用 中文路径",
+          "runtimeInitiallyAbsent": true,
+          "offlineOverridesExcluded": true
+        },
+        "guardRecords": [
+          {
+            "identity": {
+              "inputHashes": {},
+              "planHash": "9526322d00be3fa6c9950384e9280b429c38428395a2d8830cf903e2463dee99",
+              "projectRevision": null,
+              "runtimeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf"
+            },
+            "ownerPid": 41097,
+            "replayAllowed": false,
+            "schema": "photocraft-output-execution/v1",
+            "state": "finished",
+            "targetHash": "dd45da38a10b6881711d6b21b87a10ad1b701e4adf0b287b7cc0e1609503dd8f"
+          },
+          {
+            "identity": {
+              "inputHashes": {},
+              "planHash": "6b5432785929fbb6c0b104d778626ad72b06e1a26c13f18be01aed4ef3dce75a",
+              "projectRevision": "240e03f21672076cc4003d6a9c2ef77bd38c8cff8c696ae34bbfbddcf758c5da",
+              "runtimeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf"
+            },
+            "ownerPid": 44816,
+            "replayAllowed": false,
+            "schema": "photocraft-output-execution/v1",
+            "state": "finished",
+            "targetHash": "e0a64307a9d4c506db358f26a1a4dbd4f9d524e7ae9668b50fc1d3c5a8aff7e7"
+          }
+        ],
+        "workflowSha256": "d261e265aca476fc2f0f066f8a6fe71d05d7c27be1c815622b9f7691129b43e1",
+        "guardSha256": "52a24556afed5e38ef6d14861bf0609a5d3aa383bbc1b1e144b0cf5e0d1f72ed",
+        "entrySha256": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116",
+        "projectSha256": "240e03f21672076cc4003d6a9c2ef77bd38c8cff8c696ae34bbfbddcf758c5da",
+        "revisionSha256": "e0d36955ff92e46c905e9fa3597c42d7e15c9de5214a4223feec845fab4d2b57",
+        "scope": "source candidate single-skill cold native workflow delivery/revision; no full DAG acceptance"
+      }
+    },
+    {
+      "domain": "vectorcraft",
+      "run": {
+        "domain": "vectorcraft",
+        "exitCode": 0,
+        "seconds": 30.051,
+        "driverSha256": "a2a351f33b169f85669d1ab800880b4f66e2f721a0e756f9043dc747445b8de3",
+        "candidate": true,
+        "publishedPluginAcceptance": false
+      },
+      "observations": {
+        "domain": "vectorcraft",
+        "result": "PASS",
+        "pathCase": {
+          "unicodeAndSpaces": true,
+          "skillName": "single-skill",
+          "parentName": "首次 使用 中文路径",
+          "runtimeInitiallyAbsent": true,
+          "offlineOverridesExcluded": true
+        },
+        "guardRecords": [
+          {
+            "identity": {
+              "inputHashes": {},
+              "planHash": "dcec5e8929097f924dc02cdc14a6a72b23dd53ff76513126ba1512dba6758e52",
+              "projectRevision": null,
+              "runtimeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+            },
+            "ownerPid": 41099,
+            "replayAllowed": false,
+            "schema": "vectorcraft-output-execution/v1",
+            "state": "finished",
+            "targetHash": "f45402260aea235be34ad81eae4edce3d8482f512fa0e5554d5930bb35cd62dd"
+          },
+          {
+            "identity": {
+              "inputHashes": {},
+              "planHash": "a07cd65a2231b0134469d5ce9059707a8aa88b994aca8eaf2688da330c82e6fd",
+              "projectRevision": "a59a503a53b80d29a122503f5279b7d773999dad776d2edf25abfa3e2d99cd41",
+              "runtimeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+            },
+            "ownerPid": 45169,
+            "replayAllowed": false,
+            "schema": "vectorcraft-output-execution/v1",
+            "state": "finished",
+            "targetHash": "206fb3b770bd0bee2b890f9700b8eeee0b5e4d9fa6d121670da6ab5a00bba668"
+          }
+        ],
+        "workflowSha256": "80f4904f6f4f898e32ba0e81901b933d5e5adb628a20a3e33aa1b28795542212",
+        "guardSha256": "7c13abd891370058e670fbfb3db7992d4a8ed7934682c83bde1aabf47ad6846f",
+        "entrySha256": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116",
+        "projectSha256": "a59a503a53b80d29a122503f5279b7d773999dad776d2edf25abfa3e2d99cd41",
+        "revisionSha256": "332071034c8c3b1571040504d222af1a30e945fa0c0c1452319744ecbe3c1959",
+        "scope": "source candidate single-skill cold native workflow delivery/revision; no full DAG acceptance"
+      }
+    },
+    {
+      "domain": "artcraft",
+      "run": {
+        "domain": "artcraft",
+        "exitCode": 0,
+        "seconds": 178.11,
+        "driverSha256": "0f9e95394c0f1a0601fcb08da181f4aa539f5cfd3923e0f14d6732c028b3cd29",
+        "candidate": true,
+        "publishedPluginAcceptance": false
+      },
+      "observations": {
+        "schema": "craft-installed-mixed-first-use/v1",
+        "pathCase": {
+          "unicodeAndSpaces": true,
+          "parentName": "首次 使用 中文路径",
+          "runtimeInitiallyAbsent": true
+        },
+        "python": "3.13.5",
+        "runtimeVersion": "0.1.0-dev.83",
+        "filmOutputGuards": [
+          {
+            "identity": {
+              "inputHashes": {
+                "intro": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9",
+                "voice": "6fc34dec7c0eb6a247b2c7f0d82059af6d00530d43a6ca1f45321da7bf4666de"
+              },
+              "planHash": "d2ef87e5cc18b0731ffe011f0f49fc15e2aa19005f5befe2511fd7f478d430cd",
+              "projectRevision": null,
+              "runtimeSha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433"
+            },
+            "ownerPid": 50176,
+            "replayAllowed": false,
+            "schema": "filmcraft-output-execution/v1",
+            "state": "finished",
+            "targetHash": "e059258ca8ca5e1bccae330133c255d8e326f0f22fac643184dada1b03f26eaa"
+          },
+          {
+            "identity": {
+              "inputHashes": {},
+              "planHash": "c32763016b62eb486b6a903617ec9fef0e7a838bb2f1b36e42974b0c74680011",
+              "projectRevision": "7215219be2cdadea1d634faad89d0802529a66deeb667d193e1b5ecba03dbaee",
+              "runtimeSha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433"
+            },
+            "ownerPid": 55750,
+            "replayAllowed": false,
+            "schema": "filmcraft-output-execution/v1",
+            "state": "finished",
+            "targetHash": "ae33ef9e96adcee59d4a2f3d180f6bf1584af0e5d9ccfa178e06dcb4d34ddcc8"
+          }
+        ],
+        "domainOutputGuards": {
+          "logo": [
+            {
+              "identity": {
+                "inputHashes": {},
+                "planHash": "dbcbae9975dacbb22ea6a54192315bb21831836025ee393318b248e26a577a4d",
+                "projectRevision": null,
+                "runtimeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+              },
+              "ownerPid": 50137,
+              "replayAllowed": false,
+              "schema": "vectorcraft-output-execution/v1",
+              "state": "finished",
+              "targetHash": "099b84ea6bf4ca423c30238bffcec2313cc0ed4a9aa8bb26043f1ee745597908"
+            },
+            {
+              "identity": {
+                "inputHashes": {},
+                "planHash": "7267f79b87792415f865887f1594fa7672e604de48db8120680c128b87502a65",
+                "projectRevision": "5758050849e46b6768ad91dda56e9ad68ecf91878d1957b86f425c1dc0188d19",
+                "runtimeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+              },
+              "ownerPid": 55715,
+              "replayAllowed": false,
+              "schema": "vectorcraft-output-execution/v1",
+              "state": "finished",
+              "targetHash": "0ac0f182f028dcd3e8e7e439bee054d9e1155c657560a915069783437cef5952"
+            }
+          ],
+          "poster": [
+            {
+              "identity": {
+                "inputHashes": {
+                  "logo": "a9141ac2e326fb43da06fc2cfb38a6f9b7847e0b1ee78c048f89e4b387e4287c"
+                },
+                "planHash": "93ee351cb73f0e2d0372cf6fc6bb76213a89f7921b674ee426ba8194dbd0e6c8",
+                "projectRevision": null,
+                "runtimeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf"
+              },
+              "ownerPid": 50143,
+              "replayAllowed": false,
+              "schema": "photocraft-output-execution/v1",
+              "state": "finished",
+              "targetHash": "0de1b00dfca452b700d3b77368623f31eda1b1ea67fec7d5b2d82e4c19fb8af1"
+            },
+            {
+              "identity": {
+                "inputHashes": {
+                  "logo": "a9141ac2e326fb43da06fc2cfb38a6f9b7847e0b1ee78c048f89e4b387e4287c"
+                },
+                "planHash": "1b71d81eb2dca6f4e168e104d16c01518b7c382aacf2f78cb9f7cb0e438e5e10",
+                "projectRevision": "b78941910f7a7c545455393b4bcb358de75356f00d476f09d16aba4baf731535",
+                "runtimeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf"
+              },
+              "ownerPid": 55716,
+              "replayAllowed": false,
+              "schema": "photocraft-output-execution/v1",
+              "state": "finished",
+              "targetHash": "b397644c59a73c4b1fc63ea9af9a7f09be2a07e35d57aa7770f19f5c71489fe1"
+            }
+          ],
+          "intro": [
+            {
+              "identity": {
+                "inputHashes": {
+                  "logo": "a9141ac2e326fb43da06fc2cfb38a6f9b7847e0b1ee78c048f89e4b387e4287c"
+                },
+                "planHash": "89ebc71851dfe29c2f3a07f60936fdf0979209a3c1d9b9d97703490464a317ec",
+                "projectRevision": null,
+                "runtimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+              },
+              "ownerPid": 50145,
+              "replayAllowed": false,
+              "schema": "effectcraft-output-execution/v1",
+              "state": "finished",
+              "targetHash": "efe70012f8d934bbebc0ae19689562e3d9b34b89b25d3fc8366b6ccfd4d1482b"
+            },
+            {
+              "identity": {
+                "inputHashes": {
+                  "logo": "a9141ac2e326fb43da06fc2cfb38a6f9b7847e0b1ee78c048f89e4b387e4287c"
+                },
+                "planHash": "70f67bdbec52e580d7412dcd41738421f411d968c42346cc627a110d0e440445",
+                "projectRevision": "258753d8425ecfe4f1cdfc99d6002d7c7e0380591b833c9a0ea6a20a87024ea6",
+                "runtimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+              },
+              "ownerPid": 55749,
+              "replayAllowed": false,
+              "schema": "effectcraft-output-execution/v1",
+              "state": "finished",
+              "targetHash": "4b880e9fe245cf364f99c6e8fb0c7b34378389a9367820affa683d0f4d643714"
+            }
+          ],
+          "film": [
+            {
+              "identity": {
+                "inputHashes": {
+                  "intro": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9",
+                  "voice": "6fc34dec7c0eb6a247b2c7f0d82059af6d00530d43a6ca1f45321da7bf4666de"
+                },
+                "planHash": "d2ef87e5cc18b0731ffe011f0f49fc15e2aa19005f5befe2511fd7f478d430cd",
+                "projectRevision": null,
+                "runtimeSha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433"
+              },
+              "ownerPid": 50176,
+              "replayAllowed": false,
+              "schema": "filmcraft-output-execution/v1",
+              "state": "finished",
+              "targetHash": "e059258ca8ca5e1bccae330133c255d8e326f0f22fac643184dada1b03f26eaa"
+            },
+            {
+              "identity": {
+                "inputHashes": {},
+                "planHash": "c32763016b62eb486b6a903617ec9fef0e7a838bb2f1b36e42974b0c74680011",
+                "projectRevision": "7215219be2cdadea1d634faad89d0802529a66deeb667d193e1b5ecba03dbaee",
+                "runtimeSha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433"
+              },
+              "ownerPid": 55750,
+              "replayAllowed": false,
+              "schema": "filmcraft-output-execution/v1",
+              "state": "finished",
+              "targetHash": "ae33ef9e96adcee59d4a2f3d180f6bf1584af0e5d9ccfa178e06dcb4d34ddcc8"
+            }
+          ]
+        },
+        "briefSha256": "1ee3ec05c3a3191a95a62033ace0348d5a952c6c7d0f99269cf131eefa0cbe13",
+        "artifacts": {
+          "logo": [
+            {
+              "assetId": "logo-png",
+              "sha256": "a9141ac2e326fb43da06fc2cfb38a6f9b7847e0b1ee78c048f89e4b387e4287c",
+              "bytes": 4303,
+              "mediaType": "image/png",
+              "nativeProjectRef": {
+                "assetId": "wf-c1ee500676127c37ef2068dd853b0de07e4381d6bbad6c93-bd874764e1b6eff2",
+                "version": "5758050849e46b6768ad91dda56e9ad68ecf91878d1957b86f425c1dc0188d19",
+                "sha256": "5758050849e46b6768ad91dda56e9ad68ecf91878d1957b86f425c1dc0188d19",
+                "location": "project.vectorcraft"
+              }
+            }
+          ],
+          "poster": [
+            {
+              "assetId": "poster-png",
+              "sha256": "14690b8ef5b39b95e246d049d6e1c4fbdc793cbe2139aeadc14773850d78275b",
+              "bytes": 6865,
+              "mediaType": "image/png",
+              "nativeProjectRef": {
+                "assetId": "wf-99dde81e56b1f8d8a7a6ada9e2c9f165c5858ae2af58b279-db69c59fbc5bf076",
+                "version": "b78941910f7a7c545455393b4bcb358de75356f00d476f09d16aba4baf731535",
+                "sha256": "b78941910f7a7c545455393b4bcb358de75356f00d476f09d16aba4baf731535",
+                "location": "project.pcraft"
+              }
+            }
+          ],
+          "intro": [
+            {
+              "assetId": "intro-video",
+              "sha256": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9",
+              "bytes": 17398,
+              "mediaType": "video/mp4",
+              "nativeProjectRef": {
+                "assetId": "wf-17c46db95a686a9a91c3206454c26093e02902bbac021e15-ccf7ce43c87e3645",
+                "version": "258753d8425ecfe4f1cdfc99d6002d7c7e0380591b833c9a0ea6a20a87024ea6",
+                "sha256": "258753d8425ecfe4f1cdfc99d6002d7c7e0380591b833c9a0ea6a20a87024ea6",
+                "location": "project.ecproj"
+              }
+            }
+          ],
+          "film": [
+            {
+              "assetId": "film-video",
+              "sha256": "2459f130a3d3e401250ea4218d1ef49d6a8c6647fafd96b49015f6aa634ffe24",
+              "bytes": 59236,
+              "mediaType": "video/mp4",
+              "nativeProjectRef": {
+                "assetId": "wf-cba0df1550ef4efab183c766f52a24e8f0022b2ee9045024-9e6a55f19dc1283d",
+                "version": "7215219be2cdadea1d634faad89d0802529a66deeb667d193e1b5ecba03dbaee",
+                "sha256": "7215219be2cdadea1d634faad89d0802529a66deeb667d193e1b5ecba03dbaee",
+                "location": "project.fcproj"
+              }
+            }
+          ]
+        },
+        "packageSha256": "4cfae93aa2462389bf1f73c4a7601ce83e3e601e2e2a7d48e6640d5cedd92a3a",
+        "voiceSha256": "6fc34dec7c0eb6a247b2c7f0d82059af6d00530d43a6ca1f45321da7bf4666de",
+        "sourceSkillVersions": {
+          "artcraft-runtime": "0.1.0-dev.83",
+          "filmcraft-skills": "0.1.0-dev.29",
+          "effectcraft-skills": "0.1.0-dev.30",
+          "photocraft-skills": "0.1.0-dev.30",
+          "vectorcraft-skills": "0.1.0-dev.29"
+        },
+        "photoVariant": {
+          "layout": {
+            "schema": "photocraft-layout-variant/v1",
+            "sourceSize": [
+              320,
+              400
+            ],
+            "targetSize": [
+              352,
+              400
+            ],
+            "safeArea": [
+              8,
+              8,
+              336,
+              384
+            ],
+            "steps": [
+              {
+                "command": "image.canvasSize",
+                "before": [
+                  320,
+                  400
+                ],
+                "after": [
+                  352,
+                  400
+                ],
+                "offset": [
+                  16,
+                  0
+                ],
+                "crop": {
+                  "left": 0,
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "padding": {
+                  "left": 16,
+                  "top": 0,
+                  "right": 16,
+                  "bottom": 0
+                }
+              }
+            ],
+            "roles": {
+              "background": {
+                "id": 2,
+                "kind": "Pixel",
+                "name": "Background",
+                "bounds": [
+                  16,
+                  0,
+                  320,
+                  400
+                ],
+                "text": null
+              },
+              "product": {
+                "id": 5,
+                "kind": "Pixel",
+                "name": "Logo",
+                "bounds": [
+                  105,
+                  138,
+                  142,
+                  145
+                ],
+                "text": null
+              },
+              "text": {
+                "id": 6,
+                "kind": "Type",
+                "name": "Headline",
+                "bounds": [
+                  45,
+                  38,
+                  83,
+                  24
+                ],
+                "text": {
+                  "font": "Arial",
+                  "sizePt": 30.0,
+                  "text": "NOVA"
+                }
+              }
+            }
+          },
+          "packageSha256": "88c39f652171661f0338f0634b41007004cf51c6a3f46fe05f58dfff4fa0561f",
+          "movedPackageVerified": true,
+          "tamperedLayoutRejected": true,
+          "staleCachedLayoutBlocked": true,
+          "restoredWithoutReplay": true
+        },
+        "sourceBrief": {
+          "savedOutputs": {
+            "logo": {
+              "width": 352.0,
+              "height": 256.0,
+              "files": {
+                "native.json": "af6792f84e5e70fc6b3953e3ef66e090e3d5159d3e9e6893fca183729429c5c7",
+                "artboard-1.png": "1c9cfd3136e8e0900b6b42ce2eb451eba1cca171b9dbae9007161db2b9c1ea4c",
+                "project.vectorcraft": "33e9a437a63f8a2a1219d89e993646ef52aec42d96a2d2316bd40bc1c7ae1474"
+              }
+            },
+            "poster": {
+              "width": 352,
+              "height": 400,
+              "files": {
+                "native.json": "3ff17f5cfdb057076cd10fa62bddde043954164876972eb87168793d971cdb4c",
+                "design.png": "cc2985ce5047ba403e89ebbf3064830bf0dabcaf250a28315eeaf04dcf762136",
+                "project.pcraft": "52946eca1173fa6908cf8d6ce5251fb400ca1aa0d9263231f02fce4044be919a"
+              }
+            },
+            "intro": {
+              "width": 352,
+              "height": 180,
+              "files": {
+                "native.json": "a6fd48cc48c554c366b1c7913f2366fcefb4649403837836bf5ddf4a77c3a7e1",
+                "intro.mp4": "9afd83daf7df2118fd86492362d8c195aeea26e34c34042a03d906b82bbf8b5b",
+                "project.ecproj": "fec316eb65330c3215e239d9bb6875d87bb2d863c1c24759aba7aec64447b495"
+              },
+              "exportProbe": {
+                "width": 352,
+                "height": 180,
+                "durationSeconds": 1,
+                "frameRate": 12,
+                "responseSha256": "1b7ac6c8902f35a246c7b76adb57f0d4c75ed855ba4a7e7ecbefcdc866aa4cd0"
+              }
+            },
+            "film": {
+              "width": 320,
+              "height": 180,
+              "files": {
+                "native.json": "c210a78d31b4151103001c046dfff2626b55e208454aa67f26d6b9c49e4f034d",
+                "film.mp4": "2459f130a3d3e401250ea4218d1ef49d6a8c6647fafd96b49015f6aa634ffe24",
+                "project.fcproj": "ee8fa64240f5defd068683c038eaeb514dc69726af6d60327ecaca9970596d20"
+              }
+            }
+          },
+          "nativeProjectHashes": {
+            "logo": "5758050849e46b6768ad91dda56e9ad68ecf91878d1957b86f425c1dc0188d19",
+            "poster": "b78941910f7a7c545455393b4bcb358de75356f00d476f09d16aba4baf731535",
+            "intro": "258753d8425ecfe4f1cdfc99d6002d7c7e0380591b833c9a0ea6a20a87024ea6",
+            "film": "7215219be2cdadea1d634faad89d0802529a66deeb667d193e1b5ecba03dbaee"
+          },
+          "inspections": {
+            "logo": {
+              "schema": "craft-source-inspection/v1",
+              "pluginId": "vectorcraft",
+              "nativeInspectionSha256": "788e0680fdca080cc5379e5256f89ab18465d9c75e06556a765f43729a1e4202",
+              "document": {
+                "width": 256,
+                "height": 256
+              },
+              "nativeProjectSha256": "5758050849e46b6768ad91dda56e9ad68ecf91878d1957b86f425c1dc0188d19",
+              "nativeRuntimeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+            },
+            "poster": {
+              "schema": "craft-source-inspection/v1",
+              "pluginId": "photocraft",
+              "nativeInspectionSha256": "5bf7dd6ca1d9737a1f947f4b4dd25614cb9c89e93094243ac28b098cce71cd60",
+              "document": {
+                "width": 320,
+                "height": 400
+              },
+              "nativeProjectSha256": "b78941910f7a7c545455393b4bcb358de75356f00d476f09d16aba4baf731535",
+              "nativeRuntimeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf"
+            },
+            "intro": {
+              "schema": "craft-source-inspection/v1",
+              "pluginId": "effectcraft",
+              "nativeInspectionSha256": "6b654cfec5e184f42e170fceece2932ade35931b420cf4a2d04d2a996f5df3e4",
+              "document": {
+                "width": 320,
+                "height": 180,
+                "frameRate": 12,
+                "duration": 1
+              },
+              "nativeProjectSha256": "258753d8425ecfe4f1cdfc99d6002d7c7e0380591b833c9a0ea6a20a87024ea6",
+              "nativeRuntimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+            },
+            "film": {
+              "schema": "craft-source-inspection/v1",
+              "pluginId": "filmcraft",
+              "nativeInspectionSha256": "0494691b6468cc9355f46540060112b3cb5a3dd938687ea938e4953c6944e6b7",
+              "document": {
+                "width": 320,
+                "height": 180,
+                "frameRate": {
+                  "den": 1,
+                  "num": 12
+                }
+              },
+              "durationTicks": "254016000000",
+              "nativeProjectSha256": "7215219be2cdadea1d634faad89d0802529a66deeb667d193e1b5ecba03dbaee",
+              "nativeRuntimeSha256": "cd30e5bbcdfb7cdc510752de8451600636f926263e83510c619c7b0741b20433"
+            }
+          },
+          "originalFilesPreserved": true,
+          "reused": true,
+          "leases": 0
+        },
+        "filmDuration": {
+          "requiredSeconds": 1,
+          "nativeTicks": "254016000000",
+          "exportTicks": "254016000000",
+          "frameRate": {
+            "den": 1,
+            "num": 12
+          },
+          "files": {
+            "project.fcproj": "7215219be2cdadea1d634faad89d0802529a66deeb667d193e1b5ecba03dbaee",
+            "film.mp4": "2459f130a3d3e401250ea4218d1ef49d6a8c6647fafd96b49015f6aa634ffe24",
+            "native.json": "b36f9e655f2c74cf9736f7bd7fd43cefda0d19fc4ba913b40dbb195f0485620a",
+            "export-probe.json": "317bc7bbbd1065639a6003771699900a43245bef3bf09e202b56752e5ff31de1"
+          }
+        },
+        "nativeReceipt": {
+          "mismatchRejected": true,
+          "installationPreserved": true,
+          "projectFilesPreserved": true,
+          "restoredTaskIdsReused": true
+        },
+        "checks": [
+          "Film installation receipt checked before mixed reuse",
+          "hash-bound native and export Film duration",
+          "four native domain source Brief revisions and reuse",
+          "four native domain deliveries",
+          "same-revision no replay",
+          "status has four tasks and zero leases",
+          "relocated runtime conflict preserves whole project",
+          "changed frozen plan refused",
+          "voice source digest bound",
+          "four-child moved package verified",
+          "portable Brief retained"
+        ],
+        "scope": "single copied installed skill, fresh default online install and system-only PATH; technical fixture, not creative acceptance"
+      }
+    }
+  ],
+  "sourceRegression": {
+    "filmcraft": {
+      "tests": 154,
+      "passed": 123,
+      "optInSkipped": 31,
+      "seconds": 44.049
+    },
+    "effectcraft": {
+      "tests": 153,
+      "passed": 121,
+      "optInSkipped": 32,
+      "seconds": 45.767
+    },
+    "photocraft": {
+      "tests": 141,
+      "passed": 112,
+      "optInSkipped": 29,
+      "seconds": 44.152
+    },
+    "vectorcraft": {
+      "tests": 134,
+      "passed": 107,
+      "optInSkipped": 27,
+      "seconds": 40.379
+    },
+    "artcraft": {
+      "tests": 141,
+      "passed": 107,
+      "optInSkipped": 34,
+      "seconds": 69.925
+    }
+  },
+  "candidateSourceFingerprints": [
+    {
+      "domain": "filmcraft",
+      "bootstrapSha256": "bd0c370eace07fe88ae63d4be08374d9b1845b68f0cd43ab0e23a444504623fe",
+      "diagnosticTestsSha256": "1d44f3e1716f3a6d5689adc2a3899394b94471bed0980be388e966f4db44c1a7"
+    },
+    {
+      "domain": "effectcraft",
+      "bootstrapSha256": "ad89838b5fd4452685c8cbcfb4394e93597624825356e134e0b809a6a0b3606b",
+      "diagnosticTestsSha256": "1d44f3e1716f3a6d5689adc2a3899394b94471bed0980be388e966f4db44c1a7"
+    },
+    {
+      "domain": "photocraft",
+      "bootstrapSha256": "a6e3e9f7b3ab4898b88ecac46fdfa72b32338fcd51d540dde1280882b6813179",
+      "diagnosticTestsSha256": "1d44f3e1716f3a6d5689adc2a3899394b94471bed0980be388e966f4db44c1a7"
+    },
+    {
+      "domain": "vectorcraft",
+      "bootstrapSha256": "78d5bdf16bf08e9abc96b4b23e5d071da72b648698b888b85fa1b90f81cf32a9",
+      "diagnosticTestsSha256": "1d44f3e1716f3a6d5689adc2a3899394b94471bed0980be388e966f4db44c1a7"
+    },
+    {
+      "domain": "artcraft",
+      "bootstrapSha256": "995fb04923165508698b18fe04bff2a5a01aaad389c83721048e2d690a25fa88",
+      "diagnosticTestsSha256": "1d44f3e1716f3a6d5689adc2a3899394b94471bed0980be388e966f4db44c1a7"
+    }
+  ],
+  "previousPublishedInstalledSkills": {
+    "count": 64,
+    "metadataAndTrees": "match unchanged prior host lock"
+  },
+  "unverified": [
+    "New immutable source/plugin publication and installed revalidation",
+    "Art distribution-lock malformed-object preflight; current fix is runtime/Node locks",
+    "Actual generic Skills CLI installation",
+    "Full command/scenario and creative acceptance",
+    "Other platforms and production"
+  ]
+}

@@ -24,6 +24,8 @@ Read the [editable workflow](skills/artcraft-use/references/workflow.md) for inp
 
 Fixed installed path acceptance: standalone skills and Art mixed work pass native creation/reopen, targeted revision and export under Chinese-and-space paths; Art also verifies moved delivery. Skills/runtime identities stay unchanged. This is bounded macOS arm64 first-use evidence. [Path acceptance evidence](docs/evidence/craft-fixed-unicode-path-first-use-20261007.json).
 
+Candidate source fix: structurally invalid runtime/Node locks now return local setup diagnostics before runtime writes/downloads. Five candidate native first-use checks pass; published plugin snapshots remain unchanged until separate immutable release acceptance. [Lock diagnostics candidate](docs/ArtCraft-Lock-Shape-Architecture.md).
+
 ---
 
 Complete domain command component candidate adds2639 offline queries, actual MCP schemas and selected-domain public handoff. Four-domain cold native creation/reopen/revision and target/control pixels pass; fixed installed6.50 and full DAG native delivery6.51 remain open. [Evidence](docs/evidence/art-complete-domain-component-candidate-20261007.json).
