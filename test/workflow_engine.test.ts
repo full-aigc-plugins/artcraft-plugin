@@ -277,3 +277,52 @@ test('incorrect JPEG dimensions block all domain launches before workflow side e
   const result=await f.engine.run(f.plan);assert.equal(result.state,'blocked');assert.match(result.nodes.preflight.error!,/image_metadata_mismatch/);assert.deepEqual(f.launches,[]);
  }finally{await f.cleanup();}
 });
+
+test('public workflow carries the current durable task receipt on first execution and reuse',async()=>{
+ const f=await fixture();try{
+  f.plan.nodes=f.plan.nodes.slice(0,1);
+  const first=await f.engine.run(f.plan),one=first.nodes.logo as any;
+  assert.deepEqual(one.taskReceipt,f.ledger.status(one.taskId));
+  assert.ok(one.taskReceipt.attemptId);assert.equal(one.taskReceipt.state,'review_ready');
+  assert.equal(one.taskReceipt.error,null);assert.deepEqual(one.taskReceipt.outputRefs,one.outputs);
+  const again=await f.engine.run(f.plan),two=again.nodes.logo as any;
+  assert.equal(two.status,'reused');assert.deepEqual(two.taskReceipt,f.ledger.status(one.taskId));
+  assert.equal(two.taskReceipt.attemptId,one.taskReceipt.attemptId);assert.equal(f.launches.length,1);
+ }finally{await f.cleanup();}
+});
+test('authorization rejection exposes structured error and accepted task without claiming execution',async()=>{
+ const f=await fixture();try{
+  f.plan.nodes=f.plan.nodes.slice(0,1);
+  const engine=new WorkflowEngine(f.ledger,new LocalRunner(f.ledger,async()=>{throw new Error('authorization_required: outside allowed target');}),{fixture:f.factory});
+  const result=await engine.run(f.plan),node=result.nodes.logo as any;
+  assert.equal(node.status,'blocked');assert.equal(node.error,'authorization_required: outside allowed target');
+  assert.deepEqual(node.errorDetail,{code:'authorization_required',message:node.error});
+  assert.deepEqual(node.taskReceipt,f.ledger.status(node.taskId));
+  assert.equal(node.taskReceipt.state,'ready');assert.equal(node.taskReceipt.attemptId,null);
+  assert.deepEqual(node.taskReceipt.outputRefs,[]);assert.deepEqual(node.taskReceipt.evidenceRefs,[]);
+  assert.deepEqual(f.launches,[]);assert.deepEqual(f.ledger.leases(),[]);
+ }finally{await f.cleanup();}
+});
+
+test('factory rejection exposes registered planned identity without fabricating execution',async()=>{
+ const f=await fixture();try{
+  f.plan.nodes=f.plan.nodes.slice(0,1);
+  const engine=new WorkflowEngine(f.ledger,new LocalRunner(f.ledger,async()=>{}),{fixture:async()=>{throw new Error('runtime_missing: fixed runtime unavailable');}});
+  const result=await engine.run(f.plan),node=result.nodes.logo as any;
+  assert.equal(node.errorDetail.code,'runtime_missing');
+  assert.deepEqual(node.taskReceipt,f.ledger.status(node.taskId));
+  assert.equal(node.taskReceipt.state,'planned');assert.equal(node.taskReceipt.attemptId,null);
+  assert.deepEqual(f.launches,[]);assert.deepEqual(f.ledger.leases(),[]);
+ }finally{await f.cleanup();}
+});
+
+test('registration rejection cannot fabricate a receipt or mask its original conflict',async()=>{
+ const f=await fixture();try{
+  f.plan.nodes=f.plan.nodes.slice(0,1);
+  f.ledger.register=()=>{throw new Error('idempotency_conflict');};
+  const result=await f.engine.run(f.plan),node=result.nodes.logo as any;
+  assert.equal(node.errorDetail.code,'idempotency_conflict');assert.equal(node.error,'idempotency_conflict');
+  assert.equal(node.taskReceipt,undefined);assert.deepEqual(f.ledger.list(),[]);
+  assert.deepEqual(f.launches,[]);assert.deepEqual(f.ledger.leases(),[]);
+ }finally{await f.cleanup();}
+});

@@ -7,6 +7,9 @@ import type { SourceInspection } from './project_brief.ts';
 import { orderGraph } from '../protocol/dependency_graph.ts';
 import { planHash, validateTask, verifyArtifact } from '../protocol/contracts.ts';
 import { TaskLedger } from '../harness/task_ledger.ts';
+import type { TaskReceipt } from '../harness/task_ledger.ts';
+import { taskErrorDetail } from '../protocol/task_error.ts';
+import type { TaskErrorDetail } from '../protocol/task_error.ts';
 import { LocalRunner } from '../harness/local_runner.ts';
 import type { BudgetSnapshot } from '../harness/budget.ts';
 import type { ExecutionAdapter } from '../harness/local_runner.ts';
@@ -22,7 +25,7 @@ export interface WorkflowPlan {
   budget:Record<string,any>;deadline:string;nodes:WorkflowNode[];projectBrief?:Record<string,any>;
 }
 export type AdapterFactory=((node:WorkflowNode,inputs:ArtifactInput[],taskId:string)=>Promise<{adapter:ExecutionAdapter;root:string}>) & {verifyBriefExport?:(node:WorkflowNode,root:string,outputs:Record<string,any>[],brief:Record<string,any>)=>Promise<void>};
-type NodeResult={status:string;fingerprint?:string;taskId?:string;root?:string;outputs?:Record<string,any>[];error?:string;failure?:unknown;sourceInspection?:SourceInspection};
+type NodeResult={status:string;fingerprint?:string;taskId?:string;root?:string;outputs?:Record<string,any>[];error?:string;errorDetail?:TaskErrorDetail;taskReceipt?:TaskReceipt;failure?:unknown;sourceInspection?:SourceInspection};
 export type WorkflowResult={runKey:string;state:string;nodes:Record<string,NodeResult>;budget:BudgetSnapshot};
 
 /** 领域工厂只通过公开接口编译；图中不允许模型自行注入可执行代码。 */
@@ -84,7 +87,18 @@ export class WorkflowEngine {
     const results:Record<string,NodeResult>={};
     const pending=new Set(order),active=new Map<string,Promise<void>>(),resources=new Set<string>();
     const activeTasks=new Set<string>();
-    const save=(id:string,result:NodeResult)=>{results[id]=result;this.ledger.saveWorkflowNode(key,id,result);};
+    const save=(id:string,result:NodeResult)=>{
+      // 摘要状态属于编排；实际任务身份和执行状态必须来自当前持久账本。
+      const current={...result};
+      delete current.taskReceipt;
+      delete current.errorDetail;
+      if(current.taskId){
+        try{current.taskReceipt=this.ledger.status(current.taskId);}
+        catch(error){if((error as Error).message!=='task_missing')throw error;}
+      }
+      if(current.error!==undefined)current.errorDetail=taskErrorDetail(current.error);
+      results[id]=current;this.ledger.saveWorkflowNode(key,id,current);
+    };
     // 所有已有就绪产物先核对，禁止在损坏缓存旁继续编译下游。
     try{
       for(const id of order){
@@ -92,7 +106,7 @@ export class WorkflowEngine {
         if(['review_ready','reused'].includes(existing.status))await this.verifyResult(existing,duration(id),brief(id),byId.get(id)!);
       }
       for(const node of plan.nodes)for(const input of node.externalInputs ?? [])await verifyArtifact(input.artifact,input.root);
-    }catch(error){return {runKey:key,state:'blocked',nodes:{preflight:{status:'blocked',error:(error as Error).message}},budget:this.ledger.workflowBudget(key)};}
+    }catch(error){return {runKey:key,state:'blocked',nodes:{preflight:{status:'blocked',error:taskErrorDetail(error).message,errorDetail:taskErrorDetail(error)}},budget:this.ledger.workflowBudget(key)};}
     const monitor=setInterval(()=>{
       if(Date.parse(plan.deadline)<=Date.now())this.ledger.cancelWorkflow(key);
       if(this.ledger.workflowCancelled(key))for(const taskId of activeTasks)this.ledger.cancel(taskId);
@@ -169,7 +183,7 @@ export class WorkflowEngine {
         const result={status:['review_ready','completed'].includes(receipt.state) ? 'review_ready' : ['failed','cancelled'].includes(receipt.state) ? receipt.state : 'waiting',fingerprint,taskId,root,outputs:receipt.outputRefs as Record<string,any>[],...(receipt.state==='failed' ? {failure:receipt.error} : {}),...(inspections.has(id)?{sourceInspection:inspections.get(id)}:{})};
         if(result.status==='review_ready')await this.verifyResult(result,duration(id),brief(id),byId.get(id)!);
         save(id,result);
-      }catch(error){save(id,{status:'blocked',fingerprint,taskId,root,error:(error as Error).message,...(inspections.has(id)?{sourceInspection:inspections.get(id)}:{})});}
+      }catch(error){save(id,{status:'blocked',fingerprint,taskId,root,error:taskErrorDetail(error).message,...(inspections.has(id)?{sourceInspection:inspections.get(id)}:{})});}
       finally{if(taskId)activeTasks.delete(taskId);}
     };
     try{

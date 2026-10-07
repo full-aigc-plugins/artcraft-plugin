@@ -54,3 +54,10 @@ ArtCraft SHALL 维护 craft-task/v1 的唯一规范事实源；请求包含 prot
 - **THEN** 协议校验 SHALL 报 protocol_invalid，账本 SHALL 不登记任务、不分配预算或写入占用
 - **AND** 字段判定 SHALL 只查询 schema 的自有 properties；允许附加字段的版本化 payload 与领域 plan 保留这些合法 JSON 数据，不扩大核心字段范围
 - **AND** 共享校验器应用于严格素材对象与引用，不把来源候选测试提升为固定发行安装验收或完整公共协议完成
+
+#### Scenario: AC-CP-001-WORKFLOW-RECEIPT 工作流公开任务回执
+
+- **WHEN** 公开工作流返回已登记、执行结束、恢复等待或复用的节点
+- **THEN** 节点 SHALL 在 `taskReceipt` 中公开当前持久账本的 taskId、attemptId、state、runtimeIdentity、outputRefs、evidenceRefs 和结构化 error；节点摘要不替代该回执，不把准备阶段提升为真实执行
+- **AND** 准备或授权阶段的拒绝 SHALL 提供结构化 `errorDetail`，保留现有字符串 error 以兼容调用者；未登记的节点不得伪造 taskReceipt，拒绝不新增原生启动、预算分配或工程占用
+- **AND** 重开或复用 SHALL 保留原 taskId 与 attemptId，并重新读取当前账本状态；候选源码回归不替代固定发行安装或本需求整体验收

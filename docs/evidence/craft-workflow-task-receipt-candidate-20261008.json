@@ -1,0 +1,42 @@
+{
+  "schema": "craft-workflow-task-receipt-source-candidate/v1",
+  "result": "PASS",
+  "goalComplete": false,
+  "requirement": "AC-CP-001-WORKFLOW-RECEIPT",
+  "sourceSha256": {
+    "src/planning/workflow_engine.ts": "5f17132724200dba8f417d4e22d631df29f5c17287a4af86e902cf2ccd638fd8",
+    "src/protocol/task_error.ts": "ac2f4e43ab13a20e57822036de009209f64ab496a0ba2463a5ebdcc43f3ddd10",
+    "src/cli.ts": "85351147736fcf27c08b0523207e46f7a8a8ec4aea621a24575090129e02dd82",
+    "test/workflow_engine.test.ts": "57acb6abb60460ffdbb42e215d74f4670203013030a3bc9410d8a2f54590ddc6",
+    "test/cli.test.ts": "4bc0078b5a1fcb2ac124c78f7722fc5d3a1f5315db9dde58033b908b14a39c40",
+    "openspec/changes/establish-v1-plugin/specs/craft-task-protocol/spec.md": "c6f17c1d03422a92f57a129f680808cf548f859cb1f12bfc4f88cf4a6dea0b9f"
+  },
+  "red": {
+    "targetedTests": 2,
+    "failures": 2,
+    "reason": "missing taskReceipt and errorDetail in current workflow response"
+  },
+  "localRuntimeRegression": {
+    "total": 238,
+    "passed": 218,
+    "conditionalSkipped": 20,
+    "failures": 0,
+    "scope": "full runtime suite before last added registration rejection test; implementation bytes unchanged afterwards"
+  },
+  "finalAffectedRegression": {
+    "total": 31,
+    "passed": 31,
+    "failures": 0,
+    "scope": "workflow and public CLI files including final added registration-rejection test"
+  },
+  "nativeProof": "real local fixture child processes and SQLite; not the creative native applications",
+  "publishedRuntimeUpdated": false,
+  "taskClosed": false,
+  "scope": "source-candidate receipt visibility, preservation of legacy fields, authorization rejection without native effect, original identity on reuse and structured CLI error",
+  "unverified": [
+    "fixed runtime bundle and independent installed skills",
+    "full AC-CP-001 fields/scenarios",
+    "generic Skills CLI installation",
+    "creative native applications and other platforms"
+  ]
+}

@@ -11,6 +11,7 @@ import { publicSkillFactory } from './adapters/public_skill.ts';
 import { videoFactoryFactory, videoFactoryConfiguration } from './adapters/video_factory.ts';
 import { packageProject,verifyProjectPackage } from './artifacts/project_package.ts';
 import { planHash } from './protocol/contracts.ts';
+import { taskErrorDetail } from './protocol/task_error.ts';
 
 const version=JSON.parse(readFileSync(new URL('../package.json',import.meta.url),'utf8')).version;
 const options:Record<string,string[]>={run:['database','registry','plan','owner','authorization','concurrency'],status:['database','task'],cancel:['database','task','workflow'],package:['database','workflow','owner','authorization','output'],'verify-package':['package','sha'],'register-video-factory':['plugin-root','ffmpeg','ffprobe','output-root']};
@@ -77,5 +78,5 @@ export async function main(argv:string[]):Promise<unknown> {
 }
 if(process.argv[1] && import.meta.url===pathToFileURL(process.argv[1]).href){
  try{const result=await main(process.argv.slice(2));process.stdout.write(JSON.stringify(result)+'\n');if((result as {state?:string}).state && !['review_ready','completed','cancel_requested','cancelled'].includes((result as {state:string}).state))process.exitCode=2;}
- catch(error){process.stdout.write(JSON.stringify({error:(error as Error).message})+'\n');process.exitCode=1;}
+ catch(error){process.stdout.write(JSON.stringify({error:taskErrorDetail(error).message,errorDetail:taskErrorDetail(error)})+'\n');process.exitCode=1;}
 }

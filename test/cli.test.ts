@@ -14,7 +14,7 @@ test('ArtCraft public CLI reports version and supported commands',async()=>{
 test('ArtCraft CLI refuses unknown commands and missing databases without creating user files',async()=>{
  const root=await mkdtemp(join(tmpdir(),'craft-cli-'));
  try{
-  await assert.rejects(exec(process.execPath,[entry,'exec','--database',join(root,'tasks.sqlite')]),error=>{assert.ok(String((error as {stdout:string}).stdout).includes('cli_command_invalid'));return true;});
+  await assert.rejects(exec(process.execPath,[entry,'exec','--database',join(root,'tasks.sqlite')]),error=>{const response=JSON.parse((error as {stdout:string}).stdout);assert.equal(response.error,'cli_command_invalid');assert.deepEqual(response.errorDetail,{code:'cli_command_invalid',message:'cli_command_invalid'});return true;});
   await assert.rejects(exec(process.execPath,[entry,'status','--database',join(root,'tasks.sqlite')]),error=>{assert.ok(String((error as {stdout:string}).stdout).includes('ENOENT'));return true;});
   await assert.rejects(access(join(root,'tasks.sqlite')),/ENOENT/);
  }finally{await rm(root,{recursive:true});}
