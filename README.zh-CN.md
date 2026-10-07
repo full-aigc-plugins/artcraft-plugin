@@ -409,3 +409,5 @@ Art HD 源码候选通过五秒 1080p 分段编排、移动文字返工及损坏
 两条 CLI 验收入口现默认使用 `host-acceptance-current64.lock.json`：FilmCraft／EffectCraft／VectorCraft 插件 dev.29、PhotoCraft dev.30、ArtCraft dev.96，共 64 个技能。原 `host-acceptance.lock.json` 保留为历史 58 技能矩阵。报告中的探测数来自实际验证记录。生成安装计划和验证脚本测试不证明真实 Skills CLI 安装通过，该门禁仍待执行。
 
 新默认锁的实际安装 CLI 复验通过：Python 3.13.5 下 64 个独立副本版本探测全部通过，用时 56.545 秒，源摘要不变；隔离 Python 安装计划执行通过，回归 59 项通过、5 项跳过。真实 Skills CLI 安装仍为 NOT_RUN。[证据](docs/evidence/craft-current64-default-lock-readiness-20261007.json)。
+
+固定 64 技能的实际安装原生工作流复验通过：混合项目、Logo 返工、调度中断恢复和移动交付包用例用时 88.332 秒；源工程返工、复用、Film 时长及安装回执篡改拒绝共 3 项通过，用时 152.991 秒，无跳过。执行后全部 64 个安装技能摘要不变。这些是技术测试素材的验证；通用 Skills CLI 安装、全部命令上下文和完整首版验收仍开放。[证据](docs/evidence/craft-fixed64-installed-native-workflow-20261007.json)。
