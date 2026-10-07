@@ -9,19 +9,27 @@ from unittest.mock import patch
 from types import SimpleNamespace
 import unittest
 import sys
+import subprocess
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"scripts"))
 ROOT=Path(__file__).resolve().parents[1]
 class IndependentInstallTests(unittest.TestCase):
+ def test_plan_runs_with_isolated_python(self):
+  result=subprocess.run([sys.executable,'-I','-B',str(ROOT/'scripts/verify_independent_skill_install.py'),'--plan'],capture_output=True,text=True)
+  self.assertEqual(result.returncode,0,result.stderr)
+  plan=json.loads(result.stdout)
+  self.assertEqual(sum(len(row['skills']) for row in plan),64)
  def module(self):
   spec=importlib.util.spec_from_file_location('independent',ROOT/'scripts/verify_independent_skill_install.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
  def test_plan_uses_current_fixed_skill_refs_and_project_only_copy(self):
-  m=self.module();lock=json.loads((ROOT/'host-acceptance.lock.json').read_text());plan=m.installation_plan(lock)
-  self.assertEqual(len(plan),5);self.assertEqual(sum(len(p['skills']) for p in plan),58)
+  m=self.module();lock=json.loads((ROOT/'host-acceptance-current64.lock.json').read_text());plan=m.installation_plan(lock)
+  self.assertEqual(len(plan),5);self.assertEqual(sum(len(p['skills']) for p in plan),64)
+  self.assertEqual({row['plugin']:len(row['skills']) for row in plan},
+                   {'filmcraft':13,'effectcraft':15,'photocraft':13,'vectorcraft':13,'artcraft':10})
   for row in plan:
    self.assertTrue(row['source'].endswith(lock['plugins'][row['plugin']]['skillSourceRef']))
    self.assertNotIn('--global',row['argv']);self.assertIn('--copy',row['argv']);self.assertIn('codex',row['argv'])
  def test_missing_tool_does_not_create_output_or_attempt_installation(self):
-  m=self.module();lock=json.loads((ROOT/'host-acceptance.lock.json').read_text())
+  m=self.module();lock=json.loads((ROOT/'host-acceptance-current64.lock.json').read_text())
   with tempfile.TemporaryDirectory() as d:
    output=Path(d)/'output'
    with self.assertRaisesRegex(ValueError,'existing_tool_required'):m.verify(Path(d)/'absent',Path(d)/'cli',Path(d)/'python',lock,output)
@@ -72,6 +80,8 @@ class NativeVersionGateTests(unittest.TestCase):
  def test_locked_native_version_is_recorded_and_offline_overrides_are_excluded(self):
   for m,root,lock,output,environments in self.fixture('filmcraft-cli 0.2.0-craft.1'):
    receipt=m.verify(root/'node',root/'cli',root/'python',lock,output)
+   self.assertEqual(receipt['versionProbes'],1)
+   self.assertEqual(receipt['scope'],'actual public Skills CLI installation and 1 public native version probes')
    self.assertEqual(receipt['plugins'][0]['nativeVersions']['filmcraft-cli'],{'expected':'0.2.0-craft.1','actual':'filmcraft-cli 0.2.0-craft.1'})
    self.assertEqual(environments[0]['PATH'],'/usr/bin:/bin')
    for key in ('CRAFT_NODE_ARCHIVE','CRAFT_BUNDLE_DIRECTORY','CRAFT_NATIVE_ARCHIVE_DIRECTORY','CRAFT_RUNTIME_HOME'):self.assertNotIn(key,environments[0])

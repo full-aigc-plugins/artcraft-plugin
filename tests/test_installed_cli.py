@@ -12,6 +12,13 @@ class InstalledCliTests(unittest.TestCase):
   m=self.module();self.assertTrue(m.matches_version('filmcraft-cli 0.2.0-craft.1','0.2.0-craft.1'))
   for text in ('filmcraft-cli 0.2.0-craft.10','filmcraft-cli 10.2.0-craft.1','0.2.0-craft.1-extra'):
    self.assertFalse(m.matches_version(text,'0.2.0-craft.1'))
+ def test_evidence_scope_tracks_verified_inventory(self):
+  m=self.module()
+  for skills,domains in ((58,5),(64,5),(80,8)):
+   scope=m.evidence_scope([{} for _ in range(skills)],list(range(domains)))
+   self.assertTrue(scope.startswith(f'{skills} separately copied single skills;'))
+   self.assertIn(f'{domains} fresh public domain caches',scope)
+   self.assertIn('later probes reuse each domain cache',scope)
  def test_missing_python_refused_before_output(self):
   m=self.module()
   with tempfile.TemporaryDirectory() as d:

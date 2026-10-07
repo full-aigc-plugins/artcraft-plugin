@@ -2,6 +2,7 @@
 """核验真实 Skills CLI 项目安装；不安装工具或修改全局技能目录。"""
 import argparse
 import hashlib
+import importlib.util
 import json
 import os
 import re
@@ -9,7 +10,10 @@ from pathlib import Path
 import subprocess
 import sys
 
-from verify_single_skill_cold_start import native_version_matches
+_version_spec = importlib.util.spec_from_file_location('craft_native_version_gate', Path(__file__).with_name('verify_single_skill_cold_start.py'))
+_version_module = importlib.util.module_from_spec(_version_spec)
+_version_spec.loader.exec_module(_version_module)
+native_version_matches = _version_module.native_version_matches
 
 ROOT = Path(__file__).resolve().parents[1]
 NAMES = ('filmcraft', 'effectcraft', 'photocraft', 'vectorcraft', 'artcraft')
@@ -82,15 +86,17 @@ def verify(node, cli, python, lock, output):
             raise ValueError('independent_skill_changed_after_use')
         records.append({'plugin': item['plugin'], 'source': item['source'], 'sourceSha': item['sourceSha'],
                         'skills': before, 'versionProbes': len(before), 'nativeVersions': native_versions, 'afterUseHashes': 'unchanged'})
+    probes = sum(record['versionProbes'] for record in records)
     receipt = {'schema': 'craft-independent-install-evidence/v1', 'skillsCliVersion': version,
-               'plugins': records, 'scope': 'actual public Skills CLI installation and 58 public native version probes',
+               'plugins': records, 'versionProbes': probes,
+               'scope': f'actual public Skills CLI installation and {probes} public native version probes',
                'unverified': ['model dispatch', 'GUI', 'creative acceptance; native workflows have separate evidence']}
     (output/'receipt.json').write_text(json.dumps(receipt, ensure_ascii=False, indent=2)+'\n')
     return receipt
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--lock', type=Path, default=ROOT/'host-acceptance.lock.json')
+    p.add_argument('--lock', type=Path, default=ROOT/'host-acceptance-current64.lock.json')
     p.add_argument('--plan', action='store_true')
     p.add_argument('--node');p.add_argument('--cli');p.add_argument('--python',default=sys.executable)
     p.add_argument('--output',type=Path)

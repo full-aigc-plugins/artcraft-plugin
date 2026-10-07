@@ -2,6 +2,7 @@
 """逐技能空运行时验收；证明安装和 CLI 发现，不代表场景或模型验收。"""
 import argparse
 import hashlib
+import importlib.util
 import json
 import os
 import re
@@ -11,7 +12,11 @@ import subprocess
 import tempfile
 import time
 
-from verify_codex_host import skill_hash, verify_installed_skill
+_host_spec = importlib.util.spec_from_file_location('craft_cold_host_verifier', Path(__file__).with_name('verify_codex_host.py'))
+_host_module = importlib.util.module_from_spec(_host_spec)
+_host_spec.loader.exec_module(_host_module)
+skill_hash = _host_module.skill_hash
+verify_installed_skill = _host_module.verify_installed_skill
 
 
 def native_version_matches(output, domain, expected):

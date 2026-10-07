@@ -404,3 +404,8 @@ Art HD 源码候选通过五秒 1080p 分段编排、移动文字返工及损坏
 四领域source21与plugin23已包含固定桌面及CLI安装器和自有同会话命令入口。Art89／source62向所选固定领域包交接桌面启动，核对命令与生命周期回执，保留失败和未知结果。[架构](docs/Craft-Desktop-First-Use-Architecture.zh_CN.md)。
 
 此前候选技能源的冷启动证据[单独记录](docs/evidence/craft-owned-desktop-first-use-20261007.json)。当前固定发行安装发现与桌面冷启动验收仍待确切版本报告通过；全量命令与完整V1仍保持开放。
+## 当前独立安装验收锁
+
+两条 CLI 验收入口现默认使用 `host-acceptance-current64.lock.json`：FilmCraft／EffectCraft／VectorCraft 插件 dev.29、PhotoCraft dev.30、ArtCraft dev.96，共 64 个技能。原 `host-acceptance.lock.json` 保留为历史 58 技能矩阵。报告中的探测数来自实际验证记录。生成安装计划和验证脚本测试不证明真实 Skills CLI 安装通过，该门禁仍待执行。
+
+新默认锁的实际安装 CLI 复验通过：Python 3.13.5 下 64 个独立副本版本探测全部通过，用时 56.545 秒，源摘要不变；隔离 Python 安装计划执行通过，回归 59 项通过、5 项跳过。真实 Skills CLI 安装仍为 NOT_RUN。[证据](docs/evidence/craft-current64-default-lock-readiness-20261007.json)。

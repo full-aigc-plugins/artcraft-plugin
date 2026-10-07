@@ -406,3 +406,8 @@ Current fixed distribution: ten Art plus twelve Photo installed cold native adju
 The four domain source21 packages and plugin23 releases include pinned desktop+CLI installers and owned same-session command workflows. Art89/source62 delegates desktop startup to its selected immutable domain bundle, checks command and lifecycle receipts, and preserves failed or unknown outcomes. [Architecture](docs/Craft-Desktop-First-Use-Architecture.md).
 
 Previous source-skill cold evidence is [recorded separately](docs/evidence/craft-owned-desktop-first-use-20261007.json). Current fixed-release installation/discovery and desktop cold acceptance remain pending until their exact version-bound reports pass. Exhaustive command and full V1 gates remain open.
+## Current independent-install acceptance lock
+
+Both CLI acceptance entrypoints now default to `host-acceptance-current64.lock.json`: FilmCraft/EffectCraft/VectorCraft plugin dev.29, PhotoCraft dev.30 and ArtCraft dev.96, totaling 64 skills. The previous `host-acceptance.lock.json` remains a historical 58-skill matrix. Reports derive probe counts from verified records. Generating the plan and testing the verifier do not prove an actual Skills CLI installation; that gate remains pending.
+
+The new default lock passes a fresh installed CLI verification: all 64 standalone-copy version probes pass in 56.545 seconds with Python 3.13.5, with unchanged source hashes. Isolated Python plan execution and 59 regression tests pass (5 skipped). Actual Skills CLI installation remains NOT_RUN. [Evidence](docs/evidence/craft-current64-default-lock-readiness-20261007.json).

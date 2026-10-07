@@ -19,6 +19,9 @@ def host_module():
 def matches_version(text,expected):
  return re.search(r'(?<![0-9A-Za-z.-])'+re.escape(expected)+r'(?![0-9A-Za-z.-])',text) is not None
 
+def evidence_scope(records,domains):
+ return f'{len(records)} separately copied single skills; existing selected Python; {len(domains)} fresh public domain caches, later probes reuse each domain cache; system-only native PATH'
+
 def verify(python,lock_path,receipt_path,output):
  python=Path(python)
  if not python.is_file():raise ValueError('existing_python_required')
@@ -63,10 +66,10 @@ def verify(python,lock_path,receipt_path,output):
    records.append({'plugin':name,'skill':skill_name,'skillSha256':entry['skills'][skill_name],'runtimeVersion':expected,'actualVersion':version,'installation':'fresh-domain-cache' if index==0 else 'verified-domain-cache-reuse','catalogCommands':catalog_count})
  for name,use in directories.items():
   for skill in lock['plugins'][name]['skills']:host.verify_installed_skill(Path(use).with_name(skill),lock['plugins'][name])
- result={'schema':'craft-installed-cli-evidence/v1','result':'passed','pythonVersion':python_version,'platform':os.uname().sysname.lower()+'-'+os.uname().machine,'skills':records,'versionProbes':len(records),'freshDomainCaches':len(host.NAMES),'sourceHashesAfterUse':'unchanged','seconds':round(time.monotonic()-start,3),'scope':'58 separately copied single skills; existing default Python; five fresh public domain caches, later probes reuse each domain cache; system-only native PATH','unverified':['actual npx independent installation','agent model dispatch','native creative workflows have separate evidence','GUI','human acceptance']}
+ result={'schema':'craft-installed-cli-evidence/v1','result':'passed','pythonVersion':python_version,'platform':os.uname().sysname.lower()+'-'+os.uname().machine,'skills':records,'versionProbes':len(records),'freshDomainCaches':len(host.NAMES),'sourceHashesAfterUse':'unchanged','seconds':round(time.monotonic()-start,3),'scope':evidence_scope(records,host.NAMES),'unverified':['actual npx independent installation','agent model dispatch','native creative workflows have separate evidence','GUI','human acceptance']}
  (output/'receipt.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');return result
 
 def main():
- parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--python',type=Path,default=Path(sys.executable));parser.add_argument('--lock',type=Path,default=ROOT/'host-acceptance.lock.json');parser.add_argument('--receipt',type=Path,required=True);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args()
+ parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--python',type=Path,default=Path(sys.executable));parser.add_argument('--lock',type=Path,default=ROOT/'host-acceptance-current64.lock.json');parser.add_argument('--receipt',type=Path,required=True);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args()
  result=verify(args.python,args.lock,args.receipt,args.output);print(json.dumps({'result':result['result'],'versionProbes':result['versionProbes'],'pythonVersion':result['pythonVersion'],'seconds':result['seconds']}))
 if __name__=='__main__':main()
