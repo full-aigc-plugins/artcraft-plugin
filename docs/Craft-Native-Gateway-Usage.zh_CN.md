@@ -8,7 +8,7 @@
 | EffectCraft | 640 | 22 | dev.19 | dev.21 |
 | PhotoCraft | 748 | 33 | dev.19 | dev.21 |
 | VectorCraft | 585 | 28 | dev.19 | dev.21 |
-| ArtCraft | 2639 个领域目录条目 | 编排上述领域节点 | dev.60 | dev.87，runtime dev.83 |
+| ArtCraft | 2639 个领域目录条目 | 编排上述领域节点 | dev.61 | dev.88，runtime dev.83 |
 
 目录中的 `workflowMapped` 只标记领域快捷操作映射；`false` 不表示无法使用 `native.command`，也不表示原生命令已经运行失败。网关依据完整固定 ID 及实时原生上下文调用。
 
@@ -78,7 +78,7 @@ python3 -I -B "$SKILL_DIR/scripts/workflow.py" /absolute/mixed-plan.json --outpu
 
 混合计划声明 `pluginId`、依赖、领域 `payload.plan` 与产物绑定；领域原生操作写入 `payload.plan.operations` 的网关。运行时身份由公开安装器绑定，不复制另一个测试会话的 `runtimeIdentity`。以技能内品牌计划为结构基础，再按实际需求和源素材修改；`TASK_SCOPE` 是本次已经授权的任务范围引用。
 
-ArtCraft dev.88 的公开安装器固定 runtime83、Film19、Effect19、Photo18、Vector19，并为 `native_workflow.py`、`commands.py`、`command-coverage.json` 与既有启动文件建立摘要锁。任务不能选择执行器或替换脚本。领域成功回执仍须通过原生保存、依赖、导出与损失报告校验才能成为 DAG 交付。
+ArtCraft dev.88 的公开安装器固定 runtime83、Film19、Effect19、Photo19、Vector19，并为 `native_workflow.py`、`commands.py`、`command-coverage.json` 与既有启动文件建立摘要锁。任务不能选择执行器或替换脚本。领域成功回执仍须通过原生保存、依赖、导出与损失报告校验才能成为 DAG 交付。
 
 目录中的 GUI 命令不因 headless 当前禁用而被删除；使用实际运行中的应用和明确 bridge 模式。原生命令受其实现、当前工程、选择和权限约束；禁用时报告原因，参数错误停止，未知结果保全且不重放。完整目录覆盖不等于全部 2639 条命令的运行验收。
 

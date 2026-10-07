@@ -4,7 +4,7 @@ Ten independent Art skill source candidates pass Photo19 editable mask/adjustmen
 
 All 58 current pinned skills pass independent cold CLI first use: one skill directory, empty runtime, public installation, version query and complete command discovery. This proves installation/discovery, not exhaustive execution of 2639 commands or full creative acceptance. [Evidence](docs/evidence/codex-current58-cold-cli-first-use-20261007.json).
 
-Current first-use entry: plugin `0.1.0-dev.87`, skill source `0.1.0-dev.60`. Installation and command guides are checked against the current pinned releases; historical evidence retains its original version scope. [Guide](docs/Craft-Native-Gateway-Usage.md).
+Current first-use entry: plugin `0.1.0-dev.88`, skill source `0.1.0-dev.61`; runtime83; Film19/Effect19/Photo19/Vector19. Fixed installed Art/Photo and updated mixed acceptance pass; exhaustive commands and fullV1 remain open.
 
 Historical release record: Current plugin: `0.1.0-dev.87`; skill source: `0.1.0-dev.60`; runtime83; Effect19 expression distribution. Ten installed Art expression cases and updated mixed workflow pass. [Architecture](docs/ArtCraft-Effect-Expression-Architecture.md).
 
