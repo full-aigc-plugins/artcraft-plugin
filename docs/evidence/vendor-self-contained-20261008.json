@@ -1,0 +1,103 @@
+{
+  "schema": "craft-skill-source-contract-evidence/v1",
+  "result": "PASS",
+  "requirement": "AC-SK-001",
+  "requirementSha256": "3c781bd2da9ff52e290a5f5a5e64564b3c0ab78f19b13fc4c7c4b8d1c9934797",
+  "vendorSha256": "ce99651896676f7c64b0075fce0f6589c28f03954c39480d11b27aa158801570",
+  "testSha256": "3c28f7ebbabd27c751824c41b80c8c8b459dbbc2dffa733fe7070ac9863140e6",
+  "oldVendorSha256": "b72dfa1175b7f785e3b9877182eeadab7c9dd563310452c93f3490ce4985f298",
+  "red": {
+    "tests": 12,
+    "failingAssertions": 17,
+    "errors": 0,
+    "logSha256": "8ffa9dfa981a5f116895be8d89e2859968f905405a63316061b5e2698242a26e",
+    "scope": "The original vendor script was byte-identical in all five repositories; current complete boundary tests run against that original version."
+  },
+  "sources": [
+    {
+      "package": "artcraft-skills",
+      "repo": "https://github.com/full-aigc-skills/artcraft-skills.git",
+      "ref": "v0.1.0-dev.79",
+      "sha": "dc9ecb314226460163877ac8ba3deb6397c1d61f",
+      "skills": [
+        "artcraft-use",
+        "artcraft-cli",
+        "artcraft-cli-setup",
+        "artcraft-cli-plan",
+        "artcraft-cli-execute",
+        "artcraft-cli-assets",
+        "artcraft-cli-revise",
+        "artcraft-cli-recover",
+        "artcraft-cli-deliver",
+        "artcraft-cli-review"
+      ],
+      "dest": "skills/",
+      "sha256": {
+        "artcraft-use": "a2de23f57bbb10b4f22378f5b9da981f4547d508c0dd5fcd8b17c63f4a0b7b6d",
+        "artcraft-cli": "076f26aefd4c9584e138b9ec4a6a036a41c2605416770dec66c485f2b912f6e3",
+        "artcraft-cli-setup": "89d7930ce05d15da8ea89dd139551d017144de1300e6f26e394f001c748d4f60",
+        "artcraft-cli-plan": "07b4378b90437db2ff533057de88615bea00ad28cd89e5a9a5be771078ca446e",
+        "artcraft-cli-execute": "69c2cff2a0e1384b09f59d9db74019abd6082aac09abba21788dff8efa14e2e4",
+        "artcraft-cli-assets": "ffb76f1417260330dd7825865620db3f13ebabb3c6e9acbea31d020e2730095d",
+        "artcraft-cli-revise": "ccc6a8e1bbc153ce11606043eb6b442db66e8f66182b4acc867e07f42a396b0e",
+        "artcraft-cli-recover": "69f018ebc2037532b565bd9c3157befd531743d4474a8b248af58df2cc26693d",
+        "artcraft-cli-deliver": "2aeb18095d2c682f0e28eaface724d6a7aea10bc41da35682be4da143e2e0e22",
+        "artcraft-cli-review": "da45ea61a15e6024f584af3e7bbc870452daaaecf5fd0f1638a3e632fc5733f3"
+      }
+    }
+  ],
+  "publicSourceCheck": {
+    "result": "PASS",
+    "logSha256": "3d03253791d92accaf7cbac9bdf595cafe783bc9ad04801dd24f53b9a6f14c7e",
+    "scope": "Public remote tag-only resolution, isolated checkout, exact locked commit and whole skill payload comparison; no local override."
+  },
+  "currentInstallationIdentity": {
+    "result": "passed",
+    "skills": 64,
+    "scope": "Current tracked skill-source files match the fixed-tag archive; plugin/installed full trees rehashed; local immutable tags and recorded host discovery match the exact lock. Ignored source files are separately reported."
+  },
+  "installationAuditSha256": "331eb34110da5557b870c174163993e242145f8c5a4cb5be5cbe4094e4702178",
+  "scenarios": [
+    {
+      "id": "AC-SK-001-P",
+      "proof": "Actual public fixed source check plus current64 source/plugin/installed full-tree identity audit."
+    },
+    {
+      "id": "AC-SK-001-N",
+      "proof": "Snapshot drift refuses check without updating lock; old fixed-tag checkout excludes local dirty source and caches."
+    },
+    {
+      "id": "AC-SK-001-LOCAL",
+      "proof": "Existing real Git fixture verifies fixed-tag checkout and source worktree preservation."
+    },
+    {
+      "id": "AC-SK-001-SELF-CONTAINED",
+      "proof": "File/directory/root/parent/dangling links and equal-content external entries refuse; actual public check/update preserve old targets and lock; invalid second source preflights before any replacement."
+    },
+    {
+      "id": "AC-SK-001-TAG",
+      "proof": "Real local version-named branch without a tag refuses both resolution and checkout; missing commit/digest locks refuse offline checks."
+    }
+  ],
+  "regression": {
+    "plugin": "artcraft",
+    "total": 92,
+    "passed": 87,
+    "skipped": 5,
+    "seconds": 11.129,
+    "logSha256": "77b72d6b780628d3920c7a655e054d929c9038efca7c4348562e471c16df4309"
+  },
+  "unverified": [
+    "Actual generic Skills CLI installation",
+    "Copy-time I/O transaction rollback",
+    "Malicious concurrent filesystem replacement",
+    "Native creative scenarios have separate evidence",
+    "Complete V1"
+  ],
+  "publishedSkillRuntimeChanges": "none",
+  "documentationValidation": {
+    "result": "PASS",
+    "logSha256": "e9ad9336fcee7df8028f7f58e9e8096149d6bef364a7b934172f2649f0cd2f84",
+    "openTasks": 49
+  }
+}

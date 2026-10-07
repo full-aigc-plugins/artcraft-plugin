@@ -12,7 +12,7 @@ vendor=importlib.util.module_from_spec(spec);spec.loader.exec_module(vendor)
 
 class VendorTests(unittest.TestCase):
     def source(self, ref='v0.1.0-dev.0', dest='skills/'):
-        return {'package':'artcraft-skills','repo':'https://github.com/full-aigc-skills/artcraft-skills.git','ref':ref,'skills':['artcraft-use'],'dest':dest}
+        return {'package':'artcraft-skills','repo':'https://github.com/full-aigc-skills/artcraft-skills.git','ref':ref,'skills':['artcraft-use'],'dest':dest,'sha':'a'*40,'sha256':{'artcraft-use':'b'*64}}
 
     def test_development_tag_is_immutable_version(self):
         with tempfile.TemporaryDirectory() as temporary:

@@ -121,8 +121,19 @@ def credential_env(token: str | None, workdir: Path) -> dict[str, str]:
 
 def hash_skill_dir(skill_dir: Path) -> str:
     """Return a deterministic digest over every file in one skill."""
+    if skill_dir.is_symlink() or skill_dir.parent.is_symlink():
+        raise RuntimeError(f"{skill_dir.name}: symbolic link skill root is not self-contained")
+    if not skill_dir.is_dir():
+        raise RuntimeError(f"{skill_dir.name}: skill directory is missing")
+    paths = sorted(skill_dir.rglob("*"))
+    # 先检查所有条目，包含目录链接和悬空链接；不能用 is_file() 将它们过滤掉。
+    for path in paths:
+        if path.is_symlink():
+            raise RuntimeError(f"{skill_dir.name}: symbolic link in skill payload: {path.relative_to(skill_dir)}")
+        if not path.is_dir() and not path.is_file():
+            raise RuntimeError(f"{skill_dir.name}: unsupported entry in skill payload: {path.relative_to(skill_dir)}")
     digest = hashlib.sha256()
-    for path in sorted(p for p in skill_dir.rglob("*") if p.is_file()):
+    for path in (p for p in paths if p.is_file()):
         relative = path.relative_to(skill_dir).as_posix()
         digest.update(relative.encode("utf-8"))
         digest.update(b"\0")
@@ -132,9 +143,10 @@ def hash_skill_dir(skill_dir: Path) -> str:
 
 
 def resolve_ref(repo: str, ref: str, env: dict[str, str] | None = None) -> str:
-    """Resolve a branch or lightweight/annotated tag to its commit SHA."""
+    """Resolve only a lightweight/annotated release tag to its commit SHA."""
+    tag = f"refs/tags/{ref}"
     result = subprocess.run(
-        ["git", "ls-remote", repo, ref, f"{ref}^{{}}"],
+        ["git", "ls-remote", repo, tag, f"{tag}^{{}}"],
         check=True,
         capture_output=True,
         text=True,
@@ -146,8 +158,7 @@ def resolve_ref(repo: str, ref: str, env: dict[str, str] | None = None) -> str:
     resolved = None
     for line in result.splitlines():
         candidate, _, remote_name = line.partition("\t")
-        short = remote_name.removeprefix("refs/tags/").removeprefix("refs/heads/")
-        if short == f"{ref}^{{}}" or short == ref and resolved is None:
+        if remote_name == f"{tag}^{{}}" or remote_name == tag and resolved is None:
             resolved = candidate
     if resolved is None:
         raise RuntimeError(f"{repo}: could not resolve ref '{ref}'")
@@ -166,7 +177,7 @@ def fetch_checkout(repo: str, ref: str, workdir: Path, env: dict[str, str] | Non
         ["git", "-C", str(checkout), "remote", "add", "origin", repo], check=True, env=env
     )
     subprocess.run(
-        ["git", "-C", str(checkout), "fetch", "--quiet", "--depth", "1", "origin", ref],
+        ["git", "-C", str(checkout), "fetch", "--quiet", "--depth", "1", "origin", f"refs/tags/{ref}"],
         check=True,
         env=env,
     )
@@ -211,9 +222,25 @@ def validate_source(source: dict, root: Path) -> Path:
         if not isinstance(name, str) or not SKILL_NAME_RE.match(name):
             raise RuntimeError(f"{source['package']}: illegal skill name '{name}'")
 
-    destination = (root / source["dest"]).resolve()
+    sha = source.get("sha")
+    if not isinstance(sha, str) or not COMMIT_SHA_RE.fullmatch(sha):
+        raise RuntimeError(f"{source['package']}: locked commit must be a 40-character SHA")
+    digests = source.get("sha256")
+    if not isinstance(digests, dict) or set(digests) != set(source["skills"]) or any(
+        not isinstance(value, str) or not re.fullmatch(r"[0-9a-f]{64}", value)
+        for value in digests.values()
+    ):
+        raise RuntimeError(f"{source['package']}: locked digests must cover every declared skill with SHA-256")
+
+    unresolved = root / source["dest"]
+    destination = unresolved.resolve()
     if root != destination and root not in destination.parents:
         raise RuntimeError(f"{source['package']}: dest escapes repository root")
+    for path in (unresolved, *unresolved.parents):
+        if path == root:
+            break
+        if path.is_symlink():
+            raise RuntimeError(f"{source['package']}: symbolic link destination is not self-contained")
     return destination
 
 
@@ -346,6 +373,7 @@ def cmd_update(
             raise RuntimeError(f"{package}: --expected-sha must be a 40-character commit SHA")
     errors = 0
 
+    prepared = []
     with tempfile.TemporaryDirectory(prefix="skill-vendor-") as temporary:
         for source in lock["sources"]:
             package = source["package"]
@@ -368,20 +396,40 @@ def cmd_update(
                 errors += 1
                 continue
 
-            source["sha"] = sha
             digests = {}
             for name in source["skills"]:
                 source_skill = checkout / "skills" / name
+                if (checkout / "skills").is_symlink():
+                    fail(f"{source['package']}: symbolic link skills root is not self-contained")
+                    errors += 1
+                    break
                 if not (source_skill / "SKILL.md").is_file():
                     fail(f"{source['package']}: skills/{name}/SKILL.md not found at {source['ref']}")
                     errors += 1
                     continue
                 target = destination / name
+                try:
+                    digests[name] = hash_skill_dir(source_skill)
+                    if target.exists() or target.is_symlink():
+                        hash_skill_dir(target)
+                except RuntimeError as error:
+                    fail(f"{source['package']}: {error}")
+                    errors += 1
+            prepared.append((source, destination, checkout, sha, digests))
+
+        # 所有来源与旧目标均完成检查后才替换；无效的后续技能不能留下部分更新。
+        if errors:
+            return 1
+        for source, destination, checkout, sha, digests in prepared:
+            for name in source["skills"]:
+                target = destination / name
                 if target.exists():
                     shutil.rmtree(target)
                 target.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copytree(source_skill, target)
-                digests[name] = hash_skill_dir(target)
+                shutil.copytree(checkout / "skills" / name, target)
+                if hash_skill_dir(target) != digests[name]:
+                    raise RuntimeError(f"{source['package']}: copied skill digest differs from preflight")
+            source["sha"] = sha
             source["sha256"] = digests
             print(f"{source['package']}: vendored {len(digests)} skills at {sha[:12]}")
 

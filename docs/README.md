@@ -51,3 +51,5 @@ OpenSpec is the sole behavioral authority; this documentation provides explanati
 Art HD source candidate passes five-second 1080p segmented orchestration, moved text revision and corruption recovery; immutable installed acceptance remains pending. [Architecture and evidence](ArtCraft-Segmented-Sequence-Architecture.md).
 
 - [Current first-use completion audit](ArtCraft-First-Use-Completion-Audit-Architecture.md)
+
+- [Skill snapshot preflight](Skill-Snapshot-Self-Contained.md) · [技能快照预检](Skill-Snapshot-Self-Contained.zh_CN.md)

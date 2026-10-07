@@ -19,6 +19,8 @@ Historical: Current Art dev.104 standalone scene-role verification passes for pl
 
 Maintainer installation planning, installed CLI verification and completion auditing now default to the verified dev.105 lock; the audit binds its matching ASR evidence. Explicit historical lock/evidence arguments remain supported. [Current audit architecture](docs/ArtCraft-First-Use-Completion-Audit-Architecture.md).
 
+Maintainer source validation rejects symbolic links, incomplete locks and version-named branches, and checks all declared sources before replacing any managed skill. Published skill/runtime identities remain unchanged. [Snapshot preflight architecture](docs/Skill-Snapshot-Self-Contained.md).
+
 ## First use
 
 Invoke **`artcraft-use`** in your host. For direct CLI use, set `SKILL_DIR` to the absolute directory of the `SKILL.md` actually loaded by that host. It may be under user/project `.agents/skills`, the plugin, or a host cache; use the actual path. Each entry below installs/verifies its locked runtime before invoking it.

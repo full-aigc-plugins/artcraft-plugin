@@ -19,6 +19,8 @@
 
 维护者的安装计划、安装副本 CLI 验证和完成审计现默认使用已核验的 dev.105 锁；审计绑定对应 ASR 证据。显式历史锁／证据参数继续兼容。[当前审计架构](docs/ArtCraft-First-Use-Completion-Audit-Architecture.zh_CN.md)。
 
+维护者来源校验拒绝符号链接、不完整锁及版本同名分支，并在替换任一管理技能前检查全部声明来源；已发布技能／运行时身份保持。[快照预检架构](docs/Skill-Snapshot-Self-Contained.zh_CN.md)。
+
 ## 首次使用
 
 在宿主中调用 **`artcraft-use`**。直接使用 CLI 时，将 `SKILL_DIR` 设为宿主实际加载的 `SKILL.md` 所在绝对目录；可能位于用户／项目 `.agents/skills`、插件内部或宿主缓存，以实际路径为准。以下入口在调用前安装并核验固定运行时。
