@@ -1,0 +1,71 @@
+{
+  "schema": "artcraft75-structured-workflow-receipt-candidate/v1",
+  "result": "PASS",
+  "sourceCandidate": "0.1.0-dev.75",
+  "runtime": "0.1.0-dev.83",
+  "red": {
+    "observed": true,
+    "test": "test_nonzero_native_workflow_exposes_structured_receipt_without_replay",
+    "failure": "reply.workflowReceipt absent; expected exact waiting receipt"
+  },
+  "targetTests": {
+    "tests": 5,
+    "passed": 5
+  },
+  "sourceRegression": {
+    "tests": 140,
+    "passed": 106,
+    "optInSkipped": 34,
+    "seconds": 33.245
+  },
+  "nativeCandidate": {
+    "seconds": 42.343,
+    "observations": {
+      "schema": "craft-installed-worker-crash-first-use/v1",
+      "result": "PASS",
+      "skillSha256": "720bea7455ef3ff5df1e19c03b182462b9168ae0fbd3879838acb314b9f34373",
+      "planSha256": "917168b9d516829d174d36b70f807ce3ab74412704a0ce152a8c1134e5e1509d",
+      "runtimeMode": "one installed recover skill, empty runtime, default public downloads",
+      "fault": "SIGKILL only the owned execution supervision worker after native spawn",
+      "attemptId": "49f43545-9f46-4ec4-a525-984d214a36cb",
+      "executionStatus": "running",
+      "taskState": "reconciling",
+      "stopEvidence": null,
+      "nativeGroupGoneObservedByTestOnly": true,
+      "artifacts": {
+        "project.ecproj": "524a2c35de0f225404729ee69f339a35ea2370a7329da96cf7c53f0db9907506",
+        "plan.json": "ac56ee6adc9426b10c4c45f81508d71356fd9bb303bce7815e3ad2f908b33aa6",
+        "exchange-loss.json": "8b9403547d8203b97229730fc18474e853e31d92e4c223b781fd4ee5539381ac",
+        "native.json": "f116e292bd32785a2128d58b36f89cc138c657a99500ea795b467582ce2a5a2e",
+        "frame-0000.png": "2af5a19c85ac6515c152fe6d1a40956d7fa54135a78b8db0fe7446a6709acb0d",
+        "frame-0001.png": "2af5a19c85ac6515c152fe6d1a40956d7fa54135a78b8db0fe7446a6709acb0d",
+        "manifest.json": "4753857e6faeb2984c61833afc84d5f493e87b7d92162b269cf3cad38b2f8f04",
+        "intro.mp4": "f9c0700fcac7dab546445e18862abb7835fd0b7cbbdf5e1b303537c6cdccfdbe",
+        "operations.json": "12dc75381f066cd01710fa2f280054121920ff51818fb88b27c1a256057568f9"
+      },
+      "nativeSpawnCount": 1,
+      "repeatCount": 2,
+      "structuredWorkflowReceiptChecked": true,
+      "budgetPreserved": true,
+      "projectLeasePreserved": true,
+      "installedSkillBytesPreserved": true,
+      "unverified": [
+        "automatic settlement without trusted stop evidence",
+        "pre-spawn submission window",
+        "concurrent recoverers",
+        "creative acceptance"
+      ]
+    }
+  },
+  "distributionLockByteIdenticalToSource74": true,
+  "workflowSha256": "85c20fbb9333422baab974dea0470ebdf4f037472ca38e596890ac320aec316e",
+  "driverSha256": "120ce4b04eb89aed778daa2e2873f4b594aa09abe801b5fd0d55bc60c6dd8b65",
+  "fixedPublicationAndInstallation": "pending",
+  "unverified": [
+    "Fixed source75/plugin101 installation",
+    "Pre-spawn submission window",
+    "Automatic/manual unknown-task settlement",
+    "Generic Skills CLI",
+    "Creative acceptance and full V1"
+  ]
+}

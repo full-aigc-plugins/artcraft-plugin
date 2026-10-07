@@ -20,6 +20,12 @@
 - 当前实测 macOS arm64 的 Node 24 与 EffectCraft 0.2.0；Linux 通用执行器未做本机实测，Windows 不支持。
 - `review_ready` 是技术待审，仍需视觉、文案与音频审核。
 
+## 直接读取非零工作流回执
+
+源技能dev.75起，公开workflow.py在非零工作流结果中保留既有error字符串，并增加对象workflowReceipt。先检查退出码，再读取workflowReceipt.state、runKey和nodes；waiting不是成功，不能只凭工程或导出存在继续打包。普通安装或输入错误只有error，不伪造工作流回执。旧版本仍需解码error中的工作流JSON；以实际固定技能源版本为准。
+
+收到waiting时保留projectRoot、原计划、revision、owner、authorization和tasks.sqlite，按上面的原任务恢复步骤重复核对。workflowReceipt仅让状态直接可读，不新增停止证据，也不授权清锁、换目录重放或自动技术就绪。
+
 ## 已停止失败的诊断（运行时 dev.32 起）
 
 使用本技能 cli.py 查询原任务：安装参数放在 `--` 前，CLI 参数放在其后。

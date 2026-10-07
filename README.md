@@ -1,3 +1,5 @@
+Source75 structured-receipt candidate passes106 source regressions (34 opt-in skips),5 target tests and one public cold native worker-fault test. Nonzero workflow replies preserve error/exit compatibility and add workflowReceipt, without parsing arbitrary exception text. Fixed plugin101 installation remains pending. [Evidence / 证据](docs/evidence/artcraft75-structured-workflow-receipt-candidate-20261007.json).
+
 Fixed Art100/source74 supervision-worker crash acceptance passes: an owned worker is SIGKILLed after native spawn; two recovery calls retain waiting/reconciling, the same attempt, budget, project lease and original artifact bytes, with one native spawn. Existing project/MP4 files and test-only process disappearance do not become trusted ledger stop evidence. All64 installed hashes remain unchanged. This verifies refusal of unsafe replay; pre-spawn unknown submission and automatic/manual settlement remain unverified. [Evidence / 证据](docs/evidence/artcraft100-worker-crash-first-use-20261007.json).
 
 Fixed Art100/source74 role acceptance passes8 tests (6 native,1 planning,1 reference contract): seven role entrypoints, PNG/JPEG/SVG replacement and PCM registration, native source revisions, unrelated-task reuse, relocated five-child delivery, review evidence refusal and owned scheduler SIGKILL recovery. All64 installed hashes remain unchanged. PCM is a test signal; creative acceptance, worker faults/unknown submission, generic Skills CLI and complete V1 remain open. [Evidence / 证据](docs/evidence/artcraft100-role-first-use-20261007.json).
@@ -42,7 +44,7 @@ The current fixed candidate pins PhotoCraft source dev.28 with 2,646 domain comm
 
 Fixed installation verification: domain plugins dev.29 / ArtCraft dev.95 expose 64 skills in isolated Codex 0.147.0 with zero loading errors. All 64 standalone-copy CLI probes pass with five fresh domain caches; four native create/revise/reopen checks pass using the installed Art skill. Seven of PhotoCraft's 755 native commands still lack classified usage guidance. Complete command and V1 acceptance remain open. [Evidence](docs/evidence/craft-fixed64-first-use-20261007.json).
 
-Current plugin: `0.1.0-dev.100`; skill source: `0.1.0-dev.74`; runtime83; Film29/Effect30/Photo30/Vector29. Four-domain execution identity candidate passed; fixed installation pending and full V1 remains open.
+Current plugin: `0.1.0-dev.101`; skill source: `0.1.0-dev.75`; runtime83; Film29/Effect30/Photo30/Vector29. Structured workflow receipts pass source/candidate checks; fixed installation pending and full V1 remains open.
 
 Historical release record: Current plugin: `0.1.0-dev.93`; skill source: `0.1.0-dev.67`; runtime83; All four source25 domain bundles; owned desktop handoff. Fixed installed desktop acceptance pending. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
 
@@ -155,9 +157,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.100 |
+| Plugin ID / version | artcraft / 0.1.0-dev.101 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.74 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.75 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |

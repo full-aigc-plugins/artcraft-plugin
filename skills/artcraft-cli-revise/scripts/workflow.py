@@ -14,6 +14,15 @@ import importlib.util
 import shutil
 
 
+
+class WorkflowFailure(RuntimeError):
+    """保留非零工作流回执的对象快照，同时兼容已有error字符串。"""
+    def __init__(self, receipt):
+        serialized = json.dumps(receipt, ensure_ascii=False)
+        super().__init__(serialized)
+        self.receipt = json.loads(serialized)
+
+
 def digest(value):
     return hashlib.sha256(value).hexdigest()
 
@@ -238,7 +247,7 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
     receipt = json.loads(result.stdout)
     receipt['projectRoot'] = str(output)
     (output/('result-'+key+'.json')).write_bytes(canonical(receipt))
-    if result.returncode != 0:raise RuntimeError(json.dumps(receipt, ensure_ascii=False))
+    if result.returncode != 0:raise WorkflowFailure(receipt)
     return receipt
 
 
@@ -262,6 +271,9 @@ def main():
     try:
         print(json.dumps(execute(args.plan, args.output, args.owner, args.authorization, args.runtime_home, args.node_archive, args.bundle_dir, args.native_archive_dir, args.asset, args.video_factory_root, args.ffmpeg, args.ffprobe, args.brief, args.brief_sha), ensure_ascii=False))
     except (ValueError, RuntimeError, OSError, subprocess.SubprocessError) as error:
-        print(json.dumps({'error': str(error)}, ensure_ascii=False));raise SystemExit(1)
+        reply = {'error': str(error)}
+        if isinstance(error, WorkflowFailure):
+            reply['workflowReceipt'] = error.receipt
+        print(json.dumps(reply, ensure_ascii=False));raise SystemExit(1)
 
 if __name__ == '__main__':main()

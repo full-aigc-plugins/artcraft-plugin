@@ -62,6 +62,12 @@
 - **AND** 再次执行同一冻结工作流仅接管已有停止证据并重新核验产物；不启动第二次原生操作、不再次分配预算
 - **AND** 原生进程未确认停止、worker 也已崩溃或副作用提交窗口结果不明确时保留写占用和等待状态；PID 消失和产物存在不能代替停止证据
 
+#### Scenario: AC-TX-002-RECEIPT 非零工作流结构化回执
+
+- **WHEN** 公开Python工作流入口收到固定运行时返回的非零工作流结果，例如waiting、blocked或failed
+- **THEN** 非零退出与既有error字符串保持兼容，同时返回对象类型workflowReceipt，内容与原运行时回执及项目结果记录一致，调用方无需解码error字符串即可读取state、runKey及节点状态
+- **AND** 普通安装／输入异常不得伪造workflowReceipt；结构化等待回执不授权重放、释放写占用或发布技术就绪
+
 #### Scenario: AC-TX-002-WORKER 原生产物存在但监督证据缺失
 
 - **WHEN** 独立监督 worker 在原生进程启动后崩溃，且没有原 token、epoch 和命令摘要绑定的可信停止记录
