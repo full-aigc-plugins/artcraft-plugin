@@ -22,6 +22,8 @@ Read the [editable workflow](skills/artcraft-use/references/workflow.md) for inp
 
 [First-use navigation evidence](docs/evidence/craft-readme-first-use-navigation-20261007.json).
 
+Fixed installed path acceptance: standalone skills and Art mixed work pass native creation/reopen, targeted revision and export under Chinese-and-space paths; Art also verifies moved delivery. Skills/runtime identities stay unchanged. This is bounded macOS arm64 first-use evidence. [Path acceptance evidence](docs/evidence/craft-fixed-unicode-path-first-use-20261007.json).
+
 ---
 
 Complete domain command component candidate adds2639 offline queries, actual MCP schemas and selected-domain public handoff. Four-domain cold native creation/reopen/revision and target/control pixels pass; fixed installed6.50 and full DAG native delivery6.51 remain open. [Evidence](docs/evidence/art-complete-domain-component-candidate-20261007.json).
@@ -391,3 +393,5 @@ Fixed 64-skill installed native workflows pass: the mixed campaign, Logo revisio
 Fixed strict-plan installed verification passes: 64 CLI probes, 324 duplicate-key rejections across54 independently copied installed domain skills, 54 unique-plan structure checks and four cold native save/reopen/render samples. All64 installed skill hashes remain unchanged. Only the bounded strict-plan publication gate closes; generic Skills CLI, Art domain-bundle upgrade, exhaustive contexts and fullV1 remain open. [Evidence](docs/evidence/command-plan-json-fixed-first-use-20261007.json).
 
 The CLI acceptance default is now `host-acceptance-strict64.lock.json`: domain plugins dev.30 (Photo dev.31), ArtCraft dev.96. Earlier locks remain unchanged for historical evidence. ArtCraft96 still contains its earlier domain distribution bundles; upgrading those is a separate open task.
+
+[Native paths first-use architecture](docs/ArtCraft-Native-Path-Architecture.md)

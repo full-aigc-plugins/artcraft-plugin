@@ -22,6 +22,8 @@ python3 -I -B "$SKILL_DIR/scripts/cli.py" -- --help
 
 [首次使用入口证据](docs/evidence/craft-readme-first-use-navigation-20261007.json)。
 
+固定安装路径验收：独立技能及 Art 混合工作流在含中文和空格的路径下，通过原生创建与重开、定点返工及导出；Art 另验证移动交付包。技能与运行时身份保持不变。该结果仅覆盖 macOS arm64 的本次首次使用场景。 [路径验收证据](docs/evidence/craft-fixed-unicode-path-first-use-20261007.json).
+
 ---
 
 Art完整领域命令组件候选已支持2639条离线查询、实际MCP schema及只安装选定领域的公开交接。四域冷安装创建／重开／返工与目标／对照像素通过；固定安装6.50及DAG原生交付6.51仍开放。 [Evidence](docs/evidence/art-complete-domain-component-candidate-20261007.json).
@@ -389,3 +391,5 @@ Art HD 源码候选通过五秒 1080p 分段编排、移动文字返工及损坏
 严格计划解析的固定安装复验通过：64 个 CLI 探测、54 个独立安装领域技能的 324 次重复键拒绝、54 次有效计划结构检查，以及四领域空缓存原生保存／重开／渲染实例通过；执行后全部 64 个安装技能摘要不变。仅关闭本次修复的发布门禁；通用 Skills CLI、Art 领域包升级、全部命令上下文和完整首版仍开放。[证据](docs/evidence/command-plan-json-fixed-first-use-20261007.json)。
 
 CLI 验收默认锁现为 `host-acceptance-strict64.lock.json`：领域插件 dev.30（Photo dev.31）、ArtCraft dev.96。旧锁保留历史证据。ArtCraft96 内部分发的领域包仍为此前版本，升级属于单独未完成任务。
+
+[原生路径首次使用架构](docs/ArtCraft-Native-Path-Architecture.zh_CN.md)
