@@ -28,3 +28,5 @@ check/run只安装指定领域及Art自身运行时，核对固定目录、全�
 English: list/describe are offline. check/run install the selected fixed domain and invoke its public commands.py; every Art skill contains all four paired examples. Actual references and live native prerequisites apply. Preserve unknown outcomes and use a new revision rather than replaying. Native call acceptance is distinct from DAG native delivery; gateway DAG evidence is version-bound; the new appearance distribution requires its own fixed install proof. Complete per-command and GUI acceptance are separate.
 
 `usageRecipes` 路径相对于安装回执的领域 `skillRoot`，不能相对于 Art 技能根目录解析。高级外观DAG用法见当前技能内 [Vector外观](vector-appearance.md)；使用领域本身技能可安装 `npx skills add full-aigc-skills/vectorcraft-skills --skill vectorcraft-cli-appearance`。
+
+父级与表达式DAG见本技能的 [Effect表达式指南](effect-expression.md)。使用领域独立技能可安装 `npx skills add full-aigc-skills/effectcraft-skills --skill effectcraft-cli-expressions`。usageRecipes仍属于领域安装回执skillRoot。

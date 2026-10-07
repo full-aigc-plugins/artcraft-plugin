@@ -1,0 +1,215 @@
+{
+  "workflowId": "effect-expression",
+  "revision": "v1",
+  "ownerId": "local-user",
+  "authorizationRef": "effect-expression-local",
+  "budget": {
+    "currency": "USD",
+    "maxMinorUnits": 0,
+    "maxRevisions": 2,
+    "maxExternalCalls": 0
+  },
+  "nodes": [
+    {
+      "id": "intro",
+      "dependsOn": [],
+      "projectKey": "intro-project",
+      "expectedRevision": null,
+      "pluginId": "effectcraft",
+      "payload": {
+        "schemaVersion": "craft-skill-workflow/v1",
+        "plan": {
+          "document": {
+            "name": "Expression parent badge",
+            "width": 128,
+            "height": 64,
+            "frameRate": 12,
+            "duration": 1
+          },
+          "operations": [
+            {
+              "command": "native.command",
+              "params": {
+                "command": "layer.newNull",
+                "params": {
+                  "name": "Rig"
+                }
+              },
+              "as": "parent"
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "prop.set",
+                "params": {
+                  "layer": {
+                    "$ref": "parent.layer"
+                  },
+                  "path": "transform/position",
+                  "value": [
+                    0,
+                    0
+                  ]
+                }
+              }
+            },
+            {
+              "command": "layer.newShape",
+              "params": {
+                "name": "Target",
+                "kind": "rect",
+                "size": [
+                  40,
+                  40
+                ],
+                "position": [
+                  32,
+                  32
+                ],
+                "fill": "#ef5b36"
+              },
+              "as": "target"
+            },
+            {
+              "command": "layer.newShape",
+              "params": {
+                "name": "Control",
+                "kind": "rect",
+                "size": [
+                  40,
+                  40
+                ],
+                "position": [
+                  96,
+                  32
+                ],
+                "fill": "#27ae60"
+              },
+              "as": "control"
+            },
+            {
+              "command": "layer.select",
+              "params": {
+                "layers": [
+                  {
+                    "$ref": "target.layer"
+                  }
+                ],
+                "add": false,
+                "toggle": false
+              }
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "layer.setParent",
+                "params": {
+                  "layers": [
+                    {
+                      "$ref": "target.layer"
+                    }
+                  ],
+                  "parent": {
+                    "$ref": "parent.layer"
+                  }
+                }
+              }
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "prop.setExpression",
+                "params": {
+                  "layer": {
+                    "$ref": "target.layer"
+                  },
+                  "path": "transform/opacity",
+                  "expression": "50 + time * 50",
+                  "enabled": true
+                }
+              }
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "layer.expressions",
+                "params": {
+                  "layers": [
+                    {
+                      "$ref": "target.layer"
+                    }
+                  ],
+                  "enabled": false
+                }
+              }
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "layer.expressions",
+                "params": {
+                  "layers": [
+                    {
+                      "$ref": "target.layer"
+                    }
+                  ],
+                  "enabled": true
+                }
+              }
+            }
+          ],
+          "frames": [
+            0,
+            0.5
+          ],
+          "exports": []
+        },
+        "assetBindings": [],
+        "outputs": [
+          {
+            "assetId": "intro-png",
+            "location": "frame-0000.png",
+            "mediaType": "image/png"
+          }
+        ]
+      }
+    }
+  ],
+  "projectBrief": {
+    "schema": "craft-brief/v1",
+    "workflowId": "effect-expression",
+    "revision": "brief-v1",
+    "ownerId": "local-user",
+    "authorizationRef": "effect-expression-local",
+    "budget": {
+      "currency": "USD",
+      "maxMinorUnits": 0,
+      "maxRevisions": 2,
+      "maxExternalCalls": 0
+    },
+    "brand": {
+      "name": "NOVA",
+      "colors": [],
+      "fonts": [],
+      "appliesTo": [
+        "intro"
+      ],
+      "referenceAssets": []
+    },
+    "subjects": [],
+    "dataPolicy": {
+      "allowUpload": false
+    },
+    "ambiguities": [],
+    "deliverables": [
+      {
+        "id": "intro",
+        "nativeFormat": ".ecproj",
+        "width": 128,
+        "height": 64,
+        "dependsOn": [],
+        "execution": "local"
+      }
+    ]
+  }
+}

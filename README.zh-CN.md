@@ -1,4 +1,6 @@
-当前插件：`0.1.0-dev.86`；技能源：`0.1.0-dev.59`；runtime83；Vector19外观分发。十项实际安装外观及更新混合工作流通过。[架构](docs/ArtCraft-Vector-Appearance-Architecture.zh_CN.md)。
+当前插件：`0.1.0-dev.87`；技能源：`0.1.0-dev.60`；runtime83；Effect19表达式分发。固定安装待验收。[架构](docs/ArtCraft-Effect-Expression-Architecture.zh_CN.md)。
+
+历史发行记录：当前插件：`0.1.0-dev.86`；技能源：`0.1.0-dev.59`；runtime83；Vector19外观分发。十项实际安装外观及更新混合工作流通过。[架构](docs/ArtCraft-Vector-Appearance-Architecture.zh_CN.md)。
 
 固定原生命令网关首用通过：48项领域安装技能与十项 Art85／技能源58 的公开入口独立冷安装、创建／重开／导出、返工并保全原交付。公开 Brief、四领域网关、五子工程、Logo选择性更新／无关图标复用、移动包、真实取消和六类未知回复故障通过；58项安装摘要不变。全2639命令／GUI／模型／通用Skills CLI／完整V1门禁保持开放。[使用指南](docs/Craft-Native-Gateway-Usage.zh_CN.md) · [固定证据](docs/evidence/codex-native-gateway-first-use-20261007.json)。
 
@@ -81,9 +83,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.86 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.87 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.59 |
+| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.60 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

@@ -1,4 +1,6 @@
-Current plugin: `0.1.0-dev.86`; skill source: `0.1.0-dev.59`; runtime83; Vector19 appearance distribution. Ten installed Art appearance cases and updated mixed workflow pass. [Architecture](docs/ArtCraft-Vector-Appearance-Architecture.md).
+Current plugin: `0.1.0-dev.87`; skill source: `0.1.0-dev.60`; runtime83; Effect19 expression distribution. Fixed installed expression acceptance pending. [Architecture](docs/ArtCraft-Effect-Expression-Architecture.md).
+
+Historical release record: Current plugin: `0.1.0-dev.86`; skill source: `0.1.0-dev.59`; runtime83; Vector19 appearance distribution. Ten installed Art appearance cases and updated mixed workflow pass. [Architecture](docs/ArtCraft-Vector-Appearance-Architecture.md).
 
 Fixed native gateway first use passes:48 independently installed domain skills and ten Art85/source58 public workflows cold-install, create/reopen/export, revise and preserve original deliveries. Art public Brief, all four gateway domains, five child nodes, selective Logo revision/icon reuse, moved package, native cancellation and six unknown faults pass. All58 installed identities are unchanged. Full2639-command/GUI/model/generic Skills CLI/V1 gates remain open. [Usage](docs/Craft-Native-Gateway-Usage.md) · [Fixed evidence](docs/evidence/codex-native-gateway-first-use-20261007.json).
 
@@ -83,9 +85,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.86 |
+| Plugin ID / version | artcraft / 0.1.0-dev.87 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.59 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.60 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |

@@ -1,0 +1,36 @@
+{
+  "expectedProjectSha256": "COPY_THE_NATIVE_PROJECT_SHA_FROM_SOURCE_MANIFEST",
+  "operations": [
+    {
+      "command": "layer.select",
+      "params": {
+        "layers": [
+          {
+            "$ref": "target.layer"
+          }
+        ],
+        "add": false,
+        "toggle": false
+      }
+    },
+    {
+      "command": "native.command",
+      "params": {
+        "command": "prop.setExpression",
+        "params": {
+          "layer": {
+            "$ref": "target.layer"
+          },
+          "path": "transform/opacity",
+          "expression": "25 + time * 50",
+          "enabled": true
+        }
+      }
+    }
+  ],
+  "frames": [
+    0,
+    0.5
+  ],
+  "exports": []
+}
