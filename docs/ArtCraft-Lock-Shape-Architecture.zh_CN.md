@@ -51,3 +51,15 @@ The new immutable matrix is Film plugin32/source30, Effect33/31, Photo33/31, Vec
 新固定矩阵为 Film 插件32／技能源30、Effect33／31、Photo33／31、Vector32／30、Art102／76。隔离 Codex 宿主加载全部64项固定技能，错误为0；64项 runtime／Node 锁副本和10项 Art 分发锁副本通过296次公开错误入口检查，原安装摘要未变。四领域实际安装的原生工作流通过，五个固定提交共20项插件 CI 通过。64项独立空运行时和固定 Art 混合验收正在执行，本检查点保留为未完成。
 
 [Fixed checkpoint evidence / 固定检查点证据](evidence/craft-lock-preflight-fixed-installation-20261007.json).
+
+## Fixed native task verification / 固定原生任务复验
+
+Art102/source76 fixed mixed creation, revision, reuse and moved package passes all3 tests in170.084s. Four current fixed installed single-skill representative tasks pass with independent empty runtimes: Film voice/subtitles and shot revision; Effect alpha intro, text revision and preserved keyframes; Photo masks, protected pixels, PSD roundtrip and cover resizing; Vector boolean operations, artboards, SVG/PDF/PNG and targeted recolor. All64 original installed identities remain unchanged. These technical fixture results leave human creative review, exhaustive contexts and generic Skills CLI installation open. Independent64 healthy cold runtimes are still running.
+
+Art102／技能源76的固定混合创建、返工、复用和移动验包全部3项通过，耗时170.084秒。四个当前固定安装技能各自使用空运行时通过代表任务：Film 配音字幕与镜头修改；Effect 透明片头、改字和关键帧保留；Photo 蒙版、保护区域、PSD 往返与封面尺寸适配；Vector 布尔操作、多画板、SVG／PDF／PNG 与局部改色。全部64项原安装摘要未变。这些技术样例保留人工创作审查、穷尽上下文和通用 Skills CLI 安装门禁；64项健康独立冷启动仍在运行。
+
+## Completed independent cold installation gate / 独立冷安装门禁已通过
+
+All64 actual installed skills now pass independent default online cold CLI installation/version/discovery in666.554s. Each has an empty runtime and system-only PATH; all original installed trees remain unchanged. Four-domain original representative native tasks and Art fixed mixed tasks also pass. OpenSpec3.27 closes only this bounded lock/preflight gate. Actual Skills CLI task3.16, complete formal scenarios and creative review remain open.
+
+全部64项实际安装技能已通过各自独立空运行时、默认在线下载、版本与命令发现检查，耗时666.554秒，使用系统 PATH 且原安装树摘要保全。四领域原始代表任务和 Art 固定混合任务也通过。OpenSpec3.27仅关闭这个限定锁／提前校验门禁，实际 Skills CLI3.16、完整正式场景与创作审查仍开放。

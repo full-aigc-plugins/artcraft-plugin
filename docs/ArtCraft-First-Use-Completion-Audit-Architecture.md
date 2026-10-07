@@ -2,7 +2,14 @@
 
 This audit checks the current fixed releases and actual installation identities while retaining the full goal. **Installation identities and recorded cold starts match; overall completion remains unproven.** It neither changes OpenSpec/tasks/releases nor reruns native work.
 
-## Current evidence and full scope
+## Current dev.102 audit
+
+The current immutable matrix is Film32/source30, Effect33/31, Photo33/31, Vector32/30 and Art102/76, totaling64 skills. All64 freshly executed independent cold installations pass in666.554s; these are one current run, separate from the historical composed proof below. Current tracked source exports, full plugin/installed skill trees and exact host/tag identities match. There are120 requirements,439 scenarios and277 unchecked tasks. No complete formal requirement is inferred from this installation proof. Actual generic Skills CLI, exhaustive command contexts and creative review remain open.
+
+[Current audit](evidence/craft-art102-first-use-completion-audit-20261007.json) · [Fixed installation/native evidence](evidence/craft-lock-preflight-fixed-installation-20261007.json).
+
+
+## Historical dev.101 evidence and scope
 
 | Plugin | Plugin version | Skill source version | Skills | Requirements / scenarios | Unchecked tasks |
 | --- | --- | --- | ---: | ---: | ---: |

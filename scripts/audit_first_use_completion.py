@@ -74,7 +74,7 @@ def git_tag(repo, ref):
 
 
 def verify_source_export(repo, entry):
-    """标签归档与当前受控文件逐字节比较；不修改或混入本地忽略缓存。"""
+    """标签归档与当前受控技能文件逐字节比较；不修改或混入本地忽略缓存。"""
     changed = subprocess.run(['git', '-C', str(repo), 'diff', '--quiet', entry['skillSourceRef'], '--', 'skills'])
     if changed.returncode:
         raise ValueError('audit_tracked_source_drift')
@@ -172,7 +172,7 @@ def audit(plugins_root, skills_root, lock_path, proof_path, host_path):
     return {'schema': 'craft-first-use-completion-audit/v1',
         'goalStatus': 'not_complete',
         'currentInstallationIdentity': {'result': 'passed', 'skills': cold_count,
-            'scope': 'Current tracked source files match the fixed-tag archive; plugin/installed full trees rehashed; local immutable tags and recorded host discovery match the exact lock. Ignored source files are separately reported.'},
+            'scope': 'Current tracked skill-source files match the fixed-tag archive; plugin/installed full trees rehashed; local immutable tags and recorded host discovery match the exact lock. Ignored source files are separately reported.'},
         'recordedColdInstallation': {'result': 'identity_current', 'skills': cold_count,
             'scope': proof['current64ColdIdentityProof'].get('scope'),
             'newNativeExecution': False},
@@ -189,8 +189,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--plugins-root', type=Path, required=True)
     parser.add_argument('--skills-root', type=Path, required=True)
-    parser.add_argument('--lock', type=Path, default=ROOT/'host-acceptance-art101.lock.json')
-    parser.add_argument('--evidence', type=Path, default=ROOT/'docs/evidence/artcraft101-structured-workflow-receipt-fixed-first-use-20261007.json')
+    parser.add_argument('--lock', type=Path, default=ROOT/'host-acceptance-art102.lock.json')
+    parser.add_argument('--evidence', type=Path, default=ROOT/'docs/evidence/craft-lock-preflight-fixed-installation-20261007.json')
     parser.add_argument('--host-receipt', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()

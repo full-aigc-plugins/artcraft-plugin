@@ -24,7 +24,9 @@ Read the [editable workflow](skills/artcraft-use/references/workflow.md) for inp
 
 Fixed installed path acceptance: standalone skills and Art mixed work pass native creation/reopen, targeted revision and export under Chinese-and-space paths; Art also verifies moved delivery. Skills/runtime identities stay unchanged. This is bounded macOS arm64 first-use evidence. [Path acceptance evidence](docs/evidence/craft-fixed-unicode-path-first-use-20261007.json).
 
-Candidate source fix: structurally invalid runtime/Node locks now return local setup diagnostics before runtime writes/downloads. Five candidate native first-use checks pass; published plugin snapshots remain unchanged until separate immutable release acceptance. [Lock diagnostics candidate](docs/ArtCraft-Lock-Shape-Architecture.md).
+Historical source candidate before the fixed release: structurally invalid runtime/Node locks now return local setup diagnostics before runtime writes/downloads. Five candidate native first-use checks pass; published plugin snapshots remain unchanged until separate immutable release acceptance. [Lock diagnostics candidate](docs/ArtCraft-Lock-Shape-Architecture.md).
+
+Current fixed first-use verification: all64 installed skills pass independent empty-runtime installation/version/discovery in666.554s,296 malformed-lock calls preserve local recovery and user files, and the fixed Art mixed plus four original representative native tasks pass. OpenSpec3.27 closes this bounded gate; actual generic Skills CLI3.16, full formal contexts and creative acceptance remain open. [Current evidence](docs/evidence/craft-lock-preflight-fixed-installation-20261007.json) · [Completion audit](docs/evidence/craft-art102-first-use-completion-audit-20261007.json).
 
 ---
 
