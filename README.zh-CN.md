@@ -1,10 +1,12 @@
+当前插件：`0.1.0-dev.88`；技能源：`0.1.0-dev.61`；runtime83；Photo19蒙版调整分发。固定安装待验收。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
+
 ArtCraft 的十项独立技能源候选通过 Photo19 可编辑蒙版调整、可信源返工与移动包验收。固定发布版本和更新四领域混合项目尚待复验，6.58保持开放。 [Evidence](docs/evidence/artcraft-photo-adjustment-candidate-20261007.json). [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
 
 当前固定版本的 58 个技能全部通过独立冷启动：单技能目录、空运行环境、公开安装、版本查询及完整命令发现。此证据不代表 2639 条命令全部执行通过或完整场景验收。 [Evidence](docs/evidence/codex-current58-cold-cli-first-use-20261007.json).
 
 当前首次使用入口：插件 `0.1.0-dev.87`，技能源 `0.1.0-dev.60`。中英文安装与命令指南按当前固定发行核验；历史样例证据保留原版本范围。 [Guide](docs/Craft-Native-Gateway-Usage.zh_CN.md).
 
-当前插件：`0.1.0-dev.87`；技能源：`0.1.0-dev.60`；runtime83；Effect19表达式分发。十项实际安装表达式及更新混合工作流通过。[架构](docs/ArtCraft-Effect-Expression-Architecture.zh_CN.md)。
+历史发行记录：当前插件：`0.1.0-dev.87`；技能源：`0.1.0-dev.60`；runtime83；Effect19表达式分发。十项实际安装表达式及更新混合工作流通过。[架构](docs/ArtCraft-Effect-Expression-Architecture.zh_CN.md)。
 
 历史发行记录：当前插件：`0.1.0-dev.86`；技能源：`0.1.0-dev.59`；runtime83；Vector19外观分发。十项实际安装外观及更新混合工作流通过。[架构](docs/ArtCraft-Vector-Appearance-Architecture.zh_CN.md)。
 
@@ -89,9 +91,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.87 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.88 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.60 |
+| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.61 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

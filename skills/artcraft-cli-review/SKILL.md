@@ -73,3 +73,5 @@ python3 -I -B "$SKILL_DIR/scripts/review.py" verify --package "$PACKAGE_ROOT" --
 原生渐变、多重填充及源工程改色返工：使用当前技能的 [Vector外观指南](references/vector-appearance.md)。
 
 原生父级、透明度表达式与源工程返工：使用当前技能的 [Effect表达式指南](references/effect-expression.md)。
+
+Photo原生调整层、选区蒙版与可信源返工见 [局部调整指南](references/photo-adjustment.md)。

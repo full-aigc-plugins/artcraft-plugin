@@ -1,0 +1,36 @@
+{
+  "expectedProjectSha256": "SET_FROM_SOURCE_MANIFEST",
+  "operations": [
+    {
+      "command": "native.command",
+      "params": {
+        "command": "layer.select",
+        "params": {
+          "layer": {
+            "$ref": "adjustment.layer"
+          }
+        }
+      }
+    },
+    {
+      "command": "native.command",
+      "params": {
+        "command": "layer.setAdjustment",
+        "params": {
+          "layer": {
+            "$ref": "adjustment.layer"
+          },
+          "brightness": -30,
+          "contrast": 0,
+          "legacy": false
+        }
+      }
+    }
+  ],
+  "exports": [
+    {
+      "format": "png"
+    }
+  ],
+  "minimumLayers": 4
+}

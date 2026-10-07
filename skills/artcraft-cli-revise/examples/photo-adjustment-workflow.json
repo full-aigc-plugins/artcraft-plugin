@@ -1,0 +1,159 @@
+{
+  "workflowId": "photo-adjustment",
+  "revision": "v1",
+  "ownerId": "local-user",
+  "authorizationRef": "photo-adjustment-local",
+  "budget": {
+    "currency": "USD",
+    "maxMinorUnits": 0,
+    "maxRevisions": 2,
+    "maxExternalCalls": 0
+  },
+  "nodes": [
+    {
+      "id": "poster",
+      "dependsOn": [],
+      "projectKey": "poster-project",
+      "expectedRevision": null,
+      "pluginId": "photocraft",
+      "payload": {
+        "schemaVersion": "craft-skill-workflow/v1",
+        "plan": {
+          "document": {
+            "name": "Masked local brightness",
+            "width": 128,
+            "height": 64,
+            "background": "#808080"
+          },
+          "operations": [
+            {
+              "command": "shape.create",
+              "params": {
+                "kind": "rect",
+                "rect": [
+                  8,
+                  8,
+                  40,
+                  48
+                ],
+                "fill": "#808080",
+                "name": "Product"
+              },
+              "as": "target"
+            },
+            {
+              "command": "shape.create",
+              "params": {
+                "kind": "rect",
+                "rect": [
+                  80,
+                  8,
+                  40,
+                  48
+                ],
+                "fill": "#27ae60",
+                "name": "Control"
+              },
+              "as": "control"
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "layer.newAdjustmentLayer.brightnessContrast",
+                "params": {
+                  "brightness": 30,
+                  "contrast": 0,
+                  "legacy": false
+                }
+              },
+              "as": "adjustment"
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "select.rect",
+                "params": {
+                  "x": 8,
+                  "y": 8,
+                  "width": 20,
+                  "height": 48,
+                  "antiAlias": false,
+                  "feather": 0
+                }
+              }
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "layer.layerMask.revealSelection",
+                "params": {
+                  "layer": {
+                    "$ref": "adjustment.layer"
+                  }
+                }
+              }
+            },
+            {
+              "command": "native.command",
+              "params": {
+                "command": "select.deselect",
+                "params": {}
+              }
+            }
+          ],
+          "exports": [
+            {
+              "format": "png"
+            }
+          ],
+          "minimumLayers": 4
+        },
+        "assetBindings": [],
+        "outputs": [
+          {
+            "assetId": "poster-png",
+            "location": "design.png",
+            "mediaType": "image/png"
+          }
+        ]
+      }
+    }
+  ],
+  "projectBrief": {
+    "schema": "craft-brief/v1",
+    "workflowId": "photo-adjustment",
+    "revision": "brief-v1",
+    "ownerId": "local-user",
+    "authorizationRef": "photo-adjustment-local",
+    "budget": {
+      "currency": "USD",
+      "maxMinorUnits": 0,
+      "maxRevisions": 2,
+      "maxExternalCalls": 0
+    },
+    "brand": {
+      "name": "NOVA",
+      "colors": [],
+      "fonts": [],
+      "appliesTo": [
+        "poster"
+      ],
+      "referenceAssets": []
+    },
+    "subjects": [],
+    "dataPolicy": {
+      "allowUpload": false
+    },
+    "ambiguities": [],
+    "deliverables": [
+      {
+        "id": "poster",
+        "nativeFormat": ".pcraft",
+        "width": 128,
+        "height": 64,
+        "dependsOn": [],
+        "execution": "local"
+      }
+    ]
+  }
+}
