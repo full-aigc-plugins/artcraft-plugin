@@ -124,6 +124,15 @@ ArtCraft SHALL 按能力快照与用户原生格式选工具；剪映由独立�
 - **WHEN** 独立Art入口首次安装并执行明确的Effect父级／表达式DAG和可信源返工
 - **THEN** SHALL按锁仅安装所选领域及CLI，保留实际图层引用和选择前置状态，以两个时间点真实RGBA Alpha验证表达式与返工，保留父级／控制图层／合成及原交付，原生子工程和移动交付包验收通过后才记录完成；更新混合交付和全量命令验收单独保留。
 
+
+#### Scenario: AC-DM-002-PHOTO-ADJUSTMENT 独立入口蒙版调整可信返工
+- **WHEN** 独立Art入口首次安装明确的Photo局部调整蒙版DAG并从实际原生引用返工
+- **THEN** SHALL按锁安装所选领域，验证pcraft重开后的调整参数与蒙版、目标与控制区像素、非目标图层和原交付保持，并保留可移动原生子工程包；源候选、固定安装及混合项目验收分别记录。
+
+#### Scenario: AC-DM-002-PHOTO-ADJUSTMENT-UNTRUSTED 拒绝未经核验源引用
+- **WHEN** Photo蒙版返工缺少真实源artifact、外部根目录或nativeProjectRef摘要不匹配
+- **THEN** SHALL拒绝执行或交付，不覆盖原交付，不以目录收录或源候选结果代替实际安装验证。
+
 ### Requirement: AC-DM-003 依赖调度与并发隔离
 
 ArtCraft SHALL 执行前检查 DAG 循环、缺失节点与输入版本；独立节点可并行，同一原生工程单写；下游只消费已验证产物。

@@ -1,3 +1,5 @@
+Ten independent Art skill source candidates pass Photo19 editable mask/adjustment, trusted source revision and moved-package acceptance. Fixed published Art installation and updated four-domain mixed retests remain pending; task6.58 stays open. [Evidence](docs/evidence/artcraft-photo-adjustment-candidate-20261007.json). [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
+
 All 58 current pinned skills pass independent cold CLI first use: one skill directory, empty runtime, public installation, version query and complete command discovery. This proves installation/discovery, not exhaustive execution of 2639 commands or full creative acceptance. [Evidence](docs/evidence/codex-current58-cold-cli-first-use-20261007.json).
 
 Current first-use entry: plugin `0.1.0-dev.87`, skill source `0.1.0-dev.60`. Installation and command guides are checked against the current pinned releases; historical evidence retains its original version scope. [Guide](docs/Craft-Native-Gateway-Usage.md).
