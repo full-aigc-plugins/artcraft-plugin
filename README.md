@@ -2,9 +2,9 @@
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current plugin: `0.1.0-dev.109`; skill source: `0.1.0-dev.81`; 10 independent skills.
+Current plugin: `0.1.0-dev.110`; skill source: `0.1.0-dev.82`; 10 independent skills.
 
-Current distribution: plugin dev.107 / source dev.80 / Art runtime dev.106. Ten fresh independent cold installations and 390 protocol checks pass; the real four-domain mixed workflow passes. [Evidence](docs/evidence/artcraft107-protocol-fixed-first-use-20261008.json). Complete V1 remains open.
+Historical distribution: plugin dev.107 / source dev.80 / Art runtime dev.106. Ten fresh independent cold installations and 390 protocol checks pass; the real four-domain mixed workflow passes. [Evidence](docs/evidence/artcraft107-protocol-fixed-first-use-20261008.json). Complete V1 remains open.
 
 
 Verified first-use platform: macOS arm64 and Python 3.11+. Pinned runtimes install into the user data directory; skill files stay in their host-loaded directory. These are development releases; complete V1 acceptance and generic Skills CLI installation remain open.
@@ -114,9 +114,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.109 |
+| Plugin ID / version | artcraft / 0.1.0-dev.110 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.81 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.82 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -442,3 +442,5 @@ The current installed Art109 revise skill passes a five-node native brand revisi
 The current installed recovery skill passes real native-render task/parent cancellation, saved-stage reopening, no replay, and scheduler SIGKILL recovery preserving attempt/budget across four native projects and moved package verification. Cancelling one task leaves the workflow blocked. Complete recovery/cancellation requirements remain open. [Qualification](docs/Craft-Installed-Cancellation-Recovery.md).
 
 The current installed skill retains two five-child brand versions and a separate caption revision package. Dependent updates, unrelated reuse, original preservation, moved-package verification and CLI source relinking with original paths unavailable pass. Named preview inspection led to a readable caption revision; human acceptance remains pending. [Delivery and evidence](docs/Craft-Retained-Mixed-Delivery.md).
+
+Dev.110 vendors immutable standalone source dev.82, pins Film source36, and regenerates all command-index identities. Small-frame caption templates and self-contained guidance are updated; native source mixed tests pass. New installed-host qualification is separate. [Evidence](docs/Caption-Size-First-Use.md).

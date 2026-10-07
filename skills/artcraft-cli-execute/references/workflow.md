@@ -177,3 +177,13 @@ python3 -I -B "$SKILL_DIR/scripts/workflow.py" \
 ```
 
 `SKILL_DIR` is the actual loaded skill directory, including a plugin installation or `.agents/skills`; no fixed mount is assumed. Default installation uses the pinned public runtime/domain bundles. Repeating the same revision verifies outputs and reuses valid tasks; a changed Logo requires a new revision, which invalidates its consumers and preserves independent work. Do not edit existing deliveries or receipts to bypass revision identity.
+
+## 字幕尺寸与实际预览 / Caption size and rendered preview
+
+FilmCraft 的 `captions.setStyle.size` 按 1080 行画面归一，并非当前输出像素字号。计算 `size = desiredPixels × 1080 / frameHeight`；例如 320×180 的14px名义字号为84，640×360的24px为72，1920×1080的48px为48。实际字形高度还取决于字体；必须看当前尺寸的原生预览和导出字幕，不能仅核对样式返回值。默认180高示例使用size84和margin0.02；按实际版式调整，不把84固定套到所有分辨率。
+
+FilmCraft caption size is normalized to 1080 lines, not expressed directly in output pixels. Use `size = desiredPixels × 1080 / frameHeight`: nominal14px at height180 gives84, 24px at height360 gives72, and48px at height1080 gives48. Actual glyph bounds depend on the font. Inspect native previews and burned export at the requested resolution. The height180 examples use size84 and margin0.02; adapt to the layout rather than using84 at every resolution.
+
+音频 `timeline.place` 的显式duration必须落在已登记源范围内；短配音不能直接复制视频全长。需要完整短配音时可省略duration，由实际媒体长度与sourceIn决定；核对片段结束时间和成片尾部，防止非预期延长序列。示例中明确两秒的裁切要求对应输入至少两秒。
+
+Explicit audio placement duration must stay within the registered source range. Do not assign the full video duration to shorter narration. Omit duration when placing the complete short source, then check clip end time and exported tail for unintended sequence extension. Examples explicitly trimming two seconds require sources of at least two seconds.

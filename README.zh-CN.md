@@ -2,9 +2,9 @@
 
 多领域创作需求进入，交付项目清单、工作流记录、四领域子工程引用及验收记录。
 
-当前插件：`0.1.0-dev.109`；技能源：`0.1.0-dev.81`；10 个独立技能。
+当前插件：`0.1.0-dev.110`；技能源：`0.1.0-dev.82`；10 个独立技能。
 
-当前分发：插件 dev.107／源 dev.80／Art runtime dev.106。十技能独立空缓存安装及390项协议检查通过，实际四域混合工作流通过。[证据](docs/evidence/artcraft107-protocol-fixed-first-use-20261008.json)。完整V1仍开放。
+历史分发：插件 dev.107／源 dev.80／Art runtime dev.106。十技能独立空缓存安装及390项协议检查通过，实际四域混合工作流通过。[证据](docs/evidence/artcraft107-protocol-fixed-first-use-20261008.json)。完整V1仍开放。
 
 
 已验证首次使用平台：macOS arm64、Python 3.11+。固定运行时安装在用户数据目录，技能文件保留在宿主加载目录。当前为开发版本；完整首版验收及通用 Skills CLI 实际安装仍未完成。
@@ -112,9 +112,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.109 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.110 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.81 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.82 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
@@ -440,3 +440,5 @@ CLI 验收默认锁现为 `host-acceptance-strict64.lock.json`：领域插件 de
 当前固定安装的恢复技能通过真实原生渲染的任务／父工作流取消、暂存工程重开、重复不重放，以及真实调度器 SIGKILL 后保持 attempt／预算的四工程接管和迁移验包。单任务取消的工作流仍 blocked，不能提升为成功。仅覆盖所列路径，完整恢复／取消需求仍开放。[验收说明](docs/Craft-Installed-Cancellation-Recovery.zh_CN.md)。
 
 当前实际安装技能已保留两个五子工程品牌版本和字幕局部返工包：品牌依赖更新、无关节点复用、旧产物保全、移动验包及原路径不可用时CLI源工程重链接通过。具名视觉审阅发现并修正小尺寸字幕，人工验收仍pending。[交付与证据](docs/Craft-Retained-Mixed-Delivery.zh_CN.md)。
+
+dev.110 内置不可变独立技能源dev.82，锁定Film源36并重建完整命令索引身份。小尺寸字幕模板及自身指引更新，源码混合原生首用通过；新固定安装另验。[证据](docs/Caption-Size-First-Use.zh_CN.md)。
