@@ -38,3 +38,5 @@ Every Art role carries the same distribution lock and command index, with no sib
 ## Acceptance evidence
 
 The candidate and fixed tests each copy one Art skill, start with an empty runtime and download default public dependencies. They create four editable native children, revise their source projects, assert all eight records against effective plans, input inventories, original project SHAs and native binaries, preserve records on reuse, reject receipt conflicts and verify a moved package. CLI/discovery, technical native fixtures and creative acceptance remain separate evidence scopes. Generic Skills CLI installation and complete V1 remain open.
+
+Fixed plugin100/source74 installation now passes:10 separate cold caches and the native mixed workflow with all8 records, source revision, reuse and moved-package checks. The composed64 cold proof is bound to the exact current skill hashes; it combines three runs rather than pretending to rerun every unchanged skill. [Evidence / 证据](evidence/artcraft100-domain-guards-fixed-first-use-20261007.json).

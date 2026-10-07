@@ -21,7 +21,7 @@ class IndependentInstallTests(unittest.TestCase):
  def module(self):
   spec=importlib.util.spec_from_file_location('independent',ROOT/'scripts/verify_independent_skill_install.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
  def test_plan_uses_current_fixed_skill_refs_and_project_only_copy(self):
-  m=self.module();lock=json.loads((ROOT/'host-acceptance-art99.lock.json').read_text());plan=m.installation_plan(lock)
+  m=self.module();lock=json.loads((ROOT/'host-acceptance-art100.lock.json').read_text());plan=m.installation_plan(lock)
   self.assertEqual(len(plan),5);self.assertEqual(sum(len(p['skills']) for p in plan),64)
   self.assertEqual({row['plugin']:len(row['skills']) for row in plan},
                    {'filmcraft':13,'effectcraft':15,'photocraft':13,'vectorcraft':13,'artcraft':10})
@@ -29,7 +29,7 @@ class IndependentInstallTests(unittest.TestCase):
    self.assertTrue(row['source'].endswith(lock['plugins'][row['plugin']]['skillSourceRef']))
    self.assertNotIn('--global',row['argv']);self.assertIn('--copy',row['argv']);self.assertIn('codex',row['argv'])
  def test_missing_tool_does_not_create_output_or_attempt_installation(self):
-  m=self.module();lock=json.loads((ROOT/'host-acceptance-art99.lock.json').read_text())
+  m=self.module();lock=json.loads((ROOT/'host-acceptance-art100.lock.json').read_text())
   with tempfile.TemporaryDirectory() as d:
    output=Path(d)/'output'
    with self.assertRaisesRegex(ValueError,'existing_tool_required'):m.verify(Path(d)/'absent',Path(d)/'cli',Path(d)/'python',lock,output)
