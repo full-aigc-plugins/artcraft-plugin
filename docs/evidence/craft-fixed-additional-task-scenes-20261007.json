@@ -151,7 +151,8 @@
     },
     "effectcraft": {
       "path": "tests/test_task_skill_first_use.py",
-      "sha256": "791f55cf0bc205368d3a733676e27e905470fce43eb22e09718d09fbd072eb46"
+      "sha256": "791f55cf0bc205368d3a733676e27e905470fce43eb22e09718d09fbd072eb46",
+      "currentSha256": "b7e7354580e4ebbe2d1e0525c3717f54c0463e8e25748e5cc65fa12f53448b3d"
     },
     "photocraft": {
       "path": "tests/test_task_skill_first_use.py",
@@ -244,7 +245,7 @@
   "scope": {
     "transcript": "Timed user transcript import, editable native persistence, caption generation and SRT; automatic speech recognition NOT_RUN. Transcript test passed in initial mixed suite; multicam in that suite failed only due to absent Pillow.",
     "multicam": "Project selection and createMulticam in one session; actual angle pixel change; videoOnly preserves placed audio and original voice.",
-    "tracking": "Input video renders; analyze reports frames=11 and running=false, but actual point keys=0; apply rejected. Same-session attempt also fails. Failure retained, not counted as accepted.",
+    "tracking": "Composition render completes, but imported moving texture is absent at its expected pixel: expected RGB [47,47,47], actual [239,91,54] from underlying brand artwork. Analyze reports planned frames=11 and running=false, but actual point keys=0; apply rejected. Video decode/source frame path remains unaccepted. Stronger pixel assertion added; initial non-black check was insufficient.",
     "publication": "QA and evidence only; fixed skill runtime identity unchanged.",
     "excluded": [
       "Art role-specific acceptance",
@@ -253,5 +254,25 @@
       "complete V1",
       "cross-platform and production"
     ]
+  },
+  "trackingPixelDiagnostic": {
+    "expected": [
+      47,
+      47,
+      47
+    ],
+    "actual": [
+      239,
+      91,
+      54
+    ],
+    "comparison": "FAIL",
+    "coordinates": [
+      80,
+      80
+    ],
+    "input": "frames/frame-00.png",
+    "output": "tracking-source.png",
+    "sourceAssertSha256": "b7e7354580e4ebbe2d1e0525c3717f54c0463e8e25748e5cc65fa12f53448b3d"
   }
 }
