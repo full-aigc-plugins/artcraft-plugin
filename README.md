@@ -4,12 +4,14 @@ Coordinate mixed creative work into project/workflow records, four-domain native
 
 Current plugin: `0.1.0-dev.104`; skill source: `0.1.0-dev.78`; 10 independent skills.
 
-Audio-tail distribution update: plugin dev.103 targets Art source dev.77 and Film source dev.31. Native runtime dev.83 and the other three domain sources are unchanged. Installed verification for this new distribution passed the bounded audio-tail and mixed-workflow gates; the dev.102 evidence below remains version-bound.
+Current distribution: plugin dev.104 pins Art source dev.78 and Film source dev.32 with Film native craft.3. Art native dev.83 and the other three domain sources retain their immutable versions. Earlier dev.102/dev.103 evidence below remains version-bound.
 
 
 Verified first-use platform: macOS arm64 and Python 3.11+. Pinned runtimes install into the user data directory; skill files stay in their host-loaded directory. These are development releases; complete V1 acceptance and generic Skills CLI installation remain open.
 
 Fixed audio-tail acceptance: Film plugin dev.33 / source dev.31 and Art plugin dev.103 / source dev.77 pass actual installed first use. All 64 installed identities match; 23 changed skills pass fresh independent cold starts (258.282s), while 41 byte-identical skills retain their earlier cold evidence. Native audio-tail/gain/oversized-range checks, five-child spoken mixed delivery, moved package, and brand revision with unrelated reuse pass. This does not close generic Skills CLI, creative approval or full V1. [Version-bound evidence](docs/evidence/craft-art103-audio-tail-fixed-first-use-20261007.json).
+
+Current sample-duration correction: Film plugin dev.34 / source dev.32 and Art plugin dev.104 / source dev.78 pass actual fixed public-tag installation. All 64 installed identities are rechecked; 23 skills pass fresh independent cold starts (13 Film, 10 Art), and 41 historical cold records are reused only after full-tree digest equality. Actual 2.20s and 2.211s audio tails, gain revision, explicit oversized rejection, sequence relocation, captioned/narrated short-film revision, five-child mixed delivery, moved package and selective brand revision pass. Only this bounded sample-duration release gate closes; full V1, generic Skills CLI, model dispatch and creative acceptance remain open. [Current fixed evidence](docs/evidence/craft-art104-sample-audio-fixed-first-use-20261007.json).
 
 ## First use
 
