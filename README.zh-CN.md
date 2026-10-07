@@ -1,3 +1,5 @@
+固定 ArtCraft98／技能源72 首用通过：五个公开插件发现64技能，加载错误0；64个独立副本CLI探测通过，使用五个新领域缓存及后续复用。1项真实冷原生混合工作流和2项归档选项合同通过（154.62秒），覆盖源返工、恢复及移动交付。全部64安装摘要保持；Effect源29／runtime83身份及公开技能源归档字节已核验。通用Skills CLI、Art角色专项及完整首版仍开放。 [Evidence / 证据](docs/evidence/artcraft98-effect29-fixed-first-use-20261007.json).
+
 领域场景验收现为 **43项原生测试通过／全部42个不同场景技能**。固定安装跟踪用例使用受支持H.264 High通过；此前无损输入不受原生解码器支持，失败证据保留。Art角色专项、实际Skills CLI及完整V1仍开放。 [Evidence / 证据](docs/evidence/craft-fixed-tracking-supported-input-20261007.json).
 
 追加专项验收：**累计42项原生测试通过，覆盖41／42个领域场景技能**。多机位、带时间文本转录、滤镜及Puppet补验通过；Effect跟踪视频纹理未出现在预期像素，分析实际关键帧为0，尚未验收。64个安装摘要保持。Art角色专项、自动ASR、实际Skills CLI和完整V1继续开放。[证据](docs/evidence/craft-fixed-additional-task-scenes-20261007.json)。
@@ -10,7 +12,7 @@
 
 固定 ArtCraft97／技能源71 验收：五个公开插件发现64技能，加载错误0；64个独立副本CLI探测通过（五个新领域缓存，后续复用）。已安装 Art 通过240次严格JSON拒绝，以及冷原生混合创作、返工、崩溃恢复和移动交付验证。全部安装摘要保持不变。通用Skills CLI及完整首版门禁仍开放。[证据](docs/evidence/artcraft97-strict-plan-fixed-first-use-20261007.json)。
 
-已发布插件：**0.1.0-dev.97**，固定技能源 **0.1.0-dev.71**。十个 Art 技能固定 Film／Effect／Vector dev.28 和 Photo dev.29，保留 runtime dev.83 与 2,646 条分类命令。候选和固定安装冷启动混合流程通过，完整首版验收仍开放。
+已发布插件：**0.1.0-dev.98**，固定技能源 **0.1.0-dev.72**。十个 Art 技能固定 Film／Vector dev.28 和 Effect／Photo dev.29，保留 runtime dev.83 与 2,646 条分类命令。候选和固定安装冷启动混合流程通过，完整首版验收仍开放。
 
 以下为各历史版本的验收记录：
 
@@ -22,7 +24,7 @@
 
 固定发布安装验证：四领域插件 dev.29／ArtCraft dev.95，共 64 技能在隔离 Codex 0.147.0 中发现，零加载错误；64 独立副本 CLI 探测通过（五个新领域缓存），实际安装 Art 技能的四领域原生创建／返工／重开检查通过。发现 PhotoCraft 755 原生命令中有 7 条缺分类使用说明，待补齐；全量命令和完整首版保持开放。[证据](docs/evidence/craft-fixed64-first-use-20261007.json)。
 
-当前插件：`0.1.0-dev.98`；技能源：`0.1.0-dev.72`；runtime dev.83；Film／Vector源dev.28、Effect／Photo源dev.29。候选混合验收通过，固定安装待复验。
+当前插件：`0.1.0-dev.98`；技能源：`0.1.0-dev.72`；runtime dev.83；Film／Vector源dev.28、Effect／Photo源dev.29。候选和固定安装混合验收通过，完整首版仍开放。
 
 历史发行记录：当前插件：`0.1.0-dev.93`；技能源：`0.1.0-dev.67`；runtime83；四领域source25分发及自有桌面交接。固定安装桌面首用待验收。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
 

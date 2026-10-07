@@ -45,7 +45,7 @@
 
 - [x] 3.15 [AC-SK-003] 支持固定完整 Git 发布归档并保留原字节/文件摘要；绑定 FilmCraft dev.5，执行在线单 ArtCraft 技能中文配音、烧录、局部返工与四工程打包验收；产物：docs/evidence/chinese-mixed-first-use.json。
 
-- [ ] 3.16 [AC-SK-002] 使用实际 Skills CLI 将五套固定公开技能源安装到隔离项目 .agents/skills；使用 host-acceptance-art97.lock.json 核验全部 64 个目录摘要、每个目录原生版本探测及执行后摘要。历史 58 技能锁保留复核。工具缺失不静默安装；只有实际执行通过才记录完成。
+- [ ] 3.16 [AC-SK-002] 使用实际 Skills CLI 将五套固定公开技能源安装到隔离项目 .agents/skills；使用 host-acceptance-art98.lock.json 核验全部 64 个目录摘要、每个目录原生版本探测及执行后摘要。历史 58 技能锁保留复核。工具缺失不静默安装；只有实际执行通过才记录完成。
 
 - [x] 3.17 [AC-SK-003] 锁定 VectorCraft dev.6 原生品牌色板包；单 ArtCraft 技能首次在线安装完成五节点混合工程，基于源图形修改全局色板、准确重建四个关联产物并复用独立节点，验证源输入与旧交付保留、重复修订幂等及五子工程打包；固定发布版安装后另行复验。
 
@@ -333,4 +333,6 @@ SC-005 固定安装证据：`docs/evidence/artcraft97-strict-plan-fixed-first-us
 
 ## Effect tracking guidance distribution / Effect 跟踪指南分发
 
-- [ ] [SC-006] Art 十个独立技能固定 Effect 技能源 dev.29 公开归档、逐文件摘要和不可变命令索引，保留 runtime83；发布后在固定安装副本复验冷混合工作流及分发身份。目录、源候选和固定安装分别记录，完整V1继续开放。
+- [x] [SC-006] Art 十个独立技能固定 Effect 技能源 dev.29 公开归档、逐文件摘要和不可变命令索引，保留 runtime83；发布后在固定安装副本复验冷混合工作流及分发身份。目录、源候选和固定安装分别记录，完整V1继续开放。
+
+SC-006 固定发行验收：Art插件98／源72，五插件64技能加载与CLI身份通过；冷混合实际原生1项和合同2项通过，64安装摘要保留。证据 `docs/evidence/artcraft98-effect29-fixed-first-use-20261007.json`。通用Skills CLI 3.16、Art角色专项和完整V1不由此关闭。
