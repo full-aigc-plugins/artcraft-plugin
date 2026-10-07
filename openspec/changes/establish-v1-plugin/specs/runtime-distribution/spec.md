@@ -97,3 +97,11 @@ ArtCraft SHALL support explicit domain command `--mode desktop` using immutable 
 - **WHEN** the selected immutable domain bundle includes a bridge-only tool snapshot
 - **THEN** Art verifies its locked file digest and CLI identity, exposes its actual schemas only in bridge or desktop queries and preflight, and refuses these tools in headless mode before installation
 - **AND** the child validates live bridge schemas before editing; unlocked snapshot injection and schema drift cannot widen the allowed native tool set
+
+
+#### Scenario: [AC-RT-002-PLAN-JSON] 严格命令计划的独立分发
+
+- **GIVEN** FilmCraft / EffectCraft / VectorCraft 固定技能源为 dev.28，PhotoCraft 为 dev.29，公开命令计划拒绝根对象、操作对象及参数对象中的重复 JSON 键
+- **WHEN** ArtCraft 更新十个独立技能的领域分发锁与完整命令索引
+- **THEN** 每个包 SHALL 绑定不可变标签提交、公开 ZIP 摘要和所有文件摘要；保留 Art 原运行时身份及完整 2,646 命令目录
+- **AND** 候选单技能公开下载安装、原生保存重开、混合返工和移动包 SHALL 与新固定发行安装复验证据分别记录；结构预检不得创建运行时或输出目录
