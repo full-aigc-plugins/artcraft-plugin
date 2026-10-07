@@ -106,3 +106,5 @@ Photo原生调整层、选区蒙版与可信源返工见 [局部调整指南](re
 需要独立启动领域 GUI 命令时见 [自有桌面交接](references/desktop-handoff.md)。
 
 混合任务参考 [业务场景手册](references/business-scenes.md)，先确认依赖与输入版本，再执行子工程、局部返工和交付核验。
+
+安装失败时读取 [首次使用诊断](references/first-use-failures.md)，按回执定位当前技能自身的 setup 入口；安装失败与原生调用失败分别处理。

@@ -8,6 +8,9 @@ import subprocess
 import sys
 sys.dont_write_bytecode=True
 ALLOWED={'--version','--help','run','status','cancel','package','verify-package','register-video-factory'}
+def setup_failure(runtime_home):
+ """安装器缺失时也保留当前技能自身的恢复位置，不读取兄弟技能。"""
+ return {'skill':'artcraft-cli-setup','bootstrapScript':str(Path(__file__).with_name('bootstrap.py').resolve()),'runtimeHome':str(Path(runtime_home).expanduser().absolute()),'automaticRetry':False}
 def main():
  parser=argparse.ArgumentParser(description=__doc__)
  parser.add_argument('--runtime-home',type=Path,default=Path(os.environ.get('CRAFT_RUNTIME_HOME',str(Path.home()/'.local/share/craft-runtimes'))))
@@ -18,11 +21,20 @@ def main():
  command=[sys.executable,'-I','-B',str(Path(__file__).with_name('bootstrap.py')),'--runtime-home',str(args.runtime_home),'--runtime-only']
  for flag,value in [('--node-archive',args.node_archive),('--bundle-dir',args.bundle_dir),('--native-archive-dir',args.native_archive_dir)]:
   if value is not None:command.extend([flag,str(value)])
+ installation_completed=False
  try:
   setup=subprocess.run(command,capture_output=True,text=True,timeout=600)
-  if setup.returncode:print(setup.stdout);return setup.returncode
+  if setup.returncode:
+   try:reply=json.loads(setup.stdout)
+   except ValueError:reply={'error':setup.stdout.strip() or setup.stderr.strip() or 'bootstrap_failed'}
+   if not isinstance(reply,dict):reply={'error':setup.stdout.strip() or setup.stderr.strip() or 'bootstrap_failed'}
+   reply.setdefault('dependencySetup',setup_failure(args.runtime_home));reply.setdefault('result','failed')
+   print(json.dumps(reply));return setup.returncode
   installed=json.loads(setup.stdout)
+  installation_completed=True
   return subprocess.run([installed['nodeExecutable'],installed['entryPoint'],*argv],timeout=600).returncode
  except (ValueError,OSError,subprocess.SubprocessError) as error:
-  print(json.dumps({'error':str(error),'result':'unknown' if isinstance(error,subprocess.TimeoutExpired) else 'failed'}));return 1
+  reply={'error':str(error),'result':'unknown' if isinstance(error,subprocess.TimeoutExpired) else 'failed'}
+  if not installation_completed:reply['dependencySetup']=setup_failure(args.runtime_home)
+  print(json.dumps(reply));return 1
 if __name__=='__main__':raise SystemExit(main())

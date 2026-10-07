@@ -1,8 +1,10 @@
+当前插件：`0.1.0-dev.92`；技能源：`0.1.0-dev.66`；runtime83；四领域source24分发及自有桌面交接。固定安装桌面首用待验收。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
+
 本次固定版本追加原生验收：Art十项冷启动、四领域四项GUI编辑与保存重开，以及品牌色局部返工、依赖更新和交付打包通过；全量命令、全部GUI和创作质量仍待验收。[证据](docs/evidence/craft-fixed-scene-guidance-20261007.json)。
 
 固定安装场景指引验收：五插件58技能发现与内容摘要、示例引用及完整命令查询通过；四领域运行脚本与锁和示例保持原固定版本身份。Art新分发十项实际冷启动复验通过，全量命令和完整V1仍开放。[证据](docs/evidence/craft-fixed-scene-guidance-20261007.json)。
 
-当前插件：`0.1.0-dev.91`；技能源：`0.1.0-dev.64`；runtime83；四领域source23分发及自有桌面交接。固定安装桌面首用有界验收通过。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
+历史发行记录：当前插件：`0.1.0-dev.91`；技能源：`0.1.0-dev.64`；runtime83；四领域source23分发及自有桌面交接。固定安装桌面首用有界验收通过。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
 
 历史发行记录：当前插件：`0.1.0-dev.90`；技能源：`0.1.0-dev.63`。完整反射命令入口、独立CLI与桌面安装已提供；固定版本58项独立冷启动、四领域进阶GUI保存／重开／渲染及Art混合返工通过。逐条原生命令执行验收与完整V1保持开放。[固定验收记录](docs/evidence/craft-full-command-fixed-first-use-20261007.json)。
 
@@ -101,9 +103,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.91 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.92 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.64 |
+| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.66 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

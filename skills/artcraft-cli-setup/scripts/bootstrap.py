@@ -98,6 +98,14 @@ def install_node(lock, runtime_home, archive=None, platform_key=None):
                 shutil.rmtree(stage)
 
 
+def setup_failure(runtime_home):
+    """定位当前独立技能的安装入口；仅提供诊断，不触发重试。"""
+    return {'skill': 'artcraft-cli-setup',
+            'bootstrapScript': str(Path(__file__).resolve()),
+            'runtimeHome': str(Path(runtime_home).expanduser().absolute()),
+            'automaticRetry': False}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--runtime-home', type=Path, default=Path(os.environ.get('CRAFT_RUNTIME_HOME', str(Path.home()/'.local/share/craft-runtimes'))))
@@ -123,7 +131,7 @@ def main():
             result = module.setup(distribution, args.runtime_home, node, args.bundle_dir, args.native_archive_dir, plugins=[] if args.runtime_only else args.plugin)
         print(json.dumps(result))
     except (OSError, ValueError, subprocess.SubprocessError, tarfile.TarError) as error:
-        print(json.dumps({'error': str(error)}))
+        print(json.dumps({'error': str(error), 'installed': False, 'dependencySetup': setup_failure(args.runtime_home)}))
         raise SystemExit(1)
 
 if __name__ == '__main__':
