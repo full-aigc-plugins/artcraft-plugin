@@ -48,4 +48,16 @@ Existing domain OpenSpec 8.16/8.17 remain open for startup, fixed-release first 
 
 The Vector source-candidate bridge gateway maps only the verified `file.export` alias to engine `document.export`; receipts retain both requested `command` and actual `backendCommand`. Enabled checks use the actual operation in the same session. The pinned desktop registers both engine and UI variants of `file.place`; only this explicit pair is normalized to the engine context. Other missing or duplicate entries remain failures. Headless aliases and uniqueness checks remain unchanged. The 585 reflected Vector entries are covered through this explicit mapping, not by requiring identical GUI IDs.
 
-The actual desktop case completed six steps: create, rectangle, SVG export, native save, reopen, inspect. Reopened geometry retained x/y=8/8 and width/height=24/24, dirty=false, and the SVG is well-formed XML. Vector regressions passed 80 tests and skipped 24 environment-dependent tests. This proves the selected case and candidate repair, not fixed-release installation or complete command execution. Automatic standalone skill startup/process ownership still needs implementation.
+The actual desktop case completed six steps: create, rectangle, SVG export, native save, reopen, inspect. Reopened geometry retained x/y=8/8 and width/height=24/24, dirty=false, and the SVG is well-formed XML. Vector regressions passed 80 tests and skipped 24 environment-dependent tests. This proves the selected case and candidate repair, not fixed-release installation or complete command execution. Standalone startup/process ownership passed the source verification in section 5; installed fixed-release verification remains open.
+
+## 5. Standalone owned startup and shutdown
+
+All 48 domain skills include their own `desktop_session.py`, `desktop.py run` and `examples/desktop-first-use.json`. Set SKILL_DIR to the actually loaded skill:
+
+```bash
+python3 -I -B "$SKILL_DIR/scripts/desktop.py" run "$SKILL_DIR/examples/desktop-first-use.json" --output "$OUTPUT"
+```
+
+OUTPUT must be new and its parent must exist. `--runtime-home` selects an isolated cache; `--input NAME=PATH` imports explicit assets. Plan/catalog/reference/input/platform checks precede installation. The workflow installs both pinned runtimes, starts an isolated desktop, and uses lsof to verify the loopback listener belongs to its own application PID before MCP connection. Photo uses a private 0600 token file and the same authorized root for GUI/CLI. Only owned GUI/MCP processes are closed. Unknown edits are not retried.
+
+[48-source-skill cold-start evidence](evidence/craft-owned-desktop-first-use-20261007.json) covers individual copies under .agents/skills, empty public desktop+CLI caches, owned PID verification, native save/reopen, unchanged skill files and process cleanup. Each domain case has five operations; Vector has six including the export alias. Regressions passed 357 tests and skipped 109 environment-dependent tests. Source component gate 8.16 is verified; fixed-release gate 8.17, complete execution 8.3, Art GUI orchestration and full V1 remain open.
