@@ -360,3 +360,7 @@ SC-007固定发行证据：`docs/evidence/artcraft99-film29-fixed-first-use-2026
 固定门禁补证：`docs/evidence/artcraft104-install-lock-preflight-20261007.json`。74 项实际回归通过、5 项条件跳过；默认入口64技能身份与版本探测通过，五领域新缓存后复用，原安装摘要未变。只关闭维护安装锁与身份门禁修复，3.16仍未完成。
 
 2026-10-07 当前固定 Art104 八角色首用补证：`docs/evidence/artcraft104-installed-role-first-use-20261007.json`。规划复用上一轮相同源码／安装身份的通过记录；返工／素材／交付／包校验／停止任务重复取消、独立审阅记录／过期与篡改拒绝、执行／四领域源Brief与回执、安装诊断／runtime-only及单领域选择通过，64项原安装摘要保持。这里只补齐所列角色路径，不关闭整个3.9、3.16、未知worker恢复或创作接受。
+
+- [ ] [AC-DM-002-ASR-MIXED] 复现旧Art分发缺Whisper；固定Film源34并更新完整目录及独立资源；公开源／固定宿主首次模型下载、真实混合识别、Logo局部返工及移动交付包分别验收。
+
+2026-10-08 ASR分发候选证据：`docs/evidence/whisper-distribution-20261008.json`。旧公开Art分发实际Film不含Whisper，24.447秒红例；锁定已发布Film源34／native craft.4后选域冷安装24.576秒通过。真实首次模型下载及五子工程混合识别、品牌返工、海报／片头／视频像素变化、无关徽标复用、原交付与配音保全和移动包102.295秒通过。常规145项中109通过／36跳过；固定Art104尚未更新，AC-DM-002-ASR-MIXED不关闭。

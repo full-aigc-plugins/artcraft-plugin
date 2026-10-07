@@ -1,0 +1,129 @@
+{
+  "schema": "artcraft-whisper-distribution-evidence/v1",
+  "date": "2026-10-08",
+  "scope": "Art105 snapshot candidate/source79 published; fixed host mixed ASR pending",
+  "red": {
+    "result": "FAIL",
+    "seconds": 24.447,
+    "reason": "Actual installed Film native3 reported models.available false"
+  },
+  "selectedSourceCold": {
+    "result": "PASS",
+    "seconds": 24.576,
+    "runtimeIdentity": {
+      "pluginId": "filmcraft",
+      "pluginVersion": "0.1.0-dev.34",
+      "cliVersion": "0.2.0-craft.4",
+      "sha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+      "mode": "headless",
+      "capabilitySnapshotSha256": "a1a4d251ce97921d6c7783bc12720f66f7d2b0c36a565f5903e031fa6b0b7008"
+    },
+    "bundleHashes": {
+      "artcraft-runtime": "a1aa249c070d4a84e8318b5d898d60905bc7bede355c6926c944a209f9829f63",
+      "filmcraft-skills": "60fa0bbc89e8e751a793afb9e559bcaf80ccf5c861b326ffa235f4d7d8f4cc7f"
+    },
+    "modelsDirCorrect": true,
+    "unusedDomainsAbsent": true
+  },
+  "sourceMixed": {
+    "result": "PASS",
+    "seconds": 102.295,
+    "runtimeIdentity": {
+      "pluginId": "filmcraft",
+      "pluginVersion": "0.1.0-dev.34",
+      "cliVersion": "0.2.0-craft.4",
+      "sha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+      "mode": "headless",
+      "capabilitySnapshotSha256": "a1a4d251ce97921d6c7783bc12720f66f7d2b0c36a565f5903e031fa6b0b7008"
+    },
+    "modelFiles": {
+      "config.json": "ffdccec4f3211f4c63310f2b7098f309fe70f3952cedc5e4d11e43f5b2379b98",
+      "generation_config.json": "a5d5325911f16e74001a72fa13d6e208eee51548f994646de1f4b4cc8b35b512",
+      "tokenizer.json": "27fc476bfe7f17299480be2273fc0608e4d5a99aba2ab5dec5374b4482d1a566",
+      "model.safetensors": "7ebd0e69e78190ffe1438491fa05cc1f5c1aa3a4c4db3bc1723adbb551ea2395"
+    },
+    "wordCount": 28,
+    "realInference": true,
+    "sourceAndVoicePreserved": true,
+    "modelFilesUnchanged": true,
+    "unrelatedBadgeReused": true,
+    "packageChildren": 5,
+    "packageSha256": "c81482416f8d6413bdb25f8a7b6aee9916947df944a031ae6062dadfc7be8241",
+    "brandConsumerPixels": {
+      "poster": {
+        "beforeSha256": "14690b8ef5b39b95e246d049d6e1c4fbdc793cbe2139aeadc14773850d78275b",
+        "afterSha256": "c4a271eace368e657d509533061119f7f98808f3564529f105262402c5b7d5ad",
+        "changedPixelBounds": [
+          89,
+          138,
+          231,
+          283
+        ]
+      },
+      "intro": {
+        "beforeSha256": "0466ce7651675de16d298ef973f14ab1d8212e07dfae0c080770a837b4046d38",
+        "afterSha256": "e8d1437f6623c1b13b9d7beacc9744818ce3147d466bd76f10542689d4a6e84f",
+        "changedPixelBounds": [
+          80,
+          10,
+          222,
+          155
+        ]
+      },
+      "film": {
+        "beforeSha256": "5f45734f8c6fc05094de409418d9024537f793089734e579b29c5ffcf8a03e1c",
+        "afterSha256": "8baa5859e8838ae539c5408f66360a5aaa0566c5da6fbc4d634a987905067a3d",
+        "changedPixelBounds": [
+          80,
+          8,
+          224,
+          160
+        ]
+      }
+    }
+  },
+  "regression": {
+    "total": 145,
+    "passed": 109,
+    "skipped": 36,
+    "seconds": 29.611,
+    "priorFailure": "Ten fixture assertions retained old Film32 version/archive; updated to the verified immutable Film34 SHA and commit, all integrity guards retained"
+  },
+  "remaining": [
+    "Public source79 release and all independent skills cold setup",
+    "Fixed Art plugin source snapshot and host installation",
+    "Actual fixed mixed ASR/brand revision/moved package",
+    "Full V1 and generic Skills CLI acceptance"
+  ],
+  "publicSource": {
+    "sourceRef": "v0.1.0-dev.79",
+    "sourceCommit": "dc9ecb314226460163877ac8ba3deb6397c1d61f",
+    "assets": {
+      "artcraft-skills-v0.1.0-dev.79.zip": {
+        "sha256": "9d08170f2593a04f59b5daac4fe6104a381b1af5a424fe36a72163a5b50218eb",
+        "size": 6617045,
+        "publicBytesMatchGitArchive": true
+      },
+      "artcraft-skills-0.1.0-dev.79.zip": {
+        "sha256": "a7398eba73e80e9129e328faa88fecdb1966db9eefaad22d8261df16f4f1295e",
+        "size": 6585719,
+        "publicBytesMatchGitArchive": true
+      }
+    }
+  },
+  "pluginChecks": {
+    "python": {
+      "total": 79,
+      "passed": 74,
+      "skipped": 5
+    },
+    "node": {
+      "total": 196,
+      "passed": 176,
+      "skipped": 20
+    },
+    "rebuiltBundles": 5,
+    "openSpecStrict": "PASS",
+    "documentation": "PASS"
+  }
+}

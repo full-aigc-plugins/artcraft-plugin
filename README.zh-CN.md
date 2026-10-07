@@ -2,20 +2,20 @@
 
 多领域创作需求进入，交付项目清单、工作流记录、四领域子工程引用及验收记录。
 
-当前插件：`0.1.0-dev.104`；技能源：`0.1.0-dev.78`；10 个独立技能。
+当前插件：`0.1.0-dev.105`；技能源：`0.1.0-dev.79`；10 个独立技能。
 
-当前分发：插件 dev.104 固定 Art 技能源 dev.78、Film 技能源 dev.32 与 Film 原生 craft.3；Art 原生 dev.83 及另外三个领域技能源保留既有不可变版本。下文 dev.102／dev.103 证据仅适用于对应历史版本。
+当前分发：插件 dev.105 固定 Art 源 dev.79 与 Film 源 dev.34／native craft.4，保留 Art runtime dev.83 及其他三域不可变版本；固定宿主 ASR 尚待验收。
 
 
 已验证首次使用平台：macOS arm64、Python 3.11+。固定运行时安装在用户数据目录，技能文件保留在宿主加载目录。当前为开发版本；完整首版验收及通用 Skills CLI 实际安装仍未完成。
 
 固定音频尾部验收：Film 插件 dev.33／源 dev.31、Art 插件 dev.103／源 dev.77 已通过实际安装首用。64 项安装身份核验；23 项有变更技能逐个空运行时安装通过（258.282 秒），另 41 项摘要未变并复用原冷安装证据。音频尾部、增益另存、显式越界拒绝、五子工程配音混合交付、移动包和品牌返工／无关节点复用通过；不关闭通用 Skills CLI、创作审批或完整 V1。[版本绑定证据](docs/evidence/craft-art103-audio-tail-fixed-first-use-20261007.json)。
 
-当前采样时长修复验收：Film 插件 dev.34／源 dev.32、Art 插件 dev.104／源 dev.78 已通过固定公开标签的实际安装。64 项安装文件身份复核通过；本次 23 项技能分别空运行时安装（Film 13 项、Art 10 项），另 41 项仅在完整摘要一致后复用历史冷安装证据。2.20 秒及 2.211 秒音频尾部、增益另存、显式越界拒绝、序列迁移、带字幕配音短片局部修改、五子工程混合交付、移动包及品牌依赖返工通过。这仅关闭采样时长修复的有界发行门禁，完整 V1、通用 Skills CLI、模型调度和创作验收仍未完成。[当前固定证据](docs/evidence/craft-art104-sample-audio-fixed-first-use-20261007.json)。
+历史版本证据：当前采样时长修复验收：Film 插件 dev.34／源 dev.32、Art 插件 dev.104／源 dev.78 已通过固定公开标签的实际安装。64 项安装文件身份复核通过；本次 23 项技能分别空运行时安装（Film 13 项、Art 10 项），另 41 项仅在完整摘要一致后复用历史冷安装证据。2.20 秒及 2.211 秒音频尾部、增益另存、显式越界拒绝、序列迁移、带字幕配音短片局部修改、五子工程混合交付、移动包及品牌依赖返工通过。这仅关闭采样时长修复的有界发行门禁，完整 V1、通用 Skills CLI、模型调度和创作验收仍未完成。[当前固定证据](docs/evidence/craft-art104-sample-audio-fixed-first-use-20261007.json)。
 
 维护验收工具现默认使用已核验的 dev.104 锁及对应证据。独立安装计划在创建项目或调用外部工具前拒绝浮动引用、不完整提交／摘要及非法技能名称；安装副本的探测同时匹配应用身份和版本。回归 79 项、5 项条件跳过；实际安装副本 64 次版本探测通过，使用五个新领域缓存并在后续复用。显式历史锁参数保持兼容。此项只修正维护工具，不修改已发布插件／技能源快照，实际通用 Skills CLI 安装仍未完成。 [证据](docs/evidence/artcraft104-install-lock-preflight-20261007.json).
 
-当前 Art dev.104 的八项独立场景角色验证通过：规划、返工、素材、交付、审阅、恢复、执行及安装诊断。测试使用真实固定安装副本、单技能复制和公开运行时下载，检查源工程修改与无关节点复用、移动验包、过期／篡改审阅拒绝、重复取消、执行回执和按领域安装。规划证据复用上一轮源码未变化的当前安装验证；审阅仍为 pending／creative NOT_RUN，取消验证不证明未知 worker 恢复。实际通用 Skills CLI 安装、全量命令上下文和完整 V1仍未完成。 [证据](docs/evidence/artcraft104-installed-role-first-use-20261007.json).
+历史版本证据：当前 Art dev.104 的八项独立场景角色验证通过：规划、返工、素材、交付、审阅、恢复、执行及安装诊断。测试使用真实固定安装副本、单技能复制和公开运行时下载，检查源工程修改与无关节点复用、移动验包、过期／篡改审阅拒绝、重复取消、执行回执和按领域安装。规划证据复用上一轮源码未变化的当前安装验证；审阅仍为 pending／creative NOT_RUN，取消验证不证明未知 worker 恢复。实际通用 Skills CLI 安装、全量命令上下文和完整 V1仍未完成。 [证据](docs/evidence/artcraft104-installed-role-first-use-20261007.json).
 
 ## 首次使用
 
@@ -108,9 +108,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.104 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.105 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.78 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.79 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
@@ -408,3 +408,5 @@ Art HD 源码候选通过五秒 1080p 分段编排、移动文字返工及损坏
 CLI 验收默认锁现为 `host-acceptance-strict64.lock.json`：领域插件 dev.30（Photo dev.31）、ArtCraft dev.96。旧锁保留历史证据。ArtCraft96 内部分发的领域包仍为此前版本，升级属于单独未完成任务。
 
 [原生路径首次使用架构](docs/ArtCraft-Native-Path-Architecture.zh_CN.md)
+
+候选 Art105 接入已发布源79／Film源34／native craft.4，保留 Art runtime83。源技能真实混合识别及返工通过；固定宿主和公开插件混合ASR仍待验收。 [Evidence](docs/evidence/whisper-distribution-20261008.json).

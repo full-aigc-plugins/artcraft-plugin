@@ -92,3 +92,7 @@ Historical source-candidate note: Source candidate: complete native workflow gat
 
 Fixed ArtCraft82 / source56 component first use passes: five plugins,58 discovered skills and zero loading errors; ten Art skills each query2639 entries and cold-install/run all four domains independently (40 native cases,920 operations). Actual saved revisions reopen, target settings and output pixels pass, non-target objects and all58 installed identities remain unchanged. Two public source ZIPs exactly match the fixed tag; four plugin CI runs pass. Only component gate6.50 closes. Full DAG gate6.51, exhaustive2639 commands, GUI/model, generic Skills CLI and fullV1 remain open. [Version-bound evidence](docs/evidence/codex-art82-complete-domain-component-first-use-20261007.json).
 
+
+## 0.1.0-dev.105
+
+Art plugin dev.105 vendors published source79 with Film34/native craft.4, keeping runtime83 and other domains immutable. Source real mixed recognition, brand revision and moved package pass; plugin Python74 passes/5 skips, Node176 passes/20 skips, five immutable bundle rebuilds and strict OpenSpec pass. Fixed host/mixed acceptance remains pending. [Evidence](docs/evidence/whisper-distribution-20261008.json).

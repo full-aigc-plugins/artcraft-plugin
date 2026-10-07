@@ -92,3 +92,7 @@ Historical source-candidate note: Source candidate: complete native workflow gat
 
 固定 ArtCraft82／技能源56 的组件首次使用通过：5插件、58技能、零加载错误；十个Art技能各自查询2639条目录，并独立从空缓存安装、调用四领域（40项原生用例，920次操作）。实际工程保存与返工后重开、目标状态及像素、非目标对象保留均通过；58个安装技能摘要不变。两个公开源包与固定标签逐字节一致，4项插件CI通过。仅关闭组件门禁6.50；完整DAG门禁6.51、2639条逐项命令、GUI／模型、通用Skills CLI及完整V1仍开放。[版本绑定证据](docs/evidence/codex-art82-complete-domain-component-first-use-20261007.json)。
 
+
+## 0.1.0-dev.105
+
+Art 插件 dev.105 接入已发布源79及Film34／native craft.4，保留runtime83与其他领域不可变版本。源真实混合识别、品牌返工和移动包通过；插件Python74通过／5跳过、Node176通过／20跳过、五包不可变重建及严格OpenSpec通过。固定宿主／混合验收仍待。 [Evidence](docs/evidence/whisper-distribution-20261008.json).

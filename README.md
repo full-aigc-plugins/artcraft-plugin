@@ -2,20 +2,20 @@
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current plugin: `0.1.0-dev.104`; skill source: `0.1.0-dev.78`; 10 independent skills.
+Current plugin: `0.1.0-dev.105`; skill source: `0.1.0-dev.79`; 10 independent skills.
 
-Current distribution: plugin dev.104 pins Art source dev.78 and Film source dev.32 with Film native craft.3. Art native dev.83 and the other three domain sources retain their immutable versions. Earlier dev.102/dev.103 evidence below remains version-bound.
+Current distribution: plugin dev.105 pins Art source dev.79 and Film source dev.34/native craft.4; Art runtime dev.83 and the other three domain sources remain immutable. Fixed host ASR acceptance is pending.
 
 
 Verified first-use platform: macOS arm64 and Python 3.11+. Pinned runtimes install into the user data directory; skill files stay in their host-loaded directory. These are development releases; complete V1 acceptance and generic Skills CLI installation remain open.
 
 Fixed audio-tail acceptance: Film plugin dev.33 / source dev.31 and Art plugin dev.103 / source dev.77 pass actual installed first use. All 64 installed identities match; 23 changed skills pass fresh independent cold starts (258.282s), while 41 byte-identical skills retain their earlier cold evidence. Native audio-tail/gain/oversized-range checks, five-child spoken mixed delivery, moved package, and brand revision with unrelated reuse pass. This does not close generic Skills CLI, creative approval or full V1. [Version-bound evidence](docs/evidence/craft-art103-audio-tail-fixed-first-use-20261007.json).
 
-Current sample-duration correction: Film plugin dev.34 / source dev.32 and Art plugin dev.104 / source dev.78 pass actual fixed public-tag installation. All 64 installed identities are rechecked; 23 skills pass fresh independent cold starts (13 Film, 10 Art), and 41 historical cold records are reused only after full-tree digest equality. Actual 2.20s and 2.211s audio tails, gain revision, explicit oversized rejection, sequence relocation, captioned/narrated short-film revision, five-child mixed delivery, moved package and selective brand revision pass. Only this bounded sample-duration release gate closes; full V1, generic Skills CLI, model dispatch and creative acceptance remain open. [Current fixed evidence](docs/evidence/craft-art104-sample-audio-fixed-first-use-20261007.json).
+Historical: Current sample-duration correction: Film plugin dev.34 / source dev.32 and Art plugin dev.104 / source dev.78 pass actual fixed public-tag installation. All 64 installed identities are rechecked; 23 skills pass fresh independent cold starts (13 Film, 10 Art), and 41 historical cold records are reused only after full-tree digest equality. Actual 2.20s and 2.211s audio tails, gain revision, explicit oversized rejection, sequence relocation, captioned/narrated short-film revision, five-child mixed delivery, moved package and selective brand revision pass. Only this bounded sample-duration release gate closes; full V1, generic Skills CLI, model dispatch and creative acceptance remain open. [Current fixed evidence](docs/evidence/craft-art104-sample-audio-fixed-first-use-20261007.json).
 
 Maintainer acceptance tools now default to the verified dev.104 lock and matching evidence. Independent installation plans reject floating refs, malformed commits/digests and invalid skill names before creating a project or invoking external tools. Installed probes match both application identity and version. Regression: 79 tests, 5 conditional skips; actual installed verification: 64 version probes with five fresh domain caches and later cache reuse. Explicit historical lock parameters remain supported. This is a maintainer-tool correction; immutable plugin and skill releases are unchanged, and actual generic Skills CLI installation remains open. [Evidence](docs/evidence/artcraft104-install-lock-preflight-20261007.json).
 
-Current Art dev.104 standalone scene-role verification passes for plan, revise, assets, deliver, review, recover, execute and setup. Tests use the actual installed fixed snapshot, independent copied skills and public runtime downloads. Native source revision and unrelated reuse, moved packages, stale/tampered review rejection, repeated cancellation, execution receipts and selected-domain setup are checked. Planning evidence is reused from the preceding unchanged-source installed run. Review remains pending with creative NOT_RUN; cancellation checks do not prove unknown-worker recovery. This does not close generic Skills CLI installation, all command contexts or full V1. [Evidence](docs/evidence/artcraft104-installed-role-first-use-20261007.json).
+Historical: Current Art dev.104 standalone scene-role verification passes for plan, revise, assets, deliver, review, recover, execute and setup. Tests use the actual installed fixed snapshot, independent copied skills and public runtime downloads. Native source revision and unrelated reuse, moved packages, stale/tampered review rejection, repeated cancellation, execution receipts and selected-domain setup are checked. Planning evidence is reused from the preceding unchanged-source installed run. Review remains pending with creative NOT_RUN; cancellation checks do not prove unknown-worker recovery. This does not close generic Skills CLI installation, all command contexts or full V1. [Evidence](docs/evidence/artcraft104-installed-role-first-use-20261007.json).
 
 ## First use
 
@@ -110,9 +110,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.104 |
+| Plugin ID / version | artcraft / 0.1.0-dev.105 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.78 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.79 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -410,3 +410,5 @@ Fixed strict-plan installed verification passes: 64 CLI probes, 324 duplicate-ke
 The CLI acceptance default is now `host-acceptance-strict64.lock.json`: domain plugins dev.30 (Photo dev.31), ArtCraft dev.96. Earlier locks remain unchanged for historical evidence. ArtCraft96 still contains its earlier domain distribution bundles; upgrading those is a separate open task.
 
 [Native paths first-use architecture](docs/ArtCraft-Native-Path-Architecture.md)
+
+Candidate Art105 vendors published source79/Film source34/native craft.4, retaining Art runtime83. Source mixed recognition/revision passes; fixed host and public-plugin mixed ASR remain pending. [Evidence](docs/evidence/whisper-distribution-20261008.json).
