@@ -1,3 +1,5 @@
+固定Art98／源72素材角色新增3项冷原生验收通过：登记并替换PNG／JPEG／SVG，更新依赖产物并保留无关图标和旧交付，拒绝SVG外部依赖；PCM音频登记、Film原生音轨及移动验包通过。保留输入／输出／包摘要，全部64安装技能摘要保持。PCM使用测试信号，不代表配音内容审核。其他素材类型、完整协议／首版及通用Skills CLI仍开放。 [Evidence / 证据](docs/evidence/artcraft98-assets-role-first-use-20261007.json).
+
 固定 Art98／源72 的七个角色入口限定验收通过：覆盖Brief规划、原生执行／源返工、既有账本查询、移动打包、观察记录，以及调度器崩溃后的同attempt恢复。每次角色交接使用不存在的运行时目录；全部64安装摘要保持。账本查询之外的素材登记、worker崩溃、创作／人工审核、通用Skills CLI和完整首版仍开放。 [Evidence / 证据](docs/evidence/artcraft98-role-first-use-20261007.json) · [Architecture / 架构](docs/ArtCraft-Role-FirstUse-Architecture.zh_CN.md).
 
 固定 ArtCraft98／技能源72 首用通过：五个公开插件发现64技能，加载错误0；64个独立副本CLI探测通过，使用五个新领域缓存及后续复用。1项真实冷原生混合工作流和2项归档选项合同通过（154.62秒），覆盖源返工、恢复及移动交付。全部64安装摘要保持；Effect源29／runtime83身份及公开技能源归档字节已核验。通用Skills CLI、Art角色专项及完整首版仍开放。 [Evidence / 证据](docs/evidence/artcraft98-effect29-fixed-first-use-20261007.json).

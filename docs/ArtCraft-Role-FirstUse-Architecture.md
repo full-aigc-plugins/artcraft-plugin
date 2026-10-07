@@ -40,6 +40,11 @@ flowchart LR
 
 This changes test isolation and evidence capture, retaining installer, native CLI and runtime versions. Generic Skills CLI installation, exhaustive command contexts, other platforms and complete V1 are separate gates.
 
+## 4. Registered-media supplement
+
+The assets role has three additional fixed-installation native cases: PNG-to-JPEG replacement, SVG replacement and PCM audio registration. Image consumers rebuild, unrelated objects and old deliveries remain intact, and external SVG dependencies are refused. PCM metadata and native audio presence survive a moved five-child package. The audio fixture is a constant test signal; speech and listening quality are unverified. [Evidence](evidence/artcraft98-assets-role-first-use-20261007.json). Complete protocol and other media variants remain open.
+
+
 ---
 
 **Document version**: V1.0.0
