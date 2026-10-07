@@ -1,3 +1,5 @@
+当前固定版本首版代表任务通过：四领域已安装技能各自使用新公开运行时缓存，验证可编辑原生工程、重开、局部返工及导出。覆盖短片字幕／配音同步与素材移动、片头改字保留动画、海报图层／蒙版／PSD／尺寸变体、矢量布尔／多画板／SVG-PDF-PNG／改色。全部64安装摘要不变。本证据仅覆盖四个代表任务，不等于完整首版或所有专项场景。[证据](docs/evidence/craft-fixed-v1-representative-native-baseline-20261007.json)。
+
 逐技能独立冷启动：**64／64通过**（macOS arm64、Python3.13.5，620.155秒）。每个单技能分别使用独立空运行时与默认公开下载；锁定原生版本和命令发现通过，安装技能摘要不变。通用Skills CLI安装及完整首版仍开放。[证据](docs/evidence/craft-fixed64-every-skill-cold-first-use-20261007.json)。
 
 固定 ArtCraft97／技能源71 验收：五个公开插件发现64技能，加载错误0；64个独立副本CLI探测通过（五个新领域缓存，后续复用）。已安装 Art 通过240次严格JSON拒绝，以及冷原生混合创作、返工、崩溃恢复和移动交付验证。全部安装摘要保持不变。通用Skills CLI及完整首版门禁仍开放。[证据](docs/evidence/artcraft97-strict-plan-fixed-first-use-20261007.json)。
