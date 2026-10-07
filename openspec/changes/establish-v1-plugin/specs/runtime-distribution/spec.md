@@ -79,7 +79,7 @@
 - **THEN** 分发SHALL绑定支持最多三次只读下载并丢弃半包的领域安装器；SHA、证书、权限及安全解压边界保留，原生编辑不得重放；此前失败证据与新固定安装验收分别记录
 
 ### Requirement: AC-DS-001 Owned desktop domain handoff
-ArtCraft SHALL support explicit domain command `--mode desktop` using pinned source20 child skills. It SHALL verify the child bundle and native CLI, reject external connect/token options before installation, invoke the child's owned desktop launcher, validate the native bridge receipt and desktop lifecycle identity, and preserve unknown outcomes without replay. Headless and explicitly connected bridge modes SHALL retain their existing contracts.
+ArtCraft SHALL support explicit domain command `--mode desktop` using immutable pinned child skills. It SHALL verify the child bundle and native CLI, reject external connect/token options before installation, invoke the child's owned desktop launcher, validate the native bridge receipt and desktop lifecycle identity, and preserve unknown outcomes without replay. Headless and explicitly connected bridge modes SHALL retain their existing contracts.
 
 #### Scenario: Desktop command first use
 - **WHEN** a valid selected-domain plan runs in desktop mode with an empty runtime
@@ -92,3 +92,8 @@ ArtCraft SHALL support explicit domain command `--mode desktop` using pinned sou
 #### Scenario: Desktop handoff receipt or metadata conflict
 - **WHEN** a desktop plan targets reserved desktop metadata, or a child receipt mismatches the pinned desktop identity, listener ownership or process cleanup
 - **THEN** Art rejects the plan before setup or reports the actual handoff as unknown without replay or claiming mixed-project acceptance
+
+#### Scenario: Mode-aware bridge-only tools
+- **WHEN** the selected immutable domain bundle includes a bridge-only tool snapshot
+- **THEN** Art verifies its locked file digest and CLI identity, exposes its actual schemas only in bridge or desktop queries and preflight, and refuses these tools in headless mode before installation
+- **AND** the child validates live bridge schemas before editing; unlocked snapshot injection and schema drift cannot widen the allowed native tool set

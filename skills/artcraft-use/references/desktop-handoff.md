@@ -11,3 +11,11 @@ python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" run vectorcraft "$SKILL_DI
 不要为 desktop 传 --connect 或 --control-token-file；控制地址及Photo认证由子技能拥有。需要连接已有明确会话时仍使用 bridge 模式。未知结果和失败文件保留，不自动重放。领域命令成功不会冒充混合DAG交付成功；这份计划没有Art DAG验收。旧headless混合项目与本入口各有验收范围。
 
 English: select desktop explicitly to delegate owned startup to the pinned domain skill. It is independent of sibling Art/domain installations. Existing headless/connected-bridge contracts remain. External connect/token options are rejected before setup; command and desktop lifecycle receipts must match the selected source bundle and native identities. Failed/unknown edits are preserved without replay. Native command success is not mixed-DAG acceptance.
+
+## 桥接工具与模式 / Bridge tools and modes
+
+`domain_commands.py list --domain effectcraft --tools --mode desktop` 和 `describe effectcraft ui_inspect --tool --mode desktop` 按当前分发锁中的真实桥接快照查询。旧领域包未包含该资源时不会凭名称补入工具。
+
+`check DOMAIN PLAN --mode desktop` 仅做结构与身份预检；不启动桌面。`run DOMAIN PLAN --mode desktop --output NEW_DIRECTORY` 委托子技能启动与退出。GUI工具不可在headless模式调用；工具schema与运行中的桥接端一致后才编辑。
+
+Queries use only the actual bridge snapshot in the immutable distribution lock. Older bundles without that resource do not gain tools by name. Desktop checks perform preflight only. Desktop runs delegate owned startup and cleanup; bridge-only tools are refused in headless mode before installation. The child checks live schemas before editing.

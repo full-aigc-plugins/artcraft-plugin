@@ -1,4 +1,6 @@
-Current plugin: `0.1.0-dev.89`; skill source: `0.1.0-dev.62`; runtime83; All four source21 domain bundles; owned desktop handoff. Fixed installed desktop acceptance pending. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
+Current plugin: `0.1.0-dev.90`; skill source: `0.1.0-dev.63`; runtime83; All four source22 domain bundles; owned desktop handoff. Fixed installed desktop acceptance pending. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
+
+Historical release record: Current plugin: `0.1.0-dev.89`; skill source: `0.1.0-dev.62`; runtime83; All four source21 domain bundles; owned desktop handoff. Fixed installed desktop acceptance pending. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
 
 Historical release record: Current plugin: `0.1.0-dev.88`; skill source: `0.1.0-dev.61`; runtime83; Photo19 adjustment/mask distribution. Ten installed Art mask/adjustment cases and the updated mixed workflow pass. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
 
@@ -95,9 +97,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.89 |
+| Plugin ID / version | artcraft / 0.1.0-dev.90 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.62 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.63 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |

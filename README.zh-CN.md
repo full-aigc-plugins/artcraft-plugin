@@ -1,4 +1,6 @@
-当前插件：`0.1.0-dev.89`；技能源：`0.1.0-dev.62`；runtime83；四领域source21分发及自有桌面交接。固定安装桌面首用待验收。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
+当前插件：`0.1.0-dev.90`；技能源：`0.1.0-dev.63`；runtime83；四领域source22分发及自有桌面交接。固定安装桌面首用待验收。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
+
+历史发行记录：当前插件：`0.1.0-dev.89`；技能源：`0.1.0-dev.62`；runtime83；四领域source21分发及自有桌面交接。固定安装桌面首用待验收。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
 
 历史发行记录：当前插件：`0.1.0-dev.88`；技能源：`0.1.0-dev.61`；runtime83；Photo19蒙版调整分发。十项实际安装蒙版调整及更新混合工作流通过。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
 
@@ -93,9 +95,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.89 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.90 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.62 |
+| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.63 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

@@ -30,14 +30,24 @@ def load_index():
   snapshot=json_value(value['snapshotText']);catalog=json_value(value['catalogText']);rows=catalog['commands']
   if snapshot.get('pluginId')!=domain or not isinstance(snapshot.get('tools'),list) or {item['name'] for item in snapshot['tools']}!=set(catalog['nativeTools']):raise ValueError('command_index_invalid')
   if catalog['pluginId']!=domain or len(rows)!=COUNTS[domain] or len({row['id'] for row in rows})!=len(rows):raise ValueError('command_index_invalid')
-  result[domain]={**catalog,'domain':domain,'sourceVersion':bundle['version'],'bundleSha256':bundle['sha256'],'catalogSha256':bundle['files'][key],'toolSchemas':snapshot['tools']}
+  bridge_key='skills/'+domain+'-use/references/bridge-tools.json';bridge_tools=[]
+  if ('bridgeSnapshotText' in value)!=(bridge_key in bundle['files']):raise ValueError('command_index_identity')
+  if bridge_key in bundle['files']:
+   text=value['bridgeSnapshotText']
+   if hashlib.sha256(text.encode()).hexdigest()!=bundle['files'][bridge_key]:raise ValueError('command_index_identity')
+   bridge=json_value(text);bridge_tools=bridge.get('tools')
+   if bridge.get('schema')!='craft-bridge-tools/v1' or bridge.get('pluginId')!=domain or bridge.get('mode')!='bridge' or bridge.get('runtimeSha256')!=snapshot['runtimeSha256'] or not isinstance(bridge_tools,list) or any(not isinstance(t,dict) or not isinstance(t.get('name'),str) or not isinstance(t.get('inputSchema'),dict) for t in bridge_tools) or len({t['name'] for t in bridge_tools})!=len(bridge_tools) or {t['name'] for t in bridge_tools}&set(catalog['nativeTools']):raise ValueError('command_index_invalid')
+  result[domain]={**catalog,'domain':domain,'sourceVersion':bundle['version'],'bundleSha256':bundle['sha256'],'catalogSha256':bundle['files'][key],'toolSchemas':snapshot['tools'],'bridgeToolSchemas':bridge_tools}
  return result
 def domain_entry(domain):
  if domain not in NAMES:raise ValueError('domain_unsupported')
  return load_index()[domain]
-def validate_plan(plan,entry,inputs):
+def tool_schemas(entry,mode='headless'):
+ if mode not in ['headless','bridge','desktop']:raise ValueError('invalid_mode')
+ return entry['toolSchemas']+(entry.get('bridgeToolSchemas',[]) if mode in ['bridge','desktop'] else [])
+def validate_plan(plan,entry,inputs,mode='headless'):
  if not isinstance(plan,dict) or set(plan)!={'schema','operations'} or plan['schema']!='craft-command-plan/v1' or not isinstance(plan['operations'],list) or not 1<=len(plan['operations'])<=1000:raise ValueError('invalid_command_plan')
- aliases={'output',*inputs};commands={row['id'] for row in entry['commands']};tools=set(entry['nativeTools'])
+ aliases={'output',*inputs};commands={row['id'] for row in entry['commands']};tools={t['name'] for t in tool_schemas(entry,mode)}
  def references(value):
   if isinstance(value,dict):
    if set(value)=={'$ref'}:
@@ -53,6 +63,7 @@ def validate_plan(plan,entry,inputs):
  for step in plan['operations']:
   if not isinstance(step,dict) or set(step)-{'command','tool','params','as'} or ('command' in step)==('tool' in step) or not isinstance(step.get('params'),dict):raise ValueError('invalid_operation')
   kind='command' if 'command' in step else 'tool'
+  if kind=='tool' and mode=='headless' and isinstance(step[kind],str) and step[kind] in {t['name'] for t in entry.get('bridgeToolSchemas',[])}:raise ValueError('bridge_tool_requires_bridge')
   if not isinstance(step[kind],str) or step[kind] not in (commands if kind=='command' else tools):raise ValueError('unknown_'+kind)
   json.dumps(step['params'],allow_nan=False);references(step['params'])
   if 'as' in step:
@@ -82,11 +93,13 @@ def parser():
  p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='action',required=True)
  q=sub.add_parser('list');q.add_argument('--domain',choices=NAMES);q.add_argument('--filter',default='');q.add_argument('--tools',action='store_true')
  q=sub.add_parser('describe');q.add_argument('domain',choices=NAMES);q.add_argument('command');q.add_argument('--tool',action='store_true')
+ for name in ['list','describe']:sub.choices[name].add_argument('--mode',choices=['headless','bridge','desktop'],default='headless')
  for action in ['check','run']:
   q=sub.add_parser(action);q.add_argument('domain',choices=NAMES);q.add_argument('plan',type=Path);q.add_argument('--input',action='append',default=[])
   q.add_argument('--runtime-home',type=Path,default=Path(os.environ.get('CRAFT_RUNTIME_HOME',str(Path.home()/'.local/share/craft-runtimes'))))
+  q.add_argument('--mode',choices=['headless','bridge','desktop'],default='headless')
   if action=='run':
-   q.add_argument('--output',type=Path,required=True);q.add_argument('--mode',choices=['headless','bridge','desktop'],default='headless');q.add_argument('--connect');q.add_argument('--control-token-file',type=Path)
+   q.add_argument('--output',type=Path,required=True);q.add_argument('--connect');q.add_argument('--control-token-file',type=Path)
  return p
 def launch_command(root,args,frozen,runtime_home,inputs):
  desktop=args.action=='run' and args.mode=='desktop'
@@ -98,6 +111,7 @@ def launch_command(root,args,frozen,runtime_home,inputs):
    command+=['--mode',args.mode]
    if args.connect is not None:command+=['--connect',args.connect]
    if args.control_token_file is not None:command+=['--control-token-file',str(args.control_token_file)]
+ else:command+=['--mode','bridge' if args.mode=='desktop' else args.mode]
  return command
 
 def validate_desktop_receipt(desktop_proof,domain,result,lock,returncode):
@@ -106,10 +120,10 @@ def validate_desktop_receipt(desktop_proof,domain,result,lock,returncode):
 
 def dispatch(args):
  index=load_index()
- if args.action=='list':return [{'domain':domain,**row} for domain,entry in index.items() if not args.domain or domain==args.domain for row in (entry['toolSchemas'] if args.tools else entry['commands']) if args.filter.lower() in ((row['name']+' '+row.get('description','')) if args.tools else row['id']+' '+row['label']).lower()],0
+ if args.action=='list':return [{'domain':domain,**row} for domain,entry in index.items() if not args.domain or domain==args.domain for row in (tool_schemas(entry,args.mode) if args.tools else entry['commands']) if args.filter.lower() in ((row['name']+' '+row.get('description','')) if args.tools else row['id']+' '+row['label']).lower()],0
  entry=index[args.domain]
  if args.action=='describe':
-  matches=[row for row in (entry['toolSchemas'] if args.tool else entry['commands']) if row['name' if args.tool else 'id']==args.command]
+  matches=[row for row in (tool_schemas(entry,args.mode) if args.tool else entry['commands']) if row['name' if args.tool else 'id']==args.command]
   if not matches:raise ValueError('unknown_command')
   return {'domain':args.domain,**matches[0]},0
  plan_bytes=args.plan.read_bytes();plan=json_value(plan_bytes);inputs={};input_hashes={}
@@ -117,7 +131,7 @@ def dispatch(args):
   name,separator,path=item.partition('=');source=Path(path).absolute()
   if not separator or not re.fullmatch(r'[a-zA-Z][\w-]*',name) or name=='output' or name in inputs or source.is_symlink() or not source.is_file():raise ValueError('invalid_input')
   inputs[name]=source;input_hashes[name]=sha(source)
- validate_plan(plan,entry,inputs)
+ validate_plan(plan,entry,inputs,mode=args.mode)
  if args.action=='run':
   if args.mode=='desktop' and (args.connect is not None or args.control_token_file is not None):raise ValueError('desktop_owns_connection')
   args.output=args.output.absolute()
