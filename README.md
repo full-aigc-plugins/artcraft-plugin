@@ -4,7 +4,7 @@ Coordinate mixed creative work into project/workflow records, four-domain native
 
 Current plugin: `0.1.0-dev.105`; skill source: `0.1.0-dev.79`; 10 independent skills.
 
-Current distribution: plugin dev.105 pins Art source dev.79 and Film source dev.34/native craft.4; Art runtime dev.83 and the other three domain sources remain immutable. Fixed host ASR acceptance is pending.
+Current distribution: plugin dev.105 pins Art source dev.79 and Film source dev.34/native craft.4; Art runtime dev.83 and the other three domain sources remain immutable. Fixed host mixed ASR and independent cold skill acceptance pass; complete V1 remains open.
 
 
 Verified first-use platform: macOS arm64 and Python 3.11+. Pinned runtimes install into the user data directory; skill files stay in their host-loaded directory. These are development releases; complete V1 acceptance and generic Skills CLI installation remain open.
@@ -411,4 +411,6 @@ The CLI acceptance default is now `host-acceptance-strict64.lock.json`: domain p
 
 [Native paths first-use architecture](docs/ArtCraft-Native-Path-Architecture.md)
 
-Candidate Art105 vendors published source79/Film source34/native craft.4, retaining Art runtime83. Source mixed recognition/revision passes; fixed host and public-plugin mixed ASR remain pending. [Evidence](docs/evidence/whisper-distribution-20261008.json).
+Released Art105 vendors published source79/Film source34/native craft.4, retaining Art runtime83. Public-source and actual fixed-host mixed ASR/revision pass; complete V1 remains open. [Evidence](docs/evidence/whisper-distribution-20261008.json).
+
+Fixed Art105 acceptance: five plugins/all64 installed skill identities pass with zero loading errors. All10 installed Art skills independently cold-install (201.746s). First-model-download, five-child real recognition/subtitles, brand revision with changed consumer pixels, unrelated badge reuse, preserved originals/voice and moved package pass (196.910s). The23 fresh standalone records and41 byte-identical historical records remain distinct; full120-requirement acceptance is incomplete. [Evidence](docs/evidence/whisper-distribution-20261008.json).

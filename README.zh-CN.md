@@ -4,7 +4,7 @@
 
 当前插件：`0.1.0-dev.105`；技能源：`0.1.0-dev.79`；10 个独立技能。
 
-当前分发：插件 dev.105 固定 Art 源 dev.79 与 Film 源 dev.34／native craft.4，保留 Art runtime dev.83 及其他三域不可变版本；固定宿主 ASR 尚待验收。
+当前分发：插件 dev.105 固定 Art 源 dev.79 与 Film 源 dev.34／native craft.4，保留 Art runtime dev.83 及其他三域不可变版本；固定宿主混合 ASR 与独立技能冷安装通过；完整V1仍开放。
 
 
 已验证首次使用平台：macOS arm64、Python 3.11+。固定运行时安装在用户数据目录，技能文件保留在宿主加载目录。当前为开发版本；完整首版验收及通用 Skills CLI 实际安装仍未完成。
@@ -409,4 +409,6 @@ CLI 验收默认锁现为 `host-acceptance-strict64.lock.json`：领域插件 de
 
 [原生路径首次使用架构](docs/ArtCraft-Native-Path-Architecture.zh_CN.md)
 
-候选 Art105 接入已发布源79／Film源34／native craft.4，保留 Art runtime83。源技能真实混合识别及返工通过；固定宿主和公开插件混合ASR仍待验收。 [Evidence](docs/evidence/whisper-distribution-20261008.json).
+已发布 Art105 接入源79／Film源34／native craft.4，保留 Art runtime83。公开源与实际固定宿主混合ASR及返工均通过；完整V1仍开放。 [Evidence](docs/evidence/whisper-distribution-20261008.json).
+
+固定Art105验收：五插件64技能实际安装与身份复核、零加载错误；安装的10独立Art技能各自冷安装201.746秒通过；首次模型下载、实际五子工程识别与字幕、Logo返工消费者像素变化、无关徽标复用、原交付／配音保全及移动包196.910秒通过。23项新冷证据与41项摘要完全相同的历史证据分列；完整120需求验收仍未完成。 [Evidence](docs/evidence/whisper-distribution-20261008.json).
