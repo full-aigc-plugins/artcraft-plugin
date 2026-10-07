@@ -374,3 +374,7 @@ Current fixed distribution: ten Art plus twelve Vector installed cold native app
 Current fixed distribution: ten Art plus thirteen Effect installed cold native expression/source-revision cases and one updated four-domain mixed/moved-five-child workflow pass. Exhaustive commands/GUI/model/fullV1 remain open. [Evidence](docs/evidence/codex-art87-effect-expression-first-use-20261007.json).
 
 Current fixed distribution: ten Art plus twelve Photo installed cold native adjustmentMask/source-revision cases and one updated four-domain mixed/moved-five-child workflow pass. Exhaustive commands/GUI/model/fullV1 remain open. [Evidence](docs/evidence/codex-art88-photo-adjustment-first-use-20261007.json).
+
+## Desktop installation component (source candidate)
+
+The 48 standalone domain skills now have their own pinned official desktop installers. See the [installation architecture](docs/Craft-Desktop-First-Use-Architecture.md) and [48-skill installation evidence](docs/evidence/craft-desktop-source48-first-use-20261007.json). Existing release-tag skill copies do not yet contain this candidate component. Desktop startup, GUI edits/save/reopen and complete command execution remain open acceptance gates.
