@@ -1,0 +1,93 @@
+{
+  "schema": "craft-verification/v1",
+  "scope": "ArtCraft working-tree candidate domain dev.27 upgrade",
+  "result": "PASS",
+  "python": "3.13.5",
+  "unitRegression": {
+    "total": 135,
+    "passed": 103,
+    "skipped": 32
+  },
+  "publicArchiveVerification": {
+    "method": "GitHub asset size/digest and byte equality with immutable-tag git archive",
+    "domains": {
+      "filmcraft-skills": {
+        "version": "0.1.0-dev.27",
+        "sourceCommit": "e4bd98da7ddbc472ff6d1ddab49510ccdcc621d7",
+        "sha256": "8c8701e39f2f854c587ca96f593143cd381b180793b8fc7cf2622dd164b99cf1",
+        "bytes": 2912120
+      },
+      "effectcraft-skills": {
+        "version": "0.1.0-dev.27",
+        "sourceCommit": "bd8123f4000744cd81b68b1b40926fd47d3ed451",
+        "sha256": "dac5298d30fa2662239f0afaf35a401a56db6a4ddcac16c03601bb5300edfb50",
+        "bytes": 3586421
+      },
+      "photocraft-skills": {
+        "version": "0.1.0-dev.27",
+        "sourceCommit": "90e1edf875ffbfc39870646ba6f2c423d92ed0d2",
+        "sha256": "7c624e7b9a56554cdaae36b29121ce930e02d8c7b79e25f335977d2c335a8beb",
+        "bytes": 3486609
+      },
+      "vectorcraft-skills": {
+        "version": "0.1.0-dev.27",
+        "sourceCommit": "7f6215f66faddba77a314dec3f655a313ca2179c",
+        "sha256": "b9ac0d7b199441589c33c48317dcf291b34d8853eea6bca6b201e3fb8e36c1c3",
+        "bytes": 4162030
+      }
+    }
+  },
+  "nativeColdFirstUse": {
+    "test": "tests/test_domain_commands_first_use.py",
+    "standaloneSkill": "artcraft-cli",
+    "domains": {
+      "vectorcraft": 30.141,
+      "photocraft": 41.572,
+      "filmcraft": 48.54,
+      "effectcraft": 59.341
+    },
+    "passed": 4,
+    "skipped": 0,
+    "assertions": [
+      "empty runtime public downloads",
+      "native create and save",
+      "targeted revision and reopen",
+      "non-target object and pixel preservation",
+      "original delivery and skill fingerprints unchanged"
+    ]
+  },
+  "resourceChecks": [
+    "sync_skill_suite.py --check",
+    "build_domain_command_index.py --check",
+    "git diff --check"
+  ],
+  "fingerprints": {
+    "skills/artcraft-cli/references/domain-command-index.json": "ee6c04a2cafd0dad298b55933482110a6a5c2df40889dadf8d6e47a85e6e3241",
+    "skills/artcraft-cli/scripts/distribution.lock.json": "57be75919f0ebf47169cdebcaad3d3a29d3509d3feba119913c5d9c3e1c30009",
+    "skills/artcraft-cli-assets/references/domain-command-index.json": "ee6c04a2cafd0dad298b55933482110a6a5c2df40889dadf8d6e47a85e6e3241",
+    "skills/artcraft-cli-assets/scripts/distribution.lock.json": "57be75919f0ebf47169cdebcaad3d3a29d3509d3feba119913c5d9c3e1c30009",
+    "skills/artcraft-cli-deliver/references/domain-command-index.json": "ee6c04a2cafd0dad298b55933482110a6a5c2df40889dadf8d6e47a85e6e3241",
+    "skills/artcraft-cli-deliver/scripts/distribution.lock.json": "57be75919f0ebf47169cdebcaad3d3a29d3509d3feba119913c5d9c3e1c30009",
+    "skills/artcraft-cli-execute/references/domain-command-index.json": "ee6c04a2cafd0dad298b55933482110a6a5c2df40889dadf8d6e47a85e6e3241",
+    "skills/artcraft-cli-execute/scripts/distribution.lock.json": "57be75919f0ebf47169cdebcaad3d3a29d3509d3feba119913c5d9c3e1c30009",
+    "skills/artcraft-cli-plan/references/domain-command-index.json": "ee6c04a2cafd0dad298b55933482110a6a5c2df40889dadf8d6e47a85e6e3241",
+    "skills/artcraft-cli-plan/scripts/distribution.lock.json": "57be75919f0ebf47169cdebcaad3d3a29d3509d3feba119913c5d9c3e1c30009",
+    "skills/artcraft-cli-recover/references/domain-command-index.json": "ee6c04a2cafd0dad298b55933482110a6a5c2df40889dadf8d6e47a85e6e3241",
+    "skills/artcraft-cli-recover/scripts/distribution.lock.json": "57be75919f0ebf47169cdebcaad3d3a29d3509d3feba119913c5d9c3e1c30009",
+    "skills/artcraft-cli-review/references/domain-command-index.json": "ee6c04a2cafd0dad298b55933482110a6a5c2df40889dadf8d6e47a85e6e3241",
+    "skills/artcraft-cli-review/scripts/distribution.lock.json": "57be75919f0ebf47169cdebcaad3d3a29d3509d3feba119913c5d9c3e1c30009",
+    "skills/artcraft-cli-revise/references/domain-command-index.json": "ee6c04a2cafd0dad298b55933482110a6a5c2df40889dadf8d6e47a85e6e3241",
+    "skills/artcraft-cli-revise/scripts/distribution.lock.json": "57be75919f0ebf47169cdebcaad3d3a29d3509d3feba119913c5d9c3e1c30009",
+    "skills/artcraft-cli-setup/references/domain-command-index.json": "ee6c04a2cafd0dad298b55933482110a6a5c2df40889dadf8d6e47a85e6e3241",
+    "skills/artcraft-cli-setup/scripts/distribution.lock.json": "57be75919f0ebf47169cdebcaad3d3a29d3509d3feba119913c5d9c3e1c30009",
+    "skills/artcraft-use/references/domain-command-index.json": "ee6c04a2cafd0dad298b55933482110a6a5c2df40889dadf8d6e47a85e6e3241",
+    "skills/artcraft-use/scripts/distribution.lock.json": "57be75919f0ebf47169cdebcaad3d3a29d3509d3feba119913c5d9c3e1c30009"
+  },
+  "notProven": [
+    "published ArtCraft source/plugin upgrade",
+    "fixed installed host verification",
+    "all 2639 commands individually executed",
+    "full V1",
+    "LightCraft PrintCraft DesignCraft plugin implementation"
+  ]
+}
