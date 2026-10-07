@@ -19,10 +19,21 @@ ROOT = Path(__file__).resolve().parents[1]
 NAMES = ('filmcraft', 'effectcraft', 'photocraft', 'vectorcraft', 'artcraft')
 
 def skill_hash(directory):
-    result = hashlib.sha256()
-    for path in sorted(p for p in directory.rglob('*') if p.is_file()):
+    """核验独立技能普通文件树；保留既有普通文件摘要算法。"""
+    directory = Path(directory)
+    if directory.is_symlink() or directory.parent.is_symlink():
+        raise ValueError('independent_skill_symlink')
+    if not directory.is_dir():
+        raise ValueError('independent_skill_directory_missing')
+    paths = sorted(directory.rglob('*'))
+    # 先检查全部条目，不能用 is_file() 丢弃目录链接、悬空链接及特殊文件。
+    for path in paths:
         if path.is_symlink():
             raise ValueError('independent_skill_symlink')
+        if not path.is_dir() and not path.is_file():
+            raise ValueError('independent_skill_entry_invalid')
+    result = hashlib.sha256()
+    for path in (path for path in paths if path.is_file()):
         result.update(path.relative_to(directory).as_posix().encode() + b'\0')
         result.update(hashlib.sha256(path.read_bytes()).hexdigest().encode() + b'\n')
     return result.hexdigest()
