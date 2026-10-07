@@ -43,7 +43,8 @@ function check(schema: Schema, value: any, path = '$'): void {
   if (schema.type === 'object') {
     for (const key of schema.required ?? []) if (!Object.hasOwn(value, key)) fail();
     for (const key of Object.keys(value)) {
-      if (schema.properties?.[key]) check(schema.properties[key], value[key], `${path}.${key}`);
+      // 只接受 schema 自有字段，避免把 Object.prototype 同名属性误认为声明。
+      if (Object.hasOwn(schema.properties ?? {}, key)) check(schema.properties[key], value[key], `${path}.${key}`);
       else if (schema.additionalProperties === false) fail();
     }
   }

@@ -47,3 +47,10 @@ ArtCraft SHALL 维护 craft-task/v1 的唯一规范事实源；请求包含 prot
 
 - **WHEN** authorizationRef 覆盖当前动作、目标文件和预算，且计划未超出该范围
 - **THEN** 系统继续执行，不因每个工具调用重复请求确认
+
+#### Scenario: AC-CP-001-OWN-FIELDS 未声明的原型同名字段
+
+- **WHEN** 请求根对象、运行时身份、预算或输入引用包含 schema 未声明的 `constructor`、`toString` 或 `__proto__` 自有 JSON 字段
+- **THEN** 协议校验 SHALL 报 protocol_invalid，账本 SHALL 不登记任务、不分配预算或写入占用
+- **AND** 字段判定 SHALL 只查询 schema 的自有 properties；允许附加字段的版本化 payload 与领域 plan 保留这些合法 JSON 数据，不扩大核心字段范围
+- **AND** 共享校验器应用于严格素材对象与引用，不把来源候选测试提升为固定发行安装验收或完整公共协议完成

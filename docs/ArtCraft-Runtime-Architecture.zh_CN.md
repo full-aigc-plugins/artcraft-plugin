@@ -326,3 +326,22 @@ flowchart LR
 ```
 
 79 项回归中 5 项条件跳过，74 项执行通过。当前 64 个技能的安装副本 CLI 探测通过，采用五个新领域缓存，后续探测复用各自缓存；不代表每技能单独空运行时、实际通用 Skills CLI 安装、创作验收或完整 V1。[证据](evidence/artcraft104-install-lock-preflight-20261007.json)。
+
+## 协议自有字段源码候选（2026-10-08）
+
+共享 schema 校验器此前通过 JavaScript 原型读取 `schema.properties[key]`，未声明的 `constructor`、`toString`、`__proto__` JSON 字段可能通过严格任务与素材校验并进入任务登记。现在使用 `Object.hasOwn`，只识别 schema 自有声明；严格对象的未知字段返回 `protocol_invalid`。版本化 payload 及其领域 plan 继续保留允许的附加 JSON 数据。
+
+```mermaid
+flowchart TD
+ R[公共任务或素材 JSON] --> C[查询 schema 自有字段]
+ C -->|已声明字段| T[执行声明校验]
+ C -->|严格对象中的未知字段| X[protocol_invalid]
+ C -->|允许的 payload 扩展| P[保留 JSON 数据及规范化摘要]
+ T --> L[任务登记与适配器准备]
+ P --> L
+ X --> N[不登记任务、预算、占用或准备适配器]
+```
+
+最终39项用例在旧校验器上复现33项失败；修复后64项目标测试通过。全量Node回归235项中215通过、20项条件跳过；Python回归97项中92通过、5项条件跳过。三项工作流用例证明拒绝发生在原生适配器准备前，六项payload兼容用例保留允许的JSON属性并成功登记合法任务。
+
+[候选证据](evidence/protocol-own-fields-candidate-20261008.json)绑定代码及测试。实际安装Art105／源79仍使用不可变runtime83，因此源码候选不能作为已安装修复。新运行时、独立技能、插件发行及安装后的首用复验仍需完成，完整公共协议和V1任务保持开放。

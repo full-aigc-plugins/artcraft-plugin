@@ -1,0 +1,62 @@
+{
+  "schema": "artcraft-protocol-own-fields/v1",
+  "result": "source-candidate-passed",
+  "requirement": "AC-CP-001",
+  "scenario": "AC-CP-001-OWN-FIELDS",
+  "sourceSha256": "ecfdb1a4a30b1cbe13977ef09bc875fbf2146e73bf4d0a4eb2409fc0a9e7e0e9",
+  "testSha256": "421573d1a463b2b9a3fe6e77834a9b8cc546fdff16065bcf55b3386deb9df90d",
+  "previousSourceSha256": "8690d2b4cec0194e3de17fa4b5bca2a2bb8500f61a57e1d0c29272d990c78c69",
+  "red": {
+    "tests": 39,
+    "passed": 6,
+    "failed": 33,
+    "logSha256": "467d0f5ce1bfc958a8c5aaddcc857886e68d5605c5782e29442b536743a81852"
+  },
+  "target": {
+    "tests": 64,
+    "passed": 64,
+    "logSha256": "a7736c7406bb32c2356c2fd4a92dc1522250ab7e490fca9c48351127d4469944"
+  },
+  "nodeRegression": {
+    "tests": 235,
+    "passed": 215,
+    "skipped": 20,
+    "logSha256": "bd1e9b14f014417349a8bfedf96b4af6191803a2d82153322c8214e9138fbd3d"
+  },
+  "pythonRegression": {
+    "tests": 97,
+    "passed": 92,
+    "skipped": 5,
+    "logSha256": "df900884826d7a7ebbacaa695fb1b003a4f0fb2424690b8f6ea7b0b81a3a639f"
+  },
+  "cases": {
+    "undeclaredNames": [
+      "constructor",
+      "toString",
+      "__proto__"
+    ],
+    "strictTaskLocations": [
+      "root",
+      "runtimeIdentity",
+      "budget",
+      "inputRef"
+    ],
+    "strictArtifactLocations": [
+      "root",
+      "technicalMetadata",
+      "sourceRef",
+      "nativeProjectRef",
+      "dependency"
+    ],
+    "ledger": "3 cases reject before task/lease/budget registration",
+    "workflow": "3 cases reject before adapter preparation and authorization callback",
+    "allowedPayload": "6 cases retain allowed top-level versioned payload and nested plan data, with successful ledger registration"
+  },
+  "candidateChange": "Use Object.hasOwn on schema.properties rather than inherited property lookup; ordinary schema and canonical hash remain unchanged",
+  "fixedAcceptance": "pending new immutable runtime, independent skill distribution, plugin snapshot and actual installed first-use verification",
+  "limitations": [
+    "Source tests include fixture payloads and no native creative acceptance",
+    "Existing installed Art105/source79 still uses immutable runtime83 without this fix",
+    "No full craft-task protocol, generic Skills CLI, other-platform or production acceptance"
+  ]
+}

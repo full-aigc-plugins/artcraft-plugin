@@ -319,3 +319,22 @@ flowchart LR
 ```
 
 79 regression tests include five conditional skips; 74 execute successfully. Current installed CLI probes pass for 64 skills with five fresh domain caches; later probes reuse their domain cache. This does not prove every skill had an independent cold runtime, generic Skills CLI installation, creative acceptance or full V1. [Evidence](evidence/artcraft104-install-lock-preflight-20261007.json).
+
+## Protocol own-field source candidate (2026-10-08)
+
+The shared schema checker previously looked up `schema.properties[key]` through the JavaScript prototype. Undeclared `constructor`, `toString` and `__proto__` JSON fields could therefore pass strict task and artifact schemas and reach task registration. It now uses `Object.hasOwn` to recognize only declared schema properties; unknown fields in strict objects fail with `protocol_invalid`. The versioned payload and its domain plan continue to accept their permitted extra JSON data.
+
+```mermaid
+flowchart TD
+ R[Public task or artifact JSON] --> C[Own schema property lookup]
+ C -->|Declared field| T[Validate declared schema]
+ C -->|Unknown field in strict object| X[protocol_invalid]
+ C -->|Allowed payload extension| P[Retain JSON data and canonical hash]
+ T --> L[Task registration and adapter preparation]
+ P --> L
+ X --> N[No task, budget, lease or adapter preparation]
+```
+
+The final test suite reproduces 33 failures on the previous checker in 39 cases, then passes 64 targeted tests with the fix. Full Node regression: 235 tests, 215 passed and 20 conditional skips. Python regression: 97 tests, 92 passed and five conditional skips. Three workflow cases prove rejection before native adapter preparation; six payload compatibility cases retain allowed JSON properties and register valid tasks.
+
+[Candidate evidence](evidence/protocol-own-fields-candidate-20261008.json) binds code and tests. Installed Art105/source79 still uses immutable runtime83, so this source candidate is not an installed fix. New runtime, independent skill and plugin releases plus installed first-use verification remain necessary. Complete public protocol and V1 tasks stay open.
