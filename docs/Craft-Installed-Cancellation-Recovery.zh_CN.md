@@ -20,3 +20,5 @@ flowchart TD
 首次取消测试失败来自把单任务取消误认成整个工作流成功，未计为产品缺陷或产品红灯。校正两个API的断言后分别执行通过；没有改动运行时，也没有使用测试清理信号作为产品停止证据。worker崩溃、未知提交窗口、所有取消竞态、付费外部调用、其他技能及GUI仍未由本记录覆盖。完整AC-TX-002／003和V1保持开放。
 
 [固定证据](evidence/craft-fixed-cancel-recovery-first-use-20261008.json)。
+
+独立后续固定安装记录还覆盖原生启动后的监督worker SIGKILL：原生工程和视频存在且测试观察进程组消失时，账本仍无可信停止记录，保持reconciling及写占用，公开恢复两次返回waiting；原attempt、预算、全部产物字节和一次原生启动保持。该等待是预期边界，不是自动接管成功；提交窗口与全并发竞态仍开放。[监督缺失证据](evidence/craft-fixed-worker-unknown-first-use-20261008.json)。

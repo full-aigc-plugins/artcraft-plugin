@@ -380,3 +380,5 @@ SC-007固定发行证据：`docs/evidence/artcraft99-film29-fixed-first-use-2026
 2026-10-08 固定发行补证：Art插件107／源80／运行时106；实际宿主5插件64技能零加载错误，十个安装技能独立冷安装、390项协议测试全部通过，三项正常原生混合首用通过（169.915秒）。64目录当前摘要复核；54项历史摘要一致复用。仅关闭上述 OWN-FIELDS 有界门禁，完整公共协议及V1保持开放。证据 `docs/evidence/artcraft107-protocol-fixed-first-use-20261008.json`。
 
 2026-10-08 固定Art109／source81／runtime108恢复入口补证：`docs/evidence/craft-fixed-cancel-recovery-first-use-20261008.json`。实际安装的单恢复技能经三个各自空公开缓存完成真实渲染任务／父工作流取消、停止后释放占用、暂存工程重开与重复不重放；另一个四工程用例真实SIGKILL调度器后接管原attempt并保持执行次数／预算，局部返工、预算耗尽与迁移包核验通过。首次取消失败为测试混淆单任务与父工作流语义，未作为产品红灯；没有修改运行时或关闭完整AC-TX-002／003。worker未知、全竞态、其他技能及完整V1仍开放。
+
+2026-10-08 固定安装监督缺失补证：`docs/evidence/craft-fixed-worker-unknown-first-use-20261008.json`。单恢复技能独立空公开缓存中仅终止其已验证启动链的worker；原生工程／视频存在且测试观察进程组消失，账本仍保持reconciling、原attempt和写占用，两次公开恢复返回结构化waiting；原预算、所有产物字节和一次原生启动不变。只证明AC-TX-002-WORKER的本机所列路径，不提升为自动接管、完整恢复需求或V1完成。
