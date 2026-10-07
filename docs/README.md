@@ -53,3 +53,5 @@ Art HD source candidate passes five-second 1080p segmented orchestration, moved 
 - [Current first-use completion audit](ArtCraft-First-Use-Completion-Audit-Architecture.md)
 
 - [Skill snapshot preflight](Skill-Snapshot-Self-Contained.md) · [技能快照预检](Skill-Snapshot-Self-Contained.zh_CN.md)
+
+- [Single-skill dependency recovery](Single-Skill-Dependency-Recovery.md) · [单技能依赖恢复](Single-Skill-Dependency-Recovery.zh_CN.md)
