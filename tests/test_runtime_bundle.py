@@ -114,5 +114,23 @@ class RuntimeBundleTests(unittest.TestCase):
                 builder.tagged_source(source, 'main', root / 'extract', ['LICENSE'])
 
 
+class GitPrefixBundleTests(unittest.TestCase):
+ def test_declared_prefix_reconstructs_exact_git_zip_and_keeps_root_manifest(self):
+  with tempfile.TemporaryDirectory() as temporary:
+   root=Path(temporary);plugin,skills,lock,path=RuntimeBundleTests().fixture(root)
+   repo=skills/'photocraft-skills';prefix='photocraft-skills/';expected=root/'expected.zip'
+   subprocess.run(['git','-C',str(repo),'archive','--format=zip','--prefix='+prefix,'--output='+str(expected),'refs/tags/v1.0.0'],check=True)
+   actual=root/'actual.zip';entry=builder.git_archive_bundle(repo,'1.0.0',actual,'full-aigc-skills/photocraft-skills',archive_prefix=prefix)
+   self.assertEqual(actual.read_bytes(),expected.read_bytes());self.assertEqual(entry['archivePrefix'],prefix)
+   self.assertIn('LICENSE',entry['files']);self.assertFalse(any(p.startswith(prefix) for p in entry['files']))
+ def test_prefix_requires_exact_known_domain_repository(self):
+  for prefix in ('../','other/','photocraft-skills','photocraft-skills//',''):
+   with self.subTest(prefix=prefix),tempfile.TemporaryDirectory() as t:
+    out=Path(t)/'out.zip'
+    with self.assertRaisesRegex(ValueError,'archive_prefix_invalid'):
+     builder.git_archive_bundle(Path(t),'1.0.0',out,'full-aigc-skills/photocraft-skills',archive_prefix=prefix)
+    self.assertFalse(out.exists())
+
+
 if __name__ == '__main__':
     unittest.main()

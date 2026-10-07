@@ -65,6 +65,11 @@ def validate_bundle_lock(lock):
     url = urllib.parse.urlparse(lock['url'])
     if url.scheme != 'https' or url.netloc != 'github.com' or url.query or url.fragment or not re.fullmatch(r'/(full-aigc-plugins/artcraft-plugin|full-aigc-skills/(filmcraft|effectcraft|photocraft|vectorcraft)-skills)/releases/download/v[^/]+/[^/]+\.zip', url.path):
         raise ValueError('bundle_url_invalid')
+    if 'archivePrefix' in lock:
+        expected = url.path.split('/')[2]+'/'
+        if (lock.get('archiveFormat') != 'git-archive-zip' or url.path.split('/')[1] != 'full-aigc-skills'
+                or not isinstance(lock['archivePrefix'], str) or lock['archivePrefix'] != expected):
+            raise ValueError('bundle_prefix_invalid')
     if not re.fullmatch(r'[a-f0-9]{64}', lock['sha256']) or 'LICENSE' not in lock['files'] or not 0 < len(lock['files']) <= 2000:
         raise ValueError('bundle_lock_invalid')
     if any(not safe_path(name) or not re.fullmatch(r'[a-f0-9]{64}', value) for name, value in lock['files'].items()):
@@ -99,30 +104,38 @@ def install_bundle(lock, target, archive=None):
         if archive_path.stat().st_size != lock['bytes'] or sha(archive_path) != lock['sha256']:
             raise ValueError('bundle_archive_digest_mismatch')
         seen = set();total = 0
+        prefix = lock.get('archivePrefix', '')
         with zipfile.ZipFile(archive_path) as zip:
             for member in zip.infolist():
                 mode = member.external_attr >> 16
+                # 只按来源锁的精确前缀归一化，先拒绝原始路径别名和逃逸。
+                original = member.filename
+                raw_path = original[:-1] if member.is_dir() else original
+                if not safe_path(raw_path) or prefix and not original.startswith(prefix):
+                    raise ValueError('bundle_path_invalid')
+                name = original[len(prefix):] if prefix else original
+
                 if member.is_dir():
-                    directory = member.filename[:-1]
+                    directory = name[:-1] if name.endswith('/') else name
                     ancestors = {'/'.join(name.split('/')[:index]) for name in lock['files'] for index in range(1, len(name.split('/')))}
-                    if (lock.get('archiveFormat') != 'git-archive-zip' or not safe_path(directory)
-                            or directory not in ancestors or member.filename in seen
+                    if (lock.get('archiveFormat') != 'git-archive-zip' or (not safe_path(directory) and not (prefix and original == prefix))
+                            or (directory not in ancestors and not (prefix and original == prefix)) or name in seen
                             or member.file_size != 0 or stat.S_ISLNK(mode)
                             or stat.S_IFMT(mode) not in (0, stat.S_IFDIR)):
                         raise ValueError('bundle_path_invalid')
-                    seen.add(member.filename)
+                    seen.add(name)
                     if len(seen) > 2000:
                         raise ValueError('bundle_size_limit')
                     continue
-                if (not safe_path(member.filename) or member.filename in seen or stat.S_ISLNK(mode)
+                if (not safe_path(name) or name in seen or stat.S_ISLNK(mode)
                         or stat.S_IFMT(mode) not in (0, stat.S_IFREG)):
                     raise ValueError('bundle_path_invalid')
-                seen.add(member.filename);total += member.file_size
+                seen.add(name);total += member.file_size
                 if member.file_size > 16*1024*1024 or total > 64*1024*1024 or len(seen)>2000:
                     raise ValueError('bundle_size_limit')
-                if member.filename not in lock['files']:
+                if name not in lock['files']:
                     raise ValueError('bundle_unexpected_file')
-                path = stage/member.filename;path.parent.mkdir(parents=True, exist_ok=True)
+                path = stage/name;path.parent.mkdir(parents=True, exist_ok=True)
                 with zip.open(member) as content, path.open('wb') as output:
                     shutil.copyfileobj(content, output)
                 path.chmod(0o644)

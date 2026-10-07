@@ -1,0 +1,64 @@
+{
+  "schema": "craft-domain-archive-prefix-source-candidate/v1",
+  "result": "PASS",
+  "goalComplete": false,
+  "sourceCandidate": "0.1.0-dev.81",
+  "runtime": "0.1.0-dev.108",
+  "domainSources": {
+    "filmcraft-skills": "0.1.0-dev.35",
+    "effectcraft-skills": "0.1.0-dev.34",
+    "photocraft-skills": "0.1.0-dev.33",
+    "vectorcraft-skills": "0.1.0-dev.31"
+  },
+  "distributionLockSha256": "cc5004a639b7f21b3279cd199c631a8ce056fdcbbc9a0b821cfe4596db08b248",
+  "installerSha256": "3961ba732e216261ac23a1d8de8885bff7855fb57cf32703822b91aee38e8d70",
+  "builderSha256": "dae2c66494a61ada6b14d3a477788e6ce9e64ed99978fe0c16d91d1f8f3ec333",
+  "tests": {
+    "source": {
+      "total": 150,
+      "passed": 114,
+      "conditionalSkipped": 36
+    },
+    "prefixInstaller": 5,
+    "prefixBuilderSuite": 7
+  },
+  "immutableArchiveReconstruction": {
+    "count": 5,
+    "allLockedBytesMatch": true
+  },
+  "nativePhoto": {
+    "schema": "artcraft-photo-adjustment-first-use/v1",
+    "result": "PASS",
+    "skill": "artcraft-use",
+    "initialPixel": [
+      152,
+      152,
+      152,
+      255
+    ],
+    "revisedPixel": [
+      106,
+      106,
+      106,
+      255
+    ],
+    "emptyPublicRuntime": true,
+    "nativeProjectSha256": "9dc6e8d8288feecf973c1a2e69bf711e2b84480b9779791d01349028b0358501",
+    "maskAndAdjustmentPersisted": true,
+    "sourceRevision": true,
+    "controlPixelsUnchanged": true,
+    "nonTargetLayersPreserved": true,
+    "originalDeliveryPreserved": true,
+    "movedChildren": 1,
+    "skillUnchanged": true,
+    "packageSha256": "ec7f0243fa893635eb092ddb2d055e626cb76ff19321e5b5bc7aa33ce5916282",
+    "scope": "native Photo adjustment/mask sample; not exhaustive748, PSD, GUI, model or fullV1"
+  },
+  "nativePhotoScope": "native case passed; original module run also had obsolete source-version assertion failure subsequently fixed; final general source regression passes",
+  "unverified": [
+    "published source81 and full plugin109",
+    "actual installed standalone ten Art skill creative cold workflows",
+    "full protocol/V1 requirements",
+    "generic Skills CLI install"
+  ]
+}

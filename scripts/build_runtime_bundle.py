@@ -55,20 +55,27 @@ def tagged_source(repository, version, destination, paths):
     return sha
 
 
-def git_archive_bundle(repository, version, destination, published_repository):
+def git_archive_bundle(repository, version, destination, published_repository, archive_prefix=None):
     """保持固定标签的完整 Git ZIP 原字节；拒绝链接和工作树混入。"""
+    if archive_prefix is not None:
+        match = re.fullmatch(r'full-aigc-skills/(filmcraft|effectcraft|photocraft|vectorcraft)-skills', published_repository)
+        if not match or archive_prefix != published_repository.split('/')[1]+'/':
+            raise ValueError('archive_prefix_invalid')
     with tempfile.TemporaryDirectory(prefix='artcraft-git-archive-') as temporary:
         source = Path(temporary)
         sha = tagged_source(repository, version, source, [])
-        subprocess.run(['git', '-C', str(repository), 'archive', '--format=zip',
-                        '--output=' + str(destination), sha], check=True)
+        arguments = ['git', '-C', str(repository), 'archive', '--format=zip']
+        if archive_prefix is not None:
+            arguments.append('--prefix='+archive_prefix)
+        subprocess.run([*arguments, '--output='+str(destination), sha], check=True)
         files = {str(path.relative_to(source)): digest(path.read_bytes())
                  for path in sorted(source.rglob('*')) if path.is_file()}
     return {'version': version, 'filename': destination.name,
             'url': f'https://github.com/{published_repository}/releases/download/v{version}/{destination.name}',
             'sha256': digest(destination.read_bytes()), 'bytes': destination.stat().st_size,
             'files': files, 'sourceRepository': f'https://github.com/{published_repository}',
-            'archiveFormat': 'git-archive-zip', 'sourceCommit': sha}
+            'archiveFormat': 'git-archive-zip', 'sourceCommit': sha,
+            **({'archivePrefix': archive_prefix} if archive_prefix is not None else {})}
 
 
 def build(plugin_root, skills_root, output, lock_path, input_lock=None):
@@ -90,7 +97,7 @@ def build(plugin_root, skills_root, output, lock_path, input_lock=None):
             if archive_format == 'git-archive-zip':
                 if runtime:
                     raise ValueError('runtime_requires_canonical_archive')
-                actual = git_archive_bundle(skills_root / name, version, stage / filename, repository)
+                actual = git_archive_bundle(skills_root / name, version, stage / filename, repository, expected.get('archivePrefix'))
                 if actual != expected:
                     raise ValueError('locked_bundle_mismatch:' + name)
                 entries[name] = actual

@@ -2,7 +2,7 @@
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current plugin: `0.1.0-dev.108`; skill source: `0.1.0-dev.80`; 10 independent skills.
+Current plugin: `0.1.0-dev.109`; skill source: `0.1.0-dev.81`; 10 independent skills.
 
 Current distribution: plugin dev.107 / source dev.80 / Art runtime dev.106. Ten fresh independent cold installations and 390 protocol checks pass; the real four-domain mixed workflow passes. [Evidence](docs/evidence/artcraft107-protocol-fixed-first-use-20261008.json). Complete V1 remains open.
 
@@ -114,9 +114,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.108 |
+| Plugin ID / version | artcraft / 0.1.0-dev.109 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.80 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.81 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -432,3 +432,5 @@ Fixed installation boundary qualification: all 64 current standalone skills pass
 Current fixed protocol-reference release matrix (Film/Effect dev.37, Photo dev.36, Vector dev.34, Art dev.107) passes actual isolated Codex installation/discovery of 64 skills, 16 installed authority-file digest checks, and 64 independent public CLI probes using five fresh domain caches. Historical native scene proof is reused only for byte-identical skills; full V1 remains open. [Fixed release evidence](docs/evidence/craft-protocol-authority-fixed-first-use-20261008.json).
 
 Source candidate: workflow nodes expose durable task receipts and structured rejection details while retaining existing summary/error fields. Published runtime acceptance remains pending. [Architecture](docs/Craft-Workflow-Task-Receipt-Architecture.md).
+
+Source candidate upgrades Art domain dependencies to Film35 / Effect34 / Photo33 / Vector31, with strict pinned Photo archive-prefix normalization. Five immutable archives reconstruct exactly; 114 source tests pass with 36 conditional skips, plus actual public cold native Photo revision/package evidence. Fixed full-plugin acceptance remains pending. [Architecture](docs/Craft-Domain-Archive-Prefix-Architecture.md).
