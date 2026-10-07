@@ -3559,68 +3559,6 @@
     "all runtime failures",
     "model/GUI/creative/full V1 acceptance"
   ],
-  "reconstructedHistoricalRed": {
-    "schema": "craft-setup-reconstructed-red/v1",
-    "result": "EXPECTED_FAILURE",
-    "records": [
-      {
-        "domain": "filmcraft",
-        "baselineCommit": "69519f1808d4be781f166899683315422e696fe8",
-        "baselineCliSha256": "716f8ed89db05db3fa8a8989c51bbf985e56e8ba81b6ddff92d3747c13d90e9c",
-        "baselineScope": "historical CLI launcher only, with current fixed installer/lock; reconstructed now, not an original historical run",
-        "expectedFailingAssertion": "dependencySetup present and belongs to own skill",
-        "reply": {
-          "error": "[Errno 2] No such file or directory: '$CASE/archive-unavailable'",
-          "result": "failed"
-        },
-        "exitCode": 1
-      },
-      {
-        "domain": "effectcraft",
-        "baselineCommit": "e26921c0448e6506626b89c0e3c388a110c6e955",
-        "baselineCliSha256": "14388135cb9054d411a805f194e9e68f355bd54dcc1202265cab4348afd45e65",
-        "baselineScope": "historical CLI launcher only, with current fixed installer/lock; reconstructed now, not an original historical run",
-        "expectedFailingAssertion": "dependencySetup present and belongs to own skill",
-        "reply": {
-          "error": "[Errno 2] No such file or directory: '$CASE/archive-unavailable'",
-          "result": "failed"
-        },
-        "exitCode": 1
-      },
-      {
-        "domain": "photocraft",
-        "baselineCommit": "8f3f277c96b5b39550a6a2bc7d55988cc8ad3807",
-        "baselineCliSha256": "6c24ecd4778feb477cd3fb00814622c668faebdabb60807d769315b3c8789c81",
-        "baselineScope": "historical CLI launcher only, with current fixed installer/lock; reconstructed now, not an original historical run",
-        "expectedFailingAssertion": "dependencySetup present and belongs to own skill",
-        "reply": {
-          "error": "[Errno 2] No such file or directory: '$CASE/archive-unavailable'",
-          "result": "failed"
-        },
-        "exitCode": 1
-      },
-      {
-        "domain": "vectorcraft",
-        "baselineCommit": "50f7a05ad21f8d2b051a784fe1004ba54636d197",
-        "baselineCliSha256": "88185c45bbb282a16bd5f3ca701500d4db2b2709eeceed07d04555d018d5ccf1",
-        "baselineScope": "historical CLI launcher only, with current fixed installer/lock; reconstructed now, not an original historical run",
-        "expectedFailingAssertion": "dependencySetup present and belongs to own skill",
-        "reply": {
-          "error": "[Errno 2] No such file or directory: '$CASE/archive-unavailable'",
-          "result": "failed"
-        },
-        "exitCode": 1
-      }
-    ]
-  },
-  "verifierSha256": "f6bc69f573cc783aa40d055a301e5fcd66ea023b9d1d17849f9fe1d2aacb2d53",
-  "testSha256": "be9f85535045d764727b91e516c2f72668bdfb0712a55b03fd3116e3ad30286d",
-  "tests": {
-    "total": 100,
-    "passed": 95,
-    "conditionalSkipped": 5
-  },
-  "date": "2026-10-08",
   "qualifiedRequirements": [
     {
       "requirement": "FC-SK-002",
@@ -3787,5 +3725,71 @@
       "scope": "independent install and dependency declaration only; not SK-003, full native command or V1 qualification"
     }
   ],
-  "artRequirementStatus": "AC-SK-002 remains OPEN: generic Skills CLI actual installation and its added scenarios not accepted by this run"
+  "reconstructedHistoricalRed": {
+    "schema": "craft-setup-reconstructed-red/v1",
+    "result": "EXPECTED_FAILURE",
+    "records": [
+      {
+        "domain": "filmcraft",
+        "baselineCommit": "69519f1808d4be781f166899683315422e696fe8",
+        "baselineCliSha256": "716f8ed89db05db3fa8a8989c51bbf985e56e8ba81b6ddff92d3747c13d90e9c",
+        "baselineScope": "historical CLI launcher only, with current fixed installer/lock; reconstructed now, not an original historical run",
+        "expectedFailingAssertion": "dependencySetup present and belongs to own skill",
+        "reply": {
+          "error": "[Errno 2] No such file or directory: '$CASE/archive-unavailable'",
+          "result": "failed"
+        },
+        "exitCode": 1
+      },
+      {
+        "domain": "effectcraft",
+        "baselineCommit": "e26921c0448e6506626b89c0e3c388a110c6e955",
+        "baselineCliSha256": "14388135cb9054d411a805f194e9e68f355bd54dcc1202265cab4348afd45e65",
+        "baselineScope": "historical CLI launcher only, with current fixed installer/lock; reconstructed now, not an original historical run",
+        "expectedFailingAssertion": "dependencySetup present and belongs to own skill",
+        "reply": {
+          "error": "[Errno 2] No such file or directory: '$CASE/archive-unavailable'",
+          "result": "failed"
+        },
+        "exitCode": 1
+      },
+      {
+        "domain": "photocraft",
+        "baselineCommit": "8f3f277c96b5b39550a6a2bc7d55988cc8ad3807",
+        "baselineCliSha256": "6c24ecd4778feb477cd3fb00814622c668faebdabb60807d769315b3c8789c81",
+        "baselineScope": "historical CLI launcher only, with current fixed installer/lock; reconstructed now, not an original historical run",
+        "expectedFailingAssertion": "dependencySetup present and belongs to own skill",
+        "reply": {
+          "error": "[Errno 2] No such file or directory: '$CASE/archive-unavailable'",
+          "result": "failed"
+        },
+        "exitCode": 1
+      },
+      {
+        "domain": "vectorcraft",
+        "baselineCommit": "50f7a05ad21f8d2b051a784fe1004ba54636d197",
+        "baselineCliSha256": "88185c45bbb282a16bd5f3ca701500d4db2b2709eeceed07d04555d018d5ccf1",
+        "baselineScope": "historical CLI launcher only, with current fixed installer/lock; reconstructed now, not an original historical run",
+        "expectedFailingAssertion": "dependencySetup present and belongs to own skill",
+        "reply": {
+          "error": "[Errno 2] No such file or directory: '$CASE/archive-unavailable'",
+          "result": "failed"
+        },
+        "exitCode": 1
+      }
+    ]
+  },
+  "date": "2026-10-08",
+  "artRequirementStatus": "AC-SK-002 remains OPEN: generic Skills CLI actual installation and its added scenarios not accepted by this run",
+  "verifierSha256": "e240f09df5be72dccdd1d0a6db615e276fe7b264b2d468518f24aa3ba056f775",
+  "testSha256": "96fb6222f9b310b6e499555f0d9fff0b07e30ee0a1bf4dcd268c798e4ea02f32",
+  "tests": {
+    "total": 101,
+    "passed": 96,
+    "conditionalSkipped": 5
+  },
+  "runtimeAliasRegression": {
+    "result": "PASS",
+    "scope": "unit reproduction of requested runtime alias versus resolved path; launcher contract preserves requested absolute runtime path"
+  }
 }

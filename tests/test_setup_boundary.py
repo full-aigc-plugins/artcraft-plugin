@@ -23,7 +23,7 @@ class SetupBoundaryTests(unittest.TestCase):
         reply = {'error': 'archive unavailable', 'result': 'failed',
                  'dependencySetup': {'skill': 'photocraft-cli-setup',
                     'bootstrapScript': str((skill/'scripts/bootstrap.py').resolve()),
-                    'runtimeHome': str(runtime.resolve()), 'automaticRetry': False}}
+                    'runtimeHome': str(runtime.absolute()), 'automaticRetry': False}}
         return skill, runtime, reply
 
     def test_exact_own_setup_diagnostic_is_accepted(self):
@@ -53,6 +53,15 @@ class SetupBoundaryTests(unittest.TestCase):
             for text in ('[]', 'null', '{"error":"a","error":"b"}', '{"error":NaN}'):
                 with self.subTest(text=text), self.assertRaises(ValueError):
                     self.module().validate_failure(SimpleNamespace(returncode=1,stdout=text,stderr=''), skill, runtime, 'photocraft')
+
+    def test_requested_runtime_alias_is_preserved(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary); real = root/'real'; real.mkdir()
+            alias = root/'alias'; alias.symlink_to(real, target_is_directory=True)
+            skill, runtime, reply = self.fixture(alias)
+            reply['dependencySetup']['runtimeHome'] = str(runtime.absolute())
+            result = SimpleNamespace(returncode=1,stdout=json.dumps(reply),stderr='')
+            self.assertEqual(self.module().validate_failure(result,skill,runtime,'photocraft')['dependencySetup']['runtimeHome'],str(runtime.absolute()))
 
 if __name__ == '__main__':
     unittest.main()

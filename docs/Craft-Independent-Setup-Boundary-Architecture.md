@@ -34,6 +34,8 @@ Positive public cold installation retains the current matrix's 64 byte-identical
 
 Reconstruct historical domain launchers from exact Git files now: retain the current pinned installer/lock while replacing only cli.py with its pre-diagnostic historical file. The same unavailable archive causes a known setup failure, but four assertions fail because `dependencySetup` is missing. Record old commit and CLI hashes; this is a reconstructed single-file baseline, not an original historical run or full old-release acceptance.
 
-All 128 current fixed-entry checks pass. New verifier tests first failed for missing implementation, then check valid diagnostics and reject success/unknown/retry/sibling/wrong-runtime and ambiguous JSON cases. Art maintainer regression: 100 tests, 95 passed, 5 conditional skips. Skips do not count as runtime acceptance.
+All 128 current fixed-entry checks pass. New verifier tests first failed for missing implementation, then check valid diagnostics and reject success/unknown/retry/sibling/wrong-runtime and ambiguous JSON cases. Art maintainer regression: 101 tests, 96 passed, 5 conditional skips. Skips do not count as runtime acceptance.
 
 [Fixed boundary evidence](evidence/craft-fixed-setup-boundary-20261008.json) binds the four domain positive/negative scenarios to full contract SHA fingerprints. Close only tasks 1.4, 1.5 and 1.6 for independent installation/dependency declarations. Art `AC-SK-002` adds source-lock, actual Skills CLI installation and linked-tree scenarios and stays open. CLI scene coverage, all native command contexts, GUI, models, creative quality and complete V1 remain separate.
+
+Keep the requested absolute runtime path as defined by the launcher contract; forcing a resolved alias into a different string caused a verifier false rejection. The alias regression now passes.

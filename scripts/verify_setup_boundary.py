@@ -31,7 +31,7 @@ def validate_failure(result, skill, runtime, domain):
         raise ValueError('setup_failure_reply_invalid')
     expected = {'skill': domain+'-cli-setup',
                 'bootstrapScript': str((skill/'scripts/bootstrap.py').resolve()),
-                'runtimeHome': str(runtime.resolve()), 'automaticRetry': False}
+                'runtimeHome': str(runtime.expanduser().absolute()), 'automaticRetry': False}
     if reply.get('dependencySetup') != expected:
         raise ValueError('setup_failure_not_own_skill')
     return reply
