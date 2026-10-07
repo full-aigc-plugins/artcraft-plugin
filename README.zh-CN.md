@@ -2,7 +2,7 @@
 
 多领域创作需求进入，交付项目清单、工作流记录、四领域子工程引用及验收记录。
 
-当前插件：`0.1.0-dev.103`；技能源：`0.1.0-dev.77`；10 个独立技能。
+当前插件：`0.1.0-dev.104`；技能源：`0.1.0-dev.78`；10 个独立技能。
 
 音频尾部分发升级：插件 dev.103 对应 Art 技能源 dev.77 与 Film 技能源 dev.31；原生运行时 dev.83 及另外三个领域技能源保持。新分发的实际安装已通过有界音频尾部与混合工作流门禁；下文 dev.102 证据仅适用于其固定版本。
 
@@ -102,9 +102,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.103 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.104 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.77 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.78 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

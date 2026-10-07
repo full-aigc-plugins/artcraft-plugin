@@ -2,7 +2,7 @@
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current plugin: `0.1.0-dev.103`; skill source: `0.1.0-dev.77`; 10 independent skills.
+Current plugin: `0.1.0-dev.104`; skill source: `0.1.0-dev.78`; 10 independent skills.
 
 Audio-tail distribution update: plugin dev.103 targets Art source dev.77 and Film source dev.31. Native runtime dev.83 and the other three domain sources are unchanged. Installed verification for this new distribution passed the bounded audio-tail and mixed-workflow gates; the dev.102 evidence below remains version-bound.
 
@@ -104,9 +104,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.103 |
+| Plugin ID / version | artcraft / 0.1.0-dev.104 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.77 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.78 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
