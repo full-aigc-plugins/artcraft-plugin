@@ -420,3 +420,5 @@ CLI 验收默认锁现为 `host-acceptance-strict64.lock.json`：领域插件 de
 协议自有字段修复分发：插件dev.107固定独立技能源dev.80及运行时dev.106。严格任务／素材字段拒绝继承的schema属性名，允许的版本化payload JSON保持兼容；固定安装首用验收与已通过源码回归单独记录。
 
 固定 EffectCraft 插件 dev.35／技能源 dev.33 验收通过：64 项安装身份与发现、15 项独立 Effect CLI 空缓存安装，以及原生木偶录制／跟随／重开／局部返工和三类失败路径。另 49 项冷安装记录复用摘要一致的历史证据。完整首版仍开放。[固定证据](docs/evidence/effectcraft-puppet-record-follow-fixed-first-use-20261008.json)。
+
+固定 EffectCraft 插件 dev.36／技能源 dev.34 通过 64 项安装身份与发现、15 项独立 Effect CLI 空缓存安装，以及原生摄像机渲染／重开／局部返工和三类失败路径。其余 49 项冷安装记录仅复用摘要一致的历史运行。完整首版仍开放。[固定摄像机证据](docs/evidence/effectcraft-camera-scene-fixed-first-use-20261008.json)。
