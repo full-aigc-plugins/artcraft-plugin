@@ -340,3 +340,5 @@ SC-005 固定安装证据：`docs/evidence/artcraft97-strict-plan-fixed-first-us
 - [x] [SC-006] Art 十个独立技能固定 Effect 技能源 dev.29 公开归档、逐文件摘要和不可变命令索引，保留 runtime83；发布后在固定安装副本复验冷混合工作流及分发身份。目录、源候选和固定安装分别记录，完整V1继续开放。
 
 SC-006 固定发行验收：Art插件98／源72，五插件64技能加载与CLI身份通过；冷混合实际原生1项和合同2项通过，64安装摘要保留。证据 `docs/evidence/artcraft98-effect29-fixed-first-use-20261007.json`。通用Skills CLI 3.16、Art角色专项和完整V1不由此关闭。
+
+- [ ] [SC-007] 将十个 Art 独立技能的 Film 固定分发更新为源 dev.29，逐文件校验公开 ZIP 和不可变命令索引；候选及新固定安装分别验证四领域冷混合交付、Film 执行记录绑定、局部返工和同修订复用，保留 runtime83、其他领域锁和完整V1门禁。

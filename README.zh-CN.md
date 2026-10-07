@@ -1,4 +1,8 @@
+Art 源73候选通过104项源回归（33项需显式环境的测试跳过）及1项冷安装四领域原生流程、2项归档合同。Film29创建／返工记录绑定实际计划和运行时，复用保持记录字节；runtime83与其他三领域锁不变。固定插件安装尚待验收。[证据](docs/evidence/artcraft-film29-distribution-candidate-20261007.json)。
+
 固定Art98／源72素材角色新增3项冷原生验收通过：登记并替换PNG／JPEG／SVG，更新依赖产物并保留无关图标和旧交付，拒绝SVG外部依赖；PCM音频登记、Film原生音轨及移动验包通过。保留输入／输出／包摘要，全部64安装技能摘要保持。PCM使用测试信号，不代表配音内容审核。其他素材类型、完整协议／首版及通用Skills CLI仍开放。 [Evidence / 证据](docs/evidence/artcraft98-assets-role-first-use-20261007.json).
+
+Art 源73候选在十个独立技能中锁定 Film29 执行保护，runtime83及其他领域包保持不变。候选与固定安装验收分别记录。[架构说明](docs/ArtCraft-Film-Execution-Architecture.zh_CN.md)。
 
 固定 Art98／源72 的七个角色入口限定验收通过：覆盖Brief规划、原生执行／源返工、既有账本查询、移动打包、观察记录，以及调度器崩溃后的同attempt恢复。每次角色交接使用不存在的运行时目录；全部64安装摘要保持。账本查询之外的素材登记、worker崩溃、创作／人工审核、通用Skills CLI和完整首版仍开放。 [Evidence / 证据](docs/evidence/artcraft98-role-first-use-20261007.json) · [Architecture / 架构](docs/ArtCraft-Role-FirstUse-Architecture.zh_CN.md).
 
@@ -16,7 +20,7 @@
 
 固定 ArtCraft97／技能源71 验收：五个公开插件发现64技能，加载错误0；64个独立副本CLI探测通过（五个新领域缓存，后续复用）。已安装 Art 通过240次严格JSON拒绝，以及冷原生混合创作、返工、崩溃恢复和移动交付验证。全部安装摘要保持不变。通用Skills CLI及完整首版门禁仍开放。[证据](docs/evidence/artcraft97-strict-plan-fixed-first-use-20261007.json)。
 
-已发布插件：**0.1.0-dev.98**，固定技能源 **0.1.0-dev.72**。十个 Art 技能固定 Film／Vector dev.28 和 Effect／Photo dev.29，保留 runtime dev.83 与 2,646 条分类命令。候选和固定安装冷启动混合流程通过，完整首版验收仍开放。
+此前已发布插件：**0.1.0-dev.98**，固定技能源 **0.1.0-dev.72**。十个 Art 技能固定 Film／Vector dev.28 和 Effect／Photo dev.29，保留 runtime dev.83 与 2,646 条分类命令。候选和固定安装冷启动混合流程通过，完整首版验收仍开放。
 
 以下为各历史版本的验收记录：
 
@@ -28,7 +32,7 @@
 
 固定发布安装验证：四领域插件 dev.29／ArtCraft dev.95，共 64 技能在隔离 Codex 0.147.0 中发现，零加载错误；64 独立副本 CLI 探测通过（五个新领域缓存），实际安装 Art 技能的四领域原生创建／返工／重开检查通过。发现 PhotoCraft 755 原生命令中有 7 条缺分类使用说明，待补齐；全量命令和完整首版保持开放。[证据](docs/evidence/craft-fixed64-first-use-20261007.json)。
 
-当前插件：`0.1.0-dev.98`；技能源：`0.1.0-dev.72`；runtime dev.83；Film／Vector源dev.28、Effect／Photo源dev.29。候选和固定安装混合验收通过，完整首版仍开放。
+当前插件：`0.1.0-dev.99`；技能源：`0.1.0-dev.73`；runtime dev.83；Film／Effect／Photo源dev.29、Vector源dev.28。候选混合验收通过，固定安装尚待验收，完整首版仍开放。
 
 历史发行记录：当前插件：`0.1.0-dev.93`；技能源：`0.1.0-dev.67`；runtime83；四领域source25分发及自有桌面交接。固定安装桌面首用待验收。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
 
@@ -139,9 +143,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.98 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.99 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.72 |
+| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.73 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
