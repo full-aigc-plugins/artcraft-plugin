@@ -1,3 +1,5 @@
+Current fixed releases: four domain plugins dev.24/sources dev.22; Art plugin dev.90/source dev.63/runtime83. All 58 single-skill empty-runtime cases, four advanced desktop cases and the brand mixed revision passed. [Version, skill and native artifact-bound evidence](evidence/craft-full-command-fixed-first-use-20261007.json). Earlier version tables and reports below retain their historical scope. Exhaustive commands, all UI interactions, agent model dispatch and full V1 are not established.
+
 # Craft Desktop First-Use Architecture
 
 > 2026-10-07. Scope: the standalone desktop installation component in four domain skill suites. This is source-candidate implementation; fixed-release skill installation and complete GUI acceptance remain open.
@@ -61,3 +63,83 @@ python3 -I -B "$SKILL_DIR/scripts/desktop.py" run "$SKILL_DIR/examples/desktop-f
 OUTPUT must be new and its parent must exist. `--runtime-home` selects an isolated cache; `--input NAME=PATH` imports explicit assets. Plan/catalog/reference/input/platform checks precede installation. The workflow installs both pinned runtimes, starts an isolated desktop, and uses lsof to verify the loopback listener belongs to its own application PID before MCP connection. Photo uses a private 0600 token file and the same authorized root for GUI/CLI. Only owned GUI/MCP processes are closed. Unknown edits are not retried.
 
 [48-source-skill cold-start evidence](evidence/craft-owned-desktop-first-use-20261007.json) covers individual copies under .agents/skills, empty public desktop+CLI caches, owned PID verification, native save/reopen, unchanged skill files and process cleanup. Each domain case has five operations; Vector has six including the export alias. Regressions passed 357 tests and skipped 109 environment-dependent tests. Source component gate 8.16 is verified; fixed-release gate 8.17, complete execution 8.3, Art GUI orchestration and full V1 remain open.
+
+## Reflected catalog and runtime-only commands
+
+PhotoCraft has 748 reflected entries and 755 commands registered by the pinned CLI. Seven runtime-only entries are listed below. Reflected entries use the command field; additional registered entries are callable through the existing native command_list and command_run tools. Query current parameters and enabled state, then establish the project, objects or brush presets before calling. Individual execution acceptance remains NOT_RUN.
+
+```bash
+python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" describe photocraft command_run --tool
+```
+
+```json
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "tool": "command_list",
+      "params": {
+        "filter": "brush.presets"
+      }
+    }
+  ]
+}
+```
+
+The example only queries presets. An actual call has the structure `{"tool":"command_run","params":{"id":"ACTUAL_ID","params":{ACTUAL_NATIVE_PARAMS}}}`; replace both placeholders using native parameter documentation. Use the desktop plan entry with journals, failure stopping and no replay of unknown outcomes.
+
+### brush.presets.rename
+
+Rename Brush
+
+```text
+{"name":string,"newName":string} → {name}
+```
+
+### brush.presets.move
+
+Move Brush
+
+```text
+{"name":string,"group":string?=its group ("" = ungrouped),"before":name? (preset to land before) | "index":n? (position in the group)=end} → {name, group, index}
+```
+
+### brush.presets.moveGroup
+
+Move Brush Group
+
+```text
+{"group":string,"before":group? | "index":n? (group position)=end} → {group, index}
+```
+
+### brush.presets.renameGroup
+
+Rename Brush Group
+
+```text
+{"group":string,"newName":string} → {group}
+```
+
+### brush.presets.deleteGroup
+
+Delete Brush Group
+
+```text
+{"group":string} → {deleted, count}
+```
+
+### layer.setExpanded
+
+Expand/Collapse Group
+
+```text
+{"layer":id?,"expanded":bool?,"all":bool?} (no expanded: toggle; all: every group; not an undo step)
+```
+
+### layer.setEffectsExpanded
+
+Expand/Collapse Effects
+
+```text
+{"layer":id?,"expanded":bool?,"all":bool?} (no expanded: toggle; all: every layer with effects; view state, not an undo step)
+```

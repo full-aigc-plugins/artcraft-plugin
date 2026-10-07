@@ -1,3 +1,5 @@
+当前固定版本：四领域插件dev.24／技能源dev.22，Art插件dev.90／技能源dev.63／runtime83。58个单技能空运行时、四领域进阶桌面和品牌混合返工已通过。[绑定版本、技能与原生制品摘要的记录](evidence/craft-full-command-fixed-first-use-20261007.json)。下文较早的版本表和验收记录保留各自历史范围；不代表逐条命令、全部UI交互、模型调度或完整V1通过。
+
 # Craft 桌面首次使用架构
 
 > 2026-10-07。范围：四领域独立技能的桌面安装组件；候选源码实现，固定技能发布及 GUI 完整验收仍开放。
@@ -89,3 +91,83 @@ sequenceDiagram
 ```
 
 [48 技能源码冷启动证据](evidence/craft-owned-desktop-first-use-20261007.json)证明：每次仅复制一个技能到 .agents/skills、空公共缓存安装两类运行时、PID 归属检查、GUI 工作流、原生保存重开、技能文件不变和拥有的进程退出。各案例 5 步，Vector 为 6 步并验证导出别名。四领域回归通过 357 项，跳过 109 项环境依赖测试。规格 8.16 的源码组件已验证；8.17 固定发布安装、8.3 全量命令执行、Art GUI 编排及完整 V1 仍开放。
+
+## 反射目录与运行时额外命令
+
+PhotoCraft 的反射目录为748项，固定CLI实际注册755项；另外7项列在下方。原748项使用command字段。额外注册项可使用本技能已有的原生MCP工具command_list和command_run调用，不把它们冒充反射目录条目。先查询当前参数和enabled状态，建立工程、对象或画笔预设等前置条件，再调用；逐项原生执行验收仍为NOT_RUN。
+
+```bash
+python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" describe photocraft command_run --tool
+```
+
+```json
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "tool": "command_list",
+      "params": {
+        "filter": "brush.presets"
+      }
+    }
+  ]
+}
+```
+
+上例仅查询，不执行预设修改。真实调用格式为`{"tool":"command_run","params":{"id":"真实命令ID","params":{原生命令参数}}}`；其中“真实命令ID”和“原生命令参数”必须替换，不能直接执行这个结构示意。沿用desktop计划入口以及逐步日志、失败停止和unknown不重放语义。
+
+### brush.presets.rename
+
+Rename Brush
+
+```text
+{"name":string,"newName":string} → {name}
+```
+
+### brush.presets.move
+
+Move Brush
+
+```text
+{"name":string,"group":string?=its group ("" = ungrouped),"before":name? (preset to land before) | "index":n? (position in the group)=end} → {name, group, index}
+```
+
+### brush.presets.moveGroup
+
+Move Brush Group
+
+```text
+{"group":string,"before":group? | "index":n? (group position)=end} → {group, index}
+```
+
+### brush.presets.renameGroup
+
+Rename Brush Group
+
+```text
+{"group":string,"newName":string} → {group}
+```
+
+### brush.presets.deleteGroup
+
+Delete Brush Group
+
+```text
+{"group":string} → {deleted, count}
+```
+
+### layer.setExpanded
+
+Expand/Collapse Group
+
+```text
+{"layer":id?,"expanded":bool?,"all":bool?} (no expanded: toggle; all: every group; not an undo step)
+```
+
+### layer.setEffectsExpanded
+
+Expand/Collapse Effects
+
+```text
+{"layer":id?,"expanded":bool?,"all":bool?} (no expanded: toggle; all: every layer with effects; view state, not an undo step)
+```
