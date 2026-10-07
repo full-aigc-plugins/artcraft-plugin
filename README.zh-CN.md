@@ -1,3 +1,5 @@
+固定 Art98／源72 的七个角色入口限定验收通过：覆盖Brief规划、原生执行／源返工、既有账本查询、移动打包、观察记录，以及调度器崩溃后的同attempt恢复。每次角色交接使用不存在的运行时目录；全部64安装摘要保持。账本查询之外的素材登记、worker崩溃、创作／人工审核、通用Skills CLI和完整首版仍开放。 [Evidence / 证据](docs/evidence/artcraft98-role-first-use-20261007.json) · [Architecture / 架构](docs/ArtCraft-Role-FirstUse-Architecture.zh_CN.md).
+
 固定 ArtCraft98／技能源72 首用通过：五个公开插件发现64技能，加载错误0；64个独立副本CLI探测通过，使用五个新领域缓存及后续复用。1项真实冷原生混合工作流和2项归档选项合同通过（154.62秒），覆盖源返工、恢复及移动交付。全部64安装摘要保持；Effect源29／runtime83身份及公开技能源归档字节已核验。通用Skills CLI、Art角色专项及完整首版仍开放。 [Evidence / 证据](docs/evidence/artcraft98-effect29-fixed-first-use-20261007.json).
 
 领域场景验收现为 **43项原生测试通过／全部42个不同场景技能**。固定安装跟踪用例使用受支持H.264 High通过；此前无损输入不受原生解码器支持，失败证据保留。Art角色专项、实际Skills CLI及完整V1仍开放。 [Evidence / 证据](docs/evidence/craft-fixed-tracking-supported-input-20261007.json).
