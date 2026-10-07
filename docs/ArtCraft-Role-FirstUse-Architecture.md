@@ -51,3 +51,5 @@ The assets role has three additional fixed-installation native cases: PNG-to-JPE
 **Created**: 2026-10-07
 **Updated**: 2026-10-07
 **Status**: Pending review; evidence records determine execution status
+
+Current fixed plugin100/source74 has been revalidated with all seven role entrypoints and registered PNG/JPEG/SVG/PCM fixtures:8 tests (6 native,1 planning,1 reference contract) pass. Each role uses its own installed skill copy and absent runtime as described by the driver. All64 installed identities remain unchanged. Film29/Effect30/Photo30/Vector29 are the current domain bundles. The Art98 records above remain historical; this evidence establishes the stated bounded actions for Art100. Worker crashes, unknown submission, full protocol, human/creative acceptance and generic Skills CLI remain open. [Evidence / 证据](evidence/artcraft100-role-first-use-20261007.json).
