@@ -9,7 +9,7 @@ python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" list --domain effectcraft 
 python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" describe effectcraft open_project --tool
 ```
 
-list/describe离线查询全部2639条命令或实际MCP工具schema，不安装运行时。参数说明保持原文，命令文本不是JSON Schema。先核对工程、对象、素材及实时可执行状态。
+list/describe离线查询全部2646条命令或实际MCP工具schema，不安装运行时。参数说明保持原文，命令文本不是JSON Schema。先核对工程、对象、素材及实时可执行状态。
 
 ```bash
 python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" check effectcraft "$SKILL_DIR/examples/domain-effectcraft-create.json" --runtime-home /absolute/isolated-runtime

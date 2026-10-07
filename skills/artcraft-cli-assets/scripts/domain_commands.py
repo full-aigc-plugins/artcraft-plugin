@@ -4,7 +4,7 @@ import argparse,hashlib,json,os,re,subprocess,sys,tempfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent.parent
 NAMES=('filmcraft','effectcraft','photocraft','vectorcraft')
-COUNTS=dict(zip(NAMES,(666,640,748,585)))
+COUNTS=dict(zip(NAMES,(666,640,755,585)))
 MARKER='artcraft-command-call.json'
 def sha(path):
  with Path(path).open('rb') as stream:return hashlib.file_digest(stream,'sha256').hexdigest()

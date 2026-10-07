@@ -1,8 +1,10 @@
 Fixed installation verification: five plugins / 62 skills discovered in isolated Codex, zero loading errors; all62 command/resource checks and248 setup-diagnostic checks passed. Four new specialized skills passed empty-runtime installation, version and command queries. Native creative, exhaustive-command and fullV1 acceptance remain separately scoped. [Evidence](docs/evidence/craft-fixed62-installation-20261007.json).
 
+The current fixed candidate pins PhotoCraft source dev.28 with 2,646 domain commands. Plugin dev.96 pins Art source dev.70. New-version installed-host and seven-added-command native verification remain pending.
+
 Fixed installation verification: domain plugins dev.29 / ArtCraft dev.95 expose 64 skills in isolated Codex 0.147.0 with zero loading errors. All 64 standalone-copy CLI probes pass with five fresh domain caches; four native create/revise/reopen checks pass using the installed Art skill. Seven of PhotoCraft's 755 native commands still lack classified usage guidance. Complete command and V1 acceptance remain open. [Evidence](docs/evidence/craft-fixed64-first-use-20261007.json).
 
-Current plugin: `0.1.0-dev.95`; skill source: `0.1.0-dev.69`; runtime83; All four source27 domain bundles; owned desktop handoff. Fixed installed desktop acceptance pending. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
+Current plugin: `0.1.0-dev.96`; skill source: `0.1.0-dev.70`; runtime83; All four source27 domain bundles; owned desktop handoff. Fixed installed desktop acceptance pending. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
 
 Historical release record: Current plugin: `0.1.0-dev.93`; skill source: `0.1.0-dev.67`; runtime83; All four source25 domain bundles; owned desktop handoff. Fixed installed desktop acceptance pending. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
 
@@ -115,9 +117,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.95 |
+| Plugin ID / version | artcraft / 0.1.0-dev.96 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.69 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.70 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
