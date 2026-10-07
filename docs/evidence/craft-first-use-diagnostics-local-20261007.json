@@ -1,0 +1,48 @@
+{
+  "schema": "craft-first-use-diagnostics/v1",
+  "scope": "current source tests and fixed-baseline failure reproduction; not published or installed acceptance",
+  "records": [
+    {
+      "domain": "filmcraft",
+      "beforeTag": "v0.1.0-dev.23",
+      "sourceCommit": "fe7c0cbf67e2fdd5191a48c6eb22e182116c3efe",
+      "missingBehaviorConfirmed": true,
+      "targetTestsPassed": 3
+    },
+    {
+      "domain": "effectcraft",
+      "beforeTag": "v0.1.0-dev.23",
+      "sourceCommit": "ee454541ecd779c37d8c0d05acf60fb7d7963e89",
+      "missingBehaviorConfirmed": true,
+      "targetTestsPassed": 3
+    },
+    {
+      "domain": "photocraft",
+      "beforeTag": "v0.1.0-dev.23",
+      "sourceCommit": "01e315ca7d6411d38d44b8b1f5989feda9c3308b",
+      "missingBehaviorConfirmed": true,
+      "targetTestsPassed": 3
+    },
+    {
+      "domain": "vectorcraft",
+      "beforeTag": "v0.1.0-dev.23",
+      "sourceCommit": "5c2819eb12bc6fc2053ffa345e1b13bb8ed9feb2",
+      "missingBehaviorConfirmed": true,
+      "targetTestsPassed": 3
+    },
+    {
+      "domain": "artcraft",
+      "beforeTag": "v0.1.0-dev.64",
+      "sourceCommit": "b0e40cbcb777f978d01300a7bee653a36a8190b7",
+      "missingBehaviorConfirmed": true,
+      "targetTestsPassed": 3
+    }
+  ],
+  "regression": {
+    "tests": 647,
+    "passed": 502,
+    "skipped": 145,
+    "failed": 0
+  },
+  "releaseAcceptance": "PENDING"
+}
