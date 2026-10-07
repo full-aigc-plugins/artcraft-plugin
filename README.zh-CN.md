@@ -1,3 +1,5 @@
+源74候选固定四领域输出保护，runtime83／Film29不变。104项源回归通过（33项显式环境跳过），1项冷原生混合流程与2项归档合同通过（181.575秒）；八条创建／返工记录绑定计划、输入、原工程和运行时，复用保持字节。固定插件100安装单独验收。[证据](docs/evidence/artcraft-domain-guards-candidate-20261007.json)。
+
 固定Art99／源73验收通过：64项安装CLI探测（五个领域冷缓存后复用）、十个Art技能各自独立空缓存（176.942秒），以及1项冷混合四领域原生流程与2项归档合同（166.237秒）。Film29创建／返工记录绑定实际计划，复用不修改记录；全部64安装摘要保持不变。通用Skills CLI和完整V1仍开放。[证据](docs/evidence/artcraft99-film29-fixed-first-use-20261007.json)。
 
 Art 源73候选通过104项源回归（33项需显式环境的测试跳过）及1项冷安装四领域原生流程、2项归档合同。Film29创建／返工记录绑定实际计划和运行时，复用保持记录字节；runtime83与其他三领域锁不变。固定插件安装尚待验收。[证据](docs/evidence/artcraft-film29-distribution-candidate-20261007.json)。
@@ -34,7 +36,7 @@ Art 源73候选在十个独立技能中锁定 Film29 执行保护，runtime83及
 
 固定发布安装验证：四领域插件 dev.29／ArtCraft dev.95，共 64 技能在隔离 Codex 0.147.0 中发现，零加载错误；64 独立副本 CLI 探测通过（五个新领域缓存），实际安装 Art 技能的四领域原生创建／返工／重开检查通过。发现 PhotoCraft 755 原生命令中有 7 条缺分类使用说明，待补齐；全量命令和完整首版保持开放。[证据](docs/evidence/craft-fixed64-first-use-20261007.json)。
 
-当前插件：`0.1.0-dev.99`；技能源：`0.1.0-dev.73`；runtime dev.83；Film／Effect／Photo源dev.29、Vector源dev.28。候选和固定安装混合验收通过，完整首版仍开放。
+当前插件：`0.1.0-dev.100`；技能源：`0.1.0-dev.74`；runtime83；Film29／Effect30／Photo30／Vector29。四领域执行身份候选验收通过，固定安装尚待验收，完整V1仍开放。
 
 历史发行记录：当前插件：`0.1.0-dev.93`；技能源：`0.1.0-dev.67`；runtime83；四领域source25分发及自有桌面交接。固定安装桌面首用待验收。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
 
@@ -145,9 +147,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.99 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.100 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.73 |
+| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.74 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
