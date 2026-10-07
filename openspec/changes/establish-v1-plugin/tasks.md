@@ -324,3 +324,5 @@ SC-005 固定安装证据：`docs/evidence/artcraft97-strict-plan-fixed-first-us
 2026-10-07 逐技能独立空运行时首用补证：`docs/evidence/craft-fixed64-every-skill-cold-first-use-20261007.json`。固定 Film／Effect／Vector 插件dev.30、Photo插件dev.31、Art插件dev.97，全部64技能各自单独复制至隔离项目 .agents/skills，经默认公开下载验证版本和命令发现（620.155秒）；每项结束移除本项运行时，后项不复用缓存，全部原安装摘要不变。本仓10项通过。仅补齐逐技能CLI冷启动范围；实际通用Skills CLI安装、全部命令执行上下文和完整V1仍开放。
 
 2026-10-07 原首版代表任务固定安装复验：`docs/evidence/craft-fixed-v1-representative-native-baseline-20261007.json`。四领域当前固定安装副本分别从空运行时通过原生创作／重开／局部返工／导出，全部64安装摘要保持；Film字幕配音同步与素材移动、Effect改字保留动画、Photo图层蒙版PSD和尺寸变体、Vector多画板布尔改色与SVG/PDF/PNG均有实际测试。仅补充代表任务证据，不据此关闭所有领域、专项场景、全部命令或完整V1任务。
+
+2026-10-07 固定安装专项首用补证：`docs/evidence/craft-fixed-installed-task-scenes-first-use-20261007.json`。38项真实原生测试通过，覆盖37个不同场景技能，各自从空运行时公开安装，目标修改、重开／导出与非目标保全有业务断言。Vector选择技能新增独立选择后移动图标并保留品牌画板测试；现有发布技能未改动。剩余五项领域专项、Art角色专项、实际Skills CLI和完整V1保持开放。
