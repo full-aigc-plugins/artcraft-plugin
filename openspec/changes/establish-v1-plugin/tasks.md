@@ -326,3 +326,5 @@ SC-005 固定安装证据：`docs/evidence/artcraft97-strict-plan-fixed-first-us
 2026-10-07 原首版代表任务固定安装复验：`docs/evidence/craft-fixed-v1-representative-native-baseline-20261007.json`。四领域当前固定安装副本分别从空运行时通过原生创作／重开／局部返工／导出，全部64安装摘要保持；Film字幕配音同步与素材移动、Effect改字保留动画、Photo图层蒙版PSD和尺寸变体、Vector多画板布尔改色与SVG/PDF/PNG均有实际测试。仅补充代表任务证据，不据此关闭所有领域、专项场景、全部命令或完整V1任务。
 
 2026-10-07 固定安装专项首用补证：`docs/evidence/craft-fixed-installed-task-scenes-first-use-20261007.json`。38项真实原生测试通过，覆盖37个不同场景技能，各自从空运行时公开安装，目标修改、重开／导出与非目标保全有业务断言。Vector选择技能新增独立选择后移动图标并保留品牌画板测试；现有发布技能未改动。剩余五项领域专项、Art角色专项、实际Skills CLI和完整V1保持开放。
+
+2026-10-07 专项补证：`docs/evidence/craft-fixed-additional-task-scenes-20261007.json`。新增多机位、时间文本转录、滤镜和Puppet四项固定安装原生验收通过，累计42项测试／41个领域场景技能；跟踪输入能够渲染，但实际分析关键帧为0，未通过且保留失败回归。64个安装摘要保持。自动ASR、Art角色专项、实际Skills CLI及完整V1继续开放；未修改发行技能或原生运行时。

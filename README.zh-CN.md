@@ -1,3 +1,5 @@
+追加专项验收：**累计42项原生测试通过，覆盖41／42个领域场景技能**。多机位、带时间文本转录、滤镜及Puppet补验通过；Effect跟踪输入能够渲染，但分析实际关键帧为0，尚未验收。64个安装摘要保持。Art角色专项、自动ASR、实际Skills CLI和完整V1继续开放。[证据](docs/evidence/craft-fixed-additional-task-scenes-20261007.json)。
+
 已安装专项技能首用：**38项原生测试／37个不同领域场景技能通过**，各自使用独立空运行时。Film多机位／转录、Photo滤镜、Effect Puppet／跟踪五项尚未纳入本业务门禁；Art角色专项任务与通用Skills CLI另行验收。全部64安装摘要不变。[证据](docs/evidence/craft-fixed-installed-task-scenes-first-use-20261007.json)。
 
 当前固定版本首版代表任务通过：四领域已安装技能各自使用新公开运行时缓存，验证可编辑原生工程、重开、局部返工及导出。覆盖短片字幕／配音同步与素材移动、片头改字保留动画、海报图层／蒙版／PSD／尺寸变体、矢量布尔／多画板／SVG-PDF-PNG／改色。全部64安装摘要不变。本证据仅覆盖四个代表任务，不等于完整首版或所有专项场景。[证据](docs/evidence/craft-fixed-v1-representative-native-baseline-20261007.json)。
