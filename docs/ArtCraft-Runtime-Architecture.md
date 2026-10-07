@@ -338,3 +338,13 @@ flowchart TD
 The final test suite reproduces 33 failures on the previous checker in 39 cases, then passes 64 targeted tests with the fix. Full Node regression: 235 tests, 215 passed and 20 conditional skips. Python regression: 97 tests, 92 passed and five conditional skips. Three workflow cases prove rejection before native adapter preparation; six payload compatibility cases retain allowed JSON properties and register valid tasks.
 
 [Candidate evidence](evidence/protocol-own-fields-candidate-20261008.json) binds code and tests. Installed Art105/source79 still uses immutable runtime83, so this source candidate is not an installed fix. New runtime, independent skill and plugin releases plus installed first-use verification remain necessary. Complete public protocol and V1 tasks stay open.
+
+## Fixed installed acceptance dev.107 (2026-10-08)
+
+Art plugin dev.107 pins source dev.80 and runtime dev.106. A real isolated Codex host discovers five plugins and 64 skills without loading errors. Ten installed Art skills each cold-download their runtime: all 390 protocol tests pass, rejecting unknown prototype-named strict fields while preserving permitted payload JSON data. Both public plugin ZIP digests match the fixed tag archive.
+
+Three actual single-skill mixed first-use tests pass in 169.915 seconds, covering four-domain native creation, source-project revisions, same-version reuse, installation-receipt drift rejection and moved delivery. Technical audio fixtures do not establish ASR or creative quality. All 64 installed trees are rehashed: ten cold installations are new; 54 historical records are reused only after full digest equality. The outer recording wrapper failed when requesting a result key absent from the evidence schema; the three underlying tests passed and their original evidence and log were verified separately without rerunning or rewriting them.
+
+Only the bounded AC-CP-001-OWN-FIELDS release gate closes. Full CP-001, V1, actual generic Skills CLI, model dispatch and other platforms remain open.
+
+[Fixed installed evidence](evidence/artcraft107-protocol-fixed-first-use-20261008.json).

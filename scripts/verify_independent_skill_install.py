@@ -120,7 +120,7 @@ def verify(node, cli, python, lock, output):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--lock', type=Path, default=ROOT/'host-acceptance-art105.lock.json')
+    p.add_argument('--lock', type=Path, default=ROOT/'host-acceptance-art107.lock.json')
     p.add_argument('--plan', action='store_true')
     p.add_argument('--node');p.add_argument('--cli');p.add_argument('--python',default=sys.executable)
     p.add_argument('--output',type=Path)

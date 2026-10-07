@@ -1,8 +1,21 @@
 # Five-plugin first-use completion audit
 
+The three maintainer defaults now use `host-acceptance-art107.lock.json`; the auditor uses `artcraft107-protocol-fixed-first-use-20261008.json`. The actual default audit verifies 64 identities and reports 120 requirements and 262 open tasks. Historical overrides remain supported.
+
+## Fixed installed acceptance dev.107 (2026-10-08)
+
+Art plugin dev.107 pins source dev.80 and runtime dev.106. A real isolated Codex host discovers five plugins and 64 skills without loading errors. Ten installed Art skills each cold-download their runtime: all 390 protocol tests pass, rejecting unknown prototype-named strict fields while preserving permitted payload JSON data. Both public plugin ZIP digests match the fixed tag archive.
+
+Three actual single-skill mixed first-use tests pass in 169.915 seconds, covering four-domain native creation, source-project revisions, same-version reuse, installation-receipt drift rejection and moved delivery. Technical audio fixtures do not establish ASR or creative quality. All 64 installed trees are rehashed: ten cold installations are new; 54 historical records are reused only after full digest equality. The outer recording wrapper failed when requesting a result key absent from the evidence schema; the three underlying tests passed and their original evidence and log were verified separately without rerunning or rewriting them.
+
+Only the bounded AC-CP-001-OWN-FIELDS release gate closes. Full CP-001, V1, actual generic Skills CLI, model dispatch and other platforms remain open.
+
+[Fixed installed evidence](evidence/artcraft107-protocol-fixed-first-use-20261008.json).
+
+
 This audit checks the current fixed releases and actual installation identities while retaining the full goal. **Installation identities and recorded cold starts match; overall completion remains unproven.** It neither changes OpenSpec/tasks/releases nor reruns native work.
 
-## Current dev.105 defaults
+## Historical dev.105 defaults
 
 The three maintainer tools use `host-acceptance-art105.lock.json`; the auditor uses `craft-art105-whisper-fixed-first-use-20261008.json`. The default audit rehashed all 64 current identities and reports 120 requirements and 277 open tasks. Recorded cold evidence comprises 23 new Film/Art runs and 41 historical records reused after complete digest equality. Explicit historical lock/evidence parameters remain supported. Nine audit tests cover current defaults, historical overrides and existing rejection boundaries; they do not prove new creative acceptance.
 
@@ -72,3 +85,5 @@ This is a maintainer evidence tool. Independent user skills retain their own `cl
 Continue the original contracts: actual Skills CLI acceptance remains pending authorization; review complete evidence for native creation, referenced assets, save/reopen, previews/exports, targeted revisions and mixed dependency/delivery scenarios. Reuse older runs only when their exact current identities and scenario scopes match. Matching identities must not mark all formal scenarios complete.
 
 Seven unit tests cover stale hashes, duplicate/missing/warm records, missing run identifiers, success counts without records, duplicate JSON keys, preserved ignored caches, tracked modifications and task state not substituting for scenario evidence. They establish auditor behavior, not new native/creative acceptance.
+
+Current default installed CLI verification passes all 64 probes in 60.573 seconds (five fresh domain caches; later probes reuse). Python regression: 97 tests, 92 passed and five conditional skips. [CLI evidence](evidence/artcraft107-installed-cli-20261008.json) · [Completion audit](evidence/artcraft107-maintainer-audit-20261008.json).

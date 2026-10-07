@@ -4,7 +4,7 @@
 
 当前插件：`0.1.0-dev.107`；技能源：`0.1.0-dev.80`；10 个独立技能。
 
-当前分发：插件 dev.105 固定 Art 源 dev.79 与 Film 源 dev.34／native craft.4，保留 Art runtime dev.83 及其他三域不可变版本；固定宿主混合 ASR 与独立技能冷安装通过；完整V1仍开放。
+当前分发：插件 dev.107／源 dev.80／Art runtime dev.106。十技能独立空缓存安装及390项协议检查通过，实际四域混合工作流通过。[证据](docs/evidence/artcraft107-protocol-fixed-first-use-20261008.json)。完整V1仍开放。
 
 
 已验证首次使用平台：macOS arm64、Python 3.11+。固定运行时安装在用户数据目录，技能文件保留在宿主加载目录。当前为开发版本；完整首版验收及通用 Skills CLI 实际安装仍未完成。

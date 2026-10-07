@@ -4,7 +4,7 @@ Coordinate mixed creative work into project/workflow records, four-domain native
 
 Current plugin: `0.1.0-dev.107`; skill source: `0.1.0-dev.80`; 10 independent skills.
 
-Current distribution: plugin dev.105 pins Art source dev.79 and Film source dev.34/native craft.4; Art runtime dev.83 and the other three domain sources remain immutable. Fixed host mixed ASR and independent cold skill acceptance pass; complete V1 remains open.
+Current distribution: plugin dev.107 / source dev.80 / Art runtime dev.106. Ten fresh independent cold installations and 390 protocol checks pass; the real four-domain mixed workflow passes. [Evidence](docs/evidence/artcraft107-protocol-fixed-first-use-20261008.json). Complete V1 remains open.
 
 
 Verified first-use platform: macOS arm64 and Python 3.11+. Pinned runtimes install into the user data directory; skill files stay in their host-loaded directory. These are development releases; complete V1 acceptance and generic Skills CLI installation remain open.
