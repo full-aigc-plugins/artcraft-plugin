@@ -1,0 +1,51 @@
+{
+  "schema": "craft-current-first-use-guides/v1",
+  "result": "PASS",
+  "plugins": [
+    {
+      "domain": "filmcraft",
+      "pluginVersion": "0.1.0-dev.21",
+      "sourceVersion": "0.1.0-dev.19",
+      "sourceCommit": "eaf409213c005f5a74f6c68131ace1981a3e3a19"
+    },
+    {
+      "domain": "effectcraft",
+      "pluginVersion": "0.1.0-dev.21",
+      "sourceVersion": "0.1.0-dev.19",
+      "sourceCommit": "cf08f490bcf7c76361fb557fe2aa69fb1e076de4"
+    },
+    {
+      "domain": "photocraft",
+      "pluginVersion": "0.1.0-dev.20",
+      "sourceVersion": "0.1.0-dev.18",
+      "sourceCommit": "64d37cb2207ce1ae7b79163a3fbde509a3349254"
+    },
+    {
+      "domain": "vectorcraft",
+      "pluginVersion": "0.1.0-dev.21",
+      "sourceVersion": "0.1.0-dev.19",
+      "sourceCommit": "95d26647ecbf6a3962af0e02a25f0b4bcabbfe78"
+    },
+    {
+      "domain": "artcraft",
+      "pluginVersion": "0.1.0-dev.87",
+      "sourceVersion": "0.1.0-dev.60",
+      "sourceCommit": "8aa6ff30390c5e0755f7be174273361ef8353846"
+    }
+  ],
+  "artDistribution": {
+    "artcraft-runtime": "0.1.0-dev.83",
+    "filmcraft-skills": "0.1.0-dev.19",
+    "effectcraft-skills": "0.1.0-dev.19",
+    "photocraft-skills": "0.1.0-dev.18",
+    "vectorcraft-skills": "0.1.0-dev.19"
+  },
+  "scope": "current guide table and installer prose agree with published manifest/vendor/distribution identities; no new native runtime acceptance",
+  "excluded": [
+    "exhaustive native commands",
+    "GUI",
+    "model",
+    "generic Skills CLI",
+    "fullV1"
+  ]
+}

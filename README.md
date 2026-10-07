@@ -1,3 +1,5 @@
+Current first-use entry: plugin `0.1.0-dev.87`, skill source `0.1.0-dev.60`. Installation and command guides are checked against the current pinned releases; historical evidence retains its original version scope. [Guide](docs/Craft-Native-Gateway-Usage.md).
+
 Current plugin: `0.1.0-dev.87`; skill source: `0.1.0-dev.60`; runtime83; Effect19 expression distribution. Ten installed Art expression cases and updated mixed workflow pass. [Architecture](docs/ArtCraft-Effect-Expression-Architecture.md).
 
 Historical release record: Current plugin: `0.1.0-dev.86`; skill source: `0.1.0-dev.59`; runtime83; Vector19 appearance distribution. Ten installed Art appearance cases and updated mixed workflow pass. [Architecture](docs/ArtCraft-Vector-Appearance-Architecture.md).
@@ -8,7 +10,7 @@ Historical release record: Current plugin dev.85 pins source58/runtime83; fixed 
 
 Historical prerelease note: Published native gateway plugin dev.84 / source57 / runtime83 pins Film19 and Effect/Photo/Vector18. Fixed installed DAG retest pending; historical evidence retains its original scope.
 
-Full native-gateway DAG source candidate passes mixed delivery, five-child packaging/icon reuse, native revisions, moved reopening, budget rejection, corruption recovery, live cancellation and six unknown-response faults. Immutable installed-release retesting remains pending;6.51 stays open. [Evidence](docs/evidence/native-gateway-joint-candidate-20261007.json).
+Historical candidate record: Full native-gateway DAG source candidate passes mixed delivery, five-child packaging/icon reuse, native revisions, moved reopening, budget rejection, corruption recovery, live cancellation and six unknown-response faults. Immutable installed-release retesting remains pending;6.51 stays open. [Evidence](docs/evidence/native-gateway-joint-candidate-20261007.json).
 
 Historical source-candidate note: Source candidate: complete native workflow gateway; immutable installed acceptance and full DAG gate6.51 remain pending. [Architecture](docs/Craft-Native-Workflow-Gateway-Architecture.md).
 

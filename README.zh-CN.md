@@ -1,3 +1,5 @@
+当前首次使用入口：插件 `0.1.0-dev.87`，技能源 `0.1.0-dev.60`。中英文安装与命令指南按当前固定发行核验；历史样例证据保留原版本范围。 [Guide](docs/Craft-Native-Gateway-Usage.zh_CN.md).
+
 当前插件：`0.1.0-dev.87`；技能源：`0.1.0-dev.60`；runtime83；Effect19表达式分发。十项实际安装表达式及更新混合工作流通过。[架构](docs/ArtCraft-Effect-Expression-Architecture.zh_CN.md)。
 
 历史发行记录：当前插件：`0.1.0-dev.86`；技能源：`0.1.0-dev.59`；runtime83；Vector19外观分发。十项实际安装外观及更新混合工作流通过。[架构](docs/ArtCraft-Vector-Appearance-Architecture.zh_CN.md)。
@@ -8,7 +10,7 @@
 
 历史预发布记录：原生命令网关插件 dev.84／技能源57／runtime83 固定 Film19 与 Effect／Photo／Vector18。固定安装完整 DAG 复验待执行；历史证据保持原版本范围。
 
-完整网关DAG源候选实测通过：四领域联动、五子工程及独立图标复用、源工程返工、移动包重开、预算拒绝、损坏恢复、真实取消及六类unknown保全。固定发行和安装副本复验待完成；6.51仍开放。 [Evidence](docs/evidence/native-gateway-joint-candidate-20261007.json).
+历史候选记录：完整网关DAG源候选实测通过：四领域联动、五子工程及独立图标复用、源工程返工、移动包重开、预算拒绝、损坏恢复、真实取消及六类unknown保全。固定发行和安装副本复验待完成；6.51仍开放。 [Evidence](docs/evidence/native-gateway-joint-candidate-20261007.json).
 
 Historical source-candidate note: Source candidate: complete native workflow gateway; immutable installed acceptance and full DAG gate6.51 remain pending. [Architecture](docs/Craft-Native-Workflow-Gateway-Architecture.md).
 
