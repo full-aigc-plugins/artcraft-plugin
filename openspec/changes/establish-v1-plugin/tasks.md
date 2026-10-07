@@ -382,3 +382,5 @@ SC-007固定发行证据：`docs/evidence/artcraft99-film29-fixed-first-use-2026
 2026-10-08 固定Art109／source81／runtime108恢复入口补证：`docs/evidence/craft-fixed-cancel-recovery-first-use-20261008.json`。实际安装的单恢复技能经三个各自空公开缓存完成真实渲染任务／父工作流取消、停止后释放占用、暂存工程重开与重复不重放；另一个四工程用例真实SIGKILL调度器后接管原attempt并保持执行次数／预算，局部返工、预算耗尽与迁移包核验通过。首次取消失败为测试混淆单任务与父工作流语义，未作为产品红灯；没有修改运行时或关闭完整AC-TX-002／003。worker未知、全竞态、其他技能及完整V1仍开放。
 
 2026-10-08 固定安装监督缺失补证：`docs/evidence/craft-fixed-worker-unknown-first-use-20261008.json`。单恢复技能独立空公开缓存中仅终止其已验证启动链的worker；原生工程／视频存在且测试观察进程组消失，账本仍保持reconciling、原attempt和写占用，两次公开恢复返回结构化waiting；原预算、所有产物字节和一次原生启动不变。只证明AC-TX-002-WORKER的本机所列路径，不提升为自动接管、完整恢复需求或V1完成。
+
+2026-10-08 固定Art109／source81／runtime108保留交付补证：两个五子工程品牌版本与独立字幕返工包均实际生成、移动验包；品牌四依赖节点更新、徽标复用、原交付和无关第三画板保全。暂时移走原工程及配音路径后，从包内Film源工程重开并重链接，仅字幕样式改变；音画轨、字幕内容／时间及上部预览保留。原版具名字幕观察changes_requested，修正版pending（人工NOT_RUN），不关闭完整创作／交付／V1。首次计划clip_out_of_range为示例音频长度错误，失败产物保留，改正方案复用首次公开缓存。证据 `docs/evidence/craft-retained-mixed-delivery-20261008.json`。

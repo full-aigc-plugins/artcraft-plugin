@@ -438,3 +438,5 @@ CLI 验收默认锁现为 `host-acceptance-strict64.lock.json`：领域插件 de
 当前 Art109 安装副本的混合品牌返工用例通过：四个受影响产物更新，独立徽标复用，无关画板 SVG／PNG／PDF 和原交付保持不变，五个原生子工程打包核验通过。本次覆盖一项 revise 技能的五节点场景。[固定混合场景证据](docs/evidence/craft-archive-prefix-mixed-brand-first-use-20261008.json)。
 
 当前固定安装的恢复技能通过真实原生渲染的任务／父工作流取消、暂存工程重开、重复不重放，以及真实调度器 SIGKILL 后保持 attempt／预算的四工程接管和迁移验包。单任务取消的工作流仍 blocked，不能提升为成功。仅覆盖所列路径，完整恢复／取消需求仍开放。[验收说明](docs/Craft-Installed-Cancellation-Recovery.zh_CN.md)。
+
+当前实际安装技能已保留两个五子工程品牌版本和字幕局部返工包：品牌依赖更新、无关节点复用、旧产物保全、移动验包及原路径不可用时CLI源工程重链接通过。具名视觉审阅发现并修正小尺寸字幕，人工验收仍pending。[交付与证据](docs/Craft-Retained-Mixed-Delivery.zh_CN.md)。
