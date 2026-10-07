@@ -2,7 +2,7 @@
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current plugin: `0.1.0-dev.107`; skill source: `0.1.0-dev.80`; 10 independent skills.
+Current plugin: `0.1.0-dev.108`; skill source: `0.1.0-dev.80`; 10 independent skills.
 
 Current distribution: plugin dev.107 / source dev.80 / Art runtime dev.106. Ten fresh independent cold installations and 390 protocol checks pass; the real four-domain mixed workflow passes. [Evidence](docs/evidence/artcraft107-protocol-fixed-first-use-20261008.json). Complete V1 remains open.
 
@@ -114,7 +114,7 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.107 |
+| Plugin ID / version | artcraft / 0.1.0-dev.108 |
 | Specification authority | openspec/changes/establish-v1-plugin |
 | Skill authority | Independent artcraft-skills / published v0.1.0-dev.80 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |

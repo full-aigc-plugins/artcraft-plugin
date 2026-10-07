@@ -2,7 +2,7 @@
 
 多领域创作需求进入，交付项目清单、工作流记录、四领域子工程引用及验收记录。
 
-当前插件：`0.1.0-dev.107`；技能源：`0.1.0-dev.80`；10 个独立技能。
+当前插件：`0.1.0-dev.108`；技能源：`0.1.0-dev.80`；10 个独立技能。
 
 当前分发：插件 dev.107／源 dev.80／Art runtime dev.106。十技能独立空缓存安装及390项协议检查通过，实际四域混合工作流通过。[证据](docs/evidence/artcraft107-protocol-fixed-first-use-20261008.json)。完整V1仍开放。
 
@@ -112,7 +112,7 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.107 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.108 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
 | 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.80 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
