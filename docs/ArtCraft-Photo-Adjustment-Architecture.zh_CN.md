@@ -26,3 +26,5 @@ flowchart LR
 测试为每个Art技能分别创建独立.agents/skills副本和空运行时，调用公开workflow.py、package.py，不使用开发归档注入。验证所选领域安装、实际pcraft重开、局部PNG像素、非目标图层、原交付保护及包移动核验。源候选、固定安装和四领域混合DAG分别记录。122项回归中91通过、31环境相关用例跳过，跳过不作为完成证据。
 
 OpenSpec事实源仍为插件establish-v1-plugin；AC-DM-002任务6.58在固定分发和更新混合项目验收前保持开放。完整2639指令、PSD保真、GUI、模型分派、其他平台及完整V1不由此样例证明。
+
+固定发行验证：Art88／源61／runtime83与Photo21／源19，十项Art及十二项Photo实际安装技能分别从空运行时公开安装并执行蒙版调整创建和源返工；58安装身份不变。额外一项四领域混合任务核验五子工程、Logo四消费者更新、独立图标复用、字幕音频与移动包。四项Art标签CI、两个公开源ZIP与五分发包重建通过。 [Evidence](evidence/codex-art88-photo-adjustment-first-use-20261007.json).

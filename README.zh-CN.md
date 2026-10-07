@@ -1,4 +1,4 @@
-当前插件：`0.1.0-dev.88`；技能源：`0.1.0-dev.61`；runtime83；Photo19蒙版调整分发。固定安装待验收。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
+当前插件：`0.1.0-dev.88`；技能源：`0.1.0-dev.61`；runtime83；Photo19蒙版调整分发。十项实际安装蒙版调整及更新混合工作流通过。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
 
 ArtCraft 的十项独立技能源候选通过 Photo19 可编辑蒙版调整、可信源返工与移动包验收。固定发布版本和更新四领域混合项目尚待复验，6.58保持开放。 [Evidence](docs/evidence/artcraft-photo-adjustment-candidate-20261007.json). [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
 
@@ -370,3 +370,5 @@ Art HD 源码候选通过五秒 1080p 分段编排、移动文字返工及损坏
 当前固定分发：十项Art＋十二项Vector独立冷启动外观和源返工通过；更新四领域混合任务与五子工程移动包通过。全量命令／GUI／模型／完整V1仍开放。 [Evidence](docs/evidence/codex-art86-vector-appearance-first-use-20261007.json).
 
 当前固定分发：十项Art＋十三项Effect独立冷启动表达式和源返工通过；更新四领域混合任务与五子工程移动包通过。全量命令／GUI／模型／完整V1仍开放。 [Evidence](docs/evidence/codex-art87-effect-expression-first-use-20261007.json).
+
+当前固定分发：十项Art＋十二项Photo独立冷启动蒙版调整和源返工通过；更新四领域混合任务与五子工程移动包通过。全量命令／GUI／模型／完整V1仍开放。 [Evidence](docs/evidence/codex-art88-photo-adjustment-first-use-20261007.json).
