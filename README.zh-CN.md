@@ -436,3 +436,5 @@ CLI 验收默认锁现为 `host-acceptance-strict64.lock.json`：领域插件 de
 固定发行 Film38／Effect38／Photo37／Vector35／Art109 已通过实际隔离 Codex 安装和发现 64 项技能、16 项安装副本协议文件摘要核对、五个全新领域缓存下的 64 项 CLI 探测。十项 ArtCraft 技能分别从空缓存完成原生 Photo 蒙版调整、源工程返工与迁移打包；另外 54 项技能仅复用整个技能摘要一致的历史原生证据。默认维护验收矩阵已更新；通用 Skills CLI 安装、模型调度、GUI 和完整 V1／协议验收仍开放。[本次固定证据](docs/evidence/craft-archive-prefix-fixed-first-use-20261008.json)。
 
 当前 Art109 安装副本的混合品牌返工用例通过：四个受影响产物更新，独立徽标复用，无关画板 SVG／PNG／PDF 和原交付保持不变，五个原生子工程打包核验通过。本次覆盖一项 revise 技能的五节点场景。[固定混合场景证据](docs/evidence/craft-archive-prefix-mixed-brand-first-use-20261008.json)。
+
+当前固定安装的恢复技能通过真实原生渲染的任务／父工作流取消、暂存工程重开、重复不重放，以及真实调度器 SIGKILL 后保持 attempt／预算的四工程接管和迁移验包。单任务取消的工作流仍 blocked，不能提升为成功。仅覆盖所列路径，完整恢复／取消需求仍开放。[验收说明](docs/Craft-Installed-Cancellation-Recovery.zh_CN.md)。
