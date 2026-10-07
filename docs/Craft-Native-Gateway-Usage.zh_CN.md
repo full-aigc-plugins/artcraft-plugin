@@ -5,7 +5,7 @@
 | 工具 | 完整目录 | 工作流操作（含网关） | 固定技能源 | 固定插件 |
 |---|---:|---:|---|---|
 | FilmCraft | 666 | 18 | dev.19 | dev.21 |
-| EffectCraft | 640 | 22 | dev.18 | dev.20 |
+| EffectCraft | 640 | 22 | dev.19 | dev.21 |
 | PhotoCraft | 748 | 33 | dev.18 | dev.20 |
 | VectorCraft | 585 | 28 | dev.19 | dev.21 |
 | ArtCraft | 2639 个领域目录条目 | 编排上述领域节点 | dev.58 | dev.85，runtime dev.83 |
@@ -78,10 +78,12 @@ python3 -I -B "$SKILL_DIR/scripts/workflow.py" /absolute/mixed-plan.json --outpu
 
 混合计划声明 `pluginId`、依赖、领域 `payload.plan` 与产物绑定；领域原生操作写入 `payload.plan.operations` 的网关。运行时身份由公开安装器绑定，不复制另一个测试会话的 `runtimeIdentity`。以技能内品牌计划为结构基础，再按实际需求和源素材修改；`TASK_SCOPE` 是本次已经授权的任务范围引用。
 
-ArtCraft dev.86 的公开安装器固定 runtime83、Film19、Effect18、Photo18、Vector18，并为 `native_workflow.py`、`commands.py`、`command-coverage.json` 与既有启动文件建立摘要锁。任务不能选择执行器或替换脚本。领域成功回执仍须通过原生保存、依赖、导出与损失报告校验才能成为 DAG 交付。
+ArtCraft dev.87 的公开安装器固定 runtime83、Film19、Effect18、Photo18、Vector18，并为 `native_workflow.py`、`commands.py`、`command-coverage.json` 与既有启动文件建立摘要锁。任务不能选择执行器或替换脚本。领域成功回执仍须通过原生保存、依赖、导出与损失报告校验才能成为 DAG 交付。
 
 目录中的 GUI 命令不因 headless 当前禁用而被删除；使用实际运行中的应用和明确 bridge 模式。原生命令受其实现、当前工程、选择和权限约束；禁用时报告原因，参数错误停止，未知结果保全且不重放。完整目录覆盖不等于全部 2639 条命令的运行验收。
 
 固定首用与网关联合验收：见同目录 `evidence/codex-native-gateway-first-use-20261007.json`。冻结技能参考中“source candidate”描述的是编写时状态；当前版本是否通过固定安装验收以版本、文件摘要及此证据为准。完整逐命令、GUI、模型与完整 V1 门禁保持单独记录。
 
 Updated Art86/Vector19 distribution: ten Art and twelve Vector cold appearance entries, one four-domain mixed task, native source revision and moved package pass; exhaustive commands and fullV1 remain open. [Bounded evidence](evidence/codex-art86-vector-appearance-first-use-20261007.json).
+
+Updated Art87/Effect19 distribution: ten Art and thirteen Effect cold expression entries, one four-domain mixed task, native source revision and moved package pass; exhaustive commands and fullV1 remain open. [Bounded evidence](evidence/codex-art87-effect-expression-first-use-20261007.json).
