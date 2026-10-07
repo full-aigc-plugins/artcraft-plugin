@@ -1,3 +1,5 @@
+Fixed Art99/source73 acceptance passes:64 installed CLI probes (five cold domain caches with reuse), all10 Art skills with separate empty runtime caches (176.942s), and one cold four-domain native workflow plus two archive contracts (166.237s). Film29 creation/revision records bind effective plans and preserve bytes on reuse; all64 installed skill hashes remain unchanged. Generic Skills CLI and complete V1 remain open. [Evidence](docs/evidence/artcraft99-film29-fixed-first-use-20261007.json).
+
 Art source73 candidate passes104 source regressions (33 explicit-environment skips) and one cold four-domain native workflow plus two archive contracts. Film29 creation/revision records bind the effective plan and runtime; reuse preserves their bytes. Runtime83 and the other three domain bundles stay unchanged. Fixed plugin installation remains pending. [Evidence](docs/evidence/artcraft-film29-distribution-candidate-20261007.json).
 
 Fixed Art98/source72 assets role now passes three cold native tests: register and replace PNG/JPEG/SVG inputs, rebuild consumers while retaining unrelated icons and old deliveries, reject external SVG dependencies, and register PCM audio through native Film delivery and relocated packaging. Input/output/package hashes are retained, all64 installed skill hashes remain unchanged. The PCM fixture is a test signal, not speech acceptance. Other asset families, complete protocol/V1 and generic Skills CLI remain open. [Evidence / 证据](docs/evidence/artcraft98-assets-role-first-use-20261007.json).
@@ -32,7 +34,7 @@ The current fixed candidate pins PhotoCraft source dev.28 with 2,646 domain comm
 
 Fixed installation verification: domain plugins dev.29 / ArtCraft dev.95 expose 64 skills in isolated Codex 0.147.0 with zero loading errors. All 64 standalone-copy CLI probes pass with five fresh domain caches; four native create/revise/reopen checks pass using the installed Art skill. Seven of PhotoCraft's 755 native commands still lack classified usage guidance. Complete command and V1 acceptance remain open. [Evidence](docs/evidence/craft-fixed64-first-use-20261007.json).
 
-Current plugin: `0.1.0-dev.99`; skill source: `0.1.0-dev.73`; runtime dev.83; Film/Effect/Photo source dev.29 and Vector source dev.28. Candidate mixed acceptance passed; fixed installation remains pending and complete V1 remains open.
+Current plugin: `0.1.0-dev.99`; skill source: `0.1.0-dev.73`; runtime dev.83; Film/Effect/Photo source dev.29 and Vector source dev.28. Candidate and fixed installation mixed acceptance passed; complete V1 remains open.
 
 Historical release record: Current plugin: `0.1.0-dev.93`; skill source: `0.1.0-dev.67`; runtime83; All four source25 domain bundles; owned desktop handoff. Fixed installed desktop acceptance pending. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
 
