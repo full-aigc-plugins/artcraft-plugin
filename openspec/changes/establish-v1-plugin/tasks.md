@@ -45,7 +45,7 @@
 
 - [x] 3.15 [AC-SK-003] 支持固定完整 Git 发布归档并保留原字节/文件摘要；绑定 FilmCraft dev.5，执行在线单 ArtCraft 技能中文配音、烧录、局部返工与四工程打包验收；产物：docs/evidence/chinese-mixed-first-use.json。
 
-- [ ] 3.16 [AC-SK-002] 使用实际 Skills CLI 将五套固定公开技能源安装到隔离项目 .agents/skills；使用 host-acceptance-strict64.lock.json 核验全部 64 个目录摘要、每个目录原生版本探测及执行后摘要。历史 58 技能锁保留复核。工具缺失不静默安装；只有实际执行通过才记录完成。
+- [ ] 3.16 [AC-SK-002] 使用实际 Skills CLI 将五套固定公开技能源安装到隔离项目 .agents/skills；使用 host-acceptance-art97.lock.json 核验全部 64 个目录摘要、每个目录原生版本探测及执行后摘要。历史 58 技能锁保留复核。工具缺失不静默安装；只有实际执行通过才记录完成。
 
 - [x] 3.17 [AC-SK-003] 锁定 VectorCraft dev.6 原生品牌色板包；单 ArtCraft 技能首次在线安装完成五节点混合工程，基于源图形修改全局色板、准确重建四个关联产物并复用独立节点，验证源输入与旧交付保留、重复修订幂等及五子工程打包；固定发布版安装后另行复验。
 
@@ -315,6 +315,8 @@ PNG 固定发行证据：运行时 dev.56／技能源 dev.40／插件 dev.57；�
 
 SC-004 固定安装证据：`docs/evidence/craft-photo30-art96-fixed-first-use-20261007.json`。仅关闭755目录增量与新增命令安装执行门禁；全量上下文、完整V1及通用Skills CLI保持开放。
 
-- [ ] [SC-005] 将 Film / Effect / Vector 技能源固定为 dev.28、Photo 为 dev.29；同步十独立技能分发锁与完整索引，保留 runtime dev.83。验证公开制品身份、重复键拒绝、候选冷混合创作和返工；发布新的技能源与插件后复验全部独立安装及实际混合工作流。候选成功不得关闭固定安装门禁。
+- [x] [SC-005] 将 Film / Effect / Vector 技能源固定为 dev.28、Photo 为 dev.29；同步十独立技能分发锁与完整索引，保留 runtime dev.83。验证公开制品身份、重复键拒绝、候选冷混合创作和返工；发布新的技能源与插件后复验全部独立安装及实际混合工作流。候选成功不得关闭固定安装门禁。
 
 SC-005 候选证据：`docs/evidence/artcraft-strict-plan-distribution-candidate-20261007.json`。十技能分发锁与索引、公开ZIP身份、240次重复键无副作用拒绝、136项回归（104通过／32跳过）、三项公开冷混合测试（161.452秒）通过。未发布新的 Art 源包／插件，固定安装复验保持开放。
+
+SC-005 固定安装证据：`docs/evidence/artcraft97-strict-plan-fixed-first-use-20261007.json`。Art97／源71实际公开安装、64独立副本CLI探测（五领域冷缓存后复用）、十Art技能240次严格JSON拒绝及安装后原生混合返工／崩溃恢复／移动包通过；全部64安装摘要保持不变，固定提交四CI通过。仅关闭本次分发升级；3.16、每技能独立空缓存、全量命令上下文及完整V1仍开放。

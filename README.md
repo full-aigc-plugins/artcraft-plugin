@@ -1,4 +1,6 @@
-Current plugin candidate: **0.1.0-dev.97**, immutable skill source **0.1.0-dev.71**. Ten Art skills pin Film/Effect/Vector source dev.28 and Photo dev.29, retaining runtime dev.83 and 2,646 classified commands. Candidate public cold mixed workflow passes; fixed installed revalidation remains pending.
+Fixed ArtCraft97 / source71 acceptance: five public plugins expose 64 skills with zero loading errors; all64 copied-skill CLI probes pass (five fresh domain caches, subsequent reuse). Installed Art passes240 strict JSON rejection calls and cold native mixed creation/revision/crash recovery/portable delivery. Installed hashes remain unchanged. Generic Skills CLI and complete V1 remain open. [Evidence](docs/evidence/artcraft97-strict-plan-fixed-first-use-20261007.json).
+
+Published plugin: **0.1.0-dev.97**, immutable skill source **0.1.0-dev.71**. Ten Art skills pin Film/Effect/Vector source dev.28 and Photo dev.29, retaining runtime dev.83 and 2,646 classified commands. Candidate and fixed installed cold mixed workflows pass; complete V1 remains open.
 
 Earlier version-bound verification records:
 
@@ -10,7 +12,7 @@ The current fixed candidate pins PhotoCraft source dev.28 with 2,646 domain comm
 
 Fixed installation verification: domain plugins dev.29 / ArtCraft dev.95 expose 64 skills in isolated Codex 0.147.0 with zero loading errors. All 64 standalone-copy CLI probes pass with five fresh domain caches; four native create/revise/reopen checks pass using the installed Art skill. Seven of PhotoCraft's 755 native commands still lack classified usage guidance. Complete command and V1 acceptance remain open. [Evidence](docs/evidence/craft-fixed64-first-use-20261007.json).
 
-Current plugin: `0.1.0-dev.97`; skill source: `0.1.0-dev.71`; runtime dev.83; Film/Effect/Vector source dev.28 and Photo dev.29. Fixed installed acceptance pending.
+Current plugin: `0.1.0-dev.97`; skill source: `0.1.0-dev.71`; runtime dev.83; Film/Effect/Vector source dev.28 and Photo dev.29. Fixed installed acceptance passed for the bounded release upgrade.
 
 Historical release record: Current plugin: `0.1.0-dev.93`; skill source: `0.1.0-dev.67`; runtime83; All four source25 domain bundles; owned desktop handoff. Fixed installed desktop acceptance pending. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
 
