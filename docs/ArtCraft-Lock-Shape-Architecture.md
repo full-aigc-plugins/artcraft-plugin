@@ -43,3 +43,11 @@ Art 源码现在在 install_node 前校验分发根对象、schema、版本和�
 All ten Art skills reject null distribution locks through both public entries with absent and existing runtimes (40 calls), preserving skill and user files. The new published Film30, Effect31, Photo31 and Vector30 bundles pass the fresh online mixed workflow (3 tests, 134.389 seconds), including native creation, revision, reuse and moved delivery. Full source regression: 143 tests, 109 passed, 34 opt-in skips. Runtime83 bytes remain unchanged. Fixed installed plugin acceptance is still pending.
 
 10 个 Art 技能以两个公开入口、缺失和已有运行时执行40次 null 分发锁检查，保留技能和用户文件。新发行 Film30、Effect31、Photo31、Vector30 在全新在线混合工作流中通过3项测试（134.389秒），覆盖原生创建、返工、复用和移动交付。完整源回归143项，109通过、34项显式环境测试跳过；Runtime83字节保持一致。固定插件安装验收仍待执行。
+
+## Fixed release installation checkpoint / 固定发行安装检查点
+
+The new immutable matrix is Film plugin32/source30, Effect33/31, Photo33/31, Vector32/30 and Art102/76. An isolated Codex host loads all64 exact skills with zero errors. All64 runtime/Node lock copies and ten Art distribution copies pass296 public malformed-lock calls; original installed identities remain unchanged. Four installed native domain workflow tests pass. The twenty plugin CI runs for the exact five tagged commits pass. Independent64 cold runtimes and fixed Art mixed acceptance are running and remain pending in this checkpoint.
+
+新固定矩阵为 Film 插件32／技能源30、Effect33／31、Photo33／31、Vector32／30、Art102／76。隔离 Codex 宿主加载全部64项固定技能，错误为0；64项 runtime／Node 锁副本和10项 Art 分发锁副本通过296次公开错误入口检查，原安装摘要未变。四领域实际安装的原生工作流通过，五个固定提交共20项插件 CI 通过。64项独立空运行时和固定 Art 混合验收正在执行，本检查点保留为未完成。
+
+[Fixed checkpoint evidence / 固定检查点证据](evidence/craft-lock-preflight-fixed-installation-20261007.json).
