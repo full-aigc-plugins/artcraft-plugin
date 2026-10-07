@@ -28,14 +28,27 @@ def skill_hash(directory):
     return result.hexdigest()
 
 def installation_plan(lock):
-    if set(lock.get('plugins', {})) != set(NAMES):
+    if not isinstance(lock,dict) or not isinstance(lock.get('plugins'),dict) or set(lock['plugins']) != set(NAMES):
         raise ValueError('five_plugin_lock_required')
     plans = []
     for name in NAMES:
         entry = lock['plugins'][name]
+        if not isinstance(entry,dict):
+            raise ValueError('independent_install_lock_invalid')
         skills = entry.get('skills', {})
-        if not skills or name + '-cli' not in skills:
-            raise ValueError('independent_skill_inventory_missing')
+        # 外部安装前先拒绝浮动来源和可被解释为 CLI 选项／路径的名称。
+        if (not isinstance(entry.get('skillSourceRef'),str)
+                or not re.fullmatch(r'v0\.1\.0-dev\.\d+',entry['skillSourceRef'])
+                or not isinstance(entry.get('skillSourceSha'),str)
+                or not re.fullmatch(r'[0-9a-f]{40}',entry['skillSourceSha'])
+                or not isinstance(skills,dict) or not skills
+                or name+'-cli' not in skills):
+            raise ValueError('independent_install_lock_invalid')
+        for skill,digest in skills.items():
+            if (not isinstance(skill,str)
+                    or not re.fullmatch(re.escape(name)+r'-(?:use|cli(?:-[a-z0-9]+)*)',skill)
+                    or not isinstance(digest,str) or not re.fullmatch(r'[0-9a-f]{64}',digest)):
+                raise ValueError('independent_install_lock_invalid')
         source = 'https://github.com/full-aigc-skills/' + name + '-skills/tree/' + entry['skillSourceRef']
         plans.append({'plugin': name, 'source': source, 'sourceSha': entry['skillSourceSha'],
                       'skills': skills, 'argv': ['add', source, '--skill', *sorted(skills), '--agent', 'codex', '--copy', '--yes']})
@@ -96,7 +109,7 @@ def verify(node, cli, python, lock, output):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--lock', type=Path, default=ROOT/'host-acceptance-art102.lock.json')
+    p.add_argument('--lock', type=Path, default=ROOT/'host-acceptance-art104.lock.json')
     p.add_argument('--plan', action='store_true')
     p.add_argument('--node');p.add_argument('--cli');p.add_argument('--python',default=sys.executable)
     p.add_argument('--output',type=Path)

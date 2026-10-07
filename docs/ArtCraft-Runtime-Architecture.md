@@ -300,3 +300,22 @@ Snapshot `0.1.0-dev.7` has scoped installation/discovery and installed-entrypoin
 ## CLI skill suite revision
 
 [ArtCraft CLI / setup / task suite](ArtCraft-Skill-Suite-Architecture.md)
+
+## Maintainer installation verification
+
+The current maintainer checkout defaults its independent-install plan, installed CLI verifier and completion audit to host-acceptance-art104.lock.json. The completion audit uses its matching version-bound sample-audio evidence. An explicit historical --lock remains available; published immutable plugin/skill releases and their runtime installers are unchanged.
+
+Before any external installation call, validate five-domain inventory, fixed development source refs, complete hexadecimal commit and per-skill digests, and domain-scoped skill names. Reject paths, option-like names and foreign-domain names before creating the output project. Resolve an existing tool only after plan validation. The installed verifier shares the native identity gate with independent cold-use verification: domain CLI name plus exact version, or Art JSON name/version. A zero exit code and matching version from another executable cannot publish a success receipt.
+
+```mermaid
+flowchart LR
+    A[Fixed acceptance lock] --> B[Plan validation]
+    B -->|Invalid| C[Reject before output and external call]
+    B -->|Valid| D[Existing tool preconditions]
+    D --> E[Installed content digest verification]
+    E --> F[Application name and locked version]
+    F -->|Mismatch| G[No success receipt]
+    F -->|Match| H[Scoped acceptance evidence]
+```
+
+79 regression tests include five conditional skips; 74 execute successfully. Current installed CLI probes pass for 64 skills with five fresh domain caches; later probes reuse their domain cache. This does not prove every skill had an independent cold runtime, generic Skills CLI installation, creative acceptance or full V1. [Evidence](evidence/artcraft104-install-lock-preflight-20261007.json).

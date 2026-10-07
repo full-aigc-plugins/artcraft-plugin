@@ -5,7 +5,6 @@ import importlib.util
 import json
 import os
 from pathlib import Path
-import re
 import shutil
 import subprocess
 import sys
@@ -16,8 +15,11 @@ def host_module():
  spec=importlib.util.spec_from_file_location('craft_host_verifier',Path(__file__).with_name('verify_codex_host.py'))
  result=importlib.util.module_from_spec(spec);spec.loader.exec_module(result);return result
 
-def matches_version(text,expected):
- return re.search(r'(?<![0-9A-Za-z.-])'+re.escape(expected)+r'(?![0-9A-Za-z.-])',text) is not None
+_version_spec=importlib.util.spec_from_file_location('installed_native_identity',Path(__file__).with_name('verify_single_skill_cold_start.py'))
+_version_module=importlib.util.module_from_spec(_version_spec);_version_spec.loader.exec_module(_version_module)
+
+def matches_version(text,expected,domain='filmcraft'):
+ return _version_module.native_version_matches(text,domain,expected)
 
 def evidence_scope(records,domains):
  return f'{len(records)} separately copied single skills; existing selected Python; {len(domains)} fresh public domain caches, later probes reuse each domain cache; system-only native PATH'
@@ -52,7 +54,7 @@ def verify(python,lock_path,receipt_path,output):
    expected=native_lock['bundles']['artcraft-runtime']['version'] if name=='artcraft' else native_lock['resolvedVersion']
    argv=[python,'-I','-B',scripts/'cli.py','--runtime-home',runtime,'--']
    version=run([*argv,'--version'])
-   if not matches_version(version,expected):raise ValueError('installed_cli_runtime_version_mismatch: '+skill_name)
+   if not matches_version(version,expected,name):raise ValueError('installed_cli_runtime_version_mismatch: '+skill_name)
    catalog_count=None
    if skill_name==name+'-cli':
     if name=='artcraft':
@@ -70,6 +72,6 @@ def verify(python,lock_path,receipt_path,output):
  (output/'receipt.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');return result
 
 def main():
- parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--python',type=Path,default=Path(sys.executable));parser.add_argument('--lock',type=Path,default=ROOT/'host-acceptance-art102.lock.json');parser.add_argument('--receipt',type=Path,required=True);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args()
+ parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--python',type=Path,default=Path(sys.executable));parser.add_argument('--lock',type=Path,default=ROOT/'host-acceptance-art104.lock.json');parser.add_argument('--receipt',type=Path,required=True);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args()
  result=verify(args.python,args.lock,args.receipt,args.output);print(json.dumps({'result':result['result'],'versionProbes':result['versionProbes'],'pythonVersion':result['pythonVersion'],'seconds':result['seconds']}))
 if __name__=='__main__':main()

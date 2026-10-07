@@ -1,5 +1,7 @@
 """完成审计必须拒绝过期、重复、漏项和仅有成功计数的记录。"""
 import copy
+import sys
+from contextlib import redirect_stdout
 import importlib.util
 from pathlib import Path
 import unittest
@@ -25,6 +27,18 @@ class FirstUseCompletionAuditTests(unittest.TestCase):
                     'independentColdRuntime': True, 'run': 'fixed native run'}
                    for name, digest in lock['plugins']['filmcraft']['skills'].items()]
         return lock, {'result': 'PASS', 'count': 2, 'records': records}
+
+    def test_default_audit_binds_current_lock_and_matching_evidence(self):
+        module=self.module()
+        with tempfile.TemporaryDirectory() as temporary:
+            output=Path(temporary)/'audit.json'
+            report={'goalStatus':'not_complete','currentInstallationIdentity':{},'domains':[]}
+            argv=['audit','--plugins-root','fixture-plugins','--skills-root','fixture-skills',
+                  '--host-receipt','fixture-host.json','--output',str(output)]
+            with patch.object(sys,'argv',argv),patch.object(module,'audit',return_value=report) as audit,redirect_stdout(io.StringIO()):
+                module.main()
+            self.assertEqual(audit.call_args.args[2],module.ROOT/'host-acceptance-art104.lock.json')
+            self.assertEqual(audit.call_args.args[3],module.ROOT/'docs/evidence/craft-art104-sample-audio-fixed-first-use-20261007.json')
 
     def test_current_exact_inventory_is_accepted(self):
         lock, proof = self.fixture()

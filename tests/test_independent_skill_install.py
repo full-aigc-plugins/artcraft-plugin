@@ -39,6 +39,40 @@ class IndependentInstallTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as d:
    folder=Path(d);(folder/'target').write_text('file');(folder/'link').symlink_to('target')
    with self.assertRaisesRegex(ValueError,'independent_skill_symlink'):m.skill_hash(folder)
+class InstallLockPreflightTests(unittest.TestCase):
+ def module(self):return IndependentInstallTests().module()
+ def lock(self):return json.loads((ROOT/'host-acceptance-art104.lock.json').read_text())
+ def test_default_plan_matches_current_published_source_refs(self):
+  result=subprocess.run([sys.executable,'-I','-B',str(ROOT/'scripts/verify_independent_skill_install.py'),'--plan'],capture_output=True,text=True)
+  self.assertEqual(result.returncode,0,result.stderr)
+  rows=json.loads(result.stdout);current=self.lock()
+  for row in rows:
+   entry=current['plugins'][row['plugin']]
+   self.assertTrue(row['source'].endswith('/'+entry['skillSourceRef']))
+   self.assertEqual(row['sourceSha'],entry['skillSourceSha'])
+   self.assertEqual(row['skills'],entry['skills'])
+ def test_invalid_lock_is_rejected_before_output_and_external_tool(self):
+  mutations=[lambda x:x.update(skillSourceRef='main'),
+             lambda x:x.update(skillSourceRef='v0.1.0-dev.32/../../main'),
+             lambda x:x.update(skillSourceSha='a'*39),
+             lambda x:x['skills'].update({'filmcraft-cli':'not-a-digest'}),
+             lambda x:x['skills'].update({'--global':'b'*64}),
+             lambda x:x['skills'].update({'../filmcraft-cli':'b'*64}),
+             lambda x:x['skills'].update({'artcraft-cli':'b'*64}),
+             lambda x:x.update(skills=['filmcraft-cli'])]
+  for case,mutate in enumerate(mutations):
+   lock=self.lock();mutate(lock['plugins']['filmcraft'])
+   with self.subTest(case=case),tempfile.TemporaryDirectory() as temporary:
+    output=Path(temporary)/'output';m=self.module()
+    with patch.object(m.subprocess,'run') as call:
+     with self.assertRaisesRegex(ValueError,'independent_install_lock_invalid'):
+      m.verify('/missing/node','/missing/cli','/missing/python',lock,output)
+     call.assert_not_called()
+    self.assertFalse(output.exists())
+ def test_explicit_historical_fixed_lock_still_produces_plan(self):
+  m=self.module();lock=json.loads((ROOT/'host-acceptance-art102.lock.json').read_text())
+  self.assertEqual(sum(len(x['skills']) for x in m.installation_plan(lock)),64)
+
 class NativeVersionGateTests(unittest.TestCase):
  def fixture(self,callback,domain="filmcraft",expected="0.2.0-craft.1"):
   m=IndependentInstallTests().module();m.NAMES=(domain,)
