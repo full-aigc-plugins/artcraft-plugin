@@ -40,6 +40,21 @@ flowchart TD
 
 48 个源码技能测试的通过数量以 `docs/evidence/craft-desktop-source48-first-use-20261007.json` 为准；没有该报告或报告未通过时，不能声称批量通过。此证据不等于已发布技能安装验收。
 
-已有调查验证四个官方 DMG，并验证 Film 的真实 MCP `ui_inspect`、`ui_elements` 和 666 条 live 目录。Effect 已通过独立 `EFFECTCRAFT_CONFIG_DIR`、签名桌面启动、固定 CLI bridge、640 条实际目录和真实 MCP `ui_inspect` 验证；测试应用已退出。Photo 与 Vector 的启动参数和控制认证须分别验证。UI MCP 工具与领域 `command_run` 接口不同，不能使用 `exec ui.inspect` 替代。`commands.py --mode bridge` 连接明确的活动会话，不自动启动或切换桌面。
+已有调查验证四个官方 DMG，并验证 Film 的真实 MCP `ui_inspect`、`ui_elements` 和 666 条 live 目录。Effect 已通过独立 `EFFECTCRAFT_CONFIG_DIR`、签名桌面启动、固定 CLI bridge、640 条实际目录和真实 MCP `ui_inspect` 验证；测试应用已退出。Photo 与 Vector 的真实 bridge 已完成后续验证，见第 4 节；单技能自动启动仍待实施。UI MCP 工具与领域 `command_run` 接口不同，不能使用 `exec ui.inspect` 替代。`commands.py --mode bridge` 连接明确的活动会话，不自动启动或切换桌面。
 
 沿用四领域 OpenSpec 的 8.16、8.17：桌面启动、固定发布首用、真实 GUI 编辑与保存重开尚未完成；8.3 全量命令执行门禁开放。2639 条目录覆盖不代表 2639 条命令全部运行通过。
+
+## 4. 四领域 live bridge 与 Vector 修复
+
+[四领域运行证据](evidence/craft-four-desktop-live-bridge-20261007.json)记录签名桌面与固定 CLI 的真实连接。Photo 的认证 token 使用权限为 0600 的私有文件，测试结束删除；配置和读写根均隔离。Vector 使用 `VECTORCRAFT_NO_PREFS` 禁用偏好和恢复，测试仅操作隔离工程。所有测试拥有的应用进程均已退出。
+
+| 领域 | GUI 检查工具 | CLI 连接 | 实际目录 |
+| :--- | :--- | :--- | :--- |
+| Film | `ui_inspect` | `mcp --bridge 127.0.0.1:PORT` | 666 |
+| Effect | `ui_inspect` | `mcp --bridge PORT` | 640 |
+| Photo | `ui_inspect` | `mcp --bridge 127.0.0.1:PORT`，token 文件及读写根 | 748 |
+| Vector | `inspect_ui` | `mcp --connect 127.0.0.1:PORT` | 763 行；585 个反射命令需要一项明确别名映射 |
+
+Vector 候选源码 bridge 模式把 `file.export` 映射到原生 `document.export`，并在回执同时保留 `command` 与 `backendCommand`。实时 enabled 检查使用实际命令，不绕过上下文。官方目录的 `file.place` 有引擎/UI 两个变体，只为这个已验证的组合选用引擎行；其他重复或缺失命令继续拒绝。headless 的别名和唯一性合同不变。
+
+真实桌面案例完成新建、矩形、SVG 导出、原生保存、重开、检查六步；重开后的矩形仍为 x/y=8/8、宽高=24/24，工程无未保存修改，SVG 为有效 XML。Vector 回归通过 80 项，24 项环境测试跳过。这证明该案例及候选源码修复，不证明固定发布版已包含修复或全命令执行完成。单技能自动启动/生命周期管理仍需实施。

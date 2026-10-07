@@ -1,0 +1,127 @@
+{
+  "schema": "craft-four-desktop-live-bridge/v1",
+  "result": "PASS",
+  "date": "2026-10-07",
+  "records": {
+    "filmcraft": {
+      "schema": "filmcraft-official-desktop-live-bridge/v1",
+      "result": "PASS",
+      "desktopTag": "v0.2.0",
+      "desktopBinarySha256": "f47862a07ce43aa3d3bc14344dc2d9015cc3ca5a21f9868271007cba8f7f99fa",
+      "maintainedCLI": "0.2.0-craft.2",
+      "pinnedCommandsPresent": 666,
+      "liveCommandCount": 666,
+      "liveUIInspected": true,
+      "scope": "isolated signed desktop start, current CLI bridge and actual UI inspection only",
+      "excluded": [
+        "GUI edits",
+        "native project GUI save/reopen",
+        "all666 command execution",
+        "single-skill GUI installer",
+        "fullV1"
+      ]
+    },
+    "effectcraft": {
+      "schema": "effectcraft-official-desktop-live-bridge/v1",
+      "result": "PASS",
+      "desktopTag": "v0.2.0",
+      "desktopBinarySha256": "e7db491a0b7af0a12977e32fa1da23490df8087f38a56c60a9ae2a7d914a22de",
+      "maintainedCLI": "0.2.0",
+      "pinnedCommandsPresent": 640,
+      "liveCommandCount": 640,
+      "liveUIInspected": true,
+      "isolatedConfig": true,
+      "scope": "signed isolated desktop and pinned CLI bridge inspection only",
+      "excluded": [
+        "GUI edits",
+        "save/reopen",
+        "single-skill startup",
+        "all640 execution",
+        "fullV1"
+      ]
+    },
+    "photocraft": {
+      "schema": "craft-official-desktop-live-bridge/v1",
+      "result": "PASS",
+      "domain": "photocraft",
+      "desktopTag": "v0.2.0",
+      "desktopBinarySha256": "8a4ea2ec9164b818af193b35e3dc59ab51da9ca92165565b88eab729b32baa31",
+      "cliBinarySha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+      "liveUIInspected": true,
+      "pinnedCommandsPresent": 748,
+      "liveCommandCount": 748,
+      "isolatedConfiguration": true,
+      "scope": "signed desktop start and maintained CLI live MCP UI inspection only",
+      "excluded": [
+        "GUI edits",
+        "save/reopen",
+        "single-skill startup",
+        "full command execution",
+        "fullV1"
+      ]
+    },
+    "vectorcraft": {
+      "schema": "craft-official-desktop-live-bridge/v1",
+      "result": "PASS",
+      "domain": "vectorcraft",
+      "desktopTag": "v0.2.0",
+      "desktopBinarySha256": "46d7846a765dd0c2a64a72dea17796f49d725203d2c5d91c339432572048f856",
+      "cliBinarySha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+      "liveUIInspected": true,
+      "pinnedCommandsPresent": 585,
+      "liveCommandCount": 763,
+      "isolatedConfiguration": true,
+      "scope": "signed desktop, pinned CLI UI inspection and source-candidate command gateway create/export/save/reopen",
+      "excluded": [
+        "fixed-release updated gateway",
+        "single-skill startup",
+        "all585 commands",
+        "fullV1"
+      ],
+      "exportAliasWorkflow": {
+        "result": "PASS",
+        "steps": 6,
+        "nativeSavedReopened": true,
+        "actualBackendCommand": "document.export",
+        "svgSha256": "8ded3cd705dd3bf9d184ce616577bde30a17b2dd6550aa8956dd48001337ce3e",
+        "nativeSha256": "b63c02d1981ecdc9fdf92c9c06152bdfbb87ca13ea9f084ba7b20fe5cdf90e80"
+      },
+      "catalogIncludesVerifiedAliasMapping": true,
+      "registryNormalization": {
+        "file.export": "document.export",
+        "file.place": "engine entry from explicit engine/UI pair",
+        "otherDuplicates": "rejected"
+      }
+    }
+  },
+  "vectorReopenGeometry": {
+    "kind": "Rectangle",
+    "bounds": {
+      "height": 24.0,
+      "width": 24.0,
+      "x": 8.0,
+      "y": 8.0
+    },
+    "dirty": false,
+    "svgWellFormed": true
+  },
+  "vectorSourceCandidate": {
+    "commandsSha256": "d3af9b689dbee5a59bba1cfafbc54f4b3c47d0c2f63c556dc15441b696e2e630",
+    "testSha256": "440710378245bf836af55f1cc63dadb5299d29a76cfaf13730caf0f346f11b94",
+    "unitCases": 4,
+    "regression": {
+      "total": 104,
+      "passed": 80,
+      "skipped": 24
+    },
+    "fixedReleaseAcceptance": "NOT_RUN"
+  },
+  "scope": "four signed desktop bridge connections, live UI tools and catalog inspection; Vector source-candidate six-step editing/export/save/reopen",
+  "excluded": [
+    "automated first-use desktop startup from skill",
+    "installed fixed-release gateway revision",
+    "all2639 command execution",
+    "Art GUI orchestration",
+    "fullV1"
+  ]
+}
