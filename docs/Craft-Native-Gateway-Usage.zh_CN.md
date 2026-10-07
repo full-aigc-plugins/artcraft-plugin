@@ -4,11 +4,11 @@
 
 | 工具 | 完整目录 | 工作流操作（含网关） | 固定技能源 | 固定插件 |
 |---|---:|---:|---|---|
-| FilmCraft | 666 | 18 | dev.19 | dev.21 |
-| EffectCraft | 640 | 22 | dev.19 | dev.21 |
-| PhotoCraft | 748 | 33 | dev.19 | dev.21 |
-| VectorCraft | 585 | 28 | dev.19 | dev.21 |
-| ArtCraft | 2639 个领域目录条目 | 编排上述领域节点 | dev.61 | dev.88，runtime dev.83 |
+| FilmCraft | 666 | 18 | dev.21 | dev.23 |
+| EffectCraft | 640 | 22 | dev.21 | dev.23 |
+| PhotoCraft | 748 | 33 | dev.21 | dev.23 |
+| VectorCraft | 585 | 28 | dev.21 | dev.23 |
+| ArtCraft | 2639 个领域目录条目 | 编排上述领域节点 | dev.62 | dev.89，runtime dev.83 |
 
 目录中的 `workflowMapped` 只标记领域快捷操作映射；`false` 不表示无法使用 `native.command`，也不表示原生命令已经运行失败。网关依据完整固定 ID 及实时原生上下文调用。
 

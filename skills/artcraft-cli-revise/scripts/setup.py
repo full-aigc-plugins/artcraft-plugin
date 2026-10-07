@@ -151,7 +151,7 @@ def setup(lock, runtime_home, node, bundle_directory=None, native_archive_direct
             if not json.loads(catalog):
                 raise ValueError('capability_missing')
             files = [{'path': str(root/'scripts'/file), 'sha256': sha(root/'scripts'/file)} for file in ('workflow.py', 'bootstrap.py', 'mcp_session.py', 'runtime.lock.json', 'exchange_loss.py', 'preserved_stage.py')]
-            for file in ('scripts/native_workflow.py','scripts/commands.py','references/command-coverage.json'):
+            for file in ('scripts/native_workflow.py','scripts/commands.py','references/command-coverage.json','scripts/desktop.py','scripts/desktop_session.py','scripts/desktop.lock.json'):
                 if (root/file).is_file():
                     files.append({'path':str(root/file),'sha256':sha(root/file)})
             snapshot = {'commandCatalogSha256': hashlib.sha256(catalog).hexdigest(), 'skillBundleSha256': lock['bundles'][name+'-skills']['sha256'], 'artcraftRuntimeSha256': lock['bundles']['artcraft-runtime']['sha256'], 'scriptHashes': {Path(file['path']).name:file['sha256'] for file in files}}

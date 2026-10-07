@@ -1,0 +1,49 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "file.new",
+      "params": {
+        "name": "Desktop first use",
+        "width": 96,
+        "height": 64,
+        "mode": "rgb",
+        "depth": 8
+      }
+    },
+    {
+      "command": "shape.create",
+      "params": {
+        "kind": "rect",
+        "rect": [
+          8,
+          8,
+          24,
+          24
+        ],
+        "fill": "#ff0000",
+        "name": "Subject"
+      }
+    },
+    {
+      "tool": "doc_save",
+      "params": {
+        "path": {
+          "$output": "project.pcraft"
+        }
+      }
+    },
+    {
+      "tool": "doc_open",
+      "params": {
+        "path": {
+          "$output": "project.pcraft"
+        }
+      }
+    },
+    {
+      "tool": "doc_inspect",
+      "params": {}
+    }
+  ]
+}

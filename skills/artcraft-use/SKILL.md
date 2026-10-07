@@ -102,3 +102,5 @@ PhotoCraft 源工程局部修改可在领域 plan 中声明 `protectedRegions`�
 原生父级、透明度表达式与源工程返工：使用当前技能的 [Effect表达式指南](references/effect-expression.md)。
 
 Photo原生调整层、选区蒙版与可信源返工见 [局部调整指南](references/photo-adjustment.md)。
+
+需要独立启动领域 GUI 命令时见 [自有桌面交接](references/desktop-handoff.md)。

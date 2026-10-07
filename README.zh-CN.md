@@ -1,4 +1,6 @@
-当前插件：`0.1.0-dev.88`；技能源：`0.1.0-dev.61`；runtime83；Photo19蒙版调整分发。十项实际安装蒙版调整及更新混合工作流通过。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
+当前插件：`0.1.0-dev.89`；技能源：`0.1.0-dev.62`；runtime83；四领域source21分发及自有桌面交接。固定安装桌面首用待验收。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
+
+历史发行记录：当前插件：`0.1.0-dev.88`；技能源：`0.1.0-dev.61`；runtime83；Photo19蒙版调整分发。十项实际安装蒙版调整及更新混合工作流通过。[架构](docs/ArtCraft-Photo-Adjustment-Architecture.zh_CN.md)。
 
 ArtCraft 的十项独立技能源候选通过 Photo19 可编辑蒙版调整、可信源返工与移动包验收。固定发布版本和更新四领域混合项目尚待复验，6.58保持开放。 [Evidence](docs/evidence/artcraft-photo-adjustment-candidate-20261007.json). [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
 
@@ -91,9 +93,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.88 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.89 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.61 |
+| 技能事实源 | Independent artcraft-skills / published v0.1.0-dev.62 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
@@ -372,3 +374,9 @@ Art HD 源码候选通过五秒 1080p 分段编排、移动文字返工及损坏
 当前固定分发：十项Art＋十三项Effect独立冷启动表达式和源返工通过；更新四领域混合任务与五子工程移动包通过。全量命令／GUI／模型／完整V1仍开放。 [Evidence](docs/evidence/codex-art87-effect-expression-first-use-20261007.json).
 
 当前固定分发：十项Art＋十二项Photo独立冷启动蒙版调整和源返工通过；更新四领域混合任务与五子工程移动包通过。全量命令／GUI／模型／完整V1仍开放。 [Evidence](docs/evidence/codex-art88-photo-adjustment-first-use-20261007.json).
+
+## 自有桌面首次使用
+
+四领域source21与plugin23已包含固定桌面及CLI安装器和自有同会话命令入口。Art89／source62向所选固定领域包交接桌面启动，核对命令与生命周期回执，保留失败和未知结果。[架构](docs/Craft-Desktop-First-Use-Architecture.zh_CN.md)。
+
+此前候选技能源的冷启动证据[单独记录](docs/evidence/craft-owned-desktop-first-use-20261007.json)。当前固定发行安装发现与桌面冷启动验收仍待确切版本报告通过；全量命令与完整V1仍保持开放。

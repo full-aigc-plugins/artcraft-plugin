@@ -4,11 +4,11 @@ The four pinned reflected registries own the complete native command catalog. Do
 
 | Tool | Complete catalog | Workflow operations, including gateway | Skills | Plugin |
 |---|---:|---:|---|---|
-| FilmCraft | 666 | 18 | dev.19 | dev.21 |
-| EffectCraft | 640 | 22 | dev.19 | dev.21 |
-| PhotoCraft | 748 | 33 | dev.19 | dev.21 |
-| VectorCraft | 585 | 28 | dev.19 | dev.21 |
-| ArtCraft | 2639 domain entries | Domain DAG orchestration | dev.61 | dev.88 / runtime83 |
+| FilmCraft | 666 | 18 | dev.21 | dev.23 |
+| EffectCraft | 640 | 22 | dev.21 | dev.23 |
+| PhotoCraft | 748 | 33 | dev.21 | dev.23 |
+| VectorCraft | 585 | 28 | dev.21 | dev.23 |
+| ArtCraft | 2639 domain entries | Domain DAG orchestration | dev.62 | dev.89 / runtime83 |
 
 `workflowMapped` marks convenience-operation mapping only. A false value does not disable `native.command` or establish a failed native execution. The gateway uses pinned membership and actual live context.
 
@@ -78,7 +78,7 @@ python3 -I -B "$SKILL_DIR/scripts/workflow.py" /absolute/mixed-plan.json --outpu
 
 Mixed plans declare pluginId, dependencies, domain payload.plan and artifact bindings. Put native gateways in payload.plan.operations. The public installer binds runtime identity; do not copy runtimeIdentity from another test session. Adapt the skill's brand plan to actual requirements and assets. TASK_SCOPE references the already authorized task scope.
 
-ArtCraft dev.88 publicly installs pinned runtime83 and Film19/Effect19/Photo19/Vector19. Its trusted launcher locks `native_workflow.py`, `commands.py`, `command-coverage.json` and existing scripts. Plans cannot choose executors or replace scripts. Actual native saving, dependency collection, exports and loss reports must pass before a result becomes a DAG delivery.
+ArtCraft dev.89 pins runtime83 and Film21/Effect21/Photo21/Vector21. Fixed-release owned desktop first-use acceptance is pending. Its trusted launcher locks `native_workflow.py`, `commands.py`, `command-coverage.json` and existing scripts. Plans cannot choose executors or replace scripts. Actual native saving, dependency collection, exports and loss reports must pass before a result becomes a DAG delivery.
 
 GUI commands remain in the complete catalog even when disabled in a headless session; use the actual running application and explicit bridge mode. Native implementation, project, selection and permission guards remain enforced. Disabled commands report their reason; parameter errors stop; unknown edits preserve the stage and are not replayed. Catalog coverage is distinct from exhaustive 2639-command execution acceptance.
 

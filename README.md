@@ -1,4 +1,6 @@
-Current plugin: `0.1.0-dev.88`; skill source: `0.1.0-dev.61`; runtime83; Photo19 adjustment/mask distribution. Ten installed Art mask/adjustment cases and the updated mixed workflow pass. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
+Current plugin: `0.1.0-dev.89`; skill source: `0.1.0-dev.62`; runtime83; All four source21 domain bundles; owned desktop handoff. Fixed installed desktop acceptance pending. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
+
+Historical release record: Current plugin: `0.1.0-dev.88`; skill source: `0.1.0-dev.61`; runtime83; Photo19 adjustment/mask distribution. Ten installed Art mask/adjustment cases and the updated mixed workflow pass. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
 
 Ten independent Art skill source candidates pass Photo19 editable mask/adjustment, trusted source revision and moved-package acceptance. Fixed published Art installation and updated four-domain mixed retests remain pending; task6.58 stays open. [Evidence](docs/evidence/artcraft-photo-adjustment-candidate-20261007.json). [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
 
@@ -93,9 +95,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.88 |
+| Plugin ID / version | artcraft / 0.1.0-dev.89 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.61 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.62 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -375,8 +377,8 @@ Current fixed distribution: ten Art plus thirteen Effect installed cold native e
 
 Current fixed distribution: ten Art plus twelve Photo installed cold native adjustmentMask/source-revision cases and one updated four-domain mixed/moved-five-child workflow pass. Exhaustive commands/GUI/model/fullV1 remain open. [Evidence](docs/evidence/codex-art88-photo-adjustment-first-use-20261007.json).
 
-## Desktop installation component (source candidate)
+## Owned desktop first use
 
-The 48 standalone domain skills now have their own pinned official desktop installers. See the [installation architecture](docs/Craft-Desktop-First-Use-Architecture.md) and [48-skill installation evidence](docs/evidence/craft-desktop-source48-first-use-20261007.json). Existing release-tag skill copies do not yet contain this candidate component. Desktop startup, GUI edits/save/reopen and complete command execution remain open acceptance gates.
+The four domain source21 packages and plugin23 releases include pinned desktop+CLI installers and owned same-session command workflows. Art89/source62 delegates desktop startup to its selected immutable domain bundle, checks command and lifecycle receipts, and preserves failed or unknown outcomes. [Architecture](docs/Craft-Desktop-First-Use-Architecture.md).
 
-Source candidate now includes owned standalone desktop startup: 48/48 single-skill cold GUI save/reopen and cleanup cases passed. See [runtime evidence](docs/evidence/craft-owned-desktop-first-use-20261007.json). Fixed-release installation and complete command execution remain open.
+Previous source-skill cold evidence is [recorded separately](docs/evidence/craft-owned-desktop-first-use-20261007.json). Current fixed-release installation/discovery and desktop cold acceptance remain pending until their exact version-bound reports pass. Exhaustive command and full V1 gates remain open.

@@ -1,0 +1,42 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "file.newProject",
+      "params": {
+        "name": "Desktop first use"
+      }
+    },
+    {
+      "command": "file.newSequence",
+      "params": {
+        "name": "Sequence",
+        "width": 96,
+        "height": 64,
+        "fps": 12,
+        "video": 1,
+        "audio": 1
+      }
+    },
+    {
+      "command": "file.saveAs",
+      "params": {
+        "path": {
+          "$output": "project.fcproj"
+        }
+      }
+    },
+    {
+      "command": "file.open",
+      "params": {
+        "path": {
+          "$output": "project.fcproj"
+        }
+      }
+    },
+    {
+      "command": "project.inspect",
+      "params": {}
+    }
+  ]
+}

@@ -77,3 +77,18 @@
 #### Scenario: [AC-RT-002-NATIVE-DOWNLOAD] 领域原生安装子进程的临时下载恢复
 - **WHEN** 单个Art技能以空缓存安装固定领域CLI，原生下载出现临时SSL EOF或不完整响应
 - **THEN** 分发SHALL绑定支持最多三次只读下载并丢弃半包的领域安装器；SHA、证书、权限及安全解压边界保留，原生编辑不得重放；此前失败证据与新固定安装验收分别记录
+
+### Requirement: AC-DS-001 Owned desktop domain handoff
+ArtCraft SHALL support explicit domain command `--mode desktop` using pinned source20 child skills. It SHALL verify the child bundle and native CLI, reject external connect/token options before installation, invoke the child's owned desktop launcher, validate the native bridge receipt and desktop lifecycle identity, and preserve unknown outcomes without replay. Headless and explicitly connected bridge modes SHALL retain their existing contracts.
+
+#### Scenario: Desktop command first use
+- **WHEN** a valid selected-domain plan runs in desktop mode with an empty runtime
+- **THEN** ArtCraft installs only the selected domain bundle, delegates owned startup to that skill, and validates command plus desktop identity and stopped-process receipts
+
+#### Scenario: Conflicting connection or untrusted receipt
+- **WHEN** desktop mode supplies an external connection/token or returns a mismatched desktop receipt
+- **THEN** ArtCraft rejects the call and does not replay edits
+
+#### Scenario: Desktop handoff receipt or metadata conflict
+- **WHEN** a desktop plan targets reserved desktop metadata, or a child receipt mismatches the pinned desktop identity, listener ownership or process cleanup
+- **THEN** Art rejects the plan before setup or reports the actual handoff as unknown without replay or claiming mixed-project acceptance

@@ -45,7 +45,7 @@ def validate_plan(plan,entry,inputs):
     if not isinstance(text,str) or not re.fullmatch(r'[a-zA-Z][\w-]*(?:\.[\w-]+)*',text) or text.split('.')[0] not in aliases:raise ValueError('invalid_reference')
    elif set(value)=={'$output'}:
     text=value['$output']
-    if not isinstance(text,str) or not text or Path(text).is_absolute() or '\\' in text or any(x in ('','.','..') for x in text.split('/')) or text.split('/')[0] in {MARKER,'journal.json','success.json','failure.json','inputs','tool-images'}:raise ValueError('invalid_output_path')
+    if not isinstance(text,str) or not text or Path(text).is_absolute() or '\\' in text or any(x in ('','.','..') for x in text.split('/')) or text.split('/')[0] in {MARKER,'journal.json','success.json','failure.json','inputs','tool-images','desktop-session.json','desktop.log','.desktop-data'}:raise ValueError('invalid_output_path')
    else:
     for child in value.values():references(child)
   elif isinstance(value,list):
@@ -86,8 +86,24 @@ def parser():
   q=sub.add_parser(action);q.add_argument('domain',choices=NAMES);q.add_argument('plan',type=Path);q.add_argument('--input',action='append',default=[])
   q.add_argument('--runtime-home',type=Path,default=Path(os.environ.get('CRAFT_RUNTIME_HOME',str(Path.home()/'.local/share/craft-runtimes'))))
   if action=='run':
-   q.add_argument('--output',type=Path,required=True);q.add_argument('--mode',choices=['headless','bridge'],default='headless');q.add_argument('--connect');q.add_argument('--control-token-file',type=Path)
+   q.add_argument('--output',type=Path,required=True);q.add_argument('--mode',choices=['headless','bridge','desktop'],default='headless');q.add_argument('--connect');q.add_argument('--control-token-file',type=Path)
  return p
+def launch_command(root,args,frozen,runtime_home,inputs):
+ desktop=args.action=='run' and args.mode=='desktop'
+ command=[sys.executable,'-I','-B',str(root/'scripts'/('desktop.py' if desktop else 'commands.py')),args.action,str(frozen)]
+ for name,path in inputs.items():command+=['--input',name+'='+str(path)]
+ if args.action=='run':
+  command+=['--output',str(args.output),'--runtime-home',runtime_home]
+  if not desktop:
+   command+=['--mode',args.mode]
+   if args.connect is not None:command+=['--connect',args.connect]
+   if args.control_token_file is not None:command+=['--control-token-file',str(args.control_token_file)]
+ return command
+
+def validate_desktop_receipt(desktop_proof,domain,result,lock,returncode):
+ if not isinstance(desktop_proof,dict) or desktop_proof.get('schema')!='craft-owned-desktop-session/v1' or desktop_proof.get('domain')!=domain or desktop_proof.get('result')!=result or desktop_proof.get('ownedProcessesStopped') is not True or not isinstance(desktop_proof.get('desktop'),dict) or desktop_proof['desktop'].get('binarySha256')!=lock['binarySha256'] or desktop_proof['desktop'].get('version')!=lock['version']:raise ValueError('outcome_unknown: desktop_receipt_identity')
+ if returncode==0 and (desktop_proof.get('listenerOwnedByPID') is not True or desktop_proof.get('sessionsStarted')!=1):raise ValueError('outcome_unknown: desktop_session_ownership')
+
 def dispatch(args):
  index=load_index()
  if args.action=='list':return [{'domain':domain,**row} for domain,entry in index.items() if not args.domain or domain==args.domain for row in (entry['toolSchemas'] if args.tools else entry['commands']) if args.filter.lower() in ((row['name']+' '+row.get('description','')) if args.tools else row['id']+' '+row['label']).lower()],0
@@ -103,6 +119,7 @@ def dispatch(args):
   inputs[name]=source;input_hashes[name]=sha(source)
  validate_plan(plan,entry,inputs)
  if args.action=='run':
+  if args.mode=='desktop' and (args.connect is not None or args.control_token_file is not None):raise ValueError('desktop_owns_connection')
   args.output=args.output.absolute()
   if args.output.exists() or args.output.is_symlink():raise ValueError('output_exists')
   if not args.output.parent.is_dir():raise ValueError('output_parent_missing')
@@ -116,12 +133,7 @@ def dispatch(args):
  preserved()
  with tempfile.TemporaryDirectory(prefix='art-domain-command-') as temporary:
   temporary=Path(temporary);frozen=temporary/'plan.json';frozen.write_bytes(plan_bytes)
-  command=[sys.executable,'-I','-B',str(root/'scripts/commands.py'),args.action,str(frozen)]
-  for name,path in inputs.items():command+=['--input',name+'='+str(path)]
-  if args.action=='run':
-   command+=['--output',str(args.output),'--runtime-home',receipt['runtimeHome'],'--mode',args.mode]
-   if args.connect is not None:command+=['--connect',args.connect]
-   if args.control_token_file is not None:command+=['--control-token-file',str(args.control_token_file)]
+  command=launch_command(root,args,frozen,receipt['runtimeHome'],inputs)
   with (temporary/'stdout').open('wb') as stdout,(temporary/'stderr').open('wb') as stderr:child=subprocess.run(command,stdout=stdout,stderr=stderr)
   preserved()
   if args.action=='check':
@@ -134,11 +146,18 @@ def dispatch(args):
   if evidence.is_symlink() or not evidence.is_file() or evidence.stat().st_size>16*1024*1024:raise ValueError('outcome_unknown: command_receipt_missing')
   result=json_value(evidence.read_bytes())
   expected_plan=hashlib.sha256(json.dumps(plan,ensure_ascii=False,sort_keys=True,allow_nan=False).encode()).hexdigest()
-  if (not isinstance(result,dict) or result.get('planSha256')!=expected_plan or result.get('runtimeSha256')!=runtime_sha or result.get('catalogSha256')!=entry['catalogSha256'] or result.get('mode')!=args.mode or not isinstance(result.get('inputs'),dict) or set(result['inputs'])!=set(inputs) or any(result['inputs'][name].get('sha256')!=input_hashes[name] for name in inputs)):raise ValueError('outcome_unknown: command_receipt_identity')
+  if (not isinstance(result,dict) or result.get('planSha256')!=expected_plan or result.get('runtimeSha256')!=runtime_sha or result.get('catalogSha256')!=entry['catalogSha256'] or result.get('mode')!=('bridge' if args.mode=='desktop' else args.mode) or not isinstance(result.get('inputs'),dict) or set(result['inputs'])!=set(inputs) or any(result['inputs'][name].get('sha256')!=input_hashes[name] for name in inputs)):raise ValueError('outcome_unknown: command_receipt_identity')
+  desktop_proof=None
+  if args.mode=='desktop':
+   path=args.output/'desktop-session.json'
+   if path.is_symlink() or not path.is_file() or path.stat().st_size>1024*1024:raise ValueError('outcome_unknown: desktop_receipt_missing')
+   desktop_proof=json_value(path.read_bytes());desktop_lock=json_value((root/'scripts/desktop.lock.json').read_text())
+   validate_desktop_receipt(desktop_proof,args.domain,result['result'],desktop_lock,child.returncode)
   if child.returncode==0:validate_receipt(result,args.domain,plan,runtime_sha,entry['catalogSha256'])
   else:
    if not isinstance(result,dict) or result.get('schema')!='craft-command-receipt/v1' or result.get('pluginId')!=args.domain or result.get('result') not in ['FAIL','unknown']:raise ValueError('outcome_unknown: invalid_failure_receipt')
   value={'schema':'artcraft-domain-command-call/v1','domain':args.domain,'result':result['result'],'phase':'native-call-only','dagDeliveryAcceptance':'NOT_RUN','sourceBundleSha256':entry['bundleSha256'],'runtimeSha256':runtime_sha,'commandReceiptSha256':sha(evidence),'commandReceiptLocation':evidence.name,'commandReceipt':result}
+  if desktop_proof is not None:value['desktopReceiptSha256']=sha(args.output/'desktop-session.json');value['desktopReceipt']=desktop_proof
   with (args.output/MARKER).open('x') as output:output.write(json.dumps(value,ensure_ascii=False,indent=2,allow_nan=False)+'\n')
   return value,child.returncode
 if __name__=='__main__':

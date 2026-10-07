@@ -1,0 +1,52 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "file.new",
+      "params": {
+        "name": "Desktop first use",
+        "width": 96,
+        "height": 64,
+        "units": "Pixels"
+      }
+    },
+    {
+      "command": "shape.rectangle",
+      "params": {
+        "x": 8,
+        "y": 8,
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "command": "file.export",
+      "params": {
+        "path": {
+          "$output": "preview.svg"
+        },
+        "format": "svg"
+      }
+    },
+    {
+      "command": "document.save",
+      "params": {
+        "path": {
+          "$output": "project.vectorcraft"
+        }
+      }
+    },
+    {
+      "command": "document.open",
+      "params": {
+        "path": {
+          "$output": "project.vectorcraft"
+        }
+      }
+    },
+    {
+      "command": "document.inspect",
+      "params": {}
+    }
+  ]
+}

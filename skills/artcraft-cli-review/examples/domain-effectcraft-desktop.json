@@ -1,0 +1,52 @@
+{
+  "schema": "craft-command-plan/v1",
+  "operations": [
+    {
+      "command": "comp.new",
+      "params": {
+        "name": "Desktop first use",
+        "width": 96,
+        "height": 64,
+        "duration": 1,
+        "frameRate": 12,
+        "background": "#ffffff"
+      }
+    },
+    {
+      "command": "layer.newShape",
+      "params": {
+        "kind": "rect",
+        "name": "Subject",
+        "size": [
+          24,
+          24
+        ],
+        "position": [
+          32,
+          32
+        ],
+        "fill": "#ff0000"
+      }
+    },
+    {
+      "tool": "save_project",
+      "params": {
+        "path": {
+          "$output": "project.ecproj"
+        }
+      }
+    },
+    {
+      "tool": "open_project",
+      "params": {
+        "path": {
+          "$output": "project.ecproj"
+        }
+      }
+    },
+    {
+      "tool": "get_project",
+      "params": {}
+    }
+  ]
+}
