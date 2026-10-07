@@ -422,3 +422,5 @@ CLI 验收默认锁现为 `host-acceptance-strict64.lock.json`：领域插件 de
 固定 EffectCraft 插件 dev.35／技能源 dev.33 验收通过：64 项安装身份与发现、15 项独立 Effect CLI 空缓存安装，以及原生木偶录制／跟随／重开／局部返工和三类失败路径。另 49 项冷安装记录复用摘要一致的历史证据。完整首版仍开放。[固定证据](docs/evidence/effectcraft-puppet-record-follow-fixed-first-use-20261008.json)。
 
 固定 EffectCraft 插件 dev.36／技能源 dev.34 通过 64 项安装身份与发现、15 项独立 Effect CLI 空缓存安装，以及原生摄像机渲染／重开／局部返工和三类失败路径。其余 49 项冷安装记录仅复用摘要一致的历史运行。完整首版仍开放。[固定摄像机证据](docs/evidence/effectcraft-camera-scene-fixed-first-use-20261008.json)。
+
+固定 PhotoCraft 插件 dev.35／技能源 dev.33 通过 64 项安装身份与发现，以及 13 项独立 Photo 公开空缓存原生保存／重开／局部返工／错误保护及 CLI 命令参数查询。其余 51 项冷安装记录仅复用摘要一致的历史运行。完整首版仍开放。[固定持久选区证据](docs/evidence/photocraft-saved-selection-fixed-first-use-20261008.json)。
