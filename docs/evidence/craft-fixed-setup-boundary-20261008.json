@@ -1,0 +1,3791 @@
+{
+  "schema": "craft-fixed-setup-boundary/v1",
+  "result": "PASS",
+  "hostLock": {
+    "schema": "craft-host-release-lock/v1",
+    "plugins": {
+      "filmcraft": {
+        "repository": "https://github.com/full-aigc-plugins/filmcraft-plugin.git",
+        "version": "0.1.0-dev.36",
+        "ref": "v0.1.0-dev.36",
+        "sha": "b6e2b89a05b449a7a1fc5390250fe320715e0f09",
+        "skillSourceSha": "09717472fc0253d9679ca03238b7403e7bd86829",
+        "skillSourceRef": "v0.1.0-dev.35",
+        "skillSha256": "99ffea4464384e875857e1d1c188f944937e1a7eddbc1f2cd0eb2708d302c254",
+        "pluginManifestSha256": "e36cbcc64ab90b1df0105d897bbbf31c33804ee31fd89f9147c5476fa7288469",
+        "skills": {
+          "filmcraft-cli": "883bdea3c51740f278147ff49ad29b8aa70e3e240e10de20c069099a6e858724",
+          "filmcraft-cli-audio": "63c25b3b1f1d6ff6bca9ce73448115c6114f12e3fbb2426ada069af4b2130e85",
+          "filmcraft-cli-color": "2619990a2ea5111ae8fd8f50f816f40c176e7d2f5cd1df390047a31c698ebeff",
+          "filmcraft-cli-export": "8482556e2131bfacaae14beffa87dc950a1da9fd0356c8a66da5b8523755a3aa",
+          "filmcraft-cli-media": "8e69c655cf9997d62b094d2a9e599695283d8eabdf9e325e8899236a1e2863fa",
+          "filmcraft-cli-motion": "62d756df21698dfda659233d283d6a6cb25d4e1531be9987e6f74afd85c8e31e",
+          "filmcraft-cli-multicam": "bc0ea660d6aecae57c78ce4041094ef499e52a2b3f30ae8fcbf2ea898c35f0df",
+          "filmcraft-cli-project": "b7ba7ac7b4da557f971ed853377f670519e42680476822e5ac7dc755637dc973",
+          "filmcraft-cli-setup": "c11148dd8128167f178b358badb75ffdb9cfe31aba697489583329ed8882d1a6",
+          "filmcraft-cli-subtitles": "4df0d56837f211cd904c1499e28db15cbce5ef411f1702bc66fed905dce9a6b8",
+          "filmcraft-cli-timeline": "fdd14e23bafce9aeb9f4f8cbbbc4725d8b2dae8a8bba99ff021a00f9d32ea8b0",
+          "filmcraft-cli-transcript": "18356cfdb831663e5fc222876025b6ffe03f7362025f9bd09a3366a8d9435352",
+          "filmcraft-use": "99ffea4464384e875857e1d1c188f944937e1a7eddbc1f2cd0eb2708d302c254"
+        }
+      },
+      "effectcraft": {
+        "repository": "https://github.com/full-aigc-plugins/effectcraft-plugin.git",
+        "version": "0.1.0-dev.36",
+        "ref": "v0.1.0-dev.36",
+        "sha": "3ece63c9d8ad93497bc1f3f11dbd9ae24199206f",
+        "skillSourceSha": "550a51842ba0feb3bb6cbd6d890f77e20f25101b",
+        "skillSourceRef": "v0.1.0-dev.34",
+        "skillSha256": "6275bea8397aeddbe93ee4ef7d66ab13698686e72655c7bc68e28fdd612f90e0",
+        "pluginManifestSha256": "dfb570083c956d90ba8ce38cc738ae00a759a6a77a39cea3bc57979c96116291",
+        "skills": {
+          "effectcraft-cli": "7800051387dbdc5dfe49ced0f97e3cc1c502fdf738cc9ae735ca5b5f6f25a8ee",
+          "effectcraft-cli-animation": "aeaf55514f5afb8c8151d37adff72b639a231015a412adf9ebc00bdd6692f50a",
+          "effectcraft-cli-camera": "f19299fe471a420359f55bcbe3ff3583594dbbcef9ec92441ac5972cfeae8414",
+          "effectcraft-cli-composition": "1e91faed542ae95ac034f6dfe2dfc1d5d80b3899d48c8f1068add120410d7b10",
+          "effectcraft-cli-effects": "955831de9a5f414c205dd30c5eb953f410c81871f1c8daff2a6ff064701521d6",
+          "effectcraft-cli-export": "efd03426738d714a27677a0ebe933c699c9469b4788450a25f2e850de84cfd2a",
+          "effectcraft-cli-expressions": "ac1137632f843f8ec9a7cfcdbe6240f54f5883618b781f6e9dc10e2c425dee51",
+          "effectcraft-cli-footage": "b13d729a269f7037908ccb48394bb1bfc971e4e93f593dbaa4b82ab6aaa3c4d9",
+          "effectcraft-cli-layers": "847f64d1053528a4cce1b2c2ed1ab4be485e25096fd3229fa6f22b265baa91d9",
+          "effectcraft-cli-masks": "42c1f76b33bbb6c0210d8bd79f06beb1610c16b8e0838fe544752ff45b583129",
+          "effectcraft-cli-project": "98ecdac4d1e5b66ec8718cabbff47e91b383bdc39bc4c349af37c09669f6951a",
+          "effectcraft-cli-puppet": "71bb9bc0633255e50bb1cff285d63f3ebfec4691119ba81945fc6fe03927ad8d",
+          "effectcraft-cli-setup": "d2fa99911d79b737d7ebe29ec29ae71cacc84d800d6198e31086dd275897499e",
+          "effectcraft-cli-tracking": "cfcc79c84d669fe1a16ab595cd60081166ee4778f6875144e9d0ae5a96282192",
+          "effectcraft-use": "6275bea8397aeddbe93ee4ef7d66ab13698686e72655c7bc68e28fdd612f90e0"
+        }
+      },
+      "photocraft": {
+        "repository": "https://github.com/full-aigc-plugins/photocraft-plugin.git",
+        "version": "0.1.0-dev.35",
+        "ref": "v0.1.0-dev.35",
+        "sha": "6405644f030605f896e7b6924ca0c9adfaf07551",
+        "skillSourceSha": "e3f4e6d025bcce243ae110d3fa5d6aed2aca3cce",
+        "skillSourceRef": "v0.1.0-dev.33",
+        "skillSha256": "850a9d4cc2b2c0a159b4f81689f5fdf9479ed6e5a2759f24dee5f34a631bb3b8",
+        "pluginManifestSha256": "a42c5898af3bed19bf8546427722363aacfa4989f79742791f94aae0f461be0a",
+        "skills": {
+          "photocraft-cli": "8081d9fb653232eeaf2fd727b7725711efb588d22a5de00a38e270bfceb11430",
+          "photocraft-cli-adjustments": "3892e0391da3af41a5d9ac7ac553269d63310ed7b23b4a9d8fec3bbc9b1bd218",
+          "photocraft-cli-export": "9c8e189f0ef575c71feab8d73bd35bf3714279374a0f3bc935fd2015c4717121",
+          "photocraft-cli-filters": "3530addbe1ff84020a274fa1bfb2c8dcd17bec11c94d58abee4f71f820c967fa",
+          "photocraft-cli-layers": "ea0ac3f0d91c360846e5ad5f76236b004a154bb9d7c492ca5483c76bfd91fe43",
+          "photocraft-cli-masks": "c95075a3d38ce806c619b8f675957c4bb845d2d34cdd84135665edf64adf553a",
+          "photocraft-cli-project": "27d899b45e7ffc1a14db4fd602253e1b6f853d059ea59c60cdc6be600e8c93a4",
+          "photocraft-cli-resize": "d9aec1a74bcfe141e883a92cba6d4e40f0d32b2ea9b7306b70be77869655e25f",
+          "photocraft-cli-retouch": "e312a4699b265db62b790edb9863d86a4677c7fbb9e26d7d9931a782fda24109",
+          "photocraft-cli-selection": "4b06b4998d368e85c1eb9795f63fa4c90144f1865e7fce89f470a93dc8669d50",
+          "photocraft-cli-setup": "52837744029e624d870654d48156cef74615f35264c08bf25d2bba4ff5a784d7",
+          "photocraft-cli-text": "9bf5a1be4a3761ef727dfc49ea81ec6c332c40d4d23576c33bfca0f0fb69d469",
+          "photocraft-use": "850a9d4cc2b2c0a159b4f81689f5fdf9479ed6e5a2759f24dee5f34a631bb3b8"
+        }
+      },
+      "vectorcraft": {
+        "repository": "https://github.com/full-aigc-plugins/vectorcraft-plugin.git",
+        "version": "0.1.0-dev.33",
+        "ref": "v0.1.0-dev.33",
+        "sha": "1b52882c0b55013f97d0b32b8312b21af35e8783",
+        "skillSourceSha": "3f7bb4f9b58239113230f171ab76d8a8ce8b5b73",
+        "skillSourceRef": "v0.1.0-dev.31",
+        "skillSha256": "251d3f4ab3b8af3c3da4f40028d975e28598e96add4a28c046e50b43f66f1d89",
+        "pluginManifestSha256": "d63d721e8127e79ae712f3af786729e2e358c635e1cd7001e1b5a98a79de9b8c",
+        "skills": {
+          "vectorcraft-cli": "db16523fd6bb3f23f5da962f744e91f009879c4184a9aff37c74ff10dfaafa49",
+          "vectorcraft-cli-appearance": "9bbabd93525e6e8e333effa90a5ee20bb3064203788feea8781b6cb9a8697144",
+          "vectorcraft-cli-artboards": "cae8b443d45154a4e6ae709d2880294f326a151faeddddc8e4d3cb7b5f431b4d",
+          "vectorcraft-cli-assets": "8ba9814dafaf1401262b591048fe86eb6bed7d6582ddcc5da3ce033d919a933e",
+          "vectorcraft-cli-boolean": "b3b38eec6bc64459514c4b0ae8885f2e1b57645a0b4a05d1d8a96240984df185",
+          "vectorcraft-cli-export": "4f23fa20c0f346f0c79dc13303b17f36f907b0c96b9b57dc56da840dd4e5e80a",
+          "vectorcraft-cli-paths": "ccd9a42beec98a818ac75207b830a9a7d58e69a7ba4741e177aca42a007f29cf",
+          "vectorcraft-cli-project": "ef66522b7d91c766cbce2b550c385c23236b60c2a7382e8c84b842ff70781732",
+          "vectorcraft-cli-selection": "7e367c7d329be902a8044e3c0be90d4e04e4a154010a891513ad61f801f8afc3",
+          "vectorcraft-cli-setup": "6060a2f644086128d6d6312bc5c62185b802c614374139d2af3a1822255fa915",
+          "vectorcraft-cli-shapes": "50f4319013d634f0fe8bd6364c10ec13f73f4a14990540293c0017a1fad76fd5",
+          "vectorcraft-cli-text": "927d86d51016cd5317559f636c82d64d12ebad6cdaf88e156f05dbd72f36d5ec",
+          "vectorcraft-use": "251d3f4ab3b8af3c3da4f40028d975e28598e96add4a28c046e50b43f66f1d89"
+        }
+      },
+      "artcraft": {
+        "repository": "https://github.com/full-aigc-plugins/artcraft-plugin.git",
+        "version": "0.1.0-dev.107",
+        "ref": "v0.1.0-dev.107",
+        "sha": "caa4317a68d9e122deb6f3aaf3790b5afa5a8fd9",
+        "skillSourceSha": "21680d0c858877fcc2dbe3f81f379a6fcbc7d737",
+        "skillSourceRef": "v0.1.0-dev.80",
+        "skillSha256": "05b896ad280a2aeb84e72597adaa01d9a60935493bf0fdfe0bde4a5760e68d83",
+        "pluginManifestSha256": "02e03a30d7e7f872a297cca1393bfc4730ae4b7bdd196120adf87fb67542f64c",
+        "skills": {
+          "artcraft-cli": "fa5f96a06e82f4218903193f893a3f20a544d87c0f95a278fb1b8fe6100cdc5d",
+          "artcraft-cli-assets": "a1d724c6a442bc081defdf06deff418ece7d3a1ceaa7b2104f5686f7e9229758",
+          "artcraft-cli-deliver": "4f21317b1d0f928d09ba1a5e4fe6e67bcb59cc5978a91aa4f49707bef2f43141",
+          "artcraft-cli-execute": "36ceb4bdad4462ed1c36097959f509424e271da237ce3f13bfefcb300ca59bfa",
+          "artcraft-cli-plan": "15d0d97eb0f9b2e4456bd4d6fb079b2be1052dfe3e6f257b3e4a52adef39ab26",
+          "artcraft-cli-recover": "70a346c79c8af68ed7678cf46017f9e9eed0f718a9609fdbf5fa7ff693c1d31e",
+          "artcraft-cli-review": "529b317b38da3dba8c13130baa0e82bbbccf681e712b70e22cf3c0e4a458871b",
+          "artcraft-cli-revise": "a4876ace6425ae08975c9bac57cdbdcbb5a53f0a0eeee9219256b703fe5e5549",
+          "artcraft-cli-setup": "6055e19376551bc0c7665e21ed37411e24f80ea3437ce9508fb432aafd19915d",
+          "artcraft-use": "05b896ad280a2aeb84e72597adaa01d9a60935493bf0fdfe0bde4a5760e68d83"
+        }
+      }
+    }
+  },
+  "skills": 64,
+  "failedEntryCases": 128,
+  "records": [
+    {
+      "pluginId": "filmcraft",
+      "skill": "filmcraft-cli",
+      "sha256": "883bdea3c51740f278147ff49ad29b8aa70e3e240e10de20c069099a6e858724",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "filmcraft",
+      "skill": "filmcraft-cli-audio",
+      "sha256": "63c25b3b1f1d6ff6bca9ce73448115c6114f12e3fbb2426ada069af4b2130e85",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "filmcraft",
+      "skill": "filmcraft-cli-color",
+      "sha256": "2619990a2ea5111ae8fd8f50f816f40c176e7d2f5cd1df390047a31c698ebeff",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "filmcraft",
+      "skill": "filmcraft-cli-export",
+      "sha256": "8482556e2131bfacaae14beffa87dc950a1da9fd0356c8a66da5b8523755a3aa",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "filmcraft",
+      "skill": "filmcraft-cli-media",
+      "sha256": "8e69c655cf9997d62b094d2a9e599695283d8eabdf9e325e8899236a1e2863fa",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "filmcraft",
+      "skill": "filmcraft-cli-motion",
+      "sha256": "62d756df21698dfda659233d283d6a6cb25d4e1531be9987e6f74afd85c8e31e",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "filmcraft",
+      "skill": "filmcraft-cli-multicam",
+      "sha256": "bc0ea660d6aecae57c78ce4041094ef499e52a2b3f30ae8fcbf2ea898c35f0df",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "filmcraft",
+      "skill": "filmcraft-cli-project",
+      "sha256": "b7ba7ac7b4da557f971ed853377f670519e42680476822e5ac7dc755637dc973",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "filmcraft",
+      "skill": "filmcraft-cli-setup",
+      "sha256": "c11148dd8128167f178b358badb75ffdb9cfe31aba697489583329ed8882d1a6",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "filmcraft",
+      "skill": "filmcraft-cli-subtitles",
+      "sha256": "4df0d56837f211cd904c1499e28db15cbce5ef411f1702bc66fed905dce9a6b8",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "filmcraft",
+      "skill": "filmcraft-cli-timeline",
+      "sha256": "fdd14e23bafce9aeb9f4f8cbbbc4725d8b2dae8a8bba99ff021a00f9d32ea8b0",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "filmcraft",
+      "skill": "filmcraft-cli-transcript",
+      "sha256": "18356cfdb831663e5fc222876025b6ffe03f7362025f9bd09a3366a8d9435352",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "filmcraft",
+      "skill": "filmcraft-use",
+      "sha256": "99ffea4464384e875857e1d1c188f944937e1a7eddbc1f2cd0eb2708d302c254",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "effectcraft",
+      "skill": "effectcraft-cli",
+      "sha256": "7800051387dbdc5dfe49ced0f97e3cc1c502fdf738cc9ae735ca5b5f6f25a8ee",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "effectcraft",
+      "skill": "effectcraft-cli-animation",
+      "sha256": "aeaf55514f5afb8c8151d37adff72b639a231015a412adf9ebc00bdd6692f50a",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "effectcraft",
+      "skill": "effectcraft-cli-camera",
+      "sha256": "f19299fe471a420359f55bcbe3ff3583594dbbcef9ec92441ac5972cfeae8414",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "effectcraft",
+      "skill": "effectcraft-cli-composition",
+      "sha256": "1e91faed542ae95ac034f6dfe2dfc1d5d80b3899d48c8f1068add120410d7b10",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "effectcraft",
+      "skill": "effectcraft-cli-effects",
+      "sha256": "955831de9a5f414c205dd30c5eb953f410c81871f1c8daff2a6ff064701521d6",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "effectcraft",
+      "skill": "effectcraft-cli-export",
+      "sha256": "efd03426738d714a27677a0ebe933c699c9469b4788450a25f2e850de84cfd2a",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "effectcraft",
+      "skill": "effectcraft-cli-expressions",
+      "sha256": "ac1137632f843f8ec9a7cfcdbe6240f54f5883618b781f6e9dc10e2c425dee51",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "effectcraft",
+      "skill": "effectcraft-cli-footage",
+      "sha256": "b13d729a269f7037908ccb48394bb1bfc971e4e93f593dbaa4b82ab6aaa3c4d9",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "effectcraft",
+      "skill": "effectcraft-cli-layers",
+      "sha256": "847f64d1053528a4cce1b2c2ed1ab4be485e25096fd3229fa6f22b265baa91d9",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "effectcraft",
+      "skill": "effectcraft-cli-masks",
+      "sha256": "42c1f76b33bbb6c0210d8bd79f06beb1610c16b8e0838fe544752ff45b583129",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "effectcraft",
+      "skill": "effectcraft-cli-project",
+      "sha256": "98ecdac4d1e5b66ec8718cabbff47e91b383bdc39bc4c349af37c09669f6951a",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "effectcraft",
+      "skill": "effectcraft-cli-puppet",
+      "sha256": "71bb9bc0633255e50bb1cff285d63f3ebfec4691119ba81945fc6fe03927ad8d",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "effectcraft",
+      "skill": "effectcraft-cli-setup",
+      "sha256": "d2fa99911d79b737d7ebe29ec29ae71cacc84d800d6198e31086dd275897499e",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "effectcraft",
+      "skill": "effectcraft-cli-tracking",
+      "sha256": "cfcc79c84d669fe1a16ab595cd60081166ee4778f6875144e9d0ae5a96282192",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "effectcraft",
+      "skill": "effectcraft-use",
+      "sha256": "6275bea8397aeddbe93ee4ef7d66ab13698686e72655c7bc68e28fdd612f90e0",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "photocraft",
+      "skill": "photocraft-cli",
+      "sha256": "8081d9fb653232eeaf2fd727b7725711efb588d22a5de00a38e270bfceb11430",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "photocraft",
+      "skill": "photocraft-cli-adjustments",
+      "sha256": "3892e0391da3af41a5d9ac7ac553269d63310ed7b23b4a9d8fec3bbc9b1bd218",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "photocraft",
+      "skill": "photocraft-cli-export",
+      "sha256": "9c8e189f0ef575c71feab8d73bd35bf3714279374a0f3bc935fd2015c4717121",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "photocraft",
+      "skill": "photocraft-cli-filters",
+      "sha256": "3530addbe1ff84020a274fa1bfb2c8dcd17bec11c94d58abee4f71f820c967fa",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "photocraft",
+      "skill": "photocraft-cli-layers",
+      "sha256": "ea0ac3f0d91c360846e5ad5f76236b004a154bb9d7c492ca5483c76bfd91fe43",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "photocraft",
+      "skill": "photocraft-cli-masks",
+      "sha256": "c95075a3d38ce806c619b8f675957c4bb845d2d34cdd84135665edf64adf553a",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "photocraft",
+      "skill": "photocraft-cli-project",
+      "sha256": "27d899b45e7ffc1a14db4fd602253e1b6f853d059ea59c60cdc6be600e8c93a4",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "photocraft",
+      "skill": "photocraft-cli-resize",
+      "sha256": "d9aec1a74bcfe141e883a92cba6d4e40f0d32b2ea9b7306b70be77869655e25f",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "photocraft",
+      "skill": "photocraft-cli-retouch",
+      "sha256": "e312a4699b265db62b790edb9863d86a4677c7fbb9e26d7d9931a782fda24109",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "photocraft",
+      "skill": "photocraft-cli-selection",
+      "sha256": "4b06b4998d368e85c1eb9795f63fa4c90144f1865e7fce89f470a93dc8669d50",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "photocraft",
+      "skill": "photocraft-cli-setup",
+      "sha256": "52837744029e624d870654d48156cef74615f35264c08bf25d2bba4ff5a784d7",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "photocraft",
+      "skill": "photocraft-cli-text",
+      "sha256": "9bf5a1be4a3761ef727dfc49ea81ec6c332c40d4d23576c33bfca0f0fb69d469",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "photocraft",
+      "skill": "photocraft-use",
+      "sha256": "850a9d4cc2b2c0a159b4f81689f5fdf9479ed6e5a2759f24dee5f34a631bb3b8",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "vectorcraft",
+      "skill": "vectorcraft-cli",
+      "sha256": "db16523fd6bb3f23f5da962f744e91f009879c4184a9aff37c74ff10dfaafa49",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "vectorcraft",
+      "skill": "vectorcraft-cli-appearance",
+      "sha256": "9bbabd93525e6e8e333effa90a5ee20bb3064203788feea8781b6cb9a8697144",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "vectorcraft",
+      "skill": "vectorcraft-cli-artboards",
+      "sha256": "cae8b443d45154a4e6ae709d2880294f326a151faeddddc8e4d3cb7b5f431b4d",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "vectorcraft",
+      "skill": "vectorcraft-cli-assets",
+      "sha256": "8ba9814dafaf1401262b591048fe86eb6bed7d6582ddcc5da3ce033d919a933e",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "vectorcraft",
+      "skill": "vectorcraft-cli-boolean",
+      "sha256": "b3b38eec6bc64459514c4b0ae8885f2e1b57645a0b4a05d1d8a96240984df185",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "vectorcraft",
+      "skill": "vectorcraft-cli-export",
+      "sha256": "4f23fa20c0f346f0c79dc13303b17f36f907b0c96b9b57dc56da840dd4e5e80a",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "vectorcraft",
+      "skill": "vectorcraft-cli-paths",
+      "sha256": "ccd9a42beec98a818ac75207b830a9a7d58e69a7ba4741e177aca42a007f29cf",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "vectorcraft",
+      "skill": "vectorcraft-cli-project",
+      "sha256": "ef66522b7d91c766cbce2b550c385c23236b60c2a7382e8c84b842ff70781732",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "vectorcraft",
+      "skill": "vectorcraft-cli-selection",
+      "sha256": "7e367c7d329be902a8044e3c0be90d4e04e4a154010a891513ad61f801f8afc3",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "vectorcraft",
+      "skill": "vectorcraft-cli-setup",
+      "sha256": "6060a2f644086128d6d6312bc5c62185b802c614374139d2af3a1822255fa915",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "vectorcraft",
+      "skill": "vectorcraft-cli-shapes",
+      "sha256": "50f4319013d634f0fe8bd6364c10ec13f73f4a14990540293c0017a1fad76fd5",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "vectorcraft",
+      "skill": "vectorcraft-cli-text",
+      "sha256": "927d86d51016cd5317559f636c82d64d12ebad6cdaf88e156f05dbd72f36d5ec",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "vectorcraft",
+      "skill": "vectorcraft-use",
+      "sha256": "251d3f4ab3b8af3c3da4f40028d975e28598e96add4a28c046e50b43f66f1d89",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "artcraft",
+      "skill": "artcraft-cli",
+      "sha256": "fa5f96a06e82f4218903193f893a3f20a544d87c0f95a278fb1b8fe6100cdc5d",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 1
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "artcraft",
+      "skill": "artcraft-cli-assets",
+      "sha256": "a1d724c6a442bc081defdf06deff418ece7d3a1ceaa7b2104f5686f7e9229758",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 1
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "artcraft",
+      "skill": "artcraft-cli-deliver",
+      "sha256": "4f21317b1d0f928d09ba1a5e4fe6e67bcb59cc5978a91aa4f49707bef2f43141",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 1
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "artcraft",
+      "skill": "artcraft-cli-execute",
+      "sha256": "36ceb4bdad4462ed1c36097959f509424e271da237ce3f13bfefcb300ca59bfa",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 1
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "artcraft",
+      "skill": "artcraft-cli-plan",
+      "sha256": "15d0d97eb0f9b2e4456bd4d6fb079b2be1052dfe3e6f257b3e4a52adef39ab26",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 1
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "artcraft",
+      "skill": "artcraft-cli-recover",
+      "sha256": "70a346c79c8af68ed7678cf46017f9e9eed0f718a9609fdbf5fa7ff693c1d31e",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 1
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "artcraft",
+      "skill": "artcraft-cli-review",
+      "sha256": "529b317b38da3dba8c13130baa0e82bbbccf681e712b70e22cf3c0e4a458871b",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 1
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "artcraft",
+      "skill": "artcraft-cli-revise",
+      "sha256": "a4876ace6425ae08975c9bac57cdbdcbb5a53f0a0eeee9219256b703fe5e5549",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 1
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "artcraft",
+      "skill": "artcraft-cli-setup",
+      "sha256": "6055e19376551bc0c7665e21ed37411e24f80ea3437ce9508fb432aafd19915d",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 1
+          }
+        }
+      ]
+    },
+    {
+      "pluginId": "artcraft",
+      "skill": "artcraft-use",
+      "sha256": "05b896ad280a2aeb84e72597adaa01d9a60935493bf0fdfe0bde4a5760e68d83",
+      "singleSkill": true,
+      "installedSourceUnchanged": true,
+      "copiedSkillUnchanged": true,
+      "cases": [
+        {
+          "entry": "bootstrap.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 0
+          }
+        },
+        {
+          "entry": "cli.py",
+          "exitCode": 1,
+          "error": "[Errno 2] No such file or directory: '$CASE/unavailable-pinned-archive'",
+          "ownBootstrapRelativePath": "scripts/bootstrap.py",
+          "automaticRetry": false,
+          "runtimeAbsentBefore": true,
+          "installedAfter": false,
+          "audit": {
+            "deniedReads": 0,
+            "networkAttempts": 0,
+            "bootstrapProcesses": 1
+          }
+        }
+      ]
+    }
+  ],
+  "positiveColdProof": {
+    "result": "PASS",
+    "count": 64,
+    "freshCurrentStandaloneSkills": 13,
+    "historicalByteIdenticalSkills": 51,
+    "records": [
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli",
+        "sha256": "8081d9fb653232eeaf2fd727b7725711efb588d22a5de00a38e270bfceb11430",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0-craft.1",
+        "commands": 755,
+        "describedCommands": [
+          "select.saveSelection",
+          "select.loadSelection"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "actual fixed installed single-skill public cold native save/reopen/revision/errors, CLI registry/parameters/plan check",
+        "run": "photocraft-saved-selection-20261008/photo13-installed-cold/photocraft-cli",
+        "provenance": "fresh fixed installed standalone skill public cold native installation and scene"
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-adjustments",
+        "sha256": "3892e0391da3af41a5d9ac7ac553269d63310ed7b23b4a9d8fec3bbc9b1bd218",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0-craft.1",
+        "commands": 755,
+        "describedCommands": [
+          "select.saveSelection",
+          "select.loadSelection"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "actual fixed installed single-skill public cold native save/reopen/revision/errors, CLI registry/parameters/plan check",
+        "run": "photocraft-saved-selection-20261008/photo13-installed-cold/photocraft-cli-adjustments",
+        "provenance": "fresh fixed installed standalone skill public cold native installation and scene"
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-export",
+        "sha256": "9c8e189f0ef575c71feab8d73bd35bf3714279374a0f3bc935fd2015c4717121",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0-craft.1",
+        "commands": 755,
+        "describedCommands": [
+          "select.saveSelection",
+          "select.loadSelection"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "actual fixed installed single-skill public cold native save/reopen/revision/errors, CLI registry/parameters/plan check",
+        "run": "photocraft-saved-selection-20261008/photo13-installed-cold/photocraft-cli-export",
+        "provenance": "fresh fixed installed standalone skill public cold native installation and scene"
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-filters",
+        "sha256": "3530addbe1ff84020a274fa1bfb2c8dcd17bec11c94d58abee4f71f820c967fa",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0-craft.1",
+        "commands": 755,
+        "describedCommands": [
+          "select.saveSelection",
+          "select.loadSelection"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "actual fixed installed single-skill public cold native save/reopen/revision/errors, CLI registry/parameters/plan check",
+        "run": "photocraft-saved-selection-20261008/photo13-installed-cold/photocraft-cli-filters",
+        "provenance": "fresh fixed installed standalone skill public cold native installation and scene"
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-layers",
+        "sha256": "ea0ac3f0d91c360846e5ad5f76236b004a154bb9d7c492ca5483c76bfd91fe43",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0-craft.1",
+        "commands": 755,
+        "describedCommands": [
+          "select.saveSelection",
+          "select.loadSelection"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "actual fixed installed single-skill public cold native save/reopen/revision/errors, CLI registry/parameters/plan check",
+        "run": "photocraft-saved-selection-20261008/photo13-installed-cold/photocraft-cli-layers",
+        "provenance": "fresh fixed installed standalone skill public cold native installation and scene"
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-masks",
+        "sha256": "c95075a3d38ce806c619b8f675957c4bb845d2d34cdd84135665edf64adf553a",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0-craft.1",
+        "commands": 755,
+        "describedCommands": [
+          "select.saveSelection",
+          "select.loadSelection"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "actual fixed installed single-skill public cold native save/reopen/revision/errors, CLI registry/parameters/plan check",
+        "run": "photocraft-saved-selection-20261008/photo13-installed-cold/photocraft-cli-masks",
+        "provenance": "fresh fixed installed standalone skill public cold native installation and scene"
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-project",
+        "sha256": "27d899b45e7ffc1a14db4fd602253e1b6f853d059ea59c60cdc6be600e8c93a4",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0-craft.1",
+        "commands": 755,
+        "describedCommands": [
+          "select.saveSelection",
+          "select.loadSelection"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "actual fixed installed single-skill public cold native save/reopen/revision/errors, CLI registry/parameters/plan check",
+        "run": "photocraft-saved-selection-20261008/photo13-installed-cold/photocraft-cli-project",
+        "provenance": "fresh fixed installed standalone skill public cold native installation and scene"
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-resize",
+        "sha256": "d9aec1a74bcfe141e883a92cba6d4e40f0d32b2ea9b7306b70be77869655e25f",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0-craft.1",
+        "commands": 755,
+        "describedCommands": [
+          "select.saveSelection",
+          "select.loadSelection"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "actual fixed installed single-skill public cold native save/reopen/revision/errors, CLI registry/parameters/plan check",
+        "run": "photocraft-saved-selection-20261008/photo13-installed-cold/photocraft-cli-resize",
+        "provenance": "fresh fixed installed standalone skill public cold native installation and scene"
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-retouch",
+        "sha256": "e312a4699b265db62b790edb9863d86a4677c7fbb9e26d7d9931a782fda24109",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0-craft.1",
+        "commands": 755,
+        "describedCommands": [
+          "select.saveSelection",
+          "select.loadSelection"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "actual fixed installed single-skill public cold native save/reopen/revision/errors, CLI registry/parameters/plan check",
+        "run": "photocraft-saved-selection-20261008/photo13-installed-cold/photocraft-cli-retouch",
+        "provenance": "fresh fixed installed standalone skill public cold native installation and scene"
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-selection",
+        "sha256": "4b06b4998d368e85c1eb9795f63fa4c90144f1865e7fce89f470a93dc8669d50",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0-craft.1",
+        "commands": 755,
+        "describedCommands": [
+          "select.saveSelection",
+          "select.loadSelection"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "actual fixed installed single-skill public cold native save/reopen/revision/errors, CLI registry/parameters/plan check",
+        "run": "photocraft-saved-selection-20261008/photo13-installed-cold/photocraft-cli-selection",
+        "provenance": "fresh fixed installed standalone skill public cold native installation and scene"
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-setup",
+        "sha256": "52837744029e624d870654d48156cef74615f35264c08bf25d2bba4ff5a784d7",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0-craft.1",
+        "commands": 755,
+        "describedCommands": [
+          "select.saveSelection",
+          "select.loadSelection"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "actual fixed installed single-skill public cold native save/reopen/revision/errors, CLI registry/parameters/plan check",
+        "run": "photocraft-saved-selection-20261008/photo13-installed-cold/photocraft-cli-setup",
+        "provenance": "fresh fixed installed standalone skill public cold native installation and scene"
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-text",
+        "sha256": "9bf5a1be4a3761ef727dfc49ea81ec6c332c40d4d23576c33bfca0f0fb69d469",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0-craft.1",
+        "commands": 755,
+        "describedCommands": [
+          "select.saveSelection",
+          "select.loadSelection"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "actual fixed installed single-skill public cold native save/reopen/revision/errors, CLI registry/parameters/plan check",
+        "run": "photocraft-saved-selection-20261008/photo13-installed-cold/photocraft-cli-text",
+        "provenance": "fresh fixed installed standalone skill public cold native installation and scene"
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-use",
+        "sha256": "850a9d4cc2b2c0a159b4f81689f5fdf9479ed6e5a2759f24dee5f34a631bb3b8",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0-craft.1",
+        "commands": 755,
+        "describedCommands": [
+          "select.saveSelection",
+          "select.loadSelection"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "actual fixed installed single-skill public cold native save/reopen/revision/errors, CLI registry/parameters/plan check",
+        "run": "photocraft-saved-selection-20261008/photo13-installed-cold/photocraft-use",
+        "provenance": "fresh fixed installed standalone skill public cold native installation and scene"
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli",
+        "sha256": "7800051387dbdc5dfe49ced0f97e3cc1c502fdf738cc9ae735ca5b5f6f25a8ee",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-animation",
+        "sha256": "aeaf55514f5afb8c8151d37adff72b639a231015a412adf9ebc00bdd6692f50a",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-animation",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-camera",
+        "sha256": "f19299fe471a420359f55bcbe3ff3583594dbbcef9ec92441ac5972cfeae8414",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-camera",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-composition",
+        "sha256": "1e91faed542ae95ac034f6dfe2dfc1d5d80b3899d48c8f1068add120410d7b10",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-composition",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-effects",
+        "sha256": "955831de9a5f414c205dd30c5eb953f410c81871f1c8daff2a6ff064701521d6",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-effects",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-export",
+        "sha256": "efd03426738d714a27677a0ebe933c699c9469b4788450a25f2e850de84cfd2a",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-export",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-expressions",
+        "sha256": "ac1137632f843f8ec9a7cfcdbe6240f54f5883618b781f6e9dc10e2c425dee51",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-expressions",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-footage",
+        "sha256": "b13d729a269f7037908ccb48394bb1bfc971e4e93f593dbaa4b82ab6aaa3c4d9",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-footage",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-layers",
+        "sha256": "847f64d1053528a4cce1b2c2ed1ab4be485e25096fd3229fa6f22b265baa91d9",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-layers",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-masks",
+        "sha256": "42c1f76b33bbb6c0210d8bd79f06beb1610c16b8e0838fe544752ff45b583129",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-masks",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-project",
+        "sha256": "98ecdac4d1e5b66ec8718cabbff47e91b383bdc39bc4c349af37c09669f6951a",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-project",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-puppet",
+        "sha256": "71bb9bc0633255e50bb1cff285d63f3ebfec4691119ba81945fc6fe03927ad8d",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-puppet",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-setup",
+        "sha256": "d2fa99911d79b737d7ebe29ec29ae71cacc84d800d6198e31086dd275897499e",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-setup",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-tracking",
+        "sha256": "cfcc79c84d669fe1a16ab595cd60081166ee4778f6875144e9d0ae5a96282192",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-tracking",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-use",
+        "sha256": "6275bea8397aeddbe93ee4ef7d66ab13698686e72655c7bc68e28fdd612f90e0",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-use",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-use",
+        "sha256": "99ffea4464384e875857e1d1c188f944937e1a7eddbc1f2cd0eb2708d302c254",
+        "independentColdRuntime": true,
+        "run": "../filmcraft-workflow-model-dir-20261008/source34-cold13.json",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli",
+        "sha256": "883bdea3c51740f278147ff49ad29b8aa70e3e240e10de20c069099a6e858724",
+        "independentColdRuntime": true,
+        "run": "../filmcraft-workflow-model-dir-20261008/source34-cold13.json",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-setup",
+        "sha256": "c11148dd8128167f178b358badb75ffdb9cfe31aba697489583329ed8882d1a6",
+        "independentColdRuntime": true,
+        "run": "../filmcraft-workflow-model-dir-20261008/source34-cold13.json",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-project",
+        "sha256": "b7ba7ac7b4da557f971ed853377f670519e42680476822e5ac7dc755637dc973",
+        "independentColdRuntime": true,
+        "run": "../filmcraft-workflow-model-dir-20261008/source34-cold13.json",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-media",
+        "sha256": "8e69c655cf9997d62b094d2a9e599695283d8eabdf9e325e8899236a1e2863fa",
+        "independentColdRuntime": true,
+        "run": "../filmcraft-workflow-model-dir-20261008/source34-cold13.json",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-timeline",
+        "sha256": "fdd14e23bafce9aeb9f4f8cbbbc4725d8b2dae8a8bba99ff021a00f9d32ea8b0",
+        "independentColdRuntime": true,
+        "run": "../filmcraft-workflow-model-dir-20261008/source34-cold13.json",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-audio",
+        "sha256": "63c25b3b1f1d6ff6bca9ce73448115c6114f12e3fbb2426ada069af4b2130e85",
+        "independentColdRuntime": true,
+        "run": "../filmcraft-workflow-model-dir-20261008/source34-cold13.json",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-subtitles",
+        "sha256": "4df0d56837f211cd904c1499e28db15cbce5ef411f1702bc66fed905dce9a6b8",
+        "independentColdRuntime": true,
+        "run": "../filmcraft-workflow-model-dir-20261008/source34-cold13.json",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-color",
+        "sha256": "2619990a2ea5111ae8fd8f50f816f40c176e7d2f5cd1df390047a31c698ebeff",
+        "independentColdRuntime": true,
+        "run": "../filmcraft-workflow-model-dir-20261008/source34-cold13.json",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-motion",
+        "sha256": "62d756df21698dfda659233d283d6a6cb25d4e1531be9987e6f74afd85c8e31e",
+        "independentColdRuntime": true,
+        "run": "../filmcraft-workflow-model-dir-20261008/source34-cold13.json",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-export",
+        "sha256": "8482556e2131bfacaae14beffa87dc950a1da9fd0356c8a66da5b8523755a3aa",
+        "independentColdRuntime": true,
+        "run": "../filmcraft-workflow-model-dir-20261008/source34-cold13.json",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli",
+        "sha256": "db16523fd6bb3f23f5da962f744e91f009879c4184a9aff37c74ff10dfaafa49",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical byte-identical; original run retained",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8"
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-appearance",
+        "sha256": "9bbabd93525e6e8e333effa90a5ee20bb3064203788feea8781b6cb9a8697144",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical byte-identical; original run retained",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8"
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-artboards",
+        "sha256": "cae8b443d45154a4e6ae709d2880294f326a151faeddddc8e4d3cb7b5f431b4d",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical byte-identical; original run retained",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8"
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-assets",
+        "sha256": "8ba9814dafaf1401262b591048fe86eb6bed7d6582ddcc5da3ce033d919a933e",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical byte-identical; original run retained",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8"
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-boolean",
+        "sha256": "b3b38eec6bc64459514c4b0ae8885f2e1b57645a0b4a05d1d8a96240984df185",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical byte-identical; original run retained",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8"
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-export",
+        "sha256": "4f23fa20c0f346f0c79dc13303b17f36f907b0c96b9b57dc56da840dd4e5e80a",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical byte-identical; original run retained",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8"
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-paths",
+        "sha256": "ccd9a42beec98a818ac75207b830a9a7d58e69a7ba4741e177aca42a007f29cf",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical byte-identical; original run retained",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8"
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-project",
+        "sha256": "ef66522b7d91c766cbce2b550c385c23236b60c2a7382e8c84b842ff70781732",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical byte-identical; original run retained",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8"
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-setup",
+        "sha256": "6060a2f644086128d6d6312bc5c62185b802c614374139d2af3a1822255fa915",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical byte-identical; original run retained",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8"
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-shapes",
+        "sha256": "50f4319013d634f0fe8bd6364c10ec13f73f4a14990540293c0017a1fad76fd5",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical byte-identical; original run retained",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8"
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-text",
+        "sha256": "927d86d51016cd5317559f636c82d64d12ebad6cdaf88e156f05dbd72f36d5ec",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical byte-identical; original run retained",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8"
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-use",
+        "sha256": "251d3f4ab3b8af3c3da4f40028d975e28598e96add4a28c046e50b43f66f1d89",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical byte-identical; original run retained",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8"
+      },
+      {
+        "skill": "artcraft-cli",
+        "sha256": "fa5f96a06e82f4218903193f893a3f20a544d87c0f95a278fb1b8fe6100cdc5d",
+        "runtimeVersion": "0.1.0-dev.106",
+        "runtimeBundleSha256": "67b0866866746574f71f8978fe2478947f39800e4cae501055fa65fd7b0f8725",
+        "contractModuleSha256": "ecfdb1a4a30b1cbe13977ef09bc875fbf2146e73bf4d0a4eb2409fc0a9e7e0e9",
+        "independentColdRuntime": true,
+        "run": "fixed107-cold10/artcraft-cli",
+        "protocolTests": 39,
+        "protocolPassed": 39,
+        "skillUnchanged": true,
+        "userFilePreserved": true,
+        "onlyOneSkill": true,
+        "commands": [
+          "run",
+          "status",
+          "cancel",
+          "package",
+          "verify-package",
+          "register-video-factory"
+        ],
+        "pluginId": "artcraft",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "skill": "artcraft-cli-assets",
+        "sha256": "a1d724c6a442bc081defdf06deff418ece7d3a1ceaa7b2104f5686f7e9229758",
+        "runtimeVersion": "0.1.0-dev.106",
+        "runtimeBundleSha256": "67b0866866746574f71f8978fe2478947f39800e4cae501055fa65fd7b0f8725",
+        "contractModuleSha256": "ecfdb1a4a30b1cbe13977ef09bc875fbf2146e73bf4d0a4eb2409fc0a9e7e0e9",
+        "independentColdRuntime": true,
+        "run": "fixed107-cold10/artcraft-cli-assets",
+        "protocolTests": 39,
+        "protocolPassed": 39,
+        "skillUnchanged": true,
+        "userFilePreserved": true,
+        "onlyOneSkill": true,
+        "commands": [
+          "run",
+          "status",
+          "cancel",
+          "package",
+          "verify-package",
+          "register-video-factory"
+        ],
+        "pluginId": "artcraft",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "skill": "artcraft-cli-deliver",
+        "sha256": "4f21317b1d0f928d09ba1a5e4fe6e67bcb59cc5978a91aa4f49707bef2f43141",
+        "runtimeVersion": "0.1.0-dev.106",
+        "runtimeBundleSha256": "67b0866866746574f71f8978fe2478947f39800e4cae501055fa65fd7b0f8725",
+        "contractModuleSha256": "ecfdb1a4a30b1cbe13977ef09bc875fbf2146e73bf4d0a4eb2409fc0a9e7e0e9",
+        "independentColdRuntime": true,
+        "run": "fixed107-cold10/artcraft-cli-deliver",
+        "protocolTests": 39,
+        "protocolPassed": 39,
+        "skillUnchanged": true,
+        "userFilePreserved": true,
+        "onlyOneSkill": true,
+        "commands": [
+          "run",
+          "status",
+          "cancel",
+          "package",
+          "verify-package",
+          "register-video-factory"
+        ],
+        "pluginId": "artcraft",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "skill": "artcraft-cli-execute",
+        "sha256": "36ceb4bdad4462ed1c36097959f509424e271da237ce3f13bfefcb300ca59bfa",
+        "runtimeVersion": "0.1.0-dev.106",
+        "runtimeBundleSha256": "67b0866866746574f71f8978fe2478947f39800e4cae501055fa65fd7b0f8725",
+        "contractModuleSha256": "ecfdb1a4a30b1cbe13977ef09bc875fbf2146e73bf4d0a4eb2409fc0a9e7e0e9",
+        "independentColdRuntime": true,
+        "run": "fixed107-cold10/artcraft-cli-execute",
+        "protocolTests": 39,
+        "protocolPassed": 39,
+        "skillUnchanged": true,
+        "userFilePreserved": true,
+        "onlyOneSkill": true,
+        "commands": [
+          "run",
+          "status",
+          "cancel",
+          "package",
+          "verify-package",
+          "register-video-factory"
+        ],
+        "pluginId": "artcraft",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "skill": "artcraft-cli-plan",
+        "sha256": "15d0d97eb0f9b2e4456bd4d6fb079b2be1052dfe3e6f257b3e4a52adef39ab26",
+        "runtimeVersion": "0.1.0-dev.106",
+        "runtimeBundleSha256": "67b0866866746574f71f8978fe2478947f39800e4cae501055fa65fd7b0f8725",
+        "contractModuleSha256": "ecfdb1a4a30b1cbe13977ef09bc875fbf2146e73bf4d0a4eb2409fc0a9e7e0e9",
+        "independentColdRuntime": true,
+        "run": "fixed107-cold10/artcraft-cli-plan",
+        "protocolTests": 39,
+        "protocolPassed": 39,
+        "skillUnchanged": true,
+        "userFilePreserved": true,
+        "onlyOneSkill": true,
+        "commands": [
+          "run",
+          "status",
+          "cancel",
+          "package",
+          "verify-package",
+          "register-video-factory"
+        ],
+        "pluginId": "artcraft",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "skill": "artcraft-cli-recover",
+        "sha256": "70a346c79c8af68ed7678cf46017f9e9eed0f718a9609fdbf5fa7ff693c1d31e",
+        "runtimeVersion": "0.1.0-dev.106",
+        "runtimeBundleSha256": "67b0866866746574f71f8978fe2478947f39800e4cae501055fa65fd7b0f8725",
+        "contractModuleSha256": "ecfdb1a4a30b1cbe13977ef09bc875fbf2146e73bf4d0a4eb2409fc0a9e7e0e9",
+        "independentColdRuntime": true,
+        "run": "fixed107-cold10/artcraft-cli-recover",
+        "protocolTests": 39,
+        "protocolPassed": 39,
+        "skillUnchanged": true,
+        "userFilePreserved": true,
+        "onlyOneSkill": true,
+        "commands": [
+          "run",
+          "status",
+          "cancel",
+          "package",
+          "verify-package",
+          "register-video-factory"
+        ],
+        "pluginId": "artcraft",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "skill": "artcraft-cli-review",
+        "sha256": "529b317b38da3dba8c13130baa0e82bbbccf681e712b70e22cf3c0e4a458871b",
+        "runtimeVersion": "0.1.0-dev.106",
+        "runtimeBundleSha256": "67b0866866746574f71f8978fe2478947f39800e4cae501055fa65fd7b0f8725",
+        "contractModuleSha256": "ecfdb1a4a30b1cbe13977ef09bc875fbf2146e73bf4d0a4eb2409fc0a9e7e0e9",
+        "independentColdRuntime": true,
+        "run": "fixed107-cold10/artcraft-cli-review",
+        "protocolTests": 39,
+        "protocolPassed": 39,
+        "skillUnchanged": true,
+        "userFilePreserved": true,
+        "onlyOneSkill": true,
+        "commands": [
+          "run",
+          "status",
+          "cancel",
+          "package",
+          "verify-package",
+          "register-video-factory"
+        ],
+        "pluginId": "artcraft",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "skill": "artcraft-cli-revise",
+        "sha256": "a4876ace6425ae08975c9bac57cdbdcbb5a53f0a0eeee9219256b703fe5e5549",
+        "runtimeVersion": "0.1.0-dev.106",
+        "runtimeBundleSha256": "67b0866866746574f71f8978fe2478947f39800e4cae501055fa65fd7b0f8725",
+        "contractModuleSha256": "ecfdb1a4a30b1cbe13977ef09bc875fbf2146e73bf4d0a4eb2409fc0a9e7e0e9",
+        "independentColdRuntime": true,
+        "run": "fixed107-cold10/artcraft-cli-revise",
+        "protocolTests": 39,
+        "protocolPassed": 39,
+        "skillUnchanged": true,
+        "userFilePreserved": true,
+        "onlyOneSkill": true,
+        "commands": [
+          "run",
+          "status",
+          "cancel",
+          "package",
+          "verify-package",
+          "register-video-factory"
+        ],
+        "pluginId": "artcraft",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "skill": "artcraft-cli-setup",
+        "sha256": "6055e19376551bc0c7665e21ed37411e24f80ea3437ce9508fb432aafd19915d",
+        "runtimeVersion": "0.1.0-dev.106",
+        "runtimeBundleSha256": "67b0866866746574f71f8978fe2478947f39800e4cae501055fa65fd7b0f8725",
+        "contractModuleSha256": "ecfdb1a4a30b1cbe13977ef09bc875fbf2146e73bf4d0a4eb2409fc0a9e7e0e9",
+        "independentColdRuntime": true,
+        "run": "fixed107-cold10/artcraft-cli-setup",
+        "protocolTests": 39,
+        "protocolPassed": 39,
+        "skillUnchanged": true,
+        "userFilePreserved": true,
+        "onlyOneSkill": true,
+        "commands": [
+          "run",
+          "status",
+          "cancel",
+          "package",
+          "verify-package",
+          "register-video-factory"
+        ],
+        "pluginId": "artcraft",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "skill": "artcraft-use",
+        "sha256": "05b896ad280a2aeb84e72597adaa01d9a60935493bf0fdfe0bde4a5760e68d83",
+        "runtimeVersion": "0.1.0-dev.106",
+        "runtimeBundleSha256": "67b0866866746574f71f8978fe2478947f39800e4cae501055fa65fd7b0f8725",
+        "contractModuleSha256": "ecfdb1a4a30b1cbe13977ef09bc875fbf2146e73bf4d0a4eb2409fc0a9e7e0e9",
+        "independentColdRuntime": true,
+        "run": "fixed107-cold10/artcraft-use",
+        "protocolTests": 39,
+        "protocolPassed": 39,
+        "skillUnchanged": true,
+        "userFilePreserved": true,
+        "onlyOneSkill": true,
+        "commands": [
+          "run",
+          "status",
+          "cancel",
+          "package",
+          "verify-package",
+          "register-video-factory"
+        ],
+        "pluginId": "artcraft",
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-multicam",
+        "sha256": "bc0ea660d6aecae57c78ce4041094ef499e52a2b3f30ae8fcbf2ea898c35f0df",
+        "independentColdRuntime": true,
+        "run": "six-fixed-cold/filmcraft-cli-multicam",
+        "layout": "user home/.agents/skills",
+        "unicodeAndSpaces": true,
+        "ownDirectoryExamples": true,
+        "runtimeVersion": "0.2.0-craft.4",
+        "actualVersion": "filmcraft-cli 0.2.0-craft.4",
+        "commands": 666,
+        "describedCommand": "multicam.switchAngle",
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "userFilePreserved": true,
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-transcript",
+        "sha256": "18356cfdb831663e5fc222876025b6ffe03f7362025f9bd09a3366a8d9435352",
+        "independentColdRuntime": true,
+        "run": "six-fixed-cold/filmcraft-cli-transcript",
+        "layout": "project with spaces/.agents/skills",
+        "unicodeAndSpaces": true,
+        "ownDirectoryExamples": true,
+        "runtimeVersion": "0.2.0-craft.4",
+        "actualVersion": "filmcraft-cli 0.2.0-craft.4",
+        "commands": 666,
+        "describedCommand": "transcript.generate",
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "userFilePreserved": true,
+        "provenance": "historical byte-identical; original run retained"
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-selection",
+        "sha256": "7e367c7d329be902a8044e3c0be90d4e04e4a154010a891513ad61f801f8afc3",
+        "independentColdRuntime": true,
+        "run": "six-fixed-cold/vectorcraft-cli-selection",
+        "layout": "plugin cache/skills",
+        "unicodeAndSpaces": true,
+        "ownDirectoryExamples": true,
+        "runtimeVersion": "0.2.0-craft.2",
+        "actualVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "commands": 585,
+        "describedCommand": "select.all",
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "userFilePreserved": true,
+        "provenance": "historical byte-identical; original run retained"
+      }
+    ],
+    "scope": "13 fresh fixed installed Photo native cold scenes and CLI queries plus 51 retained historical cold records with matching full skill digests; not 64 new creative executions"
+  },
+  "scope": "fixed installed single-skill missing runtime plus explicitly unavailable archive; correct self setup diagnostic, no retry or native process; Python audit denies reads/enumeration of original plugin trees",
+  "excluded": [
+    "generic Skills CLI installation",
+    "all runtime failures",
+    "model/GUI/creative/full V1 acceptance"
+  ],
+  "reconstructedHistoricalRed": {
+    "schema": "craft-setup-reconstructed-red/v1",
+    "result": "EXPECTED_FAILURE",
+    "records": [
+      {
+        "domain": "filmcraft",
+        "baselineCommit": "69519f1808d4be781f166899683315422e696fe8",
+        "baselineCliSha256": "716f8ed89db05db3fa8a8989c51bbf985e56e8ba81b6ddff92d3747c13d90e9c",
+        "baselineScope": "historical CLI launcher only, with current fixed installer/lock; reconstructed now, not an original historical run",
+        "expectedFailingAssertion": "dependencySetup present and belongs to own skill",
+        "reply": {
+          "error": "[Errno 2] No such file or directory: '$CASE/archive-unavailable'",
+          "result": "failed"
+        },
+        "exitCode": 1
+      },
+      {
+        "domain": "effectcraft",
+        "baselineCommit": "e26921c0448e6506626b89c0e3c388a110c6e955",
+        "baselineCliSha256": "14388135cb9054d411a805f194e9e68f355bd54dcc1202265cab4348afd45e65",
+        "baselineScope": "historical CLI launcher only, with current fixed installer/lock; reconstructed now, not an original historical run",
+        "expectedFailingAssertion": "dependencySetup present and belongs to own skill",
+        "reply": {
+          "error": "[Errno 2] No such file or directory: '$CASE/archive-unavailable'",
+          "result": "failed"
+        },
+        "exitCode": 1
+      },
+      {
+        "domain": "photocraft",
+        "baselineCommit": "8f3f277c96b5b39550a6a2bc7d55988cc8ad3807",
+        "baselineCliSha256": "6c24ecd4778feb477cd3fb00814622c668faebdabb60807d769315b3c8789c81",
+        "baselineScope": "historical CLI launcher only, with current fixed installer/lock; reconstructed now, not an original historical run",
+        "expectedFailingAssertion": "dependencySetup present and belongs to own skill",
+        "reply": {
+          "error": "[Errno 2] No such file or directory: '$CASE/archive-unavailable'",
+          "result": "failed"
+        },
+        "exitCode": 1
+      },
+      {
+        "domain": "vectorcraft",
+        "baselineCommit": "50f7a05ad21f8d2b051a784fe1004ba54636d197",
+        "baselineCliSha256": "88185c45bbb282a16bd5f3ca701500d4db2b2709eeceed07d04555d018d5ccf1",
+        "baselineScope": "historical CLI launcher only, with current fixed installer/lock; reconstructed now, not an original historical run",
+        "expectedFailingAssertion": "dependencySetup present and belongs to own skill",
+        "reply": {
+          "error": "[Errno 2] No such file or directory: '$CASE/archive-unavailable'",
+          "result": "failed"
+        },
+        "exitCode": 1
+      }
+    ]
+  },
+  "verifierSha256": "f6bc69f573cc783aa40d055a301e5fcd66ea023b9d1d17849f9fe1d2aacb2d53",
+  "testSha256": "be9f85535045d764727b91e516c2f72668bdfb0712a55b03fd3116e3ad30286d",
+  "tests": {
+    "total": 100,
+    "passed": 95,
+    "conditionalSkipped": 5
+  },
+  "date": "2026-10-08",
+  "qualifiedRequirements": [
+    {
+      "requirement": "FC-SK-002",
+      "status": "qualified_for_exact_current_lock",
+      "contract": {
+        "requirement": "FC-SK-002 \u72ec\u7acb\u5b89\u88c5\u4e0e\u4f9d\u8d56\u58f0\u660e",
+        "path": "openspec/changes/establish-v1-plugin/specs/skills-distribution/spec.md",
+        "line": 43,
+        "contractSha256": "3398acb955474f3cebb4a9008fb9c1344047e0c4545c327a1a04c55cafed1583",
+        "scenarios": [
+          {
+            "name": "FC-SK-002-P \u5408\u540c\u6761\u4ef6\u6ee1\u8db3",
+            "contractSha256": "5e462621004370ab55289ca92619484a362f4f8ab03ec932a83b18fc548af20a"
+          },
+          {
+            "name": "FC-SK-002-N \u8fb9\u754c\u6761\u4ef6",
+            "contractSha256": "8c9cc629a4a4b3ad3abc76513d8045bf8dbfcdc1a01bb5af6b1d3ccd362a8899"
+          }
+        ]
+      },
+      "plugin": "v0.1.0-dev.36",
+      "sourceRef": "v0.1.0-dev.35",
+      "scenarios": [
+        {
+          "id": "FC-SK-002-P",
+          "result": "PASS",
+          "evidence": "positiveColdProof.records filtered by pluginId; source identity matched; Art 10 explicit Node/orchestration declarations also inspected"
+        },
+        {
+          "id": "FC-SK-002-N",
+          "result": "PASS",
+          "evidence": "all own-skill bootstrap and CLI unavailable-archive cases; missing runtime observed; own setup path and no native calls verified"
+        }
+      ],
+      "redEvidence": "reconstructedHistoricalRed.records filtered by domain; historical CLI only with current fixed installer/lock",
+      "taskIds": [
+        "1.4",
+        "1.5",
+        "1.6"
+      ],
+      "scope": "independent install and dependency declaration only; not SK-003, full native command or V1 qualification"
+    },
+    {
+      "requirement": "EC-SK-002",
+      "status": "qualified_for_exact_current_lock",
+      "contract": {
+        "requirement": "EC-SK-002 \u72ec\u7acb\u5b89\u88c5\u4e0e\u4f9d\u8d56\u58f0\u660e",
+        "path": "openspec/changes/establish-v1-plugin/specs/skills-distribution/spec.md",
+        "line": 43,
+        "contractSha256": "e6c4cb2eab2ead3df7a28d5b7a779adc73e9aee296936d7620aca12bfaea55ae",
+        "scenarios": [
+          {
+            "name": "EC-SK-002-P \u5408\u540c\u6761\u4ef6\u6ee1\u8db3",
+            "contractSha256": "b7c8edd998edcfc531868fdae0a942c9b0309e7d9da658212cf1d419748d1e5c"
+          },
+          {
+            "name": "EC-SK-002-N \u8fb9\u754c\u6761\u4ef6",
+            "contractSha256": "98e7c357887d1106caed285513e69235e05ec8d6bb3f6762d8d67c4ed35556f3"
+          }
+        ]
+      },
+      "plugin": "v0.1.0-dev.36",
+      "sourceRef": "v0.1.0-dev.34",
+      "scenarios": [
+        {
+          "id": "EC-SK-002-P",
+          "result": "PASS",
+          "evidence": "positiveColdProof.records filtered by pluginId; source identity matched; Art 10 explicit Node/orchestration declarations also inspected"
+        },
+        {
+          "id": "EC-SK-002-N",
+          "result": "PASS",
+          "evidence": "all own-skill bootstrap and CLI unavailable-archive cases; missing runtime observed; own setup path and no native calls verified"
+        }
+      ],
+      "redEvidence": "reconstructedHistoricalRed.records filtered by domain; historical CLI only with current fixed installer/lock",
+      "taskIds": [
+        "1.4",
+        "1.5",
+        "1.6"
+      ],
+      "scope": "independent install and dependency declaration only; not SK-003, full native command or V1 qualification"
+    },
+    {
+      "requirement": "PC-SK-002",
+      "status": "qualified_for_exact_current_lock",
+      "contract": {
+        "requirement": "PC-SK-002 \u72ec\u7acb\u5b89\u88c5\u4e0e\u4f9d\u8d56\u58f0\u660e",
+        "path": "openspec/changes/establish-v1-plugin/specs/skills-distribution/spec.md",
+        "line": 43,
+        "contractSha256": "052005246d219058a0321da1c05750479c8ef3ac66f186e373d06e289d69fa6a",
+        "scenarios": [
+          {
+            "name": "PC-SK-002-P \u5408\u540c\u6761\u4ef6\u6ee1\u8db3",
+            "contractSha256": "a46f384ec883b821fbafaf6a6889d58cadef0aefcd40ad9907fbe43331bdc263"
+          },
+          {
+            "name": "PC-SK-002-N \u8fb9\u754c\u6761\u4ef6",
+            "contractSha256": "95f6303369368378be9702d525ac3cef56743a4ce884c43c06ee15c7253c5f45"
+          }
+        ]
+      },
+      "plugin": "v0.1.0-dev.35",
+      "sourceRef": "v0.1.0-dev.33",
+      "scenarios": [
+        {
+          "id": "PC-SK-002-P",
+          "result": "PASS",
+          "evidence": "positiveColdProof.records filtered by pluginId; source identity matched; Art 10 explicit Node/orchestration declarations also inspected"
+        },
+        {
+          "id": "PC-SK-002-N",
+          "result": "PASS",
+          "evidence": "all own-skill bootstrap and CLI unavailable-archive cases; missing runtime observed; own setup path and no native calls verified"
+        }
+      ],
+      "redEvidence": "reconstructedHistoricalRed.records filtered by domain; historical CLI only with current fixed installer/lock",
+      "taskIds": [
+        "1.4",
+        "1.5",
+        "1.6"
+      ],
+      "scope": "independent install and dependency declaration only; not SK-003, full native command or V1 qualification"
+    },
+    {
+      "requirement": "VC-SK-002",
+      "status": "qualified_for_exact_current_lock",
+      "contract": {
+        "requirement": "VC-SK-002 \u72ec\u7acb\u5b89\u88c5\u4e0e\u4f9d\u8d56\u58f0\u660e",
+        "path": "openspec/changes/establish-v1-plugin/specs/skills-distribution/spec.md",
+        "line": 43,
+        "contractSha256": "85fdf34e17b7f4792f1f41d67e4bce8f81a8e3aa8552482a090c6f3015061d9b",
+        "scenarios": [
+          {
+            "name": "VC-SK-002-P \u5408\u540c\u6761\u4ef6\u6ee1\u8db3",
+            "contractSha256": "70456bbc96ffb48771eaf1a85a6fd3f2ad978fd28a18281bf9b7cb9185a63cec"
+          },
+          {
+            "name": "VC-SK-002-N \u8fb9\u754c\u6761\u4ef6",
+            "contractSha256": "1596fa89802b2a3445f394ca260301b44cd24ac08fe8ed07e50ce8773aa11e09"
+          }
+        ]
+      },
+      "plugin": "v0.1.0-dev.33",
+      "sourceRef": "v0.1.0-dev.31",
+      "scenarios": [
+        {
+          "id": "VC-SK-002-P",
+          "result": "PASS",
+          "evidence": "positiveColdProof.records filtered by pluginId; source identity matched; Art 10 explicit Node/orchestration declarations also inspected"
+        },
+        {
+          "id": "VC-SK-002-N",
+          "result": "PASS",
+          "evidence": "all own-skill bootstrap and CLI unavailable-archive cases; missing runtime observed; own setup path and no native calls verified"
+        }
+      ],
+      "redEvidence": "reconstructedHistoricalRed.records filtered by domain; historical CLI only with current fixed installer/lock",
+      "taskIds": [
+        "1.4",
+        "1.5",
+        "1.6"
+      ],
+      "scope": "independent install and dependency declaration only; not SK-003, full native command or V1 qualification"
+    }
+  ],
+  "artRequirementStatus": "AC-SK-002 remains OPEN: generic Skills CLI actual installation and its added scenarios not accepted by this run"
+}

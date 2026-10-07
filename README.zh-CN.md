@@ -424,3 +424,5 @@ CLI 验收默认锁现为 `host-acceptance-strict64.lock.json`：领域插件 de
 固定 EffectCraft 插件 dev.36／技能源 dev.34 通过 64 项安装身份与发现、15 项独立 Effect CLI 空缓存安装，以及原生摄像机渲染／重开／局部返工和三类失败路径。其余 49 项冷安装记录仅复用摘要一致的历史运行。完整首版仍开放。[固定摄像机证据](docs/evidence/effectcraft-camera-scene-fixed-first-use-20261008.json)。
 
 固定 PhotoCraft 插件 dev.35／技能源 dev.33 通过 64 项安装身份与发现，以及 13 项独立 Photo 公开空缓存原生保存／重开／局部返工／错误保护及 CLI 命令参数查询。其余 51 项冷安装记录仅复用摘要一致的历史运行。完整首版仍开放。[固定持久选区证据](docs/evidence/photocraft-saved-selection-fixed-first-use-20261008.json)。
+
+固定独立安装边界验收：全部 64 个当前技能的自身安装器／CLI 共 128 个不可用归档失败案例通过；错误保留本技能 setup 路径，无重试／原生启动，源副本摘要不变。四领域 SK-002 按当前精确锁验收；Art SK-002 和通用 Skills CLI 实际安装仍开放。历史 CLI 红灯为本轮重建，不冒充旧运行。[证据](docs/evidence/craft-fixed-setup-boundary-20261008.json)。
