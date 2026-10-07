@@ -1,3 +1,5 @@
+当前固定版本：领域source21／plugin23，Art source62／plugin89（runtime83）。五插件58技能隔离宿主安装、内容身份与发现通过；桌面冷启动批次仍在执行，全量2639命令与完整V1尚未验收。 [Evidence](evidence/craft-fixed-desktop-release-host-20261007.json).
+
 # 完整命令的查询、调用与工程交付
 
 四领域的反射目录是完整命令入口的事实源。公开创作工作流仍提供领域快捷操作，并增加 `native.command`：因此其快捷操作数不再限制能够尝试调用的原生命令数量。

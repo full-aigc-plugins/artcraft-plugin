@@ -1,3 +1,5 @@
+Current fixed releases: domain source21/plugin23; Art source62/plugin89 (runtime83). Isolated installation, immutable identities and discovery of all58 skills pass. Desktop cold batches remain in progress; exhaustive2639 commands and fullV1 are not accepted. [Evidence](evidence/craft-fixed-desktop-release-host-20261007.json).
+
 # Complete command queries, invocation and native delivery
 
 The four pinned reflected registries own the complete native command catalog. Domain workflows retain their convenience operations and add `native.command`; their convenience-operation counts no longer bound the number of native IDs that can be attempted.
