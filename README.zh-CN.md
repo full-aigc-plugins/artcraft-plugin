@@ -411,3 +411,7 @@ Art HD 源码候选通过五秒 1080p 分段编排、移动文字返工及损坏
 新默认锁的实际安装 CLI 复验通过：Python 3.13.5 下 64 个独立副本版本探测全部通过，用时 56.545 秒，源摘要不变；隔离 Python 安装计划执行通过，回归 59 项通过、5 项跳过。真实 Skills CLI 安装仍为 NOT_RUN。[证据](docs/evidence/craft-current64-default-lock-readiness-20261007.json)。
 
 固定 64 技能的实际安装原生工作流复验通过：混合项目、Logo 返工、调度中断恢复和移动交付包用例用时 88.332 秒；源工程返工、复用、Film 时长及安装回执篡改拒绝共 3 项通过，用时 152.991 秒，无跳过。执行后全部 64 个安装技能摘要不变。这些是技术测试素材的验证；通用 Skills CLI 安装、全部命令上下文和完整首版验收仍开放。[证据](docs/evidence/craft-fixed64-installed-native-workflow-20261007.json)。
+
+严格计划解析的固定安装复验通过：64 个 CLI 探测、54 个独立安装领域技能的 324 次重复键拒绝、54 次有效计划结构检查，以及四领域空缓存原生保存／重开／渲染实例通过；执行后全部 64 个安装技能摘要不变。仅关闭本次修复的发布门禁；通用 Skills CLI、Art 领域包升级、全部命令上下文和完整首版仍开放。[证据](docs/evidence/command-plan-json-fixed-first-use-20261007.json)。
+
+CLI 验收默认锁现为 `host-acceptance-strict64.lock.json`：领域插件 dev.30（Photo dev.31）、ArtCraft dev.96。旧锁保留历史证据。ArtCraft96 内部分发的领域包仍为此前版本，升级属于单独未完成任务。
