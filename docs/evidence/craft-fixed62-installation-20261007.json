@@ -1109,7 +1109,6 @@
     "scope": "fixed Codex-installed copies, public command list and local scene/parameter resources; not full native command or creative acceptance"
   },
   "remaining": [
-    "native desktop and mixed project verification in progress",
     "796 general commands need additional scene instructions",
     "complete2639 native acceptance and fullV1 remain open"
   ],
@@ -3705,5 +3704,134 @@
       }
     ],
     "seconds": 106.243
+  },
+  "boundedMixedNative": {
+    "tests": 2,
+    "result": "PASS",
+    "workflow": {
+      "schema": "artcraft-brand-artboard-mixed-first-use/v1",
+      "scope": "single copied revise skill; empty public runtime/domain install; five native projects, global brand revision and selective reuse; native board geometry and SVG/PNG/PDF byte identity; independent consumer PNG pixel changes; repeated budget/tasks; five-child package verify",
+      "runtimeVersion": "0.1.0-dev.83",
+      "vectorRuntimeIdentity": {
+        "capabilitySnapshotSha256": "6e0e3494e31f630b2e04833557050a453c48fab156c45bca2531c7382e50dd10",
+        "cliVersion": "0.2.0-craft.2",
+        "mode": "headless",
+        "pluginId": "vectorcraft",
+        "pluginVersion": "0.1.0-dev.26",
+        "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+      },
+      "unaffectedExports": {
+        "svg": {
+          "before": "bb9f40af1c0a8de22d1fe402abe57e8d48d1b572ed6c1df22fbc39eccf6293d0",
+          "after": "bb9f40af1c0a8de22d1fe402abe57e8d48d1b572ed6c1df22fbc39eccf6293d0"
+        },
+        "png": {
+          "before": "16c92d677119cf76cbeb1e67e7851c8688cad6cf955eb98386e52c654efc9d0f",
+          "after": "16c92d677119cf76cbeb1e67e7851c8688cad6cf955eb98386e52c654efc9d0f"
+        },
+        "pdf": {
+          "before": "5d27d28c3acfba2de866caadd887732ff6e22bbd1f78731536cbc76aeaff0546",
+          "after": "5d27d28c3acfba2de866caadd887732ff6e22bbd1f78731536cbc76aeaff0546"
+        }
+      },
+      "initialTaskIds": {
+        "logo": "wf-80a307be529268204bc34cf191e487e877b9590b43494ff4",
+        "badge": "wf-a69c14a4ab2512831be37c7811115bbd613450f8b669d05e",
+        "poster": "wf-7f326a24bbbb4b4ddca0ecca7c9829b8269e7b2b7f239820",
+        "intro": "wf-817782794432e40f2c64e8550ff4b2484e460784b541f9e4",
+        "film": "wf-85dbdb37bd624a6c593fb725534a94392884109e5942aed9"
+      },
+      "revisedTaskIds": {
+        "badge": "wf-a69c14a4ab2512831be37c7811115bbd613450f8b669d05e",
+        "logo": "wf-06b4998bb0df863a507cedbe60c525c4f8b45d21371dae05",
+        "poster": "wf-81d2a27ce5dfb353447dba3d2602a8b7157414d8d4dcf0ec",
+        "intro": "wf-4fcbc2b10a5b875fdf2900ce3680af08808cf337dc55a2fe",
+        "film": "wf-4427f31914469456d9eafab0e3b4b0183ccd4dd195ff7935"
+      },
+      "originalDeliveryPreserved": true,
+      "providedVoicePreserved": true,
+      "skillFilesPreserved": true,
+      "repeatBudgetAndTasksPreserved": true,
+      "packageChildren": 5,
+      "artboards": [
+        {
+          "id": 1,
+          "name": "Artboard 1",
+          "rect": {
+            "x0": 0.0,
+            "x1": 256.0,
+            "y0": 0.0,
+            "y1": 256.0
+          },
+          "show_center_mark": false,
+          "show_cross_hairs": false
+        },
+        {
+          "id": 2,
+          "name": "Icon",
+          "rect": {
+            "x0": 288.0,
+            "x1": 488.0,
+            "y0": -24.0,
+            "y1": 216.0
+          },
+          "show_center_mark": false,
+          "show_cross_hairs": false
+        },
+        {
+          "id": 3,
+          "name": "Brand variant",
+          "rect": {
+            "x0": 576.0,
+            "x1": 768.0,
+            "y0": -40.0,
+            "y1": 216.0
+          },
+          "show_center_mark": false,
+          "show_cross_hairs": false
+        }
+      ],
+      "distributionLockSha256": "98427b91b2584fd1ebc3c4f06ac2b86c1669b41dc45a2f041563c13b129e8fee"
+    },
+    "failureIsolation": {
+      "schema": "artcraft-mixed-artboard-isolation-regression/v1",
+      "unaffectedExports": {
+        "svg": {
+          "before": "bb9f40af1c0a8de22d1fe402abe57e8d48d1b572ed6c1df22fbc39eccf6293d0",
+          "after": "bb9f40af1c0a8de22d1fe402abe57e8d48d1b572ed6c1df22fbc39eccf6293d0"
+        },
+        "png": {
+          "before": "16c92d677119cf76cbeb1e67e7851c8688cad6cf955eb98386e52c654efc9d0f",
+          "after": "16c92d677119cf76cbeb1e67e7851c8688cad6cf955eb98386e52c654efc9d0f"
+        },
+        "pdf": {
+          "before": "5d27d28c3acfba2de866caadd887732ff6e22bbd1f78731536cbc76aeaff0546",
+          "after": "5d27d28c3acfba2de866caadd887732ff6e22bbd1f78731536cbc76aeaff0546"
+        }
+      },
+      "vectorRuntimeIdentity": {
+        "capabilitySnapshotSha256": "6e0e3494e31f630b2e04833557050a453c48fab156c45bca2531c7382e50dd10",
+        "cliVersion": "0.2.0-craft.2",
+        "mode": "headless",
+        "pluginId": "vectorcraft",
+        "pluginVersion": "0.1.0-dev.26",
+        "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+      },
+      "initialTaskIds": {
+        "logo": "wf-80a307be529268204bc34cf191e487e877b9590b43494ff4",
+        "badge": "wf-a69c14a4ab2512831be37c7811115bbd613450f8b669d05e",
+        "poster": "wf-7f326a24bbbb4b4ddca0ecca7c9829b8269e7b2b7f239820",
+        "intro": "wf-817782794432e40f2c64e8550ff4b2484e460784b541f9e4",
+        "film": "wf-85dbdb37bd624a6c593fb725534a94392884109e5942aed9"
+      },
+      "revisedTaskIds": {
+        "badge": "wf-a69c14a4ab2512831be37c7811115bbd613450f8b669d05e",
+        "logo": "wf-06b4998bb0df863a507cedbe60c525c4f8b45d21371dae05",
+        "poster": "wf-81d2a27ce5dfb353447dba3d2602a8b7157414d8d4dcf0ec",
+        "intro": "wf-4fcbc2b10a5b875fdf2900ce3680af08808cf337dc55a2fe",
+        "film": "wf-4427f31914469456d9eafab0e3b4b0183ccd4dd195ff7935"
+      },
+      "scope": "single ArtCraft revise skill, empty public runtime/domain downloads, five-node brand revision, distinct artboard sizes/origins; before unaffected export gate"
+    }
   }
 }
