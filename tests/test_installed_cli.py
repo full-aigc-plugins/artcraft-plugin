@@ -16,7 +16,7 @@ class InstalledCliTests(unittest.TestCase):
  def test_default_installed_verification_uses_current_lock(self):
   m=self.module()
   with patch.object(sys,'argv',['verify','--receipt','fixture-receipt.json','--output','fixture-output']),patch.object(m,'verify',return_value={'result':'passed','versionProbes':64,'pythonVersion':'fixture','seconds':0}) as verify,redirect_stdout(io.StringIO()):m.main()
-  self.assertEqual(verify.call_args.args[1],ROOT/'host-acceptance-art104.lock.json')
+  self.assertEqual(verify.call_args.args[1],ROOT/'host-acceptance-art105.lock.json')
  def test_native_version_comparison_is_exact(self):
   m=self.module();self.assertTrue(m.matches_version('filmcraft-cli 0.2.0-craft.1','0.2.0-craft.1'))
   for text in ('filmcraft-cli 0.2.0-craft.10','filmcraft-cli 10.2.0-craft.1','0.2.0-craft.1-extra'):

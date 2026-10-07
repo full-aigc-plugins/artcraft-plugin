@@ -2,7 +2,15 @@
 
 This audit checks the current fixed releases and actual installation identities while retaining the full goal. **Installation identities and recorded cold starts match; overall completion remains unproven.** It neither changes OpenSpec/tasks/releases nor reruns native work.
 
-## Current dev.102 audit
+## Current dev.105 defaults
+
+The three maintainer tools use `host-acceptance-art105.lock.json`; the auditor uses `craft-art105-whisper-fixed-first-use-20261008.json`. The default audit rehashed all 64 current identities and reports 120 requirements and 277 open tasks. Recorded cold evidence comprises 23 new Film/Art runs and 41 historical records reused after complete digest equality. Explicit historical lock/evidence parameters remain supported. Nine audit tests cover current defaults, historical overrides and existing rejection boundaries; they do not prove new creative acceptance.
+
+[Current fixed evidence](evidence/craft-art105-whisper-fixed-first-use-20261008.json).
+
+Actual default installed verification passes 64 CLI probes in 73.069s, with five new domain caches and later reuse. The 80-test Python regression has 75 passes and five conditional skips. [Maintainer correction evidence](evidence/artcraft105-maintainer-defaults-20261008.json).
+
+## Historical dev.102 audit
 
 The current immutable matrix is Film32/source30, Effect33/31, Photo33/31, Vector32/30 and Art102/76, totaling64 skills. All64 freshly executed independent cold installations pass in666.554s; these are one current run, separate from the historical composed proof below. Current tracked source exports, full plugin/installed skill trees and exact host/tag identities match. There are120 requirements,439 scenarios and277 unchecked tasks. No complete formal requirement is inferred from this installation proof. Actual generic Skills CLI, exhaustive command contexts and creative review remain open.
 

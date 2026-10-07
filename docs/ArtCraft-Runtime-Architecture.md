@@ -303,7 +303,7 @@ Snapshot `0.1.0-dev.7` has scoped installation/discovery and installed-entrypoin
 
 ## Maintainer installation verification
 
-The current maintainer checkout defaults its independent-install plan, installed CLI verifier and completion audit to host-acceptance-art104.lock.json. The completion audit uses its matching version-bound sample-audio evidence. An explicit historical --lock remains available; published immutable plugin/skill releases and their runtime installers are unchanged.
+The current maintainer checkout defaults its independent-install plan, installed CLI verifier and completion audit to host-acceptance-art105.lock.json. The completion audit uses its matching version-bound ASR evidence. An explicit historical --lock remains available; published immutable plugin/skill releases and their runtime installers are unchanged.
 
 Before any external installation call, validate five-domain inventory, fixed development source refs, complete hexadecimal commit and per-skill digests, and domain-scoped skill names. Reject paths, option-like names and foreign-domain names before creating the output project. Resolve an existing tool only after plan validation. The installed verifier shares the native identity gate with independent cold-use verification: domain CLI name plus exact version, or Art JSON name/version. A zero exit code and matching version from another executable cannot publish a success receipt.
 

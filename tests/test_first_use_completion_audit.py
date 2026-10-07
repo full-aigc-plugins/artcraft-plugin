@@ -37,8 +37,20 @@ class FirstUseCompletionAuditTests(unittest.TestCase):
                   '--host-receipt','fixture-host.json','--output',str(output)]
             with patch.object(sys,'argv',argv),patch.object(module,'audit',return_value=report) as audit,redirect_stdout(io.StringIO()):
                 module.main()
-            self.assertEqual(audit.call_args.args[2],module.ROOT/'host-acceptance-art104.lock.json')
-            self.assertEqual(audit.call_args.args[3],module.ROOT/'docs/evidence/craft-art104-sample-audio-fixed-first-use-20261007.json')
+            self.assertEqual(audit.call_args.args[2],module.ROOT/'host-acceptance-art105.lock.json')
+            self.assertEqual(audit.call_args.args[3],module.ROOT/'docs/evidence/craft-art105-whisper-fixed-first-use-20261008.json')
+
+    def test_explicit_historical_lock_and_evidence_remain_supported(self):
+        module = self.module()
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary) / 'audit.json'
+            report = {'goalStatus': 'not_complete', 'currentInstallationIdentity': {}, 'domains': []}
+            argv = ['audit', '--plugins-root', 'fixture-plugins', '--skills-root', 'fixture-skills',
+                    '--lock', 'historical.lock.json', '--evidence', 'historical-proof.json',
+                    '--host-receipt', 'historical-host.json', '--output', str(output)]
+            with patch.object(sys, 'argv', argv), patch.object(module, 'audit', return_value=report) as audit, redirect_stdout(io.StringIO()):
+                module.main()
+            self.assertEqual(audit.call_args.args[2:4], (Path('historical.lock.json'), Path('historical-proof.json')))
 
     def test_current_exact_inventory_is_accepted(self):
         lock, proof = self.fixture()

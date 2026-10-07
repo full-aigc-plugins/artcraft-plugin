@@ -366,3 +366,5 @@ SC-007固定发行证据：`docs/evidence/artcraft99-film29-fixed-first-use-2026
 2026-10-08 ASR分发候选证据：`docs/evidence/whisper-distribution-20261008.json`。旧公开Art分发实际Film不含Whisper，24.447秒红例；锁定已发布Film源34／native craft.4后选域冷安装24.576秒通过。真实首次模型下载及五子工程混合识别、品牌返工、海报／片头／视频像素变化、无关徽标复用、原交付与配音保全和移动包102.295秒通过。常规145项中109通过／36跳过；固定Art104尚未更新，AC-DM-002-ASR-MIXED不关闭。
 
 2026-10-08 固定Art105首次模型下载／实际混合识别、真实消费者像素差异、品牌依赖返工、无关徽标复用及移动包196.910秒通过；安装的10技能独立冷启动201.746秒通过。仅关闭上述ASR有界任务；完整V1、通用Skills CLI及其他创作／平台门禁保持开放。Art记录：`docs/evidence/whisper-distribution-20261008.json`。
+
+2026-10-08 默认维护入口修正（AC-SK-002-INSTALL-LOCK）：三个工具统一 Art105 锁及 ASR 证据，先复现旧104默认值红例，保留显式历史参数；80项回归中75通过／5条件跳过，默认实际审计核对64项身份（120需求／444场景／277开放任务），64项安装副本公开CLI版本探测73.069秒通过（5个领域新缓存，其余复用）。证据 `docs/evidence/artcraft105-maintainer-defaults-20261008.json`。不改不可变发行，不关闭通用Skills CLI或完整V1。
