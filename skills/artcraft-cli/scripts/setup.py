@@ -44,14 +44,47 @@ def verify_bundle(target, lock):
     return target
 
 
-def install_bundle(lock, target, archive=None):
-    url = urllib.parse.urlparse(lock.get('url', ''))
+def validate_bundle_lock(lock):
+    """提前验证制品结构，不写目录或发起下载；保留既有来源与格式规则。"""
+    if (not isinstance(lock, dict) or not isinstance(lock.get('url'), str)
+            or not isinstance(lock.get('sha256'), str)
+            or not isinstance(lock.get('files'), dict)
+            or type(lock.get('bytes')) is not int or lock['bytes'] <= 0):
+        raise ValueError('bundle_lock_invalid')
+    filename = lock.get('filename')
+    if not isinstance(filename, str) or not safe_path(filename) or '/' in filename:
+        raise ValueError('bundle_path_invalid')
+    if 'version' in lock and (not isinstance(lock['version'], str)
+            or not re.fullmatch(r'\d+\.\d+\.\d+(?:-dev\.\d+)?', lock['version'])):
+        raise ValueError('bundle_version_invalid')
+    if 'archiveFormat' in lock and lock['archiveFormat'] not in ('canonical-skills-zip', 'git-archive-zip'):
+        raise ValueError('bundle_lock_invalid')
+    if any(not isinstance(name, str) or not isinstance(value, str)
+           for name, value in lock['files'].items()):
+        raise ValueError('bundle_lock_invalid')
+    url = urllib.parse.urlparse(lock['url'])
     if url.scheme != 'https' or url.netloc != 'github.com' or url.query or url.fragment or not re.fullmatch(r'/(full-aigc-plugins/artcraft-plugin|full-aigc-skills/(filmcraft|effectcraft|photocraft|vectorcraft)-skills)/releases/download/v[^/]+/[^/]+\.zip', url.path):
         raise ValueError('bundle_url_invalid')
-    if not re.fullmatch(r'[a-f0-9]{64}', lock.get('sha256', '')) or not isinstance(lock.get('files'), dict) or 'LICENSE' not in lock['files'] or not 0 < len(lock['files']) <= 2000:
+    if not re.fullmatch(r'[a-f0-9]{64}', lock['sha256']) or 'LICENSE' not in lock['files'] or not 0 < len(lock['files']) <= 2000:
         raise ValueError('bundle_lock_invalid')
-    if any(not safe_path(name) or not re.fullmatch(r'[a-f0-9]{64}', digest) for name,digest in lock['files'].items()):
+    if any(not safe_path(name) or not re.fullmatch(r'[a-f0-9]{64}', value) for name, value in lock['files'].items()):
         raise ValueError('bundle_lock_invalid')
+
+
+def validate_distribution(lock):
+    """验证完整分发锁，包括未选择的依赖身份；本函数没有安装副作用。"""
+    if (not isinstance(lock, dict) or lock.get('schema') != 'artcraft-distribution/v1'
+            or not isinstance(lock.get('version'), str)
+            or not re.fullmatch(r'\d+\.\d+\.\d+(?:-dev\.\d+)?', lock['version'])
+            or not isinstance(lock.get('bundles'), dict)
+            or set(lock['bundles']) != {'artcraft-runtime', *[name+'-skills' for name in NAMES]}):
+        raise ValueError('distribution_lock_invalid')
+    for entry in lock['bundles'].values():
+        validate_bundle_lock(entry)
+
+
+def install_bundle(lock, target, archive=None):
+    validate_bundle_lock(lock)
     target = Path(target).absolute()
     if target.exists() or target.is_symlink():
         return verify_bundle(target, lock)
@@ -112,8 +145,7 @@ def bundle_version(lock, entry):
 
 
 def setup(lock, runtime_home, node, bundle_directory=None, native_archive_directory=None, plugins=None):
-    if lock.get('schema') != 'artcraft-distribution/v1' or not re.fullmatch(r'\d+\.\d+\.\d+(?:-dev\.\d+)?', lock.get('version', '')) or set(lock.get('bundles', {})) != {'artcraft-runtime', *[name+'-skills' for name in NAMES]}:
-        raise ValueError('distribution_lock_invalid')
+    validate_distribution(lock)
     selected = list(NAMES) if plugins is None else plugins
     if (not isinstance(selected, list) or any(not isinstance(name, str) or name not in NAMES for name in selected)
             or len(set(selected)) != len(selected)):

@@ -21,3 +21,11 @@ The failure receipt preserves the original error and identifies the current skil
 原生 CLI 已成功安装后的调用错误不会附加依赖安装诊断。编辑超时、断开或 unknown 状态需读取任务日志及保存工程，先确认实际结果，不能直接重跑原计划。安装失败、安装成功、原生任务完成分别报告。
 
 After successful installation, native call failures remain native failures. Reconcile editing timeouts against journals and saved projects before constructing a revision. Installation does not establish task completion.
+
+`runtime_lock_invalid` / `node_lock_invalid`：锁的 JSON 根对象、字段类型或当前平台制品结构损坏；在下载或创建运行时目录前拒绝。请从已确认固定发行重新安装完整当前技能，不修改锁来绕过校验，不寻找兄弟安装。
+
+These errors reject structurally invalid runtime/Node locks before download or runtime-directory writes. Reinstall the complete current skill from its confirmed fixed release; do not edit locks to bypass verification or select a sibling installation.
+
+`distribution_lock_invalid` / `bundle_lock_invalid`：分发根对象或制品字段结构损坏。完整分发锁在 Node 安装前检查；未选中的依赖身份也须有效。制品路径、来源地址和版本另保留各自明确的 invalid 错误。
+
+Distribution and bundle shape failures are checked before Node installation, including identities of dependencies not selected for installation. Path, URL and version errors retain their specific invalid diagnostics.

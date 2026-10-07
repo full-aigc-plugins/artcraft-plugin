@@ -11,6 +11,8 @@ import platform
 import re
 import shutil
 import subprocess
+import sys
+sys.dont_write_bytecode = True
 import tarfile
 import tempfile
 import urllib.request
@@ -36,16 +38,27 @@ def verify(target, lock):
     return {'nodeExecutable': str(executable), 'nodeSha256': lock['binarySha256'], 'nodeVersion': lock['version']}
 
 
-def install_node(lock, runtime_home, archive=None, platform_key=None):
-    actual = platform_key or (platform.system().lower() + '-' + {'arm64': 'arm64', 'aarch64': 'arm64', 'x86_64': 'x64'}.get(platform.machine(), platform.machine()))
-    if actual != 'darwin-arm64' or lock.get('platform') != actual:
-        raise ValueError('unsupported_platform')
+def validate_node_lock(lock):
+    # 先验证 JSON 对象和字段类型，避免损坏锁泄露内部异常或触发安装。
+    if (not isinstance(lock, dict) or lock.get('schema') != 'artcraft-node-lock/v1'
+            or any(not isinstance(lock.get(field), str)
+                   for field in ('platform', 'version', 'url', 'archiveSha256', 'binarySha256'))):
+        raise ValueError('node_lock_invalid')
     version = lock.get('version', '')
     if lock.get('schema') != 'artcraft-node-lock/v1' or not re.fullmatch(r'24\.\d+\.\d+', version):
         raise ValueError('node_lock_invalid')
     expected_url = f'https://nodejs.org/dist/v{version}/node-v{version}-darwin-arm64.tar.gz'
     if lock.get('url') != expected_url or any(not re.fullmatch(r'[a-f0-9]{64}', lock.get(key, '')) for key in ('archiveSha256', 'binarySha256')):
         raise ValueError('node_lock_invalid')
+    return version
+
+
+def install_node(lock, runtime_home, archive=None, platform_key=None):
+    version = validate_node_lock(lock)
+    actual = platform_key or (platform.system().lower() + '-' + {'arm64': 'arm64', 'aarch64': 'arm64', 'x86_64': 'x64'}.get(platform.machine(), platform.machine()))
+    if actual != 'darwin-arm64' or lock['platform'] != actual:
+        raise ValueError('unsupported_platform')
+    expected_url = f'https://nodejs.org/dist/v{version}/node-v{version}-darwin-arm64.tar.gz'
     home = Path(runtime_home).expanduser().resolve()
     home.mkdir(parents=True, exist_ok=True)
     with (home/'.artcraft-node-install.lock').open('a+b') as ownership:
@@ -120,14 +133,17 @@ def main():
     try:
         if args.plugin and len(set(args.plugin)) != len(args.plugin):raise ValueError('plugin_selection_invalid')
         lock = json.loads(Path(__file__).with_name('node.lock.json').read_text())
-        node = install_node(lock, args.runtime_home, args.node_archive)
-        if args.node_only:
-            result = node
-        else:
+        validate_node_lock(lock)
+        if not args.node_only:
             path = Path(__file__).with_name('setup.py')
             spec = importlib.util.spec_from_file_location('artcraft_setup', path)
             module = importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
             distribution = json.loads(Path(__file__).with_name('distribution.lock.json').read_text())
+            module.validate_distribution(distribution)
+        node = install_node(lock, args.runtime_home, args.node_archive)
+        if args.node_only:
+            result = node
+        else:
             result = module.setup(distribution, args.runtime_home, node, args.bundle_dir, args.native_archive_dir, plugins=[] if args.runtime_only else args.plugin)
         print(json.dumps(result))
     except (OSError, ValueError, subprocess.SubprocessError, tarfile.TarError) as error:

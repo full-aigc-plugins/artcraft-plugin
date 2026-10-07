@@ -1,0 +1,483 @@
+{
+  "schema": "artcraft-distribution-preflight-candidate/v1",
+  "result": "PASS",
+  "red": {
+    "tests": 2,
+    "failures": 16,
+    "logSha256": "95bd3033d38ea1edd65e6e4b076a4e469e240ca82c2437d535bbb08455f54aa3"
+  },
+  "targetTests": {
+    "tests": 2,
+    "passed": 2,
+    "shapeCases": 15,
+    "scope": "bootstrap preflight observes zero install_node calls; copied bootstrap and CLI reject null distribution before runtime exists"
+  },
+  "relatedTests": {
+    "setup": 12,
+    "selected": 7,
+    "selectedPassed": 6,
+    "selectedOptInSkipped": 1,
+    "nodeBootstrap": 5
+  },
+  "sourceRegression": {
+    "tests": 143,
+    "passed": 109,
+    "optInSkipped": 34,
+    "seconds": 31.116
+  },
+  "changedScripts": {
+    "bootstrap.py": "9968fcc1e04740fbd109d51027eefb2f2d677f729b2a57213ed5c94e82b8a53d",
+    "setup.py": "26322d14fec0db257088b89b35657cc5cb91e5c415989ef8aaed52a002ba8771"
+  },
+  "scope": "Candidate source validation: all ten Art public entries reject malformed distribution before runtime writes; fixed new domain bundles pass fresh online native mixed workflow. Fixed installed host acceptance remains pending.",
+  "allTenPublicDiagnostics": {
+    "schema": "artcraft-candidate-all10-distribution-preflight/v1",
+    "result": "PASS",
+    "skills": 10,
+    "publicCalls": 40,
+    "records": [
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-use",
+        "candidateOriginalSkillSha256": "3c830e790884136830a49926ef650d37ac357a19477a8d72a1428decd6958c1c",
+        "corruptedCopySha256": "03973e9eec2ab4f78cea84b3d5b10f5a5b34cbef900447feca8a7badfc5a93bd",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli",
+        "candidateOriginalSkillSha256": "b9cbb2b0c6128b8aa3b023854ccb90653138749ba28abfdf2a2a0abf2a88b647",
+        "corruptedCopySha256": "525eb4dfa7c8a7c6de0743015e47d516d5a9dea4668d0796749ad5e2b9727f9b",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli-setup",
+        "candidateOriginalSkillSha256": "41a4de1d84fa65044415500f5177e33d688ae773c5def7f71f0e6d7b7b7db833",
+        "corruptedCopySha256": "bb1b3b9ba97a12c85d1d13c108dc9771a3f1242b0d1fabaa443c9b8e35b95af4",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli-plan",
+        "candidateOriginalSkillSha256": "4fdf094e34b93cc5e953d112c687e9a0235f227e210d87fc9dd37990dfb23051",
+        "corruptedCopySha256": "f35be764290b244a7aff6bf1540ee19471d1f8ecb553a01630f51da1ec07642e",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli-execute",
+        "candidateOriginalSkillSha256": "085d6cb11d7dc6986d57aaa8737ffab0bfa57ef8f509975ae6cf85872cf4d9c5",
+        "corruptedCopySha256": "4afecae58981710ad7b67c0945da832d4ab5c43836eb98e7bbc7008137f86773",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli-assets",
+        "candidateOriginalSkillSha256": "faedbba8e83663f3a8d0e6c8cf901ba8fc7ad10d3c8c95d81eb1785830ffdc9b",
+        "corruptedCopySha256": "0d9cde5ee6fa1716cd18701b5494d59710024fe93a31d5c7c8fefad0821459c1",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli-revise",
+        "candidateOriginalSkillSha256": "28a5c06ac233aff5d54fd7bdc84b92426b0fb58e98ddd173badc488b25352de2",
+        "corruptedCopySha256": "b8585c7d892dac78d17b4ff8881b4ea816c1b9b23a11a1789c3d408338402da5",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli-recover",
+        "candidateOriginalSkillSha256": "36ebb4f6bd76d5b5256a745b96aeeccef7fbfeb6232641f0b321c2e973a64871",
+        "corruptedCopySha256": "ec8a14d5dab05d959006a767b3063b203aa01d0235b3e67eee7930c2a2f06eb2",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli-deliver",
+        "candidateOriginalSkillSha256": "b5a6c736dcd682eb0154877524db9b4bd806fde1fd66340c4664af138e803cb1",
+        "corruptedCopySha256": "316c6aa753289c2f7af1e04d3dd71085eda1c1b71a8eeb7f304e7cba232b4a2a",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      },
+      {
+        "plugin": "artcraft",
+        "skill": "artcraft-cli-review",
+        "candidateOriginalSkillSha256": "3009dbfe19eeb72f38c4cfceff9542ab56ed19bf692796f6670c9892c8ff49b3",
+        "corruptedCopySha256": "449ac14cca1f3d82d20ebdb81ce7d1f498cf09c4734b4544d727c7d0f8df053d",
+        "calls": [
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": false,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "bootstrap.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          },
+          {
+            "entry": "cli.py",
+            "existingRuntime": true,
+            "error": "distribution_lock_invalid",
+            "localRecoveryPathVerified": true,
+            "runtimePreserved": true,
+            "skillFilesPreserved": true
+          }
+        ]
+      }
+    ],
+    "scope": "Candidate source copies only; syntactically valid null Art distribution locks; both bootstrap and CLI, absent and pre-existing runtimes. No original source, runtime or published skill mutation.",
+    "excluded": [
+      "Published fixed installation acceptance",
+      "All other malformed field combinations; separate use-skill matrix tests",
+      "Native healthy installation; separate candidate tests"
+    ]
+  },
+  "normalLockNative": {
+    "domain": "artcraft",
+    "exitCode": 0,
+    "seconds": 134.445,
+    "driverSha256": "0f9e95394c0f1a0601fcb08da181f4aa539f5cfd3923e0f14d6732c028b3cd29",
+    "candidate": true,
+    "publishedPluginAcceptance": false
+  },
+  "nativeEvidenceSha256": "b628b407b3c7c70522f821de46a6b42e84a349fea7d86455a8c3d68adf385e65",
+  "bundles": {
+    "artcraft-runtime": {
+      "version": "0.1.0-dev.83",
+      "sha256": "a1aa249c070d4a84e8318b5d898d60905bc7bede355c6926c944a209f9829f63",
+      "bytes": 71311
+    },
+    "filmcraft-skills": {
+      "version": "0.1.0-dev.30",
+      "sha256": "5c7b9411334dafc2485fe4a876932b10404623332b1c4e8bbcbc27ed2c9180de",
+      "bytes": 3062012
+    },
+    "effectcraft-skills": {
+      "version": "0.1.0-dev.31",
+      "sha256": "7af2ca3a06582e3d51deed17d0b4b5a7df9be679af94a2bae24ee4b509058f7a",
+      "bytes": 3792118
+    },
+    "photocraft-skills": {
+      "version": "0.1.0-dev.31",
+      "sha256": "5f97476c91094c62e0f2366ff3321ad6f237e063c844f192bdc5cddabf789d19",
+      "bytes": 3681131
+    },
+    "vectorcraft-skills": {
+      "version": "0.1.0-dev.30",
+      "sha256": "b4b1d1dba6dcd751a625fee9f3486d64b40b24da440843862c19a82f87163693",
+      "bytes": 4313735
+    }
+  }
+}
