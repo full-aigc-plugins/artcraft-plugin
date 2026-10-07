@@ -2,7 +2,10 @@
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current plugin: `0.1.0-dev.102`; skill source: `0.1.0-dev.76`; 10 independent skills.
+Current plugin: `0.1.0-dev.103`; skill source: `0.1.0-dev.77`; 10 independent skills.
+
+Audio-tail distribution update: plugin dev.103 targets Art source dev.77 and Film source dev.31. Native runtime dev.83 and the other three domain sources are unchanged. Installed verification for this new distribution is pending; the dev.102 evidence below remains version-bound.
+
 
 Verified first-use platform: macOS arm64 and Python 3.11+. Pinned runtimes install into the user data directory; skill files stay in their host-loaded directory. These are development releases; complete V1 acceptance and generic Skills CLI installation remain open.
 
@@ -99,9 +102,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.102 |
+| Plugin ID / version | artcraft / 0.1.0-dev.103 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.76 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.77 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
