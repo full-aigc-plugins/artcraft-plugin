@@ -1,0 +1,199 @@
+{
+  "schema": "artcraft100-fixed-worker-crash-first-use/v1",
+  "result": "PASS",
+  "hostLock": {
+    "schema": "craft-host-release-lock/v1",
+    "plugins": {
+      "filmcraft": {
+        "repository": "https://github.com/full-aigc-plugins/filmcraft-plugin.git",
+        "version": "0.1.0-dev.31",
+        "ref": "v0.1.0-dev.31",
+        "sha": "10d100455a1a2e0c9f3ccaed3e1324905416799d",
+        "skillSourceSha": "5f1df5e116adef2dd8770b94e2eced327bd98160",
+        "skillSourceRef": "v0.1.0-dev.29",
+        "skillSha256": "08eb00e283cd06ce9e91f4d82d6e96c41e0ec0038c96cddfd4213606068f928c",
+        "pluginManifestSha256": "df7e76fefd1c634f891d893c524a07333d889aa1a88f30ea20189cc180d1d593",
+        "skills": {
+          "filmcraft-cli": "9f4d2046640ce89052ecdd87c0d603707122d7991f3394f7c0c03f24fbdf6487",
+          "filmcraft-cli-audio": "579b1c1f995521c94cc52293d05e8a2a67678c613022568f51f276045a560eba",
+          "filmcraft-cli-color": "a0bf8da4c920ad1ba8991dade93b481a14d586dca39a279941d8ea524e42c46f",
+          "filmcraft-cli-export": "b86a510a3d3168328babf8a608adbd55976d9b54bc2f1ba4d642c1646d5eefde",
+          "filmcraft-cli-media": "e781537b9660e87b0c44415f83f86b4d5a2b569e93fc898c2b432f6926720f5d",
+          "filmcraft-cli-motion": "09233ef2fd8561df73cb17a548741fa6e3d133367fac58d12555e05ef8ea4098",
+          "filmcraft-cli-multicam": "7b20be7682682a1e2d58e372dbe7a55192333a225cb526878f43935848115d58",
+          "filmcraft-cli-project": "69f9299f19f562c199591819b465f458d61c578d6c2ece65827797dd966fcbb2",
+          "filmcraft-cli-setup": "7e0be8e53b2280ee47029d1e0d8ce34272e45d6b6447f8c771a0f47062e96b03",
+          "filmcraft-cli-subtitles": "ce22d56678253ea8bf530eebdb4704f82f84bf84f9c954d355410637350c4f89",
+          "filmcraft-cli-timeline": "1086141bf029a3843918eefaff15921b0ebe8ed1a75e31a28ada4edaf0564ed2",
+          "filmcraft-cli-transcript": "d33556eaa2299d777442093d9c2efc4b0d542f5cc4ddad0a8fa0f7c575a68a36",
+          "filmcraft-use": "08eb00e283cd06ce9e91f4d82d6e96c41e0ec0038c96cddfd4213606068f928c"
+        }
+      },
+      "effectcraft": {
+        "repository": "https://github.com/full-aigc-plugins/effectcraft-plugin.git",
+        "version": "0.1.0-dev.32",
+        "ref": "v0.1.0-dev.32",
+        "sha": "50e444f283534df5d13348f1a67a5acab7679929",
+        "skillSourceSha": "929c0750a3fc558b693062806b81c0c053e12dc1",
+        "skillSourceRef": "v0.1.0-dev.30",
+        "skillSha256": "2ef4825650e4d26efb2fbe31227fbabaa50d50e8b258b6bd5a5c105b2052bbfc",
+        "pluginManifestSha256": "7889158c242cd424ac8d5612be63aba4bfe72fc7c6e4e3d5e9a98425fa757c2c",
+        "skills": {
+          "effectcraft-cli": "11b857e79e973e206cf3d6f86409006896f871dbc16dce36f2669fbd55443b1e",
+          "effectcraft-cli-animation": "cdaa7203c2437f8e7e6bcb0a3c041d268a5ab1c5b8684fae490f44185226c3c5",
+          "effectcraft-cli-camera": "edf2402cf5410a1bbd14c4eef922d96c75a5de9e04a52c1567e2a994450f2799",
+          "effectcraft-cli-composition": "c664f3bd2c5aa820729469dd99e6fa2f7268cabbcdbbb4e9f097d8efc62827e8",
+          "effectcraft-cli-effects": "2738edbf0f57e999c034c7d4c0fc3c4e49bff373b8a6892a908d4a4a7b66dd1b",
+          "effectcraft-cli-export": "7ff7b9042a2a4f64f5ece5f93fc937e95fcdce153c277c2b801030d81cd3535e",
+          "effectcraft-cli-expressions": "966292a1b377b5ba6dadf2318ec63526ac0f569fc7f67624dcecf6c404532e08",
+          "effectcraft-cli-footage": "3597b342228a54b24816e723a19ea3499d6e9d61b7f5a7f3f984e8555ad87756",
+          "effectcraft-cli-layers": "0b6e119713fada522004d6ea8ab58d210627219f8ad74fd0518f5ceef11591ca",
+          "effectcraft-cli-masks": "9adceb8bc0f025d287f869f49c7885f0947adc1741642e72434021e53afa4d6e",
+          "effectcraft-cli-project": "f5f395e7ea64e0295843ecdddb1f9711852c79d53c2b72828fcf2db7ab366f82",
+          "effectcraft-cli-puppet": "9a726158f99ca404f89691a7adb08bcfabd9c998b7ab76a76eacaa17334b970c",
+          "effectcraft-cli-setup": "019f566afdbca0e8a8f2cba920e544cbc3680cd2d2dc61b7014ab42bcae697c6",
+          "effectcraft-cli-tracking": "6eb34e775940bbc8c4d07e21b34f675ec0c6c53b6ad00cdb11f9df63807fadcc",
+          "effectcraft-use": "2ef4825650e4d26efb2fbe31227fbabaa50d50e8b258b6bd5a5c105b2052bbfc"
+        }
+      },
+      "photocraft": {
+        "repository": "https://github.com/full-aigc-plugins/photocraft-plugin.git",
+        "version": "0.1.0-dev.32",
+        "ref": "v0.1.0-dev.32",
+        "sha": "369f8024259de9b5bf4204bdaf1601a10d657a33",
+        "skillSourceSha": "6bee9588127abdd323f5b2b7ebc13bb97ece0d6a",
+        "skillSourceRef": "v0.1.0-dev.30",
+        "skillSha256": "573e56df94b2d1b36224e69e8ad311035300878c490ea4f03ffe7cddf6e8e848",
+        "pluginManifestSha256": "fc644bf1b630c7959a647ebcb2df7aaa1ce87ffcff213a607d8df54818f163f8",
+        "skills": {
+          "photocraft-cli": "210891adaa0604770975276bdfba433cbb27cc0a43ff06027e307887c02d2334",
+          "photocraft-cli-adjustments": "cd53c2a7f8e3bf635cea3d35acd5688bd1ad4ae16eeb2ac891e5ef9b89044339",
+          "photocraft-cli-export": "0a2677dd9ea8306ac215e2f7926705ba4aaca3e4ad19cc5d6a990e007a152085",
+          "photocraft-cli-filters": "9b12738b30aec8113b3cf9505f79bb79256d6a2ed5a4c1c021549d5010032414",
+          "photocraft-cli-layers": "db665afe70f21c0c6f469e3dade10c488a54c75ff5002e15dbc678237e9d74b6",
+          "photocraft-cli-masks": "8dc2c09bd4e049216667a97543b23b2771ef5d8be40a54bddc61b6bc786cc4e0",
+          "photocraft-cli-project": "5e64181188511e67866c76dad0c9899e041642f32f3226a6d1d672322ca95d1a",
+          "photocraft-cli-resize": "e4b322692897a70665996e78734be2fa9ba71be4b09c03a3c95735adbdaf4b46",
+          "photocraft-cli-retouch": "64cceca135abed19b035f1e9b710f46628c33ea0b5f3ec2f3f4865f74b70e6ca",
+          "photocraft-cli-selection": "7cd547cec3d19032800d7be43d8af4b3c1ff5cc7488a785167f77511f73700c0",
+          "photocraft-cli-setup": "79b28c34be04387b9827f46cbc19ddfb0eb2f0da7f127dad8b1712741a1e5027",
+          "photocraft-cli-text": "56b3cdf5df5274415a5d52b8e810ec36635568f13c50ed5390970e7051a79ac8",
+          "photocraft-use": "573e56df94b2d1b36224e69e8ad311035300878c490ea4f03ffe7cddf6e8e848"
+        }
+      },
+      "vectorcraft": {
+        "repository": "https://github.com/full-aigc-plugins/vectorcraft-plugin.git",
+        "version": "0.1.0-dev.31",
+        "ref": "v0.1.0-dev.31",
+        "sha": "7adee4f0b7f911b8f40243b77368d9a255ace72f",
+        "skillSourceSha": "a4e2980adb245adfc50ed917cb0f972169e0ebdb",
+        "skillSourceRef": "v0.1.0-dev.29",
+        "skillSha256": "1d015dc90c8cabd88c803af85e71ae5ebfe020f55282a6e59a4f01a665487886",
+        "pluginManifestSha256": "fb64af81ad812cb8314b9540edd3da8ee7c1f6125a125ba3d177863c8f4e16c7",
+        "skills": {
+          "vectorcraft-cli": "ef968b05d51c411966e107f851583a670c99314b7e54ff8d59320e8ee2678a2d",
+          "vectorcraft-cli-appearance": "f47d15b99cbecce826b45009247c2c59349dba03cde63e8ec5ac3732d178bc1d",
+          "vectorcraft-cli-artboards": "dc5090f2aa7f9b962a8c588b2f65ec07f812f07c30b5c200444b39c860a27ab6",
+          "vectorcraft-cli-assets": "ca0437a93390abbcfa7957cfccaa191d7f00a99180d2cbc2a0c4e4f21af84037",
+          "vectorcraft-cli-boolean": "fc44aadc7349a1e9726edb7b1952f4e3013f2b5ed8093dcfa2b2a436d01ae5e3",
+          "vectorcraft-cli-export": "5f641ccd7085d27bf0d6b51e2220b74290f7a0e15a3a0144fbf8d55a60bdc146",
+          "vectorcraft-cli-paths": "a349b2f20c3d7a18e73d2b6cd51061688c907779fbadad5eb6e828a94628ad17",
+          "vectorcraft-cli-project": "115e3928b7e8b1f420bf4e466533f2e3711ae0dd2b7c9d2727ae874e0bb26415",
+          "vectorcraft-cli-selection": "447323c51ecdfefea00d17a820515c5078ad4b1c37d50bd9cd7d046669f9406b",
+          "vectorcraft-cli-setup": "68b8db9a243ad09e3de53b3e15c59a85b3057ca29e9807b7ae39c7c73f0dca49",
+          "vectorcraft-cli-shapes": "fb0b90700a11cb04ba80940ba6099bd354675a6a4dc205f1a10b06b784f57ed1",
+          "vectorcraft-cli-text": "73d0a21b96d271758978055c5026eb6b8b3b7cb28218e4b23d1535be3e097197",
+          "vectorcraft-use": "1d015dc90c8cabd88c803af85e71ae5ebfe020f55282a6e59a4f01a665487886"
+        }
+      },
+      "artcraft": {
+        "repository": "https://github.com/full-aigc-plugins/artcraft-plugin.git",
+        "version": "0.1.0-dev.100",
+        "ref": "v0.1.0-dev.100",
+        "sha": "de6f3cef2d23ffe9a3a5d9778043762222ec6ac9",
+        "skillSourceSha": "4526828da850eae5bab413f3e0b6e28f3f8e56c5",
+        "skillSourceRef": "v0.1.0-dev.74",
+        "skillSha256": "c219ed69b43d238b492afb2a974725aeb730c28e12f689912262cbd5fcd14052",
+        "pluginManifestSha256": "179b76bb17824669e79b9c456b98229d0c37be4dacaec779cb075388a1340161",
+        "skills": {
+          "artcraft-cli": "03dcb129eb4fdfe007d97e51ecbe235c59a1321ee80e7b24e7b93aad1c31cdc6",
+          "artcraft-cli-assets": "e8d2519d70f3d9afb4268411c4faf2e251e1d45720829afb9bdf5bd8afd53e7c",
+          "artcraft-cli-deliver": "3a0122796a3abd9d88f2b513aea6a9d9cea1f642ea7904b6f3da2f1c33d1e533",
+          "artcraft-cli-execute": "550c0aa6753717dae7f2204e5584c0f4518892e09be766fdc4bdc7c7ff57a886",
+          "artcraft-cli-plan": "0d26d4529e5abbd416841dff5e5ccd53f66606b9e28906af3134cac62998b9b0",
+          "artcraft-cli-recover": "a477cb188b09f138c0c4e03639b6f15d62494575c34ff5f7411966f95d700c6a",
+          "artcraft-cli-review": "429896466c6c040f3dcabd6e047e241a76da39bf5b84d730022a2d92b23ca1e4",
+          "artcraft-cli-revise": "33481c870c773ad7c56b9b59f85db0e9c382137e94d401d8708e56e5c6de98b2",
+          "artcraft-cli-setup": "458b75a3c49233d673797321c7f7cc2f7173b392ba3a82e38c5f51bdb3048217",
+          "artcraft-use": "c219ed69b43d238b492afb2a974725aeb730c28e12f689912262cbd5fcd14052"
+        }
+      }
+    }
+  },
+  "nativeTest": {
+    "tests": 1,
+    "passed": 1,
+    "seconds": 38.836,
+    "observations": {
+      "schema": "craft-installed-worker-crash-first-use/v1",
+      "result": "PASS",
+      "skillSha256": "a477cb188b09f138c0c4e03639b6f15d62494575c34ff5f7411966f95d700c6a",
+      "planSha256": "917168b9d516829d174d36b70f807ce3ab74412704a0ce152a8c1134e5e1509d",
+      "runtimeMode": "one installed recover skill, empty runtime, default public downloads",
+      "fault": "SIGKILL only the owned execution supervision worker after native spawn",
+      "attemptId": "86711cbe-d946-4137-934e-2b90fac9c71b",
+      "executionStatus": "running",
+      "taskState": "reconciling",
+      "stopEvidence": null,
+      "nativeGroupGoneObservedByTestOnly": true,
+      "artifacts": {
+        "project.ecproj": "524a2c35de0f225404729ee69f339a35ea2370a7329da96cf7c53f0db9907506",
+        "plan.json": "ac56ee6adc9426b10c4c45f81508d71356fd9bb303bce7815e3ad2f908b33aa6",
+        "exchange-loss.json": "8b9403547d8203b97229730fc18474e853e31d92e4c223b781fd4ee5539381ac",
+        "native.json": "f116e292bd32785a2128d58b36f89cc138c657a99500ea795b467582ce2a5a2e",
+        "frame-0000.png": "2af5a19c85ac6515c152fe6d1a40956d7fa54135a78b8db0fe7446a6709acb0d",
+        "frame-0001.png": "2af5a19c85ac6515c152fe6d1a40956d7fa54135a78b8db0fe7446a6709acb0d",
+        "manifest.json": "4753857e6faeb2984c61833afc84d5f493e87b7d92162b269cf3cad38b2f8f04",
+        "intro.mp4": "f9c0700fcac7dab546445e18862abb7835fd0b7cbbdf5e1b303537c6cdccfdbe",
+        "operations.json": "12dc75381f066cd01710fa2f280054121920ff51818fb88b27c1a256057568f9"
+      },
+      "nativeSpawnCount": 1,
+      "repeatCount": 2,
+      "budgetPreserved": true,
+      "projectLeasePreserved": true,
+      "installedSkillBytesPreserved": true,
+      "unverified": [
+        "automatic settlement without trusted stop evidence",
+        "pre-spawn submission window",
+        "concurrent recoverers",
+        "creative acceptance"
+      ]
+    }
+  },
+  "sourceRegression": {
+    "tests": 138,
+    "passed": 104,
+    "optInSkipped": 34,
+    "seconds": 34.004,
+    "scope": "Default regression; opted-in native fault test is separate."
+  },
+  "testDriverSha256": "cb73b631c096953dc4caeb8963fd39d2ff476e9c78f2f859733a17b36f6b69c8",
+  "installedHashesAfterTests": {
+    "skills": 64,
+    "result": "PASS"
+  },
+  "failedDriverAttempt": {
+    "accepted": false,
+    "reason": "Test expected top-level state, but the published workflow.py wraps nonzero waiting receipts as JSON in error. Corrected test decodes that public return contract; product unchanged."
+  },
+  "scope": "Actual owned supervision-worker SIGKILL after native spawn; two public recovery calls remain waiting even after project and MP4 files exist and test-only process disappearance. No forged stop record, new attempt, budget allocation or native replay.",
+  "unverified": [
+    "Pre-spawn unknown submission window",
+    "Concurrent recoverers",
+    "Automatic settlement without trusted stop evidence",
+    "Worker-crash manual attestation or administrative settlement",
+    "Creative or human acceptance",
+    "Generic Skills CLI actual installation",
+    "Complete V1 and other platforms"
+  ]
+}

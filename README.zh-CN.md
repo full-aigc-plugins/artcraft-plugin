@@ -1,3 +1,5 @@
+固定Art100／源74监督worker崩溃验收通过：原生任务启动后SIGKILL本测试拥有的worker；两次恢复保持waiting／reconciling、原attempt、预算、写占用及产物字节，原生只启动一次。原工程／MP4存在和测试观察到进程消失，不被升级为账本可信停止证据。64个安装摘要保持。此证据验证拒绝不安全重放；启动前未知提交窗口及自动／人工收敛仍未验收。 [Evidence / 证据](docs/evidence/artcraft100-worker-crash-first-use-20261007.json).
+
 固定Art100／源74角色验收通过8项测试（6项原生、1项规划、1项引用合同）：七个角色入口、PNG／JPEG／SVG替换和PCM登记、原生工程返工、无关任务复用、五子工程移动交付、审查证据拒绝及调度器SIGKILL恢复。64个安装技能摘要保持不变。PCM为测试信号；创作接受、worker故障／未知提交、通用Skills CLI及完整V1仍未验收。 [Evidence / 证据](docs/evidence/artcraft100-role-first-use-20261007.json).
 
 固定 Art100／源74验收通过：当前64个技能哈希与独立空运行时首次使用证据逐项一致（汇总未变字节的Film13、独立领域41及新Art10三次运行）。Art10次独立冷启动通过（213.886秒）；固定安装副本的四领域原生混合工作流及两个归档契约通过（184.668秒）。8条创建／修订执行记录绑定有效计划、输入、原工程及运行时；复用保全记录字节，64个安装技能哈希均未改变。通用Skills CLI实际安装及完整V1仍未验收。 [Evidence / 证据](docs/evidence/artcraft100-domain-guards-fixed-first-use-20261007.json).
