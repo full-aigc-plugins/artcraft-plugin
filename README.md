@@ -1,3 +1,5 @@
+Fixed installed diagnostics: 58 skills discovered and 184 scoped checks passed. The four frozen domain copies still lack the additional missing-bootstrap-script repair; acceptance remains partial. Art plugin dev.92 pins source dev.66. [Evidence](docs/evidence/craft-first-use-diagnostics-installed-20261007.json).
+
 Current plugin: `0.1.0-dev.92`; skill source: `0.1.0-dev.66`; runtime83; All four source24 domain bundles; owned desktop handoff. Fixed installed desktop acceptance pending. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
 
 Additional fixed native acceptance passed: ten Art cold cases, four domain GUI edit/save/reopen cases and mixed brand-color revision with dependency updates and packaging. Exhaustive commands, all GUI interactions and creative quality remain open. [Evidence](docs/evidence/craft-fixed-scene-guidance-20261007.json).
