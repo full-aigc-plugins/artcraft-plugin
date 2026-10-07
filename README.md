@@ -2,7 +2,7 @@
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current plugin: `0.1.0-dev.105`; skill source: `0.1.0-dev.79`; 10 independent skills.
+Current plugin: `0.1.0-dev.107`; skill source: `0.1.0-dev.80`; 10 independent skills.
 
 Current distribution: plugin dev.105 pins Art source dev.79 and Film source dev.34/native craft.4; Art runtime dev.83 and the other three domain sources remain immutable. Fixed host mixed ASR and independent cold skill acceptance pass; complete V1 remains open.
 
@@ -114,9 +114,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.105 |
+| Plugin ID / version | artcraft / 0.1.0-dev.107 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.79 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.80 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -418,3 +418,5 @@ The CLI acceptance default is now `host-acceptance-strict64.lock.json`: domain p
 Released Art105 vendors published source79/Film source34/native craft.4, retaining Art runtime83. Public-source and actual fixed-host mixed ASR/revision pass; complete V1 remains open. [Evidence](docs/evidence/whisper-distribution-20261008.json).
 
 Fixed Art105 acceptance: five plugins/all64 installed skill identities pass with zero loading errors. All10 installed Art skills independently cold-install (201.746s). First-model-download, five-child real recognition/subtitles, brand revision with changed consumer pixels, unrelated badge reuse, preserved originals/voice and moved package pass (196.910s). The23 fresh standalone records and41 byte-identical historical records remain distinct; full120-requirement acceptance is incomplete. [Evidence](docs/evidence/whisper-distribution-20261008.json).
+
+Protocol own-field fix distribution: plugin dev.107 pins independent source dev.80 and runtime dev.106. Strict task/artifact fields reject inherited schema-property names, while permitted versioned payload JSON remains compatible. Fixed installed first-use acceptance is tracked separately from the passing source regression.

@@ -2,7 +2,7 @@
 
 多领域创作需求进入，交付项目清单、工作流记录、四领域子工程引用及验收记录。
 
-当前插件：`0.1.0-dev.105`；技能源：`0.1.0-dev.79`；10 个独立技能。
+当前插件：`0.1.0-dev.107`；技能源：`0.1.0-dev.80`；10 个独立技能。
 
 当前分发：插件 dev.105 固定 Art 源 dev.79 与 Film 源 dev.34／native craft.4，保留 Art runtime dev.83 及其他三域不可变版本；固定宿主混合 ASR 与独立技能冷安装通过；完整V1仍开放。
 
@@ -112,9 +112,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.105 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.107 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.79 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.80 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
@@ -416,3 +416,5 @@ CLI 验收默认锁现为 `host-acceptance-strict64.lock.json`：领域插件 de
 已发布 Art105 接入源79／Film源34／native craft.4，保留 Art runtime83。公开源与实际固定宿主混合ASR及返工均通过；完整V1仍开放。 [Evidence](docs/evidence/whisper-distribution-20261008.json).
 
 固定Art105验收：五插件64技能实际安装与身份复核、零加载错误；安装的10独立Art技能各自冷安装201.746秒通过；首次模型下载、实际五子工程识别与字幕、Logo返工消费者像素变化、无关徽标复用、原交付／配音保全及移动包196.910秒通过。23项新冷证据与41项摘要完全相同的历史证据分列；完整120需求验收仍未完成。 [Evidence](docs/evidence/whisper-distribution-20261008.json).
+
+协议自有字段修复分发：插件dev.107固定独立技能源dev.80及运行时dev.106。严格任务／素材字段拒绝继承的schema属性名，允许的版本化payload JSON保持兼容；固定安装首用验收与已通过源码回归单独记录。
