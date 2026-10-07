@@ -1,3 +1,5 @@
+Fixed installed scene guidance: five plugins / 58 skills passed discovery, content identity, local example references and complete command queries. Domain runtime scripts, locks and fixtures retain their prior fixed identity. Art cold verification of its new distribution remains separate; exhaustive commands and full V1 remain open. [Evidence](docs/evidence/craft-fixed-scene-guidance-20261007.json).
+
 Current plugin: `0.1.0-dev.91`; skill source: `0.1.0-dev.64`; runtime83; All four source23 domain bundles; owned desktop handoff. Fixed installed desktop acceptance pending. [Architecture](docs/ArtCraft-Photo-Adjustment-Architecture.md).
 
 Historical release record: Current plugin: `0.1.0-dev.90`; skill source: `0.1.0-dev.63`; Complete reflected-command entries and standalone CLI/desktop bootstrap are available. Fixed releases passed 58 standalone cold cases, four advanced GUI save/reopen/render cases and Art mixed revision. Exhaustive native command execution and full V1 remain open. [Fixed evidence](docs/evidence/craft-full-command-fixed-first-use-20261007.json).
