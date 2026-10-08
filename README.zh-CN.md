@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+当前源码候选已明确记录 Photo 可编辑字体的未收集状态，并绑定原生工程与检查证据；固定发行和其他领域字体映射仍待完成。[字体状态与证据](docs/ArtCraft-Font-Dependency-Architecture.zh_CN.md)。
+
 固定137素材协议检查点：原9.85小时／12fps整片导出并独立解码425,512帧，当前原生动态／版本／JPEG场景通过。可编辑工程字体尚未进入公共依赖，2.3继续开放。[审计与剩余缺口](docs/ArtCraft-Artifact-Protocol-Acceptance-Architecture.zh_CN.md)。
 
 开发发布137／技能源109／运行时136增加受任务截止时间约束的Film导出与解码预算。真实子进程目标测试通过；完整原生超长影片和新宿主验收仍待完成。[架构与限制](docs/ArtCraft-Long-Export-Budget-Architecture.zh_CN.md)。

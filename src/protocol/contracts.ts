@@ -66,6 +66,11 @@ export function validateArtifact(value: unknown): Record<string, any> {
   if (artifact.technicalMetadata.durationTicks !== undefined && !artifact.technicalMetadata.timeBase) throw new Error('timebase_required');
   for (const dependency of artifact.dependencies) {
     if (dependency.packaged ? dependency.missingReason !== null : dependency.missingReason === null) throw new Error('dependency_packaging_invalid');
+    // 尚无字体文件身份时只登记明确的需求；检查证据不能冒充字体字节。
+    if (dependency.assetRef === null || dependency.fontRequirement !== undefined) {
+      const requirement=dependency.fontRequirement;
+      if(dependency.assetRef!==null || dependency.kind!=='font' || dependency.packaged || !requirement || !artifact.nativeProjectRef || requirement.nativeProjectSha256!==artifact.nativeProjectRef.sha256 || !artifact.evidenceRefs.some((ref:any)=>isDeepStrictEqual(ref,requirement.inspectionRef)))throw new Error('font_dependency_invalid');
+    }
   }
   planHash(value as Json);
   return structuredClone(artifact);

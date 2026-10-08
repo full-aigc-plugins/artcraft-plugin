@@ -18,6 +18,13 @@ ArtCraft SHALL 维护 craft-artifact/v1 的唯一规范事实源；清单包含 
 - **AND** 原文件保持不变；原生导入器需要扩展名时，仅在项目所有权与修订绑定通过后生成摘要相同的 jpg 副本，并纳入便携交付
 - **AND** 标记结构检查不证明熵编码可解码、EXIF 方向已应用、ICC 保真或视觉质量；实际原生导入、工程重开和独立解码证据分别记录
 
+#### Scenario: AC-CP-002-FONT 未收集字体文件的明确状态
+
+- **WHEN** 原生可编辑文字需要字体，但交付没有可核验的字体文件
+- **THEN** 字体依赖 SHALL 使用 assetRef=null、kind=font、packaged=false 和非空 missingReason；fontRequirement 记录 family、nativeProjectSha256 与 inspectionRef
+- **AND** inspectionRef SHALL 同时存在于 evidenceRefs，nativeProjectSha256 SHALL 匹配 nativeProjectRef；不得伪造字体文件摘要或把字体名称查询视为字体已打包
+- **AND** null 引用只允许用于以上完整的未收集字体状态；既有非空素材引用保持兼容，缺失状态随交付保留，不证明字体迁移完成
+
 #### Scenario: AC-CP-002-P 合同条件满足
 
 - **WHEN** 请求满足本需求的来源、输入、状态和证据条件

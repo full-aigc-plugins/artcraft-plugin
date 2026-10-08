@@ -140,29 +140,36 @@
         "type": "object",
         "properties": {
           "assetRef": {
-            "type": "object",
-            "properties": {
-              "assetId": {
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 256
+            "anyOf": [
+              {
+                "type": "null"
               },
-              "version": {
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 256
-              },
-              "sha256": {
-                "type": "string",
-                "pattern": "^[a-f0-9]{64}$"
+              {
+                "type": "object",
+                "properties": {
+                  "assetId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  }
+                },
+                "required": [
+                  "assetId",
+                  "version",
+                  "sha256"
+                ],
+                "additionalProperties": false
               }
-            },
-            "required": [
-              "assetId",
-              "version",
-              "sha256"
-            ],
-            "additionalProperties": false
+            ]
           },
           "kind": {
             "enum": [
@@ -185,6 +192,57 @@
                 "maxLength": 256
               }
             ]
+          },
+          "fontRequirement": {
+            "type": "object",
+            "properties": {
+              "family": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "nativeProjectSha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "inspectionRef": {
+                "type": "object",
+                "properties": {
+                  "assetId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "location": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  }
+                },
+                "required": [
+                  "assetId",
+                  "version",
+                  "sha256",
+                  "location"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "family",
+              "nativeProjectSha256",
+              "inspectionRef"
+            ],
+            "additionalProperties": false
           }
         },
         "required": [

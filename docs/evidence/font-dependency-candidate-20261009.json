@@ -1,0 +1,96 @@
+{
+  "schema": "artcraft-font-dependency-evidence/v1",
+  "status": "candidate_partial",
+  "fixedDistribution": "NOT_RUN",
+  "scope": [
+    "Photo native creation",
+    "moved package verification",
+    "actual native source reopen",
+    "explicit missing font state"
+  ],
+  "creation": {
+    "nativeProjectSha256": "f908fa3dfc02217a281888155809bc0517db3ada2fc7f28ea6474c571a9fa244",
+    "outputSha256": "ee2c1a04367932932880262f6fef67a7d3ffad736d67e661b31ce4ea91b5c9bb",
+    "packageSha256": "c3508a729e75ca313fd734459912c5aa780b8c8b626702a7782e5b436d74f62a",
+    "sourceHashes": {
+      "src/adapters/font_dependencies.ts": "ce1f786ddc2c47dd06291e4acda71271c4d29560c06488997d87738fd7bb92b0",
+      "src/adapters/public_skill.ts": "94d59933014bc4e54536e899e2df88cad2dd2ead9ab01913c359f28458788d6d",
+      "src/protocol/contracts.ts": "2197306ecd36980221a6f44e04d8c5a829d565c08ff127aa38308c9f196292b8",
+      "schemas/craft-artifact-v1.json": "52d6fa53f2d799b15ec907b8e0ab77aee6f074bee6a740a3c2abb2e1c3f0649a"
+    }
+  },
+  "reopen": {
+    "nativeProjectSha256": "f908fa3dfc02217a281888155809bc0517db3ada2fc7f28ea6474c571a9fa244",
+    "outputSha256": "ee2c1a04367932932880262f6fef67a7d3ffad736d67e661b31ce4ea91b5c9bb",
+    "packageSha256": "61a52aac0557e2bdf4007a102a41bc99e9f2d0d8574f99cc5d18c364ddb0c453",
+    "sourceHashes": {
+      "src/adapters/font_dependencies.ts": "ce1f786ddc2c47dd06291e4acda71271c4d29560c06488997d87738fd7bb92b0",
+      "src/adapters/public_skill.ts": "02b1a15174c236e90db6246dfdfbdf7ce1803b92f37d3e459f2290722a113082",
+      "src/protocol/contracts.ts": "2197306ecd36980221a6f44e04d8c5a829d565c08ff127aa38308c9f196292b8",
+      "schemas/craft-artifact-v1.json": "52d6fa53f2d799b15ec907b8e0ab77aee6f074bee6a740a3c2abb2e1c3f0649a"
+    }
+  },
+  "fontRequirement": {
+    "family": "Arial",
+    "nativeProjectSha256": "f908fa3dfc02217a281888155809bc0517db3ada2fc7f28ea6474c571a9fa244",
+    "inspectionRef": {
+      "assetId": "wf-2b241489150b6ecc8e2ade9d52060dfe56226273771ce002-912c6c7421119bb7",
+      "version": "7e316a2a54a49c5aacf41934b7803d0ebc318d67eda567ec13f1e5587fc01e15",
+      "sha256": "7e316a2a54a49c5aacf41934b7803d0ebc318d67eda567ec13f1e5587fc01e15",
+      "location": "native.json"
+    }
+  },
+  "missingReason": "font_file_not_collected",
+  "packaged": false,
+  "runtimeIdentity": {
+    "capabilitySnapshotSha256": "8fbd9cb0286af66e5915b3fc02cd04e1dbf255c03a0b925c68117cae56ddb57f",
+    "cliVersion": "0.2.0-craft.1",
+    "mode": "headless",
+    "pluginId": "photocraft",
+    "pluginVersion": "0.1.0-dev.34",
+    "sha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf"
+  },
+  "controlledRegression": {
+    "passed": 638,
+    "skipped": 26,
+    "total": 664,
+    "failed": 0,
+    "scope": "complete final current-source runtime suite"
+  },
+  "failurePreserved": {
+    "stage": "first source reopen",
+    "code": "font_dependency_invalid",
+    "nativeAttempt": null,
+    "resolution": "full source verified first; per-file integrity checks clear project dependencies"
+  },
+  "remaining": [
+    "other-domain font requirement mapping",
+    "fixed runtime/source/plugin publication and installation acceptance",
+    "font binary collection and target-machine portability",
+    "complete CP-002 matrix"
+  ],
+  "completedNumberedTasks": [],
+  "pluginPython": {
+    "passed": 112,
+    "skipped": 11,
+    "total": 123
+  },
+  "skillsPython": {
+    "passed": 162,
+    "skipped": 52,
+    "total": 214
+  },
+  "documentation": {
+    "status": "passed",
+    "markdownFiles": 597,
+    "requirements": 25,
+    "scenarios": 163,
+    "openImplementationTasks": 12
+  },
+  "openspec": "strict validation passed",
+  "environmentalFailure": {
+    "cause": "parallel full test suites exhausted temporary disk space",
+    "resolution": "reran each full suite sequentially; all passed",
+    "originalLogsPreserved": true
+  }
+}

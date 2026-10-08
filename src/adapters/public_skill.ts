@@ -5,6 +5,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { createHash } from 'node:crypto';
 import { strictMcpRunner } from './strict_mcp_runner.ts';
+import { photoFontDependencies } from './font_dependencies.ts';
 import { parseEffectExportProbe } from './effect_export_probe.ts';
 import { parseDesignSourceInspection } from './design_source_inspection.ts';
 import { filmExportMetadata } from './film_export_metadata.ts';
@@ -78,7 +79,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
    for(const [location,digest] of Object.entries(manifest.files)){
     if(!safeLocation(location) || typeof digest!=='string' || !/^[a-f0-9]{64}$/.test(digest))throw new Error('skill_source_manifest_invalid');
     // 公共文件核验包含真实路径 containment，外逃符号链接同样拒绝。
-    await verifyArtifact({...source.artifact,location,sha256:digest,version:digest,bytes:(await stat(join(source.root,location))).size,mediaType:'application/octet-stream',nativeProjectRef:null,evidenceRefs:[],renditions:[],lossReportRef:null},source.root);
+    await verifyArtifact({...source.artifact,location,sha256:digest,version:digest,bytes:(await stat(join(source.root,location))).size,mediaType:'application/octet-stream',nativeProjectRef:null,dependencies:[],evidenceRefs:[],renditions:[],lossReportRef:null},source.root);
     checked.push({path:join(source.root,location),sha256:digest});
    }
    if(sourceFiles.length && JSON.stringify(sourceFiles)!==JSON.stringify(checked))throw new Error('skill_source_manifest_mismatch');
@@ -219,6 +220,15 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
     const lossRef=ref('exchange-loss.json',manifest.lossReport.sha256);
     const report=validateExchangeLossReport(JSON.parse(await readFile(join(delivery,lossRef.location),'utf8')));
     if(report.pluginId!==locked.pluginId || report.native.sha256!==nativeRef.sha256 || report.outputs.some((item:any)=>manifest.files[item.location]!==item.sha256))throw new Error('skill_loss_report_binding_mismatch');
+    const fontDependencies:any[]=[];
+    if(locked.pluginId==='photocraft'){
+     if(!manifest.files['native.json'])throw new Error('font_inspection_missing');
+     const bytes=await readFile(join(delivery,'native.json'));
+     if(bytes.length>16*1024*1024 || hash(bytes)!==manifest.files['native.json'])throw new Error('font_inspection_invalid');
+     const inspectionRef=ref('native.json',manifest.files['native.json']);
+     fontDependencies.push(...photoFontDependencies(JSON.parse(bytes.toString('utf8')),nativeRef.sha256,inspectionRef));
+     if(fontDependencies.length)dependencyRefs.push(inspectionRef);
+    }
     const sourceRefs=inputs.map(input=>({assetId:input.artifact.assetId,version:input.artifact.version,sha256:input.artifact.sha256}));
     const outputs=[];
     for(const item of payload.outputs){
@@ -239,7 +249,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
       if(locked.pluginId!=='effectcraft' || manifest.imageSequence?.path!==item.location || manifest.imageSequence?.sha256!==output.sha256)throw new Error('skill_sequence_output_mismatch');
       technicalMetadata=sequenceMetadata(await sequenceRefs(item.location,output.sha256));
      }
-     const publicOutput={...output,technicalMetadata,sourceRefs,nativeProjectRef:nativeRef,lossReportRef:lossRef,evidenceRefs:[manifestRef,...dependencyRefs,...technicalEvidence],dependencies:sourceRefs.filter(assetRef=>!source || assetRef.assetId!==source.artifact.assetId).map(assetRef=>({assetRef,kind:assets.find(asset=>asset.input.artifact.assetId===assetRef.assetId)?.kind==='lut'?'lut':'media',packaged:true,missingReason:null}))};
+     const publicOutput={...output,technicalMetadata,sourceRefs,nativeProjectRef:nativeRef,lossReportRef:lossRef,evidenceRefs:[manifestRef,...dependencyRefs,...technicalEvidence],dependencies:[...fontDependencies,...sourceRefs.filter(assetRef=>!source || assetRef.assetId!==source.artifact.assetId).map(assetRef=>({assetRef,kind:assets.find(asset=>asset.input.artifact.assetId===assetRef.assetId)?.kind==='lut'?'lut':'media',packaged:true,missingReason:null}))]};
      await verifyArtifact(publicOutput,delivery);outputs.push(publicOutput);
     }
     return {root:delivery,outputs,evidenceRefs:[manifestRef]};

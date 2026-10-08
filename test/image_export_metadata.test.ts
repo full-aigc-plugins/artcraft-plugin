@@ -21,12 +21,12 @@ async function fixture(pluginId:'photocraft'|'vectorcraft'|'effectcraft',media:B
  const made=await factory({id:'design',dependsOn:[],projectKey:'design',runtimeIdentity:identity,expectedRevision:null,payload:{schemaVersion:'craft-skill-workflow/v1',plan:{},assetBindings:[],outputs:[{assetId:'design',location,mediaType}]}},[],'image-task');
  await mkdir(made.root,{recursive:true});
  const project={photocraft:'project.pcraft',vectorcraft:'project.vectorcraft',effectcraft:'project.ecproj'}[pluginId];
- const content:Record<string,Buffer|string>={[project]:'fixture project','native.json':'{}',[location]:media};
+ const content:Record<string,Buffer|string>={[project]:'fixture project','native.json':JSON.stringify(pluginId==='photocraft'?{layers:[{kind:'Type',text:{font:'Arial',text:'NOVA'}}]}:{}),[location]:media};
  const ref=(location:string)=>({location,sha256:hash(content[location])});
  content['exchange-loss.json']=JSON.stringify({schema:'craft-exchange-loss/v1',pluginId,native:ref(project),inspection:ref('native.json'),acceptance:'technical-observations-only',outputs:[{...ref(location),format:mediaType==='image/png'?'png':'jpeg',role:'derivative',nativeSubstitute:false,observations:{},warnings:[],changes:[{code:'editable_layers',status:'lost',reason:'flattened_image'}]}]});
  const hashes:Record<string,string>={};for(const [name,value] of Object.entries(content)){await writeFile(join(made.root,name),value);hashes[name]=hash(value);}
  await writeFile(join(made.root,'manifest.json'),JSON.stringify({schema:pluginId+'-delivery/v1',runtimeSha256:identity.sha256,files:hashes,assets:{},lossReport:{path:'exchange-loss.json',sha256:hashes['exchange-loss.json']}}));
- return {made,identity,cleanup:()=>rm(root,{recursive:true})};
+ return {made,identity,factory,cleanup:()=>rm(root,{recursive:true})};
 }
 test('Photo Vector Effect publish actual PNG and JPEG encoded facts in public outputs',async()=>{
  for(const plugin of ['photocraft','vectorcraft','effectcraft'] as const){
@@ -36,6 +36,14 @@ test('Photo Vector Effect publish actual PNG and JPEG encoded facts in public ou
    assert.deepEqual(output.technicalMetadata,sample.facts,plugin+' '+sample.type);
    assert.equal(output.sha256,hash(sample.media));assert.ok(output.nativeProjectRef);assert.ok(output.lossReportRef);
    assert.equal(output.technicalMetadata.colorSpace,undefined);
+   if(plugin==='photocraft'){
+    assert.equal(output.dependencies.length,1);
+    assert.equal(output.dependencies[0].fontRequirement.family,'Arial');
+    assert.equal(output.dependencies[0].assetRef,null);
+    assert.equal(output.dependencies[0].packaged,false);
+    assert.equal(output.dependencies[0].fontRequirement.nativeProjectSha256,output.nativeProjectRef.sha256);
+    assert.ok(output.evidenceRefs.some((ref:any)=>ref.location==='native.json'));
+   }
   }finally{await f.cleanup();}}
  }
 });
@@ -54,4 +62,13 @@ test('image attribute parsers reject bytes that differ from the declared output 
   await assert.rejects(inspectJpeg(file,jpg.length,'0'.repeat(64)),/artifact_changed_during_read/);
   assert.deepEqual(await inspectJpeg(file,jpg.length,hash(jpg)),{width:7,height:5,bitDepth:8,alpha:false});
  }finally{await rm(root,{recursive:true});}
+});
+
+test('editable font requirement survives source-project preflight without contaminating individual file checks',async()=>{
+ const f=await fixture('photocraft',png,'image/png');try{
+  const result=await f.made.adapter.verify({runtimeIdentity:f.identity} as any),output=result.outputs[0];
+  const node:any={id:'revise',dependsOn:[],projectKey:'design',runtimeIdentity:f.identity,expectedRevision:output.nativeProjectRef.sha256,payload:{schemaVersion:'craft-skill-workflow/v1',sourceProject:{assetId:output.assetId},plan:{operations:[]},assetBindings:[],outputs:[{assetId:'revised',location:'image.png',mediaType:'image/png'}]}};
+  const next=await f.factory(node,[{root:result.root,artifact:output}],'revise-task');
+  assert.ok(next.adapter);
+ }finally{await f.cleanup();}
 });
