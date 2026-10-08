@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Fixed ledger migration/public upgrade clauses verified:15 readonly write refusals, public legacy status/cancel and unknown schema0/77 checks, with unchanged fixed native/snapshot identities. Six of14 runtime scenarios verified;task4.6 remains open. [Ledger acceptance](docs/ArtCraft-Ledger-Upgrade-Acceptance-Architecture.md).
+
 Current fixed download recovery passes:four empty-cache native installs and Node/core/Vector archive transport faults followed by actual third public downloads, with separate79 controlled boundary tests. Four runtime scenarios verified;task4.6 remains open. [Download acceptance](docs/ArtCraft-Current-Download-Recovery-Architecture.md).
 
 Current Art-owned four-domain installation concurrency passes:three waiters per domain,24 actual calls,120-second production refusals and OS-owner-exit verified reuse. Two mutex scenarios verified;task4.6 remains open. [Domain mutex acceptance](docs/ArtCraft-Domain-Install-Mutex-Architecture.md).

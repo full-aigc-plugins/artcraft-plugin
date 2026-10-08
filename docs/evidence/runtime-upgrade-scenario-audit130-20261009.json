@@ -24,11 +24,13 @@
     },
     {
       "scenario": "AC-RT-002-LEDGER-MIGRATION 旧账本排空与回退快照",
-      "status": "partial-current-evidence",
+      "status": "verified-current-installed",
       "reference": "docs/evidence/fixed-upgrade-distribution130-20261009.json",
       "referenceSha256": "d015d8c8998f948b8403d046f0ae49365647a8635ca9adc18c877d9548d3f7f1",
-      "remainingAudit": "Current native drain plus current 12 blocked state/lease/stop/future/snapshot cases; write prohibition for every readonly method remains source-test evidence.",
-      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/fixed-upgrade-distribution130-20261009.json"
+      "remainingAudit": "None for this named scenario; current readonly/unknown-schema proof and unchanged fixed native/cold evidence cover all clauses. Complete task4.6 remains open.",
+      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/fixed-upgrade-distribution130-20261009.json",
+      "currentEvidence": "docs/evidence/ledger-upgrade-complete130-20261009.json",
+      "currentEvidenceSha256": "71659738ae2be461e9e146ddeb42e0dd456638b9ab82e59d1e8a6619314dda2e"
     },
     {
       "scenario": "领域 CLI 并行安装与复用",
@@ -154,15 +156,17 @@
     },
     {
       "scenario": "[AC-RT-002-UPGRADE-ENTRY] 公开账本升级与回退身份",
-      "status": "partial-current-evidence",
+      "status": "verified-current-installed",
       "reference": "docs/evidence/fixed-upgrade-distribution130-20261009.json",
       "referenceSha256": "d015d8c8998f948b8403d046f0ae49365647a8635ca9adc18c877d9548d3f7f1",
-      "remainingAudit": "Current public-entry cold, native migration/rollback and added fixed boundary probes; all acceptance clauses still audited separately.",
-      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/fixed-upgrade-distribution130-20261009.json"
+      "remainingAudit": "None for this named scenario; current readonly/unknown-schema proof and unchanged fixed native/cold evidence cover all clauses. Complete task4.6 remains open.",
+      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/fixed-upgrade-distribution130-20261009.json",
+      "currentEvidence": "docs/evidence/ledger-upgrade-complete130-20261009.json",
+      "currentEvidenceSha256": "71659738ae2be461e9e146ddeb42e0dd456638b9ab82e59d1e8a6619314dda2e"
     }
   ],
   "completionRule": "Resolve every clause using applicable unchanged historical evidence or actual fixed installed evidence. No scenario is closed solely by this routing audit.",
   "referenceRepository": "https://github.com/full-aigc-plugins/artcraft-plugin",
   "referenceBaseCommit": "3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920",
-  "verifiedCurrentInstalledScenarioCount": 4
+  "verifiedCurrentInstalledScenarioCount": 6
 }

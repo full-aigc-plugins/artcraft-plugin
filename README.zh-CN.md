@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+固定账本迁移／公开升级条款验收通过：15类只读拒写、公开旧账本status／cancel及未知schema0／77，既有原生工程与快照身份复核不变。14场景累计六个通过，4.6仍开放。[账本验收](docs/ArtCraft-Ledger-Upgrade-Acceptance-Architecture.zh_CN.md)。
+
 当前固定下载恢复通过：四领域空缓存原生安装，以及Node／核心／Vector归档故障后第三次真实公开下载；另有79项受控边界测试通过。四个运行场景已验证，4.6仍开放。[下载验收](docs/ArtCraft-Current-Download-Recovery-Architecture.zh_CN.md)。
 
 Art固定四领域安装并行补验通过：每领域三个等待者、24次实际调用，覆盖生产120秒拒绝与OS锁释放后的核验复用。两个互斥场景已验证，4.6仍开放。[领域互斥验收](docs/ArtCraft-Domain-Install-Mutex-Architecture.zh_CN.md)。

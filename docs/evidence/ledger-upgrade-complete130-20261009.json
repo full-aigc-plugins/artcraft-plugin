@@ -1,0 +1,226 @@
+{
+  "schema": "artcraft-fixed-ledger-upgrade-complete/v1",
+  "result": "PASS",
+  "pluginVersion": "0.1.0-dev.130",
+  "sourceVersion": "0.1.0-dev.102",
+  "runtimeVersion": "0.1.0-dev.129-runtime.1",
+  "platform": "darwin-arm64",
+  "readonlyRuntimeFilesVerified": 34,
+  "readonlyRefusals": [
+    {
+      "method": "register",
+      "error": "runtime_upgrade_busy",
+      "allSchemaAndDataPreserved": true
+    },
+    {
+      "method": "ready",
+      "error": "runtime_upgrade_busy",
+      "allSchemaAndDataPreserved": true
+    },
+    {
+      "method": "claim-budget",
+      "error": "runtime_upgrade_busy",
+      "allSchemaAndDataPreserved": true
+    },
+    {
+      "method": "unknown",
+      "error": "runtime_upgrade_busy",
+      "allSchemaAndDataPreserved": true
+    },
+    {
+      "method": "cancel",
+      "error": "runtime_upgrade_busy",
+      "allSchemaAndDataPreserved": true
+    },
+    {
+      "method": "prepareExecution",
+      "error": "runtime_upgrade_busy",
+      "allSchemaAndDataPreserved": true
+    },
+    {
+      "method": "attachExecution",
+      "error": "runtime_upgrade_busy",
+      "allSchemaAndDataPreserved": true
+    },
+    {
+      "method": "recordExit",
+      "error": "runtime_upgrade_busy",
+      "allSchemaAndDataPreserved": true
+    },
+    {
+      "method": "settleStopped",
+      "error": "runtime_upgrade_busy",
+      "allSchemaAndDataPreserved": true
+    },
+    {
+      "method": "reviewReady",
+      "error": "runtime_upgrade_busy",
+      "allSchemaAndDataPreserved": true
+    },
+    {
+      "method": "beginWorkflow-budget",
+      "error": "runtime_upgrade_busy",
+      "allSchemaAndDataPreserved": true
+    },
+    {
+      "method": "saveWorkflowNode",
+      "error": "runtime_upgrade_busy",
+      "allSchemaAndDataPreserved": true
+    },
+    {
+      "method": "packageSnapshot",
+      "error": "runtime_upgrade_busy",
+      "allSchemaAndDataPreserved": true
+    },
+    {
+      "method": "cancelWorkflow",
+      "error": "SQLite readonly",
+      "allSchemaAndDataPreserved": true
+    },
+    {
+      "method": "SQLite query_only defense",
+      "error": "SQLite readonly",
+      "allSchemaAndDataPreserved": true
+    }
+  ],
+  "publicCalls": [
+    {
+      "command": "status",
+      "exitCode": 0
+    },
+    {
+      "command": "cancel",
+      "exitCode": 1
+    },
+    {
+      "command": "upgrade",
+      "exitCode": 1
+    },
+    {
+      "command": "upgrade",
+      "exitCode": 1
+    }
+  ],
+  "unknownSchemas": [
+    {
+      "version": 0,
+      "allSchemaAndDataPreserved": true,
+      "stateSha256": "f733e4baeacaa5818262b18fd3132ea8b8de26960532f3b635c2b4e0fd1c30b0"
+    },
+    {
+      "version": 77,
+      "allSchemaAndDataPreserved": true,
+      "stateSha256": "a8014d4a2729493a99dd4e9b89c5f7bde5849d4797fd905a61368a741cd4c848"
+    }
+  ],
+  "snapshotMode": "0600",
+  "snapshotSha256": "b0492662e3590727493f0f0cbae36cd4255e3196d8631a4aa38569c7e80314c0",
+  "retainedOldRuntimeFilesReverified": 4,
+  "nativeProjectSha256": "3a72bd916c892b1ad1e79033e0e8d03daa959f411bd657899f245bbbe3243322",
+  "explicitRollbackCopySchema": 1,
+  "clauses": [
+    {
+      "clause": "same-transaction drain checks",
+      "status": "verified",
+      "evidence": [
+        "Pinned TaskLedger BEGIN IMMEDIATE and snapshotLegacyLedger invocation before DDL",
+        "Current fixed12-state/lease/execution boundary refusals preserve all tables"
+      ],
+      "levels": [
+        "source-current",
+        "installed-sqlite"
+      ]
+    },
+    {
+      "clause": "readonly status, no register/cancel/budget/state writes",
+      "status": "verified",
+      "evidence": [
+        "Current15 mutation-family refusals and query_only defense",
+        "Public status reports untracked budgets; public cancel refuses"
+      ],
+      "levels": [
+        "installed-runtime-module",
+        "installed-public-cli"
+      ]
+    },
+    {
+      "clause": "old schema/data snapshot before migration, receipt identity, failure rollback",
+      "status": "verified",
+      "evidence": [
+        "Actual native legacy drain and full snapshot-data equality from fixed130",
+        "Actual snapshot permission refusal preserves schema/data and prior marker",
+        "Current original snapshot hash and0600 mode preserved"
+      ],
+      "levels": [
+        "installed-native",
+        "installed-public-cli",
+        "current-artifact"
+      ]
+    },
+    {
+      "clause": "future/unknown rejection and explicit compatible rollback only",
+      "status": "verified",
+      "evidence": [
+        "Current unknown0/77 and previous future3 public refusals",
+        "Retained real old runtime reads explicit snapshot copy and refuses schema2",
+        "Original old runtime files and native project rehashed unchanged"
+      ],
+      "levels": [
+        "installed-public-cli",
+        "retained-runtime",
+        "current-artifact"
+      ]
+    },
+    {
+      "clause": "upgrade receipt, repeat idempotence and no replay",
+      "status": "verified",
+      "evidence": [
+        "Fixed130 installed public upgrade returns runtime129/schema2/path/SHA",
+        "Same schema repeat has migrated=false and snapshot=null",
+        "Native save count and original native bytes preserved"
+      ],
+      "levels": [
+        "installed-native",
+        "installed-public-cli"
+      ]
+    },
+    {
+      "clause": "all standalone launchers really forward upgrade",
+      "status": "verified",
+      "evidence": [
+        "Ten independent fixed source102 empty-cache entries execute missing-ledger upgrade and receive ENOENT without file creation",
+        "Fixed public forwarding whitelist regression and immutable installed identities"
+      ],
+      "levels": [
+        "installed-public-cold-cli",
+        "source-regression"
+      ]
+    }
+  ],
+  "retainedFixedEvidence": [
+    {
+      "reference": "docs/evidence/fixed-upgrade-distribution130-20261009.json",
+      "sha256": "d015d8c8998f948b8403d046f0ae49365647a8635ca9adc18c877d9548d3f7f1"
+    },
+    {
+      "reference": "docs/evidence/fixed-upgrade-boundaries130-20261009.json",
+      "sha256": "3783517982fe89f3dbdd65005c0a2e8c118d8d73577295761f1795d646dd176b"
+    }
+  ],
+  "evidenceFiles": {
+    "artifacts/artcraft-readonly130-20261009-case2/proof.json": "f56eb858685e1feaa96631cbf2c559d820781b11c0f81039ba43b7d06b2b5e25",
+    "artifacts/artcraft-readonly130-20261009-case2.log": "de48ef872b0a9f4a1189363738c6afbf820afd85b535278807495a0084674f8b",
+    "test/installed_legacy_readonly.test.ts": "bdeac878efde5d4177222d558fad091d169b16ed7958ec43bdbad5f76306b39b"
+  },
+  "sourceFingerprints": {
+    "src/harness/task_ledger.ts": "e8dbf7caf43a7f2aa13885f03ecee03544d888755a33ea791cae79bf4ba4dfb8",
+    "src/harness/ledger_upgrade.ts": "fe144a8f65637952af92f9162ec30bed7b93b37bc76eb593b45c456ba511962d",
+    "src/cli.ts": "3af9051a8b01ee35fa36a91adfa7e8e215a38d26350a7f63741c87813c481518"
+  },
+  "completedScenarios": [
+    "AC-RT-002-LEDGER-MIGRATION",
+    "AC-RT-002-UPGRADE-ENTRY"
+  ],
+  "task4_6": "open;6 of14 named scenarios verified",
+  "scope": "Two explicit migration/public-upgrade scenarios only. Current readonly/unknown-schema tests use controlled database fixtures; actual native drain and compatible old runtime proof is reused only after validating unchanged fixed source/artifact identities. No new native editing, GUI or whole RT-002 completion."
+}
