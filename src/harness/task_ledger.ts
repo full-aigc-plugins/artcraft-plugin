@@ -5,6 +5,8 @@ import { resolve } from 'node:path';
 import { validateTask, planHash, verifyArtifact } from '../protocol/contracts.ts';
 import { assertArtifactVersions } from '../protocol/artifact_versions.ts';
 import { budgetLimits, budgetUsage, allocateBudget } from './budget.ts';
+import { snapshotLegacyLedger } from './ledger_upgrade.ts';
+import type { LedgerUpgradeSnapshot } from './ledger_upgrade.ts';
 import type { BudgetSnapshot, BudgetLimits } from './budget.ts';
 import type { NativeDiagnostics } from './native_diagnostics.ts';
 
@@ -15,8 +17,11 @@ export type ExecutionRecord = {token:string;status:string;pid:number|null;comman
 /** SQLite 本地账本；关闭连接不会释放不明确结果的工程占用。 */
 export class TaskLedger {
   private database: DatabaseSync;
+  private legacyReadOnly=false;
   readonly databasePath:string;
-  constructor(path:string) {
+  /** 仅本次实际schema迁移创建；保存原版本供显式兼容回退核对。 */
+  readonly upgradeSnapshot?:LedgerUpgradeSnapshot;
+  constructor(path:string,options:{legacyReadOnly?:boolean}={}) {
     this.databasePath=path===':memory:' ? path : resolve(path);
     this.database=new DatabaseSync(path);
     try {
@@ -25,6 +30,11 @@ export class TaskLedger {
     const version=this.database.prepare('PRAGMA user_version').get() as {user_version:number};
     const tables=this.database.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'").all();
     if((application.application_id!==0 && application.application_id!==1129464134) || version.user_version>2 || (tables.length && (application.application_id!==1129464134 || ![1,2].includes(version.user_version)))) throw new Error('ledger_schema_incompatible');
+    if(version.user_version===1 && tables.length && options.legacyReadOnly){
+      // 状态查询不应强迫活跃旧账本迁移，也不能凭空补记旧预算。
+      this.database.exec('COMMIT; PRAGMA query_only=ON;');this.legacyReadOnly=true;return;
+    }
+    if(version.user_version===1 && tables.length)this.upgradeSnapshot=snapshotLegacyLedger(this.database,this.databasePath);
     this.database.exec(`
       CREATE TABLE IF NOT EXISTS tasks (
         task_id TEXT PRIMARY KEY, caller_id TEXT NOT NULL, plugin_id TEXT NOT NULL,
@@ -68,8 +78,12 @@ export class TaskLedger {
     }catch(error){try{this.database.exec('ROLLBACK');}catch{}this.database.close();throw error;}
   }
 
+  /** 是否正在只读检查旧账本；旧预算历史没有被补记为免费。 */
+  get legacySchemaReadOnly():boolean {return this.legacyReadOnly;}
+
   /** 所有状态、占用和事件变更在同一写事务内提交。 */
   private transaction<T>(operation:()=>T):T {
+    if(this.legacyReadOnly)throw new Error('runtime_upgrade_busy');
     this.database.exec('BEGIN IMMEDIATE');
     try {const result=operation();this.database.exec('COMMIT');return result;}
     catch(error){this.database.exec('ROLLBACK');throw error;}
@@ -365,6 +379,7 @@ export class TaskLedger {
   }
   /** 全部已计量预算账户；用于本地状态检查，历史未计量记录不伪造账户。 */
   budgetAccounts():BudgetSnapshot[] {
+    if(this.legacyReadOnly)return [];
     return (this.database.prepare('SELECT account_key FROM budget_accounts ORDER BY account_key').all() as {account_key:string}[]).map(row=>this.budgetAccount(row.account_key));
   }
 

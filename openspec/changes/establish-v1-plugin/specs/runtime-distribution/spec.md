@@ -56,6 +56,15 @@
 - **WHEN** 新运行时缺少计划要求的能力
 - **THEN** 执行前报 capability_missing，禁止静默替换工具
 
+#### Scenario: AC-RT-002-LEDGER-MIGRATION 旧账本排空与回退快照
+
+- **WHEN** 打开本产品持有的旧版账本，且必须迁移状态schema
+- **THEN** 系统 SHALL 在同一个SQLite写事务内先检查任务、写租约和执行记录；任何未完成任务、残留租约或缺少可信停止的执行 SHALL 返回runtime_upgrade_busy，不改写schema或原任务
+- **AND** 公开status SHALL 能只读查询活跃旧账本而不迁移，显式标注旧预算未跟踪；只读会话不能登记、取消、分配预算或写入状态
+- **AND** 排空后 SHALL 在迁移DDL之前保存带原schema及完整数据的独立SQLite快照，返回其路径与SHA-256；快照失败则回滚源账本，不覆盖已有快照
+- **AND** 新schema拒绝更高或未知schema；回退仅能显式选择保留的旧运行时和兼容快照，不将新账本降级，不重放历史任务；状态未发生迁移时不重复创建快照
+
+
 
 #### Scenario: 领域 CLI 并行安装与复用
 - **WHEN** 多个独立节点同时安装或复用同一锁定领域 CLI

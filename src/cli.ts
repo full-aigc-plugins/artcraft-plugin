@@ -38,10 +38,10 @@ export async function main(argv:string[]):Promise<unknown> {
  if(command==='package' && (!flags.owner || !flags.authorization || !flags.workflow || !flags.output || !isAbsolute(flags.output)))throw new Error('cli_package_arguments_required');
  if(command!=='run'){
   await access(flags.database); // 只读状态和取消不能静默创建空账本。
-  const ledger=new TaskLedger(flags.database);
+  const ledger=new TaskLedger(flags.database,{legacyReadOnly:command==='status'});
   try{
    if(command==='package')return await packageProject(ledger,flags.workflow,flags.owner,flags.authorization,flags.output);
-   if(command==='status')return flags.task?ledger.status(flags.task):{tasks:ledger.list(),leases:ledger.leases(),budgets:ledger.budgetAccounts()};
+   if(command==='status')return flags.task?ledger.status(flags.task):{tasks:ledger.list(),leases:ledger.leases(),budgets:ledger.budgetAccounts(),...(ledger.legacySchemaReadOnly?{budgetTracking:'untracked-legacy-schema'}:{})};
    if(Boolean(flags.task)===Boolean(flags.workflow))throw new Error('cli_cancel_target_required');
    if(flags.task)return ledger.cancel(flags.task);
    ledger.cancelWorkflow(flags.workflow);return {workflow:flags.workflow,state:'cancel_requested'};

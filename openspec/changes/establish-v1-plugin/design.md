@@ -93,3 +93,8 @@ AC-QA-001、AC-QA-002 的实现位于独立 artcraft-skills 的 review.py、revi
 在现有 `craft-review-input/v1` 上增加可选 `consistency` 字段，旧输入和旧记录保持可验证。该字段使用 `craft-consistency/v1`，明确固定的品牌与主体资产引用，以及各 creative check 使用的完整参考 ID 集合。每条已执行的观察使用 `craft-consistency-observation/v1`，绑定检查 ID、当前目标版本与摘要、同一组参考、评价者、状态、方法和非空观察描述。读取已经通过摘要校验的证据字节，拒绝只含提示词、旧引用、替换评价者和不一致状态。
 
 PhotoCraft 目标需要区域定位，EffectCraft 与 FilmCraft 目标需要帧定位；三个领域未全部提供观察时结果为 NOT_RUN。任一观察失败保留目标版本及定位并聚合为 FAIL。观察 PASS 仅表示具名评价者提供的证据满足合同，不能代替人工接受、完整创意质量或未覆盖领域验收。记录移动后重新验证同一合同与文件清单，不能只相信记录中的聚合状态。
+
+
+### 旧账本schema迁移的排空门禁
+
+AC-RT-002-LEDGER-MIGRATION补齐旧v1到v2的具体边界：在BEGIN IMMEDIATE中检查全部非终态任务、租约及未可信停止的执行，拒绝时保持旧状态。写入DDL前从只读连接生成独立SQLite快照，源写锁保持至迁移提交；快照保留旧application_id、user_version、数据及索引，可通过旧运行时另行只读复核。创建快照失败不迁移，不删除或覆盖已有快照。此规则不授权自动回退、删除不明任务或将进程消失视为停止，也不代表完整运行能力／分发升级验收4.6已经完成。

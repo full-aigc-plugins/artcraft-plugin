@@ -1,0 +1,34 @@
+{
+  "schema": "artcraft-ledger-upgrade-evidence/v1",
+  "runtimeVersion": "0.1.0-dev.128-runtime.1",
+  "baseCommit": "d1903538c7025a7c00d3201e3b2b0b77f45d6498",
+  "tests": {
+    "red": {
+      "total": 12,
+      "passed": 1,
+      "failed": 11
+    },
+    "target": {
+      "total": 38,
+      "passed": 38
+    },
+    "runtime": {
+      "total": 319,
+      "passed": 298,
+      "skipped": 21,
+      "failed": 0
+    }
+  },
+  "productionFiles": {
+    "package.json": "1d246aecb6859dcc7d421285a49f3f4c5888f9a7235551b12b333e7fa31244bd",
+    "src/cli.ts": "1296525b464af9cff31b686a760b4fd479cb6b87099c86a7a9d1e894cb8d0752",
+    "src/harness/task_ledger.ts": "e8dbf7caf43a7f2aa13885f03ecee03544d888755a33ea791cae79bf4ba4dfb8",
+    "src/harness/ledger_upgrade.ts": "fe144a8f65637952af92f9162ec30bed7b93b37bc76eb593b45c456ba511962d"
+  },
+  "scope": "Real SQLite fixtures and candidate public CLI; no native upgrade matrix, GUI edit, automatic rollback or complete V1 acceptance. Existing task completion states retained.",
+  "logs": {
+    "craft-art-ledger-upgrade-red-20261009.log": "1adc77b28bcffc21f61826d742d5b5e3b955d8efadc9570de6c2faa8e90a889b",
+    "craft-art-ledger-upgrade-final-target-20261009.log": "0b3b814774d21d11e95ed79b4af47112bd6e9ceaf038535b7f64e0ea7b0c92fc",
+    "craft-art-ledger-upgrade-final-runtime-20261009.log": "771e3ba2a848490601a1affeb42b94dad1da7d3ca56617c8bcfb0c383115b1a4"
+  }
+}
