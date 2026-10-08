@@ -3,6 +3,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { randomUUID } from 'node:crypto';
 import { resolve } from 'node:path';
 import { validateTask, planHash, verifyArtifact } from '../protocol/contracts.ts';
+import { publicTaskErrorCodes, taskErrorDetail } from '../protocol/task_error.ts';
 import { assertArtifactVersions } from '../protocol/artifact_versions.ts';
 import { budgetLimits, budgetUsage, allocateBudget } from './budget.ts';
 import { snapshotLegacyLedger } from './ledger_upgrade.ts';
@@ -259,7 +260,8 @@ export class TaskLedger {
       const row=this.row(taskId);this.requireLease(row,epoch);this.requireStopped(taskId,token);
       if(state==='cancelled' ? row.state!=='cancel_requested' : !['running','reconciling','verifying'].includes(row.state)) throw new Error('invalid_transition');
       const diagnostics=code==='native_execution_failed' ? this.execution(taskId)?.diagnostics : undefined;
-      const publicCode=code==='native_execution_failed' && diagnostics?.domainCode==='capability_missing' ? 'capability_missing' : code;
+      const reported=diagnostics?.domainCode ? taskErrorDetail(diagnostics.domainCode).code : null;
+      const publicCode=code==='native_execution_failed' && reported && (publicTaskErrorCodes as readonly string[]).includes(reported) ? reported : code;
       this.database.prepare('UPDATE tasks SET state=?,error_json=? WHERE task_id=?').run(state,state==='failed' ? JSON.stringify({code:publicCode,...(diagnostics ? {diagnostics} : {})}) : null,taskId);
       this.database.prepare('DELETE FROM leases WHERE task_id=? AND epoch=?').run(taskId,epoch);
       this.event(taskId,row.state,state,epoch,{code:publicCode});

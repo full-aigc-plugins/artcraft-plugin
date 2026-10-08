@@ -64,3 +64,9 @@ ArtCraft SHALL 维护 craft-task/v1 的唯一规范事实源；请求包含 prot
 - **AND** 准备或授权阶段的拒绝 SHALL 提供结构化 `errorDetail`，保留现有字符串 error 以兼容调用者；未登记的节点不得伪造 taskReceipt，拒绝不新增原生启动、预算分配或工程占用
 - **AND** 重开或复用 SHALL 保留原 taskId 与 attemptId，并重新读取当前账本状态；候选源码回归不替代固定发行安装或本需求整体验收
 - **AND** 技能公开 `workflow.py` 入口的输入、安装前置或原生工作流非零退出 SHALL 在保留原字符串 `error` 和既有 `workflowReceipt` 的同时返回顶层 `errorDetail`；有上游结构化拒绝时保留其错误码，未就绪回执使用 `workflow_not_ready`，未登记的失败不得伪造任务身份或重新执行
+
+#### Scenario: AC-CP-001-NATIVE-ERROR 已停止子任务的公开错误消费
+
+- **WHEN** 子任务已由监督器核对进程组停止，且有界完整输出包含单一 error 字段，报告本协议已定义的错误码或兼容 budget_exceeded
+- **THEN** 公共任务回执 SHALL 保留已定义错误身份，budget_exceeded 映射为 budget_exhausted；保留原诊断码和输出摘要，不持久化私有原文
+- **AND** 冲突、不完整、超限、重复字段或未知诊断不得提升为协议错误；已有停止、状态、占用、预算及不重放规则保持适用，不因错误报告获得重试或退款权限

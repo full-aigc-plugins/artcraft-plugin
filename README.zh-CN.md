@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+候选公共错误映射：已补齐8种协议错误及旧预算别名在已停止子任务和独立技能入口中的公开身份，四领域真实保存后未知结果复验通过。固定发行安装及完整任务1.3仍待验收。[错误矩阵](docs/ArtCraft-Public-Error-Matrix-Architecture.zh_CN.md)。
+
 候选模式目录：FilmCraft、PhotoCraft、EffectCraft 实际桌面保存／重开通过；VectorCraft 为763记录／762 ID，`file.place` 参数描述重复冲突，desktop／bridge执行保持拒绝。此候选尚未发行或完成固定安装验收。[模式目录设计与证据](docs/ArtCraft-Mode-Command-Catalog-Architecture.zh_CN.md)。
 
 固定135命令检查点：十技能独立空缓存首用、40项真实原生命令探测、210项模式目标、真实Effect bridge与36项保存后故障通过。完整任务4.6继续开放。[证据及范围](docs/ArtCraft-Fixed-Command-Checkpoint-Architecture.zh_CN.md)。

@@ -1,0 +1,152 @@
+{
+  "schema": "artcraft-public-error-matrix-candidate/v1",
+  "status": "PARTIAL",
+  "scope": "current candidate runtime source override, existing immutable native domain bundles; not a fixed Art release installation",
+  "sourceFiles": {
+    "full-aigc-plugins-repositories/artcraft-plugin/src/protocol/task_error.ts": "1640b84a5dc3850dc9f7c93f868ff0188f592a0aad68b6047dfc926cb73bdac7",
+    "full-aigc-plugins-repositories/artcraft-plugin/src/harness/native_diagnostics.ts": "b78ebcd7694853d2c7da036a6c4be01ac3d135cc1a8f8851d152671c6672cc7c",
+    "full-aigc-plugins-repositories/artcraft-plugin/src/harness/task_ledger.ts": "324f77e81fc7fb17737e07bcd7d0645f48e285f326171da72a0ba0c826fe9d4e",
+    "full-aigc-plugins-repositories/artcraft-plugin/test/public_task_error_matrix.test.ts": "4f5a0625d6ebff0faaf669eccc4ab05be56741403d7e944479816e1214e91a7a",
+    "full-aigc-plugins-repositories/artcraft-plugin/test/native_protocol_workflow.test.ts": "e180fc1db6d84093e420e48283a401f0b5aabc45489e7b6f9dcc44f9c54b68e1",
+    "full-aigc-skills-repositories/artcraft-skills/skills/artcraft-use/scripts/workflow.py": "a09715d85b6c195fce8a571ae95c60003cd6c1845c58e77d04949126effddb63",
+    "full-aigc-skills-repositories/artcraft-skills/tests/test_public_error_matrix.py": "02a921c899325e1a519a2110b45392e2aac9a6f89ba9b7b6a17017acf577f493"
+  },
+  "red": {
+    "nodeTotal": 36,
+    "nodePass": 4,
+    "nodeFail": 32,
+    "skillSubcaseFailures": 40
+  },
+  "green": {
+    "nodeMatrixAndExistingDiagnostics": 48,
+    "skillSubcases": 120,
+    "nativePostSaveCases": 4
+  },
+  "regression": {
+    "node": {
+      "total": 652,
+      "pass": 627,
+      "skip": 25
+    },
+    "skillsPython": {
+      "total": 214,
+      "pass": 162,
+      "skip": 52
+    },
+    "pluginPython": {
+      "total": 123,
+      "pass": 112,
+      "skip": 11
+    }
+  },
+  "logs": {
+    "node-full.log": "f17ad837d106bc47be333b22d8c5c1dc8c3e0c623a9cc797aab48d558913b4be",
+    "skills-red.log": "d2314b7287090d4c2483422d6550681b6968dc6c5094b1d12fe070ab439fe0d4",
+    "node-green.log": "f5e1ac38c369e876ba2ca820acbe504711b547a208770203df2edfb9a38b6bff",
+    "skills-green.log": "2def5aeac6b65b2581bff5adb7c7df030d387019f3d5c82880f178c6765609c4",
+    "native.log": "8e7993915fa51cfb4ae14d827b7326901f876f52a72b596cc2189372b9f52d58",
+    "skills-full.log": "0ac3c574b56191d40e2fbefd3c682e15123cb1e471518a1c916837e8eff88481",
+    "node-red.log": "7f9d1a65a1fb04f4ac032b2597c823363b111d4f7989d5fc46e32d9b31421cc9"
+  },
+  "nativeRawProofSha256": "4ebf085f528d4b14ea63ab266c6e212cbaac039e4586d003ff9b22510fdf46d9",
+  "nativeCases": [
+    {
+      "domainId": "filmcraft",
+      "fault": "tool-content",
+      "result": "PASS",
+      "pluginVersion": "0.1.0-dev.38",
+      "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+      "clientSha256": "ad8a8fb3f84f9fbf814b5a593c96faf3cf9bb476ff32627039975d7f57c86616",
+      "recoveryModuleSha256": "64199df3ee6af2901a859a5aac401fd27ca2f0c6ba9238e6f72c3563f681ad63",
+      "originalStagePreserved": true,
+      "retainedFileCount": 3,
+      "lastAttemptPreserved": true,
+      "saveCount": 1,
+      "nativeReopen": true,
+      "consumerBlocked": true,
+      "publicUnknownReply": true,
+      "attemptPreserved": true,
+      "budgetPreserved": true,
+      "registeredInputCount": 1,
+      "registeredInputsPreserved": true,
+      "noReplay": true,
+      "retainedInstallationReceiptRuntimeVersion": "0.1.0-dev.132-runtime.1",
+      "publicTaskErrorCode": "outcome_unknown"
+    },
+    {
+      "domainId": "effectcraft",
+      "fault": "tool-content",
+      "result": "PASS",
+      "pluginVersion": "0.1.0-dev.34",
+      "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+      "clientSha256": "ad8a8fb3f84f9fbf814b5a593c96faf3cf9bb476ff32627039975d7f57c86616",
+      "recoveryModuleSha256": "64199df3ee6af2901a859a5aac401fd27ca2f0c6ba9238e6f72c3563f681ad63",
+      "originalStagePreserved": true,
+      "retainedFileCount": 2,
+      "lastAttemptPreserved": true,
+      "saveCount": 1,
+      "nativeReopen": true,
+      "consumerBlocked": true,
+      "publicUnknownReply": true,
+      "attemptPreserved": true,
+      "budgetPreserved": true,
+      "registeredInputCount": 0,
+      "registeredInputsPreserved": true,
+      "noReplay": true,
+      "retainedInstallationReceiptRuntimeVersion": "0.1.0-dev.132-runtime.1",
+      "publicTaskErrorCode": "outcome_unknown"
+    },
+    {
+      "domainId": "photocraft",
+      "fault": "tool-content",
+      "result": "PASS",
+      "pluginVersion": "0.1.0-dev.34",
+      "nativeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+      "clientSha256": "ad8a8fb3f84f9fbf814b5a593c96faf3cf9bb476ff32627039975d7f57c86616",
+      "recoveryModuleSha256": "64199df3ee6af2901a859a5aac401fd27ca2f0c6ba9238e6f72c3563f681ad63",
+      "originalStagePreserved": true,
+      "retainedFileCount": 2,
+      "lastAttemptPreserved": true,
+      "saveCount": 1,
+      "nativeReopen": true,
+      "consumerBlocked": true,
+      "publicUnknownReply": true,
+      "attemptPreserved": true,
+      "budgetPreserved": true,
+      "registeredInputCount": 0,
+      "registeredInputsPreserved": true,
+      "noReplay": true,
+      "retainedInstallationReceiptRuntimeVersion": "0.1.0-dev.132-runtime.1",
+      "publicTaskErrorCode": "outcome_unknown"
+    },
+    {
+      "domainId": "vectorcraft",
+      "fault": "tool-content",
+      "result": "PASS",
+      "pluginVersion": "0.1.0-dev.33",
+      "nativeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+      "clientSha256": "ad8a8fb3f84f9fbf814b5a593c96faf3cf9bb476ff32627039975d7f57c86616",
+      "recoveryModuleSha256": "64199df3ee6af2901a859a5aac401fd27ca2f0c6ba9238e6f72c3563f681ad63",
+      "originalStagePreserved": true,
+      "retainedFileCount": 2,
+      "lastAttemptPreserved": true,
+      "saveCount": 1,
+      "nativeReopen": true,
+      "consumerBlocked": true,
+      "publicUnknownReply": true,
+      "attemptPreserved": true,
+      "budgetPreserved": true,
+      "registeredInputCount": 0,
+      "registeredInputsPreserved": true,
+      "noReplay": true,
+      "retainedInstallationReceiptRuntimeVersion": "0.1.0-dev.132-runtime.1",
+      "publicTaskErrorCode": "outcome_unknown"
+    }
+  ],
+  "pending": [
+    "fixed runtime/source/plugin release and installed compatibility validation",
+    "four domain protocol owner109 references predate later budget normative additions; full consumer compatibility audit remains open",
+    "complete task1.3 acceptance; V1 and host/platform gates remain open"
+  ],
+  "nativeSourceOverride": "working-tree-candidate; retained receipt runtime132 label does not identify executed core modules"
+}

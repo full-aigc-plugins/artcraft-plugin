@@ -82,7 +82,7 @@ for(const domainId of domains)for(const fault of faults){
    assert.equal(first.nodes.consumer.taskId,undefined);
    assert.deepEqual(first.nodes.logo.outputs,[]);
    const taskId=first.nodes.logo.taskId,receipt=ledger.status(taskId),execution=ledger.execution(taskId);
-   assert.equal(receipt.state,'failed');assert.equal(execution.status,'stopped');assert.equal(execution.groupStopped,true);
+   assert.equal(receipt.state,'failed');assert.equal(receipt.error.code,'outcome_unknown');assert.equal(execution.status,'stopped');assert.equal(execution.groupStopped,true);
    assert.equal(preparations,1);
    const publicReply=JSON.parse(await readFile(replyFile,'utf8'));
    assert.deepEqual(Object.keys(publicReply),['error']);

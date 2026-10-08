@@ -1,11 +1,12 @@
 /** 有界采集子进程输出，仅持久化摘要与已知错误码，不保存用户文本。 */
 import { createHash } from 'node:crypto';
+import { publicTaskErrorCodes } from '../protocol/task_error.ts';
 import type { Readable } from 'node:stream';
 
 export type OutputDigest={bytes:number;sha256:string;truncated:boolean;complete:boolean};
 export type NativeDiagnostics={schema:'craft-native-diagnostics/v1';domainCode:string|null;source:'stdout'|'stderr'|null;stdout:OutputDigest;stderr:OutputDigest};
 const limit=16384;
-const codes=new Set(['capability_missing','protected_region_changed','missing_fonts','unsupported_command','unsupported_mapping','parameter_contract_identity_mismatch','parameter_schema_mismatch','revision_conflict','asset_checksum_mismatch','asset_svg_external_dependency','unresolved_reference','invalid_source','export_missing','export_audio_missing','editable_layer_gate_failed','invalid_export','protected_source_required','command_failed']);
+const codes=new Set([...publicTaskErrorCodes,'budget_exceeded','capability_missing','protected_region_changed','missing_fonts','unsupported_command','unsupported_mapping','parameter_contract_identity_mismatch','parameter_schema_mismatch','revision_conflict','asset_checksum_mismatch','asset_svg_external_dependency','unresolved_reference','invalid_source','export_missing','export_audio_missing','editable_layer_gate_failed','invalid_export','protected_source_required','command_failed']);
 
 /** 持续排空管道并计算全部已观察字节摘要，结构化解析缓冲最多 16 KiB。 */
 export class OutputObservation {

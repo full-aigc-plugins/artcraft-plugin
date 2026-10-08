@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Candidate public error mapping: eight protocol codes and the legacy budget alias retain their public identities across stopped child tasks and independent skill entry points; four real native post-save unknown cases pass. Fixed-release installation and complete task1.3 acceptance remain pending. [Error matrix](docs/ArtCraft-Public-Error-Matrix-Architecture.md).
+
 Candidate mode catalogs: FilmCraft, PhotoCraft and EffectCraft desktop save/reopen workflows pass; VectorCraft has 763 records / 762 IDs and conflicting `file.place` descriptors, so desktop/bridge execution remains refused. This candidate has not been released or accepted from a fixed installation. [Mode catalog design and evidence](docs/ArtCraft-Mode-Command-Catalog-Architecture.md).
 
 Fixed135 command checkpoint:ten independent cold starts,40 real native command probes,210 mode targets, actual Effect bridge and36 post-save fault cases pass. Full task4.6 remains open. [Evidence and scope](docs/ArtCraft-Fixed-Command-Checkpoint-Architecture.md).
