@@ -17,4 +17,4 @@ flowchart TD
   P --> B[五子工程移动包 验证]
 ```
 
-[限定证据](evidence/artcraft-mixed-asr-caption-handoff-20261008.json)。固定新版安装与原生混合验收仍另行进行；全部角色、通用Skills CLI、其他平台、GUI、人工创作与完整V1保持开放。不sync/archive，不适配剪映。
+[限定证据](evidence/artcraft-mixed-asr-caption-handoff-20261008.json)。固定Art111已通过公开标签隔离安装，64项发现、零错误；实际安装单技能首次模型下载与混合创建、品牌返工、字幕保全及移动包117.673秒通过。23变化技能逐个独立空缓存公开安装与发现通过，41项完整摘要相等复用旧冷证据，操作后64摘要匹配。全部角色、通用Skills CLI、其他平台、GUI、人工创作与完整V1保持开放。不sync/archive，不适配剪映。

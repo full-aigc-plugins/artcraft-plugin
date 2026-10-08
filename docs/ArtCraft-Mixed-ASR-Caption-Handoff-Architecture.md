@@ -17,4 +17,4 @@ flowchart TD
   P --> B[Verify moved five-child package]
 ```
 
-[Bounded evidence](evidence/artcraft-mixed-asr-caption-handoff-20261008.json). Fixed-host/native acceptance is separate. All roles, generic Skills CLI, other platforms, GUI, human creative acceptance and full V1 remain open. No sync/archive or Jianying integration.
+[Bounded evidence](evidence/artcraft-mixed-asr-caption-handoff-20261008.json). Fixed Art111 passed isolated public-tag installation with64 discovered skills and no loading errors. Its actual installed single skill passed first model download, mixed creation/revision, caption preservation and moved packaging in117.673s. All23 changed skills passed separate empty public runtime installation/discovery;41 unchanged skills reused historical cold proof only after complete tree equality. All64 post-use hashes match. All roles, generic Skills CLI, other platforms, GUI, human creative acceptance and full V1 remain open. No sync/archive or Jianying integration.
