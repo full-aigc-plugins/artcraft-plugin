@@ -19,3 +19,5 @@ flowchart TD
 本次源码174项测试：136通过、38条件跳过。十个单独复制技能的30条真实嵌套安装拒绝通过。单技能真实公开冷恢复完成原生Vector工程和96×64预览、工作流、打包及移动审阅核验；审阅与返工的原生角色用例另行通过。审阅决定仍pending，创意与人工验收NOT_RUN。固定版、通用Skills CLI实际安装、完整V1均未由这些结果证明。
 
 运行时回归：串行223通过／20跳过；并行222通过／20跳过／1条取消时序失败。未修改的运行时仍有此待排查问题，本发行不据串行通过声称并发取消已解决。
+
+Fixed source93/plugin121 bounded qualification: [evidence](evidence/craft-art121-nested-setup-fixed-first-use-20261008.json). Full V1 remains open.

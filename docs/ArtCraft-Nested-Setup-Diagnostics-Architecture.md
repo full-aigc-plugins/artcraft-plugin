@@ -19,3 +19,5 @@ Pinned check parsers differ: Film38, Photo34 and Vector33 do not accept `--mode`
 Source regression:174 tests,136 passed,38 conditional skips. Thirty real nested setup refusals across ten individually copied skills pass. A real single-skill public cold recovery creates a native Vector project and96×64 preview, a workflow, a delivery package and a relocated review verification. Separate native review and revision role cases pass. Review remains pending; creative and human acceptance are NOT_RUN. These results do not qualify a new immutable release, generic Skills CLI installation or complete V1.
 
 Runtime regression: serial223 pass/20 skip; parallel222 pass/20 skip/1 cancellation-timing failure. The unchanged runtime failure remains unresolved and is not qualified by this release.
+
+Fixed source93/plugin121 bounded qualification: [evidence](evidence/craft-art121-nested-setup-fixed-first-use-20261008.json). Full V1 remains open.

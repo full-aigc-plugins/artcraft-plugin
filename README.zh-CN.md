@@ -477,3 +477,5 @@ Vector33 捆绑升级候选已通过两入口真实混合返工、九变体及�
 固定Art120／源92：十项新独立公开冷安装、64安装身份与CLI核验、20个安装副本真实失败调用、安装失败后公开冷安装／原生图形创建／同任务复用／移动交付恢复通过。54项其他技能仅复用整树摘要相等的历史冷证明。只关闭3.29，完整V1与目标保持未完成。 [Evidence](docs/evidence/craft-art120-scenario-setup-fixed-first-use-20261008.json).
 
 嵌套安装诊断与固定领域检查参数兼容已通过源码回归和真实公开冷恢复；固定发行验收仍开放。 [Evidence](docs/evidence/nested-setup-diagnostics-candidate-20261008.json).
+
+固定Art121／源93通过10项独立公开冷启动、64宿主身份／CLI核验、30条安装副本嵌套拒绝、12项固定领域检查及原生恢复／审阅／返工。54项其他技能仅复用整树摘要相等历史冷证明；只关闭3.30。并行运行时取消时序与完整V1仍开放。 [Evidence](docs/evidence/craft-art121-nested-setup-fixed-first-use-20261008.json).
