@@ -1,6 +1,8 @@
 # 五插件首次使用完成审计
 
-三个维护入口当前默认使用 `host-acceptance-art107.lock.json`；审计默认使用 `artcraft107-protocol-fixed-first-use-20261008.json`。实际默认审计核对64项身份，保留120条需求、262项开放任务。显式历史参数仍兼容。
+当前默认使用 `host-acceptance-art-photo34.lock.json` 与 `craft-art-photo34-fixed-first-use-20261008.json`。真实当前审计绑定64项身份，记录120条正式需求／250项开放任务。Art114／源86内部固定Photo34。10个Art技能独立冷安装通过，54项历史案例仅按完整目录摘要一致复用。实际安装副本64项CLI探测通过，69.508秒，五个新领域缓存、后续复用。保留工程的四域混合创建／返工／移动交付测试通过，222.429秒；仅证明相应技术场景，不等于完整V1。[当前证据](evidence/craft-art-photo34-fixed-first-use-20261008.json)。
+
+历史dev.107：三个维护入口当时默认使用 `host-acceptance-art107.lock.json`；审计默认使用 `artcraft107-protocol-fixed-first-use-20261008.json`。实际默认审计核对64项身份，保留120条需求、262项开放任务。显式历史参数仍兼容。
 
 ## 固定安装验收 dev.107（2026-10-08）
 
@@ -86,16 +88,16 @@ python3 -I -B scripts/audit_first_use_completion.py \
 
 测试覆盖：过期摘要、重复/漏项记录、非冷安装、缺少运行标识、只给成功数量、JSON 重复键、忽略缓存保留、受控文件修改与任务状态不能替代场景证据。7 项单元测试验证审计器行为，不代表新增原生或创作验收。
 
-当前默认实际安装 CLI 验证64项全部通过，耗时60.573秒（五域新缓存，后续探测复用）。Python回归97项，92通过、5项条件跳过。[CLI证据](evidence/artcraft107-installed-cli-20261008.json) · [完成审计](evidence/artcraft107-maintainer-audit-20261008.json)。
+历史dev.107实际安装 CLI 验证64项全部通过，耗时60.573秒（五域新缓存，后续探测复用）。Python回归97项，92通过、5项条件跳过。[CLI证据](evidence/artcraft107-installed-cli-20261008.json) · [完成审计](evidence/artcraft107-maintainer-audit-20261008.json)。
 
 ## 自身目录固定安装验收（2026-10-08）
 
-当前固定宿主矩阵为 Film36／源35、Effect34／源32、Photo34／源32、Vector33／源31、Art107／源80：64项技能、零加载错误。六个有变更场景技能各自从空缓存安装固定公开CLI，在含中文和空格的路径查询实时命令并通过自身支持的入口描述参数；运行时制品保持不变。64安装／插件完整目录摘要匹配；58项历史冷安装仅在完整摘要相同时复用。
+当时固定宿主矩阵为 Film36／源35、Effect34／源32、Photo34／源32、Vector33／源31、Art107／源80：64项技能、零加载错误。六个有变更场景技能各自从空缓存安装固定公开CLI，在含中文和空格的路径查询实时命令并通过自身支持的入口描述参数；运行时制品保持不变。64安装／插件完整目录摘要匹配；58项历史冷安装仅在完整摘要相同时复用。
 
 四套源回归共596项，474通过、122条件跳过；四插件72项回归全部通过。路径测试覆盖54技能、162独立安装布局和474次参数解析帮助入口，不替代原生创作任务。保留两项辅助验收器错误：跨域误用原生describe、误拒Photo合法dev-build版本后缀。五项成功的固定冷安装保留；仅Photo使用既有准确命名版本匹配器重新冷执行，当前六项均通过。
 
 仅关闭自身目录有界发行门禁；完整V1、穷尽命令上下文、实际通用Skills CLI与创作验收仍开放。[固定安装证据](evidence/craft-scenario-paths-fixed-first-use-20261008.json)。
 
-当前维护默认入口：`host-acceptance-scenario-paths.lock.json` 与 `craft-scenario-paths-fixed-first-use-20261008.json`；显式历史参数继续兼容。
+历史维护默认入口：`host-acceptance-scenario-paths.lock.json` 与 `craft-scenario-paths-fixed-first-use-20261008.json`；显式历史参数继续兼容。
 
 Art runtime106／源80保留原有不可变领域包锁。四域 use 技能完整摘要与原生CLI制品摘要均未改变，因此本目录示例修正不改变混合工作流适配器，也不触发新的Art运行时发行。

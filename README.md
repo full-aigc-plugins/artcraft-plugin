@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-Photo34 delivery dependency is pinned; new fixed host acceptance remains pending. [Architecture](docs/ArtCraft-Photo-Integrity-Dependency-Architecture.md).
+Fixed source86/plugin114 passes ten independent Art cold installations and a retained four-domain native workflow with revisions and moved delivery. All64 installed identities match; full V1 remains open. [Evidence](docs/evidence/craft-art-photo34-fixed-first-use-20261008.json). [Architecture](docs/ArtCraft-Photo-Integrity-Dependency-Architecture.md).
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
@@ -22,7 +22,7 @@ Historical dev.104 maintainer correction: acceptance tools used the then-verifie
 
 Historical: Current Art dev.104 standalone scene-role verification passes for plan, revise, assets, deliver, review, recover, execute and setup. Tests use the actual installed fixed snapshot, independent copied skills and public runtime downloads. Native source revision and unrelated reuse, moved packages, stale/tampered review rejection, repeated cancellation, execution receipts and selected-domain setup are checked. Planning evidence is reused from the preceding unchanged-source installed run. Review remains pending with creative NOT_RUN; cancellation checks do not prove unknown-worker recovery. This does not close generic Skills CLI installation, all command contexts or full V1. [Evidence](docs/evidence/artcraft104-installed-role-first-use-20261007.json).
 
-Maintainer installation planning, installed CLI verification and completion auditing now default to the verified Photo38 delivery-integrity matrix lock; the audit binds its matching fixed first-use evidence. Explicit historical lock/evidence arguments remain supported. [Current audit architecture](docs/ArtCraft-First-Use-Completion-Audit-Architecture.md).
+Maintainer installation planning, installed CLI verification and completion auditing now default to the verified Art114/Photo34 dependency matrix lock; the audit binds its matching fixed first-use evidence. Explicit historical lock/evidence arguments remain supported. [Current audit architecture](docs/ArtCraft-First-Use-Completion-Audit-Architecture.md).
 
 Maintainer source validation rejects symbolic links, incomplete locks and version-named branches, and checks all declared sources before replacing any managed skill. Published skill/runtime identities remain unchanged. [Snapshot preflight architecture](docs/Skill-Snapshot-Self-Contained.md).
 
@@ -452,4 +452,4 @@ Dev.110 vendors immutable standalone source dev.82, pins Film source36, and rege
 
 [Fixed budget protocol first use](docs/ArtCraft-Budget-Protocol-Architecture.md): 64 discovered skills, 10 changed cold installs and 54 whole-tree-equal historical cases; native revision refusal preserves the original task and files. Full V1 remains open.
 
-[Current standalone Photo38 proof](docs/evidence/craft-photo-delivery-integrity-fixed-first-use-20261008.json). Default lock: host-acceptance-photo-integrity.lock.json. Art113 internal mixed dependencies still pin Photo33; this host matrix does not upgrade that runtime.
+Historical standalone Photo38 acceptance: [proof](docs/evidence/craft-photo-delivery-integrity-fixed-first-use-20261008.json). Its default lock was host-acceptance-photo-integrity.lock.json and Art113 internally pinned Photo33. Art114 now internally pins Photo34; the current default is host-acceptance-art-photo34.lock.json.

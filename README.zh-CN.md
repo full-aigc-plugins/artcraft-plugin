@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-已固定 Photo34 交付依赖；新固定版本宿主验收待完成。[架构](docs/ArtCraft-Photo-Integrity-Dependency-Architecture.zh_CN.md)。
+固定源86／插件114通过10技能独立冷安装、保留工程的四域原生返工与移动交付，64个安装身份一致；完整首版仍开放。[证据](docs/evidence/craft-art-photo34-fixed-first-use-20261008.json)。[架构](docs/ArtCraft-Photo-Integrity-Dependency-Architecture.zh_CN.md)。
 
 多领域创作需求进入，交付项目清单、工作流记录、四领域子工程引用及验收记录。
 
@@ -22,7 +22,7 @@
 
 历史版本证据：当前 Art dev.104 的八项独立场景角色验证通过：规划、返工、素材、交付、审阅、恢复、执行及安装诊断。测试使用真实固定安装副本、单技能复制和公开运行时下载，检查源工程修改与无关节点复用、移动验包、过期／篡改审阅拒绝、重复取消、执行回执和按领域安装。规划证据复用上一轮源码未变化的当前安装验证；审阅仍为 pending／creative NOT_RUN，取消验证不证明未知 worker 恢复。实际通用 Skills CLI 安装、全量命令上下文和完整 V1仍未完成。 [证据](docs/evidence/artcraft104-installed-role-first-use-20261007.json).
 
-维护者的安装计划、安装副本 CLI 验证和完成审计现默认使用已核验的 Photo38 交付完整性矩阵锁；审计绑定对应固定首用证据。显式历史锁／证据参数继续兼容。[当前审计架构](docs/ArtCraft-First-Use-Completion-Audit-Architecture.zh_CN.md)。
+维护者的安装计划、安装副本 CLI 验证和完成审计现默认使用已核验的 Art114／Photo34 依赖矩阵锁；审计绑定对应固定首用证据。显式历史锁／证据参数继续兼容。[当前审计架构](docs/ArtCraft-First-Use-Completion-Audit-Architecture.zh_CN.md)。
 
 维护者来源校验拒绝符号链接、不完整锁及版本同名分支，并在替换任一管理技能前检查全部声明来源；已发布技能／运行时身份保持。[快照预检架构](docs/Skill-Snapshot-Self-Contained.zh_CN.md)。
 
@@ -450,4 +450,4 @@ dev.110 内置不可变独立技能源dev.82，锁定Film源36并重建完整命
 
 [固定预算协议首次使用](docs/ArtCraft-Budget-Protocol-Architecture.zh_CN.md)：64技能发现、10变化项冷安装及54整树相等历史项复用通过；原生修订拒绝保全原任务和文件，完整V1仍开放。
 
-[当前独立Photo38证据](docs/evidence/craft-photo-delivery-integrity-fixed-first-use-20261008.json)。默认锁host-acceptance-photo-integrity.lock.json；Art113内部混合依赖仍固定Photo33，宿主矩阵不等于混合运行时升级。
+历史独立Photo38验收：[证据](docs/evidence/craft-photo-delivery-integrity-fixed-first-use-20261008.json)。当时默认锁为host-acceptance-photo-integrity.lock.json，Art113内部固定Photo33。本次Art114内部已升级Photo34，默认锁为host-acceptance-art-photo34.lock.json。

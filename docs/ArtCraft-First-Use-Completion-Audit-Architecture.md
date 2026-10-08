@@ -1,6 +1,8 @@
 # Five-plugin first-use completion audit
 
-The three maintainer defaults now use `host-acceptance-art107.lock.json`; the auditor uses `artcraft107-protocol-fixed-first-use-20261008.json`. The actual default audit verifies 64 identities and reports 120 requirements and 262 open tasks. Historical overrides remain supported.
+Current defaults: `host-acceptance-art-photo34.lock.json` and `craft-art-photo34-fixed-first-use-20261008.json`. Actual current audit binds all64 identities and records120 formal requirements /250 open tasks. Art114/source86 pins internal Photo34. Ten Art skills pass independent cold installs;54 historical cases are reused only by complete tree equality. Installed CLI64 probes pass in69.508s with five fresh domain caches and later reuse. A retained four-domain native mixed creation/revision/moved-delivery test passes in222.429s; this is bounded technical evidence, not fullV1. [Current proof](evidence/craft-art-photo34-fixed-first-use-20261008.json).
+
+Historical dev.107: the three maintainer defaults used `host-acceptance-art107.lock.json`; the auditor uses `artcraft107-protocol-fixed-first-use-20261008.json`. The actual default audit verifies 64 identities and reports 120 requirements and 262 open tasks. Historical overrides remain supported.
 
 ## Fixed installed acceptance dev.107 (2026-10-08)
 
@@ -86,16 +88,16 @@ Continue the original contracts: actual Skills CLI acceptance remains pending au
 
 Seven unit tests cover stale hashes, duplicate/missing/warm records, missing run identifiers, success counts without records, duplicate JSON keys, preserved ignored caches, tracked modifications and task state not substituting for scenario evidence. They establish auditor behavior, not new native/creative acceptance.
 
-Current default installed CLI verification passes all 64 probes in 60.573 seconds (five fresh domain caches; later probes reuse). Python regression: 97 tests, 92 passed and five conditional skips. [CLI evidence](evidence/artcraft107-installed-cli-20261008.json) · [Completion audit](evidence/artcraft107-maintainer-audit-20261008.json).
+Historical dev.107 installed CLI verification passed all 64 probes in 60.573 seconds (five fresh domain caches; later probes reuse). Python regression: 97 tests, 92 passed and five conditional skips. [CLI evidence](evidence/artcraft107-installed-cli-20261008.json) · [Completion audit](evidence/artcraft107-maintainer-audit-20261008.json).
 
 ## Fixed installed own-directory acceptance (2026-10-08)
 
-The current fixed host matrix is Film36/source35, Effect34/source32, Photo34/source32, Vector33/source31 and Art107/source80: 64 skills, zero loading errors. Six changed scenario skills independently install their pinned public CLI into empty caches in Unicode/space paths, then discover commands and describe parameters through their own supported entry. Runtime archives are unchanged. All 64 installed/vendored trees match; 58 historical cold records are reused only after complete digest equality.
+The then-fixed host matrix was Film36/source35, Effect34/source32, Photo34/source32, Vector33/source31 and Art107/source80: 64 skills, zero loading errors. Six changed scenario skills independently install their pinned public CLI into empty caches in Unicode/space paths, then discover commands and describe parameters through their own supported entry. Runtime archives are unchanged. All 64 installed/vendored trees match; 58 historical cold records are reused only after complete digest equality.
 
 Four source regressions total 596 tests: 474 passed and 122 conditional skips. Four plugin regressions pass all 72 tests. The path tests cover 54 skills, 162 copied installation layouts and 474 argument-parser help calls; these do not establish native creative tasks. Two auxiliary verifier mistakes are retained: unsupported cross-domain native describe and rejection of Photo’s valid dev-build version suffix. Five successful fixed cold cases were retained; Photo alone was rerun with the existing exact named version matcher. Six actual cold cases now pass.
 
 Only the own-directory bounded release gates close; full V1, exhaustive contexts, actual generic Skills CLI and creative acceptance remain open. [Fixed installed evidence](evidence/craft-scenario-paths-fixed-first-use-20261008.json).
 
-Current maintainer defaults: `host-acceptance-scenario-paths.lock.json` and `craft-scenario-paths-fixed-first-use-20261008.json`; historical explicit parameters remain supported.
+Historical maintainer defaults: `host-acceptance-scenario-paths.lock.json` and `craft-scenario-paths-fixed-first-use-20261008.json`; historical explicit parameters remain supported.
 
 Art runtime106/source80 retains its original immutable domain bundle locks. All four domain use-skill digests and native CLI archive digests remain identical, so this directory-example correction does not change mixed-workflow adapters or trigger a new Art runtime release.

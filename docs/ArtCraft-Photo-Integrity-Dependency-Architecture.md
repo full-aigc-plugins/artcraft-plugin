@@ -1,6 +1,6 @@
 # ArtCraft Photo delivery dependency architecture
 
-> Status: source candidate; fixed plugin acceptance remains open. Updated: 2026-10-08.
+> Status: fixed installed dependency acceptance passed; full V1 remains open. Updated: 2026-10-08.
 
 ## 1. Scope and authority
 
@@ -34,8 +34,8 @@ Photo source commit: `c3b23207b6a6f09032c9dd0a68c7b173a36b11c0`. ZIP SHA256: `97
 
 Prefix tests first failed with the real versioned layout, then passed after the restricted compatibility fix. The receipt test first failed because `delivery.py` was absent and passed after identity binding. Full source regression: 156 tests, 118 passed, 38 opt-in tests skipped. The native candidate copies only one skill into a temporary `.agents/skills`, uses an empty runtime and public downloads, saves/revises an adjustment mask, preserves control pixels and other layers, and verifies a moved package. See [candidate evidence](evidence/art-photo34-dependency-candidate-20261008.json).
 
-Invalid layouts fail before install. Changed helper identity requires restoring the pinned bundle rather than updating the receipt to accept a modified file. No old release/tag is replaced. A fresh source release, pinned plugin snapshot, actual host-installed native proof and ten independent cold installations are still required before fixed acceptance.
+Invalid layouts fail before install. Changed helper identity requires restoring the pinned bundle rather than updating the receipt to accept a modified file. No old release/tag is replaced. Source86 and plugin114 are now published. All ten Art skills pass independent cold installation; 54 byte-identical skills retain their version-bound historical cold proof. Actual installed114 passes four-domain creation, native source revisions, relocated package verification, and original/revised Photo delivery integrity; 64 installed whole-tree hashes are rechecked. Native projects and valid moved packages are retained. Four immutable plugin CI runs succeed. [Fixed evidence](evidence/craft-art-photo34-fixed-first-use-20261008.json).
 
 ## 5. Limits
 
-The native sample does not prove exhaustive command execution, PSD fidelity, GUI operation, complete immutable logical lineage or full V1. Temporary test projects are cleaned by the test; report hashes alone are not retained editable deliverables. Generic Skills CLI installation remains a separate open gate.
+The native sample does not prove exhaustive command execution, PSD fidelity, GUI operation, complete immutable logical lineage or full V1. The earlier adjustment candidate cleans its temporary projects. The fixed mixed test uses CRAFT_MIXED_RETAINED_OUTPUT, refuses an existing output directory, restores the intentionally tampered layout, and retains usable native originals, revisions and moved packages. Downloaded negative-test runtimes may be removed only after terminal execution, file hash inventory and a fresh no-open-file check; project files are preserved. Report hashes alone are not editable deliverables. Generic Skills CLI installation remains a separate open gate.
