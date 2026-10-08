@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-Current MODE boundary candidate: fixed131 silently prepares headless workflows for four bridge identities. Candidate refuses capability_missing; four-domain targets, actual Effect creation/reuse and305 runtime tests pass. New fixed distribution acceptance remains open. [Mode boundary](docs/ArtCraft-Runtime-Mode-Boundary-Architecture.md).
+Fixed132/source104/runtime131 mode acceptance passes: four bridge DAG requests refuse before output/native launch; independent explicit mode checks remain distinct. All64 host identities, ten cold first uses, actual four-domain mixed revision/portable delivery and36 native reply faults pass. Task4.17 completes;4.6 stays open at13/15 after adding MODE, with12 numbered tasks open. [Fixed mode acceptance](docs/ArtCraft-Runtime-Mode-Boundary-Architecture.md).
+
+Earlier MODE boundary candidate: fixed131 silently prepares headless workflows for four bridge identities. Candidate refuses capability_missing; four-domain targets, actual Effect creation/reuse and305 runtime tests pass. New fixed distribution acceptance remains open. [Mode boundary](docs/ArtCraft-Runtime-Mode-Boundary-Architecture.md).
 
 Current fixed131 brand/gateway/HD acceptance passes: both entries inherit nine variants, preserve native-only delivery, refuse source tampering and native brand mutations, decode120frames, revise Logo dependencies, recover corrupt frames and verify five moved projects. Task4.6 now has evidence for12/14 scenarios; it and12 numbered tasks remain open. [Acceptance](docs/ArtCraft-Brand-Segment-Acceptance-Architecture.md).
 
