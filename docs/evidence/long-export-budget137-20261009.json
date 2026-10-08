@@ -1,0 +1,48 @@
+{
+  "schema": "artcraft-long-export-budget/v1",
+  "status": "regression-pass-native-long-export-pending",
+  "pluginVersion": "0.1.0-dev.137",
+  "sourceVersion": "0.1.0-dev.109",
+  "runtimeVersion": "0.1.0-dev.136-runtime.1",
+  "tests": {
+    "runtime": {
+      "total": 656,
+      "passed": 630,
+      "skipped": 26,
+      "failed": 0
+    },
+    "sourceBeforeReleasePin": {
+      "total": 214,
+      "passed": 162,
+      "skipped": 52,
+      "failed": 0
+    },
+    "targetedBudget": {
+      "passed": 3,
+      "actualOsChild": true
+    }
+  },
+  "fixed136NativeFailure": {
+    "state": "failed",
+    "publishedOutputCount": 0,
+    "elapsedSeconds": 181.057,
+    "nativeTimeoutSeconds": 180,
+    "frameRate": "12/1",
+    "startTicks": "9007199254740993",
+    "timebase": "1/254016000000",
+    "nativeProjectRetained": true,
+    "checkpointRetained": true,
+    "recoveryOperationsRetained": true,
+    "partialMovieArchived": true,
+    "partialMovieBytes": 672155082,
+    "partialMovieSha256": "bcaa9fcd1401d2463129d879152d0ab20d61f3c22f7c6f92df4260519899e797",
+    "archiveBytes": 9270749,
+    "decompressedHashVerified": true
+  },
+  "limits": [
+    "Full native long export and independent whole-movie decode not rerun due to disk constraint",
+    "New fixed host/cold-start qualification not executed for this release",
+    "Task2.3 and all12 numbered tasks remain open; not V1 acceptance"
+  ],
+  "scope": "Art-owned deadline/identity-bound Film export and bench-decode proxy; no domain source modification"
+}

@@ -157,7 +157,10 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
     await checkSource();
     await checkRetained();
     for(const asset of assets)await verifyArtifact(asset.input.artifact,asset.input.root);
-    return {executable:locked.python,args,cwd:root,actualRevision:source?node.expectedRevision:null,budgetUsage:{minorUnits:0,externalCalls:0},launcherIdentity:{runtimeExecutable:locked.nativeExecutable,sha256:locked.pythonSha256,files:[...locked.files,...sourceFiles,{path:strictRunner,sha256:hash(strictMcpRunner)},{path:planFile,sha256:hash(JSON.stringify(plan))}]}};
+    const launchArgs=[...args];
+    // 长导出只能使用本次已验证任务的截止时间，不由领域计划或环境扩大。
+    if(locked.pluginId==='filmcraft' && typeof request.deadline==='string')launchArgs.push('--art-native-budget='+JSON.stringify({executable:locked.nativeExecutable,sha256:request.runtimeIdentity.sha256,deadline:request.deadline}));
+    return {executable:locked.python,args:launchArgs,cwd:root,actualRevision:source?node.expectedRevision:null,budgetUsage:{minorUnits:0,externalCalls:0},launcherIdentity:{runtimeExecutable:locked.nativeExecutable,sha256:locked.pythonSha256,files:[...locked.files,...sourceFiles,{path:strictRunner,sha256:hash(strictMcpRunner)},{path:planFile,sha256:hash(JSON.stringify(plan))}]}};
    },
    verify:async(request)=>{
     await checkSource();

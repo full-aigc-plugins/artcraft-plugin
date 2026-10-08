@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+开发发布137／技能源109／运行时136增加受任务截止时间约束的Film导出与解码预算。真实子进程目标测试通过；完整原生超长影片和新宿主验收仍待完成。[架构与限制](docs/ArtCraft-Long-Export-Budget-Architecture.zh_CN.md)。
+
 固定136／源108／runtime135安装检查点通过：64宿主身份、十独立冷首用、100次完整目录／参数查询、三个签名桌面及三个bridge保存重开、44固定运行时错误测试、120安装后包装用例及4项真实原生保存后故障。12项任务与完整V1继续开放。[证据及边界](docs/ArtCraft-Fixed-Mode-Error-Acceptance-Architecture.zh_CN.md)。
 
 此前候选公共错误映射：已补齐8种协议错误及旧预算别名在已停止子任务和独立技能入口中的公开身份，四领域真实保存后未知结果复验通过。固定发行安装及完整任务1.3仍待验收。[错误矩阵](docs/ArtCraft-Public-Error-Matrix-Architecture.zh_CN.md)。
