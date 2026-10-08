@@ -41,3 +41,5 @@ sequenceDiagram
 完整 DAG 使用 workflow.py 的公开领域工作流适配器，在领域计划中声明 native.command；它继续绑定可编辑工程、收集依赖、交换损失、真实重开／导出核验、任务预算／取消、修订失效／恢复及移动包。原生命令组件直接调用仍不生成上述 DAG 证据。固定联合验收见 [网关首用证据](evidence/codex-native-gateway-first-use-20261007.json)；当前 Vector 网关导出补证见 [固定 Art117 证据](evidence/craft-art117-gateway-export-fixed-first-use-20261008.json)。
 
 测试分别验证离线查询／身份／预检／unknown 边界，以及真实公开冷安装、创建、局部返工、重开、持久状态、目标及对照像素、源保全。历史插件82／技能源56的十技能×四领域40项空缓存原生样例通过，920次操作及58安装摘要保全；当时只关闭组件门禁6.50，后续6.51联合验收见上述证据。当前2646条命令的逐项完整上下文、GUI、模型及完整V1仍保持开放。
+
+固定Art119／源91完成当前指南分发与身份修复验收：十个实际安装技能各用空公开运行时，另有原生表达式可信源返工、移动包和64公开CLI核验。旧发行证据保持原范围；全量命令和完整V1仍开放。 [Evidence](evidence/craft-art119-guidance-fixed-first-use-20261008.json).

@@ -469,3 +469,5 @@ Vector33 捆绑升级候选已通过两入口真实混合返工、九变体及�
 固定source89/plugin117：十个实际安装技能分别空缓存公开安装Node／核心／Vector33，核对新工作流受信摘要并发现585个原生命令。两入口混合返工均交付九变体，更新消费产物、保留无关图形并验证移动五子工程包。64项安装身份一致，其中54项历史冷启动未重跑。完整V1尚未完成。 [Evidence](docs/evidence/craft-art117-gateway-export-fixed-first-use-20261008.json).
 
 固定 Film41/source38 与 Art118/source90 首用通过：64项安装身份一致；Film13和Art10分别独立冷安装，41项未变技能仅复用摘要匹配的历史冷安装证据。新Art安装副本通过1080p／24fps／120帧混合创建、Logo依赖返工、坏帧恢复及五子工程迁移；Film通过移动工程文字返工与关键帧保全。完整V1仍开放。 [Evidence](docs/evidence/craft-art118-segment-guide-fixed-first-use-20261008.json).
+
+固定Art119／源91身份与指南分发门禁通过：64项宿主身份及公开CLI核验，十项新独立冷安装，54项仅复用整树摘要一致的历史冷证明；安装的execute技能真实表达式创建、源返工、原工程／非目标像素保全及移动包通过。技能源包清单与套件均为91。只关闭3.28，完整V1仍开放。 [Evidence](docs/evidence/craft-art119-guidance-fixed-first-use-20261008.json).
