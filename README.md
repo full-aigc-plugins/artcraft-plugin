@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Fixed installed upgrade boundary supplement:24 public calls cover12 blocked ledger cases;64 installation identities reverified. Full14-scenario acceptance4.6 remains open. [Boundary architecture](docs/ArtCraft-Upgrade-Boundaries-Architecture.md).
+
 Current acceptance: fixed plugin130/source102/runtime129 upgrade distribution passes; task4.5 is complete,12 tasks remain. Full scenario matrix4.6 remains open.64 host trees,10 independent cold entries with actual upgrade refusals, native legacy migration/compatible snapshot, four-domain revisions/moved package and prior version preservation pass. Source101/plugin129 whitelist failure is preserved and fixed by this new release. [Distribution architecture](docs/ArtCraft-Runtime-Upgrade-Distribution-Architecture.md).
 
 Earlier distribution: plugin130 vendors source102, fixing the missing public upgrade whitelist. Runtime129 remains immutable. Source151 passed/52 conditional skips. Exact fixed installed upgrade/cold acceptance is pending; full V1 remains open.

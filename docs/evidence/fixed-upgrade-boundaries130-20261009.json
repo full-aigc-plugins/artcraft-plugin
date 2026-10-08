@@ -1,0 +1,118 @@
+{
+  "schema": "artcraft-fixed-upgrade-boundaries/v1",
+  "result": "PASS",
+  "pluginVersion": "0.1.0-dev.130",
+  "sourceVersion": "0.1.0-dev.102",
+  "runtimeVersion": "0.1.0-dev.129-runtime.1",
+  "platform": "darwin-arm64",
+  "publicCalls": 24,
+  "boundaryCases": [
+    {
+      "fault": "planned",
+      "expected": "runtime_upgrade_busy",
+      "statePreserved": true,
+      "priorSnapshotPreserved": true,
+      "partialSnapshotAbsent": true,
+      "ledgerStateSha256": "ce04b04d1b21da35e167e717c7c03fd5e9b7e3c77e5e97a9a21a8affb520f84c"
+    },
+    {
+      "fault": "ready",
+      "expected": "runtime_upgrade_busy",
+      "statePreserved": true,
+      "priorSnapshotPreserved": true,
+      "partialSnapshotAbsent": true,
+      "ledgerStateSha256": "cdd8ba0cc9575abc6a54757fbcb89afa66371fd61483c393a64bd048ed04d8f7"
+    },
+    {
+      "fault": "running",
+      "expected": "runtime_upgrade_busy",
+      "statePreserved": true,
+      "priorSnapshotPreserved": true,
+      "partialSnapshotAbsent": true,
+      "ledgerStateSha256": "2131f47dac5b22e16b2a5ab1c424c82f8867a57a11473d43489a2b82f93dc3ba"
+    },
+    {
+      "fault": "reconciling",
+      "expected": "runtime_upgrade_busy",
+      "statePreserved": true,
+      "priorSnapshotPreserved": true,
+      "partialSnapshotAbsent": true,
+      "ledgerStateSha256": "f3c07d6a64c244ab45d589b733df4311c80fd85387d0bd30af3f51223e90c559"
+    },
+    {
+      "fault": "cancel_requested",
+      "expected": "runtime_upgrade_busy",
+      "statePreserved": true,
+      "priorSnapshotPreserved": true,
+      "partialSnapshotAbsent": true,
+      "ledgerStateSha256": "eb5c3c0e5b919adfc0fdea0311e5026866829e646bb89c9c4f70ebc02a0a40dc"
+    },
+    {
+      "fault": "verifying",
+      "expected": "runtime_upgrade_busy",
+      "statePreserved": true,
+      "priorSnapshotPreserved": true,
+      "partialSnapshotAbsent": true,
+      "ledgerStateSha256": "466d527f3fbc8a62ca0c18c63f919a9a7e8b3f07aa3790a2fa39f33f94e9b0f1"
+    },
+    {
+      "fault": "unknown-future",
+      "expected": "runtime_upgrade_busy",
+      "statePreserved": true,
+      "priorSnapshotPreserved": true,
+      "partialSnapshotAbsent": true,
+      "ledgerStateSha256": "42ef307ed09b6956ddbcd3b834ab187809c9fce8b02c5fa94bad117e242b217a"
+    },
+    {
+      "fault": "lease",
+      "expected": "runtime_upgrade_busy",
+      "statePreserved": true,
+      "priorSnapshotPreserved": true,
+      "partialSnapshotAbsent": true,
+      "ledgerStateSha256": "e7210a54904ef6b56e7c65bd286284f97830fa717a22c78641bc93eda96b305f"
+    },
+    {
+      "fault": "prepared",
+      "expected": "runtime_upgrade_busy",
+      "statePreserved": true,
+      "priorSnapshotPreserved": true,
+      "partialSnapshotAbsent": true,
+      "ledgerStateSha256": "bce8149bebe9be3d8b79d480357c1e49dc219f3034882ac5a0ffedfecbd75a64"
+    },
+    {
+      "fault": "unconfirmed-stop",
+      "expected": "runtime_upgrade_busy",
+      "statePreserved": true,
+      "priorSnapshotPreserved": true,
+      "partialSnapshotAbsent": true,
+      "ledgerStateSha256": "45c9b40efa1f45a1e263c04f20acf17da8e8d8dde1d9896838ddeebe3bb3f837"
+    },
+    {
+      "fault": "future-schema",
+      "expected": "ledger_schema_incompatible",
+      "statePreserved": true,
+      "priorSnapshotPreserved": true,
+      "partialSnapshotAbsent": true,
+      "ledgerStateSha256": "c4e1bb873a27f66a988526f6ec57ec5c3958cf0b2870a4b6cbc31c0c358eac5b"
+    },
+    {
+      "fault": "snapshot-write",
+      "expected": "ledger_upgrade_snapshot_failed",
+      "statePreserved": true,
+      "priorSnapshotPreserved": true,
+      "partialSnapshotAbsent": true,
+      "ledgerStateSha256": "e00580b3874e5bf8a25ed95f427435f88522a24501d0f6e9761fe9f54393b173"
+    }
+  ],
+  "missingLedgerAbsent": true,
+  "installedSkillTreesReverified": 64,
+  "entrySha256": "020603afe656bbe056e6208fbc03ce7dce68b941822ed4e7fea1efb413dc37a5",
+  "retainedLegacyModuleSha256": "fb44b28466a2d8d2f66a2364711a451023886e702dd584025ea76af26f6c5cf4",
+  "evidenceFiles": {
+    "artifacts/artcraft-upgrade-boundaries130-20261009/proof.json": "39fbc5e1275a82d40ea9e52479473942476aaff1c94e7b208886f247fdb31473",
+    "artifacts/artcraft-upgrade-boundaries130-20261009.log": "d1814d3a7e688f8dbc3b2e1cd5c2a74e73853bae1913a56952532d8a6157c790",
+    "test/installed_upgrade_boundaries.test.ts": "7dc2ad56415eafe471e9ee207468cdcab4375ea8776bf3cc2787fedc3a392436"
+  },
+  "scope": "Actual published Python entry; authentic retained schema1 constructor with controlled SQLite state/lease/stop fixtures, plus actual OS directory permission failure. Not native editing, GUI or whole AC-RT-002 acceptance.",
+  "task4_6": "open"
+}

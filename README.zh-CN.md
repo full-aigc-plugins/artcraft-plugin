@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+固定安装升级边界补验：24次公开调用覆盖12类账本边界，64个安装身份复核通过。4.6完整14场景验收仍开放。[边界架构](docs/ArtCraft-Upgrade-Boundaries-Architecture.zh_CN.md)。
+
 当前验收：插件130／源102／runtime129固定升级分发通过，任务4.5完成，剩余12项；4.6完整场景矩阵继续开放。64宿主技能树、十入口独立冷启动与实际升级拒绝、原生旧账本迁移／兼容快照、四领域返工／移动包及旧版本保全通过。源101／插件129的升级白名单错误已记录并由新版本修复。[分发架构](docs/ArtCraft-Runtime-Upgrade-Distribution-Architecture.zh_CN.md)。
 
 此前分发：插件130锁定源102，修复公开upgrade白名单遗漏；runtime129保持不可变。源码151通过／52条件跳过。准确固定安装升级／冷启动验收待验，完整V1继续开放。
