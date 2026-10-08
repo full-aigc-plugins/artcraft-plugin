@@ -1,0 +1,153 @@
+{
+  "schema": "artcraft-fixed-upgrade-distribution/v1",
+  "result": "PASS",
+  "pluginVersion": "0.1.0-dev.130",
+  "pluginReleaseCommit": "00e34a793ca520cb4166ae864e53eba4ae2ec0dd",
+  "sourceVersion": "0.1.0-dev.102",
+  "sourceCommit": "143134e389fb47481aa340da4715fbc1a1464085",
+  "runtimeVersion": "0.1.0-dev.129-runtime.1",
+  "runtimeReleaseCommit": "2bcc167a6d4dad5e7b819c9380a8c0d74a2e615e",
+  "releaseZipSha256": {
+    "artcraft-runtime-0.1.0-dev.129-runtime.1.zip": "fb628662c3213c077452d7df2555cd63e543e460851d7abed1e66ff5b8a38c18",
+    "artcraft-skills-0.1.0-dev.102.zip": "0b0dfffc3ce6f5f987520642910c3a90d668c2861362ec08ae8949b3ddd79f39",
+    "artcraft-plugin-0.1.0-dev.130.zip": "b33fbdd270dd313d317eb681984d0fdc0821117ccf1122e2f7bb3c534d00dd28"
+  },
+  "platform": "darwin-arm64",
+  "hostVersion": "codex-cli 0.147.0",
+  "hostSkillTreesBeforeAndAfter": 64,
+  "identity": {
+    "schema": "artcraft-upgrade-fixed-identity/v1",
+    "pluginVersion": "0.1.0-dev.130",
+    "sourceVersion": "0.1.0-dev.102",
+    "runtimeVersion": "0.1.0-dev.129-runtime.1",
+    "runtimeZipSha256": "fb628662c3213c077452d7df2555cd63e543e460851d7abed1e66ff5b8a38c18",
+    "runtimeFilesVerified": 34,
+    "oldCoreFilesPreserved": 67,
+    "hostSkillTreesVerified": 64,
+    "domainLocksUnchanged": {
+      "filmcraft": true,
+      "effectcraft": true,
+      "photocraft": true,
+      "vectorcraft": true
+    },
+    "installedArtSkillHashes": {
+      "artcraft-cli": "e3b6ed8cc65290a1841bf222c1971b35a340d7b963e84cdf309c48592bd83dc8",
+      "artcraft-cli-assets": "c015fa7d0dfbf969aec8519d8dfd0dd06c0c6224e405f9645b39b5fef2171d76",
+      "artcraft-cli-deliver": "c4202caa90c0e29d0ef82036938d0608a065b7e70332121ae174ec1989d257f9",
+      "artcraft-cli-execute": "a76f63b840873d8e239a3ca542e425c80681ca6b156ac2a730213cb9df3a2ce6",
+      "artcraft-cli-plan": "5c185c15832e494f4425bb2163307e5eb76467bebe62b303e7d4c0532b955a12",
+      "artcraft-cli-recover": "99e602af885500362be31257273eb1c4b882631dad12b25896e39018abafc6da",
+      "artcraft-cli-review": "af8462b041e035b1a871d17055ec44ab98772a1234620073a20e6a585b76c506",
+      "artcraft-cli-revise": "3f587057b0668e51828d79c7f9b3ab8334d058f914be776266424c23d28c59fe",
+      "artcraft-cli-setup": "19adcf8d7be3e9353528287a775d2fc3bf521210274b799b6a7fb0b742425d9e",
+      "artcraft-use": "80cb4b7444787707b356fd648a73816fb53e6693588ce900488e40e4aa7b9a1b"
+    },
+    "nodeExecutableSha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+    "scope": "current fixed host skill/core identities and retained older core bytes; no GUI or complete runtime upgrade scenario acceptance"
+  },
+  "cold": {
+    "entries": 10,
+    "publicVersionAndHelpProbes": 20,
+    "actualUpgradeMissingLedgerRefusals": 10,
+    "seconds": 175.78,
+    "skillHashes": {
+      "artcraft-cli": "e3b6ed8cc65290a1841bf222c1971b35a340d7b963e84cdf309c48592bd83dc8",
+      "artcraft-cli-assets": "c015fa7d0dfbf969aec8519d8dfd0dd06c0c6224e405f9645b39b5fef2171d76",
+      "artcraft-cli-deliver": "c4202caa90c0e29d0ef82036938d0608a065b7e70332121ae174ec1989d257f9",
+      "artcraft-cli-execute": "a76f63b840873d8e239a3ca542e425c80681ca6b156ac2a730213cb9df3a2ce6",
+      "artcraft-cli-plan": "5c185c15832e494f4425bb2163307e5eb76467bebe62b303e7d4c0532b955a12",
+      "artcraft-cli-recover": "99e602af885500362be31257273eb1c4b882631dad12b25896e39018abafc6da",
+      "artcraft-cli-review": "af8462b041e035b1a871d17055ec44ab98772a1234620073a20e6a585b76c506",
+      "artcraft-cli-revise": "3f587057b0668e51828d79c7f9b3ab8334d058f914be776266424c23d28c59fe",
+      "artcraft-cli-setup": "19adcf8d7be3e9353528287a775d2fc3bf521210274b799b6a7fb0b742425d9e",
+      "artcraft-use": "80cb4b7444787707b356fd648a73816fb53e6693588ce900488e40e4aa7b9a1b"
+    }
+  },
+  "native": {
+    "retainedOldRuntimeVersion": "0.1.0-dev.0",
+    "nativeVersion": "effectcraft-cli 0.2.0",
+    "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+    "projectSha256": "3a72bd916c892b1ad1e79033e0e8d03daa959f411bd657899f245bbbe3243322",
+    "snapshotSha256": "b0492662e3590727493f0f0cbae36cd4255e3196d8631a4aa38569c7e80314c0",
+    "installedEntrypoint": true,
+    "oldRuntimePreserved": true,
+    "snapshotDataPreserved": true,
+    "nativeReopened": true,
+    "noReplay": true
+  },
+  "tests": {
+    "source": {
+      "total": 203,
+      "pass": 151,
+      "skip": 52
+    },
+    "pluginPython": {
+      "total": 115,
+      "pass": 109,
+      "skip": 6
+    },
+    "runtimeCI": {
+      "total": 322,
+      "pass": 300,
+      "skip": 22,
+      "sourceCoreFilesMatchRuntimeRelease": 34
+    },
+    "actualInstalledNativeUpgrade": {
+      "pass": 1,
+      "skip": 0
+    },
+    "actualInstalledFourDomainBinding": {
+      "pass": 1,
+      "skip": 0
+    },
+    "publicForwardingRED": {
+      "failedSubtests": 10,
+      "cause": "source101 rejects upgrade in Python whitelist before bootstrap"
+    },
+    "coldProbeUnit": {
+      "pass": 7
+    }
+  },
+  "actualCapabilityRefusal": {
+    "schema": "artcraft-installed-capability-refusal/v1",
+    "result": "PASS",
+    "runtimeVersion": "0.1.0-dev.129-runtime.1",
+    "exitCode": 1,
+    "stdout": "{\"error\":\"capability_missing: unavailable-domain\",\"errorDetail\":{\"code\":\"capability_missing\",\"message\":\"capability_missing: unavailable-domain\"}}\n",
+    "stderr": "",
+    "ledgerPreserved": true,
+    "originalNativePreserved": true,
+    "registrySha256": "fe0bdb664f5841f98542bfecdfc46d9a16bc5d30ac0cbc34c1b31382bc1b7b4c",
+    "planSha256": "7c27cecf8109e95a79aaba9726143fa188cb3aed8bc5db3e509549aac538ad83",
+    "scope": "Actual fixed public entry rejects unavailable plugin capability before ledger/task mutation; not every missing native command schema"
+  },
+  "historicalFailure": {
+    "sourceVersion": "0.1.0-dev.101",
+    "pluginVersion": "0.1.0-dev.129",
+    "code": "unsupported_cli_subcommand",
+    "ledgerPreserved": true,
+    "rawEvidenceSha256": "083e3b6710910512d33f1b3d846094891da3777768559545eb3c66e96a042610",
+    "partialColdDiscoveryStopped": true,
+    "assetsRetained": true
+  },
+  "completedTask": "4.5",
+  "remainingTask": "4.6 full AC-RT-002 scenario acceptance; no GUI/full platform/V1 claim",
+  "evidenceFiles": {
+    "artifacts/artcraft-release129-20261009/cold-art130.json": "c0deb942b40c074b363f3a50f3e0d0893e8bad8e43234a1b8c7118bf1d5d2a77",
+    "artifacts/artcraft-release129-20261009/host130/host-receipt.json": "0d28e2cd6deb1797ff7f17265ca68735054b59391b1ce3ff46077769e8c9c666",
+    "artifacts/artcraft-release129-20261009/installed-native-upgrade130/proof.json": "57697ceb1c5e6c0e51ca8c06bb16dd0e98b3530c7208733c82c8d786d0d71b29",
+    "artifacts/artcraft-release129-20261009/installed-native-upgrade130.log": "24c0e627c52c5d9c491c53b9031136571831ee8afd24d2162e2dcd7f52f3fbf1",
+    "artifacts/artcraft-release129-20261009/version-binding130/proof.json": "40124d3a6426d8c0b00da97b34869679a2e9ef6db5eb23251306a25f71c9e3ea",
+    "artifacts/artcraft-release129-20261009/version-binding130.log": "566349389680df0519508b84921f793efd86acde9fa1f0101a8fccc42dfeedcb",
+    "artifacts/artcraft-release129-20261009/source102-tests.log": "d83a69f1030acab450f229805770ed5625dd463afafe960099f2c9285ab609d7",
+    "artifacts/artcraft-release129-20261009/plugin130-python.log": "1b20e00a0312013918ed6f78a5fefe1d8227ebed39088e09bdf4f8edddd1759b",
+    "artifacts/artcraft-release129-20261009/public-forward-red.log": "483b7104760dbd987d9c07feed01e3c994a4426f61ec8a4b3841a8ee1878d9c2",
+    "artifacts/artcraft-release129-20261009/cold-upgrade-probe-red.log": "e8e70ff5f59b196c298e0bb34cbc2e222b4694521c25f9f8ca2c293088ac7c9b",
+    "artifacts/artcraft-release129-20261009/cold-upgrade-probe-green.log": "132b50050d108a0edf744d7889446cf6a38612fd272aa4943ab857e1ad28f9de",
+    "artifacts/artcraft-release129-20261009/public-release-byte-verification.json": "a829d786aec0f0c02ed8f4bb441ee51d364ebce51d7bd7ea34b459ef84ffde12"
+  },
+  "drivers": {
+    "scripts/verify_single_skill_cold_start.py": "adeb6560725386155179f639613ea036abce2b4b5293d2fd840f4c574a56c06d",
+    "test/legacy_runtime_upgrade_native.test.ts": "17fd2c3ff677c1fdd2ab52e3e2814b80c6c7261df846722027e0cdbedadb2e53"
+  }
+}
