@@ -153,3 +153,10 @@ ArtCraft SHALL support explicit domain command `--mode desktop` using immutable 
 - **THEN** 十技能 SHALL 绑定新ZIP、源码提交、全部文件摘要及对应命令索引，读取当前锁与回执识别版本，旧发行保留
 - **AND** 新固定安装 SHALL 独立验证十技能空运行时首用、1920×1080／24fps／120帧混合交付、Logo依赖返工、坏帧拒绝与原字节恢复、五子工程迁移及安装字节保全
 - **AND** 既有Art117原生证据、通用CLI发现或独立Film验收 SHALL NOT 单独替代本分发验收；Effect未发布候选不进入锁
+
+#### Scenario: [AC-RT-002-UPGRADE-ENTRY] 公开账本升级与回退身份
+
+- **WHEN** 操作者显式调用 `upgrade --database ABS`，账本已经存在并且符合迁移与排空条件
+- **THEN** CLI SHALL 返回当前运行时版本、目标状态schema及实际迁移时的旧快照路径和SHA-256；当前schema重复调用返回未迁移，不产生第二份快照
+- **AND** 活跃旧账本拒绝时保留全部旧记录，缺失账本不创建空文件；高版本账本拒绝降级，不自动选择旧运行时、不重放原生任务
+- **AND** 保留的兼容旧运行时仅能显式读取其支持的快照；不能将新schema账本交给旧版强制打开

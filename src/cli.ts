@@ -14,7 +14,7 @@ import { planHash } from './protocol/contracts.ts';
 import { taskErrorDetail } from './protocol/task_error.ts';
 
 const version=JSON.parse(readFileSync(new URL('../package.json',import.meta.url),'utf8')).version;
-const options:Record<string,string[]>={run:['database','registry','plan','owner','authorization','concurrency'],status:['database','task'],cancel:['database','task','workflow'],package:['database','workflow','owner','authorization','output'],'verify-package':['package','sha'],'register-video-factory':['plugin-root','ffmpeg','ffprobe','output-root']};
+const options:Record<string,string[]>={run:['database','registry','plan','owner','authorization','concurrency'],status:['database','task'],upgrade:['database'],cancel:['database','task','workflow'],package:['database','workflow','owner','authorization','output'],'verify-package':['package','sha'],'register-video-factory':['plugin-root','ffmpeg','ffprobe','output-root']};
 function parse(argv:string[]):{command:string;flags:Record<string,string>} {
  const [command,...rest]=argv;
  if(!Object.hasOwn(options,command))throw new Error('cli_command_invalid');
@@ -31,7 +31,7 @@ function parse(argv:string[]):{command:string;flags:Record<string,string>} {
 /** 执行一个命令；调用者通过 argv 明确声明本地授权和所有者。 */
 export async function main(argv:string[]):Promise<unknown> {
  if(argv.length===1 && argv[0]==='--version')return {name:'artcraft',version};
- if(argv.length===1 && argv[0]==='--help')return {name:'artcraft',version,commands:['run','status','cancel','package','verify-package','register-video-factory'],run:'run --database ABS --registry ABS --plan ABS --owner ID --authorization REF [--concurrency 1..16]',status:'status --database ABS [--task ID]',cancel:'cancel --database ABS --task ID | --workflow RUN_KEY',package:'package --database ABS --workflow RUN_KEY --owner ID --authorization REF --output ABS',verifyPackage:'verify-package --package ABS --sha MANIFEST_SHA256',registerVideoFactory:'register-video-factory --plugin-root ABS --ffmpeg ABS --ffprobe ABS --output-root ABS'};
+ if(argv.length===1 && argv[0]==='--help')return {name:'artcraft',version,commands:['run','status','upgrade','cancel','package','verify-package','register-video-factory'],run:'run --database ABS --registry ABS --plan ABS --owner ID --authorization REF [--concurrency 1..16]',status:'status --database ABS [--task ID]',upgrade:'upgrade --database ABS',cancel:'cancel --database ABS --task ID | --workflow RUN_KEY',package:'package --database ABS --workflow RUN_KEY --owner ID --authorization REF --output ABS',verifyPackage:'verify-package --package ABS --sha MANIFEST_SHA256',registerVideoFactory:'register-video-factory --plugin-root ABS --ffmpeg ABS --ffprobe ABS --output-root ABS'};
  const {command,flags}=parse(argv);
  if(command==='register-video-factory')return videoFactoryConfiguration(flags['plugin-root'],process.execPath,flags.ffmpeg,flags.ffprobe,flags['output-root']);
  if(command==='verify-package'){if(!flags.package || !isAbsolute(flags.package) || !flags.sha)throw new Error('cli_verify_package_arguments_required');return verifyProjectPackage(flags.package,flags.sha);}
@@ -40,6 +40,7 @@ export async function main(argv:string[]):Promise<unknown> {
   await access(flags.database); // 只读状态和取消不能静默创建空账本。
   const ledger=new TaskLedger(flags.database,{legacyReadOnly:command==='status'});
   try{
+   if(command==='upgrade')return {state:'completed',runtimeVersion:version,schemaVersion:2,migrated:Boolean(ledger.upgradeSnapshot),snapshot:ledger.upgradeSnapshot ?? null};
    if(command==='package')return await packageProject(ledger,flags.workflow,flags.owner,flags.authorization,flags.output);
    if(command==='status')return flags.task?ledger.status(flags.task):{tasks:ledger.list(),leases:ledger.leases(),budgets:ledger.budgetAccounts(),...(ledger.legacySchemaReadOnly?{budgetTracking:'untracked-legacy-schema'}:{})};
    if(Boolean(flags.task)===Boolean(flags.workflow))throw new Error('cli_cancel_target_required');

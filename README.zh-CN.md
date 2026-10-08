@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-开发发行：插件 `0.1.0-dev.128`／独立技能源 `0.1.0-dev.100`／runtime `0.1.0-dev.128-runtime.1`，包含旧账本排空、只读状态与迁移前快照修复。运行时298项通过、21项条件跳过；14项任务继续开放，完整V1未完成。固定安装证据单独记录。见[账本升级架构](docs/ArtCraft-Ledger-Upgrade-Architecture.zh_CN.md)。
+当前源码候选runtime129新增公开账本升级回执；测试任务4.4已完成，剩余13项。20项目标回归、真实旧schema1原生排空／快照兼容验证通过；完整运行时300通过／22条件跳过。4.5／4.6仍开放，公开发行保持128／100／128。[候选架构](docs/ArtCraft-Public-Upgrade-Candidate-Architecture.zh_CN.md)。
+
+此前开发发行：插件 `0.1.0-dev.128`／独立技能源 `0.1.0-dev.100`／runtime `0.1.0-dev.128-runtime.1`，包含旧账本排空、只读状态与迁移前快照修复。运行时298项通过、21项条件跳过；14项任务继续开放，完整V1未完成。固定安装证据单独记录。见[账本升级架构](docs/ArtCraft-Ledger-Upgrade-Architecture.zh_CN.md)。
 
 此前验收：固定插件127／源99／runtime126的预算与取消六场景通过，5.9已完成。真实主动／期限取消、额度及政策拒绝、空缓存原生worker崩溃恢复通过。运行时303项：282通过／21条件跳过；技能源201项：149通过／52条件跳过。剩余14项，5.3仍缺实际GUI旧计划冲突证据。生产发行包不变。见[预算与取消验收](docs/ArtCraft-Budget-Cancel-Acceptance-Architecture.zh_CN.md)。
 

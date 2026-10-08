@@ -1,0 +1,82 @@
+{
+  "schema": "artcraft-upgrade-entry-candidate/v1",
+  "candidateRuntimeVersion": "0.1.0-dev.129-runtime.1",
+  "publishedPluginVersion": "0.1.0-dev.128",
+  "publishedSourceVersion": "0.1.0-dev.100",
+  "publishedRuntimeVersion": "0.1.0-dev.128-runtime.1",
+  "retainedSchema1Tag": "v0.1.0-dev.0",
+  "retainedSchema1Commit": "9ed351e825671a32288578678f81b31212f5ff29",
+  "nativeRuntimeVersion": "effectcraft-cli 0.2.0",
+  "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+  "nativeProjectSha256": "3a72bd916c892b1ad1e79033e0e8d03daa959f411bd657899f245bbbe3243322",
+  "snapshotSha256": "47a4e53b1a8651a7181b1e82f9613157338a92cf2f829a81015229690e6ed78e",
+  "tests": {
+    "red": {
+      "total": 2,
+      "failed": 2,
+      "cause": "public upgrade command missing"
+    },
+    "target": {
+      "total": 20,
+      "pass": 20
+    },
+    "runtime": {
+      "total": 322,
+      "pass": 300,
+      "skip": 22
+    },
+    "native": {
+      "pass": 1,
+      "skip": 0,
+      "earlierFailure": "Test adapter omitted required artifact output; native process exited0 and project was preserved. Driver fixed, fresh case2 passed; case1 evidence retained. Final case3 also probes the actual native version."
+    },
+    "capabilityMode": {
+      "total": 18,
+      "pass": 18
+    },
+    "pluginPython": {
+      "total": 112,
+      "pass": 106,
+      "skip": 6
+    }
+  },
+  "verified": [
+    "legacy active refusal preserves all ledger data",
+    "retained schema1 runtime executes native Effect create/save",
+    "trusted stop and review_ready drain",
+    "candidate upgrade returns verified old snapshot identity",
+    "snapshot schema and all data equal drained legacy ledger",
+    "explicit copied snapshot opens in retained old runtime",
+    "old runtime refuses new schema without changing it",
+    "repeat upgrade preserves database, native file and original snapshot, no native replay",
+    "missing database and future schema refusals",
+    "headless/bridge mode and pinned schema drift target regression"
+  ],
+  "completedTasks": [
+    "4.4"
+  ],
+  "openTasks": [
+    "4.5",
+    "4.6"
+  ],
+  "scope": "Test implementation and candidate native compatibility only. No immutable129 runtime asset, source/plugin release, exact installed129 host or complete AC-RT-002 matrix. Full V1 remains open.",
+  "files": {
+    "package.json": "9493363cea26e61a07bcc62dcd4879277b714e5d3cd4cd3e76e7cf77e3ad1648",
+    "src/cli.ts": "3af9051a8b01ee35fa36a91adfa7e8e215a38d26350a7f63741c87813c481518",
+    "test/cli.test.ts": "e3e6e423a995de127f641f0b23b9aa4cbd92f97e31da6807cdd7db112f94fb46",
+    "test/ledger_upgrade.test.ts": "2970a2ff56d98679367c32cd34d20b44aaef8caf1ba532cc607248fe2a378975",
+    "test/legacy_runtime_upgrade_native.test.ts": "39df40de59ecd15456e2f29cac67634d786fca4ca673bea1429b9ad4681e1393"
+  },
+  "logs": {
+    "artifacts/craft-art-upgrade-entry-red-20261009.log": "3318b254d888bd420b904855e8ff062f6e1b3ec6b8439a6025d9f48800e4e258",
+    "artifacts/craft-art-upgrade-entry-green-20261009.log": "c8612a544ff75489edbc02e3d2efa23b4a0de1958676eafab8df42142401feb0",
+    "artifacts/craft-art-upgrade-entry-20261009/native-case1.log": "53e0f140e5d1b71059185ebecced41837cc3201282fac0adec81be9bb15fa463",
+    "artifacts/craft-art-upgrade-entry-20261009/native-case2.log": "fe14405c5913ba743fe97b695743baa9d3fd93ea0619aa12575f49a6bcacfaf0",
+    "artifacts/craft-art-upgrade-entry-20261009/native-case2/proof.json": "81a653cf5c60ec6bd7e92ff74f4bdda5e91eb3242684bc2d9235d723f18ed160",
+    "artifacts/craft-art-upgrade-entry-20261009/runtime-full.log": "5bac7c18d36e589f0af6bf28643cfb0ce7fa848b8ef320c22a397cbc4f0d3e1a",
+    "artifacts/craft-art-upgrade-entry-20261009/capability-mode.log": "028ac43153616930ecf21e7dadbd2cbbd19224eec4762845c3ee58339e5ca04b",
+    "artifacts/craft-art-upgrade-entry-20261009/native-case3.log": "61b740bb53841148d4b691efe58ce045c16137f18d12f256b7ae1de2c19215c3",
+    "artifacts/craft-art-upgrade-entry-20261009/native-case3/proof.json": "54a9a0d5d6b5b8c1a9e1680116ec7e99b8e12a5b64f473883e0c1afceaacd002",
+    "artifacts/craft-art-upgrade-entry-20261009/plugin-python.log": "2ce5777cba9c8c86f056cb93ff08f720e5a732b5b637a4855752d36dc180782a"
+  }
+}

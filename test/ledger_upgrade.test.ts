@@ -107,3 +107,25 @@ test('a snapshot call returning without a valid old-schema database cannot autho
   assert.equal(readdirSync(f.root).filter(name=>name.includes('schema-v1')).length,0);
  }finally{f.cleanup();}
 });
+
+test('public upgrade returns a verified snapshot once and preserves old runtime rollback inputs',async()=>{
+ const {main}=await import('../src/cli.ts');const f=legacy();
+ try{
+  const before=f.state();await assert.rejects(main(['upgrade','--database',f.path]),/runtime_upgrade_busy/);assert.equal(f.state(),before);
+  f.db.exec("UPDATE tasks SET state='cancelled'");
+  const result:any=await main(['upgrade','--database',f.path]);
+  assert.equal(result.state,'completed');assert.equal(result.schemaVersion,2);assert.equal(result.migrated,true);
+  assert.equal(result.snapshot.schemaVersion,1);assert.equal(createHash('sha256').update(readFileSync(result.snapshot.path)).digest('hex'),result.snapshot.sha256);
+  assert.equal(result.runtimeVersion,JSON.parse(readFileSync(new URL('../package.json',import.meta.url),'utf8')).version);
+  const repeated:any=await main(['upgrade','--database',f.path]);assert.equal(repeated.migrated,false);assert.equal(repeated.snapshot,null);
+  assert.equal(readdirSync(f.root).filter(name=>name.includes('schema-v1')).length,1);
+ }finally{f.cleanup();}
+});
+
+test('public upgrade refuses missing and future databases without changing user files',async()=>{
+ const {main}=await import('../src/cli.ts');const f=legacy();
+ try{
+  const missing=join(f.root,'missing.sqlite');await assert.rejects(main(['upgrade','--database',missing]),/ENOENT/);assert.equal(readdirSync(f.root).includes('missing.sqlite'),false);
+  f.db.exec('PRAGMA user_version=3');const before=f.state();await assert.rejects(main(['upgrade','--database',f.path]),/ledger_schema_incompatible/);assert.equal(f.state(),before);
+ }finally{f.cleanup();}
+});

@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-Development release: plugin `0.1.0-dev.128` / independent skills `0.1.0-dev.100` / runtime `0.1.0-dev.128-runtime.1`, with legacy-ledger draining, read-only status and verified pre-migration snapshots. Runtime:298 passed,21 conditional skips. All14 outstanding tasks remain open; full V1 is incomplete. Fixed-install evidence is recorded separately. See [ledger upgrade architecture](docs/ArtCraft-Ledger-Upgrade-Architecture.md).
+Current source candidate runtime129 adds public ledger upgrade receipts; test task4.4 is complete,13 tasks remain open.20 targeted tests and real retained schema1 native drain/snapshot compatibility passed; runtime300 passed/22 conditional skips. Tasks4.5/4.6 remain open. Published identities stay128/100/128. [Candidate architecture](docs/ArtCraft-Public-Upgrade-Candidate-Architecture.md).
+
+Earlier development release: plugin `0.1.0-dev.128` / independent skills `0.1.0-dev.100` / runtime `0.1.0-dev.128-runtime.1`, with legacy-ledger draining, read-only status and verified pre-migration snapshots. Runtime:298 passed,21 conditional skips. All14 outstanding tasks remain open; full V1 is incomplete. Fixed-install evidence is recorded separately. See [ledger upgrade architecture](docs/ArtCraft-Ledger-Upgrade-Architecture.md).
 
 Earlier acceptance: task5.9 is complete for all six budget/cancellation scenarios on fixed plugin127/source99/runtime126. Actual manual/deadline native cancellation, repeated quota/policy refusal and cold native worker-crash recovery pass. Runtime regression:303 total/282 passed/21 conditional skips; source:201/149/52. Fourteen numbered tasks remain;5.3 still requires actual GUI stale-plan conflict evidence. Immutable production assets unchanged. See [budget/cancel acceptance](docs/ArtCraft-Budget-Cancel-Acceptance-Architecture.md).
 
