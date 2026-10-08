@@ -1,0 +1,602 @@
+{
+  "schema": "craft-native-loss-reopen/v1",
+  "platform": "darwin-arm64",
+  "plugin": "0.1.0-dev.127",
+  "source": "0.1.0-dev.99",
+  "runtime": "0.1.0-dev.126-runtime.1",
+  "checks": {
+    "logo": {
+      "runtimeIdentity": {
+        "capabilitySnapshotSha256": "931d3a4c5eae7635bcae7596ccf0d5eb3e143d9f73905ae5819c9ef52e43b247",
+        "cliVersion": "0.2.0-craft.2",
+        "mode": "headless",
+        "pluginId": "vectorcraft",
+        "pluginVersion": "0.1.0-dev.33",
+        "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+      },
+      "sourceNativeSha256": "a9fbd315657cad71c1802fd664ad05deb31a9d0f4510be757a88a90afd386979",
+      "nativeSha256": "cf844c309bd3fd9ed6aad15dc315fc2196ba469416da344e416a7ad2718a4369",
+      "inspectionSha256": "f24ce51aa461f4a803d6d9cd8cf0617000f0f49bfe5c9a80d1ac5e704a2d4cfa",
+      "lossReportSha256": "926b3bf49fdc941b47d1652976486906cc07be04a345d6f6fe49c1d5c67fd587",
+      "lossReport": {
+        "schema": "craft-exchange-loss/v1",
+        "pluginId": "vectorcraft",
+        "native": {
+          "location": "project.vectorcraft",
+          "sha256": "cf844c309bd3fd9ed6aad15dc315fc2196ba469416da344e416a7ad2718a4369"
+        },
+        "inspection": {
+          "location": "native.json",
+          "sha256": "f24ce51aa461f4a803d6d9cd8cf0617000f0f49bfe5c9a80d1ac5e704a2d4cfa"
+        },
+        "outputs": [
+          {
+            "location": "artboard-1.png",
+            "sha256": "e987859c0faaf11fe03950f5fea7b699979ee904f20bbcbd88aadb5352d110d6",
+            "format": "png",
+            "role": "derivative",
+            "nativeSubstitute": false,
+            "changes": [
+              {
+                "code": "native-editing-model",
+                "status": "lost",
+                "reason": "Derivative formats do not retain the complete application-native project model; the native project is delivered separately."
+              },
+              {
+                "code": "editable-layers-paths-text",
+                "status": "lost",
+                "reason": "Layer, path and live text editing are rendered into pixels; edit the retained native project."
+              },
+              {
+                "code": "effect-keyframe-parameters",
+                "status": "lost",
+                "reason": "Rendered pixels do not carry editable native effects, masks or keyframes."
+              },
+              {
+                "code": "font-appearance",
+                "status": "unknown",
+                "reason": "Rendered appearance has not been compared with an approved visual reference."
+              },
+              {
+                "code": "alpha-channel",
+                "status": "observed",
+                "reason": "PNG IHDR records channel representation; indexed transparency and visual alpha fidelity are not inferred."
+              }
+            ],
+            "observations": {
+              "pngColorType": 6
+            },
+            "warnings": []
+          },
+          {
+            "location": "artboard-1.svg",
+            "sha256": "42a700a429329156470c6a4cd62077c1505c0ec74a40a37e7907a86c8a07e2c3",
+            "format": "svg",
+            "role": "derivative",
+            "nativeSubstitute": false,
+            "changes": [
+              {
+                "code": "native-editing-model",
+                "status": "lost",
+                "reason": "Derivative formats do not retain the complete application-native project model; the native project is delivered separately."
+              },
+              {
+                "code": "vector-structure",
+                "status": "observed",
+                "reason": "XML element counts record actual vector/text/raster structure, not semantic round-trip equivalence."
+              },
+              {
+                "code": "font-portability",
+                "status": "unknown",
+                "reason": "Font embedding, substitution and text layout across consumers are not verified."
+              },
+              {
+                "code": "effect-fidelity",
+                "status": "unknown",
+                "reason": "Native effects, masks and grouping are not proven equivalent in SVG consumers."
+              }
+            ],
+            "observations": {
+              "svg": {
+                "path": 1,
+                "text": 1,
+                "image": 0,
+                "filter": 0,
+                "mask": 0,
+                "clipPath": 0
+              }
+            },
+            "warnings": []
+          }
+        ],
+        "acceptance": "technical-observations-only"
+      },
+      "manifestSha256": "e7e294d9c1ef158b31618928062702956deffdaa480ca601bd54f655826604b1",
+      "operationsSha256": "ec638a202e41c527a331b209f936a8ffc5de4c1c025ddb514e27a0fe682daa83"
+    },
+    "product": {
+      "runtimeIdentity": {
+        "capabilitySnapshotSha256": "931d3a4c5eae7635bcae7596ccf0d5eb3e143d9f73905ae5819c9ef52e43b247",
+        "cliVersion": "0.2.0-craft.2",
+        "mode": "headless",
+        "pluginId": "vectorcraft",
+        "pluginVersion": "0.1.0-dev.33",
+        "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+      },
+      "sourceNativeSha256": "529f878dbb6a76259bd96d00f96601acfac09138decb70f39ee4aa167d0d358d",
+      "nativeSha256": "fb0131f8c99d2c75058ef9389a36a1c9ae9bb61d7464003f9ed07acea54e3bc6",
+      "inspectionSha256": "ef60061d5bccabac22bbc346d5704de8707b229d6f14e3b483c271e99ef4e737",
+      "lossReportSha256": "f1702cb29efb5e09e0556bb030dbd7184bed58e2e8f91cf6a7e18375fef1c7bf",
+      "lossReport": {
+        "schema": "craft-exchange-loss/v1",
+        "pluginId": "vectorcraft",
+        "native": {
+          "location": "project.vectorcraft",
+          "sha256": "fb0131f8c99d2c75058ef9389a36a1c9ae9bb61d7464003f9ed07acea54e3bc6"
+        },
+        "inspection": {
+          "location": "native.json",
+          "sha256": "ef60061d5bccabac22bbc346d5704de8707b229d6f14e3b483c271e99ef4e737"
+        },
+        "outputs": [
+          {
+            "location": "artboard-1.png",
+            "sha256": "63aae2044d42b3f53945e139d7642f48d922bfadaf3933a67cc164f7f03be4c8",
+            "format": "png",
+            "role": "derivative",
+            "nativeSubstitute": false,
+            "changes": [
+              {
+                "code": "native-editing-model",
+                "status": "lost",
+                "reason": "Derivative formats do not retain the complete application-native project model; the native project is delivered separately."
+              },
+              {
+                "code": "editable-layers-paths-text",
+                "status": "lost",
+                "reason": "Layer, path and live text editing are rendered into pixels; edit the retained native project."
+              },
+              {
+                "code": "effect-keyframe-parameters",
+                "status": "lost",
+                "reason": "Rendered pixels do not carry editable native effects, masks or keyframes."
+              },
+              {
+                "code": "font-appearance",
+                "status": "unknown",
+                "reason": "Rendered appearance has not been compared with an approved visual reference."
+              },
+              {
+                "code": "alpha-channel",
+                "status": "observed",
+                "reason": "PNG IHDR records channel representation; indexed transparency and visual alpha fidelity are not inferred."
+              }
+            ],
+            "observations": {
+              "pngColorType": 6
+            },
+            "warnings": []
+          }
+        ],
+        "acceptance": "technical-observations-only"
+      },
+      "manifestSha256": "566e6336605892a807fbc6db30ef481e63aad1847296a77e94d034e0783692dd",
+      "operationsSha256": "aca085a789b5b20286b41ccdb8a4be3f740df03de6a08e325ac7f7ec53613272"
+    },
+    "poster": {
+      "runtimeIdentity": {
+        "capabilitySnapshotSha256": "a8b3cc994fade0cfc266f0ee4be17e0cfc4184dd7efae44d3bc0d3742ba341c5",
+        "cliVersion": "0.2.0-craft.1",
+        "mode": "headless",
+        "pluginId": "photocraft",
+        "pluginVersion": "0.1.0-dev.34",
+        "sha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf"
+      },
+      "sourceNativeSha256": "2713fe38a1e964bfb9c179e3f91445709f10957e216884033d72a22006c2a291",
+      "nativeSha256": "2713fe38a1e964bfb9c179e3f91445709f10957e216884033d72a22006c2a291",
+      "inspectionSha256": "ea735bbba16f01016f8cfc16106bce5e85f37fbe1bbca839f951bd4019ac1b94",
+      "lossReportSha256": "24c06f67e6dfbe70570dbb84d7813854095b6292fde0f0535ab5e3a0dba850bc",
+      "lossReport": {
+        "schema": "craft-exchange-loss/v1",
+        "pluginId": "photocraft",
+        "native": {
+          "location": "project.pcraft",
+          "sha256": "2713fe38a1e964bfb9c179e3f91445709f10957e216884033d72a22006c2a291"
+        },
+        "inspection": {
+          "location": "native.json",
+          "sha256": "ea735bbba16f01016f8cfc16106bce5e85f37fbe1bbca839f951bd4019ac1b94"
+        },
+        "outputs": [
+          {
+            "location": "design.png",
+            "sha256": "d737af4abcb6dada2fd043ffe59c20b88d7a46613e8364712878c4bd66a305cf",
+            "format": "png",
+            "role": "derivative",
+            "nativeSubstitute": false,
+            "changes": [
+              {
+                "code": "native-editing-model",
+                "status": "lost",
+                "reason": "Derivative formats do not retain the complete application-native project model; the native project is delivered separately."
+              },
+              {
+                "code": "editable-layers-paths-text",
+                "status": "lost",
+                "reason": "Layer, path and live text editing are rendered into pixels; edit the retained native project."
+              },
+              {
+                "code": "effect-keyframe-parameters",
+                "status": "lost",
+                "reason": "Rendered pixels do not carry editable native effects, masks or keyframes."
+              },
+              {
+                "code": "font-appearance",
+                "status": "unknown",
+                "reason": "Rendered appearance has not been compared with an approved visual reference."
+              },
+              {
+                "code": "alpha-channel",
+                "status": "unknown",
+                "reason": "PNG IHDR records channel representation; indexed transparency and visual alpha fidelity are not inferred."
+              }
+            ],
+            "observations": {
+              "pngColorType": 2
+            },
+            "warnings": [
+              "4 layer(s) flattened; layers, masks and blend modes are not kept"
+            ]
+          },
+          {
+            "location": "design.psd",
+            "sha256": "8dae947140d4b3e0f6f37beab09ff88137852111db66efde50ffdcafbe2b9b90",
+            "format": "psd",
+            "role": "derivative",
+            "nativeSubstitute": false,
+            "changes": [
+              {
+                "code": "native-editing-model",
+                "status": "lost",
+                "reason": "Derivative formats do not retain the complete application-native project model; the native project is delivered separately."
+              },
+              {
+                "code": "font-portability",
+                "status": "unknown",
+                "reason": "PSD font availability and substitution in other editors are not verified."
+              },
+              {
+                "code": "effect-fidelity",
+                "status": "unknown",
+                "reason": "Native adjustment, mask, blend and effect equivalence is not proven by layer count."
+              },
+              {
+                "code": "editable-layer-roundtrip",
+                "status": "unknown",
+                "reason": "A reopened PSD inspection is evidence of observed structure, not complete editability equivalence."
+              }
+            ],
+            "observations": {
+              "nativeLayerCount": 4,
+              "psdLayerCount": 4
+            },
+            "warnings": []
+          }
+        ],
+        "acceptance": "technical-observations-only",
+        "psdInspection": {
+          "location": "psd-inspection.json",
+          "sha256": "57ebba0164c42d7a9302ea043bdf95e38cd3f96d9e0f43115c25fd10032f1d6c"
+        }
+      },
+      "manifestSha256": "1dacb38183852ea0a20c25acfc68b30d90e6d371990e2382f48bfd5bdf067e31",
+      "operationsSha256": "a7a213c346f56058d65c90a050bb490f050122bed153e22034f39879b30d69a0"
+    },
+    "intro": {
+      "runtimeIdentity": {
+        "capabilitySnapshotSha256": "d167d260a61a970d0441532cb00316a0bb48072f98a5b0a2ee16d4259bec5109",
+        "cliVersion": "0.2.0",
+        "mode": "headless",
+        "pluginId": "effectcraft",
+        "pluginVersion": "0.1.0-dev.34",
+        "sha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+      },
+      "sourceNativeSha256": "6143147692abc3f54e2641fd55a70854e55d85db0f023f2194293b599a1d05ef",
+      "nativeSha256": "c3c141a7fc9b9dcd58decbcd312857d3033375994054d93b4f00b4d859f05fe4",
+      "inspectionSha256": "feb2c096de303282de0245b040f12efe018c989f0b32ecec8593a1921bdd4b08",
+      "lossReportSha256": "3430877a817435a08e9ecc22e155fbb903d3b840b2341eadd750cdac43b75da5",
+      "lossReport": {
+        "schema": "craft-exchange-loss/v1",
+        "pluginId": "effectcraft",
+        "native": {
+          "location": "project.ecproj",
+          "sha256": "c3c141a7fc9b9dcd58decbcd312857d3033375994054d93b4f00b4d859f05fe4"
+        },
+        "inspection": {
+          "location": "native.json",
+          "sha256": "feb2c096de303282de0245b040f12efe018c989f0b32ecec8593a1921bdd4b08"
+        },
+        "outputs": [
+          {
+            "location": "frame-0000.png",
+            "sha256": "a0385e0d996f0245679914ce02acca9e588e8dd0c33c85028969f4f83445658a",
+            "format": "png",
+            "role": "derivative",
+            "nativeSubstitute": false,
+            "changes": [
+              {
+                "code": "native-editing-model",
+                "status": "lost",
+                "reason": "Derivative formats do not retain the complete application-native project model; the native project is delivered separately."
+              },
+              {
+                "code": "editable-layers-paths-text",
+                "status": "lost",
+                "reason": "Layer, path and live text editing are rendered into pixels; edit the retained native project."
+              },
+              {
+                "code": "effect-keyframe-parameters",
+                "status": "lost",
+                "reason": "Rendered pixels do not carry editable native effects, masks or keyframes."
+              },
+              {
+                "code": "font-appearance",
+                "status": "unknown",
+                "reason": "Rendered appearance has not been compared with an approved visual reference."
+              },
+              {
+                "code": "alpha-channel",
+                "status": "observed",
+                "reason": "PNG IHDR records channel representation; indexed transparency and visual alpha fidelity are not inferred."
+              }
+            ],
+            "observations": {
+              "pngColorType": 6
+            },
+            "warnings": []
+          },
+          {
+            "location": "frame-0001.png",
+            "sha256": "79fd2861b78a7746245974e4d5cdf63002df59ec3fea720b2163bb40aaac5b48",
+            "format": "png",
+            "role": "derivative",
+            "nativeSubstitute": false,
+            "changes": [
+              {
+                "code": "native-editing-model",
+                "status": "lost",
+                "reason": "Derivative formats do not retain the complete application-native project model; the native project is delivered separately."
+              },
+              {
+                "code": "editable-layers-paths-text",
+                "status": "lost",
+                "reason": "Layer, path and live text editing are rendered into pixels; edit the retained native project."
+              },
+              {
+                "code": "effect-keyframe-parameters",
+                "status": "lost",
+                "reason": "Rendered pixels do not carry editable native effects, masks or keyframes."
+              },
+              {
+                "code": "font-appearance",
+                "status": "unknown",
+                "reason": "Rendered appearance has not been compared with an approved visual reference."
+              },
+              {
+                "code": "alpha-channel",
+                "status": "observed",
+                "reason": "PNG IHDR records channel representation; indexed transparency and visual alpha fidelity are not inferred."
+              }
+            ],
+            "observations": {
+              "pngColorType": 6
+            },
+            "warnings": []
+          },
+          {
+            "location": "intro.mp4",
+            "sha256": "2e98b18b7dbe05640b0b418f79f843f5d4c08709b3d43bf5f8d70b7a7305ff49",
+            "format": "mp4",
+            "role": "derivative",
+            "nativeSubstitute": false,
+            "changes": [
+              {
+                "code": "native-editing-model",
+                "status": "lost",
+                "reason": "Derivative formats do not retain the complete application-native project model; the native project is delivered separately."
+              },
+              {
+                "code": "editable-layers-paths-text",
+                "status": "lost",
+                "reason": "Layer, path and live text editing are rendered into pixels; edit the retained native project."
+              },
+              {
+                "code": "effect-keyframe-parameters",
+                "status": "lost",
+                "reason": "Rendered pixels do not carry editable native effects, masks or keyframes."
+              },
+              {
+                "code": "font-appearance",
+                "status": "unknown",
+                "reason": "Rendered appearance has not been compared with an approved visual reference."
+              },
+              {
+                "code": "alpha-channel",
+                "status": "lost",
+                "reason": "The supported H.264 export does not retain native composition transparency."
+              },
+              {
+                "code": "editable-timeline",
+                "status": "lost",
+                "reason": "MP4 contains rendered streams rather than editable clips, tracks and subtitle style parameters."
+              },
+              {
+                "code": "audio-output",
+                "status": "lost",
+                "reason": "This public export explicitly renders with audio off; native media remains in the project."
+              }
+            ],
+            "observations": {},
+            "warnings": []
+          }
+        ],
+        "acceptance": "technical-observations-only"
+      },
+      "manifestSha256": "4a40bddb1022f92095dcc950e90ddb1c9bbbcc8247350997a34cdca5741fdddb",
+      "operationsSha256": "d5541a6442c26473e8e9f1f0b7d227cde7f501746b9455f93b068cb62dc3dc0c"
+    },
+    "film": {
+      "runtimeIdentity": {
+        "capabilitySnapshotSha256": "06ff30fe2a9d388dae4ff5128ab71bcb399eae81d5f60178c17292b66c9c6c6b",
+        "cliVersion": "0.2.0-craft.4",
+        "mode": "headless",
+        "pluginId": "filmcraft",
+        "pluginVersion": "0.1.0-dev.38",
+        "sha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893"
+      },
+      "sourceNativeSha256": "cf862aa875e46be8a1d4e685a87de1c2594687e674ba7ac762fdcec450fb6f70",
+      "nativeSha256": "180a92cfbdfbf82f98b15d4c24ee0cc99566378d2ac245a6f689acd4673d527f",
+      "inspectionSha256": "734a80deb0d816d1a2ef3d449b0c90946218652bcea887c713eb0f0a560ab0f8",
+      "lossReportSha256": "d11ff8287d50b253a8af07c0c76b6bf4fad415983ae2f192b7686e59be20ae25",
+      "lossReport": {
+        "schema": "craft-exchange-loss/v1",
+        "pluginId": "filmcraft",
+        "native": {
+          "location": "project.fcproj",
+          "sha256": "180a92cfbdfbf82f98b15d4c24ee0cc99566378d2ac245a6f689acd4673d527f"
+        },
+        "inspection": {
+          "location": "native.json",
+          "sha256": "734a80deb0d816d1a2ef3d449b0c90946218652bcea887c713eb0f0a560ab0f8"
+        },
+        "outputs": [
+          {
+            "location": "frame-0000.png",
+            "sha256": "77a11a84bcdb1128542bebce9d85fdbd2e6c99d54bb878cb6401377e9bb84f3b",
+            "format": "png",
+            "role": "derivative",
+            "nativeSubstitute": false,
+            "changes": [
+              {
+                "code": "native-editing-model",
+                "status": "lost",
+                "reason": "Derivative formats do not retain the complete application-native project model; the native project is delivered separately."
+              },
+              {
+                "code": "editable-layers-paths-text",
+                "status": "lost",
+                "reason": "Layer, path and live text editing are rendered into pixels; edit the retained native project."
+              },
+              {
+                "code": "effect-keyframe-parameters",
+                "status": "lost",
+                "reason": "Rendered pixels do not carry editable native effects, masks or keyframes."
+              },
+              {
+                "code": "font-appearance",
+                "status": "unknown",
+                "reason": "Rendered appearance has not been compared with an approved visual reference."
+              },
+              {
+                "code": "alpha-channel",
+                "status": "observed",
+                "reason": "PNG IHDR records channel representation; indexed transparency and visual alpha fidelity are not inferred."
+              }
+            ],
+            "observations": {
+              "pngColorType": 6
+            },
+            "warnings": []
+          },
+          {
+            "location": "film.mp4",
+            "sha256": "c99d2e8e23b5c617cd8931525eff65d8b804e3ddd0d7c25409ab3c1aeed2279d",
+            "format": "mp4",
+            "role": "derivative",
+            "nativeSubstitute": false,
+            "changes": [
+              {
+                "code": "native-editing-model",
+                "status": "lost",
+                "reason": "Derivative formats do not retain the complete application-native project model; the native project is delivered separately."
+              },
+              {
+                "code": "editable-layers-paths-text",
+                "status": "lost",
+                "reason": "Layer, path and live text editing are rendered into pixels; edit the retained native project."
+              },
+              {
+                "code": "effect-keyframe-parameters",
+                "status": "lost",
+                "reason": "Rendered pixels do not carry editable native effects, masks or keyframes."
+              },
+              {
+                "code": "font-appearance",
+                "status": "unknown",
+                "reason": "Rendered appearance has not been compared with an approved visual reference."
+              },
+              {
+                "code": "alpha-channel",
+                "status": "lost",
+                "reason": "The supported H.264 export does not retain native composition transparency."
+              },
+              {
+                "code": "editable-timeline",
+                "status": "lost",
+                "reason": "MP4 contains rendered streams rather than editable clips, tracks and subtitle style parameters."
+              }
+            ],
+            "observations": {
+              "audioStreamPresent": true
+            },
+            "warnings": []
+          },
+          {
+            "location": "captions.srt",
+            "sha256": "d6e9c991985b034a42fd59cad3b0c9383a6ea294fecd0b5067ebe1ddf0d7f34a",
+            "format": "srt",
+            "role": "derivative",
+            "nativeSubstitute": false,
+            "changes": [
+              {
+                "code": "native-editing-model",
+                "status": "lost",
+                "reason": "Derivative formats do not retain the complete application-native project model; the native project is delivered separately."
+              },
+              {
+                "code": "subtitle-styling",
+                "status": "lost",
+                "reason": "SRT exchanges timing and text; native font, position, color and animation styling is not retained."
+              }
+            ],
+            "observations": {},
+            "warnings": []
+          }
+        ],
+        "acceptance": "technical-observations-only"
+      },
+      "manifestSha256": "b8f59d3d5a4fe83b7c99fdddc5427850a41d82e8e86e151526104c0dd1d0a44f",
+      "operationsSha256": "3c3f7e1aa4c52d61cc1744a75ea42ea8f580ae4c9f3d8c9ffce58d2c119961ce"
+    }
+  },
+  "originalSourcesPreserved": true,
+  "packageSha256": "8febb70fa34fb956e9905f7f2115013efc7d651032e417d9050604b32540e7f4",
+  "calls": [
+    {
+      "label": "reopen",
+      "stdoutSha256": "a4ff2993ef7895dd790d5a1527d661387750a285a0f39d4ccf454d6094ab001a",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "reopen-package",
+      "stdoutSha256": "fdea8660f0ed6677f1124b80b1e632fb53e3a627ce595108467e7b5429456abe",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "reopen-verify",
+      "stdoutSha256": "59015d8cfe18432dd64451e9242822df1e4594994c84abd6a7029093fd7739cc",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "scope": "actual public native source reopens and exports; bound native/inspection/output loss reports; technical observations only"
+}

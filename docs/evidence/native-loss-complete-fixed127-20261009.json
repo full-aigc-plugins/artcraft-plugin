@@ -1,0 +1,94 @@
+{
+  "schema": "craft-native-loss-complete-acceptance/v1",
+  "date": "2026-10-09",
+  "requirement": "AC-AR-002",
+  "completedTask": "7.6",
+  "plugin": "0.1.0-dev.127",
+  "source": "0.1.0-dev.99",
+  "runtime": "0.1.0-dev.126-runtime.1",
+  "platform": "darwin-arm64",
+  "specificationSha256": "d745f91b4301bad187510493b7b27e2a8f04c3ebef0d4df0f1ce2f4d39565dd1",
+  "scenarios": {
+    "AC-AR-002-P 合同条件满足": {
+      "result": "verified",
+      "evidence": "native-loss-reopen-fixed127-20261009.json",
+      "observed": "five real native sources reopened, exported and moved; native and inspection/output loss bindings checked"
+    },
+    "AC-AR-002-N 边界条件": {
+      "result": "verified",
+      "evidence": "native-loss-variant-fixed127-20261009.json",
+      "observed": "native retained; format editing losses explicit; hash-consistent nativeSubstitute refused with zero allocation"
+    },
+    "绑定原生工程的交换损失报告": {
+      "result": "verified",
+      "evidence": "native-loss-reopen-fixed127-20261009.json",
+      "observed": "manifest-bound loss reports retain lost/observed/unknown; actual source open plus hash-consistent native/output/inspection mismatch refusals"
+    },
+    "PhotoCraft variant records survive package relocation": {
+      "result": "verified",
+      "evidence": "native-loss-variant-fixed127-20261009.json",
+      "observed": "native source-bound 352x400 Photo variant and layout record survive package move"
+    },
+    "A packaged variant record is altered": {
+      "result": "verified",
+      "evidence": "native-loss-variant-fixed127-20261009.json",
+      "observed": "changed packaged layout refused; restored package verifies"
+    },
+    "Legacy variant cache lacks required geometry evidence": {
+      "result": "verified",
+      "evidence": "native-loss-variant-fixed127-20261009.json",
+      "observed": "native cache file removal blocks before replay; restore reuses same task/budget; separate hash-consistent missing manifest binding unit case passes"
+    },
+    "Variant evidence is consistent before handoff": {
+      "result": "verified",
+      "evidence": "native-loss-variant-fixed127-20261009.json",
+      "observed": "current native roles/bounds, safe area, resize receipts and target validated; seven hash-consistent unit faults refused"
+    },
+    "AC-AR-001-SEGMENT 分段序列类型与收集来源": {
+      "result": "verified",
+      "evidence": "native-loss-segmented-fixed127-20261009.json",
+      "observed": "fresh independent current installed source: 1920x1080, 120 RGBA frames, four segments, Film consumption, decoded frames/pixels, logo revision, bad frame refusal/restoration, moved package"
+    }
+  },
+  "additionalRefusalEvidence": "native-loss-refusals-fixed127-20261009.json",
+  "hostBinding": {
+    "hostEvidence": "consistency-fixed127-20261009.json",
+    "lock": "host-acceptance-art127.lock.json",
+    "postRunVerifiedSkillTrees": 64,
+    "segmentedColdEntry": "artcraft-cli-revise",
+    "actualHostSourceTreeMatchesColdCopy": true
+  },
+  "tests": {
+    "targeted": {
+      "total": 13,
+      "passed": 13,
+      "skipped": 0,
+      "logSha256": "d4b8756c1971f5fa4ff2b4450c5ce81716b2fddfa7c5a5245f12d600642e1f15"
+    },
+    "segmentedCold": {
+      "total": 1,
+      "passed": 1,
+      "skipped": 0,
+      "seconds": 264.591,
+      "logSha256": "3278708b72a7b6618abbb3a0ffe36b3fe8c1dcbb7d123e5a98c3c51be1964013"
+    },
+    "runtimeRegression": {
+      "total": 301,
+      "passed": 280,
+      "conditionalSkips": 21,
+      "logSha256": "918ab2d6b50ee9689830aeddd967164bec8c18a48079f8c8d1559f6c82eae208"
+    }
+  },
+  "productionBytesChanged": false,
+  "limits": [
+    "named macOS arm64 native and fault scenarios only; no full V1 claim",
+    "legacy missing-binding case is a protocol fixture, native cache missing-file case is an injected fault; not a historical domain public release install",
+    "five-source reopen and variant tests use the existing verified runtime cache; segmented HD test starts empty and downloads public fixed assets",
+    "format losses remain declared; unknown cross-editor fonts/effects fidelity stays unknown; no human creative acceptance",
+    "initial refusal assertion expected a different error spelling; correct protocol_invalid refusal and first failure log retained"
+  ],
+  "targetedTestSources": {
+    "test/photo_variant_output.test.ts": "4ad7021976302a47e2383f27a7e58db7b66dd827241907142fa90bfc8ca306f2",
+    "test/exchange_loss.test.ts": "ab554d09d7cec9d4a3fa8aa0bb447fb293f3b91b4f4abdf6f996d47daba5a50b"
+  }
+}

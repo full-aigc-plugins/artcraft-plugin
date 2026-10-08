@@ -33,3 +33,15 @@ for(const [name,change]of Object.entries({
  'missing resize receipt':(x:any)=>{x.operations=[];}
 })){test(name+' is rejected even with consistent file hashes',async()=>{const f=await fixture(change);try{await assert.rejects(verifyPhotoVariantOutput(f.root,[f.output],f.node),/photo_variant_evidence_invalid/);}finally{await f.cleanup();}});}
 test('a stale layout record cannot pass reuse',async()=>{const f=await fixture();try{await writeFile(join(f.root,'layout-variant.json'),'{}');await assert.rejects(verifyPhotoVariantOutput(f.root,[f.output],f.node),/photo_variant_evidence_stale/);}finally{await f.cleanup();}});
+
+test('legacy cache without manifest-bound geometry is refused despite matching outer hashes',async()=>{
+ const f=await fixture();
+ try{
+  const {readFile}=await import('node:fs/promises');
+  const manifest=JSON.parse(await readFile(join(f.root,'manifest.json'),'utf8'));
+  delete manifest.layoutVariant;
+  const bytes=JSON.stringify(manifest);await writeFile(join(f.root,'manifest.json'),bytes);
+  f.output.evidenceRefs[0].sha256=hash(bytes);f.output.evidenceRefs[0].version=hash(bytes);
+  await assert.rejects(verifyPhotoVariantOutput(f.root,[f.output],f.node),/photo_variant_evidence_missing/);
+ }finally{await f.cleanup();}
+});

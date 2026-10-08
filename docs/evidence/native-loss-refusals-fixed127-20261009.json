@@ -1,0 +1,28 @@
+{
+  "schema": "craft-native-loss-refusals/v1",
+  "cases": {
+    "native-identity": {
+      "error": "loss_report_native_mismatch",
+      "state": "blocked",
+      "outputsAbsent": true,
+      "stdoutSha256": "72a14a1e5946c6808db0f4cf7049f306b7a97161a7e19af11a62fc2b69e1f358",
+      "nativeSourceSha256": "2713fe38a1e964bfb9c179e3f91445709f10957e216884033d72a22006c2a291"
+    },
+    "output-identity": {
+      "error": "loss_report_output_mismatch",
+      "state": "blocked",
+      "outputsAbsent": true,
+      "stdoutSha256": "3d02b6bb2db2533a22591df892e1060e3eaaa3fdb15e91dec51306c05e63e76e",
+      "nativeSourceSha256": "2713fe38a1e964bfb9c179e3f91445709f10957e216884033d72a22006c2a291"
+    },
+    "inspection-identity": {
+      "error": "loss_report_evidence_mismatch",
+      "state": "blocked",
+      "outputsAbsent": true,
+      "stdoutSha256": "b5809b77dadd07fbfcd4d9de01abfe60bd5fcd07c394b07ecef243902dd366fa",
+      "nativeSourceSha256": "2713fe38a1e964bfb9c179e3f91445709f10957e216884033d72a22006c2a291"
+    }
+  },
+  "originalSourcePreserved": true,
+  "scope": "actual fixed public entry with hash-consistent report fault fixtures copied from a native source; no original media modified"
+}

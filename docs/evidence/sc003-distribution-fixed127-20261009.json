@@ -1,0 +1,65 @@
+{
+  "schema": "craft-sc003-distribution-audit/v1",
+  "date": "2026-10-09",
+  "task": "SC-003",
+  "historicalTarget": "four domain skill sources dev.27; superseded by subsequent pinned releases, never downgrade",
+  "currentPlugin": "0.1.0-dev.127",
+  "currentSource": "0.1.0-dev.99",
+  "sourceCommit": "d3d52a6324c5db133150c922addebe57a09f7b2a",
+  "sourceZipSha256": "1f45170882102946316902c9e68b4dc31528d50ab957951a8be529b6efae6f47",
+  "pins": {
+    "filmcraft": {
+      "version": "0.1.0-dev.38",
+      "tag": "v0.1.0-dev.38",
+      "tagCommit": "7d0f68dba98a4a4cbfaaf1f17544be0061735a1d",
+      "publicZipSha256": "7e39386e9d70f0c552e786d71a26e96bf9e1f86f6bd0c7464e5b7ec4b510949a",
+      "bytes": 3340437,
+      "releaseUrl": "https://github.com/full-aigc-skills/filmcraft-skills/releases/tag/v0.1.0-dev.38"
+    },
+    "effectcraft": {
+      "version": "0.1.0-dev.34",
+      "tag": "v0.1.0-dev.34",
+      "tagCommit": "550a51842ba0feb3bb6cbd6d890f77e20f25101b",
+      "publicZipSha256": "cf21a5aa06966b69a8424ef9cf423634839bbaabb9ef5390d3a99b150492b007",
+      "bytes": 3964099,
+      "releaseUrl": "https://github.com/full-aigc-skills/effectcraft-skills/releases/tag/v0.1.0-dev.34"
+    },
+    "photocraft": {
+      "version": "0.1.0-dev.34",
+      "tag": "v0.1.0-dev.34",
+      "tagCommit": "c3b23207b6a6f09032c9dd0a68c7b173a36b11c0",
+      "publicZipSha256": "9773df829a565a6ee79d302fbb1a74310a02039b1bf94f5666a46fe83c5cb55c",
+      "bytes": 3941901,
+      "releaseUrl": "https://github.com/full-aigc-skills/photocraft-skills/releases/tag/v0.1.0-dev.34"
+    },
+    "vectorcraft": {
+      "version": "0.1.0-dev.33",
+      "tag": "v0.1.0-dev.33",
+      "tagCommit": "f0b34915172f484e0a39238e9afb56586f1d65d1",
+      "publicZipSha256": "9583f937fedf25887ead25bb09b19af6aff58125ddeac2aa2866a8ac7fed56be",
+      "bytes": 4516852,
+      "releaseUrl": "https://github.com/full-aigc-skills/vectorcraft-skills/releases/tag/v0.1.0-dev.33"
+    }
+  },
+  "independentDistributionLocks": 10,
+  "distributionLockSha256": "e0fc656413d474a9e39048e59474b9c039680da6af56beb8437e4ff166ed78e0",
+  "hostSkillTreesReverified": 64,
+  "publicSourceColdEntries": 10,
+  "sourceRegression": {
+    "tests": 199,
+    "passed": 149,
+    "conditionalSkips": 50,
+    "evidence": "consistency-complete-fixed127-20261009.json"
+  },
+  "currentFreshNativeCold": {
+    "evidence": "native-loss-segmented-fixed127-20261009.json",
+    "platform": "darwin-arm64",
+    "result": "PASS",
+    "runtime": "0.1.0-dev.126-runtime.1"
+  },
+  "productionBytesChanged": false,
+  "limits": [
+    "historical dev27 milestone is satisfied by newer pinned identities, not a downgrade or new release",
+    "does not close all command execution, generic Skills CLI, human acceptance or fullV1"
+  ]
+}

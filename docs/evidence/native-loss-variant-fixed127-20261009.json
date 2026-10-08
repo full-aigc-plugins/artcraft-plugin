@@ -1,0 +1,170 @@
+{
+  "schema": "craft-native-loss-variant-fixed/v1",
+  "date": "2026-10-09",
+  "plugin": "0.1.0-dev.127",
+  "source": "0.1.0-dev.99",
+  "runtime": "0.1.0-dev.126-runtime.1",
+  "platform": "darwin-arm64",
+  "installation": "actual fixed installed Art use with existing verified cache",
+  "calls": [
+    {
+      "label": "variant-create",
+      "exitCode": 0,
+      "stdoutSha256": "d7ab017a89fe2719b92247c7b08119f97327d0ad10b89b128d64b37e5977d582",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "variant-reuse",
+      "exitCode": 0,
+      "stdoutSha256": "6c54947ef820ef86bf8d34be39d90e73b418e874e3d9b6a82e8ec2f549a57380",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "variant-package",
+      "exitCode": 0,
+      "stdoutSha256": "b15dfd5f4cc93129957da05838b71aa06823b756acdf80050efc43b537f30768",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "variant-moved-verify",
+      "exitCode": 0,
+      "stdoutSha256": "c496ef8c56c9dcf483c71ea28f798b6e9d7a9c79fb9812040a18bc6b3283269e",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "variant-tampered-package",
+      "exitCode": 1,
+      "stdoutSha256": "5443ab2b5d9221e2c9ff258c040b6276e4bd6957d16fdadf4c6a7bcf36190ca8",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "variant-restored-package",
+      "exitCode": 0,
+      "stdoutSha256": "c496ef8c56c9dcf483c71ea28f798b6e9d7a9c79fb9812040a18bc6b3283269e",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "variant-cache-missing",
+      "exitCode": 1,
+      "stdoutSha256": "39b1eefcf0a43e253c27e2b00933395ff1d525f4f93ecfe713be643218257cc8",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "variant-cache-restored",
+      "exitCode": 0,
+      "stdoutSha256": "6c54947ef820ef86bf8d34be39d90e73b418e874e3d9b6a82e8ec2f549a57380",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "lossy-native-substitute",
+      "exitCode": 1,
+      "stdoutSha256": "b81a593d62f6d039d30b5ba35b393b984be0c8e6a864eb51d6f85d11d3907769",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "sourceNativeSha256": "2713fe38a1e964bfb9c179e3f91445709f10957e216884033d72a22006c2a291",
+  "sourcePreserved": true,
+  "variantNativeSha256": "dbc108c8bb1a192f7eeac0ee44b77d1ad9975504541a791fd4e8eed3cc47865a",
+  "layout": {
+    "schema": "photocraft-layout-variant/v1",
+    "sourceSize": [
+      320,
+      400
+    ],
+    "targetSize": [
+      352,
+      400
+    ],
+    "safeArea": [
+      8,
+      8,
+      336,
+      384
+    ],
+    "steps": [
+      {
+        "command": "image.canvasSize",
+        "before": [
+          320,
+          400
+        ],
+        "after": [
+          352,
+          400
+        ],
+        "offset": [
+          16,
+          0
+        ],
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "padding": {
+          "left": 16,
+          "top": 0,
+          "right": 16,
+          "bottom": 0
+        }
+      }
+    ],
+    "roles": {
+      "background": {
+        "id": 2,
+        "kind": "Pixel",
+        "name": "Background",
+        "bounds": [
+          16,
+          0,
+          320,
+          400
+        ],
+        "text": null
+      },
+      "product": {
+        "id": 5,
+        "kind": "Pixel",
+        "name": "Logo",
+        "bounds": [
+          105,
+          138,
+          142,
+          145
+        ],
+        "text": null
+      },
+      "text": {
+        "id": 6,
+        "kind": "Type",
+        "name": "Headline",
+        "bounds": [
+          45,
+          38,
+          83,
+          24
+        ],
+        "text": {
+          "font": "Arial",
+          "sizePt": 30.0,
+          "text": "NOVA"
+        }
+      }
+    }
+  },
+  "layoutSha256": "8ed9b5a341d526ab3bd065d83421c8ed5032227913b44049dbfb98c9652e5869",
+  "operationsSha256": "a8055b7d7eb5e6d39b1acfaf52719ccc813924c6485eacaec41116d4fde51c12",
+  "nativeInspectionSha256": "53f9970af040c14cc32c050436de3d9055217d18d0d12733e955c8e510647fb6",
+  "manifestSha256": "c140969355ec89e4a36c257562d8180d717a894084881cd4dd37599a8c6a69d9",
+  "movedPackageSha256": "cfdff3e1000e2a5b9a7e1772c01972854e313a6f8c1bdf97554cfd740e8c18bf",
+  "cacheMissingResult": "blocked before replay; restored same task and budget",
+  "lossySubstituteResult": "hash-consistent nativeSubstitute fixture refused as protocol_invalid; retained native original unchanged; zero allocated budget",
+  "initialHarnessFailure": {
+    "expected": "loss_report_invalid",
+    "actual": "protocol_invalid: $.outputs[0].nativeSubstitute",
+    "type": "test assertion mismatch, native refusal already correct",
+    "logSha256": "521cef531c83bce87e9298b66b5534882677283b164764177d21d26736f54a49"
+  },
+  "scope": "actual native geometry and package/cache refusals; injected lossy flag and missing-file fault are explicit fixtures; no historical public-domain legacy install claimed; no human acceptance"
+}
