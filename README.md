@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+The maintenance branch corrects command guidance in all ten standalone source skills: offline discovery, standalone domain calls and DAG native delivery now have explicit routes, with obsolete dependency versions removed. Sixteen command regressions and documentation/fixed-index checks pass. Runtime and immutable releases are unchanged; the plugin retains its pinned embedded skill snapshot, and fixed distribution of the new guidance remains pending. [Evidence](docs/evidence/command-guidance-refresh-20261008.json).
+
 Fixed source88/plugin116 passes ten independent Art public cold installs (Node/core and selected Vector32), fixed installed five-node brand revision/moved delivery and two real native brand-violation cases. All64 installed identities match;54 unchanged skills retain historical cold evidence. Complete V1 remains open. [Fixed evidence](docs/evidence/craft-art116-brand-guard-fixed-first-use-20261008.json).
 
 Development source88/plugin116 pins Vector32 with trusted brand dependency checks; candidate mixed revision passes, fixed installed acceptance was pending at that checkpoint; see the fixed evidence above. [Architecture](docs/ArtCraft-Brand-Guard-Distribution-Architecture.md).

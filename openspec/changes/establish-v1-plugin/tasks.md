@@ -424,3 +424,8 @@ SC-007固定发行证据：`docs/evidence/artcraft99-film29-fixed-first-use-2026
 4.14 固定证据：`docs/evidence/craft-art117-gateway-export-fixed-first-use-20261008.json`。十技能独立首用、两入口九变体混合返工／复用／移动包及64安装身份通过；完整需求保持开放。
 
 固定发行补充验收：`docs/evidence/craft-art118-segment-guide-fixed-first-use-20261008.json`。仅关闭本报告列出的分段交接／分发任务；通用Skills CLI、完整领域需求与V1保持开放。
+
+
+## 命令使用指南维护 / Command guidance maintenance
+
+2026-10-08 维护候选：十个独立 Art 技能源中的30份指南修正旧版本描述及已完成6.51仍写为未来阶段的问题；中英文组件架构同步区分离线查询、单独调用和DAG原生交付。16项命令回归、固定索引、独立资源同步及本地链接检查通过，运行时和分发锁未变。证据 `docs/evidence/command-guidance-refresh-20261008.json`。插件内技能仍为原固定快照；新指南的不可变发行及安装后复验未运行。本记录不关闭完整领域、逐项命令、创作或V1门禁。

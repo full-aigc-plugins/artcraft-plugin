@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+维护分支已修正十个独立技能源的命令使用指南：明确离线查询、单领域调用与 DAG 原生命令交付的入口，清理旧依赖版本说明。16项命令回归及文档／固定索引检查通过；未修改运行时或不可变发行，插件内技能快照仍为原固定版本，新指南尚未完成固定分发。 [Evidence](docs/evidence/command-guidance-refresh-20261008.json).
+
 固定 source88／plugin116 已通过十项 Art 独立公开冷安装（Node／核心及所选 Vector32）、固定安装副本五节点品牌返工／移动交付和两条真实原生品牌误改阻断。64 安装摘要一致；54 个未变技能沿用历史冷安装证明。完整首版仍开放。[固定证据](docs/evidence/craft-art116-brand-guard-fixed-first-use-20261008.json)。
 
 开发发行 source88／plugin116 固定 Vector32 并绑定品牌依赖校验；候选混合返工通过，该阶段的固定安装待验状态已由上方固定证据更新。[架构](docs/ArtCraft-Brand-Guard-Distribution-Architecture.zh_CN.md)。
