@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-当前源码候选runtime129新增公开账本升级回执；测试任务4.4已完成，剩余13项。20项目标回归、真实旧schema1原生排空／快照兼容验证通过；完整运行时300通过／22条件跳过。4.5／4.6仍开放，公开发行保持128／100／128。[候选架构](docs/ArtCraft-Public-Upgrade-Candidate-Architecture.zh_CN.md)。
+当前分发：插件129锁定独立源101与runtime129，提供公开账本升级／快照回执。源码150通过／52条件跳过。安装后升级与冷启动正在单独验收，完整V1继续开放。
+
+此前源码候选runtime129新增公开账本升级回执；测试任务4.4已完成，剩余13项。20项目标回归、真实旧schema1原生排空／快照兼容验证通过；完整运行时300通过／22条件跳过。4.5／4.6仍开放，公开发行保持128／100／128。[候选架构](docs/ArtCraft-Public-Upgrade-Candidate-Architecture.zh_CN.md)。
 
 此前开发发行：插件 `0.1.0-dev.128`／独立技能源 `0.1.0-dev.100`／runtime `0.1.0-dev.128-runtime.1`，包含旧账本排空、只读状态与迁移前快照修复。运行时298项通过、21项条件跳过；14项任务继续开放，完整V1未完成。固定安装证据单独记录。见[账本升级架构](docs/ArtCraft-Ledger-Upgrade-Architecture.zh_CN.md)。
 
@@ -44,7 +46,7 @@ DAG节点身份修复已固定至插件126／源98／runtime126；6.7／6.8核�
 
 多领域创作需求进入，交付项目清单、工作流记录、四领域子工程引用及验收记录。
 
-当前固定插件：`0.1.0-dev.128`；独立技能源：`0.1.0-dev.100`；此前固定127版本的限定一致性安装验收通过；128升级验收单独记录。完整V1仍在实施。
+当前固定插件：`0.1.0-dev.129`；独立技能源：`0.1.0-dev.101`；此前固定127版本的限定一致性安装验收通过；128升级验收单独记录。完整V1仍在实施。
 
 源84修复工作流入口结构化拒绝，兼容保留error与workflowReceipt；固定安装112验收另行记录。[架构](docs/ArtCraft-Workflow-Error-Detail-Architecture.zh_CN.md)。
 此前固定字幕修正版验收：64安装身份与CLI探测匹配；23变化技能各自独立冷安装／命令发现通过，41完整摘要一致技能复用历史冷证据；两个当前安装原生字幕／品牌案例通过。仅证明所列安装和场景，完整V1仍开放。[当前固定证据](docs/Craft-Caption-Fixed-First-Use.zh_CN.md)。
@@ -157,9 +159,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.128 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.129 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.100 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.101 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

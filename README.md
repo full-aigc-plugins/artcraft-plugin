@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-Current source candidate runtime129 adds public ledger upgrade receipts; test task4.4 is complete,13 tasks remain open.20 targeted tests and real retained schema1 native drain/snapshot compatibility passed; runtime300 passed/22 conditional skips. Tasks4.5/4.6 remain open. Published identities stay128/100/128. [Candidate architecture](docs/ArtCraft-Public-Upgrade-Candidate-Architecture.md).
+Current distribution: plugin129 vendors source101 and runtime129 with public ledger upgrade/snapshot receipts. Source150 passed/52 conditional skips. Installed upgrades and cold starts are being verified separately; full V1 remains open.
+
+Earlier source candidate runtime129 adds public ledger upgrade receipts; test task4.4 is complete,13 tasks remain open.20 targeted tests and real retained schema1 native drain/snapshot compatibility passed; runtime300 passed/22 conditional skips. Tasks4.5/4.6 remain open. Published identities stay128/100/128. [Candidate architecture](docs/ArtCraft-Public-Upgrade-Candidate-Architecture.md).
 
 Earlier development release: plugin `0.1.0-dev.128` / independent skills `0.1.0-dev.100` / runtime `0.1.0-dev.128-runtime.1`, with legacy-ledger draining, read-only status and verified pre-migration snapshots. Runtime:298 passed,21 conditional skips. All14 outstanding tasks remain open; full V1 is incomplete. Fixed-install evidence is recorded separately. See [ledger upgrade architecture](docs/ArtCraft-Ledger-Upgrade-Architecture.md).
 
@@ -44,7 +46,7 @@ Fixed source86/plugin114 passes ten independent Art cold installations and a ret
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current fixed plugin: `0.1.0-dev.128`; independent skills: `0.1.0-dev.100`; earlier127 installed consistency evidence retains its original scope. Full V1 remains in progress.
+Current fixed plugin: `0.1.0-dev.129`; independent skills: `0.1.0-dev.101`; earlier127 installed consistency evidence retains its original scope. Full V1 remains in progress.
 
 Workflow launcher structured rejection is fixed in source84. Legacy error and workflowReceipt remain compatible; fixed installed112 qualification is recorded separately. [Architecture](docs/ArtCraft-Workflow-Error-Detail-Architecture.md).
 Previous fixed caption-size qualification:64 installed identities and CLI probes match;23 changed skills each pass independent cold discovery, while41 unchanged whole-tree hashes retain historical cold proof. Two current installed native caption/brand cases pass. This is bounded installation and scene evidence, not fullV1. [Current fixed evidence](docs/Craft-Caption-Fixed-First-Use.md).
@@ -159,9 +161,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.128 |
+| Plugin ID / version | artcraft / 0.1.0-dev.129 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.100 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.101 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
