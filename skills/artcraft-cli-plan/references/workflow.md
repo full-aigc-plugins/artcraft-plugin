@@ -208,3 +208,9 @@ Failed outputs may remain for inspection but cannot become ready deliveries. Con
 Film 成片的 `technicalMetadata` 来自摘要绑定的 `native.json` 和 `export-probe.json`：`durationTicks` 保留十进制字符串，`timeBase` 固定为原生 Film 的 `1/254016000000` 秒，`frameRate` 保留分子分母，同时交接尺寸、alpha和适用音频字段。不得先转浮点秒再推导帧边界。探测报告缺失、数值ticks、溢出、错误时间基准或原生／导出不一致会阻止技术就绪；保留失败记录，修正来源或重新生成有效交付。
 
 Film video metadata comes from digest-bound native/export probe files. Preserve decimal `durationTicks`, native `timeBase` of `1/254016000000` seconds and rational `frameRate`, plus dimensions, alpha and applicable audio facts. Do not round-trip timing through floating seconds. Missing/invalid timing or inconsistent native/export facts prevents technical readiness. This technical mapping does not establish visual or creative equivalence.
+
+## 派生图片属性 / Derived image facts
+
+PNG/JPEG 派生图片在 `nodes.<id>.outputs[].technicalMetadata` 交接实际编码栅格 `width`、`height`、`bitDepth`、`alpha`。属性与解析字节摘要绑定，损坏或摘要不一致会阻止发布。PNG 不一定含 Alpha；Alpha 表示不证明存在可见透明像素。未知 `colorSpace` 省略，JPEG 标记检查不证明解码或 ICC 保真。原生工程、来源和交换损失引用仍须保留。
+
+Read encoded raster `width`, `height`, `bitDepth` and `alpha` from each PNG/JPEG output's `technicalMetadata`. Facts are bound to inspected bytes; invalid content or changed digests prevents publication. PNG can have no Alpha representation. Alpha does not establish visible transparency. Unknown color space is omitted; JPEG marker inspection does not establish decoding or ICC fidelity. Preserve native project, source and exchange-loss references.
