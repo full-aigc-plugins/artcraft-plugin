@@ -1,5 +1,7 @@
 # Version-bound release records
 
+Development release: plugin `0.1.0-dev.128` / independent skills `0.1.0-dev.100` / runtime `0.1.0-dev.128-runtime.1`, with legacy-ledger draining, read-only status and verified pre-migration snapshots. Runtime:298 passed,21 conditional skips. All14 outstanding tasks remain open; full V1 is incomplete. Fixed-install evidence is recorded separately. See [ledger upgrade architecture](docs/ArtCraft-Ledger-Upgrade-Architecture.md).
+
 These records were moved verbatim from the README preface. They describe their own versions and are not the current installation contract.
 
 Fixed Art101/source75 acceptance passes:64 skills discovered without loading errors;10 Art skills each cold-start independently, with current64 cold proof composed by exact skill hashes. One installed four-domain mixed workflow plus two archive contracts pass (190.068s); the worker-fault test reads structured workflowReceipt on three waiting observations while retaining error compatibility and one native spawn (54.537s). All64 installed hashes remain unchanged. Generic Skills CLI and complete V1 remain open. [Evidence / 证据](docs/evidence/artcraft101-structured-workflow-receipt-fixed-first-use-20261007.json).

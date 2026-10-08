@@ -78,3 +78,7 @@ Photo原生调整层、选区蒙版与可信源返工见 [局部调整指南](re
 混合海报、封面和源工程返工前阅读 [Photo完整交付](references/photo-delivery-integrity.md)，区分宿主独立插件与Art内部固定依赖。
 
 固定品牌与主体参考的跨产物观察，见本技能 [一致性审阅合同](references/consistency.md)；源码候选与已发布固定版本的验收分别报告。
+
+## 运行时升级与旧账本
+
+遇到 `runtime_upgrade_busy` 时，保留旧运行时、原工程和账本，不删除租约或强行修改状态。先用旧版本完成或可信停止任务，再按新版本迁移；只读 `status` 的旧预算标记表示历史未跟踪。详见本技能的[升级指南](references/runtime-upgrade.md)。

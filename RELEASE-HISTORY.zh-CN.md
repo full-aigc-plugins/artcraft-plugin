@@ -1,5 +1,7 @@
 # 版本绑定的历史发行记录
 
+开发发行：插件 `0.1.0-dev.128`／独立技能源 `0.1.0-dev.100`／runtime `0.1.0-dev.128-runtime.1`，包含旧账本排空、只读状态与迁移前快照修复。运行时298项通过、21项条件跳过；14项任务继续开放，完整V1未完成。固定安装证据单独记录。见[账本升级架构](docs/ArtCraft-Ledger-Upgrade-Architecture.zh_CN.md)。
+
 以下记录逐字移自 README 前部，描述各自版本，不作为当前安装合同。
 
 固定Art101／源75验收通过：发现64技能且无加载错误；10个Art技能分别冷启动，按当前技能摘要汇总64项独立冷启动证据。已安装四领域混合流程及两个归档合同通过（190.068秒）；worker故障测试三次直接读取workflowReceipt等待回执，同时保持error兼容且原生只启动一次（54.537秒）。64个安装摘要不变。通用Skills CLI及完整V1仍开放。 [Evidence / 证据](docs/evidence/artcraft101-structured-workflow-receipt-fixed-first-use-20261007.json).

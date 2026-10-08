@@ -1,0 +1,52 @@
+{
+  "schema": "artcraft-release128-verification/v1",
+  "pluginVersion": "0.1.0-dev.128",
+  "sourceVersion": "0.1.0-dev.100",
+  "sourceCommit": "07720894b6018ddf975b2a4c4c9b28d1d0bbaa71",
+  "runtimeVersion": "0.1.0-dev.128-runtime.1",
+  "runtimeCommit": "20782d97816392abdc5fab71b1aa52d94db098ae",
+  "runtimeZipSha256": "47d8bd9c98dad5f3d5fc2348237e76e483b38d54585525a0e22abdaeb4caa70f",
+  "sourceZipSha256": "161529a54a70dec1f988c5c8c3f3853134977232db0b5c440858898e7f67989b",
+  "remoteRuntimeAndSourceBytesVerified": true,
+  "tests": {
+    "runtime": {
+      "pass": 298,
+      "skip": 21
+    },
+    "skills": {
+      "pass": 149,
+      "skip": 52
+    },
+    "pluginPython": {
+      "pass": 106,
+      "skip": 6
+    },
+    "fourDomainNativeVersionBinding": {
+      "pass": 1,
+      "skip": 0
+    }
+  },
+  "coldEntrypoints": [
+    "artcraft-cli",
+    "artcraft-cli-assets",
+    "artcraft-cli-deliver",
+    "artcraft-cli-execute",
+    "artcraft-cli-plan",
+    "artcraft-cli-recover",
+    "artcraft-cli-review",
+    "artcraft-cli-revise",
+    "artcraft-cli-setup",
+    "artcraft-use"
+  ],
+  "coldScope": "Ten copied standalone entrypoints, each with empty runtime home and public downloads. CLI/runtime lock bytes unchanged throughout probes. Upgrade documentation evolved during early probes; this is not an exact frozen skill-tree host-install audit.",
+  "nativeScope": "Copied source100 revision entrypoint, verified warm domain cache, runtime128 public download. Real four-domain create/refusals/replay/new scope and moved package. No GUI or full native upgrade/rollback matrix.",
+  "logs": {
+    "artifacts/artcraft-release128-20261009/cold-proof.json": "2680691cc8131e0b5d87e4e4b908695f98b50072092ee1c20440ed9dec15ea39",
+    "artifacts/artcraft-release128-20261009/native-version-binding/proof.json": "012b4cef3d6bca9e2d594f2704e0f51f281206576fcfbc803a443450ebfdb8d7",
+    "artifacts/artcraft-release128-20261009/native-version-binding.log": "f73b97450cfd906831605bed9786bd83ec17dceaa65ba24e701a93a7b4af4c09",
+    "artifacts/artcraft-release128-plugin-tests-complete.log": "1983ab6dbe5a87573b73fd68e2b5a55e9abe9b29c436fd16e568306d8aacc1f0",
+    "artifacts/artcraft-release128-source-tests-final.log": "b4c70c05167b6b68590e815506f5cb8a34be521e1caa4297e6588ee9ebca735e"
+  },
+  "openTasks": 14,
+  "completeV1": false
+}

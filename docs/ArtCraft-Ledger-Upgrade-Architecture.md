@@ -19,3 +19,5 @@ flowchart TD
 RED reproduced11 missing behaviors out of12 tests. All38 targeted tests passed; the runtime suite passed298 of319 with21 conditional skips. An intermediate assertion incorrectly compared SQLite row prototypes; it was corrected with the original log retained. See [evidence](evidence/ledger-upgrade-20261009.json).
 
 Release chain: runtime128, independent skill source100 and plugin128. Domain dependencies retain their existing locks. Earlier127/99/126 evidence retains its original scope. Fixed installation and the native upgrade matrix require separate evidence. All14 outstanding tasks remain open; OpenSpec is not archived and complete V1 acceptance is pending.
+
+Release verification:10 standalone empty-runtime CLI probes and one real four-domain version-binding/replay/moved-package test passed. Runtime298/21, source149/52 and plugin106/6 are passed/skipped counts. Exact host installation and full native upgrade acceptance remain separate. [Evidence](evidence/release128-verification-20261009.json).
