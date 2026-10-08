@@ -84,7 +84,8 @@ export class WorkflowEngine {
     const inspections=new Map<string,SourceInspection>();
     const duration=(id:string):number|undefined=>plan.projectBrief?.deliverables.find((item:any)=>item.id===id && item.nativeFormat==='.fcproj')?.durationSeconds;
     const brief=(id:string)=>plan.projectBrief?.deliverables.find((item:any)=>item.id===id);
-    const results:Record<string,NodeResult>={};
+    // 预建自有数据属性，使任意合法 ID 都不会读取或触发 Object.prototype。
+    const results=Object.fromEntries(order.map(id=>[id,undefined])) as Record<string,NodeResult>;
     const pending=new Set(order),active=new Map<string,Promise<void>>(),resources=new Set<string>();
     const activeTasks=new Set<string>();
     const save=(id:string,result:NodeResult)=>{

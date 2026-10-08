@@ -156,6 +156,12 @@ ArtCraft SHALL 执行前检查 DAG 循环、缺失节点与输入版本；独立
 - **WHEN** 任务图含循环或两个节点写同一原生工程
 - **THEN** 拒绝循环，串行化冲突写入，不同时启动
 
+#### Scenario: AC-DM-003-IDENTITY 不透明节点名与恢复
+
+- **WHEN** 合法节点 ID 与 JavaScript 对象属性同名，包括 `__proto__`、`constructor` 或 `toString`
+- **THEN** 调度器 SHALL 将 ID 当作普通数据，依赖仅消费实际验证结果；不得由继承属性制造已就绪状态或阻止合法消费者
+- **AND** 返回值、JSON 往返及持久恢复保留每个节点的自有记录，重复执行复用已验证任务与预算；此调度回归不代替四领域原生并发验收
+
 ### Requirement: AC-DM-004 素材版本与选择性失效
 
 ArtCraft SHALL 区分逻辑资产 ID 与内容哈希；显式记录派生边；修改 Logo 只使传递依赖失效，已审阅旧版本仍可追溯。

@@ -111,6 +111,27 @@ test('cycle and unknown plugin reject the plan before child registration',async(
   assert.equal(f.ledger.list().length,0);assert.equal(f.launches.length,0);
  }finally{await f.cleanup();}
 });
+test('opaque node names do not inherit object properties or lose dependency results',async()=>{
+ const f=await fixture();try{
+  const names=['__proto__','constructor','toString'];
+  f.plan.nodes=names.map((id,index)=>({...f.plan.nodes[0],id,projectKey:'opaque-'+index,dependsOn:index?[names[index-1]]:[],payload:{schemaVersion:'fixture/v1',plan:{text:id}}}));
+  const result=await f.engine.run(f.plan,3);
+  assert.equal(result.state,'review_ready');
+  assert.deepEqual(f.launches,names);
+  assert.deepEqual(Object.keys(result.nodes),names);
+  for(let index=0;index<names.length;index++){
+   const id=names[index];assert.ok(Object.hasOwn(result.nodes,id));
+   assert.equal(result.nodes[id].outputs![0].assetId,id);
+   assert.equal(result.nodes[id].outputs![0].sourceRefs.length,index?1:0);
+  }
+  const serialized=JSON.parse(JSON.stringify(result));
+  assert.ok(Object.hasOwn(serialized.nodes,'__proto__'));
+  f.clear();const restarted=new WorkflowEngine(f.ledger,new LocalRunner(f.ledger,async()=>{}),{fixture:f.factory});
+  const repeated=await restarted.run(f.plan,3);assert.equal(repeated.state,'review_ready');
+  assert.deepEqual(f.launches,[]);assert.deepEqual(repeated.budget,result.budget);
+  for(const id of names)assert.equal(repeated.nodes[id].taskId,result.nodes[id].taskId);
+ }finally{await f.cleanup();}
+});
 test('a cached file modified after verification blocks consumers instead of serving stale data',async()=>{
  const f=await fixture();try{
   const first=await f.engine.run(f.plan);f.clear();await writeFile(join(first.nodes.logo.root,'output.bin'),'changed');
