@@ -1,0 +1,87 @@
+{
+  "schema": "craft-current-installed-role-refresh/v1",
+  "goalStatus": "not_complete",
+  "hostLockSha256": "12cdae6f70bb23f8ed95143fbe017b945da9fe32019fbe0952b11d80df3d1e99",
+  "installedSkillsAfterUse": 64,
+  "installedTreeHashes": "PASS",
+  "tests": {
+    "film-task.log": {
+      "passed": 10,
+      "logSha256": "809a31ee0b2288dafb1c9109c2455bfc7ee8cfcf36af938cc4d39b981d52548b"
+    },
+    "film-use.log": {
+      "passed": 1,
+      "logSha256": "9a882145101faf2c39b9a6ea6cad3262f4b23c2c9b1c263f069e095930fdc483"
+    },
+    "film-asr.log": {
+      "passed": 1,
+      "logSha256": "9bbdc4b67884d3bdf5031f93e374d9a86b126a481191d874f15787eb5b3009d4"
+    },
+    "art-roles.log": {
+      "passed": 3,
+      "logSha256": "2f014be19ae238fbffd44dd550b838e7dcb0055a6a8cac8f23637c5dd454632c"
+    },
+    "art-execute-auth.log": {
+      "passed": 1,
+      "logSha256": "745d0057e6a6b7a02b26b6824e10348ec2ed06820a851c286ce9d7fa610fa7b2"
+    },
+    "art-review.log": {
+      "passed": 1,
+      "logSha256": "91455b961b2bb7b76eb98bdbb2724f6605b55d5ea8dc18a0ba24df74da98678b"
+    }
+  },
+  "captionRevision": {
+    "sourceProjectPreserved": true,
+    "audioVideoPreserved": true,
+    "captionTextTimingPreserved": true,
+    "placeholderTrack": {
+      "id": 12,
+      "enabled": false
+    },
+    "generatedTrack": {
+      "id": 14,
+      "font": "Arial",
+      "size": 72,
+      "nominalPixelsAt180": 12
+    },
+    "visualInspection": "Observed single readable two-line caption; human creative acceptance NOT_RUN",
+    "files": {
+      "project.fcproj": "43b4e82b53ba3081ab06abe3a68858f5826f0909eb326b1deb1b84ac067e953c",
+      "film.mp4": "dae076b5175a51b1728f434b188b2b9e45c6b290be9ef1adecc8efd08c6a57a1",
+      "frame-0000.png": "4c4cf57225d5027d5ca01c000f2c399b1d866037378865a03fb917b4e4f41683",
+      "captions.json": "5682a5379051803f1cdb87629ecdb00f052a8fbe987bfd682ea816382c3d6c50",
+      "captions.srt": "9107116afdd33783a11e24d785483e106541e8d9f5cee864c4cd642fbc0105c6",
+      "manifest.json": "14be9432754be28a828e9d9220bfd8011795311389ff36a3a1aa72baa9c0cfe8"
+    }
+  },
+  "unverified": [
+    "all domain command contexts",
+    "full V1",
+    "generic Skills CLI installation",
+    "worker crash and unknown submission recovery",
+    "GUI and other platforms",
+    "human creative acceptance",
+    "LightCraft PrintCraft DesignCraft plugins and skills",
+    "ninth plugin identity"
+  ],
+  "observations": {
+    "film-task-observations.json": {
+      "sha256": "7bc7cad554838045ad03f15bd3a092423cb5e1346f6e9c7dc7c4732b24f1bc46"
+    },
+    "art-plan.json": {
+      "sha256": "77e045aea7163f3d96e03428441742152dbb74180834253bc2147f65c23159e1"
+    },
+    "art-roles.json": {
+      "sha256": "24f6d4ca5b7cfe393b3e41d6060084fae16e16254e35050e77796748c9f65bbb"
+    },
+    "art-execute-auth.json": {
+      "sha256": "60cc82707a69a04db8b6373a3cdf7f3992decd2eee93132036d55c789db0ddec"
+    },
+    "art-review.json": {
+      "sha256": "528d683c256864646d0edb5bf86f4249b743cbb2ffaf409e7fe505d5a8e90d87"
+    },
+    "film-asr/proof.json": {
+      "sha256": "bef9d986a766f8dc5e4caae4dc8943f5031ede3bb31687c832a30ec20c90bb5f"
+    }
+  }
+}
