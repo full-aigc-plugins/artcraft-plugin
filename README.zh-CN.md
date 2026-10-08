@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-当前INNER-JSON回归已确认：固定130的12项安装用例均未满足预期。Art自有边界候选通过36项原生故障、13组边界、正常渲染及301项运行时测试；固定发行／安装复验待完成。[候选](docs/ArtCraft-Inner-JSON-Boundary-Architecture.zh_CN.md)。
+固定plugin131/source103/runtime130安装验收通过：64项宿主身份、十独立冷入口、3项原生混合及36项响应故障。INNER-JSON修复门禁完成；4.6整体开放（9/14场景，明确区分当前安装与既有证据复用）。[固定分发](docs/ArtCraft-Fixed-Inner-JSON-Distribution-Architecture.zh_CN.md)。
+
+此前固定130的INNER-JSON回归：固定130的12项安装用例均未满足预期。Art自有边界候选通过36项原生故障、13组边界、正常渲染及301项运行时测试；固定发行／安装复验待完成。[候选](docs/ArtCraft-Inner-JSON-Boundary-Architecture.zh_CN.md)。
 
 当前失败暂存分发已验收：24项真实原生保存后响应故障及四领域绑定检查通过。14场景中8项已验收，4.6继续开放。[验收](docs/ArtCraft-Current-Failed-Stage-Architecture.zh_CN.md)。
 
