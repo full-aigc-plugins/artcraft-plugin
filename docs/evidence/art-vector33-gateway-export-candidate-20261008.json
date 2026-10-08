@@ -1,0 +1,129 @@
+{
+  "schema": "artcraft-vector33-gateway-export-candidate/v1",
+  "result": "PASS",
+  "scope": "unpublished source candidate; warm existing native runtime; two real five-node mixed workflows, not fixed installed or cold acceptance",
+  "vectorSource": {
+    "version": "0.1.0-dev.33",
+    "commit": "f0b34915172f484e0a39238e9afb56586f1d65d1",
+    "zipSha256": "9583f937fedf25887ead25bb09b19af6aff58125ddeac2aa2866a8ac7fed56be",
+    "prefix": "vectorcraft-skills-v0.1.0-dev.33/",
+    "workflowSha256": "5c6b72d061afce38e7bc95bb0d2d250443215c39674cdfc16850c6e1358362a1"
+  },
+  "ArtCoreRuntime": "0.1.0-dev.113-runtime.1",
+  "independentSkillLocks": 10,
+  "contractRegression": {
+    "total": 2,
+    "passed": 2,
+    "redFailures": 11
+  },
+  "cases": [
+    {
+      "result": "PASS",
+      "entry": "direct",
+      "inheritedVariants": 9,
+      "associatedPixelsChanged": true,
+      "controlSVGPNGPDFFilesPreserved": true,
+      "consumerPixelsChanged": true,
+      "scope": "unpublished Art source candidate; warm existing runtime; five native nodes, nine brand variants, selective reuse, pixel checks and moved delivery; fixed installed acceptance NOT_RUN",
+      "version": "0.1.0-dev.33",
+      "brandReport": {
+        "schema": "vectorcraft-brand-dependencies/v1",
+        "checks": [
+          {
+            "schema": "vectorcraft-brand-dependency-check/v1",
+            "status": "passed",
+            "token": "Brand Primary",
+            "consumerIds": [
+              4,
+              5,
+              7
+            ],
+            "affectedObjectIds": [],
+            "unexpectedDependencies": [],
+            "artboardsChanged": false,
+            "beforeSha256": "8254ac2b081cb62ac9d2b40e86fbd5e9f2693f2d4fa750dfdcbcb6b8c430e178",
+            "afterSha256": "7d9ffcb3233679c8cf076688352e368422669a0cfb719b9b72b968ec9700dab0",
+            "scope": "native explicit swatch consumers; unbound own properties, identities and artboards",
+            "checkpoint": "brand-checkpoint-0.vectorcraft",
+            "checkpointSha256": "8aaacb9b2072146a3e4e5ebc31f71f3082fb5a01a8c4eda21dee0d4679ff3c27",
+            "checkpointRetained": false
+          }
+        ]
+      },
+      "updated": [
+        "logo",
+        "poster",
+        "intro",
+        "film"
+      ],
+      "reused": [
+        "badge"
+      ],
+      "originalsPreserved": true,
+      "sameRevisionTasksAndBudgetPreserved": true,
+      "copiedSkillUnchanged": true,
+      "movedPackageChildren": 5,
+      "packageSha256": "267bb20d271311475f1c2fb23726b49f275979b90057a73bf5ffc77495cd7af2",
+      "proofSha256": "6e3cfbace8b3d75a9302988b2d1915ea0bdcc3355704b6ada6017653c1a7b88f"
+    },
+    {
+      "result": "PASS",
+      "entry": "native-gateway",
+      "inheritedVariants": 9,
+      "associatedPixelsChanged": true,
+      "controlSVGPNGPDFFilesPreserved": true,
+      "consumerPixelsChanged": true,
+      "scope": "unpublished Art source candidate; warm existing runtime; five native nodes, nine brand variants, selective reuse, pixel checks and moved delivery; fixed installed acceptance NOT_RUN",
+      "version": "0.1.0-dev.33",
+      "brandReport": {
+        "schema": "vectorcraft-brand-dependencies/v1",
+        "checks": [
+          {
+            "schema": "vectorcraft-brand-dependency-check/v1",
+            "status": "passed",
+            "token": "Brand Primary",
+            "consumerIds": [
+              4,
+              5,
+              7
+            ],
+            "affectedObjectIds": [],
+            "unexpectedDependencies": [],
+            "artboardsChanged": false,
+            "beforeSha256": "a00d05e7f252de5eb6d69cfa42b676beff7e28a7c17b12c518c546e4849b3d40",
+            "afterSha256": "150b66039be9f8b209b8e990fa6216422f277190da03fb6e5a914419d57ba4d6",
+            "scope": "native explicit swatch consumers; unbound own properties, identities and artboards",
+            "checkpoint": "brand-checkpoint-0.vectorcraft",
+            "checkpointSha256": "72ebb9f9367668de16b7558628505d16fb2a793e466d00b84e0d3488ff2626e9",
+            "checkpointRetained": false
+          }
+        ]
+      },
+      "updated": [
+        "logo",
+        "poster",
+        "intro",
+        "film"
+      ],
+      "reused": [
+        "badge"
+      ],
+      "originalsPreserved": true,
+      "sameRevisionTasksAndBudgetPreserved": true,
+      "copiedSkillUnchanged": true,
+      "movedPackageChildren": 5,
+      "packageSha256": "76382387c989acae3d76d76a13ac2ebec5e37dbf0720cbbe1d801cee01aa948a",
+      "proofSha256": "2d98caba5e1d41130ec2885b48a7bf29b4213dc0757b5b25b2ba4ec09d78eeed"
+    }
+  ],
+  "failedAttempt": "Gateway QA assumed zero-based filenames; native returned artboard-1/2/3. Terminal successful native calls retained; resumed saved-output checks and packaging only, without replaying edits.",
+  "fixedInstalled": "NOT_RUN",
+  "cold10": "NOT_RUN",
+  "completeV1": "in_progress",
+  "sourceRegression": {
+    "total": 162,
+    "passed": 124,
+    "skipped": 38
+  },
+  "nativeOptInRegression": "CRAFT_BRAND_MIXED_ENTRY selects direct/native-gateway; nine saved manifest outputs compared; default suite leaves live native test skipped"
+}

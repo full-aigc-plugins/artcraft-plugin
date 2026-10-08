@@ -14,7 +14,7 @@ Fixed source86/plugin114 passes ten independent Art cold installations and a ret
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current plugin: `0.1.0-dev.116`; skill source: `0.1.0-dev.88`; 10 independent skills.
+Current plugin: `0.1.0-dev.117`; skill source: `0.1.0-dev.89`; 10 independent skills.
 
 Workflow launcher structured rejection is fixed in source84. Legacy error and workflowReceipt remain compatible; fixed installed112 qualification is recorded separately. [Architecture](docs/ArtCraft-Workflow-Error-Detail-Architecture.md).
 Previous fixed caption-size qualification:64 installed identities and CLI probes match;23 changed skills each pass independent cold discovery, while41 unchanged whole-tree hashes retain historical cold proof. Two current installed native caption/brand cases pass. This is bounded installation and scene evidence, not fullV1. [Current fixed evidence](docs/Craft-Caption-Fixed-First-Use.md).
@@ -129,9 +129,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.116 |
+| Plugin ID / version | artcraft / 0.1.0-dev.117 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.88 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.89 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -463,3 +463,5 @@ Dev.110 vendors immutable standalone source dev.82, pins Film source36, and rege
 [Fixed budget protocol first use](docs/ArtCraft-Budget-Protocol-Architecture.md): 64 discovered skills, 10 changed cold installs and 54 whole-tree-equal historical cases; native revision refusal preserves the original task and files. Full V1 remains open.
 
 Historical standalone Photo38 acceptance: [proof](docs/evidence/craft-photo-delivery-integrity-fixed-first-use-20261008.json). Its default lock was host-acceptance-photo-integrity.lock.json and Art113 internally pinned Photo33. Art114 now internally pins Photo34; the current default is host-acceptance-art-photo34.lock.json.
+
+Unpublished Vector33 bundle candidate: both real mixed brand revision entries deliver nine variants and a verified moved five-child package. Source88/plugin116 remain the current fixed release; fixed installation and cold10 acceptance are pending. [Evidence](docs/evidence/art-vector33-gateway-export-candidate-20261008.json).
