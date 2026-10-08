@@ -6,7 +6,7 @@ import { isAbsolute } from 'node:path';
 import { TaskLedger } from './task_ledger.ts';
 import { planHash } from '../protocol/contracts.ts';
 import type { ExecutionPlan } from './local_runner.ts';
-import { groupAlive } from './process_group.ts';
+import { groupAlive, signalGroup } from './process_group.ts';
 import { OutputObservation, nativeDiagnostics } from './native_diagnostics.ts';
 
 const delay=(ms:number)=>new Promise(resolve=>setTimeout(resolve,ms));
@@ -48,8 +48,8 @@ async function main(){
     if(status.state==='cancel_requested' || ledger.taskWorkflowCancelled(taskId) || Date.parse(request.deadline)<=Date.now()){
      if(status.state!=='cancel_requested')status=ledger.cancel(taskId);
      if(!signalled && child.pid){
-      signalled=true;if(groupAlive(child.pid))process.kill(-child.pid,'SIGTERM');
-      escalation=setTimeout(()=>{try{if(child.pid && groupAlive(child.pid))process.kill(-child.pid,'SIGKILL');}catch(error){observationError=error;}},500);
+      signalled=true;if(groupAlive(child.pid))signalGroup(child.pid,'SIGTERM');
+      escalation=setTimeout(()=>{try{if(child.pid && groupAlive(child.pid))signalGroup(child.pid,'SIGKILL');}catch(error){observationError=error;}},500);
      }
     }
    }catch(error){observationError=error;}

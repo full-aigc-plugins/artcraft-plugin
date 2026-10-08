@@ -481,3 +481,5 @@ Fixed Art120/source92 passes ten new independent public cold installs,64 host id
 Nested setup diagnostics and pinned check-parser compatibility pass source regression and real public cold recovery; fixed-release qualification remains open. [Evidence](docs/evidence/nested-setup-diagnostics-candidate-20261008.json).
 
 Fixed Art121/source93 passes10 independent public cold starts,64 host identities/CLI probes,30 installed nested setup refusals,12 pinned domain checks and native recovery/review/revision.54 other skills reuse whole-hash-equal historical cold evidence. Only3.30 closes. Parallel runtime cancellation timing and full V1 remain open. [Evidence](docs/evidence/craft-art121-nested-setup-fixed-first-use-20261008.json).
+
+Cancellation signal ESRCH race: controlled real-process RED/GREEN and parallel/serial regression pass; fixed installed native qualification remains pending. [Architecture](docs/ArtCraft-Cancel-Signal-Architecture.md).

@@ -142,3 +142,9 @@
 - **WHEN** 固定领域技能因参数合同身份或实际 schema 不匹配返回闭合错误对象
 - **THEN** 停止后的任务与工作流诊断保留精确 parameter_contract_identity_mismatch 或 parameter_schema_mismatch 及输出摘要，不记录用户或原生诊断正文
 - **AND** 不根据非闭合对象、相似前缀或冲突输出猜测原因；后续依赖节点阻断，重复冻结计划不重放编辑
+
+#### Scenario: AC-TX-003-SIGNAL 取消信号与进程组退出竞态
+
+- **WHEN** 取消或升级终止信号发送前的存在性探测通过，但发信号返回 ESRCH
+- **THEN** 监督器 SHALL 继续绑定原任务的 close 与独立进程组停止核对，不将 ESRCH 单独解释为停止成功，也不让该退出竞态污染之后取得的可信停止证据
+- **AND** EPERM 及其他信号错误仍保留未知结果和工程占用；不重放、不重置 attempt 或预算

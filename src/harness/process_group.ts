@@ -8,3 +8,11 @@ export function groupAlive(pid:number, probe:(target:number,signal:0)=>unknown=(
   throw error;
  }
 }
+
+/** 发送取消信号；组刚退出的 ESRCH 不替代后续 close 和停止核验。 */
+export function signalGroup(pid:number, signal:NodeJS.Signals, send:(target:number,signal:NodeJS.Signals)=>unknown=(target,signal)=>process.kill(target,signal)):boolean {
+ try{send(-pid,signal);return true;}catch(error){
+  if((error as NodeJS.ErrnoException).code==='ESRCH')return false;
+  throw error;
+ }
+}

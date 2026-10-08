@@ -479,3 +479,5 @@ Vector33 捆绑升级候选已通过两入口真实混合返工、九变体及�
 嵌套安装诊断与固定领域检查参数兼容已通过源码回归和真实公开冷恢复；固定发行验收仍开放。 [Evidence](docs/evidence/nested-setup-diagnostics-candidate-20261008.json).
 
 固定Art121／源93通过10项独立公开冷启动、64宿主身份／CLI核验、30条安装副本嵌套拒绝、12项固定领域检查及原生恢复／审阅／返工。54项其他技能仅复用整树摘要相等历史冷证明；只关闭3.30。并行运行时取消时序与完整V1仍开放。 [Evidence](docs/evidence/craft-art121-nested-setup-fixed-first-use-20261008.json).
+
+取消信号ESRCH退出竞态已通过可控真实进程红灯／绿灯与并行／串行回归；固定安装原生验收待完成。 [Architecture](docs/ArtCraft-Cancel-Signal-Architecture.zh_CN.md).

@@ -269,3 +269,62 @@ test('unsupported mapping survives a real failed process and persisted status wi
   assert.equal(fixture.ledger.leases().length,0);assert.ok(!JSON.stringify(fixture.ledger.events('task1')).includes('private-mask-field'));
  }finally{await fixture.cleanup();}
 });
+
+test('signal exit race still requires actual close and group stop to settle cancellation',async()=>{
+ const fixture=await context('wait');const original=process.env.NODE_OPTIONS;
+ try{
+  const preload=join(fixture.root,'signal-race.mjs'),marker=join(fixture.root,'signal-race-observed');
+  // 仅注入本测试拥有的监督进程：真实终止之后模拟组在探测和发送之间退出。
+  await writeFile(preload,`import{writeFileSync}from'node:fs';const send=process.kill.bind(process);process.kill=(pid,signal)=>{if(pid<0&&signal==='SIGTERM'){try{send(pid,signal)}catch(error){if(error.code!=='ESRCH')throw error;}writeFileSync(${JSON.stringify(marker)},'ESRCH');throw Object.assign(new Error('simulated group exit before signal result'),{code:'ESRCH'});}return send(pid,signal);};`);
+  process.env.NODE_OPTIONS='--import='+preload;
+  const executing=fixture.runner.execute('task1',fixture.adapter);
+  for(let count=0;!fixture.ledger.execution('task1')?.pid && count<300;count++)await new Promise(resolve=>setTimeout(resolve,10));
+  assert.ok(fixture.ledger.execution('task1')?.pid);fixture.ledger.cancel('task1');
+  assert.equal(fixture.ledger.status('task1').state,'cancel_requested');assert.equal(fixture.ledger.leases().length,1);
+  const receipt=await executing;
+  assert.equal(await readFile(marker,'utf8'),'ESRCH');
+  assert.equal(receipt.state,'cancelled',JSON.stringify(fixture.ledger.events('task1')));
+  assert.equal(fixture.ledger.execution('task1')?.groupStopped,true);assert.equal(fixture.ledger.leases().length,0);
+  const budget=fixture.ledger.budgetAccounts();
+  assert.equal((await fixture.runner.reconcile('task1',fixture.adapter)).attemptId,receipt.attemptId);
+  assert.deepEqual(fixture.ledger.budgetAccounts(),budget);assert.equal(fixture.starts,1);
+ }finally{
+  if(original===undefined)delete process.env.NODE_OPTIONS;else process.env.NODE_OPTIONS=original;
+  await fixture.cleanup();
+ }
+});
+
+test('ESRCH alone cannot settle a live group before actual close',async()=>{
+ const fixture=await context('wait');const original=process.env.NODE_OPTIONS;
+ try{
+  await writeFile(join(fixture.root,'worker.mjs'),'setTimeout(()=>{},900);');
+  const preload=join(fixture.root,'live-signal-race.mjs'),marker=join(fixture.root,'live-signal-race-observed');
+  await writeFile(preload,`import{writeFileSync}from'node:fs';const send=process.kill.bind(process);process.kill=(pid,signal)=>{if(pid<0&&(signal==='SIGTERM'||signal==='SIGKILL')){writeFileSync(${JSON.stringify(marker)},'ESRCH');throw Object.assign(new Error('simulated exit race'),{code:'ESRCH'});}return send(pid,signal);};`);
+  process.env.NODE_OPTIONS='--import='+preload;
+  const executing=fixture.runner.execute('task1',fixture.adapter);
+  for(let count=0;!fixture.ledger.execution('task1')?.pid && count<300;count++)await new Promise(resolve=>setTimeout(resolve,10));
+  assert.ok(fixture.ledger.execution('task1')?.pid);fixture.ledger.cancel('task1');
+  for(let count=0;count<300;count++){
+   try{await readFile(marker);break;}catch{}
+   await new Promise(resolve=>setTimeout(resolve,10));
+  }
+  assert.equal(await readFile(marker,'utf8'),'ESRCH');
+  assert.equal(fixture.ledger.status('task1').state,'cancel_requested');assert.equal(fixture.ledger.leases().length,1);
+  assert.notEqual(fixture.ledger.execution('task1')?.status,'stopped');
+  const receipt=await executing;assert.equal(receipt.state,'cancelled');assert.equal(fixture.ledger.execution('task1')?.groupStopped,true);assert.equal(fixture.ledger.leases().length,0);
+ }finally{if(original===undefined)delete process.env.NODE_OPTIONS;else process.env.NODE_OPTIONS=original;await fixture.cleanup();}
+});
+
+test('permission signal failure retains unknown ownership even after observed native close',async()=>{
+ const fixture=await context('wait');const original=process.env.NODE_OPTIONS;
+ try{
+  const preload=join(fixture.root,'permission-signal.mjs'),marker=join(fixture.root,'permission-signal-observed');
+  await writeFile(preload,`import{writeFileSync}from'node:fs';const send=process.kill.bind(process);process.kill=(pid,signal)=>{if(pid<0&&signal==='SIGTERM'){send(pid,signal);writeFileSync(${JSON.stringify(marker)},'EPERM');throw Object.assign(new Error('simulated signal permission failure'),{code:'EPERM'});}return send(pid,signal);};`);
+  process.env.NODE_OPTIONS='--import='+preload;
+  const executing=fixture.runner.execute('task1',fixture.adapter);
+  for(let count=0;!fixture.ledger.execution('task1')?.pid && count<300;count++)await new Promise(resolve=>setTimeout(resolve,10));
+  assert.ok(fixture.ledger.execution('task1')?.pid);fixture.ledger.cancel('task1');
+  const receipt=await executing;assert.equal(await readFile(marker,'utf8'),'EPERM');assert.equal(receipt.state,'cancel_requested');assert.equal(fixture.ledger.execution('task1')?.groupStopped,false);assert.equal(fixture.ledger.leases().length,1);
+  const budget=fixture.ledger.budgetAccounts();assert.equal((await fixture.runner.reconcile('task1',fixture.adapter)).attemptId,receipt.attemptId);assert.deepEqual(fixture.ledger.budgetAccounts(),budget);assert.equal(fixture.ledger.events('task1').filter(event=>(event.detail as any).execution==='spawned').length,1);
+ }finally{if(original===undefined)delete process.env.NODE_OPTIONS;else process.env.NODE_OPTIONS=original;await fixture.cleanup();}
+});

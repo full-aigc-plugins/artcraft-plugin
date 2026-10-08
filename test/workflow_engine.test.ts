@@ -122,7 +122,7 @@ test('parent cancellation stops new dependent scheduling and waits for actual ch
   const key=f.ledger.beginWorkflow(f.plan),executing=f.engine.run(f.plan,2);
   for(let count=0;!f.ledger.list().some(task=>f.ledger.execution(task.taskId)?.pid) && count<100;count++)await new Promise(resolve=>setTimeout(resolve,10));
   assert.ok(f.ledger.list().some(task=>f.ledger.execution(task.taskId)?.pid));f.ledger.cancelWorkflow(key);
-  const result=await executing;assert.equal(result.state,'cancelled');assert.equal(f.ledger.leases().length,0);assert.ok(!f.launches.includes('film'));
+  const result=await executing;assert.equal(result.state,'cancelled',JSON.stringify({result,tasks:f.ledger.list().map(task=>({receipt:task,execution:f.ledger.execution(task.taskId),events:f.ledger.events(task.taskId)}))}));assert.equal(f.ledger.leases().length,0);assert.ok(!f.launches.includes('film'));
  }finally{await f.cleanup();}
 });
 test('changed plan under an existing workflow revision is rejected without replay',async()=>{
