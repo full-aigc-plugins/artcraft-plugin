@@ -98,3 +98,5 @@ Historical source-candidate note: Source candidate: complete native workflow gat
 Art 插件 dev.105 接入已发布源79及Film34／native craft.4，保留runtime83与其他领域不可变版本。源真实混合识别、品牌返工和移动包通过；插件Python74通过／5跳过、Node176通过／20跳过、五包不可变重建及严格OpenSpec通过。固定宿主／混合验收仍待。 [Evidence](docs/evidence/whisper-distribution-20261008.json).
 
 插件121锁定不可变源93：嵌套安装诊断与固定领域检查兼容。新固定宿主验收待完成，完整V1保持开放。
+
+插件122锁定源94／运行时122-runtime.1，接入取消信号ESRCH修复；新固定宿主验收待完成，完整V1仍开放。

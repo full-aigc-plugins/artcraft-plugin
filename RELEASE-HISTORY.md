@@ -98,3 +98,5 @@ Fixed ArtCraft82 / source56 component first use passes: five plugins,58 discover
 Art plugin dev.105 vendors published source79 with Film34/native craft.4, keeping runtime83 and other domains immutable. Source real mixed recognition, brand revision and moved package pass; plugin Python74 passes/5 skips, Node176 passes/20 skips, five immutable bundle rebuilds and strict OpenSpec pass. Fixed host/mixed acceptance remains pending. [Evidence](docs/evidence/whisper-distribution-20261008.json).
 
 Plugin121 vendors immutable source93: nested setup diagnostics and pinned domain check compatibility. New installed-host acceptance pending; complete V1 remains open.
+
+Plugin122 pins source94/runtime122-runtime.1 for cancellation signal ESRCH handling. New installed-host qualification pending; complete V1 remains open.

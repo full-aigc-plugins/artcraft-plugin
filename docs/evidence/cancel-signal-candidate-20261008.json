@@ -1,0 +1,69 @@
+{
+  "schema": "craft-cancel-signal-candidate/v1",
+  "result": "PASS",
+  "candidateOnly": true,
+  "red": {
+    "result": "expected_failure",
+    "baselinePlugin": "0.1.0-dev.121",
+    "baselineRuntime": "0.1.0-dev.113-runtime.1",
+    "injectedSignalError": "ESRCH",
+    "naturalOSRaceObserved": false,
+    "observedTaskState": "cancel_requested",
+    "groupStopped": false,
+    "databaseSha256": "bbb76e03df7e9976e43a7cb6d6df28c12151d02e496ebe4b34873145601513e3",
+    "testSha256": "dd95103d83c8a4b70d03f6a3397d65b1b584fb550143d1529a774e300a82e940",
+    "scope": "actual public cold runtime and native Effect render from exact fixed121 ZIP; controlled test-owned signal exit-race injection, not fresh Codex installation"
+  },
+  "nativeCandidate": {
+    "schema": "craft-installed-cancel-signal-first-use/v1",
+    "result": "passed",
+    "skillSha256": "38f9d712c00d31922fcb280e479f178b773e94d6b66ef3219ea13b820ee4ffa1",
+    "planSha256": "707387ff60a66fb3c2f8410b145465b4ab3ae6b20094664dff53bc55beb6ce2f",
+    "runtimeVersion": "0.1.0-dev.122-runtime.1",
+    "firstUse": "single copied recover skill; empty runtime default-public bootstrap selects EffectCraft; same runtime reused for bounded-deadline workflow",
+    "injectedSignalError": "ESRCH",
+    "injectionDriverSha256": "bf7ca35ca208c2c91746e30d3af4ab738d8668f535946d56a7e038da935c397c",
+    "naturalOSRaceObserved": false,
+    "relativeDeadlineSeconds": 4,
+    "actualNativeRenderObserved": true,
+    "terminationSignal": "SIGTERM",
+    "nativeSpawnCount": 1,
+    "consumerTaskCount": 0,
+    "stopBeforeCancelled": true,
+    "leaseCountAfterStop": 0,
+    "publishedOutcomeCount": 0,
+    "sameAttempt": true,
+    "budgetPreserved": true,
+    "repeatDoesNotReplay": true,
+    "installedSkillBytesPreserved": true,
+    "unverified": [
+      "installation time within four-second deadline",
+      "worker crash",
+      "model dispatch",
+      "GUI",
+      "creative acceptance"
+    ]
+  },
+  "sourceTests": {
+    "total": 175,
+    "passed": 136,
+    "conditionalSkipped": 39
+  },
+  "runtimeTests": {
+    "total": 247,
+    "passed": 227,
+    "conditionalSkipped": 20,
+    "modes": [
+      "parallel",
+      "serial"
+    ]
+  },
+  "runnerTests": 30,
+  "tasksClosed": [],
+  "unverified": [
+    "fixed plugin and skills installation",
+    "natural OS signal race",
+    "original intermittent parallel failure root cause",
+    "complete task5.9 and V1"
+  ]
+}

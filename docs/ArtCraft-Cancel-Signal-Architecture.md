@@ -21,3 +21,5 @@ flowchart TD
 The controlled real-process RED records groupStopped=false/outcome_unknown after injected ESRCH following actual SIGTERM; GREEN settles only after trusted close/stop. A live-group case retains ownership before close despite ESRCH, and a permission-error case refuses settlement even after close. A test-owned Node preload injects errors only into its own launch chain; pinned skill bytes stay unchanged. This is not an observed natural OS race.
 
 Thirty runner/process-group tests pass. Both complete parallel and serial suites pass227 of247 tests, with20 conditional skips. Fixed installed native rendering, first use, host discovery and full-contract acceptance remain separate. Complete task5.9 and V1 stay open.
+
+Real native RED from fixed121/runtime113 and candidate GREEN with public runtime122-runtime.1 pass the controlled Effect render injection test. [Evidence](evidence/cancel-signal-candidate-20261008.json). Installed new-plugin qualification remains pending.

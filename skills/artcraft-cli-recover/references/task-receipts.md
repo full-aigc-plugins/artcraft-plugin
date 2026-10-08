@@ -8,7 +8,7 @@ Workflow node status is a scheduling summary. Read taskReceipt for durable task/
 
 Preparation, registration or authorization rejection supplies errorDetail code/message and retains the legacy error string. Unregistered nodes have no fabricated receipt. Durable failure stays in taskReceipt.error. Unknown results and cancellation waiting require reconciliation of the original task, never automatic native replay.
 
-The independent skill pins runtime dev.113-runtime.1. Complete protocol, native creative and fixed full-plugin acceptance remain separate gates.
+The independent skill pins runtime dev.122-runtime.1. Complete protocol, native creative and fixed full-plugin acceptance remain separate gates.
 
 公开 workflow.py 的顶层失败也包含 errorDetail。输入／安装前置失败不伪造 workflowReceipt 或 taskReceipt；原生非零回执保留 workflowReceipt 和原 error 字符串，上游已有 errorDetail 则保留其 code/message，等待或其他未就绪回执以 workflow_not_ready 表达。读取嵌套节点 taskReceipt 判断实际状态，不能把 workflow_not_ready 当作任务失败或自动重试依据。
 
