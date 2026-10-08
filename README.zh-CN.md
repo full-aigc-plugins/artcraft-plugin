@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+当前失败暂存分发已验收：24项真实原生保存后响应故障及四领域绑定检查通过。14场景中8项已验收，4.6继续开放。[验收](docs/ArtCraft-Current-Failed-Stage-Architecture.zh_CN.md)。
+
 当前严格计划分发条款已验收：空缓存在线原生混合3/3通过（138.920秒）、22次调用、2646命令身份及240次安装前拒绝。14场景中7项已验收，4.6继续开放。[验收](docs/ArtCraft-Installed-Strict-Plan-Architecture.zh_CN.md)。
 
 此前预检单项验收：240次重复键拒绝通过，未创建运行时／输出，十技能原安装及副本摘要保全。当时完整场景待验；后续完整条款结果见上。[验收说明](docs/ArtCraft-Installed-Strict-Plan-Architecture.zh_CN.md)。

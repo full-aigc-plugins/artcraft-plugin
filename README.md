@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Current failed-stage distribution verified:24 actual native post-save response fault cases and four-domain binding checks pass. Eight of14 runtime scenarios verified;task4.6 remains open. [Acceptance](docs/ArtCraft-Current-Failed-Stage-Architecture.md).
+
 Current strict-plan distribution clauses verified: fresh online native mixed acceptance3/3 PASS (138.920s),22 logged calls,2646-command identity and240 pre-install refusals. Seven of14 runtime scenarios verified;task4.6 remains open. [Acceptance](docs/ArtCraft-Installed-Strict-Plan-Architecture.md).
 
 Earlier precheck-only acceptance:240 duplicate-key refusals pass without runtime/output creation; ten installed/copy digests preserved. The full scenario was pending at that point; subsequent clause acceptance is above. [Acceptance](docs/ArtCraft-Installed-Strict-Plan-Architecture.md).

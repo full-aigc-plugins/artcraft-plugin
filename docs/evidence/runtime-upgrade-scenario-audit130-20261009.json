@@ -64,15 +64,17 @@
     },
     {
       "scenario": "[AC-RT-002-FAILED-STAGE] 失败暂存保全分发升级",
-      "status": "retained-evidence-needs-audit",
+      "status": "verified-current-installed",
       "reference": "docs/evidence/codex-art79-failed-stage-first-use-20261007.json",
       "referenceSha256": "db597e8acb57512673a604da1e58ff90917205dc64e387588361584e604e4464",
-      "remainingAudit": "Correct Art-specific fixed historical evidence located. Still reconcile current pinned bytes, inputs and every acceptance clause before reusing it.",
+      "remainingAudit": "None for this named failed-stage distribution scenario; complete task4.6 remains open.",
       "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/codex-art79-failed-stage-first-use-20261007.json",
       "excludedReference": {
         "reference": "docs/evidence/codex-failed-stage-first-use-20261007.json",
         "reason": "Previous reference proves standalone domain plugins and explicitly excludes Art bundled upgrade."
-      }
+      },
+      "currentEvidence": "docs/evidence/current-failed-stage130-20261009.json",
+      "currentEvidenceSha256": "14cdcb58cba62db83533c061e4633581e40ac80956f8e1787ab0d34ff0cfcbad"
     },
     {
       "scenario": "[AC-RT-002-INNER-JSON] 完整命令响应修复的独立分发",
@@ -170,5 +172,5 @@
   "completionRule": "Resolve every clause using applicable unchanged historical evidence or actual fixed installed evidence. No scenario is closed solely by this routing audit.",
   "referenceRepository": "https://github.com/full-aigc-plugins/artcraft-plugin",
   "referenceBaseCommit": "3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920",
-  "verifiedCurrentInstalledScenarioCount": 7
+  "verifiedCurrentInstalledScenarioCount": 8
 }

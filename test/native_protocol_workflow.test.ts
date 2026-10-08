@@ -1,7 +1,7 @@
 /** 真实原生保存后的协议故障：运行实际发布的编排引擎，测试钩子不进入产品。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, rm, writeFile, readdir } from 'node:fs/promises';
+import { mkdtemp, readFile, rm, writeFile, readdir, mkdir } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { pathToFileURL, fileURLToPath } from 'node:url';
@@ -25,7 +25,9 @@ for(const domainId of domains)for(const fault of ['malformed','scalar','missing'
   const {LocalRunner}=await load('harness/local_runner.ts');
   const {WorkflowEngine}=await load('planning/workflow_engine.ts');
   const {publicSkillFactory}=await load('adapters/public_skill.ts');
-  const root=await mkdtemp(join(tmpdir(),'art-native-protocol-'));
+  const retained=process.env.CRAFT_PROTOCOL_RETAIN_ROOT;
+  const root=retained?resolve(retained,domainId+'-'+fault):await mkdtemp(join(tmpdir(),'art-native-protocol-'));
+  if(retained)await mkdir(root,{recursive:false});
   const ledger=new TaskLedger(join(root,'tasks.sqlite'));
   try{
    const domain=installation.skills[domainId];
@@ -116,6 +118,6 @@ for(const domainId of domains)for(const fault of ['malformed','scalar','missing'
    for(const file of files)assert.equal(sha(await readFile(file.path)),file.sha256);
    records.push({domainId,fault,result:'PASS',pluginVersion,runtimeVersion:installation.version,nativeSha256:nativeHash,clientSha256:files.find(file=>file.path.endsWith('mcp_session.py'))!.sha256,recoveryModuleSha256:files.find(file=>file.path.endsWith('preserved_stage.py'))!.sha256,originalStagePreserved:true,retainedFileCount:Object.keys(failure.files).length,lastAttemptPreserved:true,saveCount:1,nativeReopen:true,consumerBlocked:true,publicUnknownReply:true,attemptPreserved:true,budgetPreserved:true,registeredInputCount:externalInputs.length,registeredInputsPreserved:true,noReplay:true});
    if(output)await writeFile(output,JSON.stringify({schema:'art-native-protocol-workflow-candidate/v1',result:records.length===domains.length*6?'PASS':'RUNNING',cases:records,scope:'actual public downloaded runtime + trusted public domain adapters; original product-retained stage inspected and reopened; transparent post-save response test hook; proxy capture used only as hash witness',excluded:['complete per-command or GUI acceptance','force-kill or filesystem-crash durability']},null,2)+'\n');
-  }finally{ledger.close();await rm(root,{recursive:true,force:true});}
+  }finally{ledger.close();if(!retained)await rm(root,{recursive:true,force:true});}
  });
 }
