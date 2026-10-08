@@ -1,0 +1,47 @@
+{
+  "schema": "craft-consistency-stale-action-evidence/v1",
+  "date": "2026-10-09",
+  "preImplementationCommit": "fc43c256e84d493213ef901215541e66cde0d916",
+  "red": {
+    "total": 9,
+    "errors": 2,
+    "reason": "ValueError lacks diagnostic for STALE / reevaluate",
+    "logSha256": "70efab798580487c1293d936a054b642c8fd5d6fc5269ea6655a0efb9d4e2fa6"
+  },
+  "green": {
+    "total": 9,
+    "passed": 9,
+    "logSha256": "3db61f4f8c6a00086ec167c20ce0f2193f979e56e10b7d32b27e105c3d5437ad"
+  },
+  "actualPublicRefusals": {
+    "stale-reference": {
+      "error": "review_asset_stale",
+      "result": "failed",
+      "consistency": {
+        "result": "STALE",
+        "action": "reevaluate",
+        "reason": "review_asset_stale"
+      }
+    },
+    "missing-product-digest": {
+      "error": "review_asset_binding_invalid",
+      "result": "failed",
+      "consistency": {
+        "result": "STALE",
+        "action": "reevaluate",
+        "reason": "review_asset_binding_invalid"
+      }
+    }
+  },
+  "scope": "source candidate contract and public entry on fixed126 native package; fixed127 installed qualification pending",
+  "sourceFiles": {
+    "review.py": "a0141dc735e1178680f3313f9071f0f1a96fe55fe9c4aad3e33afb719a6d9406",
+    "consistency.py": "2057087981a082dc004f3dbe813516c514f2fb88fc40faf9af78eefe5a45b385"
+  },
+  "regression": {
+    "total": 198,
+    "passed": 149,
+    "skipped": 49,
+    "logSha256": "56e73827d6066da3f20b7dc36da72e4ed697a004a6c912784d779f561d5ebc92"
+  }
+}

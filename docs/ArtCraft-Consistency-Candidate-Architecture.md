@@ -1,5 +1,7 @@
 # ArtCraft Fixed-Reference Consistency Review Architecture
 
+Current distribution: source99 is published and vendored into plugin candidate127. Runtime126 and domain pins are unchanged. Installed qualification and full scenario acceptance remain open. [Distribution evidence](evidence/consistency-distribution-candidate-20261009.json). The source-candidate paragraph below describes the earlier checkpoint.
+
 This is a source candidate. Task6.13 has target-failure evidence and eight subsequent passing tests. Task6.14 distribution/regression gates and task6.15 complete native scene acceptance remain open. The plugin still locks source98; public plugin126 does not contain the new behavior.
 
 ## Contract and data flow

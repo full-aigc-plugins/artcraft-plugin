@@ -1,0 +1,41 @@
+{
+  "schema": "craft-consistency-distribution-candidate/v1",
+  "date": "2026-10-09",
+  "status": "source99-published-and-vendored; plugin127-installed-qualification-pending",
+  "source": {
+    "ref": "v0.1.0-dev.99",
+    "commit": "d3d52a6324c5db133150c922addebe57a09f7b2a",
+    "zipSha256": "1f45170882102946316902c9e68b4dc31528d50ab957951a8be529b6efae6f47",
+    "url": "https://github.com/full-aigc-skills/artcraft-skills/releases/tag/v0.1.0-dev.99"
+  },
+  "runtime": "0.1.0-dev.126-runtime.1",
+  "domainPins": "unchanged from plugin126/source98",
+  "pluginRegression": {
+    "total": 112,
+    "passed": 106,
+    "skipped": 6,
+    "logSha256": "39ad12d68b71b07755b01eaffc2746277e6c738aec6ce33631f2dd0b64e335f8"
+  },
+  "sourceRegression": {
+    "total": 198,
+    "passed": 149,
+    "skipped": 49
+  },
+  "sourceSkillDigests": {
+    "artcraft-use": "6b3ec9a876fc29aec669a46ac69fcd2a94a0b9d75ed8069ec0c1c4fbfa541fde",
+    "artcraft-cli": "126ba0a212e7feaa8f162b999b81bb53ae490d2c6714658f1386320e394d151c",
+    "artcraft-cli-setup": "b3ba79ff37cd7b90fce1dcf08af0edba6b1ed8b99676bce395080811d586f9ae",
+    "artcraft-cli-plan": "e63a6fe9c977b859392d4159e588503247988a96e6b7fa6d9a183b5174f5a949",
+    "artcraft-cli-execute": "f56c241fd57ba4b3cbd48bcae545a8e8397ffd3051e1823c1ba9046197776c18",
+    "artcraft-cli-assets": "0758897156f5ced7f3586377c3532f86be9237a21caa6a737fc7f26b004333a7",
+    "artcraft-cli-revise": "8dac4391fa8383455aaf6aca792883e00c80d16a463c272ae42060b4ad311002",
+    "artcraft-cli-recover": "d435c444cea474df8658a0d5697dca284ee94a0e4b72440e590b2cf32796c48f",
+    "artcraft-cli-deliver": "1d7bb490c9f08bbc0b2163a202570ac300db220633bb6e24ffa0278d7674420d",
+    "artcraft-cli-review": "feb9808c095482d0a6654649268fd046b7252712501b6150a271693a4728bf31"
+  },
+  "remaining": [
+    "fixed127 host discovery and installed native review",
+    "complete AC-DM005 native scenario matrix",
+    "human acceptance, generic Skills CLI and fullV1"
+  ]
+}

@@ -114,3 +114,5 @@ Photo原生调整层、选区蒙版与可信源返工见 [局部调整指南](re
 任务身份及拒绝详情按 [任务回执说明](references/task-receipts.md) 读取；节点摘要不代替实际执行回执。
 
 混合海报、封面和源工程返工前阅读 [Photo完整交付](references/photo-delivery-integrity.md)，区分宿主独立插件与Art内部固定依赖。
+
+固定品牌与主体参考的跨产物观察，见本技能 [一致性审阅合同](references/consistency.md)；源码候选与已发布固定版本的验收分别报告。

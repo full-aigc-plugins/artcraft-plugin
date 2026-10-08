@@ -21,6 +21,13 @@ HEX = re.compile(r'^[a-f0-9]{64}$')
 MAX_BYTES = 8 * 1024 * 1024
 
 
+class StaleConsistencyEvidence(ValueError):
+    """当前一致性证据无法绑定有效资产时，明确要求重评。"""
+    def __init__(self, code):
+        super().__init__(code)
+        self.diagnostic = {'consistency': {'result': 'STALE', 'action': 'reevaluate', 'reason': code}}
+
+
 def fail(code):
     raise ValueError(code)
 
@@ -106,7 +113,8 @@ def binding(target, assets):
 
 def evaluate(value, package, evidence_root):
     """校验评价者的观察与当前包绑定，聚合状态；不声称观察内容已自动验证。"""
-    if not isinstance(value, dict) or set(value) != {'schema', 'packageSha256', 'planSha256', 'ownerId', 'authorizationRef', 'brandReferences', 'checks'} or value['schema'] != 'craft-review-input/v1':
+    fields = {'schema', 'packageSha256', 'planSha256', 'ownerId', 'authorizationRef', 'brandReferences', 'checks'}
+    if not isinstance(value, dict) or set(value) not in (fields, fields | {'consistency'}) or value['schema'] != 'craft-review-input/v1':
         fail('review_input_invalid')
     workflow = package['workflow']
     if value['packageSha256'] != package['sha256'] or value['planSha256'] != workflow['planSha256']:
@@ -124,10 +132,18 @@ def evaluate(value, package, evidence_root):
         fail('review_asset_missing')
     if not isinstance(value['brandReferences'], list) or len(value['brandReferences']) > 1000:
         fail('review_brand_reference_invalid')
+    def current_binding(target, current_assets):
+        try:
+            return binding(target, current_assets)
+        except ValueError as error:
+            if 'consistency' in value and str(error) in ('review_asset_stale', 'review_asset_binding_invalid', 'review_digest_invalid'):
+                raise StaleConsistencyEvidence(str(error)) from error
+            raise
     for target in value['brandReferences']:
-        binding(target, assets)
+        current_binding(target, assets)
     if not isinstance(value['checks'], list) or len(value['checks']) > 10000:
         fail('review_checks_invalid')
+    verified_evidence = {}
     ids, checks, coverage = set(), [], {dim: {key: [] for key in assets} for dim in DIMENSIONS}
     for check in value['checks']:
         if not isinstance(check, dict) or set(check) != {'id', 'dimension', 'status', 'evaluator', 'target', 'evidence', 'note'}:
@@ -147,7 +163,7 @@ def evaluate(value, package, evidence_root):
         if dimension == 'acceptance' and status != 'NOT_RUN' and actor['kind'] != 'human':
             fail('review_human_acceptance_required')
         text(check['note'], 'review_note_required')
-        artifact = binding(check['target'], assets)
+        artifact = current_binding(check['target'], assets)
         if status == 'FAIL' and dimension == 'creative' and not any(k in check['target'] for k in ('objectId', 'frame', 'region')):
             fail('review_issue_locator_required')
         evidence = check['evidence']
@@ -156,8 +172,10 @@ def evaluate(value, package, evidence_root):
         for ref in evidence:
             if not isinstance(ref, dict) or set(ref) != {'location', 'sha256'}:
                 fail('review_evidence_ref_invalid')
-            if digest(read_local(evidence_root, ref['location'])) != hash_value(ref['sha256']):
+            contents = read_local(evidence_root, ref['location'])
+            if digest(contents) != hash_value(ref['sha256']):
                 fail('review_evidence_digest_mismatch')
+            verified_evidence[(ref['location'], ref['sha256'])] = contents
         coverage[dimension][(artifact['nodeId'], artifact['assetId'])].append(status)
         checks.append({**check, 'responsiblePlugin': artifact['runtimeIdentity']['pluginId'], 'runtimeIdentity': artifact['runtimeIdentity']})
     dimensions = {'engineering': 'PASS'}
@@ -165,8 +183,18 @@ def evaluate(value, package, evidence_root):
         rows = list(coverage[dim].values())
         dimensions[dim] = 'FAIL' if any('FAIL' in states for states in rows) else 'NOT_RUN' if any(not states or 'NOT_RUN' in states for states in rows) else 'PASS'
     decision = 'changes_requested' if 'FAIL' in dimensions.values() else 'pending' if 'NOT_RUN' in dimensions.values() else 'accepted'
-    return {'dimensions': dimensions, 'decision': decision, 'taskState': 'review_ready', 'checks': checks,
-            'scope': 'package integrity verified; named evaluator observations recorded, not automatic creative validation; ledger state unchanged'}
+    result = {'dimensions': dimensions, 'decision': decision, 'taskState': 'review_ready', 'checks': checks,
+              'scope': 'package integrity verified; named evaluator observations recorded, not automatic creative validation; ledger state unchanged'}
+    if 'consistency' in value:
+        spec = importlib.util.spec_from_file_location('craft_consistency', Path(__file__).with_name('consistency.py'))
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        result['consistency'] = module.evaluate(value['consistency'], value['brandReferences'], checks, assets, verified_evidence, current_binding, load_json, text)
+        if result['consistency']['result'] == 'FAIL':
+            result['decision'] = 'changes_requested'
+        elif result['consistency']['result'] == 'NOT_RUN' and result['decision'] == 'accepted':
+            result['decision'] = 'pending'
+    return result
 
 
 def verify_package(args):
@@ -195,7 +223,8 @@ def verify_record(args, package):
     report = load_json(data)
     if any(p.is_symlink() for p in root.rglob('*')):
         fail('review_symlink_refused')
-    if not isinstance(report, dict) or set(report) != {'schema', 'inputSha256', 'input', 'files', 'dimensions', 'decision', 'taskState', 'checks', 'scope'} or report.get('schema') != 'craft-review-record/v1' or not isinstance(report.get('files'), dict):
+    fields = {'schema', 'inputSha256', 'input', 'files', 'dimensions', 'decision', 'taskState', 'checks', 'scope'}
+    if not isinstance(report, dict) or set(report) not in (fields, fields | {'consistency'}) or report.get('schema') != 'craft-review-record/v1' or not isinstance(report.get('files'), dict):
         fail('review_record_invalid')
     if {str(p.relative_to(root)) for p in root.rglob('*') if not p.is_dir()} != set(report['files']) | {'review.json'}:
         fail('review_record_inventory_mismatch')
@@ -209,6 +238,8 @@ def verify_record(args, package):
     if set(report['files']) != expected_files or report.get('input') != normalized or report.get('inputSha256') != digest(read_local(root, 'input.json')):
         fail('review_record_input_mismatch')
     computed = evaluate(normalized, package, root)
+    if ('consistency' in report) != ('consistency' in computed):
+        fail('review_record_result_mismatch')
     if any(report.get(key) != val for key, val in computed.items()):
         fail('review_record_result_mismatch')
     return {'schema': 'craft-review-receipt/v1', 'sha256': args.review_sha, 'packageSha256': package['sha256'], **computed}
@@ -290,7 +321,8 @@ def main():
         print(json.dumps(result, ensure_ascii=False))
     except (ValueError, RuntimeError, OSError, KeyError, TypeError, subprocess.SubprocessError) as error:
         reply = {'error': str(error), 'result': 'unknown' if isinstance(error, subprocess.TimeoutExpired) else 'failed'}
-        if isinstance(error, P.PublicCallFailure):reply.update(error.diagnostic)
+        if isinstance(error, (P.PublicCallFailure, StaleConsistencyEvidence)):
+            reply.update(error.diagnostic)
         print(json.dumps(reply, ensure_ascii=False))
         raise SystemExit(1)
 
