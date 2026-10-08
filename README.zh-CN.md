@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-能力路由任务6.6已完成当前11个场景；十个固定安装入口各自完成完整四域混合网关冷启动、原生源返工、恢复与移动包验收。插件126／源98／runtime126生产字节保持不变。仍有25项编号任务及完整V1未完成。见[验收架构](docs/ArtCraft-Capability-Routing-Acceptance-Architecture.zh_CN.md)。
+源码候选已补充固定品牌／主体参考的一致性观察绑定：8 项目标 fixture 与 7 项既有审阅测试通过。6.13 完成，6.14／6.15 仍未完成；公开发行身份不变。见 [候选架构](docs/ArtCraft-Consistency-Candidate-Architecture.zh_CN.md)。
+
+能力路由任务6.6已完成当前11个场景；十个固定安装入口各自完成完整四域混合网关冷启动、原生源返工、恢复与移动包验收。插件126／源98／runtime126生产字节保持不变。仍有24项编号任务及完整V1未完成。见[验收架构](docs/ArtCraft-Capability-Routing-Acceptance-Architecture.zh_CN.md)。
 
 此前专项检查点（当时6.6开放，现已完成）：固定126补验已通过真实混合ASR、Vector外观、Effect表达式、Photo蒙版调整与四类非可信源拒绝、四领域网关／命令组件，以及十入口各自的单Vector Brief网关冷启动／返工／移动包。64安装技能树与每个入口的33个运行时文件符合发布锁。6.6继续开放，十入口各自完整混合矩阵仍待验。见[范围与证据](docs/ArtCraft-Routing-Scenario-Revalidation.zh_CN.md)。
 

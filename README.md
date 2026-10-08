@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-Capability-routing task6.6 is complete for all eleven current scenarios, including separate full four-domain mixed gateway cold starts, native source revisions, recovery and moved packages through all ten installed entries. Fixed plugin126/source98/runtime126 bytes remain unchanged. Twenty-five numbered tasks and full V1 remain open. See [acceptance architecture](docs/ArtCraft-Capability-Routing-Acceptance-Architecture.md).
+Source-candidate consistency review now binds fixed brand/subject references to every observed output; eight targeted fixture tests and seven legacy review tests pass. Task6.13 is complete;6.14/6.15 remain open. Public release identities are unchanged. See [candidate architecture](docs/ArtCraft-Consistency-Candidate-Architecture.md).
+
+Capability-routing task6.6 is complete for all eleven current scenarios, including separate full four-domain mixed gateway cold starts, native source revisions, recovery and moved packages through all ten installed entries. Fixed plugin126/source98/runtime126 bytes remain unchanged. Twenty-four numbered tasks and full V1 remain open. See [acceptance architecture](docs/ArtCraft-Capability-Routing-Acceptance-Architecture.md).
 
 Earlier specialized checkpoint (6.6 was open then; it is now complete): Fixed126 routing revalidation passes real mixed ASR, Vector appearance, Effect expressions, Photo masked adjustment and four untrusted-source refusals, four-domain gateways and command components, and ten independent Vector Brief gateway cold starts/revisions/moved packages. All 64 installed trees and 33 runtime files in each public entry match the release locks. Task6.6 stays open for the complete mixed-workflow matrix per entry. See [scope and evidence](docs/ArtCraft-Routing-Scenario-Revalidation.md).
 

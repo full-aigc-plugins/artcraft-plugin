@@ -87,3 +87,9 @@
 ## 质量机制实施位置与验收
 
 AC-QA-001、AC-QA-002 的实现位于独立 artcraft-skills 的 review.py、revision.py，插件消费固定快照。早期 src/evaluation/ 路径不再作为实际模块描述。公开验包先于具名审阅；四类状态分别保存，失败不被视觉声明覆盖，审阅不改任务账本。修订冻结策略、目标、授权和命令范围，限于失败节点与依赖；原交付保留，未知步骤不自动重放，停止时重验最佳包并报告未解决问题。任务8.1–8.6 的当前固定安装验收及独立创作门禁见[中文架构](../../../docs/ArtCraft-Quality-Gates-Architecture.zh_CN.md)和[English architecture](../../../docs/ArtCraft-Quality-Gates-Architecture.md)。
+
+### AC-DM-005：固定参考的一致性观察合同
+
+在现有 `craft-review-input/v1` 上增加可选 `consistency` 字段，旧输入和旧记录保持可验证。该字段使用 `craft-consistency/v1`，明确固定的品牌与主体资产引用，以及各 creative check 使用的完整参考 ID 集合。每条已执行的观察使用 `craft-consistency-observation/v1`，绑定检查 ID、当前目标版本与摘要、同一组参考、评价者、状态、方法和非空观察描述。读取已经通过摘要校验的证据字节，拒绝只含提示词、旧引用、替换评价者和不一致状态。
+
+PhotoCraft 目标需要区域定位，EffectCraft 与 FilmCraft 目标需要帧定位；三个领域未全部提供观察时结果为 NOT_RUN。任一观察失败保留目标版本及定位并聚合为 FAIL。观察 PASS 仅表示具名评价者提供的证据满足合同，不能代替人工接受、完整创意质量或未覆盖领域验收。记录移动后重新验证同一合同与文件清单，不能只相信记录中的聚合状态。

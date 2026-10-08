@@ -1,0 +1,50 @@
+{
+  "schema": "craft-consistency-candidate-evidence/v1",
+  "date": "2026-10-09",
+  "status": "source-candidate-target-tests-passed; release-and-native-acceptance-pending",
+  "requirement": "AC-DM-005",
+  "task6.13": "complete",
+  "task6.14": "open until locked distribution and affected regression verified",
+  "task6.15": "open; no complete current native scene matrix",
+  "red": {
+    "sourceCommit": "387e8748edc3c1210c147a34ee53e9f0605e69ed",
+    "result": "5 tests, 3 errors, 2 passed",
+    "reason": "optional consistency rejected as review_input_invalid before implementation",
+    "sha256": "21f8d4d978e946f88ba86ad49ae506b55bfaf909256b13c4167f105c63e6c27b",
+    "log": "test_failure_has_asset_version_and_region_and_does_not_disappear (test_consistency.ConsistencyTests.test_failure_has_asset_version_and_region_and_does_not_disappear) ... ERROR\ntest_hash_bound_prompt_or_mismatched_observation_is_not_consistency_evidence (test_consistency.ConsistencyTests.test_hash_bound_prompt_or_mismatched_observation_is_not_consistency_evidence) ... ok\ntest_missing_observations_or_domain_does_not_claim_consistency_pass (test_consistency.ConsistencyTests.test_missing_observations_or_domain_does_not_claim_consistency_pass) ... ERROR\ntest_rejects_missing_roles_reference_subset_old_versions_and_observation_mismatch (test_consistency.ConsistencyTests.test_rejects_missing_roles_reference_subset_old_versions_and_observation_mismatch) ... ok\ntest_three_outputs_share_fixed_reference_observations_without_human_acceptance (test_consistency.ConsistencyTests.test_three_outputs_share_fixed_reference_observations_without_human_acceptance) ... ERROR\n\n======================================================================\nERROR: test_failure_has_asset_version_and_region_and_does_not_disappear (test_consistency.ConsistencyTests.test_failure_has_asset_version_and_region_and_does_not_disappear)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/wandl/workspaces/workspace-agent-skills/full-aigc-skills-repositories/artcraft-skills/tests/test_consistency.py\", line 110, in test_failure_has_asset_version_and_region_and_does_not_disappear\n    result = self.module().evaluate(value, package, root)\n  File \"/Users/wandl/workspaces/workspace-agent-skills/full-aigc-skills-repositories/artcraft-skills/skills/artcraft-use/scripts/review.py\", line 110, in evaluate\n    fail('review_input_invalid')\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wandl/workspaces/workspace-agent-skills/full-aigc-skills-repositories/artcraft-skills/skills/artcraft-use/scripts/review.py\", line 25, in fail\n    raise ValueError(code)\nValueError: review_input_invalid\n\n======================================================================\nERROR: test_missing_observations_or_domain_does_not_claim_consistency_pass (test_consistency.ConsistencyTests.test_missing_observations_or_domain_does_not_claim_consistency_pass)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/wandl/workspaces/workspace-agent-skills/full-aigc-skills-repositories/artcraft-skills/tests/test_consistency.py\", line 70, in test_missing_observations_or_domain_does_not_claim_consistency_pass\n    result = self.module().evaluate(value, package, root)\n  File \"/Users/wandl/workspaces/workspace-agent-skills/full-aigc-skills-repositories/artcraft-skills/skills/artcraft-use/scripts/review.py\", line 110, in evaluate\n    fail('review_input_invalid')\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wandl/workspaces/workspace-agent-skills/full-aigc-skills-repositories/artcraft-skills/skills/artcraft-use/scripts/review.py\", line 25, in fail\n    raise ValueError(code)\nValueError: review_input_invalid\n\n======================================================================\nERROR: test_three_outputs_share_fixed_reference_observations_without_human_acceptance (test_consistency.ConsistencyTests.test_three_outputs_share_fixed_reference_observations_without_human_acceptance)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/wandl/workspaces/workspace-agent-skills/full-aigc-skills-repositories/artcraft-skills/tests/test_consistency.py\", line 59, in test_three_outputs_share_fixed_reference_observations_without_human_acceptance\n    result = self.module().evaluate(value, package, root)\n  File \"/Users/wandl/workspaces/workspace-agent-skills/full-aigc-skills-repositories/artcraft-skills/skills/artcraft-use/scripts/review.py\", line 110, in evaluate\n    fail('review_input_invalid')\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wandl/workspaces/workspace-agent-skills/full-aigc-skills-repositories/artcraft-skills/skills/artcraft-use/scripts/review.py\", line 25, in fail\n    raise ValueError(code)\nValueError: review_input_invalid\n\n----------------------------------------------------------------------\nRan 5 tests in 0.049s\n\nFAILED (errors=3)\n"
+  },
+  "green": {
+    "result": "8 tests passed",
+    "sha256": "b709cede4746a0dc87e2ca778add270a05d165b26e64d6dc906692f072cdeb06",
+    "log": "test_duplicate_refs_and_assessments_are_rejected (test_consistency.ConsistencyTests.test_duplicate_refs_and_assessments_are_rejected) ... ok\ntest_failure_has_asset_version_and_region_and_does_not_disappear (test_consistency.ConsistencyTests.test_failure_has_asset_version_and_region_and_does_not_disappear) ... ok\ntest_hash_bound_prompt_or_mismatched_observation_is_not_consistency_evidence (test_consistency.ConsistencyTests.test_hash_bound_prompt_or_mismatched_observation_is_not_consistency_evidence) ... ok\ntest_missing_observations_or_domain_does_not_claim_consistency_pass (test_consistency.ConsistencyTests.test_missing_observations_or_domain_does_not_claim_consistency_pass) ... ok\ntest_moved_record_recomputes_consistency_and_rejects_forged_result (test_consistency.ConsistencyTests.test_moved_record_recomputes_consistency_and_rejects_forged_result) ... ok\ntest_rejects_missing_roles_reference_subset_old_versions_and_observation_mismatch (test_consistency.ConsistencyTests.test_rejects_missing_roles_reference_subset_old_versions_and_observation_mismatch) ... ok\ntest_three_outputs_share_fixed_reference_observations_without_human_acceptance (test_consistency.ConsistencyTests.test_three_outputs_share_fixed_reference_observations_without_human_acceptance) ... ok\ntest_unreviewed_second_poster_and_not_run_observation_prevent_pass (test_consistency.ConsistencyTests.test_unreviewed_second_poster_and_not_run_observation_prevent_pass) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.093s\n\nOK\n"
+  },
+  "sourceFiles": {
+    "tests/test_consistency.py": "2da7f11449ca3f834ec180171ac3c7447e3f9189940ba424003f53f3926fce16",
+    "skills/artcraft-use/scripts/review.py": "54da83f58e786b0b62c1490edee4f2d48d871beb378379005bd8d20ed626190c",
+    "skills/artcraft-use/scripts/consistency.py": "2057087981a082dc004f3dbe813516c514f2fb88fc40faf9af78eefe5a45b385"
+  },
+  "legacyReview": "7 tests passed after implementation; fixtures only",
+  "limits": [
+    "unit package verification is mocked for record relocation; not native delivery proof",
+    "no automatic semantic correctness or human acceptance claim",
+    "existing immutable plugin126/source98/runtime126 unchanged",
+    "new production source is not yet locked into plugin or released"
+  ],
+  "regression": {
+    "source": {
+      "total": 197,
+      "passed": 148,
+      "skipped": 49,
+      "logSha256": "41b5010e409e73c9307a30c421687a21dafcf894546778b611ee7a90e9e60732"
+    },
+    "pluginUnchangedSnapshot": {
+      "total": 112,
+      "passed": 106,
+      "skipped": 6,
+      "logSha256": "06ed98fe9bd685b1e85b75a61b8af3bd2c92b2429adb1f65ffa258a6cf041870"
+    },
+    "selfContainedCopies": "ten script/reference resource copies verified by sync_skill_suite.py --check",
+    "documentation": "validate_docs.py passed, 24 numbered tasks open",
+    "openspec": "strict validation passed"
+  }
+}
