@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+固定126补验已通过真实混合ASR、Vector外观、Effect表达式、Photo蒙版调整与四类非可信源拒绝、四领域网关／命令组件，以及十入口各自的单Vector Brief网关冷启动／返工／移动包。64安装技能树与每个入口的33个运行时文件符合发布锁。6.6继续开放，十入口各自完整混合矩阵仍待验。见[范围与证据](docs/ArtCraft-Routing-Scenario-Revalidation.zh_CN.md)。
+
 能力路由核心任务6.4／6.5完成；固定安装规划技能的Vector单领域公开冷启动、Photo增量、原交付／运行时保全、独立验包与剪映下载前拒绝通过。6.6完整11个ID场景矩阵继续开放，仍有26项计划未完成。见[当前实现架构](docs/ArtCraft-Selected-Setup-Architecture.zh_CN.md)。
 
 混合需求约束的实现与七个当前规格场景验收已完成，任务6.1／6.2／6.3均完成；固定安装公开入口8类拒绝、四领域原生交付／源返工／保存后门禁／复用／移动Brief包通过。其他计划继续开放，完整V1未完成。见[当前验收架构](docs/ArtCraft-Brief-Acceptance-Architecture.zh_CN.md)。

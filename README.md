@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Fixed126 routing revalidation passes real mixed ASR, Vector appearance, Effect expressions, Photo masked adjustment and four untrusted-source refusals, four-domain gateways and command components, and ten independent Vector Brief gateway cold starts/revisions/moved packages. All 64 installed trees and 33 runtime files in each public entry match the release locks. Task6.6 stays open for the complete mixed-workflow matrix per entry. See [scope and evidence](docs/ArtCraft-Routing-Scenario-Revalidation.md).
+
 Core capability-routing tasks6.4/6.5 are complete.Fixed installed planning skill passes Vector-only public cold install,incremental Photo,preserved prior delivery/runtime,independent verification and pre-download Jianying refusal.Full11-ID scenario acceptance6.6 and26 tasks remain open.See [current implementation architecture](docs/ArtCraft-Selected-Setup-Architecture.md).
 
 Mixed Brief implementation and all seven current specification scenarios are verified;tasks6.1/6.2/6.3 are complete. Fixed installed eight-case refusal,four-domain native delivery/source revision/saved-output gates/reuse/moved Brief package pass.Other tasks and fullV1 remain open.See [current acceptance architecture](docs/ArtCraft-Brief-Acceptance-Architecture.md).

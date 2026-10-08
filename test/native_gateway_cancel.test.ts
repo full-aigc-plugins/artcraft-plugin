@@ -37,7 +37,8 @@ test('public native gateway cancellation preserves saved stage and never repeats
   assert.ok(observed,'actual native render after the gateway must precede cancellation');
   ledger.cancel('gateway-cancel');
   const result=await execution;assert.equal(result.state,'cancelled');assert.equal(ledger.execution('gateway-cancel')?.groupStopped,true);assert.equal(ledger.leases().length,0);assert.deepEqual(result.outputRefs,[]);
-  const stages=(await readdir(dirname(made.root))).filter(name=>name.startsWith('.effectcraft-'));
+  // 执行身份记录也是 .effectcraft- 前缀文件；只把真实目录计为保留工程。
+  const stages=(await readdir(dirname(made.root),{withFileTypes:true})).filter(entry=>entry.isDirectory()&&entry.name.startsWith('.effectcraft-')).map(entry=>entry.name);
   assert.equal(stages.length,1);const project=join(dirname(made.root),stages[0],'project.ecproj');assert.ok((await stat(project)).size>0);const original=hash(await readFile(project));
   const inspectPlan=join(root,'inspect.json');await writeFile(inspectPlan,JSON.stringify({schema:'craft-command-plan/v1',operations:[{tool:'open_project',params:{path:{'$ref':'source.path'}}},{tool:'get_project',params:{}}]}));
   const inspected=await exec(python,['-I','-B',join(skill,'scripts/commands.py'),'run',inspectPlan,'--input','source='+project,'--output',join(root,'inspection'),'--runtime-home',runtime!],{timeout:60000});assert.equal(JSON.parse(inspected.stdout).result,'PASS');assert.equal(hash(await readFile(project)),original);
