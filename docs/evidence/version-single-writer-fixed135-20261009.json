@@ -1,0 +1,180 @@
+{
+  "schema": "artcraft-version-single-writer-fixed/v1",
+  "result": "PASS",
+  "plugin": "0.1.0-dev.135",
+  "source": "0.1.0-dev.107",
+  "runtime": "0.1.0-dev.134-runtime.1",
+  "platform": "darwin-arm64",
+  "host": {
+    "cliVersion": "codex-cli 0.147.0",
+    "skills": 64,
+    "loadingErrors": 0
+  },
+  "nativeCreateCount": 8,
+  "nativeRevisionCount": 8,
+  "frozenRefusals": [
+    {
+      "fault": "plan",
+      "error": "workflow_revision_conflict",
+      "allProjectFilesAndLedgerTablesPreserved": true
+    },
+    {
+      "fault": "authorization",
+      "error": "workflow_revision_conflict",
+      "allProjectFilesAndLedgerTablesPreserved": true
+    },
+    {
+      "fault": "input",
+      "error": "workflow_revision_conflict",
+      "allProjectFilesAndLedgerTablesPreserved": true
+    },
+    {
+      "fault": "launcher",
+      "error": "workflow_revision_conflict",
+      "allProjectFilesAndLedgerTablesPreserved": true
+    }
+  ],
+  "sameScopeReusesOriginalTasks": true,
+  "newScopeHasOwnTasks": true,
+  "oldDeliveriesPreserved": true,
+  "movedPackageSha256": "f8ea807d0000c0088c54dcf734ecfb08f1a0510a3a06c07aec9b431aa940c6d6",
+  "singleWriter": [
+    {
+      "pluginId": "vectorcraft",
+      "a": {
+        "start": 9,
+        "stop": 11,
+        "verified": 14,
+        "pid": 57564,
+        "startTime": "2026-10-08T21:17:11.471Z",
+        "stopTime": "2026-10-08T21:17:11.608Z"
+      },
+      "b": {
+        "start": 25,
+        "stop": 27,
+        "verified": 30,
+        "pid": 57575,
+        "startTime": "2026-10-08T21:17:11.804Z",
+        "stopTime": "2026-10-08T21:17:11.940Z"
+      },
+      "serializedThroughVerification": true
+    },
+    {
+      "pluginId": "photocraft",
+      "a": {
+        "start": 10,
+        "stop": 12,
+        "verified": 17,
+        "pid": 57565,
+        "startTime": "2026-10-08T21:17:11.477Z",
+        "stopTime": "2026-10-08T21:17:11.619Z"
+      },
+      "b": {
+        "start": 26,
+        "stop": 28,
+        "verified": 33,
+        "pid": 57576,
+        "startTime": "2026-10-08T21:17:11.822Z",
+        "stopTime": "2026-10-08T21:17:11.958Z"
+      },
+      "serializedThroughVerification": true
+    },
+    {
+      "pluginId": "effectcraft",
+      "a": {
+        "start": 42,
+        "stop": 43,
+        "verified": 45,
+        "pid": 57585,
+        "startTime": "2026-10-08T21:17:12.255Z",
+        "stopTime": "2026-10-08T21:17:12.521Z"
+      },
+      "b": {
+        "start": 57,
+        "stop": 59,
+        "verified": 61,
+        "pid": 57603,
+        "startTime": "2026-10-08T21:17:12.862Z",
+        "stopTime": "2026-10-08T21:17:13.138Z"
+      },
+      "serializedThroughVerification": true
+    },
+    {
+      "pluginId": "filmcraft",
+      "a": {
+        "start": 41,
+        "stop": 48,
+        "verified": 52,
+        "pid": 57583,
+        "startTime": "2026-10-08T21:17:12.145Z",
+        "stopTime": "2026-10-08T21:17:12.637Z"
+      },
+      "b": {
+        "start": 58,
+        "stop": 62,
+        "verified": 64,
+        "pid": 57604,
+        "startTime": "2026-10-08T21:17:12.864Z",
+        "stopTime": "2026-10-08T21:17:13.352Z"
+      },
+      "serializedThroughVerification": true
+    }
+  ],
+  "sourceDeliveriesPreserved": true,
+  "repeatedEventsUnchanged": true,
+  "gui": {
+    "result": "PASS",
+    "scope": "actual GUI click and save in isolated registered native source; no direct project JSON edits",
+    "beforeSha256": "bc715e59f89596b4de5fdd783d732b555c0995a1b2e62ded283124ee8f93914f",
+    "beforeActiveComp": 1,
+    "afterActiveComp": 26,
+    "nativeProjectChanged": true,
+    "commandsVerified": true,
+    "toolsVerified": true,
+    "guardClass": "guarded_spec.<locals>.execute.<locals>.StrictSession",
+    "afterSha256": "06c9abed29427a35a96cb57b68f9f6892df8024761cddcb30967f83921acdab0",
+    "listenerOwnedByPID": true,
+    "ownedProcessesStopped": true,
+    "desktopPID": 88977,
+    "nativePID": 88985
+  },
+  "guiSourceSha256": "06c9abed29427a35a96cb57b68f9f6892df8024761cddcb30967f83921acdab0",
+  "frozenPlanSha256": "a2fffe9f07c2b2d3316696452c805b6010468391bb8b3c2972afedf3853c49f2",
+  "installedGuiRefusals": [
+    {
+      "exitCode": 2,
+      "stdoutSha256": "8c6f0dff3e859b95ba969ccf00e4289d1295dac0d35668892c2fe30714b2c12a",
+      "errorCode": "revision_conflict"
+    },
+    {
+      "exitCode": 2,
+      "stdoutSha256": "8c6f0dff3e859b95ba969ccf00e4289d1295dac0d35668892c2fe30714b2c12a",
+      "errorCode": "revision_conflict"
+    }
+  ],
+  "tasksExecutionsLeasesPreserved": true,
+  "scenarioEvidence": {
+    "AC-TX-001-P": "current fixed installed native creation, request hashes/runtime identities, same-source serialization and repeated events",
+    "AC-TX-001-N": "actual EffectCraft GUI click/save with preserved source, reopened original/new composition, repeated fixed installed cli revision_conflict",
+    "registered-source-revision": "eight current fixed native source revisions across four domains, source preservation and same-revision reuse",
+    "AC-TX-001-META": "four current fixed frozen conflicts preserve all project files and ledger tables",
+    "AC-TX-001-CACHE": "same-scope original task reuse and new-scope eight separately authorized producing tasks"
+  },
+  "rawEvidenceSha256": {
+    "version-binding135/proof.json": "97f416711cf0dfa62c756be0ecea6c9422e9612b5849b86dcfc3a4e544bc72a5",
+    "native-scheduling135.json": "010263d81389cf364740f537fa9ef850c759d483e2fe49bae38100947de59d33",
+    "installed-gui135.json": "a830ae18eb44a6dd8759575a482116741579124bc894b4ef7ff61bf9183fb084",
+    "host135/host-receipt.json": "49efe7eac6bc3561ccc8aaa267d9643890c6c3efd1b0fcc12b40e22d223462f7",
+    "publication-proof.json": "b1d2b41680d225172363bf0ff83512f83ce9ee7939f65c7dab7a2a549bcde101"
+  },
+  "guiRawEvidenceSha256": {
+    "gui-proof.json": "033f13fd05240b7bac2f6715acc5d8069a897419e516e50877fda0ce90ec1512",
+    "gui-process.json": "4afd0397bdcc3cc930d3a7267d713527aff4c0088e8d60da4b97f7146cfd64f1",
+    "after-gui.png": "47e6275941c1aa6219908f69decc373c0365b6064fad4ed321ee4f65185e795c",
+    "reopen-comp-1.stdout": "6b654cfec5e184f42e170fceece2932ade35931b420cf4a2d04d2a996f5df3e4",
+    "reopen-comp-26.stdout": "71a9ca9d15743e45ec8eec06dc9ead26195d4e248e5ca0268937c79249feaf50"
+  },
+  "scope": "fixed installed skills with warm verified dependency caches; GUI edits recorded before fixed release and rechecked through installed fixed public entry; not generic Skills CLI, cold install, creative acceptance or complete V1",
+  "task": "5.3",
+  "taskComplete": true
+}
