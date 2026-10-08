@@ -1,3 +1,4 @@
+import {lockNativeSchema} from './fixtures/native_schema_lock.ts';
 /** 派生图片的公开属性交接；结构夹具不代替原生导出与视觉验收。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -14,6 +15,7 @@ const jpegImages=JSON.parse(await readFile(new URL('./fixtures/jpeg-images.json'
 async function fixture(pluginId:'photocraft'|'vectorcraft'|'effectcraft',media:Buffer,mediaType:string){
  const root=await mkdtemp(join(tmpdir(),'craft-image-export-')),skill=join(root,'skill');await mkdir(join(skill,'scripts'),{recursive:true});
  const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(async name=>{const path=join(skill,'scripts',name);await writeFile(path,'fixture');return {path,sha256:hash('fixture')};}));
+ await lockNativeSchema(files,true);
  const identity={pluginId,sha256:'a'.repeat(64)},location=mediaType==='image/png'?'image.png':'image.jpeg';
  const factory=publicSkillFactory({pluginId,skillRoot:skill,python:process.execPath,pythonSha256:hash(await readFile(process.execPath)),nativeExecutable:'/usr/bin/true',runtimeHome:root,files,outputRoot:join(root,'outputs')});
  const made=await factory({id:'design',dependsOn:[],projectKey:'design',runtimeIdentity:identity,expectedRevision:null,payload:{schemaVersion:'craft-skill-workflow/v1',plan:{},assetBindings:[],outputs:[{assetId:'design',location,mediaType}]}},[],'image-task');

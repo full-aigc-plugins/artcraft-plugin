@@ -1,7 +1,7 @@
 /** 自有启动器的严格文本解码及已有错误响应兼容性。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtemp,writeFile,readFile,rm} from 'node:fs/promises';
+import {mkdtemp,mkdir,writeFile,readFile,rm} from 'node:fs/promises';
 import {join} from 'node:path';
 import {tmpdir} from 'node:os';
 import {execFile} from 'node:child_process';
@@ -11,10 +11,12 @@ const exec=promisify(execFile);
 test('strict MCP runner rejects ambiguous inner JSON without retry and retains valid/error contracts',async()=>{
  const root=await mkdtemp(join(tmpdir(),'art-strict-mcp-'));
  try{
-  const runner=join(root,'runner.py'),module=join(root,'mcp_session.py'),entry=join(root,'entry.py'),count=join(root,'calls');
+  const runner=join(root,'runner.py'),module=join(root,'scripts/mcp_session.py'),entry=join(root,'entry.py'),count=join(root,'calls');
+  await mkdir(join(root,'scripts'));await mkdir(join(root,'references'));
+  await writeFile(join(root,'references/native-command-snapshot.json'),JSON.stringify({tools:[{name:'save',inputSchema:{type:'object'}}]}));
   await writeFile(runner,strictMcpRunner);
-  await writeFile(module,`import json,sys\nfrom pathlib import Path\nclass Session:\n def request(self,method,params):\n  with Path(sys.argv[2]).open('a') as f:f.write('request\\n')\n  return json.loads(sys.argv[1])\n`);
-  await writeFile(entry,`import importlib.util,sys,json\ns=importlib.util.spec_from_file_location('fixture',sys.argv[3]);m=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nprint(json.dumps(m.Session().request(sys.argv[4],{})))\n`);
+  await writeFile(module,`import json,sys\nfrom pathlib import Path\nclass Session:\n def request(self,method,params):\n  with Path(sys.argv[2]).open('a') as f:f.write(method+'\\n')\n  if method=='tools/list':return {'tools':[{'name':'save','inputSchema':{'type':'object'}}]}\n  return json.loads(sys.argv[1])\n`);
+  await writeFile(entry,`import importlib.util,sys,json\ns=importlib.util.spec_from_file_location('fixture',sys.argv[3]);m=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nprint(json.dumps(m.Session().request(sys.argv[4],{'name':'save'})))\n`);
   const cases=[
    {text:'{"saved":true,"nested":{"x":1.5},"items":[1,null]}',valid:true},
    {text:'[true,1,"ok"]',valid:true},
@@ -36,7 +38,9 @@ test('strict MCP runner rejects ambiguous inner JSON without retry and retains v
    assert.equal(result.code===0,item.valid,JSON.stringify({index,result}));
    if(item.valid)assert.deepEqual(JSON.parse(result.stdout),reply);
    else assert.match(result.stderr,/outcome_unknown: invalid_tool_content_json; request not retried/);
-   assert.equal((await readFile(count,'utf8')).trim().split('\n').length,index+1);
+   const calls=(await readFile(count,'utf8')).trim().split('\n');
+   assert.equal(calls.filter(method=>method!=='tools/list').length,index+1);
+   assert.equal(calls.filter(method=>method==='tools/list').length,index+(item.method==='initialize'?0:1));
   }
  }finally{await rm(root,{recursive:true,force:true});}
 });

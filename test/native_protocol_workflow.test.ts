@@ -1,3 +1,4 @@
+import {lockNativeSchema} from './fixtures/native_schema_lock.ts';
 /** 真实原生保存后的协议故障：运行实际发布的编排引擎，测试钩子不进入产品。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -36,6 +37,7 @@ for(const domainId of domains)for(const fault of faults){
    const domain=installation.skills[domainId];
    const skillRoot=domainId==='vectorcraft'&&candidateSkill?candidateSkill:domain.skillRoot;
    const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(async name=>({path:join(skillRoot,'scripts',name),sha256:sha(await readFile(join(skillRoot,'scripts',name)))})));
+   await lockNativeSchema(files);
    const nativeHash=sha(await readFile(domain.executable));
    const pluginVersion=process.env.CRAFT_PROTOCOL_PLUGIN_VERSION||(candidateSkill&&domainId==='vectorcraft'?'0.1.0-candidate':domain.runtimeIdentity.pluginVersion);
    const identity={...domain.runtimeIdentity,pluginVersion,sha256:nativeHash};

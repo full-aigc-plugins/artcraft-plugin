@@ -114,6 +114,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
    if(Object.keys(output).some(key=>!['assetId','location','mediaType'].includes(key)) || !safeLocation(output.location) || typeof output.assetId!=='string' || !output.assetId || typeof output.mediaType!=='string')throw new Error('skill_output_invalid');
   }
   if(new Set(payload.outputs.map((item:{assetId:string})=>item.assetId)).size!==payload.outputs.length)throw new Error('skill_output_duplicate');
+  if(!locked.files.some(file=>file.path===join(locked.skillRoot,'references/native-command-snapshot.json')))throw new Error('capability_missing: native_tool_schema snapshot unlocked');
   if(await readFile(locked.python).then(hash)!==locked.pythonSha256)throw new Error('launcher_identity_mismatch');
   for(const file of locked.files){
    if(!isAbsolute(file.path) || await readFile(file.path).then(hash)!==file.sha256)throw new Error('launcher_file_identity_mismatch');

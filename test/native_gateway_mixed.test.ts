@@ -1,3 +1,4 @@
+import {lockNativeSchema} from './fixtures/native_schema_lock.ts';
 /** 四个独立技能公开脚本的真实交接；程序化品牌样本仅证明功能。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -35,6 +36,7 @@ test('complete native gateways hand off four domains, revise native sources and 
    const nativeVersion=runtimeLock.resolvedVersion;
    const nativeExecutable=join(runtimeHome!,pluginId,nativeVersion,pluginId+'-cli');
    const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py','native_workflow.py','commands.py'].map(async name=>({path:join(skillRoot,'scripts',name),sha256:hash(await readFile(join(skillRoot,'scripts',name)))})));
+   await lockNativeSchema(files);
    files.push({path:join(skillRoot,'references/command-coverage.json'),sha256:hash(await readFile(join(skillRoot,'references/command-coverage.json')))});
    configs[pluginId]={pluginId,skillRoot,python,pythonSha256:pythonHash,nativeExecutable,runtimeHome:runtimeHome!,files,outputRoot:join(root,'deliveries')};
    factories[pluginId]=publicSkillFactory(configs[pluginId]);

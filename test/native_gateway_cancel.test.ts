@@ -1,3 +1,4 @@
+import {lockNativeSchema} from './fixtures/native_schema_lock.ts';
 /** 完整网关的真实原生取消：固定公开适配器、进程组停止、原工程保全、不重放。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -18,6 +19,7 @@ test('public native gateway cancellation preserves saved stage and never repeats
  try{
   const python='/opt/anaconda3/bin/python3',skill=join(skills!,'effectcraft-skills/skills/effectcraft-use'),cli=join(runtime!,'effectcraft/0.2.0/effectcraft-cli');
   const files=await Promise.all(['scripts/workflow.py','scripts/bootstrap.py','scripts/mcp_session.py','scripts/runtime.lock.json','scripts/exchange_loss.py','scripts/preserved_stage.py','scripts/native_workflow.py','scripts/commands.py','references/command-coverage.json'].map(async name=>({path:join(skill,name),sha256:hash(await readFile(join(skill,name)))})));
+  await lockNativeSchema(files);
   const identity={pluginId:'effectcraft',pluginVersion:'source-candidate',cliVersion:'0.2.0',sha256:hash(await readFile(cli)),mode:'headless',capabilitySnapshotSha256:hash(JSON.stringify(files))};
   const payload={schemaVersion:'craft-skill-workflow/v1',plan:{document:{name:'Gateway cancel',width:1280,height:720,frameRate:24,duration:30},operations:[{command:'native.command',params:{command:'layer.newText',params:{name:'Title',text:'NOVA',font:'Arial',size:64,position:[600,360]}}}],frames:[0],exports:[{format:'mp4'}]},assetBindings:[],outputs:[{assetId:'intro',location:'intro.mp4',mediaType:'video/mp4'}]};
   const node={runtimeIdentity:identity,expectedRevision:null,payload};

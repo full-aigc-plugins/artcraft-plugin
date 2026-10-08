@@ -1,3 +1,4 @@
+import {lockNativeSchema} from './fixtures/native_schema_lock.ts';
 /** LUT 类型绑定只能由登记输入获得路径，不接受模型私有路径。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -12,6 +13,7 @@ test('typed Film LUT binding uses public LUT argv and rejects wrong domain/type/
  try{
   const skillRoot=join(root,'skill');await mkdir(join(skillRoot,'scripts'),{recursive:true});
   const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'fixture');return {path,sha256:hash('fixture')};}));
+  await lockNativeSchema(files,true);
   const data='registered cube fixture';await writeFile(join(root,'grade.cube'),data);
   const digest=hash(data),input={root,artifact:{protocolVersion:'craft-artifact/v1',assetId:'grade-source',version:digest,sha256:digest,bytes:Buffer.byteLength(data),mediaType:'application/octet-stream',producerTaskId:'provided',sourceRefs:[],nativeProjectRef:null,renditions:[],dependencies:[],technicalMetadata:{},lossReportRef:null,evidenceRefs:[],location:'grade.cube'}};
   const node={id:'film',dependsOn:[],projectKey:'film',runtimeIdentity:{pluginId:'filmcraft'},expectedRevision:null,payload:{schemaVersion:'craft-skill-workflow/v1',plan:{operations:[{command:'lumetri.setInputLut',params:{clip:2,asset:'grade'}}]},assetBindings:[{name:'grade',assetId:'grade-source',kind:'lut'}],outputs:[{assetId:'film',location:'film.mp4',mediaType:'video/mp4'}]}};

@@ -1,3 +1,4 @@
+import {lockNativeSchema} from './fixtures/native_schema_lock.ts';
 /** 真实固定领域技能与候选 Art 适配器的 LUT/运动局部返工。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -23,6 +24,7 @@ test('native Effect to Film typed LUT and motion revision preserves upstream/aud
   for(const [domain,skill,cli,pluginVersion,cliVersion] of [['filmcraft',filmSkill,env.CRAFT_FILMCRAFT_CLI!,'0.1.0-dev.11','0.2.0-craft.2'],['effectcraft',effectSkill,env.CRAFT_EFFECTCRAFT_CLI!,'0.1.0-dev.10','0.2.0']]){
    skillHashes[domain]=await snapshot(skill);
    const files=await Promise.all(Object.keys(await snapshot(join(skill,'scripts'))).map(async name=>({path:join(skill,'scripts',name),sha256:hash(await readFile(join(skill,'scripts',name)))})));
+   await lockNativeSchema(files);
    identities[domain]={pluginId:domain,pluginVersion,cliVersion,sha256:hash(await readFile(cli)),mode:'headless',capabilitySnapshotSha256:hash(JSON.stringify(files))};
    factories[domain]=publicSkillFactory({pluginId:domain as any,skillRoot:skill,python,pythonSha256:hash(await readFile(python)),nativeExecutable:cli,runtimeHome,files,outputRoot:join(root,'deliveries',domain)});
   }

@@ -1,3 +1,4 @@
+import {lockNativeSchema} from './fixtures/native_schema_lock.ts';
 /** 仅通过技能公开脚本运行原生合成，不导入独立技能私有模块。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -23,6 +24,7 @@ test('public VectorCraft binding forwards registered input and rejects unbound o
  try{
   const skillRoot=join(root,'skill');await mkdir(join(skillRoot,'scripts'),{recursive:true});
   const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'contract fixture');return {path,sha256:hash('contract fixture')};}));
+  await lockNativeSchema(files,true);
   const factory=publicSkillFactory({pluginId:'vectorcraft',skillRoot,python:process.execPath,pythonSha256:hash(await readFile(process.execPath)),nativeExecutable:'/usr/bin/true',runtimeHome:root,files,outputRoot:join(root,'output')});
   const data=Buffer.from('registered fixture; no native format acceptance');await writeFile(join(root,'input.bin'),data);
   const digest=hash(data);
@@ -45,6 +47,7 @@ test('public EffectCraft skill script produces registered native project and ren
   const python='/opt/anaconda3/bin/python3',runtimeHome=process.env.CRAFT_NATIVE_RUNTIME_HOME||join(homedir(),'.local/share/craft-runtimes');
   const scripts=['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py','native_workflow.py','commands.py'];
   const files=await Promise.all(scripts.map(async name=>({path:join(skill!,'scripts',name),sha256:hash(await readFile(join(skill!,'scripts',name)))})));
+  await lockNativeSchema(files);
   files.push({path:join(skill!,'references/command-coverage.json'),sha256:hash(await readFile(join(skill!,'references/command-coverage.json')))});
   const factory=publicSkillFactory({pluginId:'effectcraft',skillRoot:skill!,python,pythonSha256:hash(await readFile(python)),nativeExecutable:cli!,runtimeHome,files,outputRoot:join(root,'deliveries')});
   const runtimeIdentity={pluginId:'effectcraft',pluginVersion:'0.1.0',cliVersion:'0.2.0',sha256:hash(await readFile(cli!)),mode:'headless',capabilitySnapshotSha256:hash(JSON.stringify(files))};
@@ -104,6 +107,7 @@ test('source binding derives public source argv and refuses revision drift',asyn
   const manifest={schema:'effectcraft-delivery/v1',runtimeSha256:'a'.repeat(64),files:{'project.ecproj':digest},assets:{},bindings:{}};
   const manifestText=JSON.stringify(manifest);await writeFile(join(source,'manifest.json'),manifestText);
   const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'fixture');return {path,sha256:hash('fixture')};}));
+  await lockNativeSchema(files,true);
   const factory=publicSkillFactory({pluginId:'effectcraft',skillRoot,python:process.execPath,pythonSha256:hash(await readFile(process.execPath)),nativeExecutable:'/usr/bin/true',runtimeHome:root,files,outputRoot:join(root,'output')});
   const reference={assetId:'native',version:digest,sha256:digest,location:'project.ecproj'};
   const artifact={protocolVersion:'craft-artifact/v1',assetId:'old-project',version:digest,sha256:digest,bytes:native.length,mediaType:'application/octet-stream',producerTaskId:'old-task',sourceRefs:[],nativeProjectRef:reference,renditions:[],dependencies:[],technicalMetadata:{},lossReportRef:null,evidenceRefs:[{assetId:'manifest',version:hash(manifestText),sha256:hash(manifestText),location:'manifest.json'}],location:'project.ecproj'};
@@ -145,6 +149,7 @@ test('retained media binding keeps upstream dependency without reinserting sourc
   const manifest={schema:'filmcraft-delivery/v1',runtimeSha256:'a'.repeat(64),files:{'project.fcproj':nativeSha,'intro.mp4':mediaSha},assets:{intro:{path:'intro.mp4',sha256:mediaSha}},bindings:{}};
   const text=JSON.stringify(manifest);await writeFile(join(source,'manifest.json'),text);
   const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'fixture');return {path,sha256:hash('fixture')};}));
+  await lockNativeSchema(files,true);
   const factory=publicSkillFactory({pluginId:'filmcraft',skillRoot,python:process.execPath,pythonSha256:hash(await readFile(process.execPath)),nativeExecutable:'/usr/bin/true',runtimeHome:root,files,outputRoot:join(root,'output')});
   const base={protocolVersion:'craft-artifact/v1',producerTaskId:'previous',sourceRefs:[],renditions:[],dependencies:[],technicalMetadata:{},lossReportRef:null};
   const old={...base,assetId:'old-film',version:nativeSha,sha256:nativeSha,bytes:native.length,mediaType:'application/octet-stream',nativeProjectRef:{assetId:'native',version:nativeSha,sha256:nativeSha,location:'project.fcproj'},evidenceRefs:[{assetId:'manifest',version:hash(text),sha256:hash(text),location:'manifest.json'}],location:'project.fcproj'};

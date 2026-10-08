@@ -63,6 +63,14 @@
 - **AND** 独立完整命令组件的显式 bridge／desktop 会话入口保持独立；该拒绝不代表所有 bridge 命令都不受支持
 - **AND** 四领域拒绝与 headless 正常准备分别验证；固定安装失败证据、候选修复和新不可变分发验收分别记录
 
+#### Scenario: AC-RT-002-LIVE-TOOL-SCHEMA 编辑前实际工具合同
+
+- **WHEN** 四领域 DAG 工作流准备首次 tools/call
+- **THEN** Art SHALL 先通过同一原生会话只读 tools/list，核对受信发布快照中全部工具名及完整 inputSchema；快照文件须纳入启动文件摘要和 capabilitySnapshot
+- **AND** 缺少工具、重复名称、无效列表或 schema 漂移 SHALL 返回 capability_missing；不得发送 tools/call、替换工具或自动重试；附加工具不能扩大受信调用集合
+- **AND** 正常发现结果可在当前会话复用；显式 tools/list 仍重新校验；拒绝后的当前会话不得恢复为可编辑
+- **AND** 候选夹具、实际原生发现及固定发行安装证据分别记录，不以静态目录或假服务证明完整领域验收
+
 #### Scenario: AC-RT-002-LEDGER-MIGRATION 旧账本排空与回退快照
 
 - **WHEN** 打开本产品持有的旧版账本，且必须迁移状态schema

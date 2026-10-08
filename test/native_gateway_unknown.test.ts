@@ -1,3 +1,4 @@
+import {lockNativeSchema} from './fixtures/native_schema_lock.ts';
 /** 实际网关工作流保存后异常：原暂存工程是恢复输入，测试代理副本不算交付。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -18,6 +19,7 @@ test('gateway workflow unknown saved replies preserve originals and block downst
  try{
   const python='/opt/anaconda3/bin/python3',skill=join(skills!,'effectcraft-skills/skills/effectcraft-use'),cli=join(runtime!,'effectcraft/0.2.0/effectcraft-cli');
   const files=await Promise.all(['scripts/workflow.py','scripts/bootstrap.py','scripts/mcp_session.py','scripts/runtime.lock.json','scripts/exchange_loss.py','scripts/preserved_stage.py','scripts/native_workflow.py','scripts/commands.py','references/command-coverage.json'].map(async name=>({path:join(skill,name),sha256:hash(await readFile(join(skill,name)))})));
+  await lockNativeSchema(files);
   const identity={pluginId:'effectcraft',pluginVersion:'source-candidate',cliVersion:'0.2.0',sha256:hash(await readFile(cli)),mode:'headless',capabilitySnapshotSha256:hash(JSON.stringify(files))};
   for(const fault of ['malformed','scalar','missing','ambiguous','nonfinite','tool-content']){
    const ledger=new TaskLedger(join(root,fault+'.sqlite'));

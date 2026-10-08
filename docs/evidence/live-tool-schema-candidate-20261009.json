@@ -1,0 +1,373 @@
+{
+  "schema": "artcraft-live-tool-schema-candidate/v1",
+  "date": "2026-10-09",
+  "status": "candidate-verified-fixed-distribution-pending",
+  "requirement": "AC-RT-002-LIVE-TOOL-SCHEMA",
+  "task": "4.18",
+  "overallTask46": "OPEN",
+  "scope": "Art-owned DAG launcher and independent Art installer; domain bundle bytes unchanged",
+  "pluginSources": {
+    "src/adapters/public_skill.ts": "a0dac41de98f9d5d0020f02d5c3dd247bb4445a890d127eee2c63f28ab0ede15",
+    "src/adapters/strict_mcp_runner.ts": "0124e83c9a7f8d5e836bb6f8631193a6f86b2c6c47b0b581fa38aaf8a7e597cb",
+    "test/native_schema_boundary.test.ts": "7b4887f0ecf5a3923f59f6becbb978c99ea7526544dcd1e73cbbfd3924251f05",
+    "test/strict_mcp_runner.test.ts": "babb5a9315d662a3c75dd42f7961ec4b17d3b27c566710c8414a285e412321a8",
+    "test/fixtures/native_schema_lock.ts": "68679465a9eee3fef1e2beed13ba7c8e8a2551ad6c07b1a0f9f6852f6753852b"
+  },
+  "skillSetupSources": {
+    "skills/artcraft-cli/scripts/setup.py": "52d504e14c6a0765188fbdfd0f421fb701b368144dcd92fca41aa538faafa01e",
+    "skills/artcraft-cli-assets/scripts/setup.py": "52d504e14c6a0765188fbdfd0f421fb701b368144dcd92fca41aa538faafa01e",
+    "skills/artcraft-cli-deliver/scripts/setup.py": "52d504e14c6a0765188fbdfd0f421fb701b368144dcd92fca41aa538faafa01e",
+    "skills/artcraft-cli-execute/scripts/setup.py": "52d504e14c6a0765188fbdfd0f421fb701b368144dcd92fca41aa538faafa01e",
+    "skills/artcraft-cli-plan/scripts/setup.py": "52d504e14c6a0765188fbdfd0f421fb701b368144dcd92fca41aa538faafa01e",
+    "skills/artcraft-cli-recover/scripts/setup.py": "52d504e14c6a0765188fbdfd0f421fb701b368144dcd92fca41aa538faafa01e",
+    "skills/artcraft-cli-review/scripts/setup.py": "52d504e14c6a0765188fbdfd0f421fb701b368144dcd92fca41aa538faafa01e",
+    "skills/artcraft-cli-revise/scripts/setup.py": "52d504e14c6a0765188fbdfd0f421fb701b368144dcd92fca41aa538faafa01e",
+    "skills/artcraft-cli-setup/scripts/setup.py": "52d504e14c6a0765188fbdfd0f421fb701b368144dcd92fca41aa538faafa01e",
+    "skills/artcraft-use/scripts/setup.py": "52d504e14c6a0765188fbdfd0f421fb701b368144dcd92fca41aa538faafa01e"
+  },
+  "readonlyDiscovery": {
+    "domains": [
+      {
+        "domain": "effectcraft",
+        "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "actualTools": 21,
+        "expectedTools": 21,
+        "schemaDifferences": [],
+        "actualReplySha256": "7122a419c36fb48c00f8530ebec6b9c105a09484cf28da71c1a6dbeeeb26c44a"
+      },
+      {
+        "domain": "filmcraft",
+        "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+        "actualTools": 14,
+        "expectedTools": 14,
+        "schemaDifferences": [],
+        "actualReplySha256": "68577dcd21f427d2fea11954486990cbe0ea336f23a44909ca50fb319663e14d"
+      },
+      {
+        "domain": "photocraft",
+        "nativeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+        "actualTools": 18,
+        "expectedTools": 18,
+        "schemaDifferences": [],
+        "actualReplySha256": "6f1b0ce8a6f3dc62d4629e6bed740f30069850f4e5f42ffe46fcc9c27029643c"
+      },
+      {
+        "domain": "vectorcraft",
+        "nativeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+        "actualTools": 25,
+        "expectedTools": 25,
+        "schemaDifferences": [],
+        "actualReplySha256": "e8e38dc4abe387a4625bf946243f3d378a6e5a53062f27fe503be289797ddc73"
+      }
+    ],
+    "tools": 78,
+    "result": "PASS"
+  },
+  "fixed132Regression": {
+    "nativeReadonlyCases": 20,
+    "unverifiedNegativeCases": 16,
+    "baselineCases": 4,
+    "toolsListCallsPerCase": 0,
+    "toolsCallCountPerCase": 1,
+    "interpretation": "Fixed parent omits discovery; planned tools/list faults are never reached. Readonly tools/call succeeds without schema verification; this is not an editing acceptance test."
+  },
+  "candidateNativeBoundary": {
+    "result": "PASS",
+    "scope": "candidate guard; actual pinned native discovery/readonly catalog; controlled mutation after actual discovery; no native editing",
+    "records": [
+      {
+        "domain": "effectcraft",
+        "fault": "matching",
+        "result": "PASS",
+        "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "snapshotSha256": "e56c41e8ca946b4af71e38c94bfcfd162aeaff10289dd45937c5434ec1e07a37",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "8bef9e8d93e9fbacdba1d337d77aeecde3117255ae0711440a9255454eb623aa",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "domain": "effectcraft",
+        "fault": "missing",
+        "result": "PASS",
+        "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "snapshotSha256": "e56c41e8ca946b4af71e38c94bfcfd162aeaff10289dd45937c5434ec1e07a37",
+        "toolsListCount": 1,
+        "toolsCallCount": 0,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "27d09af0895f54986fbe126286857dac382115f7918f92a5f96505134aa339b1"
+      },
+      {
+        "domain": "effectcraft",
+        "fault": "schema",
+        "result": "PASS",
+        "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "snapshotSha256": "e56c41e8ca946b4af71e38c94bfcfd162aeaff10289dd45937c5434ec1e07a37",
+        "toolsListCount": 1,
+        "toolsCallCount": 0,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "bc287152c8845b1013b3ffafa352c5f558967c328d21566f072f8c247b5f2060"
+      },
+      {
+        "domain": "effectcraft",
+        "fault": "duplicate",
+        "result": "PASS",
+        "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "snapshotSha256": "e56c41e8ca946b4af71e38c94bfcfd162aeaff10289dd45937c5434ec1e07a37",
+        "toolsListCount": 1,
+        "toolsCallCount": 0,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "0855d335ca653a4ba0fb449da56dba55092b9ae192bac48610510c7f41384bed"
+      },
+      {
+        "domain": "effectcraft",
+        "fault": "malformed",
+        "result": "PASS",
+        "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "snapshotSha256": "e56c41e8ca946b4af71e38c94bfcfd162aeaff10289dd45937c5434ec1e07a37",
+        "toolsListCount": 1,
+        "toolsCallCount": 0,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "c8a6aed59992ed50dd52702b5e007efaec82f88f9242e7c75477933adf398d2b"
+      },
+      {
+        "domain": "filmcraft",
+        "fault": "matching",
+        "result": "PASS",
+        "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+        "snapshotSha256": "8c6c6fbb796acadb6640d74e21ee2634d8b4460adf5ef2e07f9b62051ac2b5ec",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "5286442ebc7190380384e9fd2be79db166b9c319e32b1406fef7fbbe75a5bab9",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "domain": "filmcraft",
+        "fault": "missing",
+        "result": "PASS",
+        "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+        "snapshotSha256": "8c6c6fbb796acadb6640d74e21ee2634d8b4460adf5ef2e07f9b62051ac2b5ec",
+        "toolsListCount": 1,
+        "toolsCallCount": 0,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "016eb4d2db43a6fe95af77be1fcdfa2f79680710a0f7e8ba741c21560d73661b"
+      },
+      {
+        "domain": "filmcraft",
+        "fault": "schema",
+        "result": "PASS",
+        "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+        "snapshotSha256": "8c6c6fbb796acadb6640d74e21ee2634d8b4460adf5ef2e07f9b62051ac2b5ec",
+        "toolsListCount": 1,
+        "toolsCallCount": 0,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "9beda141ec4c8d9ec637109e1415188345d5dfaf160445a03bc04075440aef85"
+      },
+      {
+        "domain": "filmcraft",
+        "fault": "duplicate",
+        "result": "PASS",
+        "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+        "snapshotSha256": "8c6c6fbb796acadb6640d74e21ee2634d8b4460adf5ef2e07f9b62051ac2b5ec",
+        "toolsListCount": 1,
+        "toolsCallCount": 0,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "6b6b894b50184082ef3f164b4cd699e2ced4cca446032a6c9a9999ee66d66e64"
+      },
+      {
+        "domain": "filmcraft",
+        "fault": "malformed",
+        "result": "PASS",
+        "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+        "snapshotSha256": "8c6c6fbb796acadb6640d74e21ee2634d8b4460adf5ef2e07f9b62051ac2b5ec",
+        "toolsListCount": 1,
+        "toolsCallCount": 0,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "52295f22132653e5f52ba07dd0276a8d28173c9164dead24c110536857079ad4"
+      },
+      {
+        "domain": "photocraft",
+        "fault": "matching",
+        "result": "PASS",
+        "nativeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+        "snapshotSha256": "04fb30c79c01a849bda81689c26afb8c63741d1e0bf58b000d5d6bd23b44a10f",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "ff86645397e058a3467b7c1f1a22b98344001144f134257c425021ef7a27e77c",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "domain": "photocraft",
+        "fault": "missing",
+        "result": "PASS",
+        "nativeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+        "snapshotSha256": "04fb30c79c01a849bda81689c26afb8c63741d1e0bf58b000d5d6bd23b44a10f",
+        "toolsListCount": 1,
+        "toolsCallCount": 0,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "f05a00c4995149789971bc53eb3beee52ac027fe9ac812dd88947189ea1e320d"
+      },
+      {
+        "domain": "photocraft",
+        "fault": "schema",
+        "result": "PASS",
+        "nativeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+        "snapshotSha256": "04fb30c79c01a849bda81689c26afb8c63741d1e0bf58b000d5d6bd23b44a10f",
+        "toolsListCount": 1,
+        "toolsCallCount": 0,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "80d9e3690f0cc943ca353862ef52ff7f409c96cbb38e999d1c6541d881468394"
+      },
+      {
+        "domain": "photocraft",
+        "fault": "duplicate",
+        "result": "PASS",
+        "nativeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+        "snapshotSha256": "04fb30c79c01a849bda81689c26afb8c63741d1e0bf58b000d5d6bd23b44a10f",
+        "toolsListCount": 1,
+        "toolsCallCount": 0,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e8b8bac46b501bc1aa86746161fa8c234455bbc88bfe7375f06c555dead21ae4"
+      },
+      {
+        "domain": "photocraft",
+        "fault": "malformed",
+        "result": "PASS",
+        "nativeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+        "snapshotSha256": "04fb30c79c01a849bda81689c26afb8c63741d1e0bf58b000d5d6bd23b44a10f",
+        "toolsListCount": 1,
+        "toolsCallCount": 0,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "1d01a0cd8b36cd0eb6b876a097f9b05ad140cf9d44423e61450b8d956a5cff46"
+      },
+      {
+        "domain": "vectorcraft",
+        "fault": "matching",
+        "result": "PASS",
+        "nativeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+        "snapshotSha256": "1e63722f850930947c4cc6e9bdbe24638413e43c2e5127dd385f167d493e10e1",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "6f21ea4df65f00691715eae07947448b6bfc933348b34b3b4be1bcb371da6d41",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "domain": "vectorcraft",
+        "fault": "missing",
+        "result": "PASS",
+        "nativeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+        "snapshotSha256": "1e63722f850930947c4cc6e9bdbe24638413e43c2e5127dd385f167d493e10e1",
+        "toolsListCount": 1,
+        "toolsCallCount": 0,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "61ba6c12c993838ffe8acfca9a1c6a098a536db6ecb3d99ec80f3aed44794765"
+      },
+      {
+        "domain": "vectorcraft",
+        "fault": "schema",
+        "result": "PASS",
+        "nativeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+        "snapshotSha256": "1e63722f850930947c4cc6e9bdbe24638413e43c2e5127dd385f167d493e10e1",
+        "toolsListCount": 1,
+        "toolsCallCount": 0,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "9b990ced0205be627ced66b9b57ff51590f5cbd912ff427ba4aef22155a26552"
+      },
+      {
+        "domain": "vectorcraft",
+        "fault": "duplicate",
+        "result": "PASS",
+        "nativeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+        "snapshotSha256": "1e63722f850930947c4cc6e9bdbe24638413e43c2e5127dd385f167d493e10e1",
+        "toolsListCount": 1,
+        "toolsCallCount": 0,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "b6af2ab357ec49aff6e5c73edc89fc06b26510d89353efcec87973eaa2f90841"
+      },
+      {
+        "domain": "vectorcraft",
+        "fault": "malformed",
+        "result": "PASS",
+        "nativeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+        "snapshotSha256": "1e63722f850930947c4cc6e9bdbe24638413e43c2e5127dd385f167d493e10e1",
+        "toolsListCount": 1,
+        "toolsCallCount": 0,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "0460adde39e6e694a215881e07ea1c67187d4f6029c26f59d2d89495e69353a1"
+      }
+    ]
+  },
+  "unitRed": {
+    "total": 10,
+    "pass": 1,
+    "fail": 9,
+    "earlierFixtureError": "unit-fixture-error.log retained separately; not product RED"
+  },
+  "unitTarget": {
+    "tests": 14,
+    "pass": 14,
+    "fail": 0,
+    "skip": 0
+  },
+  "runtimeRegression": {
+    "tests": 340,
+    "pass": 315,
+    "skip": 25,
+    "fail": 0,
+    "scope": "full regression before final three test additions; final-target-v2 covers those additions"
+  },
+  "skillsRegression": {
+    "tests": 204,
+    "pass": 152,
+    "skip": 52,
+    "fail": 0
+  },
+  "nativeMixed": {
+    "tests": 2,
+    "pass": 2,
+    "skip": 0,
+    "milliseconds": 37429.696709,
+    "scope": "candidate core plus fixed four domain bundles/native binaries; direct and native-command gateway creation, revision, reuse and moved packaging"
+  },
+  "logs": {
+    "artifacts/artcraft-capability-schema-20261009/candidate/unit-fixture-error.log": "414697aec36e91e493b23416be387a77563b972722965c4b5b7d369d1b5d3f11",
+    "artifacts/artcraft-capability-schema-20261009/candidate/unit-red.log": "a5e4eedc9b44fe1d2d52e16d5bf5bdcab9b64bfa075797f930e698dac952494c",
+    "artifacts/artcraft-capability-schema-20261009/candidate/unit-green.log": "702ead7d630723206a6c3395562220eab15295a5654d5d3be4f74a715136d6d6",
+    "artifacts/artcraft-capability-schema-20261009/candidate/setup-red.log": "feebf307ffcde583cbab5e55bff3934b1f101ed8479412bbe336947874eede97",
+    "artifacts/artcraft-capability-schema-20261009/candidate/setup-green.log": "15f6dc6580ba907260e8900ada5bd0cb38044dfc7c956968f3af599fcf0ebd12",
+    "artifacts/artcraft-capability-schema-20261009/candidate/runtime-regression.log": "bb00df42fe9aa1567e19281db7871bec766063fdc3caa4a061ae9c2e77dabb02",
+    "artifacts/artcraft-capability-schema-20261009/candidate/final-target-v2.log": "52fed72b2e8f0f1db7494c897fa37d2cea5df949ac5b92ce5cb8685b598bf72e",
+    "artifacts/artcraft-capability-schema-20261009/candidate/skills-regression.log": "3c3d387e300636304f860a81489863f67867dfea2221d2fb85d416b0d3b22473",
+    "artifacts/artcraft-capability-schema-20261009/candidate/native-mixed.log": "af4dabfd006166c6db820eb5285b12045107cfbdb8acb2be0c5ff8790d2f5abe",
+    "artifacts/artcraft-capability-schema-20261009/candidate/native-boundary.log": "8c9a4f692854278a8b3e3beca28b75336fa65a8eb96d3e81c3406bbb03ec0ba1",
+    "artifacts/artcraft-capability-schema-20261009/fixed132-red.log": "75952cfc1948f6325d77650b316c8bba64cfb8ce54c3a730ded4cd38b0ce0e5e"
+  },
+  "pending": [
+    "new immutable core/source/plugin distribution",
+    "actual installed snapshot binding and four-domain schema refusal",
+    "ten independent cold first-use and host identity",
+    "new fixed mixed/fault compatibility acceptance",
+    "generic AC-RT-002 P/N completion audit",
+    "Skills CLI / GUI / other platform / formal V1 gates"
+  ]
+}

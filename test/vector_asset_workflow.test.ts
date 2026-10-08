@@ -1,3 +1,4 @@
+import {lockNativeSchema} from './fixtures/native_schema_lock.ts';
 /** 真实公开 VectorCraft 素材交给 PhotoCraft；替换源素材只更新消费者。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -26,6 +27,7 @@ test('registered VectorCraft asset flows to PhotoCraft and replacement preserves
    const nativeLock=JSON.parse(await readFile(join(skillRoot,'scripts/runtime.lock.json'),'utf8'));
    const nativeExecutable=join(runtime!,pluginId,nativeLock.resolvedVersion,pluginId+'-cli');
    const files=await Promise.all((await readdir(join(skillRoot,'scripts'))).filter(name=>name.endsWith('.py')||name==='runtime.lock.json').map(async name=>({path:join(skillRoot,'scripts',name),sha256:hash(await readFile(join(skillRoot,'scripts',name)))})));
+   await lockNativeSchema(files);
    factories[pluginId]=publicSkillFactory({pluginId,skillRoot,python,pythonSha256:hash(await readFile(python)),nativeExecutable,runtimeHome:runtime!,files,outputRoot:join(root,'deliveries')});
    identities[pluginId]={pluginId,pluginVersion:'candidate-assets',cliVersion:nativeLock.resolvedVersion,sha256:hash(await readFile(nativeExecutable)),mode:'headless',capabilitySnapshotSha256:hash(JSON.stringify(files))};
   }

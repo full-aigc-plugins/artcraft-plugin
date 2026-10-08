@@ -1,3 +1,4 @@
+import {lockNativeSchema} from './fixtures/native_schema_lock.ts';
 /** 四个独立技能公开脚本的真实交接；程序化品牌样本仅证明功能。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -35,6 +36,7 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
    const nativeVersion=runtimeLock.resolvedVersion;
    const nativeExecutable=join(runtimeHome!,pluginId,nativeVersion,pluginId+'-cli');
    const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(async name=>({path:join(skillRoot,'scripts',name),sha256:hash(await readFile(join(skillRoot,'scripts',name)))})));
+   await lockNativeSchema(files);
    configs[pluginId]={pluginId,skillRoot,python,pythonSha256:pythonHash,nativeExecutable,runtimeHome:runtimeHome!,files,outputRoot:join(root,'deliveries')};
    factories[pluginId]=publicSkillFactory(configs[pluginId]);
    identities[pluginId]={pluginId,pluginVersion:'0.1.0',cliVersion:nativeVersion,sha256:hash(await readFile(nativeExecutable)),mode:'headless',capabilitySnapshotSha256:hash(JSON.stringify(files))};

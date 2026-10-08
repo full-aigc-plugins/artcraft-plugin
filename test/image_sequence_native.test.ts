@@ -1,3 +1,4 @@
+import {lockNativeSchema} from './fixtures/native_schema_lock.ts';
 /** 公开领域技能的真实序列交接；候选 Art 实现，不替代固定 Art 安装验收。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -23,6 +24,7 @@ test('candidate Art executes Effect sequence to Film and moved-project selective
   for(const domain of ['effectcraft','filmcraft'] as const){
    const skillRoot=process.env[domain==='effectcraft'?'CRAFT_SEQUENCE_EFFECT_SKILL':'CRAFT_SEQUENCE_FILM_SKILL']!,cli=process.env[domain==='effectcraft'?'CRAFT_SEQUENCE_EFFECT_CLI':'CRAFT_SEQUENCE_FILM_CLI']!;
    const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(async name=>({path:join(skillRoot,'scripts',name),sha256:hash(await readFile(join(skillRoot,'scripts',name)))})));
+   await lockNativeSchema(files);
    identities[domain]={pluginId:domain,pluginVersion:'0.1.0',cliVersion:domain==='filmcraft'?'0.2.0-craft.2':'0.2.0',sha256:hash(await readFile(cli)),mode:'headless',capabilitySnapshotSha256:hash(JSON.stringify(files))};
    factories[domain]=publicSkillFactory({pluginId:domain,skillRoot,python,pythonSha256:hash(await readFile(python)),nativeExecutable:cli,runtimeHome:dirname(dirname(dirname(cli))),files,outputRoot:join(root,domain)});
   }

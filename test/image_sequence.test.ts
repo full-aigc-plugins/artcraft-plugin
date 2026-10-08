@@ -1,3 +1,4 @@
+import {lockNativeSchema} from './fixtures/native_schema_lock.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtemp, mkdir, writeFile, readFile, rm, symlink } from 'node:fs/promises';
@@ -21,6 +22,7 @@ test('Film binding forwards typed sequence and other domains refuse it',async()=
  try{
   const skillRoot=join(f.root,'skill');await mkdir(join(skillRoot,'scripts'),{recursive:true});
   const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(async name=>{const path=join(skillRoot,'scripts',name);await writeFile(path,'fixture');return {path,sha256:sha('fixture')};}));
+  await lockNativeSchema(files,true);
   const config={pluginId:'filmcraft' as const,skillRoot,python:process.execPath,pythonSha256:sha(await readFile(process.execPath)),nativeExecutable:'/usr/bin/true',runtimeHome:f.root,files,outputRoot:join(f.root,'output')};
   const node:any={id:'film',dependsOn:[],projectKey:'film',runtimeIdentity:{pluginId:'filmcraft'},expectedRevision:null,payload:{schemaVersion:'craft-skill-workflow/v1',plan:{operations:[]},assetBindings:[{name:'intro',assetId:'animation'}],outputs:[{assetId:'film',location:'project.fcproj',mediaType:'application/octet-stream'}]}};
   const input={root:f.root,artifact:f.artifact},factory=publicSkillFactory(config),made=await factory(node,[input],'sequence-film');

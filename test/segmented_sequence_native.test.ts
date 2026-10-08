@@ -1,3 +1,4 @@
+import {lockNativeSchema} from './fixtures/native_schema_lock.ts';
 /** 公开领域技能的真实序列交接；候选 Art 实现，不替代固定 Art 安装验收。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -24,6 +25,7 @@ test('candidate Art executes Effect segmented sequence to Film and moved-project
    const skillRoot=process.env[domain==='effectcraft'?'CRAFT_SEQUENCE_EFFECT_SKILL':'CRAFT_SEQUENCE_FILM_SKILL']!,cli=process.env[domain==='effectcraft'?'CRAFT_SEQUENCE_EFFECT_CLI':'CRAFT_SEQUENCE_FILM_CLI']!;
    const walk=async(folder:string):Promise<string[]>=>{const paths:string[]=[];for(const entry of await readdir(folder,{withFileTypes:true})){if(entry.name==='__pycache__')continue;const path=join(folder,entry.name);if(entry.isDirectory())paths.push(...await walk(path));else if(entry.isFile())paths.push(path);}return paths;};
    const files=await Promise.all((await walk(skillRoot)).map(async path=>({path,sha256:hash(await readFile(path))})));
+   await lockNativeSchema(files);
    skillFiles.push(...files);
    sourceSkills[domain]=Object.fromEntries(files.map(file=>[relative(skillRoot,file.path),file.sha256]));
    identities[domain]={pluginId:domain,pluginVersion:'0.1.0',cliVersion:domain==='filmcraft'?'0.2.0-craft.2':'0.2.0',sha256:hash(await readFile(cli)),mode:'headless',capabilitySnapshotSha256:hash(JSON.stringify(files))};
