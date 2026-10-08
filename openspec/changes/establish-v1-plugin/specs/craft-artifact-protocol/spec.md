@@ -92,6 +92,13 @@ ArtCraft SHALL 维护 craft-artifact/v1 的唯一规范事实源；清单包含 
 - **AND** 支持标准静态 PNG 的合法颜色类型、位深与 Adam7 扫描布局；文件上限 64 MiB、解压扫描数据上限 128 MiB，APNG 明确报告不支持
 - **AND** 不由结构与扫描数据核验推断 ICC 色彩保真、视觉质量、JPEG 或视频已验收；既有未声明 PNG 属性的派生物仍核验内容，属性存在时逐项匹配
 
+#### Scenario: AC-CP-002-TIME-BUDGET 长时间线导出调用预算
+
+- **WHEN** Art的受信Film工作流导出或整片解码超过领域默认180秒，但当前公共任务deadline仍允许继续
+- **THEN** Art启动器 SHALL 仅对已绑定原生程序的export与bench-decode调用使用剩余任务时间，上限3600秒；期限由prepare读取当前请求，不从领域计划或环境变量扩大
+- **AND** 身份变化、畸形预算或已过期截止时间 SHALL 在对应长调用启动前拒绝；其他原生命令、其他领域、无预算的独立入口保留原有边界
+- **AND** 领域文件 SHALL 保持原字节；父监督器的截止取消、停止核对、账本与不重放规则保持有效；完整长时间线导出与独立逐帧解码通过后才作为TIME真实边界证据
+
 ### Requirement: AC-AR-003 类型化动态 PNG 序列
 系统 SHALL 使用 `application/vnd.craft.image-sequence+json` 标识 `craft-image-sequence/v1`，验证描述文件及全部连续 RGBA8 PNG 帧后才允许消费；不得以普通 JSON 或首帧静态图代替动态序列。系统 SHALL 核对帧文件与解码像素摘要、实际 Alpha 极值、尺寸、规范化有理帧率、帧数、时长和时间基，拒绝重复 JSON 键、缺帧、多余文件、符号链接及资源超限。首版限制描述文件 4 MiB、单帧编码 64 MiB、总编码与总 RGBA 解码各 512 MiB、帧数 10000、尺寸 16384、帧率 1–240 fps。
 
@@ -115,10 +122,3 @@ ArtCraft SHALL 维护 craft-artifact/v1 的唯一规范事实源；清单包含 
 #### Scenario: 动态交付的交换损失记录
 - **WHEN** 类型化序列附带交换损失报告
 - **THEN** 系统 SHALL 验证原生工程绑定及每帧 PNG 与报告输出摘要一致，不把序列描述文件视为保留原生图层与动画参数的替代工程
-
-#### Scenario: AC-CP-002-TIME-BUDGET 长时间线导出调用预算
-
-- **WHEN** Art的受信Film工作流导出或整片解码超过领域默认180秒，但当前公共任务deadline仍允许继续
-- **THEN** Art启动器 SHALL 仅对已绑定原生程序的export与bench-decode调用使用剩余任务时间，上限3600秒；期限由prepare读取当前请求，不从领域计划或环境变量扩大
-- **AND** 身份变化、畸形预算或已过期截止时间 SHALL 在对应长调用启动前拒绝；其他原生命令、其他领域、无预算的独立入口保留原有边界
-- **AND** 领域文件 SHALL 保持原字节；父监督器的截止取消、停止核对、账本与不重放规则保持有效；完整长时间线导出与独立逐帧解码通过后才作为TIME真实边界证据

@@ -1,0 +1,213 @@
+{
+  "schema": "craft-fixed137-current-artifact-scenarios/v1",
+  "status": "partial-acceptance",
+  "pluginVersion": "0.1.0-dev.137",
+  "sourceVersion": "0.1.0-dev.109",
+  "runtimeVersion": "0.1.0-dev.136-runtime.1",
+  "longTime": {
+    "result": "PASS",
+    "decodedFrames": "425512",
+    "bytes": 1434591900,
+    "sha256": "27d6aff5612ea95c894975d2941bded7c7040b1be26c8e2c32a6b020e1145dc0",
+    "startTicks": "9007199254740993",
+    "exportDurationTicks": "9007238016000000",
+    "seconds": 416.102
+  },
+  "dynamic": {
+    "result": "PASS",
+    "frameCount": 12,
+    "independentlyDecodedFrames": 12,
+    "compositePixelChecks": 6,
+    "logoReplacementConsumersRebuilt": [
+      "logo",
+      "poster",
+      "intro",
+      "film"
+    ],
+    "independentTaskReused": true,
+    "backgroundVoiceAndInitialFramePreserved": true,
+    "sameRevisionTasksAndBudgetReused": true,
+    "corruptFrameBlockedAndRestoredWithoutReexecution": true,
+    "movedPackageChildren": 5
+  },
+  "immutableVersion": {
+    "result": "PASS",
+    "tablesPreserved": 12,
+    "filesPreserved": 22,
+    "validNewVersion": true,
+    "replayTaskAndBudgetPreserved": true,
+    "zeroLeases": true,
+    "publicColdInstallation": true,
+    "nativeVersions": [
+      {
+        "taskId": "wf-f0c6b5ab5cbb484ea5b3c6cf5e8cf53d2288d7fb92d3bd1a",
+        "assetId": "logo-png",
+        "version": "10693c2880ffa1fd57bcfb77fe7e1b3aba34ff8b02c395f42cac2c01c5beafbc",
+        "sha256": "10693c2880ffa1fd57bcfb77fe7e1b3aba34ff8b02c395f42cac2c01c5beafbc"
+      },
+      {
+        "taskId": "wf-48a880991605b89b10f3a0508376076b0ffa69629e0d3353",
+        "assetId": "logo-png",
+        "version": "dc351bda22e024bbc2c30c7d4229aa6b16628c06a06812ff20d6bd6e1692bb44",
+        "sha256": "dc351bda22e024bbc2c30c7d4229aa6b16628c06a06812ff20d6bd6e1692bb44"
+      },
+      {
+        "taskId": "wf-27c88adf81d6081e5b2f8a02d5bedc8d8050d10f93a848f6",
+        "assetId": "logo-png",
+        "version": "76bf858e8f19d063cf88634324789115652fca91b712e076065e6886d6a68160",
+        "sha256": "76bf858e8f19d063cf88634324789115652fca91b712e076065e6886d6a68160"
+      }
+    ],
+    "refusals": [
+      {
+        "code": "artifact_version_conflict",
+        "message": "artifact_version_conflict"
+      },
+      {
+        "code": "artifact_version_conflict",
+        "message": "artifact_version_conflict"
+      },
+      {
+        "code": "artifact_version_conflict",
+        "message": "artifact_version_conflict"
+      }
+    ]
+  },
+  "jpeg": {
+    "result": "passed",
+    "mediaType": "image/jpeg",
+    "technicalMetadata": {
+      "alpha": false,
+      "bitDepth": 8,
+      "height": 5,
+      "width": 7
+    },
+    "movedPackageChildren": 1,
+    "nativeLayers": 3,
+    "sourceAndSkillPreserved": true,
+    "independentDecoder": "Pillow; original JPEG, exported PNG and PSD loaded",
+    "inputSha256": "5ff5028a365a1edfa29595fa76be0465caa2bf08462e0980a666fc18b706b346",
+    "movedPackageSha256": "e9bf038b05aa8ad5c3f2a09fdb1fa04f6a58b4cdac32ac98fdde28b96ca978c8"
+  },
+  "jpegDerivative": {
+    "result": "PASS",
+    "artifact": {
+      "protocolVersion": "craft-artifact/v1",
+      "assetId": "poster-jpeg",
+      "version": "079771e8042b74293728ea5024cd5e321ad0e71aa63467cdffe65d8bee2445de",
+      "sha256": "079771e8042b74293728ea5024cd5e321ad0e71aa63467cdffe65d8bee2445de",
+      "bytes": 4309,
+      "mediaType": "image/jpeg",
+      "producerTaskId": "wf-d958c43ad4181c34106d42eae362c494452e79879560f874",
+      "sourceRefs": [
+        {
+          "assetId": "poster-png",
+          "version": "60ae78496ca4b98d19b7e1701234e0467dca838117ae9493ee5b34028d16ff56",
+          "sha256": "60ae78496ca4b98d19b7e1701234e0467dca838117ae9493ee5b34028d16ff56"
+        }
+      ],
+      "nativeProjectRef": {
+        "assetId": "wf-d958c43ad4181c34106d42eae362c494452e79879560f874-db69c59fbc5bf076",
+        "version": "17599d6a2fdceac5a24bcba943edb08c9beba3b810be9dd149e3eb8b8c46f0f2",
+        "sha256": "17599d6a2fdceac5a24bcba943edb08c9beba3b810be9dd149e3eb8b8c46f0f2",
+        "location": "project.pcraft"
+      },
+      "renditions": [],
+      "dependencies": [],
+      "technicalMetadata": {
+        "width": 320,
+        "height": 400,
+        "bitDepth": 8,
+        "alpha": false
+      },
+      "lossReportRef": {
+        "assetId": "wf-d958c43ad4181c34106d42eae362c494452e79879560f874-832b6e90dd1c3c59",
+        "version": "ec27fdf0f2e5cbe7bcb6e978565ea057508654575b48023096855ed91768dbce",
+        "sha256": "ec27fdf0f2e5cbe7bcb6e978565ea057508654575b48023096855ed91768dbce",
+        "location": "exchange-loss.json"
+      },
+      "evidenceRefs": [
+        {
+          "assetId": "wf-d958c43ad4181c34106d42eae362c494452e79879560f874-ffa5b716b5a57837",
+          "version": "4a9e21a9786f81ea385be0e8a38bf06599b132b607cd5e39bd6b04d3b8c61475",
+          "sha256": "4a9e21a9786f81ea385be0e8a38bf06599b132b607cd5e39bd6b04d3b8c61475",
+          "location": "manifest.json"
+        },
+        {
+          "assetId": "wf-d958c43ad4181c34106d42eae362c494452e79879560f874-701e94bde60208d4",
+          "version": "5ff5028a365a1edfa29595fa76be0465caa2bf08462e0980a666fc18b706b346",
+          "sha256": "5ff5028a365a1edfa29595fa76be0465caa2bf08462e0980a666fc18b706b346",
+          "location": "asset-logo.jpg"
+        }
+      ],
+      "location": "design.jpg"
+    },
+    "independentDecode": {
+      "width": 320,
+      "height": 400,
+      "pixelFormat": "yuvj420p"
+    }
+  },
+  "fixedCoreTests": {
+    "initialPassed": 101,
+    "newJsonLimitTargetTotal": 14,
+    "newJsonBoundaryCases": "exact16MiB accepts;16MiB+1 valid JSON refuses",
+    "actualCoreArchiveSha256": "25c84868bb6c1aef2c9ae912c7e29ba9874076487eabd81de2dd04b4e06d89ba"
+  },
+  "fontGap": {
+    "schema": "craft-fixed137-font-dependency-gap/v1",
+    "result": "GAP_CONFIRMED",
+    "pluginVersion": "0.1.0-dev.137",
+    "runtimeVersion": "0.1.0-dev.136-runtime.1",
+    "requestedNativeFonts": [
+      "Arial"
+    ],
+    "nativeInspectionSha256": "6c06f1650b2f4a476446fd9b12c5308d70838f89582aa3bd9f62258a9559e7f4",
+    "nativeProjectSha256": "a284c970e8252642a8890e2b3e4ed502cc551c765fcdb30d60e8404c993648a5",
+    "artifactSha256": "316e60bacbf686eb9ad0347787a86c988d969241322c5de5bd7ad2e841620643",
+    "publicDependencyKinds": [
+      [
+        "media"
+      ]
+    ],
+    "requirement": "craft-artifact/v1 dependencies must describe required fonts with packaged status and missing reason",
+    "scope": "Actual reopened editable Photo poster; public adapter currently maps input media/LUT dependencies only",
+    "task2_3Complete": false
+  },
+  "task2_3Complete": false,
+  "openNumberedTasks": 12,
+  "excluded": [
+    "Full V1",
+    "New Codex host qualification",
+    "Creative quality/color fidelity",
+    "Resolved font packaging and missing-font delivery contract"
+  ],
+  "regression": {
+    "runtime": {
+      "total": 657,
+      "passed": 631,
+      "skipped": 26,
+      "failed": 0
+    },
+    "skillsSource": {
+      "total": 214,
+      "passed": 162,
+      "skipped": 52,
+      "failed": 0
+    },
+    "nativeLong": {
+      "passed": 1,
+      "decodedFrames": 425512
+    },
+    "nativeDynamic": {
+      "passed": 1
+    },
+    "nativeImmutableVersions": {
+      "passed": 1
+    },
+    "nativeRetainedJpeg": {
+      "passed": 1
+    },
+    "actualNativeJpegSourceReopenDerivative": "PASS"
+  }
+}

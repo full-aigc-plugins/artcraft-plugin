@@ -105,3 +105,16 @@ test('PCM WAV content verifies declared audio facts and rejects malformed or mis
   const text=Buffer.from('not WAV');await writeFile(join(root,'logo.bin'),text);await assert.rejects(verifyArtifact(value(text),root),/media_type_mismatch|wav_invalid/);
  }finally{await rm(root,{recursive:true});}
 });
+
+/** JSON 报告的资源边界须在摘要正确时仍拒绝，不能仅测损坏语法。 */
+test('JSON report exact16MiB limit accepts valid content and refuses one additional byte',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'craft-json-limit-'));
+ try{
+  const maximum=16*1024*1024;
+  const content=Buffer.from('"'+'x'.repeat(maximum-2)+'"');
+  const value=(data:Buffer)=>({...artifact(),mediaType:'application/json',bytes:data.length,sha256:createHash('sha256').update(data).digest('hex')});
+  await writeFile(join(root,'logo.bin'),content);await verifyArtifact(value(content),root);
+  const oversized=Buffer.concat([content,Buffer.from(' ')]);
+  await writeFile(join(root,'logo.bin'),oversized);await assert.rejects(verifyArtifact(value(oversized),root),/json_artifact_too_large/);
+ }finally{await rm(root,{recursive:true});}
+});

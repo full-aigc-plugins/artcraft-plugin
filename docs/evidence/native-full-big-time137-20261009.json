@@ -1,0 +1,121 @@
+{
+  "schema": "artcraft-public-big-time-export/v1",
+  "result": "PASS",
+  "platform": "darwin-arm64",
+  "entrySha256": "a09715d85b6c195fce8a571ae95c60003cd6c1845c58e77d04949126effddb63",
+  "sourcePlanSha256": "a84ecf49d7113f8f8c8ac6c3995208d3d981ef15b9728e1064ab34d566bfb6e9",
+  "runtimeVersion": "0.1.0-dev.136-runtime.1",
+  "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+  "startTicks": "9007199254740993",
+  "frameTicks": "21168000000",
+  "nativeDurationTicks": "9007220422740993",
+  "exportDurationTicks": "9007238016000000",
+  "decodedFrames": "425512",
+  "artifact": {
+    "protocolVersion": "craft-artifact/v1",
+    "assetId": "long-film",
+    "version": "27d6aff5612ea95c894975d2941bded7c7040b1be26c8e2c32a6b020e1145dc0",
+    "sha256": "27d6aff5612ea95c894975d2941bded7c7040b1be26c8e2c32a6b020e1145dc0",
+    "bytes": 1434591900,
+    "mediaType": "video/mp4",
+    "producerTaskId": "wf-10b154fca33f4d2538f45c8f1021c27d83508f1564fd2441",
+    "sourceRefs": [
+      {
+        "assetId": "still",
+        "version": "df5698a3561b13dc5a287d341fa920d8a9297489c64c89336bf96b9704566061",
+        "sha256": "df5698a3561b13dc5a287d341fa920d8a9297489c64c89336bf96b9704566061"
+      }
+    ],
+    "nativeProjectRef": {
+      "assetId": "wf-10b154fca33f4d2538f45c8f1021c27d83508f1564fd2441-9e6a55f19dc1283d",
+      "version": "904eb0e17a50b52bb2fde192021ccbe66c6babedaa9a844d443f7cdf0a65a025",
+      "sha256": "904eb0e17a50b52bb2fde192021ccbe66c6babedaa9a844d443f7cdf0a65a025",
+      "location": "project.fcproj"
+    },
+    "renditions": [],
+    "dependencies": [
+      {
+        "assetRef": {
+          "assetId": "still",
+          "version": "df5698a3561b13dc5a287d341fa920d8a9297489c64c89336bf96b9704566061",
+          "sha256": "df5698a3561b13dc5a287d341fa920d8a9297489c64c89336bf96b9704566061"
+        },
+        "kind": "media",
+        "packaged": true,
+        "missingReason": null
+      }
+    ],
+    "technicalMetadata": {
+      "durationTicks": "9007238016000000",
+      "timeBase": {
+        "num": 1,
+        "den": 254016000000
+      },
+      "frameRate": {
+        "num": 12,
+        "den": 1
+      },
+      "width": 32,
+      "height": 32,
+      "alpha": false,
+      "audio": {
+        "sampleRate": 48000,
+        "channels": 2
+      }
+    },
+    "lossReportRef": {
+      "assetId": "wf-10b154fca33f4d2538f45c8f1021c27d83508f1564fd2441-832b6e90dd1c3c59",
+      "version": "c5d0c510e2cfafd2f3493e7ec8ac8a32451363c69369ee2b46768a6d5251c187",
+      "sha256": "c5d0c510e2cfafd2f3493e7ec8ac8a32451363c69369ee2b46768a6d5251c187",
+      "location": "exchange-loss.json"
+    },
+    "evidenceRefs": [
+      {
+        "assetId": "wf-10b154fca33f4d2538f45c8f1021c27d83508f1564fd2441-ffa5b716b5a57837",
+        "version": "9990d8856264618909b251e43d818265457ffd784c4381c5b4579fa818918d16",
+        "sha256": "9990d8856264618909b251e43d818265457ffd784c4381c5b4579fa818918d16",
+        "location": "manifest.json"
+      },
+      {
+        "assetId": "wf-10b154fca33f4d2538f45c8f1021c27d83508f1564fd2441-3d2036d02e7eb142",
+        "version": "df5698a3561b13dc5a287d341fa920d8a9297489c64c89336bf96b9704566061",
+        "sha256": "df5698a3561b13dc5a287d341fa920d8a9297489c64c89336bf96b9704566061",
+        "location": "still.png"
+      },
+      {
+        "assetId": "wf-10b154fca33f4d2538f45c8f1021c27d83508f1564fd2441-912c6c7421119bb7",
+        "version": "6f5f62f367ed556fd265d066d97a2f4daa4d757c30b7113b5c6e5803957005b8",
+        "sha256": "6f5f62f367ed556fd265d066d97a2f4daa4d757c30b7113b5c6e5803957005b8",
+        "location": "native.json"
+      },
+      {
+        "assetId": "wf-10b154fca33f4d2538f45c8f1021c27d83508f1564fd2441-5856aaf033d7e756",
+        "version": "a7eec62e97d094b090dc11ce3c16097c076c9bb927a295af8a857b178fe77396",
+        "sha256": "a7eec62e97d094b090dc11ce3c16097c076c9bb927a295af8a857b178fe77396",
+        "location": "export-probe.json"
+      }
+    ],
+    "location": "film.mp4"
+  },
+  "projectSha256": "904eb0e17a50b52bb2fde192021ccbe66c6babedaa9a844d443f7cdf0a65a025",
+  "inputSha256": "df5698a3561b13dc5a287d341fa920d8a9297489c64c89336bf96b9704566061",
+  "seconds": 416.102,
+  "scope": [
+    "actual installed Art public workflow",
+    "full sparse long-timeline export",
+    "native reopen and decimal tick preservation",
+    "entire movie independent frame decode",
+    "versioned public artifact and bound metadata",
+    "unchanged input and installed entry"
+  ],
+  "excluded": [
+    "creative quality",
+    "complete artifact protocol matrix",
+    "other platforms"
+  ],
+  "pluginVersion": "0.1.0-dev.137",
+  "sourceVersion": "0.1.0-dev.109",
+  "nativeProjectReopened": true,
+  "testDriverSha256": "0403b594a9138d893b5bd648b29b40326d813585b18dcaa8cbcb45f669459e70",
+  "oldFixed136TimeoutFailureRetained": true
+}

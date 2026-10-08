@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Fixed137 artifact checkpoint: full9.85-hour/12fps movie exports and independently decodes425,512frames; current native dynamic/version/JPEG scenarios pass. CP-002 remains open because editable native fonts are absent from public dependencies. [Audit and remaining gap](docs/ArtCraft-Artifact-Protocol-Acceptance-Architecture.md).
+
 Development release137/source109/runtime136 adds deadline-bound Film export/decode budgets. Targeted OS-child tests pass; full native long-timeline export and new-host qualification remain pending. [Architecture and limits](docs/ArtCraft-Long-Export-Budget-Architecture.md).
 
 Fixed136/source108/runtime135 installed checkpoint passes:64 host identities,ten independent cold starts,100 complete-directory/parameter queries,three signed desktop and three bridge save/reopen workflows,44 fixed-runtime error tests,120 installed wrapper cases and4 actual native post-save faults. Twelve tasks and full V1 remain open. [Evidence and limits](docs/ArtCraft-Fixed-Mode-Error-Acceptance-Architecture.md).

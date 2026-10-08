@@ -1,0 +1,81 @@
+{
+  "schema": "craft-artifact-scenario-audit137/v1",
+  "status": "incomplete",
+  "pluginVersion": "0.1.0-dev.137",
+  "sourceVersion": "0.1.0-dev.109",
+  "runtimeVersion": "0.1.0-dev.136-runtime.1",
+  "specSha256": "c89e609aa65a714a95b0e97219334d661b72c8734d62775b819ccd0832238532",
+  "scenarios": [
+    {
+      "name": "AC-CP-002-JPEG",
+      "status": "verified-current",
+      "evidenceScope": "Fixed137 progressive JPEG input -> native editable Photo -> PNG/PSD decoder and moved package; actual metadata/source hashes retained"
+    },
+    {
+      "name": "AC-CP-002-P",
+      "status": "partial-font-gap",
+      "evidenceScope": "Normal native contracts and current fixed-core validation pass; editable Photo Arial requirement absent from dependencies"
+    },
+    {
+      "name": "AC-CP-002-N",
+      "status": "verified-current",
+      "evidenceScope": "Native Logo downstream revisions and independent reuse; voice/background bytes preserved; fixed-core graph and engine cycle refusal before registration"
+    },
+    {
+      "name": "AC-CP-002-VERSION",
+      "status": "verified-current",
+      "evidenceScope": "Cold native Vector revisions; three cross-scope/repeat immutable-version refusals preserve12 tables and22 files; valid new version/replay verified"
+    },
+    {
+      "name": "AC-CP-002-PATH",
+      "status": "partial-font-gap",
+      "evidenceScope": "Five native moved-package children and JPEG poster package verified; undeclared editable font is not yet an explicit packaged/missing dependency"
+    },
+    {
+      "name": "AC-CP-002-IMAGE",
+      "status": "verified-current",
+      "evidenceScope": "Native PNG metadata in dynamic workflow plus reopened Photo JPEG derivative320x400/8bit/no alpha; independent decoding"
+    },
+    {
+      "name": "AC-CP-002-TIME",
+      "status": "verified-current",
+      "evidenceScope": "Full9.85h/12fps export425512 frames; decimal9007238016000000 export ticks with rational1/254016000000 timebase and exact JSON handoff"
+    },
+    {
+      "name": "外部 JSON 验收证据",
+      "status": "verified-current",
+      "evidenceScope": "Current fixed-core valid/invalid syntax and exact16MiB/16MiB+1 complete digest-bound file tests"
+    },
+    {
+      "name": "AC-CP-002-WAV",
+      "status": "verified-current",
+      "evidenceScope": "Current copied fixed entry registers actual48kHz PCM voice; native audio and moved package preserve voice; malformed/metadata/format controlled refusals"
+    },
+    {
+      "name": "AC-CP-002-PNG",
+      "status": "verified-current",
+      "evidenceScope": "Current fixed-core legal depths/colors/Adam7 and malformed/CRC corpus; real PNG input, native import and derived exports in cold dynamic workflow"
+    },
+    {
+      "name": "AC-CP-002-TIME-BUDGET",
+      "status": "verified-current",
+      "evidenceScope": "Actual long export survives old180s limit; deadline/identity/command-scope/cap/expiry tests pass; no domain file edits"
+    }
+  ],
+  "verifiedCurrent": 9,
+  "partial": 2,
+  "task2_3Complete": false,
+  "relatedSequenceScenarios": {
+    "nativePositive": "Current full transparent sequence, actual Film handoff, loss-report binding, copied72-file skill unchanged",
+    "controlledNegative": "Fixed-core middle-frame tamper/missing/extra/symlink/duplicate/resource/metadata refusals; actual corrupt frame blocked and restored without replay"
+  },
+  "implementationGap": "Map actual editable native font requirements to explicit dependency packaging/missing state; do not fabricate fonts or infer portable editability from render hashes",
+  "fixedCore": {
+    "priorSuitePassed": 101,
+    "jsonUpdatedTargetPassed": 14,
+    "workflowEnginePassed": 30,
+    "uniqueTestsPassed": 132,
+    "skillTreeFilesPreserved": 72
+  },
+  "authority": "OpenSpec establish-v1-plugin; tasks unchanged until full requirement verified"
+}
