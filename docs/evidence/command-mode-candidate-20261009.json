@@ -1,0 +1,78 @@
+{
+  "schema": "artcraft-command-mode-candidate/v1",
+  "status": "candidate-verified-not-fixed-distribution",
+  "basePlugin": "0.1.0-dev.134",
+  "baseSkills": "0.1.0-dev.106",
+  "commandContractTests": {
+    "modes": [
+      "headless",
+      "bridge",
+      "desktop"
+    ],
+    "domains": [
+      "filmcraft",
+      "effectcraft",
+      "photocraft",
+      "vectorcraft"
+    ],
+    "casesPerModeDomain": 15,
+    "passed": 180
+  },
+  "bridgeIdentityTests": {
+    "modes": [
+      "bridge",
+      "desktop"
+    ],
+    "faultsPerMode": 13,
+    "passed": 26
+  },
+  "boundaryTargetTests": {
+    "passed": 220,
+    "skipped": 0
+  },
+  "skillsRegression": {
+    "total": 206,
+    "passed": 154,
+    "skipped": 52,
+    "scope": "current source after final bridge identity hardening"
+  },
+  "candidateNativeFaults": {
+    "passed": 36,
+    "skipped": 0,
+    "scope": "candidate runtime and fixed133 headless native dependencies; mode-specific snapshot hardening does not change headless execution"
+  },
+  "launcherSha256": "7c378b006316e57ec86437531d6b3d12d4f41dd44a76fa605c32c22969eb2e67",
+  "independentLauncherCount": 10,
+  "logs": {
+    "launcher-red.log": "78c82c1592831311b89941db69cbaa3746092171504094646855f58836f20941",
+    "launcher-green.log": "2ea8d4d0e6618b4a87590c6fb58bdc07af0bbb642b3c361a173e9651fe6a5723",
+    "modes-red.log": "1bcaa66b1cdad7025a9ad96ee0e0b137c2bebe22d71a54c64f90988f63e8a24f",
+    "modes-green.log": "0cea0e978fae5b88e76c95c9430e580a4d2a1f8d40cda8b8481809ca6fb78483",
+    "bridge-shape-red.log": "c39b5eb56f7c214ce9acfd04e66fb045b25f70fc786b7c6b92da5aa95e42d53c",
+    "final-targets.log": "2d47c707d07dc8480b7c7e68ca0f2953635127aa0c84c91aa99b429243b4427d",
+    "source-regression.log": "8822f42065c76fc1836ce76f3f5274b3688543260b0e34fdfa3ca68796b90eaa",
+    "native-faults.log": "2ffeaaea437275aebbe06275953ff5286c07925745a185d74b513377c58f22ad",
+    "source-final.log": "e152f870de21d15a3594deec735a0dd003afccf7d501c49aa348f80190957d6a",
+    "plugin-python-final.log": "548c1a9c2b62b6ad58096f4664021a0c2aca4ef073001bc8d6a6e54291f512c8",
+    "runtime-final.log": "700fa3e898c6495b4bd2d783045e712fe9e7ef4f18dbca8cb3569973c7656bb1"
+  },
+  "guiAutomation": {
+    "status": "unavailable",
+    "error": "failed to write kernel assets: No such file or directory (os error 2)"
+  },
+  "remaining": [
+    "Actual fixed distribution installation and mode acceptance",
+    "Actual GUI revision conflict for task5.3",
+    "Task4.6 and all12 outstanding tasks remain open"
+  ],
+  "runtimeRegression": {
+    "total": 551,
+    "passed": 526,
+    "skipped": 25
+  },
+  "pluginPythonRegression": {
+    "total": 123,
+    "passed": 112,
+    "skipped": 11
+  }
+}

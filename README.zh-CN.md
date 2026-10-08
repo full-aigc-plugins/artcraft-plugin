@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+未发行候选补齐独立bridge／desktop命令合同及EffectCraft附加工具身份校验。220项受控边界及526项运行时测试通过（25条件跳过）；实际GUI和新固定分发验收仍开放。[模式架构](docs/ArtCraft-Command-Modes-Architecture.zh_CN.md)。
+
 开发检查点134／源106／runtime133增加headless编辑前2646命令合同校验。运行时380通过／25跳过，20项原生只读探针及36项原生故障回归通过；新固定宿主／混合验收和任务4.6保持开放。[架构](docs/ArtCraft-Live-Command-Contract-Architecture.zh_CN.md)。
 
 固定133／源105／runtime132实际工具schema验收通过：64宿主身份、十独立冷首用、20原生schema探针、四领域快照／模式拒绝、混合3/3及36保存后故障。仅关闭4.18；整体4.6为16项中14项，2646命令参数只读一致不能代替漂移拒绝。[验收](docs/ArtCraft-Live-Tool-Schema-Architecture.zh_CN.md)。

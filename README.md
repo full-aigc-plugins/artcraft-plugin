@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Unreleased candidate extends command contract enforcement to standalone bridge/desktop, with locked EffectCraft bridge tool identities.220 controlled boundary targets and526 runtime tests pass (25 conditional skips); actual GUI and new fixed distribution acceptance remain open. [Mode architecture](docs/ArtCraft-Command-Modes-Architecture.md).
+
 Development checkpoint134/source106/runtime133 adds full2646-command contract checks before headless editing. Runtime380 pass/25 skip,20 native readonly probes and36 native fault regressions pass. New fixed host/mixed acceptance and task4.6 remain open. [Architecture](docs/ArtCraft-Live-Command-Contract-Architecture.md).
 
 Fixed133/source105/runtime132 live tool schema acceptance passes:64 host identities, ten independent cold starts,20 native schema probes, four locked snapshot/mode refusals, mixed3/3 and36 post-save faults. Task4.18 completes; overall4.6 remains open at14/16 because readonly2646 command parameter agreement does not enforce drift refusal. [Acceptance](docs/ArtCraft-Live-Tool-Schema-Architecture.md).

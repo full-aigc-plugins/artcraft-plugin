@@ -15,7 +15,6 @@
 - **WHEN** 请求满足本需求的来源、输入、状态和证据条件
 - **THEN** 系统按本需求完成运行时来源与完整性并返回可核对的结果
 - **AND** 结果绑定当前版本与执行身份，不提升未验证能力状态
-- **AND** 四领域DAG首次编辑前 SHALL 在同一原生会话只读查询完整命令目录，对照受信快照核对全部命令ID、params描述及其存在性；enabled、label、menu和shortcut等上下文／展示字段不作为参数schema。正常查询结果可在当前会话复用，显式命令目录查询仍重新校验。
 
 #### Scenario: AC-RT-001-N 边界条件
 
@@ -51,6 +50,9 @@
 - **WHEN** 请求满足本需求的来源、输入、状态和证据条件
 - **THEN** 系统按本需求完成运行能力与隔离升级并返回可核对的结果
 - **AND** 结果绑定当前版本与执行身份，不提升未验证能力状态
+
+- **AND** 四领域DAG及独立命令组件的headless／bridge／desktop首次编辑前 SHALL 在同一原生会话只读查询完整命令目录，对照受信快照核对全部命令ID、params描述及其存在性；enabled、label、menu和shortcut等上下文／展示字段不作为参数schema。正常查询结果可在当前会话复用，显式命令目录查询仍重新校验。
+- **AND** EffectCraft的bridge附加工具 SHALL 从受信bridge快照合并，并绑定native runtime和desktop binary身份；模式不得扩充到未锁定工具，桌面自有会话的监听归属及停止管理保持有效。
 
 #### Scenario: AC-RT-002-N 边界条件
 
