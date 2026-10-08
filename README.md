@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Current fixed download recovery passes:four empty-cache native installs and Node/core/Vector archive transport faults followed by actual third public downloads, with separate79 controlled boundary tests. Four runtime scenarios verified;task4.6 remains open. [Download acceptance](docs/ArtCraft-Current-Download-Recovery-Architecture.md).
+
 Current Art-owned four-domain installation concurrency passes:three waiters per domain,24 actual calls,120-second production refusals and OS-owner-exit verified reuse. Two mutex scenarios verified;task4.6 remains open. [Domain mutex acceptance](docs/ArtCraft-Domain-Install-Mutex-Architecture.md).
 
 Fixed installed mutex acceptance:all10 public entries passed actual120-second timeout and OS-owner-exit reuse for Node and combined setup,40 calls total. Task4.6 remains open. [Mutex acceptance](docs/ArtCraft-Install-Mutex-Acceptance-Architecture.md).

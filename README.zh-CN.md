@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+当前固定下载恢复通过：四领域空缓存原生安装，以及Node／核心／Vector归档故障后第三次真实公开下载；另有79项受控边界测试通过。四个运行场景已验证，4.6仍开放。[下载验收](docs/ArtCraft-Current-Download-Recovery-Architecture.zh_CN.md)。
+
 Art固定四领域安装并行补验通过：每领域三个等待者、24次实际调用，覆盖生产120秒拒绝与OS锁释放后的核验复用。两个互斥场景已验证，4.6仍开放。[领域互斥验收](docs/ArtCraft-Domain-Install-Mutex-Architecture.zh_CN.md)。
 
 固定安装互斥补验：十个公开入口通过Node／组合安装的真实120秒超时与持锁者退出复用，共40调用。4.6仍开放。[互斥验收](docs/ArtCraft-Install-Mutex-Acceptance-Architecture.zh_CN.md)。

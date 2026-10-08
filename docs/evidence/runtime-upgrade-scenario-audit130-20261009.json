@@ -52,11 +52,13 @@
     },
     {
       "scenario": "[AC-RT-002-DOWNLOAD] 有界只读下载恢复",
-      "status": "retained-evidence-needs-audit",
+      "status": "verified-current-installed",
       "reference": "docs/evidence/codex-art75-download-recovery-first-use-20261007.json",
       "referenceSha256": "a4f4f707dcbe4081f0d4e5c38145dc817a348d97b4434c104abac6e89a0d1e84",
-      "remainingAudit": "Retained fixed download recovery evidence; verify unchanged involved bytes and scope before reuse.",
-      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/codex-art75-download-recovery-first-use-20261007.json"
+      "remainingAudit": "None for this named download-recovery scenario; task4.6 and other rows remain open.",
+      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/codex-art75-download-recovery-first-use-20261007.json",
+      "currentEvidence": "docs/evidence/current-download-recovery130-20261009.json",
+      "currentEvidenceSha256": "1fe10181123051206f5e35869bf7c63ceb7ff6d06c0d3a59c2ba5870b7137865"
     },
     {
       "scenario": "[AC-RT-002-FAILED-STAGE] 失败暂存保全分发升级",
@@ -84,10 +86,10 @@
     },
     {
       "scenario": "[AC-RT-002-NATIVE-DOWNLOAD] 领域原生安装子进程的临时下载恢复",
-      "status": "retained-evidence-needs-audit",
+      "status": "verified-current-installed",
       "reference": "docs/evidence/codex-native-download-first-use-20261007.json",
       "referenceSha256": "026f0bd4bd3ccaf2ced988d252036d96c4a714038d62991d9d130e291cdb919f",
-      "remainingAudit": "All four current child bootstrap digests differ from historical download proof; audit changed behavior and scope or obtain fresh actual fixed download-recovery evidence before reuse.",
+      "remainingAudit": "None for this named download-recovery scenario; task4.6 and other rows remain open.",
       "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/codex-native-download-first-use-20261007.json",
       "currentInstallerComparison": {
         "filmcraft": {
@@ -110,7 +112,9 @@
           "currentSha256": "78d5bdf16bf08e9abc96b4b23e5d071da72b648698b888b85fa1b90f81cf32a9",
           "equal": false
         }
-      }
+      },
+      "currentEvidence": "docs/evidence/current-download-recovery130-20261009.json",
+      "currentEvidenceSha256": "1fe10181123051206f5e35869bf7c63ceb7ff6d06c0d3a59c2ba5870b7137865"
     },
     {
       "scenario": "[AC-RT-002-PLAN-JSON] 严格命令计划的独立分发",
@@ -160,5 +164,5 @@
   "completionRule": "Resolve every clause using applicable unchanged historical evidence or actual fixed installed evidence. No scenario is closed solely by this routing audit.",
   "referenceRepository": "https://github.com/full-aigc-plugins/artcraft-plugin",
   "referenceBaseCommit": "3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920",
-  "verifiedCurrentInstalledScenarioCount": 2
+  "verifiedCurrentInstalledScenarioCount": 4
 }

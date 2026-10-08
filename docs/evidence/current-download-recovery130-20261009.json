@@ -1,0 +1,227 @@
+{
+  "schema": "artcraft-fixed-current-download-recovery/v1",
+  "result": "PASS",
+  "pluginVersion": "0.1.0-dev.130",
+  "sourceVersion": "0.1.0-dev.102",
+  "runtimeVersion": "0.1.0-dev.129-runtime.1",
+  "platform": "darwin-arm64",
+  "python": "3.13.5",
+  "native": {
+    "schema": "artcraft-fixed-native-download-recovery/v1",
+    "result": "PASS",
+    "pluginVersion": "0.1.0-dev.130",
+    "sourceVersion": "0.1.0-dev.102",
+    "runtimeVersion": "0.1.0-dev.129-runtime.1",
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 11:23:37) [Clang 14.0.6 ]",
+    "records": [
+      {
+        "domain": "filmcraft",
+        "result": "PASS",
+        "seconds": 74.87,
+        "nativeVersion": "filmcraft-cli 0.2.0-craft.4",
+        "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+        "bootstrapSha256": "bd0c370eace07fe88ae63d4be08374d9b1845b68f0cd43ab0e23a444504623fe",
+        "artSkillSha256": "80cb4b7444787707b356fd648a73816fb53e6693588ce900488e40e4aa7b9a1b",
+        "emptyRuntime": true,
+        "downloadAttempts": 3,
+        "partialArchivesDiscarded": true,
+        "realPublicFinalDownload": true,
+        "nativeCommands": [
+          [
+            "--version"
+          ],
+          [
+            "commands",
+            "--json"
+          ]
+        ],
+        "selectedDomainOnly": true,
+        "skillPreserved": true,
+        "eventsSha256": "f20f286d6628908e7123f621a0578da265d80573383acb2f8338eaaebb8bce91",
+        "callSha256": "cfa8a13baddfcfb079959656ff6dd95dc18110801f18ef91823750d0b421052e"
+      },
+      {
+        "domain": "effectcraft",
+        "result": "PASS",
+        "seconds": 64.334,
+        "nativeVersion": "effectcraft-cli 0.2.0",
+        "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "bootstrapSha256": "ad89838b5fd4452685c8cbcfb4394e93597624825356e134e0b809a6a0b3606b",
+        "artSkillSha256": "80cb4b7444787707b356fd648a73816fb53e6693588ce900488e40e4aa7b9a1b",
+        "emptyRuntime": true,
+        "downloadAttempts": 3,
+        "partialArchivesDiscarded": true,
+        "realPublicFinalDownload": true,
+        "nativeCommands": [
+          [
+            "--version"
+          ],
+          [
+            "commands",
+            "--json"
+          ]
+        ],
+        "selectedDomainOnly": true,
+        "skillPreserved": true,
+        "eventsSha256": "135fa2b9b0307267b1d58433880b7ffe45bcd70d37e432feb7010164ac356a2c",
+        "callSha256": "f170db773273905b7e57199ed9311a60a89481c0e02abb5fba22ca4fd01aa875"
+      },
+      {
+        "domain": "photocraft",
+        "result": "PASS",
+        "seconds": 49.393,
+        "nativeVersion": "photocraft-cli 0.2.0-craft.1 (dev build)",
+        "nativeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+        "bootstrapSha256": "a6e3e9f7b3ab4898b88ecac46fdfa72b32338fcd51d540dde1280882b6813179",
+        "artSkillSha256": "80cb4b7444787707b356fd648a73816fb53e6693588ce900488e40e4aa7b9a1b",
+        "emptyRuntime": true,
+        "downloadAttempts": 3,
+        "partialArchivesDiscarded": true,
+        "realPublicFinalDownload": true,
+        "nativeCommands": [
+          [
+            "--version"
+          ],
+          [
+            "commands",
+            "--json"
+          ]
+        ],
+        "selectedDomainOnly": true,
+        "skillPreserved": true,
+        "eventsSha256": "d64ffec1df37720281ecaf8ee52c2d1da63be899346b8856ef10fad7a8af8750",
+        "callSha256": "752711b41fdc0d23df53ba67344086de039066469b57f0d43ad22004d63dd928"
+      },
+      {
+        "domain": "vectorcraft",
+        "result": "PASS",
+        "seconds": 46.772,
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "nativeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+        "bootstrapSha256": "78d5bdf16bf08e9abc96b4b23e5d071da72b648698b888b85fa1b90f81cf32a9",
+        "artSkillSha256": "80cb4b7444787707b356fd648a73816fb53e6693588ce900488e40e4aa7b9a1b",
+        "emptyRuntime": true,
+        "downloadAttempts": 3,
+        "partialArchivesDiscarded": true,
+        "realPublicFinalDownload": true,
+        "nativeCommands": [
+          [
+            "--version"
+          ],
+          [
+            "commands",
+            "--json"
+          ]
+        ],
+        "selectedDomainOnly": true,
+        "skillPreserved": true,
+        "eventsSha256": "055751bdbb550094e1bcb51a9481e42767e90a01095e8a9f54f5a512d58ca843",
+        "callSha256": "56effc80a838ae3292a0c65e1f06c18f69d7c38ae7955258f8ec09d34d686164"
+      }
+    ],
+    "scope": "Four separately copied fixed Art skills, empty runtime homes, actual public Node/core/selected child downloads. Test-only two partial native transport faults; actual third public native download, digest and version validation. No native editing/rendering."
+  },
+  "outer": {
+    "schema": "artcraft-fixed-outer-download-recovery/v1",
+    "result": "PASS",
+    "pluginVersion": "0.1.0-dev.130",
+    "sourceVersion": "0.1.0-dev.102",
+    "runtimeVersion": "0.1.0-dev.129-runtime.1",
+    "artSkillSha256": "80cb4b7444787707b356fd648a73816fb53e6693588ce900488e40e4aa7b9a1b",
+    "publicArchiveCount": 3,
+    "attemptsPerArchive": 3,
+    "partialArchivesDiscarded": true,
+    "actualFinalPublicDownload": true,
+    "nodeBinarySha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+    "coreBundleSha256": "fb628662c3213c077452d7df2555cd63e543e460851d7abed1e66ff5b8a38c18",
+    "selectedBundleSha256": "9583f937fedf25887ead25bb09b19af6aff58125ddeac2aa2866a8ac7fed56be",
+    "downloadHelperSha256": "f569dd3f0d4765a0cdf9c4efd26060963ef774128f29575a38c578f44ae07263",
+    "skillPreserved": true,
+    "scope": "Actual current copied Art public bootstrap, empty runtime: Node/core/Vector skill archive partial SSL EOF then503 then actual HTTPS; fixed binary and complete bundle verification. Native edits/renders excluded."
+  },
+  "controlledNativeBoundaries": [
+    {
+      "domain": "filmcraft",
+      "tests": 20,
+      "pass": 20,
+      "skip": 0,
+      "bootstrapSha256": "bd0c370eace07fe88ae63d4be08374d9b1845b68f0cd43ab0e23a444504623fe",
+      "testSourceSha256": "840a72052bb030ba61e12371a336f70923575c563ec2e5ac6e74c242f5f87a54",
+      "logSha256": "ad0ceccc97c81cbd2533cbfe7660a2ba11a9dedde2f5ce10ff9f7fd3a9380594"
+    },
+    {
+      "domain": "effectcraft",
+      "tests": 13,
+      "pass": 13,
+      "skip": 0,
+      "bootstrapSha256": "ad89838b5fd4452685c8cbcfb4394e93597624825356e134e0b809a6a0b3606b",
+      "testSourceSha256": "37081fb8db6895ca0b3e600917d8f80fcf4fe308ff19f682a1ae0cd67ccc3c5f",
+      "logSha256": "a02290e69ce70e87c830ad20baa2d8cd5357d0b31f9c1f0ee8e1f81f56598850"
+    },
+    {
+      "domain": "photocraft",
+      "tests": 15,
+      "pass": 15,
+      "skip": 0,
+      "bootstrapSha256": "a6e3e9f7b3ab4898b88ecac46fdfa72b32338fcd51d540dde1280882b6813179",
+      "testSourceSha256": "41c667a7788b5c21313afe0e14ed75d791da21ea3f145e81726cdfa28e04a1da",
+      "logSha256": "a33298fed2302161a6a4823d2802a325e60960a545e87048921b078a46f827ed"
+    },
+    {
+      "domain": "vectorcraft",
+      "tests": 15,
+      "pass": 15,
+      "skip": 0,
+      "bootstrapSha256": "78d5bdf16bf08e9abc96b4b23e5d071da72b648698b888b85fa1b90f81cf32a9",
+      "testSourceSha256": "1e2191c2678989c067ed98268a8149a464218d0ac9b09d0da7c6409d0794c880",
+      "logSha256": "66105f7a95c5eda0ca6976a9c32a717a72157a515ccbe8ff498fcf9d992ecda6"
+    }
+  ],
+  "controlledOuterBoundaries": [
+    {
+      "artifact": "artifacts/artcraft-outer-download-boundaries130-20261009.log",
+      "tests": 3,
+      "pass": 3,
+      "sha256": "1d553f488f5fb63b6996917e80c26aabe04502cc7e955525b8c2d24d0fc5c2fd"
+    },
+    {
+      "artifact": "artifacts/artcraft-setup-boundaries130-20261009.log",
+      "tests": 8,
+      "pass": 8,
+      "sha256": "958b08c9f22442789df65dbadb08013b140d87cf84223a13a18251aa97f6def2"
+    },
+    {
+      "artifact": "artifacts/artcraft-node-boundaries130-20261009.log",
+      "tests": 5,
+      "pass": 5,
+      "sha256": "8b15737000aaec73c553f393b3fc2b7ffda93feca60920def723e70779ae638e"
+    }
+  ],
+  "installedHostTreesReverified": 64,
+  "tenArtInstallerFileSetsEqual": true,
+  "evidenceFiles": {
+    "artifacts/artcraft-native-download130-20261009/proof.json": "8330310ef75c1fc443a7c72cbdfa75511c5fc03b2b96b9eb8306a1a87667bb67",
+    "artifacts/artcraft-native-download130-20261009.log": "d3112a224f34165739991215da7c5a1fa74c18cfcb794bbb804b18e6de2338aa",
+    "artifacts/artcraft-outer-download130-20261009-case2/proof.json": "0eb02cab134b56b935974451b2a914d8c5b1d0be33b489bcc3a8845ada9c0f9e",
+    "artifacts/artcraft-outer-download130-20261009-case2/call.json": "51ada73ebe0c97a5be8b865b07bbc0110cdabebdcc6d3260c9dec0f1b2bdd518",
+    "artifacts/artcraft-outer-download130-20261009-case2/events.jsonl": "c33cc7fc0397043a1b19e98b60338f7e1bdb99cd65e24a511fa3d589e2b77454",
+    "artifacts/artcraft-outer-download130-20261009-case2.log": "474dd22f6b87350ea9e07fa7c00fa7b204034f5c771d090e04d3e97cd10e96e2",
+    "test/fixtures/install_download_injection.py": "7e08c15e30197628005482b080dcb507bb6b5559dbb0e2629eedfefba91fce8d",
+    "test/fixtures/outer_download_injection.py": "ee4ad325917ea64f7d2cafdb2861c7bcbf43390490bf41914d490d7b99f22aa1",
+    "tests/test_fixed_native_download_recovery.py": "076fed5e0d2b07523a9ef89e17abb2ec3b6e6a0a6330a1fcd5061e6c465cef0f",
+    "tests/test_fixed_outer_download_recovery.py": "d878492b3a1d4f1f190005f5d3a5aae145f8068f9aa942acab3e0f16a5341bba",
+    "tests/test_locked_download_boundaries.py": "cc67522d15ac9ada5d9299a48159a734a7a540aab03a4544257a9614713bc09d"
+  },
+  "testOwnerRepository": "https://github.com/full-aigc-plugins/artcraft-plugin",
+  "scope": "Actual copied current Art public bootstraps with empty caches. Test-only transport hooks produce two partial native reads or outer SSL/503 faults, followed by actual third public HTTPS downloads and pinned integrity validation. Controlled negative boundaries are reported separately; no native editing/rendering or other-platform proof.",
+  "completedScenarios": [
+    "AC-RT-002-DOWNLOAD",
+    "AC-RT-002-NATIVE-DOWNLOAD"
+  ],
+  "task4_6": "open; four of14 named scenarios now verified",
+  "priorOuterProbe": {
+    "artifact": "artifacts/artcraft-outer-download130-20261009/proof.json",
+    "sha256": "0eb02cab134b56b935974451b2a914d8c5b1d0be33b489bcc3a8845ada9c0f9e",
+    "limitation": "Initial archive-preservation assertion checked ZIP but omitted tar.gz; superseded by fresh strengthened run."
+  }
+}
