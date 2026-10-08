@@ -181,3 +181,11 @@ ArtCraft SHALL support explicit domain command `--mode desktop` using immutable 
 - **AND** 保留的兼容旧运行时仅能显式读取其支持的快照；不能将新schema账本交给旧版强制打开
 
 - **AND** 每个独立技能的公开Python入口SHALL将upgrade转发至固定运行时；仅在帮助中出现命令不构成可调用证明，冷验收须实际调用不存在账本并得到运行时ENOENT拒绝且不创建文件
+
+#### Scenario: [AC-RT-002-MODE-CATALOG] 模式目录身份与完整命令交接
+
+- **GIVEN** 固定原生 CLI 的 headless 目录与签名桌面应用经 bridge 暴露的目录存在命令或参数差异
+- **WHEN** 用户查询、描述、校验或执行明确模式的领域命令
+- **THEN** Art SHALL 使用对应模式的完整受信目录；桌面目录绑定领域源包、原生快照和桌面锁摘要，不能取交集、忽略参数差异或回退到 headless
+- **AND** 桌面新增命令可通过公开入口校验与调用，桌面缺失命令在安装前拒绝；分类与参数说明保留，未实际执行的逐命令验收标为 NOT_RUN
+- **AND** 执行入口 SHALL 在编辑前严格核对实时目录，保留未知结果不重放、领域源文件不变和独立桌面生命周期；公开回执分别记录基础目录与模式目录身份

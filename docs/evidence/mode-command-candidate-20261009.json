@@ -1,0 +1,100 @@
+{
+  "schema": "artcraft-mode-catalog-candidate-evidence/v1",
+  "status": "PARTIAL",
+  "scope": "candidate source, macOS arm64; not fixed release installation or per-command execution acceptance",
+  "catalogSha256": "69aa578e1685996cea4fa5aa99260697a8c61d2273ad639e0885410baa07ce2c",
+  "headlessCounts": {
+    "filmcraft": 666,
+    "effectcraft": 640,
+    "photocraft": 755,
+    "vectorcraft": 585
+  },
+  "desktopRecords": {
+    "filmcraft": 666,
+    "effectcraft": 640,
+    "photocraft": 748,
+    "vectorcraft": 763
+  },
+  "desktopUniqueIds": {
+    "filmcraft": 666,
+    "effectcraft": 640,
+    "photocraft": 748,
+    "vectorcraft": 762
+  },
+  "candidateNativeDesktop": {
+    "filmcraft": {
+      "result": "PASS",
+      "operations": 5,
+      "runtimeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+      "modeCatalogSha256": "69aa578e1685996cea4fa5aa99260697a8c61d2273ad639e0885410baa07ce2c",
+      "desktopBinarySha256": "f47862a07ce43aa3d3bc14344dc2d9015cc3ca5a21f9868271007cba8f7f99fa",
+      "listenerOwnedByPID": true,
+      "ownedProcessesStopped": true,
+      "receiptSha256": "0ef0fcd4ea43e0b606bba0999a40d0f86c6cd28ecc876964cbe4f7c17e125b5e",
+      "plansSha256": "3c64e48acff1905c49114b75f2ee09cb4949f64fde666970b40c12fe726980b3"
+    },
+    "photocraft": {
+      "result": "PASS",
+      "operations": 5,
+      "runtimeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+      "modeCatalogSha256": "69aa578e1685996cea4fa5aa99260697a8c61d2273ad639e0885410baa07ce2c",
+      "desktopBinarySha256": "8a4ea2ec9164b818af193b35e3dc59ab51da9ca92165565b88eab729b32baa31",
+      "listenerOwnedByPID": true,
+      "ownedProcessesStopped": true,
+      "receiptSha256": "4a5e480243e7fad831e6081120c0016eaca988ac31e1e469948f6625a5c85b59",
+      "plansSha256": "8912f9c817eabfc95faf5e37af113b7d0e8c3c7d4a8c8b1b06aa2c340f53eed2"
+    },
+    "effectcraft": {
+      "result": "PASS",
+      "operations": 6,
+      "runtimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+      "modeCatalogSha256": "69aa578e1685996cea4fa5aa99260697a8c61d2273ad639e0885410baa07ce2c",
+      "desktopBinarySha256": "e7db491a0b7af0a12977e32fa1da23490df8087f38a56c60a9ae2a7d914a22de",
+      "listenerOwnedByPID": true,
+      "ownedProcessesStopped": true,
+      "receiptSha256": "efbd6b08b4ce818ed994f522cea14c4d49882a0cddef7b7484ae955b4276e258",
+      "plansSha256": "38c54bb2c653f9ac1490e0953d5081e5c74869438baf3731173540f0332119f1"
+    }
+  },
+  "pending": [
+    "VectorCraft desktop file.place has two different parameter descriptors; preserve all records and refuse ambiguous execution",
+    "fixed immutable source/plugin/runtime release and installed acceptance",
+    "full bridge qualification and per-command contexts/outputs",
+    "4.6 and 4.19 remain open"
+  ],
+  "controlledTests": {
+    "pluginNode": {
+      "total": 616,
+      "pass": 591,
+      "skip": 25
+    },
+    "modeCatalogIdentity": 20,
+    "commandSchema": 180,
+    "skillsFull": {
+      "total": 212,
+      "pass": 160,
+      "skip": 52
+    },
+    "offlineModeTests": 6,
+    "pluginPython": {
+      "total": 123,
+      "pass": 112,
+      "skip": 11
+    }
+  },
+  "candidateSourceFiles": {
+    "full-aigc-plugins-repositories/artcraft-plugin/src/adapters/strict_mcp_runner.ts": "80b61e88535be3fcf57fd5636e8c97ab5a6e57e3fd9060d84783e6c60f694ce8",
+    "full-aigc-skills-repositories/artcraft-skills/skills/artcraft-use/scripts/native_contract.py": "109b67a12da524b6b8cd54f565bbb691893cb9aeb0772c452bc7250f03b7b69e",
+    "full-aigc-skills-repositories/artcraft-skills/skills/artcraft-use/scripts/domain_commands.py": "8c02bb31eb678b3065671ec5d223a8428cd62fdd74222f80bee3f3c1b3d5faf8",
+    "full-aigc-skills-repositories/artcraft-skills/skills/artcraft-use/scripts/mode_catalog.py": "fdd151617df9f311f49a73c39c4abd3550797b93b3c77393c702beaba96f25f0"
+  },
+  "publicModePreflight": {
+    "pass": [
+      "filmcraft",
+      "photocraft",
+      "effectcraft"
+    ],
+    "vectorcraft": "capability_missing: mode_catalog_ambiguous before installation",
+    "rawProofSha256": "5b19f07b78d032f7be87717cef4f115cf42816bebb05691ca9f15c4fc91e90d8"
+  }
+}

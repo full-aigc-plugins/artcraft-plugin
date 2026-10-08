@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import {mkdtemp,mkdir,writeFile,readFile,rm} from 'node:fs/promises';
 import {join} from 'node:path';
 import {tmpdir} from 'node:os';
+import {createHash} from 'node:crypto';
 import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
 import {strictMcpRunner} from '../src/adapters/strict_mcp_runner.ts';
@@ -26,7 +27,21 @@ for(const mode of ['headless','bridge','desktop'])for(const pluginId of ['effect
   const edit=mode!=='headless'&&pluginId==='effectcraft'?'ui_edit':'edit';
   const config={fault,pluginId,catalog,tools,commands,edit};await writeFile(join(root,'config.json'),JSON.stringify(config));
   const module=join(root,'scripts/mcp_session.py'),entry=join(root,mode==='desktop'?'desktop.py':'entry.py'),runner=join(root,'runner.py');
-  await writeFile(runner,strictMcpRunner);
+  let runnerSource=strictMcpRunner;
+  if(mode!=='headless'){
+   const hash=(v:string)=>createHash('sha256').update(v).digest('hex');
+   const snapshot=JSON.stringify({pluginId,tools:tools.filter(t=>t.name!=='ui_edit'),commands,runtimeSha256:'a'.repeat(64)});
+   const desktop=JSON.stringify({version:'0.2.0',binarySha256:'b'.repeat(64)});
+   await writeFile(join(root,'references/native-command-snapshot.json'),snapshot);
+   await writeFile(join(root,'scripts/desktop.lock.json'),desktop);
+   const resource=JSON.stringify({schema:'artcraft-mode-command-catalog/v1',platform:'darwin-arm64',modes:['bridge','desktop'],domains:{[pluginId]:{snapshotSha256:hash(snapshot),desktopLockSha256:hash(desktop),runtimeSha256:'a'.repeat(64),desktopBinarySha256:'b'.repeat(64),desktopVersion:'0.2.0',commands}}});
+   await writeFile(join(root,'references/mode-command-catalog.json'),resource);
+   runnerSource=runnerSource.replace('69aa578e1685996cea4fa5aa99260697a8c61d2273ad639e0885410baa07ce2c',hash(resource));
+   await mkdir(join(root,'launch')); // Real launcher lives under scripts, with resources beside that directory.
+   // The fixture runner is rooted at root/launch; source uses parent.parent for resources.
+  }
+  const launcher=mode==='headless'?runner:join(root,'launch/runner.py');
+  await writeFile(launcher,runnerSource);
   await writeFile(module,String.raw`import json
 from pathlib import Path
 root=Path(__file__).resolve().parents[1]
@@ -65,7 +80,7 @@ if m.cfg['fault']=='explicit-drift':
 c.request('tools/call',{'name':m.cfg['edit'],'arguments':{}})
 if m.cfg['fault']=='cached':c.request('tools/call',{'name':m.cfg['edit'],'arguments':{}})
 `);
-  const result=await exec(process.env.CRAFT_TEST_PYTHON||'python3',['-I','-B',runner,module,entry,module,...(mode==='bridge'?['--mode','bridge']:[])]).then(value=>({code:0,...value}),error=>({code:error.code,stderr:error.stderr}));
+  const result=await exec(process.env.CRAFT_TEST_PYTHON||'python3',['-I','-B',launcher,module,entry,module,...(mode==='bridge'?['--mode','bridge']:[])]).then(value=>({code:0,...value}),error=>({code:error.code,stderr:error.stderr}));
   const valid=['matching','context-only','cached'].includes(fault);assert.equal(result.code===0,valid,JSON.stringify(result));
   if(!valid)assert.match(result.stderr,/capability_missing: native_command_schema/);
   const calls=(await readFile(join(root,'calls'),'utf8')).trim().split('\n').map(line=>JSON.parse(line));
