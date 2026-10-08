@@ -87,8 +87,21 @@ test('same revision resumes from durable verified results without native replay'
 });
 test('logo change rebuilds only transitive consumers and reuses voice',async()=>{
  const f=await fixture();try{
-  const first=await f.engine.run(f.plan);f.clear();const revised=structuredClone(f.plan);revised.revision='v2';revised.nodes[0].payload.plan.text='blue logo';
+  const first=await f.engine.run(f.plan);
+  const old=await Promise.all(Object.entries(first.nodes).map(async([id,node])=>({id,taskId:node.taskId,outputs:structuredClone(node.outputs),bytes:await readFile(join(node.root!,'output.bin'))})));
+  f.clear();const revised=structuredClone(f.plan);revised.revision='v2';revised.nodes[0].payload.plan.text='blue logo';
   const result=await f.engine.run(revised);assert.equal(result.state,'review_ready');assert.deepEqual(f.launches.sort(),['film','intro','logo','poster']);assert.equal(result.nodes.voice.taskId,first.nodes.voice.taskId);
+  assert.equal(result.nodes.logo.outputs![0].assetId,first.nodes.logo.outputs![0].assetId);
+  assert.notEqual(result.nodes.logo.outputs![0].version,first.nodes.logo.outputs![0].version);
+  assert.notEqual(result.nodes.logo.outputs![0].sha256,first.nodes.logo.outputs![0].sha256);
+  assert.deepEqual(result.nodes.poster.outputs![0].sourceRefs,[{assetId:result.nodes.logo.outputs![0].assetId,version:result.nodes.logo.outputs![0].version,sha256:result.nodes.logo.outputs![0].sha256}]);
+  for(const item of old){
+   assert.deepEqual(f.ledger.workflowNode(first.runKey,item.id).outputs,item.outputs);
+   assert.deepEqual(f.ledger.status(item.taskId!).outputRefs,item.outputs);
+   assert.deepEqual(await readFile(join(first.nodes[item.id].root!,'output.bin')),item.bytes);
+  }
+  f.clear();const repeated=await f.engine.run(revised);assert.equal(f.launches.length,0);assert.deepEqual(repeated.budget,result.budget);
+  for(const id of Object.keys(result.nodes))assert.equal(repeated.nodes[id].taskId,result.nodes[id].taskId);
  }finally{await f.cleanup();}
 });
 test('cycle and unknown plugin reject the plan before child registration',async()=>{

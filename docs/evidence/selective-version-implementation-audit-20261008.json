@@ -1,0 +1,889 @@
+{
+  "schema": "craft-selective-version-implementation-audit/v1",
+  "result": "PASS",
+  "requirement": "AC-DM-004",
+  "completedTasks": [
+    "6.10",
+    "6.11"
+  ],
+  "openTasks": [
+    "6.12"
+  ],
+  "goalComplete": false,
+  "runtimeVersion": "0.1.0-dev.125-runtime.1",
+  "sourceVersion": "0.1.0-dev.97",
+  "pluginVersion": "0.1.0-dev.125",
+  "baselineRed": {
+    "evidence": "docs/evidence/artifact-version-candidate-20261008.json",
+    "baselineCommit": "ef6656f0fa6c51717e8eaa7a09fbdfd3ea0d0d55",
+    "tests": 17,
+    "failed": 15,
+    "passed": 2,
+    "logSha256": "b17f07772bc8aef5127606fd5d05346ad71dd7ffef15edb4389a1b7bbd62e9a7",
+    "testSha256": "b779afbdac4092a7e272fcc9cd1380710090a3d03f4d7797bdd264e84119d02d",
+    "scope": "immutable logical asset version enforcement is a required part of AC-DM-004; original RED log and exact test bytes verified; no new baseline run claimed"
+  },
+  "currentCoreFiles": {
+    "src/protocol/artifact_versions.ts": "8b2c127fe32fa97b34458d8934abe6a43cfb3ebabb396805a7bda31d60c3094c",
+    "src/harness/task_ledger.ts": "b3874dafa4e1f0d3b2f5a7affa85fc0d6805abcee7032408320745f6b79500b2",
+    "src/harness/local_runner.ts": "3d8a65c256163d394a10936361eff52f3b83cb8abd3a25ea6a77091aeff1ed6d",
+    "src/planning/workflow_engine.ts": "5f17132724200dba8f417d4e22d631df29f5c17287a4af86e902cf2ccd638fd8",
+    "src/protocol/dependency_graph.ts": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43",
+    "src/adapters/public_skill.ts": "1a748394854b6ee859e1ca18b03672d7623446c081e2ff987c1b4e51a1fc0710"
+  },
+  "fixedRuntimeFilesMatched": 33,
+  "targetedRegression": {
+    "tests": 59,
+    "passed": 59,
+    "failed": 0,
+    "skipped": 0,
+    "logSha256": "479b217bbf573ca6666ed572c6ce4dba66c3e818c90d2c07bff3e398ff148519"
+  },
+  "sourceRegression": {
+    "summary": "ate name: 'photocraft-skills/skills/item.txt'\n  return self._open_to_write(zinfo, force_zip64=force_zip64)\n......ssss......s.................s.s.ss......................s....s.ss.sss.........ssss......ss.ss....s.s.......ss..........s....sss...................s..ss.ss.ssss...s.........s\n----------------------------------------------------------------------\nRan 180 tests in 47.784s\n\nOK (skipped=43)\n",
+    "logSha256": "e69608385e5f0ac1fe7d892846e9b8268ab51494f43157bc7a2ffbfcf29b23bb"
+  },
+  "nativeReview": {
+    "schema": "craft-current-review-record-acceptance/v1",
+    "result": "PASS",
+    "workflow": {
+      "runKey": "17292f2212a968be112d0acc6ceb009df156045ac0fa8f4a543c427dbcf470ec",
+      "state": "review_ready",
+      "nodes": {
+        "logo": {
+          "status": "review_ready",
+          "fingerprint": "aba60d2a857761365dd596d22c1b4d211639eb28ed07d819f3b781509a278173",
+          "taskId": "wf-75c85753c8340a704795642b040ef7b43ce89640a2229d58",
+          "root": "WORKSPACE/artifacts/craft-art-selective-version-audit-20261008/native-review-final/project/outputs/741c9557a14fe5b6a6be5e7b98c673968e0298f839cea943394de5e8961c0b3e/delivery",
+          "outputs": [
+            {
+              "protocolVersion": "craft-artifact/v1",
+              "assetId": "logo-png",
+              "version": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+              "sha256": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+              "bytes": 4303,
+              "mediaType": "image/png",
+              "producerTaskId": "wf-75c85753c8340a704795642b040ef7b43ce89640a2229d58",
+              "sourceRefs": [],
+              "nativeProjectRef": {
+                "assetId": "wf-75c85753c8340a704795642b040ef7b43ce89640a2229d58-bd874764e1b6eff2",
+                "version": "0b140e132ecbb43d153a0b15e0c0ddabaf0be4ec0d5843a5dfe3681374e610c4",
+                "sha256": "0b140e132ecbb43d153a0b15e0c0ddabaf0be4ec0d5843a5dfe3681374e610c4",
+                "location": "project.vectorcraft"
+              },
+              "renditions": [],
+              "dependencies": [],
+              "technicalMetadata": {
+                "width": 256,
+                "height": 256,
+                "bitDepth": 8,
+                "alpha": true
+              },
+              "lossReportRef": {
+                "assetId": "wf-75c85753c8340a704795642b040ef7b43ce89640a2229d58-832b6e90dd1c3c59",
+                "version": "b18f1495ceef8a33cc3aa89ab5e4d2a340e19eb33615adb378c3063d27d5d640",
+                "sha256": "b18f1495ceef8a33cc3aa89ab5e4d2a340e19eb33615adb378c3063d27d5d640",
+                "location": "exchange-loss.json"
+              },
+              "evidenceRefs": [
+                {
+                  "assetId": "wf-75c85753c8340a704795642b040ef7b43ce89640a2229d58-ffa5b716b5a57837",
+                  "version": "288e1ea6b3da4611ef516fc28f0e7ec64cffe76d4936e219db8f9ebf28878cd8",
+                  "sha256": "288e1ea6b3da4611ef516fc28f0e7ec64cffe76d4936e219db8f9ebf28878cd8",
+                  "location": "manifest.json"
+                }
+              ],
+              "location": "artboard-1.png"
+            }
+          ],
+          "taskReceipt": {
+            "taskId": "wf-75c85753c8340a704795642b040ef7b43ce89640a2229d58",
+            "attemptId": "71ffb480-6247-46c6-983f-18b3ea445986",
+            "state": "review_ready",
+            "epoch": 1,
+            "runtimeIdentity": {
+              "capabilitySnapshotSha256": "4c7bcafa9d635630b86fe9dbb3bb1f002abb7443d296227654050a69534437c9",
+              "cliVersion": "0.2.0-craft.2",
+              "mode": "headless",
+              "pluginId": "vectorcraft",
+              "pluginVersion": "0.1.0-dev.33",
+              "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+            },
+            "outputRefs": [
+              {
+                "protocolVersion": "craft-artifact/v1",
+                "assetId": "logo-png",
+                "version": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+                "sha256": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+                "bytes": 4303,
+                "mediaType": "image/png",
+                "producerTaskId": "wf-75c85753c8340a704795642b040ef7b43ce89640a2229d58",
+                "sourceRefs": [],
+                "nativeProjectRef": {
+                  "assetId": "wf-75c85753c8340a704795642b040ef7b43ce89640a2229d58-bd874764e1b6eff2",
+                  "version": "0b140e132ecbb43d153a0b15e0c0ddabaf0be4ec0d5843a5dfe3681374e610c4",
+                  "sha256": "0b140e132ecbb43d153a0b15e0c0ddabaf0be4ec0d5843a5dfe3681374e610c4",
+                  "location": "project.vectorcraft"
+                },
+                "renditions": [],
+                "dependencies": [],
+                "technicalMetadata": {
+                  "width": 256,
+                  "height": 256,
+                  "bitDepth": 8,
+                  "alpha": true
+                },
+                "lossReportRef": {
+                  "assetId": "wf-75c85753c8340a704795642b040ef7b43ce89640a2229d58-832b6e90dd1c3c59",
+                  "version": "b18f1495ceef8a33cc3aa89ab5e4d2a340e19eb33615adb378c3063d27d5d640",
+                  "sha256": "b18f1495ceef8a33cc3aa89ab5e4d2a340e19eb33615adb378c3063d27d5d640",
+                  "location": "exchange-loss.json"
+                },
+                "evidenceRefs": [
+                  {
+                    "assetId": "wf-75c85753c8340a704795642b040ef7b43ce89640a2229d58-ffa5b716b5a57837",
+                    "version": "288e1ea6b3da4611ef516fc28f0e7ec64cffe76d4936e219db8f9ebf28878cd8",
+                    "sha256": "288e1ea6b3da4611ef516fc28f0e7ec64cffe76d4936e219db8f9ebf28878cd8",
+                    "location": "manifest.json"
+                  }
+                ],
+                "location": "artboard-1.png"
+              }
+            ],
+            "evidenceRefs": [
+              {
+                "assetId": "wf-75c85753c8340a704795642b040ef7b43ce89640a2229d58-ffa5b716b5a57837",
+                "version": "288e1ea6b3da4611ef516fc28f0e7ec64cffe76d4936e219db8f9ebf28878cd8",
+                "sha256": "288e1ea6b3da4611ef516fc28f0e7ec64cffe76d4936e219db8f9ebf28878cd8",
+                "location": "manifest.json"
+              }
+            ],
+            "error": null
+          }
+        }
+      },
+      "budget": {
+        "accountKey": "178f348701662d530bc32e26816563c553206ca2eaa50b21877297b6e9fb0150",
+        "limits": {
+          "currency": "USD",
+          "maxExternalCalls": 0,
+          "maxMinorUnits": 0,
+          "maxRevisions": 1
+        },
+        "allocated": {
+          "minorUnits": 0,
+          "externalCalls": 0,
+          "revisions": 0
+        }
+      },
+      "projectRoot": "WORKSPACE/artifacts/craft-art-selective-version-audit-20261008/native-review-final/project"
+    },
+    "packageReceipt": {
+      "schema": "craft-project-package-receipt/v1",
+      "state": "review_ready",
+      "root": "WORKSPACE/artifacts/craft-art-selective-version-audit-20261008/native-review-final/package",
+      "sha256": "a93591c0769cf60d269c8d81e96134c3b8abe75b2bef87a288e378cb8a8478b7",
+      "runKey": "17292f2212a968be112d0acc6ceb009df156045ac0fa8f4a543c427dbcf470ec",
+      "children": [
+        {
+          "nodeId": "logo",
+          "taskId": "wf-75c85753c8340a704795642b040ef7b43ce89640a2229d58",
+          "projectKey": "logo-project",
+          "runtimeIdentity": {
+            "capabilitySnapshotSha256": "4c7bcafa9d635630b86fe9dbb3bb1f002abb7443d296227654050a69534437c9",
+            "cliVersion": "0.2.0-craft.2",
+            "mode": "headless",
+            "pluginId": "vectorcraft",
+            "pluginVersion": "0.1.0-dev.33",
+            "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+          },
+          "root": "children/3598ce6f965b2481fe26316c06b30950c46ac7f8e7229f104aa78f579997668d",
+          "outputs": [
+            {
+              "protocolVersion": "craft-artifact/v1",
+              "assetId": "logo-png",
+              "version": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+              "sha256": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+              "bytes": 4303,
+              "mediaType": "image/png",
+              "producerTaskId": "wf-75c85753c8340a704795642b040ef7b43ce89640a2229d58",
+              "sourceRefs": [],
+              "nativeProjectRef": {
+                "assetId": "wf-75c85753c8340a704795642b040ef7b43ce89640a2229d58-bd874764e1b6eff2",
+                "version": "0b140e132ecbb43d153a0b15e0c0ddabaf0be4ec0d5843a5dfe3681374e610c4",
+                "sha256": "0b140e132ecbb43d153a0b15e0c0ddabaf0be4ec0d5843a5dfe3681374e610c4",
+                "location": "project.vectorcraft"
+              },
+              "renditions": [],
+              "dependencies": [],
+              "technicalMetadata": {
+                "width": 256,
+                "height": 256,
+                "bitDepth": 8,
+                "alpha": true
+              },
+              "lossReportRef": {
+                "assetId": "wf-75c85753c8340a704795642b040ef7b43ce89640a2229d58-832b6e90dd1c3c59",
+                "version": "b18f1495ceef8a33cc3aa89ab5e4d2a340e19eb33615adb378c3063d27d5d640",
+                "sha256": "b18f1495ceef8a33cc3aa89ab5e4d2a340e19eb33615adb378c3063d27d5d640",
+                "location": "exchange-loss.json"
+              },
+              "evidenceRefs": [
+                {
+                  "assetId": "wf-75c85753c8340a704795642b040ef7b43ce89640a2229d58-ffa5b716b5a57837",
+                  "version": "288e1ea6b3da4611ef516fc28f0e7ec64cffe76d4936e219db8f9ebf28878cd8",
+                  "sha256": "288e1ea6b3da4611ef516fc28f0e7ec64cffe76d4936e219db8f9ebf28878cd8",
+                  "location": "manifest.json"
+                }
+              ],
+              "location": "artboard-1.png"
+            }
+          ]
+        }
+      ]
+    },
+    "reviewReceipt": {
+      "schema": "craft-review-receipt/v1",
+      "root": "WORKSPACE/artifacts/craft-art-selective-version-audit-20261008/native-review-final/review",
+      "sha256": "ef365024c4aaf1caea7877004eba05f7543192af1338f717d8d9f176c06df9f1",
+      "packageSha256": "a93591c0769cf60d269c8d81e96134c3b8abe75b2bef87a288e378cb8a8478b7",
+      "dimensions": {
+        "engineering": "PASS",
+        "technical": "PASS",
+        "creative": "NOT_RUN",
+        "acceptance": "NOT_RUN"
+      },
+      "decision": "pending",
+      "taskState": "review_ready",
+      "checks": [
+        {
+          "id": "technical-fixture",
+          "dimension": "technical",
+          "status": "PASS",
+          "evaluator": {
+            "kind": "tool",
+            "id": "fixture-observer",
+            "version": "1"
+          },
+          "target": {
+            "assetId": "logo-png",
+            "version": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+            "sha256": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+            "nodeId": "logo"
+          },
+          "evidence": [
+            {
+              "location": "evidence/60260653448b98efffcbad54d926ca883741a6a25b7ab3f108ef4ba9cb089be8",
+              "sha256": "60260653448b98efffcbad54d926ca883741a6a25b7ab3f108ef4ba9cb089be8"
+            }
+          ],
+          "note": "Tests evidence binding only, not actual media quality",
+          "responsiblePlugin": "vectorcraft",
+          "runtimeIdentity": {
+            "capabilitySnapshotSha256": "4c7bcafa9d635630b86fe9dbb3bb1f002abb7443d296227654050a69534437c9",
+            "cliVersion": "0.2.0-craft.2",
+            "mode": "headless",
+            "pluginId": "vectorcraft",
+            "pluginVersion": "0.1.0-dev.33",
+            "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+          }
+        }
+      ],
+      "scope": "package integrity verified; named evaluator observations recorded, not automatic creative validation; ledger state unchanged"
+    },
+    "movedVerification": {
+      "schema": "craft-review-receipt/v1",
+      "sha256": "ef365024c4aaf1caea7877004eba05f7543192af1338f717d8d9f176c06df9f1",
+      "packageSha256": "a93591c0769cf60d269c8d81e96134c3b8abe75b2bef87a288e378cb8a8478b7",
+      "dimensions": {
+        "engineering": "PASS",
+        "technical": "PASS",
+        "creative": "NOT_RUN",
+        "acceptance": "NOT_RUN"
+      },
+      "decision": "pending",
+      "taskState": "review_ready",
+      "checks": [
+        {
+          "id": "technical-fixture",
+          "dimension": "technical",
+          "status": "PASS",
+          "evaluator": {
+            "kind": "tool",
+            "id": "fixture-observer",
+            "version": "1"
+          },
+          "target": {
+            "assetId": "logo-png",
+            "version": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+            "sha256": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+            "nodeId": "logo"
+          },
+          "evidence": [
+            {
+              "location": "evidence/60260653448b98efffcbad54d926ca883741a6a25b7ab3f108ef4ba9cb089be8",
+              "sha256": "60260653448b98efffcbad54d926ca883741a6a25b7ab3f108ef4ba9cb089be8"
+            }
+          ],
+          "note": "Tests evidence binding only, not actual media quality",
+          "responsiblePlugin": "vectorcraft",
+          "runtimeIdentity": {
+            "capabilitySnapshotSha256": "4c7bcafa9d635630b86fe9dbb3bb1f002abb7443d296227654050a69534437c9",
+            "cliVersion": "0.2.0-craft.2",
+            "mode": "headless",
+            "pluginId": "vectorcraft",
+            "pluginVersion": "0.1.0-dev.33",
+            "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+          }
+        }
+      ],
+      "scope": "package integrity verified; named evaluator observations recorded, not automatic creative validation; ledger state unchanged"
+    },
+    "ledgerAndPackagePreserved": true,
+    "staleAssetRejected": true,
+    "tamperedObservationRejected": true,
+    "revisionWorkflow": {
+      "runKey": "ad722f725125355cbeb19abf89ab6e85482cc809d626f4fcf607e18cad166382",
+      "state": "review_ready",
+      "nodes": {
+        "logo": {
+          "status": "review_ready",
+          "fingerprint": "32a89bfd005e002cde93669a1853e52323e56a04f8e449a62f5fd3d16f9f5d8f",
+          "taskId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a",
+          "root": "WORKSPACE/artifacts/craft-art-selective-version-audit-20261008/native-review-final/project/outputs/0490c54c12e4756eb4a44463cdaad9b8244f29a6d153296a1c53a32ff2222866/delivery",
+          "outputs": [
+            {
+              "protocolVersion": "craft-artifact/v1",
+              "assetId": "logo-png",
+              "version": "cf0615cb6c69056d0db63ee181336705145f3c09bac89ee382c4e7a033d69925",
+              "sha256": "cf0615cb6c69056d0db63ee181336705145f3c09bac89ee382c4e7a033d69925",
+              "bytes": 4285,
+              "mediaType": "image/png",
+              "producerTaskId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a",
+              "sourceRefs": [
+                {
+                  "assetId": "logo-png",
+                  "version": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+                  "sha256": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b"
+                }
+              ],
+              "nativeProjectRef": {
+                "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-bd874764e1b6eff2",
+                "version": "e31ac89085e3764e5da52fdcdab4863dc59a3fc12c4dc425ef025af2b919fad1",
+                "sha256": "e31ac89085e3764e5da52fdcdab4863dc59a3fc12c4dc425ef025af2b919fad1",
+                "location": "project.vectorcraft"
+              },
+              "renditions": [],
+              "dependencies": [],
+              "technicalMetadata": {
+                "width": 256,
+                "height": 256,
+                "bitDepth": 8,
+                "alpha": true
+              },
+              "lossReportRef": {
+                "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-832b6e90dd1c3c59",
+                "version": "e236c8239b1c6398865c67c316d9956e067bfb21aab01126ad8645104acf7ab4",
+                "sha256": "e236c8239b1c6398865c67c316d9956e067bfb21aab01126ad8645104acf7ab4",
+                "location": "exchange-loss.json"
+              },
+              "evidenceRefs": [
+                {
+                  "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-ffa5b716b5a57837",
+                  "version": "5adb2f83bc9b70e0a667935b4ec8d778a71e8e42a58c838a00010bed02684131",
+                  "sha256": "5adb2f83bc9b70e0a667935b4ec8d778a71e8e42a58c838a00010bed02684131",
+                  "location": "manifest.json"
+                }
+              ],
+              "location": "artboard-1.png"
+            }
+          ],
+          "taskReceipt": {
+            "taskId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a",
+            "attemptId": "6235bfc5-508e-4102-83c5-3073171f3467",
+            "state": "review_ready",
+            "epoch": 2,
+            "runtimeIdentity": {
+              "capabilitySnapshotSha256": "4c7bcafa9d635630b86fe9dbb3bb1f002abb7443d296227654050a69534437c9",
+              "cliVersion": "0.2.0-craft.2",
+              "mode": "headless",
+              "pluginId": "vectorcraft",
+              "pluginVersion": "0.1.0-dev.33",
+              "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+            },
+            "outputRefs": [
+              {
+                "protocolVersion": "craft-artifact/v1",
+                "assetId": "logo-png",
+                "version": "cf0615cb6c69056d0db63ee181336705145f3c09bac89ee382c4e7a033d69925",
+                "sha256": "cf0615cb6c69056d0db63ee181336705145f3c09bac89ee382c4e7a033d69925",
+                "bytes": 4285,
+                "mediaType": "image/png",
+                "producerTaskId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a",
+                "sourceRefs": [
+                  {
+                    "assetId": "logo-png",
+                    "version": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+                    "sha256": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b"
+                  }
+                ],
+                "nativeProjectRef": {
+                  "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-bd874764e1b6eff2",
+                  "version": "e31ac89085e3764e5da52fdcdab4863dc59a3fc12c4dc425ef025af2b919fad1",
+                  "sha256": "e31ac89085e3764e5da52fdcdab4863dc59a3fc12c4dc425ef025af2b919fad1",
+                  "location": "project.vectorcraft"
+                },
+                "renditions": [],
+                "dependencies": [],
+                "technicalMetadata": {
+                  "width": 256,
+                  "height": 256,
+                  "bitDepth": 8,
+                  "alpha": true
+                },
+                "lossReportRef": {
+                  "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-832b6e90dd1c3c59",
+                  "version": "e236c8239b1c6398865c67c316d9956e067bfb21aab01126ad8645104acf7ab4",
+                  "sha256": "e236c8239b1c6398865c67c316d9956e067bfb21aab01126ad8645104acf7ab4",
+                  "location": "exchange-loss.json"
+                },
+                "evidenceRefs": [
+                  {
+                    "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-ffa5b716b5a57837",
+                    "version": "5adb2f83bc9b70e0a667935b4ec8d778a71e8e42a58c838a00010bed02684131",
+                    "sha256": "5adb2f83bc9b70e0a667935b4ec8d778a71e8e42a58c838a00010bed02684131",
+                    "location": "manifest.json"
+                  }
+                ],
+                "location": "artboard-1.png"
+              }
+            ],
+            "evidenceRefs": [
+              {
+                "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-ffa5b716b5a57837",
+                "version": "5adb2f83bc9b70e0a667935b4ec8d778a71e8e42a58c838a00010bed02684131",
+                "sha256": "5adb2f83bc9b70e0a667935b4ec8d778a71e8e42a58c838a00010bed02684131",
+                "location": "manifest.json"
+              }
+            ],
+            "error": null
+          }
+        }
+      },
+      "budget": {
+        "accountKey": "178f348701662d530bc32e26816563c553206ca2eaa50b21877297b6e9fb0150",
+        "limits": {
+          "currency": "USD",
+          "maxExternalCalls": 0,
+          "maxMinorUnits": 0,
+          "maxRevisions": 1
+        },
+        "allocated": {
+          "minorUnits": 0,
+          "externalCalls": 0,
+          "revisions": 1
+        }
+      },
+      "projectRoot": "WORKSPACE/artifacts/craft-art-selective-version-audit-20261008/native-review-final/project"
+    },
+    "repeatedRevision": {
+      "runKey": "ad722f725125355cbeb19abf89ab6e85482cc809d626f4fcf607e18cad166382",
+      "state": "review_ready",
+      "nodes": {
+        "logo": {
+          "status": "reused",
+          "fingerprint": "32a89bfd005e002cde93669a1853e52323e56a04f8e449a62f5fd3d16f9f5d8f",
+          "taskId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a",
+          "root": "WORKSPACE/artifacts/craft-art-selective-version-audit-20261008/native-review-final/project/outputs/0490c54c12e4756eb4a44463cdaad9b8244f29a6d153296a1c53a32ff2222866/delivery",
+          "outputs": [
+            {
+              "protocolVersion": "craft-artifact/v1",
+              "assetId": "logo-png",
+              "version": "cf0615cb6c69056d0db63ee181336705145f3c09bac89ee382c4e7a033d69925",
+              "sha256": "cf0615cb6c69056d0db63ee181336705145f3c09bac89ee382c4e7a033d69925",
+              "bytes": 4285,
+              "mediaType": "image/png",
+              "producerTaskId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a",
+              "sourceRefs": [
+                {
+                  "assetId": "logo-png",
+                  "version": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+                  "sha256": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b"
+                }
+              ],
+              "nativeProjectRef": {
+                "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-bd874764e1b6eff2",
+                "version": "e31ac89085e3764e5da52fdcdab4863dc59a3fc12c4dc425ef025af2b919fad1",
+                "sha256": "e31ac89085e3764e5da52fdcdab4863dc59a3fc12c4dc425ef025af2b919fad1",
+                "location": "project.vectorcraft"
+              },
+              "renditions": [],
+              "dependencies": [],
+              "technicalMetadata": {
+                "width": 256,
+                "height": 256,
+                "bitDepth": 8,
+                "alpha": true
+              },
+              "lossReportRef": {
+                "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-832b6e90dd1c3c59",
+                "version": "e236c8239b1c6398865c67c316d9956e067bfb21aab01126ad8645104acf7ab4",
+                "sha256": "e236c8239b1c6398865c67c316d9956e067bfb21aab01126ad8645104acf7ab4",
+                "location": "exchange-loss.json"
+              },
+              "evidenceRefs": [
+                {
+                  "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-ffa5b716b5a57837",
+                  "version": "5adb2f83bc9b70e0a667935b4ec8d778a71e8e42a58c838a00010bed02684131",
+                  "sha256": "5adb2f83bc9b70e0a667935b4ec8d778a71e8e42a58c838a00010bed02684131",
+                  "location": "manifest.json"
+                }
+              ],
+              "location": "artboard-1.png"
+            }
+          ],
+          "taskReceipt": {
+            "taskId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a",
+            "attemptId": "6235bfc5-508e-4102-83c5-3073171f3467",
+            "state": "review_ready",
+            "epoch": 2,
+            "runtimeIdentity": {
+              "capabilitySnapshotSha256": "4c7bcafa9d635630b86fe9dbb3bb1f002abb7443d296227654050a69534437c9",
+              "cliVersion": "0.2.0-craft.2",
+              "mode": "headless",
+              "pluginId": "vectorcraft",
+              "pluginVersion": "0.1.0-dev.33",
+              "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+            },
+            "outputRefs": [
+              {
+                "protocolVersion": "craft-artifact/v1",
+                "assetId": "logo-png",
+                "version": "cf0615cb6c69056d0db63ee181336705145f3c09bac89ee382c4e7a033d69925",
+                "sha256": "cf0615cb6c69056d0db63ee181336705145f3c09bac89ee382c4e7a033d69925",
+                "bytes": 4285,
+                "mediaType": "image/png",
+                "producerTaskId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a",
+                "sourceRefs": [
+                  {
+                    "assetId": "logo-png",
+                    "version": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+                    "sha256": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b"
+                  }
+                ],
+                "nativeProjectRef": {
+                  "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-bd874764e1b6eff2",
+                  "version": "e31ac89085e3764e5da52fdcdab4863dc59a3fc12c4dc425ef025af2b919fad1",
+                  "sha256": "e31ac89085e3764e5da52fdcdab4863dc59a3fc12c4dc425ef025af2b919fad1",
+                  "location": "project.vectorcraft"
+                },
+                "renditions": [],
+                "dependencies": [],
+                "technicalMetadata": {
+                  "width": 256,
+                  "height": 256,
+                  "bitDepth": 8,
+                  "alpha": true
+                },
+                "lossReportRef": {
+                  "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-832b6e90dd1c3c59",
+                  "version": "e236c8239b1c6398865c67c316d9956e067bfb21aab01126ad8645104acf7ab4",
+                  "sha256": "e236c8239b1c6398865c67c316d9956e067bfb21aab01126ad8645104acf7ab4",
+                  "location": "exchange-loss.json"
+                },
+                "evidenceRefs": [
+                  {
+                    "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-ffa5b716b5a57837",
+                    "version": "5adb2f83bc9b70e0a667935b4ec8d778a71e8e42a58c838a00010bed02684131",
+                    "sha256": "5adb2f83bc9b70e0a667935b4ec8d778a71e8e42a58c838a00010bed02684131",
+                    "location": "manifest.json"
+                  }
+                ],
+                "location": "artboard-1.png"
+              }
+            ],
+            "evidenceRefs": [
+              {
+                "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-ffa5b716b5a57837",
+                "version": "5adb2f83bc9b70e0a667935b4ec8d778a71e8e42a58c838a00010bed02684131",
+                "sha256": "5adb2f83bc9b70e0a667935b4ec8d778a71e8e42a58c838a00010bed02684131",
+                "location": "manifest.json"
+              }
+            ],
+            "error": null
+          }
+        }
+      },
+      "budget": {
+        "accountKey": "178f348701662d530bc32e26816563c553206ca2eaa50b21877297b6e9fb0150",
+        "limits": {
+          "currency": "USD",
+          "maxExternalCalls": 0,
+          "maxMinorUnits": 0,
+          "maxRevisions": 1
+        },
+        "allocated": {
+          "minorUnits": 0,
+          "externalCalls": 0,
+          "revisions": 1
+        }
+      },
+      "projectRoot": "WORKSPACE/artifacts/craft-art-selective-version-audit-20261008/native-review-final/project"
+    },
+    "revisedPackageReceipt": {
+      "schema": "craft-project-package-receipt/v1",
+      "state": "review_ready",
+      "root": "WORKSPACE/artifacts/craft-art-selective-version-audit-20261008/native-review-final/revised-package",
+      "sha256": "0aa94a86ae7b09795aa2c3144ed60ae906094743d0ef53300e4fa209c8029449",
+      "runKey": "ad722f725125355cbeb19abf89ab6e85482cc809d626f4fcf607e18cad166382",
+      "children": [
+        {
+          "nodeId": "logo",
+          "taskId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a",
+          "projectKey": "logo-project",
+          "runtimeIdentity": {
+            "capabilitySnapshotSha256": "4c7bcafa9d635630b86fe9dbb3bb1f002abb7443d296227654050a69534437c9",
+            "cliVersion": "0.2.0-craft.2",
+            "mode": "headless",
+            "pluginId": "vectorcraft",
+            "pluginVersion": "0.1.0-dev.33",
+            "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+          },
+          "root": "children/3598ce6f965b2481fe26316c06b30950c46ac7f8e7229f104aa78f579997668d",
+          "outputs": [
+            {
+              "protocolVersion": "craft-artifact/v1",
+              "assetId": "logo-png",
+              "version": "cf0615cb6c69056d0db63ee181336705145f3c09bac89ee382c4e7a033d69925",
+              "sha256": "cf0615cb6c69056d0db63ee181336705145f3c09bac89ee382c4e7a033d69925",
+              "bytes": 4285,
+              "mediaType": "image/png",
+              "producerTaskId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a",
+              "sourceRefs": [
+                {
+                  "assetId": "logo-png",
+                  "version": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+                  "sha256": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b"
+                }
+              ],
+              "nativeProjectRef": {
+                "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-bd874764e1b6eff2",
+                "version": "e31ac89085e3764e5da52fdcdab4863dc59a3fc12c4dc425ef025af2b919fad1",
+                "sha256": "e31ac89085e3764e5da52fdcdab4863dc59a3fc12c4dc425ef025af2b919fad1",
+                "location": "project.vectorcraft"
+              },
+              "renditions": [],
+              "dependencies": [],
+              "technicalMetadata": {
+                "width": 256,
+                "height": 256,
+                "bitDepth": 8,
+                "alpha": true
+              },
+              "lossReportRef": {
+                "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-832b6e90dd1c3c59",
+                "version": "e236c8239b1c6398865c67c316d9956e067bfb21aab01126ad8645104acf7ab4",
+                "sha256": "e236c8239b1c6398865c67c316d9956e067bfb21aab01126ad8645104acf7ab4",
+                "location": "exchange-loss.json"
+              },
+              "evidenceRefs": [
+                {
+                  "assetId": "wf-50e38d9e010c25f28c1eceae33d57b5b40b0eaf0920d699a-ffa5b716b5a57837",
+                  "version": "5adb2f83bc9b70e0a667935b4ec8d778a71e8e42a58c838a00010bed02684131",
+                  "sha256": "5adb2f83bc9b70e0a667935b4ec8d778a71e8e42a58c838a00010bed02684131",
+                  "location": "manifest.json"
+                }
+              ],
+              "location": "artboard-1.png"
+            }
+          ]
+        }
+      ]
+    },
+    "oldReviewAfterRevision": {
+      "schema": "craft-review-receipt/v1",
+      "sha256": "ef365024c4aaf1caea7877004eba05f7543192af1338f717d8d9f176c06df9f1",
+      "packageSha256": "a93591c0769cf60d269c8d81e96134c3b8abe75b2bef87a288e378cb8a8478b7",
+      "dimensions": {
+        "engineering": "PASS",
+        "technical": "PASS",
+        "creative": "NOT_RUN",
+        "acceptance": "NOT_RUN"
+      },
+      "decision": "pending",
+      "taskState": "review_ready",
+      "checks": [
+        {
+          "id": "technical-fixture",
+          "dimension": "technical",
+          "status": "PASS",
+          "evaluator": {
+            "kind": "tool",
+            "id": "fixture-observer",
+            "version": "1"
+          },
+          "target": {
+            "assetId": "logo-png",
+            "version": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+            "sha256": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+            "nodeId": "logo"
+          },
+          "evidence": [
+            {
+              "location": "evidence/60260653448b98efffcbad54d926ca883741a6a25b7ab3f108ef4ba9cb089be8",
+              "sha256": "60260653448b98efffcbad54d926ca883741a6a25b7ab3f108ef4ba9cb089be8"
+            }
+          ],
+          "note": "Tests evidence binding only, not actual media quality",
+          "responsiblePlugin": "vectorcraft",
+          "runtimeIdentity": {
+            "capabilitySnapshotSha256": "4c7bcafa9d635630b86fe9dbb3bb1f002abb7443d296227654050a69534437c9",
+            "cliVersion": "0.2.0-craft.2",
+            "mode": "headless",
+            "pluginId": "vectorcraft",
+            "pluginVersion": "0.1.0-dev.33",
+            "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+          }
+        }
+      ],
+      "scope": "package integrity verified; named evaluator observations recorded, not automatic creative validation; ledger state unchanged"
+    },
+    "oldReviewOnNewPackageRejected": {
+      "error": "review_package_stale",
+      "result": "failed"
+    },
+    "oldDeliveryReviewAndPackagePreservedAfterRevision": true,
+    "calls": [
+      {
+        "script": "workflow.py",
+        "exitCode": 0,
+        "logSha256": "e9908e986d28a1611d44ee5627658329121fd2189dc85b911174a3a4dbcb2329"
+      },
+      {
+        "script": "package.py",
+        "exitCode": 0,
+        "logSha256": "1417109e5215ba791bfb8ec1ec75b750b7bea2724b82b7388137511d5f90c93e"
+      },
+      {
+        "script": "package.py",
+        "exitCode": 0,
+        "logSha256": "ce7d6b5e3d5614a8239443d5e15a1dc125899d8e6443c792ebc5a5e1c884290d"
+      },
+      {
+        "script": "review.py",
+        "exitCode": 0,
+        "logSha256": "06b1cfebfb02c250caa0a4f2c32d3ab31b0b4b5205d2bd1db0642c3623712184"
+      },
+      {
+        "script": "review.py",
+        "exitCode": 0,
+        "logSha256": "f9619831c3f06a6d32413712116df142f593227946880c6ff4f0127647e75bff"
+      },
+      {
+        "script": "workflow.py",
+        "exitCode": 0,
+        "logSha256": "2f4af9ebd0e7e722994a7ae4e0382b2bdef36e0701ebd0c0e06b242e8ed474ff"
+      },
+      {
+        "script": "workflow.py",
+        "exitCode": 0,
+        "logSha256": "7bd03650641b7593558f39dccc601892eb87be8e0ccbd795c2c91f3d33f38752"
+      },
+      {
+        "script": "package.py",
+        "exitCode": 0,
+        "logSha256": "98a7a43a28528f3e52de261ac54403169f98cf02e4e6ab4d29fb06edf5775eb7"
+      },
+      {
+        "script": "review.py",
+        "exitCode": 0,
+        "logSha256": "f9619831c3f06a6d32413712116df142f593227946880c6ff4f0127647e75bff"
+      },
+      {
+        "script": "review.py",
+        "exitCode": 1,
+        "logSha256": "7a77bb8333b2dd2c75a7c8082a924614c19248e264c461588028dd76bd7e577e"
+      },
+      {
+        "script": "review.py",
+        "exitCode": 1,
+        "logSha256": "c159dae3657f3fbb77b7c1d2f89a98c148e4b4abbe035aa4238410cbf28e3909"
+      },
+      {
+        "script": "review.py",
+        "exitCode": 1,
+        "logSha256": "90e5c501747de10d497388f9b0800f56fc9a0d3ec2adb319be871adb6594cded"
+      }
+    ],
+    "scope": "actual fixed installed copied single review skill, public cold native Vector source revision plus separate cold runtime-only moved verification; old version review traceability; declared fixture feedback, no aesthetic or human acceptance"
+  },
+  "driverSha256": {
+    "test/workflow_engine.test.ts": "b24c7f3d15840fc86997cd10073152494fe40298ef2abff5b0cd50cdadcb51ae",
+    "tests/test_review_first_use.py": "a009eccaef5ba725ad4df9ac556f5655dba4f4ce14581fc116b25ae375c7eaa8"
+  },
+  "fixtureCorrection": {
+    "firstRun": "unresolved_reference for logo.id; Boolean union returns logo.ids",
+    "productRedEvidence": false,
+    "firstLogSha256": "e8336a96b604c0210837c46addcb91a84f3af9652fab56114a92a0caa393eba5"
+  },
+  "remainingAcceptance": [
+    "6.12 remains open for every AC-DM-004 scenario at its required source/fixed/native boundary, including SVG, gain, LUT, smart and HD",
+    "This audit verifies core minimum implementation and old-version traceability, not every current-version native creative scenario",
+    "Observation is explicitly fixture feedback; creative and human acceptance remain NOT_RUN",
+    "No production skill bytes or runtime files changed; no new immutable release required"
+  ],
+  "reviewLedgerPreservationBoundary": "Review record and verify preserve ledger before revision; an authorized new workflow revision legitimately updates the ledger while retaining historical references.",
+  "retainedOldReviewAfterNegativeTest": {
+    "observationRestoredFromHashMatchingInput": true,
+    "publicVerificationResult": {
+      "schema": "craft-review-receipt/v1",
+      "sha256": "ef365024c4aaf1caea7877004eba05f7543192af1338f717d8d9f176c06df9f1",
+      "packageSha256": "a93591c0769cf60d269c8d81e96134c3b8abe75b2bef87a288e378cb8a8478b7",
+      "dimensions": {
+        "engineering": "PASS",
+        "technical": "PASS",
+        "creative": "NOT_RUN",
+        "acceptance": "NOT_RUN"
+      },
+      "decision": "pending",
+      "taskState": "review_ready",
+      "checks": [
+        {
+          "id": "technical-fixture",
+          "dimension": "technical",
+          "status": "PASS",
+          "evaluator": {
+            "kind": "tool",
+            "id": "fixture-observer",
+            "version": "1"
+          },
+          "target": {
+            "assetId": "logo-png",
+            "version": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+            "sha256": "82ec85f12f85eb8940933619a8b316e7da6facca583b3e85f49ffbb8e39c710b",
+            "nodeId": "logo"
+          },
+          "evidence": [
+            {
+              "location": "evidence/60260653448b98efffcbad54d926ca883741a6a25b7ab3f108ef4ba9cb089be8",
+              "sha256": "60260653448b98efffcbad54d926ca883741a6a25b7ab3f108ef4ba9cb089be8"
+            }
+          ],
+          "note": "Tests evidence binding only, not actual media quality",
+          "responsiblePlugin": "vectorcraft",
+          "runtimeIdentity": {
+            "capabilitySnapshotSha256": "4c7bcafa9d635630b86fe9dbb3bb1f002abb7443d296227654050a69534437c9",
+            "cliVersion": "0.2.0-craft.2",
+            "mode": "headless",
+            "pluginId": "vectorcraft",
+            "pluginVersion": "0.1.0-dev.33",
+            "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+          }
+        }
+      ],
+      "scope": "package integrity verified; named evaluator observations recorded, not automatic creative validation; ledger state unchanged"
+    },
+    "verificationSha256": "f9619831c3f06a6d32413712116df142f593227946880c6ff4f0127647e75bff",
+    "scope": "After the intentional tamper refusal, restore this test-owned observation from its exact original digest and independently verify the retained old package and review."
+  }
+}

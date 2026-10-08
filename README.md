@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Core asset versioning and selective invalidation implementation is verified; tasks6.10/6.11 are complete. Old packages and review records remain traceable after a native source revision; old review on a new package is refused. Full scenario acceptance6.12 stays open. See [implementation architecture](docs/ArtCraft-Selective-Version-Implementation-Architecture.md).
+
 The maintenance branch corrects command guidance in all ten standalone source skills: offline discovery, standalone domain calls and DAG native delivery now have explicit routes, with obsolete dependency versions removed. Sixteen command regressions and documentation/fixed-index checks pass. Runtime and domain dependencies are unchanged. This plugin locks source91 with the corrected guidance; fixed installation and actual native use require their own version-bound evidence. [Evidence](docs/evidence/command-guidance-refresh-20261008.json).
 
 Fixed source88/plugin116 passes ten independent Art public cold installs (Node/core and selected Vector32), fixed installed five-node brand revision/moved delivery and two real native brand-violation cases. All64 installed identities match;54 unchanged skills retain historical cold evidence. Complete V1 remains open. [Fixed evidence](docs/evidence/craft-art116-brand-guard-fixed-first-use-20261008.json).
