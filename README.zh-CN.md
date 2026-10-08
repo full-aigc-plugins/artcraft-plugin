@@ -489,3 +489,5 @@ Vector33 捆绑升级候选已通过两入口真实混合返工、九变体及�
 质量证据分离与受限明确补丁修订已完成任务8.1–8.6：当前固定技能的审阅迁移／篡改拒绝、真实 Film 解码与损坏副本拒绝、三种原生停止策略及中断恢复通过。创作观察为测试声明，不代表真实审美或人工接受；完整 V1 仍未完成。[机制架构](docs/ArtCraft-Quality-Gates-Architecture.zh_CN.md) · [证据](docs/evidence/quality-mechanisms-acceptance-20261008.json)。
 
 版本绑定与单写的实施任务 **5.1–5.2** 已有当前固定运行时、独立安装技能及四领域原生返工证据。完整 AC-TX-001 验收 **5.3 继续开放**，包括实际 GUI 冲突观察。[版本绑定架构](docs/ArtCraft-Version-Binding-Architecture.zh_CN.md)。
+
+未发布运行时候选已补齐同素材ID／版本的内容不可改写检查，覆盖跨修订及并发输出冲突。固定 runtime122/source94/plugin122 尚未包含此修复。任务2.1已验证，2.2–2.3继续开放。[素材版本架构](docs/ArtCraft-Artifact-Version-Architecture.zh_CN.md)。

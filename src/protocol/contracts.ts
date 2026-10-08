@@ -4,6 +4,7 @@ import { realpath, stat, readFile } from 'node:fs/promises';
 import { resolve, relative, isAbsolute } from 'node:path';
 import { createHash } from 'node:crypto';
 import { isDeepStrictEqual } from 'node:util';
+import { assertArtifactVersions } from './artifact_versions.ts';
 import { inspectPcmWav } from './wav_inspection.ts';
 import { inspectPng } from './png_inspection.ts';
 import { inspectJpeg } from './jpeg_inspection.ts';
@@ -61,6 +62,7 @@ export function validateTask(value: unknown): Record<string, any> {
 export function validateArtifact(value: unknown): Record<string, any> {
   check(artifactSchema, value);
   const artifact = value as Record<string, any>;
+  assertArtifactVersions([artifact]);
   if (artifact.technicalMetadata.durationTicks !== undefined && !artifact.technicalMetadata.timeBase) throw new Error('timebase_required');
   for (const dependency of artifact.dependencies) {
     if (dependency.packaged ? dependency.missingReason !== null : dependency.missingReason === null) throw new Error('dependency_packaging_invalid');

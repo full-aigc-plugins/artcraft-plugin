@@ -3,6 +3,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { randomUUID } from 'node:crypto';
 import { resolve } from 'node:path';
 import { validateTask, planHash, verifyArtifact } from '../protocol/contracts.ts';
+import { assertArtifactVersions } from '../protocol/artifact_versions.ts';
 import { budgetLimits, budgetUsage, allocateBudget } from './budget.ts';
 import type { BudgetSnapshot, BudgetLimits } from './budget.ts';
 import type { NativeDiagnostics } from './native_diagnostics.ts';
@@ -117,6 +118,10 @@ export class TaskLedger {
         return this.receipt(previous);
       }
       if(this.database.prepare('SELECT task_id FROM tasks WHERE task_id=?').get(request.taskId)) throw new Error('task_identity_conflict');
+      if(workflowKey){
+        const workflow=this.database.prepare('SELECT owner_id,workflow_id FROM workflow_runs WHERE run_key=?').get(workflowKey) as {owner_id:string;workflow_id:string};
+        assertArtifactVersions([...this.workflowArtifacts(workflow.owner_id,workflow.workflow_id),...request.inputRefs]);
+      }else assertArtifactVersions([...this.standaloneArtifacts(callerId,projectKey),...request.inputRefs]);
       this.database.prepare('INSERT INTO tasks(task_id,caller_id,plugin_id,idem_key,project_key,binding_hash,request_json,state,created_at) VALUES(?,?,?,?,?,?,?,?,?)').run(request.taskId,callerId,request.runtimeIdentity.pluginId,request.idempotencyKey,projectKey,bindingHash,JSON.stringify(request),'planned',new Date().toISOString());
       this.ensureBudgetAccount(accountKey,budgetLimits(request.budget));
       this.database.prepare('INSERT INTO task_budget_links(task_id,account_key) VALUES(?,?)').run(request.taskId,accountKey);
@@ -267,6 +272,7 @@ export class TaskLedger {
       if(row.state==='review_ready' && row.epoch===epoch && this.requireStopped(taskId,token))return this.receipt(row);
       this.requireLease(row,epoch);this.requireStopped(taskId,token);
       if(row.state!=='verifying') throw new Error('invalid_transition');
+      assertArtifactVersions([...this.taskArtifactHistory(taskId),...checked]);
       this.database.prepare('INSERT INTO outcomes(task_id,outputs_json,evidence_json) VALUES(?,?,?)').run(taskId,JSON.stringify(checked),JSON.stringify(evidenceRefs));
       this.database.prepare('UPDATE tasks SET state=?,error_json=NULL WHERE task_id=?').run('review_ready',taskId);
       this.database.prepare('DELETE FROM leases WHERE task_id=? AND epoch=?').run(taskId,epoch);
@@ -290,6 +296,29 @@ export class TaskLedger {
   /** 执行器读取已锁定请求，不允许更改原始计划绑定。 */
   request(taskId:string):Record<string,any> {return JSON.parse(this.row(taskId).request_json);}
 
+  /** 逻辑项目内跨修订读取已登记输入和节点产物，不把授权变化当作新素材命名空间。 */
+  private workflowArtifacts(ownerId:string,workflowId:string):Record<string,any>[] {
+    const plans=this.database.prepare('SELECT plan_json FROM workflow_runs WHERE owner_id=? AND workflow_id=?').all(ownerId,workflowId) as {plan_json:string}[];
+    const nodes=this.database.prepare('SELECT n.record_json FROM workflow_nodes n JOIN workflow_runs w ON n.run_key=w.run_key WHERE w.owner_id=? AND w.workflow_id=?').all(ownerId,workflowId) as {record_json:string}[];
+    // 原任务outcome比可更新的节点摘要更持久，节点失败或摘要重写不能抹掉版本历史。
+    const outcomes=this.database.prepare('SELECT o.outputs_json FROM outcomes o JOIN task_budget_links t ON o.task_id=t.task_id WHERE t.account_key IN (SELECT b.account_key FROM workflow_budget_links b JOIN workflow_runs w ON b.run_key=w.run_key WHERE w.owner_id=? AND w.workflow_id=?)').all(ownerId,workflowId) as {outputs_json:string}[];
+    return [...plans.flatMap(row=>JSON.parse(row.plan_json).nodes.flatMap((node:Record<string,any>)=>(node.externalInputs ?? []).map((input:Record<string,any>)=>input.artifact))),...nodes.flatMap(row=>JSON.parse(row.record_json).outputs ?? []),...outcomes.flatMap(row=>JSON.parse(row.outputs_json))];
+  }
+
+  /** 发布前在同一写事务内核对历史；独立任务按调用者与工程隔离。 */
+  private standaloneArtifacts(callerId:string,projectKey:string):Record<string,any>[] {
+    const records=this.database.prepare('SELECT t.request_json,o.outputs_json FROM tasks t LEFT JOIN outcomes o ON t.task_id=o.task_id WHERE t.caller_id=? AND t.project_key=?').all(callerId,projectKey) as {request_json:string;outputs_json:string|null}[];
+    return records.flatMap(record=>[...JSON.parse(record.request_json).inputRefs,...(record.outputs_json ? JSON.parse(record.outputs_json) : [])]);
+  }
+
+  /** 根据任务预算链接恢复逻辑项目命名空间；跨授权修订仍核对原素材版本。 */
+  private taskArtifactHistory(taskId:string):Record<string,any>[] {
+    const workflow=this.database.prepare('SELECT w.owner_id,w.workflow_id FROM task_budget_links t JOIN workflow_budget_links b ON t.account_key=b.account_key JOIN workflow_runs w ON b.run_key=w.run_key WHERE t.task_id=? LIMIT 1').get(taskId) as {owner_id:string;workflow_id:string}|undefined;
+    if(workflow)return this.workflowArtifacts(workflow.owner_id,workflow.workflow_id);
+    const context=this.database.prepare('SELECT caller_id,project_key FROM tasks WHERE task_id=?').get(taskId) as {caller_id:string;project_key:string};
+    return this.standaloneArtifacts(context.caller_id,context.project_key);
+  }
+
   /** 工作流同一版本绑定固定计划；只登记图，不启动领域任务。 */
   beginWorkflow(plan:Record<string,any>):string {
     const key=planHash({ownerId:plan.ownerId,workflowId:plan.workflowId,revision:plan.revision});
@@ -298,9 +327,12 @@ export class TaskLedger {
       const existing=this.database.prepare('SELECT plan_hash FROM workflow_runs WHERE run_key=?').get(key) as {plan_hash:string}|undefined;
       if(existing){
         if(existing.plan_hash!==digest)throw new Error('workflow_revision_conflict');
+        assertArtifactVersions(this.workflowArtifacts(plan.ownerId,plan.workflowId));
         if(!this.database.prepare('SELECT account_key FROM workflow_budget_links WHERE run_key=?').get(key))throw new Error('budget_history_untracked');
         return key;
       }
+      const incoming=plan.nodes.flatMap((node:Record<string,any>)=>(node.externalInputs ?? []).map((input:Record<string,any>)=>input.artifact));
+      assertArtifactVersions([...this.workflowArtifacts(plan.ownerId,plan.workflowId),...incoming]);
       const limits=budgetLimits(plan.budget),accountKey=planHash({ownerId:plan.ownerId,workflowId:plan.workflowId,authorizationRef:plan.authorizationRef});
       // 旧账本未计量的执行不得隐式迁成免费历史，调用者仍能读取旧状态。
       const history=this.database.prepare('SELECT w.plan_json,b.account_key FROM workflow_runs w LEFT JOIN workflow_budget_links b ON w.run_key=b.run_key WHERE w.owner_id=? AND w.workflow_id=?').all(plan.ownerId,plan.workflowId) as {plan_json:string;account_key:string|null}[];
@@ -339,6 +371,11 @@ export class TaskLedger {
   /** 保存节点与子任务引用；产物只在公共核验后登记为就绪。 */
   saveWorkflowNode(key:string,nodeId:string,record:Record<string,any>):void {
     this.transaction(()=>{
+      if(record.outputs?.length){
+        const workflow=this.database.prepare('SELECT owner_id,workflow_id FROM workflow_runs WHERE run_key=?').get(key) as {owner_id:string;workflow_id:string}|undefined;
+        if(!workflow)throw new Error('workflow_missing');
+        assertArtifactVersions([...this.workflowArtifacts(workflow.owner_id,workflow.workflow_id),...record.outputs]);
+      }
       const result=this.database.prepare('UPDATE workflow_nodes SET fingerprint=?,record_json=? WHERE run_key=? AND node_id=?').run(record.fingerprint ?? null,JSON.stringify(record),key,nodeId);
       if(result.changes!==1)throw new Error('workflow_node_missing');
     });

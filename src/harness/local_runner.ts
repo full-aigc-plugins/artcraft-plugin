@@ -105,7 +105,7 @@ export class LocalRunner {
       return await this.ledger.reviewReady(taskId,status.epoch,execution.token,verified.root,verified.outputs,verified.evidenceRefs);
     }catch(error){
       if(this.ledger.status(taskId).state==='cancel_requested')return settle('cancelled','process_stopped');
-      return settle('failed','artifact_invalid');
+      return settle('failed',(error as Error).message==='artifact_version_conflict' ? 'artifact_version_conflict' : 'artifact_invalid');
     }
   }
 }

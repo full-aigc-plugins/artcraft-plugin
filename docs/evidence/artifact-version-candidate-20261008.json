@@ -1,0 +1,346 @@
+{
+  "schema": "craft-artifact-version-candidate/v1",
+  "result": "PASS-CANDIDATE",
+  "goalComplete": false,
+  "completedTasks": [
+    "2.1"
+  ],
+  "openTasks": [
+    "2.2",
+    "2.3"
+  ],
+  "baselineCommit": "ef6656f0fa6c51717e8eaa7a09fbdfd3ea0d0d55",
+  "baselineRuntime": "0.1.0-dev.122-runtime.1",
+  "candidatePublished": false,
+  "installedFixedSkillContainsCandidate": false,
+  "platform": "darwin-arm64",
+  "red": {
+    "tests": 17,
+    "passed": 2,
+    "failed": 15,
+    "reason": "Assertions observe accepted conflicting inputs, published conflicting outputs, and missing immutable reference/legacy gates; real SQLite, filesystem and child processes; no import/environment failures"
+  },
+  "green": {
+    "target": {
+      "tests": 17,
+      "passed": 17,
+      "failed": 0
+    },
+    "runtime": {
+      "tests": 292,
+      "passed": 272,
+      "skipped": 20,
+      "failed": 0
+    },
+    "nativeMixed": {
+      "tests": 1,
+      "passed": 1,
+      "skipped": 0,
+      "seconds": 19.827
+    }
+  },
+  "codeHashes": {
+    "src/protocol/artifact_versions.ts": "8b2c127fe32fa97b34458d8934abe6a43cfb3ebabb396805a7bda31d60c3094c",
+    "src/protocol/contracts.ts": "44de8c945778c0380c505c50ab26d840c4248bdf6618fd80271d95219aa3b2c3",
+    "src/harness/task_ledger.ts": "b3874dafa4e1f0d3b2f5a7affa85fc0d6805abcee7032408320745f6b79500b2",
+    "src/harness/local_runner.ts": "3d8a65c256163d394a10936361eff52f3b83cb8abd3a25ea6a77091aeff1ed6d",
+    "test/artifact_versions.test.ts": "b779afbdac4092a7e272fcc9cd1380710090a3d03f4d7797bdd264e84119d02d",
+    "openspec/changes/establish-v1-plugin/specs/craft-artifact-protocol/spec.md": "779ab42d9b65dd258ff6dab004f538191ea2da4580ec318820fdc1112d6d6386"
+  },
+  "logHashes": {
+    "red-final": "b17f07772bc8aef5127606fd5d05346ad71dd7ffef15edb4389a1b7bbd62e9a7",
+    "final-green": "2b2ab4c7b195d9c2bfed97225322d212644b1b0e498f232e3494322c830365f1",
+    "verified-regression": "5d2ee628e3292e6494aa8e91a46caca5f3df88053da9e77cf585e854cae61255",
+    "native-candidate": "a3b6fd30d9e6303050c93a1a7a893d79c01f42fe7818e21642df7d900ac090b6"
+  },
+  "nativeInputRefusal": {
+    "schema": "craft-artifact-version-native-refusal/v1",
+    "result": "PASS",
+    "repeatedRefusals": [
+      {
+        "exitCode": 1,
+        "reply": {
+          "error": "artifact_version_conflict",
+          "errorDetail": {
+            "code": "artifact_version_conflict",
+            "message": "artifact_version_conflict"
+          }
+        }
+      },
+      {
+        "exitCode": 1,
+        "reply": {
+          "error": "artifact_version_conflict",
+          "errorDetail": {
+            "code": "artifact_version_conflict",
+            "message": "artifact_version_conflict"
+          }
+        }
+      }
+    ],
+    "tablesPreserved": 12,
+    "nativeFilesPreserved": 251,
+    "originalAsset": {
+      "assetId": "logo-png",
+      "version": "8e752a392144b88940dbba41e8d27e44a87269cdac0deb2478682e53985572a4",
+      "sha256": "8e752a392144b88940dbba41e8d27e44a87269cdac0deb2478682e53985572a4"
+    },
+    "replacementSha256": "14690b8ef5b39b95e246d049d6e1c4fbdc793cbe2139aeadc14773850d78275b",
+    "scope": "Candidate public Node CLI against current four-domain native workflow ledger; old version with different valid native poster PNG refuses before new task or budget allocation; not fixed release or installed Python entry acceptance"
+  },
+  "nativeMixedChecks": [
+    "four native projects reopened by domain helpers",
+    "actual PNG/media collection and SHA lineage",
+    "MP4 decoded 12 frames with audio",
+    "SRT text",
+    "same workflow no replay",
+    "Logo revision rebuilt all consumers",
+    "original native projects and narration unchanged"
+  ],
+  "nativeOutputBindings": {
+    "first": {
+      "logo": {
+        "taskId": "wf-e1a648dd1559b11c478acfb979932bde2355013e679907a9",
+        "outputs": [
+          {
+            "assetId": "logo-png",
+            "version": "9ca306be5ecca1707dffa875483e5a840f6404331d532f73237d3ad5b749854b",
+            "sha256": "9ca306be5ecca1707dffa875483e5a840f6404331d532f73237d3ad5b749854b",
+            "producerTaskId": "wf-e1a648dd1559b11c478acfb979932bde2355013e679907a9",
+            "nativeProjectRef": {
+              "assetId": "wf-e1a648dd1559b11c478acfb979932bde2355013e679907a9-bd874764e1b6eff2",
+              "version": "b2ef135667512b9a02d6b797781296a713660921aee789f7e0e0836307eeb3c9",
+              "sha256": "b2ef135667512b9a02d6b797781296a713660921aee789f7e0e0836307eeb3c9",
+              "location": "project.vectorcraft"
+            },
+            "sourceRefs": []
+          }
+        ]
+      },
+      "poster": {
+        "taskId": "wf-a2cb9cde0a91e5ad991e8fb3be96ca292bc66cb4db7b8747",
+        "outputs": [
+          {
+            "assetId": "poster-png",
+            "version": "f8c28eca681834292c7adc484e6e17174ef8e97a908bf22e42a62e7d13805f18",
+            "sha256": "f8c28eca681834292c7adc484e6e17174ef8e97a908bf22e42a62e7d13805f18",
+            "producerTaskId": "wf-a2cb9cde0a91e5ad991e8fb3be96ca292bc66cb4db7b8747",
+            "nativeProjectRef": {
+              "assetId": "wf-a2cb9cde0a91e5ad991e8fb3be96ca292bc66cb4db7b8747-db69c59fbc5bf076",
+              "version": "28dc8b45e4f6f3832c871fc7e28022869010c27adc15198f6b22c92a05b36546",
+              "sha256": "28dc8b45e4f6f3832c871fc7e28022869010c27adc15198f6b22c92a05b36546",
+              "location": "project.pcraft"
+            },
+            "sourceRefs": [
+              {
+                "assetId": "logo-png",
+                "version": "9ca306be5ecca1707dffa875483e5a840f6404331d532f73237d3ad5b749854b",
+                "sha256": "9ca306be5ecca1707dffa875483e5a840f6404331d532f73237d3ad5b749854b"
+              }
+            ]
+          }
+        ]
+      },
+      "intro": {
+        "taskId": "wf-07207458fa529bdab15c4ec93c8ad57239468f6709180c04",
+        "outputs": [
+          {
+            "assetId": "intro-video",
+            "version": "2313d79313238f33aeaaabd37759a1534e64daebe9b9ff608bca7f79cb128e5f",
+            "sha256": "2313d79313238f33aeaaabd37759a1534e64daebe9b9ff608bca7f79cb128e5f",
+            "producerTaskId": "wf-07207458fa529bdab15c4ec93c8ad57239468f6709180c04",
+            "nativeProjectRef": {
+              "assetId": "wf-07207458fa529bdab15c4ec93c8ad57239468f6709180c04-ccf7ce43c87e3645",
+              "version": "471a32a5e9ec65e63ba809236df516f97a008d29000666f251774dc05b236aa0",
+              "sha256": "471a32a5e9ec65e63ba809236df516f97a008d29000666f251774dc05b236aa0",
+              "location": "project.ecproj"
+            },
+            "sourceRefs": [
+              {
+                "assetId": "logo-png",
+                "version": "9ca306be5ecca1707dffa875483e5a840f6404331d532f73237d3ad5b749854b",
+                "sha256": "9ca306be5ecca1707dffa875483e5a840f6404331d532f73237d3ad5b749854b"
+              }
+            ]
+          }
+        ]
+      },
+      "film": {
+        "taskId": "wf-0cf695a173ba62eacfe8298bf4a2f6b0ca4303f8417b607a",
+        "outputs": [
+          {
+            "assetId": "film-video",
+            "version": "58aa9026dc273f03420b7b784717a5ad6cee57d49a3b7b6e0c69482a28e979e6",
+            "sha256": "58aa9026dc273f03420b7b784717a5ad6cee57d49a3b7b6e0c69482a28e979e6",
+            "producerTaskId": "wf-0cf695a173ba62eacfe8298bf4a2f6b0ca4303f8417b607a",
+            "nativeProjectRef": {
+              "assetId": "wf-0cf695a173ba62eacfe8298bf4a2f6b0ca4303f8417b607a-9e6a55f19dc1283d",
+              "version": "58f56f17235795e4812364f795a6dbc710d0bb1e54f21330cfe22cca5dd32877",
+              "sha256": "58f56f17235795e4812364f795a6dbc710d0bb1e54f21330cfe22cca5dd32877",
+              "location": "project.fcproj"
+            },
+            "sourceRefs": [
+              {
+                "assetId": "intro-video",
+                "version": "2313d79313238f33aeaaabd37759a1534e64daebe9b9ff608bca7f79cb128e5f",
+                "sha256": "2313d79313238f33aeaaabd37759a1534e64daebe9b9ff608bca7f79cb128e5f"
+              },
+              {
+                "assetId": "voice",
+                "version": "v1",
+                "sha256": "75230ab4b54bdf5433f55d823afa81bb2193224df0f4dbc62be64951980dd685"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "second": {
+      "logo": {
+        "taskId": "wf-b732ddf244b54939bfef92dbe3882b2b2f65015e2b8cb525",
+        "outputs": [
+          {
+            "assetId": "logo-png",
+            "version": "8e752a392144b88940dbba41e8d27e44a87269cdac0deb2478682e53985572a4",
+            "sha256": "8e752a392144b88940dbba41e8d27e44a87269cdac0deb2478682e53985572a4",
+            "producerTaskId": "wf-b732ddf244b54939bfef92dbe3882b2b2f65015e2b8cb525",
+            "nativeProjectRef": {
+              "assetId": "wf-b732ddf244b54939bfef92dbe3882b2b2f65015e2b8cb525-bd874764e1b6eff2",
+              "version": "eb513ac608f3b55d898da3c1ecf42d2fbfee640d6f4530ff696d80de73a48160",
+              "sha256": "eb513ac608f3b55d898da3c1ecf42d2fbfee640d6f4530ff696d80de73a48160",
+              "location": "project.vectorcraft"
+            },
+            "sourceRefs": []
+          }
+        ]
+      },
+      "intro": {
+        "taskId": "wf-5e720f3862030a30595dbf7b37ac75d245a979942a52a752",
+        "outputs": [
+          {
+            "assetId": "intro-video",
+            "version": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9",
+            "sha256": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9",
+            "producerTaskId": "wf-5e720f3862030a30595dbf7b37ac75d245a979942a52a752",
+            "nativeProjectRef": {
+              "assetId": "wf-5e720f3862030a30595dbf7b37ac75d245a979942a52a752-ccf7ce43c87e3645",
+              "version": "abd89cf82a6e2c632969dd81d3733f58f2e66a15961828604baaec1a87e31e7e",
+              "sha256": "abd89cf82a6e2c632969dd81d3733f58f2e66a15961828604baaec1a87e31e7e",
+              "location": "project.ecproj"
+            },
+            "sourceRefs": [
+              {
+                "assetId": "logo-png",
+                "version": "8e752a392144b88940dbba41e8d27e44a87269cdac0deb2478682e53985572a4",
+                "sha256": "8e752a392144b88940dbba41e8d27e44a87269cdac0deb2478682e53985572a4"
+              }
+            ]
+          }
+        ]
+      },
+      "poster": {
+        "taskId": "wf-5bc5e4feba83bf2327ccabc9db77adf6803b883a1afc0071",
+        "outputs": [
+          {
+            "assetId": "poster-png",
+            "version": "14690b8ef5b39b95e246d049d6e1c4fbdc793cbe2139aeadc14773850d78275b",
+            "sha256": "14690b8ef5b39b95e246d049d6e1c4fbdc793cbe2139aeadc14773850d78275b",
+            "producerTaskId": "wf-5bc5e4feba83bf2327ccabc9db77adf6803b883a1afc0071",
+            "nativeProjectRef": {
+              "assetId": "wf-5bc5e4feba83bf2327ccabc9db77adf6803b883a1afc0071-db69c59fbc5bf076",
+              "version": "b78941910f7a7c545455393b4bcb358de75356f00d476f09d16aba4baf731535",
+              "sha256": "b78941910f7a7c545455393b4bcb358de75356f00d476f09d16aba4baf731535",
+              "location": "project.pcraft"
+            },
+            "sourceRefs": [
+              {
+                "assetId": "logo-png",
+                "version": "8e752a392144b88940dbba41e8d27e44a87269cdac0deb2478682e53985572a4",
+                "sha256": "8e752a392144b88940dbba41e8d27e44a87269cdac0deb2478682e53985572a4"
+              }
+            ]
+          }
+        ]
+      },
+      "film": {
+        "taskId": "wf-92742cda6b7967521a421208d1596cadbb737277cb8f3e1f",
+        "outputs": [
+          {
+            "assetId": "film-video",
+            "version": "ce4aeaa73b8e511acfb9ce099fef8918dd50110cfbf691587317e060423a9c17",
+            "sha256": "ce4aeaa73b8e511acfb9ce099fef8918dd50110cfbf691587317e060423a9c17",
+            "producerTaskId": "wf-92742cda6b7967521a421208d1596cadbb737277cb8f3e1f",
+            "nativeProjectRef": {
+              "assetId": "wf-92742cda6b7967521a421208d1596cadbb737277cb8f3e1f-9e6a55f19dc1283d",
+              "version": "17c17909dc5be2ae74d22a40a42dfe903010b20861b6322d67c4ec449134d641",
+              "sha256": "17c17909dc5be2ae74d22a40a42dfe903010b20861b6322d67c4ec449134d641",
+              "location": "project.fcproj"
+            },
+            "sourceRefs": [
+              {
+                "assetId": "intro-video",
+                "version": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9",
+                "sha256": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9"
+              },
+              {
+                "assetId": "voice",
+                "version": "v1",
+                "sha256": "75230ab4b54bdf5433f55d823afa81bb2193224df0f4dbc62be64951980dd685"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "nativeSourceRevisions": {
+    "logo": {
+      "taskId": "wf-c8071fbb2ba64a5bafc1484390b3efc37aba70422de9aa71",
+      "status": "review_ready",
+      "nativeProjectSha256": "a0420c317259df80802bc0c428a54a12ceeb0fd273833b45dedfbd9d1acde290"
+    },
+    "poster": {
+      "taskId": "wf-cb387b6352385a52a2e0346631e5c1aec44a0a2f32a48d18",
+      "status": "review_ready",
+      "nativeProjectSha256": "861aff4cbc1764dd0880f4062117d4a2d89bc7e68ae5e3e87db9d628a6831052"
+    },
+    "intro": {
+      "taskId": "wf-f12b7fb8387de6150c94fb1a64bf3912a3dbdbd2ee881fb5",
+      "status": "review_ready",
+      "nativeProjectSha256": "3e709e3e18e874e35231a67bd7818e9713b4f3c2f6f8688945f8ba719ccec17e"
+    },
+    "film": {
+      "taskId": "wf-0033a9f450fd093381cef9d8f19b6d9c18c2d181b10787ee",
+      "status": "review_ready",
+      "nativeProjectSha256": "bae21a85ef2639495f4a0fba8baa59a2d9fbcdcfe11aee93faf8589fdd13a254"
+    }
+  },
+  "implementation": {
+    "namespace": "ownerId/workflowId across authorization scopes; callerId/projectKey for standalone tasks",
+    "migration": "none; use current tables and durable outcomes",
+    "refusalTiming": "inputs before revision/task budget allocation; outputs before publication in write transaction",
+    "recovery": "legacy contradictory history stays intact; frozen replay refuses; no automatic rewrite",
+    "concurrency": "two real child processes produce different bytes for one version; exactly one ready output, one precise failed task; repeated workflow does not replay or allocate again"
+  },
+  "limits": [
+    "Unpublished runtime candidate; fixed source94/plugin122 still execute previous runtime122 bytes",
+    "Fixed runtime/source/plugin issuance and installed public Python/cold host verification remain pending under 2.2",
+    "Complete artifact protocol including media/time/consumer matrices remains open under 2.3",
+    "No actual GUI, creative/human, other platform or large-ledger performance acceptance"
+  ],
+  "baselineFixedRuntime": {
+    "archiveSha256": "dee84246361abde40086c64a4a7032c41bae91c4402ebbc28bcb8d25c61e0232",
+    "filesMatched": 29,
+    "matches": true
+  },
+  "maintenance": {
+    "tests": 112,
+    "passed": 106,
+    "skipped": 6,
+    "failed": 0,
+    "documentation": "PASS",
+    "openspecStrict": "PASS",
+    "independentSkillResources": "PASS",
+    "openImplementationTasks": 38
+  }
+}

@@ -29,6 +29,13 @@ ArtCraft SHALL 维护 craft-artifact/v1 的唯一规范事实源；清单包含 
 - **WHEN** 仅修改 Logo 版本，配音无依赖边
 - **THEN** 使 Logo 的传递下游失效，配音节点保持有效；拒绝循环派生边
 
+#### Scenario: AC-CP-002-VERSION 同版本内容不可改写
+
+- **WHEN** 同一 owner 与逻辑 workflow 的新修订、授权范围或节点交付再次声明同一 assetId 与 version
+- **THEN** 该身份及原生工程、表示、依赖与证据引用 SHALL 保持同一 sha256；冲突返回 artifact_version_conflict，不通过变更授权范围清除历史绑定
+- **AND** 输入冲突在登记新工作流及分配修订预算前拒绝；输出冲突不得发布为就绪产物，不覆盖旧产物
+- **AND** 新版本可以绑定新内容；不同 owner 或逻辑 workflow 独立命名；独立任务按 caller 与工程隔离
+
 素材字段约束（本需求的组成部分）：
 
 | 字段 | 类型与规则 |
