@@ -1,8 +1,10 @@
 # ArtCraft Agent Plugin
 
-源码候选已补充固定品牌／主体参考的一致性观察绑定：8 项目标 fixture 与 7 项既有审阅测试通过。6.13 完成，6.14／6.15 仍未完成；公开发行身份不变。见 [候选架构](docs/ArtCraft-Consistency-Candidate-Architecture.zh_CN.md)。
+固定插件127／技能源99的一致性实现已验证：十入口公开冷启动、宿主64项身份、真实五子工程品牌／主体交付、观察绑定及 STALE／reevaluate 拒绝通过。当前 Photo 保护／笔刷与移动报告通过；旧测试的“失败目录不存在”断言已改为核验仅含失败证据且零输出。6.14完成，6.15仍待旧依赖拒绝的完整证据审计，剩23项编号任务。[固定证据](docs/evidence/consistency-fixed127-20261009.json)。
 
-能力路由任务6.6已完成当前11个场景；十个固定安装入口各自完成完整四域混合网关冷启动、原生源返工、恢复与移动包验收。插件126／源98／runtime126生产字节保持不变。仍有24项编号任务及完整V1未完成。见[验收架构](docs/ArtCraft-Capability-Routing-Acceptance-Architecture.zh_CN.md)。
+此前源码候选检查点：源码候选已补充固定品牌／主体参考的一致性观察绑定：8 项目标 fixture 与 7 项既有审阅测试通过。6.13 完成，6.14／6.15 仍未完成；公开发行身份不变。见 [候选架构](docs/ArtCraft-Consistency-Candidate-Architecture.zh_CN.md)。
+
+能力路由任务6.6已完成当前11个场景；十个固定安装入口各自完成完整四域混合网关冷启动、原生源返工、恢复与移动包验收。插件126／源98／runtime126生产字节保持不变。仍有23项编号任务及完整V1未完成。见[验收架构](docs/ArtCraft-Capability-Routing-Acceptance-Architecture.zh_CN.md)。
 
 此前专项检查点（当时6.6开放，现已完成）：固定126补验已通过真实混合ASR、Vector外观、Effect表达式、Photo蒙版调整与四类非可信源拒绝、四领域网关／命令组件，以及十入口各自的单Vector Brief网关冷启动／返工／移动包。64安装技能树与每个入口的33个运行时文件符合发布锁。6.6继续开放，十入口各自完整混合矩阵仍待验。见[范围与证据](docs/ArtCraft-Routing-Scenario-Revalidation.zh_CN.md)。
 
@@ -30,7 +32,7 @@ DAG节点身份修复已固定至插件126／源98／runtime126；6.7／6.8核�
 
 多领域创作需求进入，交付项目清单、工作流记录、四领域子工程引用及验收记录。
 
-当前插件候选：`0.1.0-dev.127`；独立技能源：`0.1.0-dev.99`；一致性固定安装验收待完成。完整V1仍在实施。
+当前固定插件：`0.1.0-dev.127`；独立技能源：`0.1.0-dev.99`；限定一致性实现安装验收通过。完整V1仍在实施。
 
 源84修复工作流入口结构化拒绝，兼容保留error与workflowReceipt；固定安装112验收另行记录。[架构](docs/ArtCraft-Workflow-Error-Detail-Architecture.zh_CN.md)。
 此前固定字幕修正版验收：64安装身份与CLI探测匹配；23变化技能各自独立冷安装／命令发现通过，41完整摘要一致技能复用历史冷证据；两个当前安装原生字幕／品牌案例通过。仅证明所列安装和场景，完整V1仍开放。[当前固定证据](docs/Craft-Caption-Fixed-First-Use.zh_CN.md)。

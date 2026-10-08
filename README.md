@@ -1,8 +1,10 @@
 # ArtCraft Agent Plugin
 
-Source-candidate consistency review now binds fixed brand/subject references to every observed output; eight targeted fixture tests and seven legacy review tests pass. Task6.13 is complete;6.14/6.15 remain open. Public release identities are unchanged. See [candidate architecture](docs/ArtCraft-Consistency-Candidate-Architecture.md).
+Fixed plugin127/source99 consistency implementation is verified: ten independent public-source cold entries, all64 installed host identities, actual five-child native brand/subject delivery, bound observations and STALE/reevaluate refusals. Current Photo protection/retouch and moved report pass; a historical test assumption about failure-directory absence was corrected to verify failure-only evidence and zero outputs. Task6.14 is complete;6.15 remains open for the complete old-dependency refusal audit. Twenty-three numbered tasks remain. [Fixed evidence](docs/evidence/consistency-fixed127-20261009.json).
 
-Capability-routing task6.6 is complete for all eleven current scenarios, including separate full four-domain mixed gateway cold starts, native source revisions, recovery and moved packages through all ten installed entries. Fixed plugin126/source98/runtime126 bytes remain unchanged. Twenty-four numbered tasks and full V1 remain open. See [acceptance architecture](docs/ArtCraft-Capability-Routing-Acceptance-Architecture.md).
+Earlier source-candidate checkpoint: Source-candidate consistency review now binds fixed brand/subject references to every observed output; eight targeted fixture tests and seven legacy review tests pass. Task6.13 is complete;6.14/6.15 remain open. Public release identities are unchanged. See [candidate architecture](docs/ArtCraft-Consistency-Candidate-Architecture.md).
+
+Capability-routing task6.6 is complete for all eleven current scenarios, including separate full four-domain mixed gateway cold starts, native source revisions, recovery and moved packages through all ten installed entries. Fixed plugin126/source98/runtime126 bytes remain unchanged. Twenty-three numbered tasks and full V1 remain open. See [acceptance architecture](docs/ArtCraft-Capability-Routing-Acceptance-Architecture.md).
 
 Earlier specialized checkpoint (6.6 was open then; it is now complete): Fixed126 routing revalidation passes real mixed ASR, Vector appearance, Effect expressions, Photo masked adjustment and four untrusted-source refusals, four-domain gateways and command components, and ten independent Vector Brief gateway cold starts/revisions/moved packages. All 64 installed trees and 33 runtime files in each public entry match the release locks. Task6.6 stays open for the complete mixed-workflow matrix per entry. See [scope and evidence](docs/ArtCraft-Routing-Scenario-Revalidation.md).
 
@@ -30,7 +32,7 @@ Fixed source86/plugin114 passes ten independent Art cold installations and a ret
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current plugin candidate: `0.1.0-dev.127`; independent skills: `0.1.0-dev.99`; installed consistency qualification pending. Full V1 remains in progress.
+Current fixed plugin: `0.1.0-dev.127`; independent skills: `0.1.0-dev.99`; bounded installed consistency implementation verified. Full V1 remains in progress.
 
 Workflow launcher structured rejection is fixed in source84. Legacy error and workflowReceipt remain compatible; fixed installed112 qualification is recorded separately. [Architecture](docs/ArtCraft-Workflow-Error-Detail-Architecture.md).
 Previous fixed caption-size qualification:64 installed identities and CLI probes match;23 changed skills each pass independent cold discovery, while41 unchanged whole-tree hashes retain historical cold proof. Two current installed native caption/brand cases pass. This is bounded installation and scene evidence, not fullV1. [Current fixed evidence](docs/Craft-Caption-Fixed-First-Use.md).
