@@ -1,16 +1,16 @@
 {
   "schema": "artcraft-distribution/v1",
-  "version": "0.1.0-dev.134-runtime.1",
+  "version": "0.1.0-dev.135-runtime.1",
   "bundles": {
     "artcraft-runtime": {
-      "version": "0.1.0-dev.134-runtime.1",
-      "filename": "artcraft-runtime-0.1.0-dev.134-runtime.1.zip",
-      "url": "https://github.com/full-aigc-plugins/artcraft-plugin/releases/download/v0.1.0-dev.134-runtime.1/artcraft-runtime-0.1.0-dev.134-runtime.1.zip",
-      "sha256": "14e634068754b4b153a6aaf9715cce21c13e9f80eddb13d0a67b6fdc28c1ad09",
-      "bytes": 82003,
+      "version": "0.1.0-dev.135-runtime.1",
+      "filename": "artcraft-runtime-0.1.0-dev.135-runtime.1.zip",
+      "url": "https://github.com/full-aigc-plugins/artcraft-plugin/releases/download/v0.1.0-dev.135-runtime.1/artcraft-runtime-0.1.0-dev.135-runtime.1.zip",
+      "sha256": "7344384d52b481ee7dcf56978379118d1065baab716a41d3011c981942f07663",
+      "bytes": 82889,
       "files": {
         "LICENSE": "f51b5b32a3b7c3df50ef7153f4dd46233221574f07384d2cf99c6fae08c59f03",
-        "package.json": "1cc79d8a3f6e3ce839e90fdd944b4e6c7dccab2e451306a4ccbd5cd7560c92c0",
+        "package.json": "77fb9ffc6cad7ef52b1482764c4696dfc9bfb192d1e6da6efe9b8080cf88c0a3",
         "schemas/craft-artifact-v1.json": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d",
         "schemas/craft-exchange-loss-v1.json": "483670333c2ddb6515abe61fc30b9160bbe097b6abc01bda6c1ba73fc1832858",
         "schemas/craft-task-v1.json": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
@@ -19,7 +19,7 @@
         "src/adapters/film_export_metadata.ts": "db8fa0c1955cf935bc908f5cfa622a201113d6b4ac989cbb46085998fcb754c1",
         "src/adapters/film_source_inspection.ts": "6d6c2b0323b5e0ec510d08e894b4d807fe8106de55d2b7e32ea4bf0e9f8d14ed",
         "src/adapters/public_skill.ts": "e4029375b40a8253ae26191ab7bebd51598938a6138ff10b4043bb686b22ac6a",
-        "src/adapters/strict_mcp_runner.ts": "79411374b2e3db15aebcbd7201ecec939b67dc833d4df36a8b529f7c171c9aef",
+        "src/adapters/strict_mcp_runner.ts": "80b61e88535be3fcf57fd5636e8c97ab5a6e57e3fd9060d84783e6c60f694ce8",
         "src/adapters/video_factory.ts": "1a5bf385baa46d06e1ce451b05d42707b0b67071584bf1239d2764d497a41e74",
         "src/adapters/video_factory_driver.ts": "c0887a85adbf3eb119c2ac45d38e4f8de1d8f886c86ac8f6b2d3a9f9d817ce9d",
         "src/artifacts/project_package.ts": "f57104c4a71e27f2a17b54a895c3c44eaff5c2eaa1dc0c740f7556325e5d1dd6",
@@ -28,9 +28,9 @@
         "src/harness/execution_worker.ts": "1a6f3ee91fc96465ec93121c0de0bf1e2f72a87d875856767e39e8acda574a1a",
         "src/harness/ledger_upgrade.ts": "fe144a8f65637952af92f9162ec30bed7b93b37bc76eb593b45c456ba511962d",
         "src/harness/local_runner.ts": "3d8a65c256163d394a10936361eff52f3b83cb8abd3a25ea6a77091aeff1ed6d",
-        "src/harness/native_diagnostics.ts": "55e886a909cf82835d672c08ad3b9ccef9920fc8e8192c96f492c0746fc3c7ff",
+        "src/harness/native_diagnostics.ts": "b78ebcd7694853d2c7da036a6c4be01ac3d135cc1a8f8851d152671c6672cc7c",
         "src/harness/process_group.ts": "7260149d70d6312292db4a9c5419b4a33e6d24599215b164c814c6e1a7af0714",
-        "src/harness/task_ledger.ts": "0397fe192686a9dba39f1092cdc7d6aba5d3eb7cf7d765eccb9ce442334dbde6",
+        "src/harness/task_ledger.ts": "324f77e81fc7fb17737e07bcd7d0645f48e285f326171da72a0ba0c826fe9d4e",
         "src/planning/film_duration.ts": "e25a1ec1d2eac5bc2f7a64e45bb78766d79d55a68af9bae3b133ce3dc2b9a85f",
         "src/planning/native_brief_output.ts": "876ddcf956cc130ed932543ebe6d4f9c2623bb53e230b518a39414a03da3eaac",
         "src/planning/photo_variant_output.ts": "225ee0e64cc2bf318cca1f9dcd0804dc3da53f99c14e910e8d64e2b2a6bd1bd6",
@@ -42,7 +42,7 @@
         "src/protocol/image_sequence.ts": "e63b178aa61abf0e0bee6d407bf747acf947b880352138be70b2c26e4a3bcc56",
         "src/protocol/jpeg_inspection.ts": "efbc9a0eddc220a9648d0af42dbac3c6bb9b0131f795d1247f01b6172203a417",
         "src/protocol/png_inspection.ts": "9bab80e8acd3e623827786f46f8b205341146de6ec7556638b4059543c65f5fd",
-        "src/protocol/task_error.ts": "37c9215dcbf8ce754943dde2f02be4112ab06640c50dfb4dc979c67d97a930db",
+        "src/protocol/task_error.ts": "1640b84a5dc3850dc9f7c93f868ff0188f592a0aad68b6047dfc926cb73bdac7",
         "src/protocol/wav_inspection.ts": "6ec1968f2c4a52f43ea4129ad6334158e696f9eebef981477cff803ad642e645"
       },
       "sourceRepository": "https://github.com/full-aigc-plugins/artcraft-plugin"

@@ -2,13 +2,13 @@
 
 Candidate public error mapping: eight protocol codes and the legacy budget alias retain their public identities across stopped child tasks and independent skill entry points; four real native post-save unknown cases pass. Fixed-release installation and complete task1.3 acceptance remain pending. [Error matrix](docs/ArtCraft-Public-Error-Matrix-Architecture.md).
 
-Candidate mode catalogs: FilmCraft, PhotoCraft and EffectCraft desktop save/reopen workflows pass; VectorCraft has 763 records / 762 IDs and conflicting `file.place` descriptors, so desktop/bridge execution remains refused. This candidate has not been released or accepted from a fixed installation. [Mode catalog design and evidence](docs/ArtCraft-Mode-Command-Catalog-Architecture.md).
+Candidate mode catalogs: FilmCraft, PhotoCraft and EffectCraft desktop save/reopen workflows pass; VectorCraft has 763 records / 762 IDs and conflicting `file.place` descriptors, so desktop/bridge execution remains refused. Plugin136 includes this implementation; fixed installation qualification remains pending. [Mode catalog design and evidence](docs/ArtCraft-Mode-Command-Catalog-Architecture.md).
 
 Fixed135 command checkpoint:ten independent cold starts,40 real native command probes,210 mode targets, actual Effect bridge and36 post-save fault cases pass. Full task4.6 remains open. [Evidence and scope](docs/ArtCraft-Fixed-Command-Checkpoint-Architecture.md).
 
 Fixed135 version binding and single-writer acceptance completes task5.3:64 host identities, four-domain native creation/revision, same-source serialization, frozen metadata and authorization reuse, plus actual GUI save followed by repeated installed revision_conflict. Twelve numbered tasks and complete V1 remain open. [Acceptance](docs/ArtCraft-Version-Single-Writer-Acceptance-Architecture.md).
 
-Development plugin135 pins independent source107 and runtime134-runtime.1: all-mode command guards and canonical source revision conflicts.571 runtime tests pass (25 conditional skips). Actual isolated EffectCraft GUI evidence and fixed runtime repeated refusal are available; new host/cold distribution acceptance and complete V1 remain open. [Architecture](docs/ArtCraft-Source-Revision-Architecture.md).
+Earlier development plugin135 pins independent source107 and runtime134-runtime.1: all-mode command guards and canonical source revision conflicts.571 runtime tests pass (25 conditional skips). Actual isolated EffectCraft GUI evidence and fixed runtime repeated refusal are available; new host/cold distribution acceptance and complete V1 remain open. [Architecture](docs/ArtCraft-Source-Revision-Architecture.md).
 
 Unreleased candidate extends command contract enforcement to standalone bridge/desktop, with locked EffectCraft bridge tool identities.220 controlled boundary targets and526 runtime tests pass (25 conditional skips); actual GUI and new fixed distribution acceptance remain open. [Mode architecture](docs/ArtCraft-Command-Modes-Architecture.md).
 
@@ -94,7 +94,7 @@ Fixed source86/plugin114 passes ten independent Art cold installations and a ret
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current development plugin: `0.1.0-dev.135`; independent skills: `0.1.0-dev.107`; earlier127 installed consistency evidence retains its original scope. Full V1 remains in progress.
+Current development plugin: `0.1.0-dev.136`; independent skills: `0.1.0-dev.108`; earlier127 installed consistency evidence retains its original scope. Full V1 remains in progress.
 
 Workflow launcher structured rejection is fixed in source84. Legacy error and workflowReceipt remain compatible; fixed installed112 qualification is recorded separately. [Architecture](docs/ArtCraft-Workflow-Error-Detail-Architecture.md).
 Previous fixed caption-size qualification:64 installed identities and CLI probes match;23 changed skills each pass independent cold discovery, while41 unchanged whole-tree hashes retain historical cold proof. Two current installed native caption/brand cases pass. This is bounded installation and scene evidence, not fullV1. [Current fixed evidence](docs/Craft-Caption-Fixed-First-Use.md).
@@ -209,9 +209,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.135 |
+| Plugin ID / version | artcraft / 0.1.0-dev.136 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.107 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.108 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |

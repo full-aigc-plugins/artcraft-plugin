@@ -70,10 +70,12 @@ def error_detail(error):
         if (isinstance(detail, dict) and isinstance(detail.get('code'), str)
                 and re.fullmatch(r'[a-z][a-z0-9_]*', detail['code'])
                 and isinstance(detail.get('message'), str)):
-            return {'code': detail['code'], 'message': detail['message']}
+            return {'code': 'budget_exhausted' if detail['code']=='budget_exceeded' else detail['code'], 'message': detail['message']}
         return {'code': 'workflow_not_ready', 'message': str(error)}
     message = str(error)
     code = message.split(':', 1)[0]
+    if code == 'budget_exceeded':
+        code = 'budget_exhausted'
     return {'code': code if re.fullmatch(r'[a-z][a-z0-9_]*', code) else 'operation_failed',
             'message': message}
 

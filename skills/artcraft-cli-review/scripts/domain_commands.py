@@ -4,6 +4,9 @@ import importlib.util
 import argparse,hashlib,json,os,re,subprocess,sys,tempfile
 from pathlib import Path
 SPEC_PUBLIC = importlib.util.spec_from_file_location('craft_public_call', Path(__file__).with_name('public_call.py'))
+SPEC_MODE = importlib.util.spec_from_file_location('craft_mode_catalog', Path(__file__).with_name('mode_catalog.py'))
+M = importlib.util.module_from_spec(SPEC_MODE)
+SPEC_MODE.loader.exec_module(M)
 P = importlib.util.module_from_spec(SPEC_PUBLIC)
 SPEC_PUBLIC.loader.exec_module(P)
 ROOT=Path(__file__).resolve().parent.parent
@@ -46,12 +49,19 @@ def load_index():
 def domain_entry(domain):
  if domain not in NAMES:raise ValueError('domain_unsupported')
  return load_index()[domain]
+def command_rows(entry,mode='headless'):
+ if mode=='headless':return entry['commands']
+ if mode not in ['bridge','desktop']:raise ValueError('invalid_mode')
+ lock=json_value((ROOT/'scripts/distribution.lock.json').read_text())
+ return M.load(ROOT,entry['domain'],lock['bundles'][entry['domain']+'-skills'])['commands']
 def tool_schemas(entry,mode='headless'):
  if mode not in ['headless','bridge','desktop']:raise ValueError('invalid_mode')
  return entry['toolSchemas']+(entry.get('bridgeToolSchemas',[]) if mode in ['bridge','desktop'] else [])
 def validate_plan(plan,entry,inputs,mode='headless'):
  if not isinstance(plan,dict) or set(plan)!={'schema','operations'} or plan['schema']!='craft-command-plan/v1' or not isinstance(plan['operations'],list) or not 1<=len(plan['operations'])<=1000:raise ValueError('invalid_command_plan')
- aliases={'output',*inputs};commands={row['id'] for row in entry['commands']};tools={t['name'] for t in tool_schemas(entry,mode)}
+ rows=command_rows(entry,mode)
+ if len({row['id'] for row in rows})!=len(rows):raise ValueError('capability_missing: mode_catalog_ambiguous')
+ aliases={'output',*inputs};commands={row['id'] for row in rows};tools={t['name'] for t in tool_schemas(entry,mode)}
  def references(value):
   if isinstance(value,dict):
    if set(value)=={'$ref'}:
@@ -95,7 +105,7 @@ def installed_files(receipt,domain,lock):
  return root,expected,protected
 def parser():
  p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='action',required=True)
- q=sub.add_parser('list');q.add_argument('--domain',choices=NAMES);q.add_argument('--filter',default='');q.add_argument('--tools',action='store_true')
+ q=sub.add_parser('list');q.add_argument('--domain',choices=NAMES);q.add_argument('--filter',default='');q.add_argument('--category',default='');q.add_argument('--tools',action='store_true')
  q=sub.add_parser('describe');q.add_argument('domain',choices=NAMES);q.add_argument('command');q.add_argument('--tool',action='store_true')
  for name in ['list','describe']:sub.choices[name].add_argument('--mode',choices=['headless','bridge','desktop'],default='headless')
  for action in ['check','run']:
@@ -116,8 +126,9 @@ def launch_command(root,args,frozen,runtime_home,inputs):
    if args.connect is not None:command+=['--connect',args.connect]
    if args.control_token_file is not None:command+=['--control-token-file',str(args.control_token_file)]
  elif args.domain=='effectcraft':command+=['--mode','bridge' if args.mode=='desktop' else args.mode]
- if args.action=='run':
+ if args.action=='run' or args.mode!='headless':
   command=command[:3]+[str(ROOT/'scripts/native_contract.py'),str(root/'scripts/mcp_session.py')]+command[3:]
+  if args.action=='check' and args.mode!='headless':command.append('--art-mode=bridge')
  return command
 
 def check_reply(returncode,stdout,stderr,runtime_home):
@@ -137,11 +148,13 @@ def validate_desktop_receipt(desktop_proof,domain,result,lock,returncode):
 
 def dispatch(args):
  index=load_index()
- if args.action=='list':return [{'domain':domain,**row} for domain,entry in index.items() if not args.domain or domain==args.domain for row in (tool_schemas(entry,args.mode) if args.tools else entry['commands']) if args.filter.lower() in ((row['name']+' '+row.get('description','')) if args.tools else row['id']+' '+row['label']).lower()],0
+ if args.action=='list' and args.tools and args.category:raise ValueError('tool_category_unsupported')
+ if args.action=='list':return [{'domain':domain,**row} for domain,entry in index.items() if not args.domain or domain==args.domain for row in (tool_schemas(entry,args.mode) if args.tools else command_rows(entry,args.mode)) if (not args.category or row.get('category',row.get('id','').split('.')[0])==args.category) if args.filter.lower() in ((row['name']+' '+row.get('description','')) if args.tools else row['id']+' '+row['label']).lower()],0
  entry=index[args.domain]
  if args.action=='describe':
-  matches=[row for row in (tool_schemas(entry,args.mode) if args.tool else entry['commands']) if row['name' if args.tool else 'id']==args.command]
+  matches=[row for row in (tool_schemas(entry,args.mode) if args.tool else command_rows(entry,args.mode)) if row['name' if args.tool else 'id']==args.command]
   if not matches:raise ValueError('unknown_command')
+  if len(matches)!=1:raise ValueError('capability_missing: mode_catalog_ambiguous')
   return {'domain':args.domain,**matches[0]},0
  plan_bytes=args.plan.read_bytes();plan=json_value(plan_bytes);inputs={};input_hashes={}
  for item in args.input:
@@ -186,6 +199,7 @@ def dispatch(args):
   else:
    if not isinstance(result,dict) or result.get('schema')!='craft-command-receipt/v1' or result.get('pluginId')!=args.domain or result.get('result') not in ['FAIL','unknown']:raise ValueError('outcome_unknown: invalid_failure_receipt')
   value={'schema':'artcraft-domain-command-call/v1','domain':args.domain,'result':result['result'],'phase':'native-call-only','dagDeliveryAcceptance':'NOT_RUN','sourceBundleSha256':entry['bundleSha256'],'runtimeSha256':runtime_sha,'commandReceiptSha256':sha(evidence),'commandReceiptLocation':evidence.name,'commandReceipt':result}
+  if args.mode!='headless':value['modeCatalogSha256']=M.CATALOG_SHA256;value['mode']=args.mode
   if desktop_proof is not None:value['desktopReceiptSha256']=sha(args.output/'desktop-session.json');value['desktopReceipt']=desktop_proof
   with (args.output/MARKER).open('x') as output:output.write(json.dumps(value,ensure_ascii=False,indent=2,allow_nan=False)+'\n')
   return value,child.returncode

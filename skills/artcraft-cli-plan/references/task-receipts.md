@@ -8,7 +8,7 @@ Workflow node status is a scheduling summary. Read taskReceipt for durable task/
 
 Preparation, registration or authorization rejection supplies errorDetail code/message and retains the legacy error string. Unregistered nodes have no fabricated receipt. Durable failure stays in taskReceipt.error. Unknown results and cancellation waiting require reconciliation of the original task, never automatic native replay.
 
-The independent skill pins runtime dev.122-runtime.1. Complete protocol, native creative and fixed full-plugin acceptance remain separate gates.
+Read the effective pinned runtime from scripts/distribution.lock.json and the current installation receipt. The dev.122 evidence is a historical checkpoint. Complete protocol, native creative and fixed full-plugin acceptance remain separate gates.
 
 公开 workflow.py 的顶层失败也包含 errorDetail。输入／安装前置失败不伪造 workflowReceipt 或 taskReceipt；原生非零回执保留 workflowReceipt 和原 error 字符串，上游已有 errorDetail 则保留其 code/message，等待或其他未就绪回执以 workflow_not_ready 表达。读取嵌套节点 taskReceipt 判断实际状态，不能把 workflow_not_ready 当作任务失败或自动重试依据。
 
@@ -17,3 +17,8 @@ The public workflow.py launcher also returns top-level errorDetail. Input/setup 
 预算耗尽公开code为budget_exhausted，message与原CLI error保留budget_exceeded及具体维度。预算拒绝不新增attempt、不释放未知任务占用或授权重放，先查询原账本和产物。
 
 Budget exhaustion exposes code budget_exhausted while message and legacy CLI error retain budget_exceeded and the dimension. Refusal does not create attempts, release unknown-task ownership or authorize replay; inspect the original ledger and artifacts.
+
+
+候选源码补齐已停止子任务的8种公开协议错误映射：runtime_missing、capability_missing、revision_conflict、idempotency_conflict、outcome_unknown、artifact_invalid、budget_exhausted、authorization_required。仅接受有界完整单error字段报告并核对进程组停止；已知code不代表对应问题已经修复，也不授予重放、退款或新授权。领域诊断保留码和输出摘要，私有原文不写账本。独立技能将本地或上游旧budget_exceeded规范化为budget_exhausted，原消息和上游回执保持原样。此候选尚未完成固定发行安装验收。
+
+Candidate source preserves all eight known public task error codes from bounded stopped-child reports, plus the compatible budget alias. Recognized codes do not grant retries, refunds or new authorization. Raw private diagnostics remain outside the ledger. Independent skill wrappers canonicalize local and upstream legacy budget codes while retaining original messages and upstream receipts. Fixed release installation has not yet qualified this candidate.

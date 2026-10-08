@@ -2,13 +2,13 @@
 
 候选公共错误映射：已补齐8种协议错误及旧预算别名在已停止子任务和独立技能入口中的公开身份，四领域真实保存后未知结果复验通过。固定发行安装及完整任务1.3仍待验收。[错误矩阵](docs/ArtCraft-Public-Error-Matrix-Architecture.zh_CN.md)。
 
-候选模式目录：FilmCraft、PhotoCraft、EffectCraft 实际桌面保存／重开通过；VectorCraft 为763记录／762 ID，`file.place` 参数描述重复冲突，desktop／bridge执行保持拒绝。此候选尚未发行或完成固定安装验收。[模式目录设计与证据](docs/ArtCraft-Mode-Command-Catalog-Architecture.zh_CN.md)。
+候选模式目录：FilmCraft、PhotoCraft、EffectCraft 实际桌面保存／重开通过；VectorCraft 为763记录／762 ID，`file.place` 参数描述重复冲突，desktop／bridge执行保持拒绝。插件136包含此实现；新固定安装验收仍待完成。[模式目录设计与证据](docs/ArtCraft-Mode-Command-Catalog-Architecture.zh_CN.md)。
 
 固定135命令检查点：十技能独立空缓存首用、40项真实原生命令探测、210项模式目标、真实Effect bridge与36项保存后故障通过。完整任务4.6继续开放。[证据及范围](docs/ArtCraft-Fixed-Command-Checkpoint-Architecture.zh_CN.md)。
 
 固定135版本绑定与单写验收完成任务5.3：64宿主身份、四领域原生创建／修订、同源串行、冻结元数据与授权复用，以及真实GUI保存后的固定安装旧计划冲突均通过。仍有12项编号任务与完整V1开放。[验收](docs/ArtCraft-Version-Single-Writer-Acceptance-Architecture.zh_CN.md)。
 
-开发插件135固定独立技能源107与运行时134-runtime.1，包含三模式命令校验和源版本冲突修复。运行时571项通过、25项条件跳过；真实隔离EffectCraft界面及固定运行时重复拒绝已核验。新宿主／空缓存分发验收、完整V1继续开放。[架构](docs/ArtCraft-Source-Revision-Architecture.zh_CN.md)。
+此前开发插件135固定独立技能源107与运行时134-runtime.1，包含三模式命令校验和源版本冲突修复。运行时571项通过、25项条件跳过；真实隔离EffectCraft界面及固定运行时重复拒绝已核验。新宿主／空缓存分发验收、完整V1继续开放。[架构](docs/ArtCraft-Source-Revision-Architecture.zh_CN.md)。
 
 未发行候选补齐独立bridge／desktop命令合同及EffectCraft附加工具身份校验。220项受控边界及526项运行时测试通过（25条件跳过）；实际GUI和新固定分发验收仍开放。[模式架构](docs/ArtCraft-Command-Modes-Architecture.zh_CN.md)。
 
@@ -94,7 +94,7 @@ DAG节点身份修复已固定至插件126／源98／runtime126；6.7／6.8核�
 
 多领域创作需求进入，交付项目清单、工作流记录、四领域子工程引用及验收记录。
 
-当前开发插件：`0.1.0-dev.135`；独立技能源：`0.1.0-dev.107`；此前固定127版本的限定一致性安装验收通过；128升级验收单独记录。完整V1仍在实施。
+当前开发插件：`0.1.0-dev.136`；独立技能源：`0.1.0-dev.108`；此前固定127版本的限定一致性安装验收通过；128升级验收单独记录。完整V1仍在实施。
 
 源84修复工作流入口结构化拒绝，兼容保留error与workflowReceipt；固定安装112验收另行记录。[架构](docs/ArtCraft-Workflow-Error-Detail-Architecture.zh_CN.md)。
 此前固定字幕修正版验收：64安装身份与CLI探测匹配；23变化技能各自独立冷安装／命令发现通过，41完整摘要一致技能复用历史冷证据；两个当前安装原生字幕／品牌案例通过。仅证明所列安装和场景，完整V1仍开放。[当前固定证据](docs/Craft-Caption-Fixed-First-Use.zh_CN.md)。
@@ -207,9 +207,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.135 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.136 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.107 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.108 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

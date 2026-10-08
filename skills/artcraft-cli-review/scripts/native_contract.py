@@ -1,5 +1,6 @@
 """受信 Art 启动器，先校验实际工具 schema，再校验响应；不重试任何请求。"""
 import importlib.util
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -12,6 +13,12 @@ original_spec = importlib.util.spec_from_file_location
 
 # 模式来自受信启动参数；桌面入口沿用其自有会话和停止管理。
 mode = 'desktop' if Path(script).name == 'desktop.py' else 'headless'
+art_modes = [a for a in arguments if a.startswith('--art-mode=')]
+if art_modes:
+    if len(art_modes) != 1 or not arguments or arguments[0] != 'check':
+        raise RuntimeError('capability_missing: native_tool_schema invalid mode')
+    mode = art_modes[0].split('=', 1)[1]
+    arguments.remove(art_modes[0])
 if '--mode' in arguments:
     position = arguments.index('--mode')
     if mode == 'desktop' or arguments.count('--mode') != 1 or position + 1 >= len(arguments):
@@ -99,14 +106,43 @@ except (OSError, ValueError, TypeError, RecursionError):
 try:
     catalog_tool = {'effectcraft': 'list_commands', 'filmcraft': 'command_list',
                     'photocraft': 'command_list', 'vectorcraft': 'list_commands'}[snapshot_value['pluginId']]
-    locked_commands = command_map(snapshot_value['commands'])
+    locked_catalog_rows = snapshot_value['commands']
+    if mode in ('bridge', 'desktop'):
+        resource = Path(__file__).resolve().parent.parent / 'references/mode-command-catalog.json'
+        data = resource.read_bytes()
+        if resource.is_symlink() or hashlib.sha256(data).hexdigest() != '69aa578e1685996cea4fa5aa99260697a8c61d2273ad639e0885410baa07ce2c':
+            raise ValueError('mode_catalog_identity')
+        modes = json.loads(data, parse_constant=constant, parse_float=finite_float, object_pairs_hook=pairs)
+        row = modes['domains'][snapshot_value['pluginId']]
+        desktop_file = expected.parent / 'desktop.lock.json'
+        desktop = json.loads(desktop_file.read_bytes(), object_pairs_hook=pairs)
+        if (modes.get('schema') != 'artcraft-mode-command-catalog/v1' or modes.get('platform') != 'darwin-arm64'
+                or modes.get('modes') != ['bridge', 'desktop']
+                or row['snapshotSha256'] != hashlib.sha256(snapshot.read_bytes()).hexdigest()
+                or row['desktopLockSha256'] != hashlib.sha256(desktop_file.read_bytes()).hexdigest()
+                or row['runtimeSha256'] != snapshot_value['runtimeSha256']
+                or row['desktopBinarySha256'] != desktop['binarySha256']
+                or row['desktopVersion'] != desktop['version']):
+            raise ValueError('mode_catalog_identity')
+        locked_catalog_rows = row['commands']
+    locked_commands = command_map(locked_catalog_rows)
     if not locked_commands or catalog_tool not in locked_tools:
         raise ValueError('command_snapshot_invalid')
-except (KeyError, ValueError, TypeError, RecursionError):
+except (OSError, KeyError, ValueError, TypeError, RecursionError):
     raise RuntimeError('capability_missing: native_command_schema snapshot invalid') from None
 
 def guarded_spec(name, location, *args, **kwargs):
     spec = original_spec(name, location, *args, **kwargs)
+    if mode != 'headless' and Path(location).resolve() == expected.with_name('commands.py'):
+        original_commands_execute = spec.loader.exec_module
+        def execute_commands(module):
+            original_commands_execute(module)
+            original_catalog = module.catalog
+            def mode_catalog():
+                value = original_catalog()
+                return {**value, 'commands': locked_catalog_rows}
+            module.catalog = mode_catalog
+        spec.loader.exec_module = execute_commands
     if Path(location).resolve() == expected:
         original_execute = spec.loader.exec_module
         def execute(module):
@@ -183,4 +219,9 @@ def guarded_spec(name, location, *args, **kwargs):
 
 importlib.util.spec_from_file_location = guarded_spec
 sys.argv = [script, *arguments]
+if mode != 'headless' and Path(script).resolve() == expected.with_name('commands.py'):
+    spec = guarded_spec('art_trusted_commands', script)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    raise SystemExit(module.main())
 runpy.run_path(script, run_name='__main__')
