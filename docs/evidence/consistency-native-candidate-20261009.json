@@ -1,0 +1,145 @@
+{
+  "schema": "craft-consistency-native-candidate/v1",
+  "sourceCommit": "18dc41fe50865ea9c8064b16ddd1631c4eaeb3f5",
+  "packageSha256": "3b1f53f4d7d1c54284be181060ede05a01bd9fc43e27b6d569bfa8d7b996651b",
+  "reviewSha256": "8f1b9ef5b886d48bae80b0973cf7dfde352bffd171d515a78246cf654da2f646",
+  "observations": [
+    {
+      "nodeId": "poster",
+      "status": "PASS",
+      "matchingPixels": [
+        12097,
+        1732
+      ],
+      "decodedImageSha256": "d737af4abcb6dada2fd043ffe59c20b88d7a46613e8364712878c4bd66a305cf"
+    },
+    {
+      "nodeId": "intro",
+      "status": "PASS",
+      "matchingPixels": [
+        10531,
+        1696
+      ],
+      "decodedImageSha256": "5fa7b660179b2a551d99caf5f88e1451bf081fe78fc350575dd75b5762637d6c"
+    },
+    {
+      "nodeId": "film",
+      "status": "PASS",
+      "matchingPixels": [
+        10514,
+        1696
+      ],
+      "decodedImageSha256": "24412ba35698c563593cd120c0c0b30baf69307fbb6cbeda031fcdfe30b8b619"
+    }
+  ],
+  "result": "PASS",
+  "decision": "pending",
+  "versions": {
+    "logo": {
+      "capabilitySnapshotSha256": "931d3a4c5eae7635bcae7596ccf0d5eb3e143d9f73905ae5819c9ef52e43b247",
+      "cliVersion": "0.2.0-craft.2",
+      "mode": "headless",
+      "pluginId": "vectorcraft",
+      "pluginVersion": "0.1.0-dev.33",
+      "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+    },
+    "product": {
+      "capabilitySnapshotSha256": "931d3a4c5eae7635bcae7596ccf0d5eb3e143d9f73905ae5819c9ef52e43b247",
+      "cliVersion": "0.2.0-craft.2",
+      "mode": "headless",
+      "pluginId": "vectorcraft",
+      "pluginVersion": "0.1.0-dev.33",
+      "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+    },
+    "poster": {
+      "capabilitySnapshotSha256": "a8b3cc994fade0cfc266f0ee4be17e0cfc4184dd7efae44d3bc0d3742ba341c5",
+      "cliVersion": "0.2.0-craft.1",
+      "mode": "headless",
+      "pluginId": "photocraft",
+      "pluginVersion": "0.1.0-dev.34",
+      "sha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf"
+    },
+    "intro": {
+      "capabilitySnapshotSha256": "d167d260a61a970d0441532cb00316a0bb48072f98a5b0a2ee16d4259bec5109",
+      "cliVersion": "0.2.0",
+      "mode": "headless",
+      "pluginId": "effectcraft",
+      "pluginVersion": "0.1.0-dev.34",
+      "sha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+    },
+    "film": {
+      "capabilitySnapshotSha256": "06ff30fe2a9d388dae4ff5128ab71bcb399eae81d5f60178c17292b66c9c6c6b",
+      "cliVersion": "0.2.0-craft.4",
+      "mode": "headless",
+      "pluginId": "filmcraft",
+      "pluginVersion": "0.1.0-dev.38",
+      "sha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893"
+    }
+  },
+  "limits": [
+    "source candidate and reused fixed126 runtime; not new installed skill release",
+    "procedural color presence only, not complete semantic or human creative acceptance",
+    "four AC-DM005 complete scenarios and 6.15 remain open"
+  ],
+  "sourceFiles": {
+    "review.py": "54da83f58e786b0b62c1490edee4f2d48d871beb378379005bd8d20ed626190c",
+    "consistency.py": "2057087981a082dc004f3dbe813516c514f2fb88fc40faf9af78eefe5a45b385"
+  },
+  "failureObservation": {
+    "frame": 0,
+    "matchingPixels": [
+      0,
+      1702
+    ],
+    "scope": "planned fade; measured color absence only, not a native defect",
+    "decision": "changes_requested",
+    "issueTarget": {
+      "nodeId": "intro",
+      "assetId": "intro-video",
+      "version": "2e98b18b7dbe05640b0b418f79f843f5d4c08709b3d43bf5f8d70b7a7305ff49",
+      "sha256": "2e98b18b7dbe05640b0b418f79f843f5d4c08709b3d43bf5f8d70b7a7305ff49",
+      "region": {
+        "x": 0,
+        "y": 0,
+        "width": 1,
+        "height": 1
+      },
+      "frame": 0
+    }
+  },
+  "missingObservation": {
+    "result": "NOT_RUN",
+    "missingDomains": [
+      "filmcraft"
+    ]
+  },
+  "forgedResultRefusal": {
+    "error": "review_record_result_mismatch",
+    "result": "failed"
+  },
+  "packageManifestPreserved": true,
+  "platform": "macOS arm64",
+  "python": "3.13.5",
+  "pillow": "12.3.0",
+  "logs": {
+    "native-create.stdout": "9217a29bd443989c164808a21689bb11d526ca736f885eb264745f0ad1d04ac5",
+    "prompt-only.stdout": "ea1b3995352e5a4b98db7bda51abe2f8b87fcb06fbe4f45d6a3f8685c014538a",
+    "native-driver.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native-review-moved.stdout": "1ef0e5eb076fca81569b9a167fb6d28db75e98d6eb93ae5907783335ea9cb154",
+    "native-missing.stdout": "d1add8e9b252c919d3b03fba60d274fa95a3c2fab55206eb7f028d98abfc04f8",
+    "failure-driver.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native-review.stdout": "1e96d5171d17f2251aa138e59c2cbe6345559f71fa6ecd95494f117882c658d6",
+    "native-package.stdout": "d2e4b0e4df1323ffe28d281ad2b9feae910d923c8f3919db4d0aecba7251d9ac",
+    "native-forged-result.stdout": "22975e9a3095f847b3bf79966f269750af02bd985a4991135fb0ef053cfb237e",
+    "missing-product-digest.stdout": "d7403626670e24f4e624e7923f2ffb3a0c7610ecd0ee4ce444b730b178a4c3af",
+    "native-package-fixed.stdout": "fd84ac8f4cf9ff5ca6413a6bcfa25e694bf8f96df1b113f36047269856a99dc7",
+    "native-frame0-failure.stdout": "3a8b8dcafd85fc7ee8e876ddaf7e08a2b80dc7358a2daf9747d38eac3b0f1fde",
+    "observe-driver.stdout": "100200b6f6fff9caa0abe0517692469a176372f4c9afa4cf454b911088544316",
+    "stale-reference.stdout": "c159dae3657f3fbb77b7c1d2f89a98c148e4b4abbe035aa4238410cbf28e3909"
+  },
+  "date": "2026-10-09",
+  "nativeCreateHarnessCorrection": {
+    "firstPackageAttempt": "workflow_missing; passed workflowId instead of saved runKey",
+    "resolution": "packaged the existing successful runKey; native editing was not replayed"
+  }
+}
