@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Current INNER-JSON regression confirmed:fixed130 fails12/12 installed cases. Art-owned boundary candidate passes36 native faults,13 boundary vectors, normal render and301 runtime tests; fixed release/install acceptance remains pending. [Candidate](docs/ArtCraft-Inner-JSON-Boundary-Architecture.md).
+
 Current failed-stage distribution verified:24 actual native post-save response fault cases and four-domain binding checks pass. Eight of14 runtime scenarios verified;task4.6 remains open. [Acceptance](docs/ArtCraft-Current-Failed-Stage-Architecture.md).
 
 Current strict-plan distribution clauses verified: fresh online native mixed acceptance3/3 PASS (138.920s),22 logged calls,2646-command identity and240 pre-install refusals. Seven of14 runtime scenarios verified;task4.6 remains open. [Acceptance](docs/ArtCraft-Installed-Strict-Plan-Architecture.md).

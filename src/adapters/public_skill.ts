@@ -4,6 +4,7 @@ import { join, isAbsolute } from 'node:path';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { createHash } from 'node:crypto';
+import { strictMcpRunner } from './strict_mcp_runner.ts';
 import { parseEffectExportProbe } from './effect_export_probe.ts';
 import { parseDesignSourceInspection } from './design_source_inspection.ts';
 import { filmExportMetadata } from './film_export_metadata.ts';
@@ -118,7 +119,9 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
   const root=join(locked.outputRoot,hash(taskId)),delivery=join(root,'delivery'),planFile=join(root,'plan.json');
   await mkdir(root,{recursive:true});
   await writeFile(planFile,JSON.stringify(plan),'utf8');
-  const args=['-I','-B',script,planFile,'--output',delivery,'--runtime-home',locked.runtimeHome];
+  const strictRunner=join(root,'strict-mcp-runner.py');
+  await writeFile(strictRunner,strictMcpRunner,'utf8');
+  const args=['-I','-B',strictRunner,join(locked.skillRoot,'scripts/mcp_session.py'),script,planFile,'--output',delivery,'--runtime-home',locked.runtimeHome];
   for(const asset of assets.filter(item=>!item.retained)){
    const segmented=asset.input.artifact.mediaType===imageSequenceMime && /(^|\/)segments\.json$/.test(asset.input.artifact.location);
    // 已登记输入仍由 prepare 再核验；规范化系统临时目录别名，保留段内反符号链接检查。
@@ -150,7 +153,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
     await checkSource();
     await checkRetained();
     for(const asset of assets)await verifyArtifact(asset.input.artifact,asset.input.root);
-    return {executable:locked.python,args,cwd:root,actualRevision:source?node.expectedRevision:null,budgetUsage:{minorUnits:0,externalCalls:0},launcherIdentity:{runtimeExecutable:locked.nativeExecutable,sha256:locked.pythonSha256,files:[...locked.files,...sourceFiles,{path:planFile,sha256:hash(JSON.stringify(plan))}]}};
+    return {executable:locked.python,args,cwd:root,actualRevision:source?node.expectedRevision:null,budgetUsage:{minorUnits:0,externalCalls:0},launcherIdentity:{runtimeExecutable:locked.nativeExecutable,sha256:locked.pythonSha256,files:[...locked.files,...sourceFiles,{path:strictRunner,sha256:hash(strictMcpRunner)},{path:planFile,sha256:hash(JSON.stringify(plan))}]}};
    },
    verify:async(request)=>{
     await checkSource();

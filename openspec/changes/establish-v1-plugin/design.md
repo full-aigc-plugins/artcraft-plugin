@@ -98,3 +98,7 @@ PhotoCraft 目标需要区域定位，EffectCraft 与 FilmCraft 目标需要帧�
 ### 旧账本schema迁移的排空门禁
 
 AC-RT-002-LEDGER-MIGRATION补齐旧v1到v2的具体边界：在BEGIN IMMEDIATE中检查全部非终态任务、租约及未可信停止的执行，拒绝时保持旧状态。写入DDL前从只读连接生成独立SQLite快照，源写锁保持至迁移提交；快照保留旧application_id、user_version、数据及索引，可通过旧运行时另行只读复核。创建快照失败不迁移，不删除或覆盖已有快照。此规则不授权自动回退、删除不明任务或将进程消失视为停止，也不代表完整运行能力／分发升级验收4.6已经完成。
+
+### 当前内层JSON回归的自有边界修复
+
+当前锁定领域workflow仍有普通json.loads路径；Art在自有Python启动器中、领域解码前校验成功工具文本，拒绝非有限数、浮点溢出与重复键。仅拦截锁定mcp_session模块的Session.request返回值，不更改领域文件、不重试请求；初始化和明确原生isError保持既有合同。启动器生成字节进入launcherIdentity，修改后由执行器摘要门禁拒绝。原始暂存及attempt保全沿用现有失败合同。候选通过不替代新的不可变发行与实际固定安装验收。

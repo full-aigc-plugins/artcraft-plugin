@@ -15,12 +15,15 @@ const output=process.env.CRAFT_PROTOCOL_WORKFLOW_EVIDENCE;
 const domains=(process.env.CRAFT_PROTOCOL_DOMAINS||'vectorcraft').split(',');
 assert.ok(domains.every(domain=>['filmcraft','effectcraft','photocraft','vectorcraft'].includes(domain)));
 assert.equal(new Set(domains).size,domains.length);
+const faults=(process.env.CRAFT_PROTOCOL_FAULTS||'malformed,scalar,missing,ambiguous,nonfinite,tool-content').split(',');
+assert.ok(faults.every(fault=>['malformed','scalar','missing','ambiguous','nonfinite','tool-content','inner-nonfinite','inner-overflow','inner-duplicate'].includes(fault)));
+assert.equal(new Set(faults).size,faults.length);
 const sha=(value:Buffer|string)=>createHash('sha256').update(value).digest('hex');
 const exec=promisify(execFile),records:any[]=[];
-for(const domainId of domains)for(const fault of ['malformed','scalar','missing','ambiguous','nonfinite','tool-content']){
+for(const domainId of domains)for(const fault of faults){
  test(`published Art engine preserves failed ${domainId} ${fault} attempt and blocks consumers`,{skip:!installationFile},async()=>{
   const installation=JSON.parse(await readFile(installationFile!,'utf8'));
-  const load=async(path:string)=>import(pathToFileURL(join(installation.runtimeRoot,'src',path)).href);
+  const load=async(path:string)=>import(pathToFileURL(join(process.env.CRAFT_PROTOCOL_RUNTIME_SOURCE_ROOT||installation.runtimeRoot,'src',path)).href);
   const {TaskLedger}=await load('harness/task_ledger.ts');
   const {LocalRunner}=await load('harness/local_runner.ts');
   const {WorkflowEngine}=await load('planning/workflow_engine.ts');
@@ -117,7 +120,7 @@ for(const domainId of domains)for(const fault of ['malformed','scalar','missing'
    for(const input of externalInputs)assert.equal(sha(await readFile(join(input.root,input.artifact.location))),input.artifact.sha256);
    for(const file of files)assert.equal(sha(await readFile(file.path)),file.sha256);
    records.push({domainId,fault,result:'PASS',pluginVersion,runtimeVersion:installation.version,nativeSha256:nativeHash,clientSha256:files.find(file=>file.path.endsWith('mcp_session.py'))!.sha256,recoveryModuleSha256:files.find(file=>file.path.endsWith('preserved_stage.py'))!.sha256,originalStagePreserved:true,retainedFileCount:Object.keys(failure.files).length,lastAttemptPreserved:true,saveCount:1,nativeReopen:true,consumerBlocked:true,publicUnknownReply:true,attemptPreserved:true,budgetPreserved:true,registeredInputCount:externalInputs.length,registeredInputsPreserved:true,noReplay:true});
-   if(output)await writeFile(output,JSON.stringify({schema:'art-native-protocol-workflow-candidate/v1',result:records.length===domains.length*6?'PASS':'RUNNING',cases:records,scope:'actual public downloaded runtime + trusted public domain adapters; original product-retained stage inspected and reopened; transparent post-save response test hook; proxy capture used only as hash witness',excluded:['complete per-command or GUI acceptance','force-kill or filesystem-crash durability']},null,2)+'\n');
+   if(output)await writeFile(output,JSON.stringify({schema:'art-native-protocol-workflow-candidate/v1',result:records.length===domains.length*faults.length?'PASS':'RUNNING',cases:records,runtimeSourceMode:process.env.CRAFT_PROTOCOL_RUNTIME_SOURCE_ROOT?'working-tree-candidate':'fixed-installed',scope:'runtime modules selected explicitly by receipt or candidate override; pinned public domain adapters; original product-retained stage inspected and reopened; controlled post-save hook; proxy copy only a hash witness',excluded:['complete per-command or GUI acceptance','force-kill or filesystem-crash durability']},null,2)+'\n');
   }finally{ledger.close();if(!retained)await rm(root,{recursive:true,force:true});}
  });
 }

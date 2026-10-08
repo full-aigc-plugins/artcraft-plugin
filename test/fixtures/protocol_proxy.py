@@ -61,6 +61,14 @@ try:
         elif fault == 'nonfinite':
             reply['result'] = float('nan')
             print(json.dumps(reply), flush=True)
+        elif fault in ('inner-nonfinite', 'inner-overflow', 'inner-duplicate'):
+            text = {
+                'inner-nonfinite': '{"saved":true,"value":NaN}',
+                'inner-overflow': '{"saved":true,"value":1e9999}',
+                'inner-duplicate': '{"saved":true,"saved":false}'
+            }[fault]
+            reply['result'] = {'content': [{'type': 'text', 'text': text}]}
+            print(json.dumps(reply), flush=True)
         else:
             reply['result'] = {'content': [None]}
             print(json.dumps(reply), flush=True)

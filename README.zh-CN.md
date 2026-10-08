@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+当前INNER-JSON回归已确认：固定130的12项安装用例均未满足预期。Art自有边界候选通过36项原生故障、13组边界、正常渲染及301项运行时测试；固定发行／安装复验待完成。[候选](docs/ArtCraft-Inner-JSON-Boundary-Architecture.zh_CN.md)。
+
 当前失败暂存分发已验收：24项真实原生保存后响应故障及四领域绑定检查通过。14场景中8项已验收，4.6继续开放。[验收](docs/ArtCraft-Current-Failed-Stage-Architecture.zh_CN.md)。
 
 当前严格计划分发条款已验收：空缓存在线原生混合3/3通过（138.920秒）、22次调用、2646命令身份及240次安装前拒绝。14场景中7项已验收，4.6继续开放。[验收](docs/ArtCraft-Installed-Strict-Plan-Architecture.zh_CN.md)。

@@ -42,7 +42,7 @@ test('public VectorCraft binding forwards registered input and rejects unbound o
 test('public EffectCraft skill script produces registered native project and render',{skip:!cli||!skill},async()=>{
  const root=await mkdtemp(join(tmpdir(),'craft-public-skill-'));const ledger=new TaskLedger(join(root,'tasks.sqlite'));
  try{
-  const python='/opt/anaconda3/bin/python3',runtimeHome=join(homedir(),'.local/share/craft-runtimes');
+  const python='/opt/anaconda3/bin/python3',runtimeHome=process.env.CRAFT_NATIVE_RUNTIME_HOME||join(homedir(),'.local/share/craft-runtimes');
   const scripts=['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py','native_workflow.py','commands.py'];
   const files=await Promise.all(scripts.map(async name=>({path:join(skill!,'scripts',name),sha256:hash(await readFile(join(skill!,'scripts',name)))})));
   files.push({path:join(skill!,'references/command-coverage.json'),sha256:hash(await readFile(join(skill!,'references/command-coverage.json')))});
@@ -112,7 +112,7 @@ test('source binding derives public source argv and refuses revision drift',asyn
   const made=await factory(node,[input],'revision-task');
   const prepared=await made.adapter.prepare({runtimeIdentity:node.runtimeIdentity,expectedRevision:digest} as any);
   assert.equal(prepared.actualRevision,digest);assert.deepEqual(prepared.args.slice(-2),['--source',source]);
-  assert.equal(JSON.parse(await readFile(prepared.args[3],'utf8')).expectedProjectSha256,digest);
+  assert.equal(JSON.parse(await readFile(prepared.args[prepared.args.indexOf(join(skillRoot,'scripts/workflow.py'))+1],'utf8')).expectedProjectSha256,digest);
   await assert.rejects(factory({...node,expectedRevision:'b'.repeat(64)},[input],'wrong-revision'),/skill_source_revision_mismatch/);
   await assert.rejects(factory({...node,payload:{...node.payload,sourceProject:{assetId:'missing'}}},[input],'missing'),/skill_source_missing/);
   await assert.rejects(factory({...node,payload:{...node.payload,sourceProject:{assetId:'old-project',path:source}}},[input],'path'),/skill_source_binding_invalid/);
