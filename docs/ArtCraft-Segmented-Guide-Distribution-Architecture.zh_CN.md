@@ -19,3 +19,5 @@ ZIP 从不可变源码标签生成，使用相匹配的仓库-vTAG 前缀和全�
 分发回归首先因十项技能的旧 Film 包身份失败，然后升级锁与索引。完整源码回归、插件静态验证与实际安装冷首用分别记录。[既有固定原生HD证据](evidence/craft-fixed-segmented-hd-refresh-20261008.json)仅证明 Film40／Effect38／Art117，不能证明新分发。Art118 的实际安装、独立技能冷安装和原生HD交付需要绑定其自己的安装摘要才能关闭本次门禁。
 
 用户指南从宿主实际加载目录确定 SKILL_DIR，说明分段序列类型、完整120帧收集、有理帧率、依赖返工、失败恢复和迁移。原生工程保留，交换损失明确记录。完整V1、通用Skills CLI、GUI和创意验收继续开放。
+
+固定 Film41/source38 与 Art118/source90 现已通过本分发门禁：23项新独立冷安装、64项安装身份、120帧HD混合返工／恢复／五子工程迁移，以及公开CLI帧率兼容／保存重开。仅关闭Art4.15和Film4.30／4.31／4.43，完整需求和V1仍开放。 [Evidence](evidence/craft-art118-segment-guide-fixed-first-use-20261008.json).

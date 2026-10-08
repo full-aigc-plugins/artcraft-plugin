@@ -97,7 +97,7 @@
 
 - [x] 4.13 [AC-RT-002] GATEWAY-EXPORT： 先验证旧 Art 分发仍缺少网关变体继承修复，升级十独立技能源到 Vector33、同步不可变命令目录，完成锁定合同和候选真实混合两入口九变体验收，保留原交付及无关节点。
 - [x] 4.14 [AC-RT-002] GATEWAY-EXPORT： 固定发布 Art 技能源／插件；实际安装副本完成十技能独立首次使用、混合网关返工／复用／移动包及安装身份验收，不以候选或独立Vector验收替代。
-- [ ] 4.15 [AC-RT-002] SEGMENT-GUIDE：修订十技能分段首用说明，固定Film38完整技能源并重建命令索引；新不可变发行完成实际安装、十技能独立冷首用、HD全帧混合创建／Logo返工／坏帧恢复／五子工程迁移与安装摘要验收。保留Effect既有发行，其他候选不混入；既有Art117证据不代替新分发。
+- [x] 4.15 [AC-RT-002] SEGMENT-GUIDE：修订十技能分段首用说明，固定Film38完整技能源并重建命令索引；新不可变发行完成实际安装、十技能独立冷首用、HD全帧混合创建／Logo返工／坏帧恢复／五子工程迁移与安装摘要验收。保留Effect既有发行，其他候选不混入；既有Art117证据不代替新分发。
 
 ## 5. task-execution
 
@@ -422,3 +422,5 @@ SC-007固定发行证据：`docs/evidence/artcraft99-film29-fixed-first-use-2026
 4.13 候选证据：`docs/evidence/art-vector33-gateway-export-candidate-20261008.json`。十锁及命令目录已同步，源码162项中124通过38条件跳过；两条真实混合返工与移动包通过。4.14固定发行验收仍开放。
 
 4.14 固定证据：`docs/evidence/craft-art117-gateway-export-fixed-first-use-20261008.json`。十技能独立首用、两入口九变体混合返工／复用／移动包及64安装身份通过；完整需求保持开放。
+
+固定发行补充验收：`docs/evidence/craft-art118-segment-guide-fixed-first-use-20261008.json`。仅关闭本报告列出的分段交接／分发任务；通用Skills CLI、完整领域需求与V1保持开放。
