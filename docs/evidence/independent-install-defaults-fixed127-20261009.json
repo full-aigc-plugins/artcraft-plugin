@@ -1,0 +1,298 @@
+{
+  "schema": "craft-independent-install-default-correction/v1",
+  "date": "2026-10-09",
+  "baselineCommit": "5ec232400e83158e4987241878698e0f838eeb80",
+  "completedCoreTasks": [
+    "3.4",
+    "3.5"
+  ],
+  "defaultLock": "host-acceptance-art127.lock.json",
+  "defaultEvidence": "docs/evidence/craft-art127-installation-identity-20261009.json",
+  "qualifiedPlugin": "0.1.0-dev.127",
+  "qualifiedSource": "0.1.0-dev.99",
+  "red": {
+    "total": 33,
+    "failures": 3,
+    "errors": 0,
+    "reason": "default plan, installed CLI verifier and audit still use126 instead of qualified127",
+    "logSha256": "15ac4b5822a7f74482d0b521c52a4158b8ee81505ff9515f18011caf79999709"
+  },
+  "green": {
+    "total": 33,
+    "passed": 33,
+    "logSha256": "451f273ce8bc8ccbfdeeef4d4daec3d19f9d8f80b9b4746fee00884d377b90ed"
+  },
+  "pluginRegression": {
+    "total": 112,
+    "passed": 106,
+    "conditionalSkips": 6,
+    "logSha256": "a23175177ed5db67d0a53e99879e82e0f5719d2940af919948722ba1bb4e51dd"
+  },
+  "installedSetupFailure": {
+    "tests": 1,
+    "actualPublicFaultCalls": 20,
+    "singleInstalledCopies": 10,
+    "injectedFault": "null distribution lock; missing runtime; explicit failure receipt and own setup path; no sibling directories",
+    "logSha256": "bf4518add9ab08f1d2f5baec906c43c55bd7c039b138b5ce56fdde92b5e98973"
+  },
+  "independentArtCli": {
+    "schema": "craft-art-current-independent-cli/v1",
+    "source": "0.1.0-dev.99",
+    "plugin": "0.1.0-dev.127",
+    "result": "PASS",
+    "count": 10,
+    "publicCalls": 20,
+    "records": [
+      {
+        "skill": "artcraft-cli",
+        "sha256": "126ba0a212e7feaa8f162b999b81bb53ae490d2c6714658f1386320e394d151c",
+        "runtime": "0.1.0-dev.126-runtime.1",
+        "cache": "existing independently cold installed source99 cache; no new cold claim",
+        "calls": [
+          {
+            "label": "version",
+            "exitCode": 0,
+            "stdoutSha256": "4a9a35efbb539bbeb0be022a696691ba0814d3caa6ed403dd8325494f6a61b25",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "label": "help",
+            "exitCode": 0,
+            "stdoutSha256": "fe125d11564a2b6312152505c563c0003feeeb1e32f2c090d88e7e658e9ee16d",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      {
+        "skill": "artcraft-cli-assets",
+        "sha256": "0758897156f5ced7f3586377c3532f86be9237a21caa6a737fc7f26b004333a7",
+        "runtime": "0.1.0-dev.126-runtime.1",
+        "cache": "existing independently cold installed source99 cache; no new cold claim",
+        "calls": [
+          {
+            "label": "version",
+            "exitCode": 0,
+            "stdoutSha256": "4a9a35efbb539bbeb0be022a696691ba0814d3caa6ed403dd8325494f6a61b25",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "label": "help",
+            "exitCode": 0,
+            "stdoutSha256": "fe125d11564a2b6312152505c563c0003feeeb1e32f2c090d88e7e658e9ee16d",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      {
+        "skill": "artcraft-cli-deliver",
+        "sha256": "1d7bb490c9f08bbc0b2163a202570ac300db220633bb6e24ffa0278d7674420d",
+        "runtime": "0.1.0-dev.126-runtime.1",
+        "cache": "existing independently cold installed source99 cache; no new cold claim",
+        "calls": [
+          {
+            "label": "version",
+            "exitCode": 0,
+            "stdoutSha256": "4a9a35efbb539bbeb0be022a696691ba0814d3caa6ed403dd8325494f6a61b25",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "label": "help",
+            "exitCode": 0,
+            "stdoutSha256": "fe125d11564a2b6312152505c563c0003feeeb1e32f2c090d88e7e658e9ee16d",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      {
+        "skill": "artcraft-cli-execute",
+        "sha256": "f56c241fd57ba4b3cbd48bcae545a8e8397ffd3051e1823c1ba9046197776c18",
+        "runtime": "0.1.0-dev.126-runtime.1",
+        "cache": "existing independently cold installed source99 cache; no new cold claim",
+        "calls": [
+          {
+            "label": "version",
+            "exitCode": 0,
+            "stdoutSha256": "4a9a35efbb539bbeb0be022a696691ba0814d3caa6ed403dd8325494f6a61b25",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "label": "help",
+            "exitCode": 0,
+            "stdoutSha256": "fe125d11564a2b6312152505c563c0003feeeb1e32f2c090d88e7e658e9ee16d",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      {
+        "skill": "artcraft-cli-plan",
+        "sha256": "e63a6fe9c977b859392d4159e588503247988a96e6b7fa6d9a183b5174f5a949",
+        "runtime": "0.1.0-dev.126-runtime.1",
+        "cache": "existing independently cold installed source99 cache; no new cold claim",
+        "calls": [
+          {
+            "label": "version",
+            "exitCode": 0,
+            "stdoutSha256": "4a9a35efbb539bbeb0be022a696691ba0814d3caa6ed403dd8325494f6a61b25",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "label": "help",
+            "exitCode": 0,
+            "stdoutSha256": "fe125d11564a2b6312152505c563c0003feeeb1e32f2c090d88e7e658e9ee16d",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      {
+        "skill": "artcraft-cli-recover",
+        "sha256": "d435c444cea474df8658a0d5697dca284ee94a0e4b72440e590b2cf32796c48f",
+        "runtime": "0.1.0-dev.126-runtime.1",
+        "cache": "existing independently cold installed source99 cache; no new cold claim",
+        "calls": [
+          {
+            "label": "version",
+            "exitCode": 0,
+            "stdoutSha256": "4a9a35efbb539bbeb0be022a696691ba0814d3caa6ed403dd8325494f6a61b25",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "label": "help",
+            "exitCode": 0,
+            "stdoutSha256": "fe125d11564a2b6312152505c563c0003feeeb1e32f2c090d88e7e658e9ee16d",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      {
+        "skill": "artcraft-cli-review",
+        "sha256": "feb9808c095482d0a6654649268fd046b7252712501b6150a271693a4728bf31",
+        "runtime": "0.1.0-dev.126-runtime.1",
+        "cache": "existing independently cold installed source99 cache; no new cold claim",
+        "calls": [
+          {
+            "label": "version",
+            "exitCode": 0,
+            "stdoutSha256": "4a9a35efbb539bbeb0be022a696691ba0814d3caa6ed403dd8325494f6a61b25",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "label": "help",
+            "exitCode": 0,
+            "stdoutSha256": "fe125d11564a2b6312152505c563c0003feeeb1e32f2c090d88e7e658e9ee16d",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      {
+        "skill": "artcraft-cli-revise",
+        "sha256": "8dac4391fa8383455aaf6aca792883e00c80d16a463c272ae42060b4ad311002",
+        "runtime": "0.1.0-dev.126-runtime.1",
+        "cache": "existing independently cold installed source99 cache; no new cold claim",
+        "calls": [
+          {
+            "label": "version",
+            "exitCode": 0,
+            "stdoutSha256": "4a9a35efbb539bbeb0be022a696691ba0814d3caa6ed403dd8325494f6a61b25",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "label": "help",
+            "exitCode": 0,
+            "stdoutSha256": "fe125d11564a2b6312152505c563c0003feeeb1e32f2c090d88e7e658e9ee16d",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      {
+        "skill": "artcraft-cli-setup",
+        "sha256": "b3ba79ff37cd7b90fce1dcf08af0edba6b1ed8b99676bce395080811d586f9ae",
+        "runtime": "0.1.0-dev.126-runtime.1",
+        "cache": "existing independently cold installed source99 cache; no new cold claim",
+        "calls": [
+          {
+            "label": "version",
+            "exitCode": 0,
+            "stdoutSha256": "4a9a35efbb539bbeb0be022a696691ba0814d3caa6ed403dd8325494f6a61b25",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "label": "help",
+            "exitCode": 0,
+            "stdoutSha256": "fe125d11564a2b6312152505c563c0003feeeb1e32f2c090d88e7e658e9ee16d",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      {
+        "skill": "artcraft-use",
+        "sha256": "6b3ec9a876fc29aec669a46ac69fcd2a94a0b9d75ed8069ec0c1c4fbfa541fde",
+        "runtime": "0.1.0-dev.126-runtime.1",
+        "cache": "existing independently cold installed source99 cache; no new cold claim",
+        "calls": [
+          {
+            "label": "version",
+            "exitCode": 0,
+            "stdoutSha256": "4a9a35efbb539bbeb0be022a696691ba0814d3caa6ed403dd8325494f6a61b25",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "label": "help",
+            "exitCode": 0,
+            "stdoutSha256": "fe125d11564a2b6312152505c563c0003feeeb1e32f2c090d88e7e658e9ee16d",
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      }
+    ],
+    "limits": [
+      "public CLI discovery and identity only; native scene evidence separate",
+      "not actual generic Skills CLI installation"
+    ]
+  },
+  "currentInstallationIdentityEvidence": "craft-art127-installation-identity-20261009.json",
+  "workspaceSourceAudit": {
+    "result": "REFUSED",
+    "expectedGuard": "audit_tracked_source_drift",
+    "successOutputWritten": false,
+    "domains": {
+      "filmcraft": {
+        "result": "refused",
+        "error": "audit_tracked_source_drift"
+      },
+      "effectcraft": {
+        "result": "refused",
+        "error": "audit_tracked_source_drift"
+      },
+      "photocraft": {
+        "result": "refused",
+        "error": "audit_tracked_source_drift"
+      },
+      "vectorcraft": {
+        "result": "refused",
+        "error": "audit_tracked_source_drift"
+      },
+      "artcraft": {
+        "tagAndTrackedFiles": "match",
+        "untrackedSkillFiles": 0,
+        "ignoredSkillFiles": 7,
+        "wholeWorkingTreeClaim": "not asserted"
+      }
+    },
+    "stderrSha256": "d850a667a81bad8d6a350b5b42e215a1a03db2d38d991df24087cf0ee86a11c4"
+  },
+  "changedFiles": {
+    "scripts/verify_independent_skill_install.py": "8b8dfccff115d53943bc50bd6fa312ac9095e0afbedeaf1532686da41e910c0f",
+    "scripts/verify_installed_cli.py": "fb67793a0315d33538c2a572e3beeee28360326b499dabf4c5646a9fc0abc278",
+    "scripts/audit_first_use_completion.py": "6f6fd5d4a04c7d0759d0eaf4b1aec07c17aa348f8f9e67395c99d4f6538e8869",
+    "tests/test_independent_skill_install.py": "5a5cad82063c2fe2bc01157e4861f832e78715af6d78229050792930c084dd29",
+    "tests/test_installed_cli.py": "c32f37fcc5593e7097176daef312fd00933d1b2e88bbde2b8da1512bd6dbb001",
+    "tests/test_first_use_completion_audit.py": "20ac9d588766277e54de45dd02e7b5a09d4587aa0840fa107ecbd51a9072c250"
+  },
+  "productionSkillRuntimeBytesChanged": false,
+  "remaining": [
+    "3.6 complete independent-install acceptance",
+    "3.16 actual Skills CLI installation: CLI unavailable, no installation authorized in this change",
+    "whole-workspace source audit is refused; other four repos left untouched",
+    "fullV1, model dispatch, GUI, human acceptance and other platforms"
+  ]
+}

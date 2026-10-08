@@ -72,6 +72,6 @@ def verify(python,lock_path,receipt_path,output):
  (output/'receipt.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');return result
 
 def main():
- parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--python',type=Path,default=Path(sys.executable));parser.add_argument('--lock',type=Path,default=ROOT/'host-acceptance-art126.lock.json');parser.add_argument('--receipt',type=Path,required=True);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args()
+ parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--python',type=Path,default=Path(sys.executable));parser.add_argument('--lock',type=Path,default=ROOT/'host-acceptance-art127.lock.json');parser.add_argument('--receipt',type=Path,required=True);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args()
  result=verify(args.python,args.lock,args.receipt,args.output);print(json.dumps({'result':result['result'],'versionProbes':result['versionProbes'],'pythonVersion':result['pythonVersion'],'seconds':result['seconds']}))
 if __name__=='__main__':main()

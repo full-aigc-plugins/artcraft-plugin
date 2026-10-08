@@ -1,5 +1,7 @@
 # 五插件首次使用完成审计
 
+当前维护默认已更新为127及匹配身份聚合证据；下文为此前检查点。全工作区当前跟踪源漂移仍拒绝。见[当前默认身份](ArtCraft-Independent-Install-Defaults-Architecture.zh_CN.md)。
+
 当前默认使用 `host-acceptance-art115.lock.json` 与 `craft-art115-install-lock-fixed-first-use-20261008.json`。Art115／源87包含有界安装锁，内部领域依赖保持 Film36／Effect34／Photo34／Vector31；十个变化技能独立空缓存公开安装通过，54项历史案例仅按完整目录摘要相等复用。安装身份与正式规格逐场景完成状态分开审计；完整首版仍未完成。
 
 历史dev.107：三个维护入口当时默认使用 `host-acceptance-art107.lock.json`；审计默认使用 `artcraft107-protocol-fixed-first-use-20261008.json`。实际默认审计核对64项身份，保留120条需求、262项开放任务。显式历史参数仍兼容。

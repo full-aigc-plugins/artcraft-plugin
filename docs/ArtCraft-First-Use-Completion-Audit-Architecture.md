@@ -1,5 +1,7 @@
 # Five-plugin first-use completion audit
 
+Defaults now use127 and matching identity evidence; earlier checkpoints below are retained. Current tracked-source drift is still refused. See [current default identity](ArtCraft-Independent-Install-Defaults-Architecture.md).
+
 Current defaults: `host-acceptance-art115.lock.json` and `craft-art115-install-lock-fixed-first-use-20261008.json`. Art115/source87 includes bounded install locks and retains internal Film36/Effect34/Photo34/Vector31. Ten changed skills pass separate empty-cache public installation;54 historical cases are reused only by complete tree equality. Installation identity is audited separately from formal scenario completion; fullV1 remains incomplete.
 
 Historical dev.107: the three maintainer defaults used `host-acceptance-art107.lock.json`; the auditor uses `artcraft107-protocol-fixed-first-use-20261008.json`. The actual default audit verifies 64 identities and reports 120 requirements and 262 open tasks. Historical overrides remain supported.
