@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Current fixed131 brand/gateway/HD acceptance passes: both entries inherit nine variants, preserve native-only delivery, refuse source tampering and native brand mutations, decode120frames, revise Logo dependencies, recover corrupt frames and verify five moved projects. Task4.6 now has evidence for12/14 scenarios; it and12 numbered tasks remain open. [Acceptance](docs/ArtCraft-Brand-Segment-Acceptance-Architecture.md).
+
 Fixed plugin131/source103/runtime130 installed acceptance passes:64 host identities,ten independent cold entries,3 native mixed tests and36 native response faults. INNER-JSON repair gate complete;task4.6 remains open (9/14 scenarios, with current versus retained evidence distinguished). [Fixed distribution](docs/ArtCraft-Fixed-Inner-JSON-Distribution-Architecture.md).
 
 Earlier fixed130 INNER-JSON regression:fixed130 fails12/12 installed cases. Art-owned boundary candidate passes36 native faults,13 boundary vectors, normal render and301 runtime tests; fixed release/install acceptance remains pending. [Candidate](docs/ArtCraft-Inner-JSON-Boundary-Architecture.md).

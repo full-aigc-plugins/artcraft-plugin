@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+当前固定131新增品牌／网关／1080p分段验收通过：两入口九变体继承、原生交付、旧计划篡改／品牌误改阻断、120帧解码、Logo返工／坏帧恢复与五子工程移动包。4.6累计12/14场景有证据，整体及12个编号任务仍开放。[验收](docs/ArtCraft-Brand-Segment-Acceptance-Architecture.zh_CN.md)。
+
 固定plugin131/source103/runtime130安装验收通过：64项宿主身份、十独立冷入口、3项原生混合及36项响应故障。INNER-JSON修复门禁完成；4.6整体开放（9/14场景，明确区分当前安装与既有证据复用）。[固定分发](docs/ArtCraft-Fixed-Inner-JSON-Distribution-Architecture.zh_CN.md)。
 
 此前固定130的INNER-JSON回归：固定130的12项安装用例均未满足预期。Art自有边界候选通过36项原生故障、13组边界、正常渲染及301项运行时测试；固定发行／安装复验待完成。[候选](docs/ArtCraft-Inner-JSON-Boundary-Architecture.zh_CN.md)。

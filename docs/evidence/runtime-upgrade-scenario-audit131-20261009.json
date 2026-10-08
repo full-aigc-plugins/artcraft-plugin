@@ -168,27 +168,33 @@
     },
     {
       "scenario": "[AC-RT-002-BRAND-GUARD] 品牌依赖保护的独立分发",
-      "status": "retained-evidence-needs-audit",
+      "status": "verified-current-installed",
       "reference": "docs/evidence/craft-art116-brand-guard-fixed-first-use-20261008.json",
       "referenceSha256": "924bd984d7d7a59ef2900bff3b5f195a0a72b44e122ea119484ddef5845772cc",
-      "remainingAudit": "Retained fixed brand guard proof; compare current Vector33 guard dependencies and caller identities.",
-      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/craft-art116-brand-guard-fixed-first-use-20261008.json"
+      "remainingAudit": "None for this named scenario; full task4.6 remains open. Current installed proof supersedes historical native samples, while immutable cold10 identities are explicitly reused.",
+      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/craft-art116-brand-guard-fixed-first-use-20261008.json",
+      "currentEvidence": "docs/evidence/current-brand-segment-acceptance131-20261009.json",
+      "currentEvidenceSha256": "85b19cf4b03c9d31a706f4db847a92f6f35ecc2820b779ca38550cdebddba930"
     },
     {
       "scenario": "[AC-RT-002-GATEWAY-EXPORT] 品牌网关变体继承的独立分发",
-      "status": "retained-evidence-needs-audit",
+      "status": "verified-current-installed",
       "reference": "docs/evidence/craft-art117-gateway-export-fixed-first-use-20261008.json",
       "referenceSha256": "241a53db0b074332ef1a067a5918e3ab8ab2eb7c9559b419bb5e0aedc8458c37",
-      "remainingAudit": "Retained gateway proof reference must be resolved and audited against actual file before reuse.",
-      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/craft-art117-gateway-export-fixed-first-use-20261008.json"
+      "remainingAudit": "None for this named scenario; full task4.6 remains open. Current installed proof supersedes historical native samples, while immutable cold10 identities are explicitly reused.",
+      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/craft-art117-gateway-export-fixed-first-use-20261008.json",
+      "currentEvidence": "docs/evidence/current-brand-segment-acceptance131-20261009.json",
+      "currentEvidenceSha256": "85b19cf4b03c9d31a706f4db847a92f6f35ecc2820b779ca38550cdebddba930"
     },
     {
       "scenario": "[AC-RT-002-SEGMENT-GUIDE] 分段首用说明与固定依赖一致",
-      "status": "retained-evidence-needs-audit",
+      "status": "verified-current-installed",
       "reference": "docs/evidence/craft-art118-segment-guide-fixed-first-use-20261008.json",
       "referenceSha256": "7df6d8b9f99d9e34b05a03b693c297cb17dce2da16fd60c1bd520201606f05c7",
-      "remainingAudit": "Retained fixed segmented guidance and native proof; reconcile current changed guide and Film pins.",
-      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/craft-art118-segment-guide-fixed-first-use-20261008.json"
+      "remainingAudit": "None for this named scenario; full task4.6 remains open. Current installed proof supersedes historical native samples, while immutable cold10 identities are explicitly reused.",
+      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/craft-art118-segment-guide-fixed-first-use-20261008.json",
+      "currentEvidence": "docs/evidence/current-brand-segment-acceptance131-20261009.json",
+      "currentEvidenceSha256": "85b19cf4b03c9d31a706f4db847a92f6f35ecc2820b779ca38550cdebddba930"
     },
     {
       "scenario": "[AC-RT-002-UPGRADE-ENTRY] 公开账本升级与回退身份",
@@ -209,8 +215,8 @@
   "completionRule": "Resolve every clause using applicable unchanged historical evidence or actual fixed installed evidence. No scenario is closed solely by this routing audit.",
   "referenceRepository": "https://github.com/full-aigc-plugins/artcraft-plugin",
   "referenceBaseCommit": "3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920",
-  "verifiedCurrentInstalledScenarioCount": 2,
+  "verifiedCurrentInstalledScenarioCount": 5,
   "pluginVersion": "0.1.0-dev.131",
   "verifiedRetainedUnchangedCodeScenarioCount": 7,
-  "verifiedScenarioCount": 9
+  "verifiedScenarioCount": 12
 }
