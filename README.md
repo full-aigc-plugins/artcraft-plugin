@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Fixed133/source105/runtime132 live tool schema acceptance passes:64 host identities, ten independent cold starts,20 native schema probes, four locked snapshot/mode refusals, mixed3/3 and36 post-save faults. Task4.18 completes; overall4.6 remains open at14/16 because readonly2646 command parameter agreement does not enforce drift refusal. [Acceptance](docs/ArtCraft-Live-Tool-Schema-Architecture.md).
+
 Current candidate133/source105/runtime132 adds locked live tool schema discovery before DAG editing; fixed host and native acceptance pending. Task4.18 and overall4.6 remain open. [Architecture](docs/ArtCraft-Live-Tool-Schema-Architecture.md).
 
 Fixed132/source104/runtime131 mode acceptance passes: four bridge DAG requests refuse before output/native launch; independent explicit mode checks remain distinct. All64 host identities, ten cold first uses, actual four-domain mixed revision/portable delivery and36 native reply faults pass. Task4.17 completes;4.6 stays open at13/15 after adding MODE, with12 numbered tasks open. [Fixed mode acceptance](docs/ArtCraft-Runtime-Mode-Boundary-Architecture.md).
