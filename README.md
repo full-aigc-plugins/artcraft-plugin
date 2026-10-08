@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Current candidate133/source105/runtime132 adds locked live tool schema discovery before DAG editing; fixed host and native acceptance pending. Task4.18 and overall4.6 remain open. [Architecture](docs/ArtCraft-Live-Tool-Schema-Architecture.md).
+
 Fixed132/source104/runtime131 mode acceptance passes: four bridge DAG requests refuse before output/native launch; independent explicit mode checks remain distinct. All64 host identities, ten cold first uses, actual four-domain mixed revision/portable delivery and36 native reply faults pass. Task4.17 completes;4.6 stays open at13/15 after adding MODE, with12 numbered tasks open. [Fixed mode acceptance](docs/ArtCraft-Runtime-Mode-Boundary-Architecture.md).
 
 Earlier MODE boundary candidate: fixed131 silently prepares headless workflows for four bridge identities. Candidate refuses capability_missing; four-domain targets, actual Effect creation/reuse and305 runtime tests pass. New fixed distribution acceptance remains open. [Mode boundary](docs/ArtCraft-Runtime-Mode-Boundary-Architecture.md).
@@ -191,9 +193,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.132 |
+| Plugin ID / version | artcraft / 0.1.0-dev.133 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.104 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.105 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |

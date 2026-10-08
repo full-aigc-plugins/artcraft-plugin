@@ -163,6 +163,15 @@ def bundle_version(lock, entry):
     return version
 
 
+def domain_launcher_files(root):
+    """将实际工具快照与领域启动资源一起绑定到能力和启动摘要。"""
+    files = [{'path': str(root/file), 'sha256': sha(root/file)} for file in ('scripts/workflow.py', 'scripts/bootstrap.py', 'scripts/mcp_session.py', 'scripts/runtime.lock.json', 'scripts/exchange_loss.py', 'scripts/preserved_stage.py', 'references/native-command-snapshot.json')]
+    for file in ('scripts/brand_variants.py','scripts/delivery.py','scripts/native_workflow.py','scripts/commands.py','references/command-coverage.json','scripts/desktop.py','scripts/desktop_session.py','scripts/desktop.lock.json'):
+        if (root/file).is_file():
+            files.append({'path':str(root/file),'sha256':sha(root/file)})
+    return files
+
+
 def setup(lock, runtime_home, node, bundle_directory=None, native_archive_directory=None, plugins=None):
     validate_distribution(lock)
     selected = list(NAMES) if plugins is None else plugins
@@ -211,10 +220,7 @@ def setup(lock, runtime_home, node, bundle_directory=None, native_archive_direct
             catalog = subprocess.run([str(cli), 'commands', '--json'], check=True, capture_output=True, timeout=30).stdout
             if not json.loads(catalog):
                 raise ValueError('capability_missing')
-            files = [{'path': str(root/'scripts'/file), 'sha256': sha(root/'scripts'/file)} for file in ('workflow.py', 'bootstrap.py', 'mcp_session.py', 'runtime.lock.json', 'exchange_loss.py', 'preserved_stage.py')]
-            for file in ('scripts/brand_variants.py','scripts/delivery.py','scripts/native_workflow.py','scripts/commands.py','references/command-coverage.json','scripts/desktop.py','scripts/desktop_session.py','scripts/desktop.lock.json'):
-                if (root/file).is_file():
-                    files.append({'path':str(root/file),'sha256':sha(root/file)})
+            files = domain_launcher_files(root)
             snapshot = {'commandCatalogSha256': hashlib.sha256(catalog).hexdigest(), 'skillBundleSha256': lock['bundles'][name+'-skills']['sha256'], 'artcraftRuntimeSha256': lock['bundles']['artcraft-runtime']['sha256'], 'scriptHashes': {Path(file['path']).name:file['sha256'] for file in files}}
             snapshot_hash = hashlib.sha256(json.dumps(snapshot, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
             skills[name] = {'capabilitySnapshot': snapshot, 'skillRoot': str(root), 'executable': str(cli), 'files': files, 'runtimeIdentity': {'pluginId': name, 'pluginVersion': bundle_version(lock, lock['bundles'][name+'-skills']), 'cliVersion': native_lock['resolvedVersion'], 'sha256': result['binarySha256'], 'mode': 'headless', 'capabilitySnapshotSha256': snapshot_hash}}

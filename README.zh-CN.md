@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+当前候选133／源105／runtime132补齐DAG编辑前受信实际工具schema发现；固定宿主与原生验收待完成。任务4.18与整体4.6保持开放。[架构](docs/ArtCraft-Live-Tool-Schema-Architecture.zh_CN.md)。
+
 固定132／源104／runtime131模式修复验收通过：四领域bridge DAG均在输出／原生启动前拒绝，独立显式模式检查保持区分；64宿主身份、十独立冷首用、实际四领域混合返工／移动包和36项原生响应故障通过。任务4.17完成；4.6仍开放（新增MODE后13/15场景），12个编号任务仍开放。[固定模式验收](docs/ArtCraft-Runtime-Mode-Boundary-Architecture.zh_CN.md)。
 
 此前MODE边界候选：固定131四领域bridge身份被准备为headless的红灯已复现；候选明确capability_missing，四领域目标、Effect原生创建／复用和305项运行时回归通过。新固定分发验收未完成。[模式边界](docs/ArtCraft-Runtime-Mode-Boundary-Architecture.zh_CN.md)。
@@ -189,9 +191,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.132 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.133 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.104 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.105 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
