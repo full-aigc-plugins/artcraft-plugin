@@ -1,6 +1,6 @@
-# ArtCraft immutable artifact version candidate
+# ArtCraft immutable artifact versions
 
-AC-CP-002 already requires immutable content per artifact version. The added VERSION scenario defines namespace and refusal timing while this change fixes the runtime gap. This is an unpublished candidate: public fixed runtime122/source94/plugin122 do not contain the protection. Task 2.1 has reproducible failure tests; fixed delivery material for 2.2 and complete acceptance 2.3 remain open.
+AC-CP-002 requires immutable content per artifact version. Runtime `0.1.0-dev.123-runtime.1`, independent skills `0.1.0-dev.95` and plugin `0.1.0-dev.123` now contain the protection and have fixed installed acceptance. Tasks 2.1 and 2.2 are verified; complete protocol acceptance 2.3 remains open.
 
 ## Data and control flow
 
@@ -31,4 +31,8 @@ On a conflict, compare the current content with the registered digest. Intended 
 
 [Candidate evidence](evidence/artifact-version-candidate-20261008.json) binds 17 target RED/GREEN tests, complete runtime regression, a four-domain native mixed workflow, real concurrent output conflicts and two public Node CLI refusals with ledger/file preservation. It proves candidate code, not a fixed release or installation in the Python skill. Procedural graphics and test audio do not establish creative or human acceptance.
 
-Next, fix a new runtime, independent skill source and plugin release, then verify installed public entry points and independent cold starts before closing the delivery gap in 2.2. Complete JPEG, PNG, WAV, dynamic sequence, exact time and consumer matrices remain under 2.3. History queries scan the logical project; long-lived large-ledger performance is not claimed.
+[Fixed installed evidence](evidence/craft-art123-artifact-version-fixed-first-use-20261008.json) binds three byte-matched public archives, five rebuilt bundles, 64 host discoveries and installed CLI probes, and ten newly independent Art cold installations. The 54 unchanged domain cold records are reused only after exact whole-tree identity equality; they are not newly rerun cold installations. One installed execution skill creates three native versions, refuses three mutable-version requests before registration, preserves all 12 ledger tables and 20 old delivery files, and reuses the valid revision without extra budget. The actual four-domain creation/revision/moved-package test and both argument tests pass. All 64 installed skill trees remain unchanged. Eight fixed-commit CI runs pass.
+
+Complete JPEG, PNG, WAV, dynamic sequence, exact time and consumer matrices remain under 2.3. Generic Skills CLI installation 3.16 remains open. These technical results do not establish GUI, model dispatch, creative, human or full V1 acceptance. History queries scan the logical project; long-lived large-ledger performance is not claimed.
+
+The current-all-repository source audit refuses because the four domain working copies differ from the pinned tags; ArtCraft tracked skill bytes match. This is distinct from the accepted immutable-tag installation. Other domain repositories were not modified.
