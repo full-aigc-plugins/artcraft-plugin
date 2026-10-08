@@ -56,6 +56,13 @@
 - **WHEN** 新运行时缺少计划要求的能力
 - **THEN** 执行前报 capability_missing，禁止静默替换工具
 
+#### Scenario: AC-RT-002-MODE 显式模式不降级
+
+- **WHEN** 四领域 DAG 工作流节点声明 bridge 运行身份，而该适配器仅提供 headless 工作流启动
+- **THEN** 适配器 SHALL 在生成任务输出目录、启动原生进程之前返回 capability_missing，不将 bridge 身份用于 headless 执行
+- **AND** 独立完整命令组件的显式 bridge／desktop 会话入口保持独立；该拒绝不代表所有 bridge 命令都不受支持
+- **AND** 四领域拒绝与 headless 正常准备分别验证；固定安装失败证据、候选修复和新不可变分发验收分别记录
+
 #### Scenario: AC-RT-002-LEDGER-MIGRATION 旧账本排空与回退快照
 
 - **WHEN** 打开本产品持有的旧版账本，且必须迁移状态schema

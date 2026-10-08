@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+当前MODE边界候选：固定131四领域bridge身份被准备为headless的红灯已复现；候选明确capability_missing，四领域目标、Effect原生创建／复用和305项运行时回归通过。新固定分发验收未完成。[模式边界](docs/ArtCraft-Runtime-Mode-Boundary-Architecture.zh_CN.md)。
+
 当前固定131新增品牌／网关／1080p分段验收通过：两入口九变体继承、原生交付、旧计划篡改／品牌误改阻断、120帧解码、Logo返工／坏帧恢复与五子工程移动包。4.6累计12/14场景有证据，整体及12个编号任务仍开放。[验收](docs/ArtCraft-Brand-Segment-Acceptance-Architecture.zh_CN.md)。
 
 固定plugin131/source103/runtime130安装验收通过：64项宿主身份、十独立冷入口、3项原生混合及36项响应故障。INNER-JSON修复门禁完成；4.6整体开放（9/14场景，明确区分当前安装与既有证据复用）。[固定分发](docs/ArtCraft-Fixed-Inner-JSON-Distribution-Architecture.zh_CN.md)。

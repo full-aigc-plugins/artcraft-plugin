@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Current MODE boundary candidate: fixed131 silently prepares headless workflows for four bridge identities. Candidate refuses capability_missing; four-domain targets, actual Effect creation/reuse and305 runtime tests pass. New fixed distribution acceptance remains open. [Mode boundary](docs/ArtCraft-Runtime-Mode-Boundary-Architecture.md).
+
 Current fixed131 brand/gateway/HD acceptance passes: both entries inherit nine variants, preserve native-only delivery, refuse source tampering and native brand mutations, decode120frames, revise Logo dependencies, recover corrupt frames and verify five moved projects. Task4.6 now has evidence for12/14 scenarios; it and12 numbered tasks remain open. [Acceptance](docs/ArtCraft-Brand-Segment-Acceptance-Architecture.md).
 
 Fixed plugin131/source103/runtime130 installed acceptance passes:64 host identities,ten independent cold entries,3 native mixed tests and36 native response faults. INNER-JSON repair gate complete;task4.6 remains open (9/14 scenarios, with current versus retained evidence distinguished). [Fixed distribution](docs/ArtCraft-Fixed-Inner-JSON-Distribution-Architecture.md).

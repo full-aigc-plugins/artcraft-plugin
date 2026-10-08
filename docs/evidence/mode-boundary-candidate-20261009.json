@@ -1,0 +1,87 @@
+{
+  "schema": "artcraft-mode-boundary-candidate/v1",
+  "result": "candidate-passed",
+  "fixedRegression": {
+    "plugin": "0.1.0-dev.131",
+    "runtime": "0.1.0-dev.130-runtime.1",
+    "scope": "actual installed parent preparation, no native spawn",
+    "bridgeAcceptedAsHeadless": 4
+  },
+  "candidate": {
+    "runtimeVersion": "0.1.0-dev.131-runtime.1",
+    "fourBridgeRefusals": 4,
+    "nativeEffectCreateAndReuse": "PASS",
+    "independentExplicitChecks": {
+      "headless": "bridge_tool_requires_bridge",
+      "bridge": "PASS / native NOT_RUN",
+      "desktop": "PASS / native NOT_RUN"
+    },
+    "unit": {
+      "total": 11,
+      "passed": 10,
+      "skipped": 1
+    },
+    "regression": {
+      "total": 330,
+      "passed": 305,
+      "skipped": 25
+    }
+  },
+  "sourceSha256": "e775eff686c46d4f3d3875f8daf251cbdead12c00239ae7a1a2b40c728effb7b",
+  "raw": {
+    "artifacts/artcraft-mode-boundary-20261009/fixed131-red.log": {
+      "sha256": "dfb8bd85a75e56487e2b036b43344719b26c1bef9b7cd59d6a72caa71d2a1270",
+      "bytes": 429
+    },
+    "artifacts/artcraft-mode-boundary-20261009/fixed131-mode-result.json": {
+      "sha256": "6183833cd03c05400fea4b1cdffe15b2b1e856e8c0293b1f6123cd6f4e18feb8",
+      "bytes": 6321
+    },
+    "artifacts/artcraft-mode-boundary-20261009/fixed-mode.ts": {
+      "sha256": "e1a6c745fad69d1673a0120b1a0bfa3f57d23c709833ed85b778722e36b8235f",
+      "bytes": 2021
+    },
+    "artifacts/artcraft-mode-boundary-20261009/unit-red.log": {
+      "sha256": "3fdde7dbcf8fd5287ea2ec8417063a0ead17a81aa7169cfcf618e5ac66e0e7f7",
+      "bytes": 3321
+    },
+    "artifacts/artcraft-mode-boundary-20261009/unit-green.log": {
+      "sha256": "41ac73c06b025d6e4c528914915e4a8391ff8412116ca9fd80ca918f998f5370",
+      "bytes": 1184
+    },
+    "artifacts/artcraft-mode-boundary-20261009/candidate-mode-result.json": {
+      "sha256": "c8aed725a0f4a889bed0f34a21960da13d1f542af628c4817b161c00fb61d988",
+      "bytes": 836
+    },
+    "artifacts/artcraft-mode-boundary-20261009/candidate-mode.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "artifacts/artcraft-mode-boundary-20261009/candidate-headless-proof.json": {
+      "sha256": "9eb7b19b2268d3250f2cee71c0d41d2789bea6513527105671cc0dff2aaa685f",
+      "bytes": 860
+    },
+    "artifacts/artcraft-mode-boundary-20261009/candidate-headless.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "artifacts/artcraft-mode-boundary-20261009/runtime-regression.log": {
+      "sha256": "0cecea7f5c060c0b14a58b3ead0aa1474e4229c1d72f6462a22d1d4b26ed785b",
+      "bytes": 29666
+    },
+    "artifacts/artcraft-mode-boundary-20261009/explicit-modes-proof.json": {
+      "sha256": "10d55dbb8ddf666a156dfd915dab0f9dcbf32212e6b3f3435b08cc8e362ba589",
+      "bytes": 3998
+    },
+    "artifacts/artcraft-mode-boundary-20261009/explicit-modes.log": {
+      "sha256": "9aee43d99f28faccbfd065f543811b1974f23d623b774c13f95c67c1e735bccd",
+      "bytes": 26
+    }
+  },
+  "remaining": [
+    "new immutable distribution",
+    "ten standalone cold first uses",
+    "fixed installed four-domain refusal and headless mixed acceptance",
+    "complete task4.6, GUI, Skills CLI and V1"
+  ]
+}

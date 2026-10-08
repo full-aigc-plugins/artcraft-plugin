@@ -36,6 +36,8 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
  const factory:AdapterFactory=async(nodeValue,inputValues,taskId)=>{
   const node=structuredClone(nodeValue),inputs=structuredClone(inputValues);
   if(node.runtimeIdentity.pluginId!==locked.pluginId)throw new Error('skill_plugin_mismatch');
+  // DAG 领域工作流仅提供 headless 启动；bridge 必须使用显式会话入口，不能降级执行。
+  if(node.runtimeIdentity.mode==='bridge')throw new Error('capability_missing: '+locked.pluginId+' bridge workflow');
   const payload=node.payload;
   if(payload.schemaVersion!=='craft-skill-workflow/v1' || Object.keys(payload).some(key=>!['schemaVersion','plan','assetBindings','outputs','sourceProject'].includes(key)) || !payload.plan || typeof payload.plan!=='object' || Array.isArray(payload.plan) || 'assets' in payload.plan)throw new Error('skill_payload_invalid');
   if(!Array.isArray(payload.assetBindings) || !Array.isArray(payload.outputs) || !payload.outputs.length)throw new Error('skill_payload_invalid');
