@@ -1,0 +1,42 @@
+[
+  {
+    "command": "native.command",
+    "params": {
+      "command": "transcript.generate",
+      "params": {
+        "model": "whisper-tiny",
+        "language": "en",
+        "items": [
+          {
+            "$ref": "voice.item"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "command": "native.command",
+    "params": {
+      "command": "transcript.createCaptions",
+      "params": {
+        "name": "Recognized speech",
+        "maxChars": 32,
+        "lines": 1
+      }
+    },
+    "as": "speechCaptions"
+  },
+  {
+    "command": "captions.setStyle",
+    "params": {
+      "track": {
+        "$ref": "speechCaptions.track"
+      },
+      "font": "Arial",
+      "size": 84,
+      "margin": 0.02,
+      "color": "#ffffff",
+      "background": true
+    }
+  }
+]

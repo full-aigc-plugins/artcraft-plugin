@@ -1,8 +1,8 @@
 # 混合工程真实语音识别 / Real speech in mixed projects
 
-源 dev.79 候选将 Film 分发固定到源 dev.34／原生 craft.4；Art 编排运行时继续使用不可变 dev.83。完整命令目录仍为 2,639 条，领域参数、实时 enabled 和原生摘要校验继续生效。固定 Art104 尚未包含此分发，不能用它证明本场景。
+当前源dev.83将Film分发锁定到源dev.36／原生craft.4，Art编排运行时仍为不可变dev.108；四领域目录为2,646条（666／640／755／585）。按当前实际安装锁核对，不把旧Art104或其他不可变版的指南用于证明新版。本次新增操作模板和字号交接，不改变原生运行时或领域分发锁。
 
-Source dev.79 pins Film source dev.34/native craft.4 while retaining immutable Art runtime dev.83. All 2,639 command routes retain parameter, live enabled and native identity validation. Fixed Art104 does not include this distribution.
+Source83 pins Film source36/nativecraft.4 and immutable Art runtime108. Four-domain discovery contains2,646 commands (666/640/755/585). Verify the loaded installation's lock. This revision adds a caption handoff template without changing native/runtime dependencies.
 
 ## 安装、模型与目录 / Setup, model and directory
 
@@ -17,7 +17,7 @@ Set `ART_SKILL_DIR` to the installed skill directory and bootstrap only needed d
 
 ```mermaid
 flowchart LR
-    Art[Art skill and runtime83] --> Logo[Vector brand project]
+    Art[Art skill and runtime108] --> Logo[Vector brand project]
     Logo --> Poster[Photo poster]
     Logo --> Intro[Effect intro]
     Intro --> Film[Film native craft.4]
@@ -31,16 +31,21 @@ flowchart LR
 ```
 
 
-在 Film 节点的 `payload.plan.operations` 中，先真实导入配音并绑定 `voice.item`，再添加以下原生命令；识别文本由模型产生，不把参考文稿作为识别输入：
+在 Film 节点的 `payload.plan.operations` 中，先真实导入配音并绑定 `voice.item`，放置音画，再追加本技能 `examples/mixed-asr-operations.json` 的操作数组。它是Film节点的操作片段，不是完整Art DAG；完整依赖模式使用本技能brand-token-campaign.json。复制模板到任务目录修改，不改安装副本。识别文本由模型产生，不把参考文稿作为识别输入。
+
+新建且要求自动字幕的计划，移除所复制模板中captions.newTrack、captions.setStyle与caption.add占位操作，保持音画操作。已有用户工程先查询真实字幕轨道，仅关闭任务明确替换的占位轨道；保留文字与时间，不自动关闭无关字幕。音频按实际媒体长度安排，不要用视频时长强制越界音频源。
+
+操作片段先识别，再以maxChars32、lines1生成字幕并绑定speechCaptions；样式引用speechCaptions.track的实际返回ID，不猜测C1。默认Arial、size84、margin0.02针对180高英语示例，名义14px；底部单行与现有品牌标题留出空间，长句拆为多个时间段；size按1080行归一，语言、字形与画幅变化时按目标像素重新计算，检查行宽和真实预览。版式调整复用已识别词，不重新识别音频。
 
 ```json
 [
   {"command":"native.command","params":{"command":"transcript.generate","params":{"model":"whisper-tiny","language":"en","items":[{"$ref":"voice.item"}]}}},
-  {"command":"native.command","params":{"command":"transcript.createCaptions","params":{"name":"Recognized speech","maxChars":42}}}
+  {"command":"native.command","params":{"command":"transcript.createCaptions","params":{"name":"Recognized speech","maxChars":32,"lines":1}},"as":"speechCaptions"},
+  {"command":"captions.setStyle","params":{"track":{"$ref":"speechCaptions.track"},"font":"Arial","size":84,"margin":0.02,"color":"#ffffff","background":true}}
 ]
 ```
 
-Import real speech and bind `voice.item` before these operations. Use the full [brand workflow](../examples/brand-token-campaign.json) as the dependency pattern: Logo → poster/intro → film, with an unrelated badge. Remove provided caption text if the task requires generated subtitles. Chinese, noisy audio, multi-speaker and long-form accuracy require their own acceptance; the current retained example uses English speech.
+Import and place real speech before appending this skill's mixed-asr-operations.json to the Film node of the brand workflow. The file is an operation fragment, not a complete Art DAG. For new auto-caption plans, omit the template's supplied caption track/style/text operations. For existing projects, disable only explicitly superseded placeholders after inspecting actual tracks. Preserve unrelated captions and all timing. The fragment styles the actual returned speechCaptions.track ID. The single bottom line leaves room for the brand title and splits longer speech into multiple segments. Size84 gives nominal14px at180 height; adapt fonts, language, dimensions and line width, and inspect the native preview. Layout-only revisions reuse existing transcripts. Chinese, noisy audio, multiple speakers and long-form accuracy require separate acceptance; the retained test uses English speech.
 
 ## 返工、失败与验收 / Revision, failure and acceptance
 
