@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-Fixed plugin dev.127/source dev.99 passes all four named consistency scenarios; task 6.15 is complete. Legacy dependency refusal, original preservation, current protected-region/brush revision, actual sampled visual observations and moved records are verified. Source regression: 199 tests, 149 passed, 50 conditional skips. Twenty-one numbered tasks plus historical SC-003 remain open (22 total); human acceptance and full V1 remain open. [Acceptance architecture](docs/ArtCraft-Consistency-Acceptance-Architecture.md).
+Current update: all three external-delivery scenarios verified; tasks6.16/6.17/6.18 complete. Six-node public validation, wrong-dimensions refusal, original preservation and moved package pass. Eighteen numbered tasks plus historical SC-003 remain open (19 total); full V1 remains open. Plugin dev.127/source dev.99 assets are unchanged. See [external delivery acceptance](docs/ArtCraft-External-Delivery-Acceptance-Architecture.md).
+
+Earlier consistency checkpoint: Fixed plugin dev.127/source dev.99 passes all four named consistency scenarios; task 6.15 is complete. Legacy dependency refusal, original preservation, current protected-region/brush revision, actual sampled visual observations and moved records are verified. Source regression: 199 tests, 149 passed, 50 conditional skips. Twenty-one numbered tasks plus historical SC-003 remain open (22 total); human acceptance and full V1 remain open. [Acceptance architecture](docs/ArtCraft-Consistency-Acceptance-Architecture.md).
 
 Earlier source-candidate checkpoint: Source-candidate consistency review now binds fixed brand/subject references to every observed output; eight targeted fixture tests and seven legacy review tests pass. Task6.13 is complete;6.14/6.15 remain open. Public release identities are unchanged. See [candidate architecture](docs/ArtCraft-Consistency-Candidate-Architecture.md).
 

@@ -153,9 +153,9 @@
 - [x] 6.13 [AC-DM-005] 编写能暴露“跨产物一致性”缺失的正向与失败测试并确认预期失败。责任：Domain owner；前置：四个领域端对应能力达到 M2；可先用协议 fixture 测试，真实联调不可替代。产物：fixture、断言及失败日志；验证：失败原因必须是目标行为缺失。
 - [x] 6.14 [AC-DM-005] 在 src/planning/、src/adapters/ 的领域计划与映射 实现“跨产物一致性”的最小行为，不扩大支持范围。责任：Domain owner；前置：6.13。产物：对应源码/独立技能源/锁定材料；验证：目标测试和受影响回归通过。
 - [x] 6.15 [AC-DM-005] 完成“跨产物一致性”真实边界验收并记录版本、平台、输入输出摘要及未验证项。责任：QA owner；前置：6.14。产物：evidence/ac-dm-005/；验证：规范所有场景有证据，且 README 能力状态与证据一致。
-- [ ] 6.16 [AC-DM-006] 编写能暴露“交付与外部生态接入”缺失的正向与失败测试并确认预期失败。责任：Domain owner；前置：四个领域端对应能力达到 M2；可先用协议 fixture 测试，真实联调不可替代。产物：fixture、断言及失败日志；验证：失败原因必须是目标行为缺失。
-- [ ] 6.17 [AC-DM-006] 在 src/planning/、src/adapters/ 的领域计划与映射 实现“交付与外部生态接入”的最小行为，不扩大支持范围。责任：Domain owner；前置：6.16。产物：对应源码/独立技能源/锁定材料；验证：目标测试和受影响回归通过。
-- [ ] 6.18 [AC-DM-006] 完成“交付与外部生态接入”真实边界验收并记录版本、平台、输入输出摘要及未验证项。责任：QA owner；前置：6.17。产物：evidence/ac-dm-006/；验证：规范所有场景有证据，且 README 能力状态与证据一致。
+- [x] 6.16 [AC-DM-006] 编写能暴露“交付与外部生态接入”缺失的正向与失败测试并确认预期失败。责任：Domain owner；前置：四个领域端对应能力达到 M2；可先用协议 fixture 测试，真实联调不可替代。产物：fixture、断言及失败日志；验证：失败原因必须是目标行为缺失。 证据：`docs/evidence/external-delivery-fixed127-20261009.json`；适配器引入前提交的公开登记命令缺失已事后回放确认，当前相同参数成功；明确不作为原始 TDD 日志。新增 accepted-only 真实子进程边界回归通过。
+- [x] 6.17 [AC-DM-006] 在 src/planning/、src/adapters/ 的领域计划与映射 实现“交付与外部生态接入”的最小行为，不扩大支持范围。责任：Domain owner；前置：6.16。产物：对应源码/独立技能源/锁定材料；验证：目标测试和受影响回归通过。 复核已有公开 Video Factory 适配、登记和打包实现及固定运行时；当前 300 项运行时回归中 279 通过、21 条件跳过，无需修改生产字节。
+- [x] 6.18 [AC-DM-006] 完成“交付与外部生态接入”真实边界验收并记录版本、平台、输入输出摘要及未验证项。责任：QA owner；前置：6.17。产物：evidence/ac-dm-006/；验证：规范所有场景有证据，且 README 能力状态与证据一致。 证据：`docs/evidence/external-delivery-fixed127-20261009.json`；当前固定安装六节点、实际公开验证／错误尺寸门禁、原工程保全及移动包通过；accepted-only 单元边界通过；历史登记缺失为事后回放，不是原始 TDD 日志。人工接受与完整 V1 保持开放。
 
 - [x] 6.19 [AC-DM-006] 编写缺失适配器、缺外部登记及 JSON 证据/门禁边界测试并记录预期失败；产物：test/video_factory_adapter.test.ts、test/protocol.test.ts、独立技能源 tests/test_video_factory_first_use.py。
 - [x] 6.20 [AC-DM-006] 实现固定公开 Video Factory 0.4.0 验证节点、可信工具摘要登记、闭合 payload、JSON 证据与打包保留；产物：src/adapters/video_factory*.ts、公开 register-video-factory、独立技能 workflow.py。
