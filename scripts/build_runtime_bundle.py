@@ -59,7 +59,7 @@ def git_archive_bundle(repository, version, destination, published_repository, a
     """保持固定标签的完整 Git ZIP 原字节；拒绝链接和工作树混入。"""
     if archive_prefix is not None:
         match = re.fullmatch(r'full-aigc-skills/(filmcraft|effectcraft|photocraft|vectorcraft)-skills', published_repository)
-        if not match or archive_prefix not in {published_repository.split('/')[1]+'/', published_repository.split('/')[1]+'-'+version+'/'}:
+        if not match or archive_prefix not in {published_repository.split('/')[1]+'/', published_repository.split('/')[1]+'-'+version+'/', published_repository.split('/')[1]+'-v'+version+'/'}:
             raise ValueError('archive_prefix_invalid')
     with tempfile.TemporaryDirectory(prefix='artcraft-git-archive-') as temporary:
         source = Path(temporary)

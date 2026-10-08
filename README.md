@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-Development source88/plugin116 pins Vector32 with trusted brand dependency checks; candidate mixed revision passes, fixed installed acceptance remains pending. [Architecture](docs/ArtCraft-Brand-Guard-Distribution-Architecture.md).
+Fixed source88/plugin116 passes ten independent Art public cold installs (Node/core and selected Vector32), fixed installed five-node brand revision/moved delivery and two real native brand-violation cases. All64 installed identities match;54 unchanged skills retain historical cold evidence. Complete V1 remains open. [Fixed evidence](docs/evidence/craft-art116-brand-guard-fixed-first-use-20261008.json).
+
+Development source88/plugin116 pins Vector32 with trusted brand dependency checks; candidate mixed revision passes, fixed installed acceptance was pending at that checkpoint; see the fixed evidence above. [Architecture](docs/ArtCraft-Brand-Guard-Distribution-Architecture.md).
 
 Four-domain RT-001 runtime source/integrity acceptance now covers every current scenario; existing pinned skill bytes remain unchanged. Runtime upgrades and fullV1 remain open. [Acceptance architecture](docs/Craft-Fixed-Runtime-Integrity-Architecture.md).
 

@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-开发发行 source88／plugin116 固定 Vector32 并绑定品牌依赖校验；候选混合返工通过，固定安装验收仍待完成。[架构](docs/ArtCraft-Brand-Guard-Distribution-Architecture.zh_CN.md)。
+固定 source88／plugin116 已通过十项 Art 独立公开冷安装（Node／核心及所选 Vector32）、固定安装副本五节点品牌返工／移动交付和两条真实原生品牌误改阻断。64 安装摘要一致；54 个未变技能沿用历史冷安装证明。完整首版仍开放。[固定证据](docs/evidence/craft-art116-brand-guard-fixed-first-use-20261008.json)。
+
+开发发行 source88／plugin116 固定 Vector32 并绑定品牌依赖校验；候选混合返工通过，该阶段的固定安装待验状态已由上方固定证据更新。[架构](docs/ArtCraft-Brand-Guard-Distribution-Architecture.zh_CN.md)。
 
 四领域RT-001运行时来源与完整性已完成当前全部场景验收，固定技能字节保持不变；运行时升级与完整首版仍开放。[验收架构](docs/Craft-Fixed-Runtime-Integrity-Architecture.zh_CN.md)。
 
