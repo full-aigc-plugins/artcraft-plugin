@@ -21,7 +21,9 @@ async function fixture(pluginId:'photocraft'|'vectorcraft'|'effectcraft',media:B
  const made=await factory({id:'design',dependsOn:[],projectKey:'design',runtimeIdentity:identity,expectedRevision:null,payload:{schemaVersion:'craft-skill-workflow/v1',plan:{},assetBindings:[],outputs:[{assetId:'design',location,mediaType}]}},[],'image-task');
  await mkdir(made.root,{recursive:true});
  const project={photocraft:'project.pcraft',vectorcraft:'project.vectorcraft',effectcraft:'project.ecproj'}[pluginId];
- const content:Record<string,Buffer|string>={[project]:'fixture project','native.json':JSON.stringify(pluginId==='photocraft'?{layers:[{kind:'Type',text:{font:'Arial',text:'NOVA'}}]}:{}),[location]:media};
+ const vector={layers:[{kind:{type:'text',runs:[{text:'NOVA',style:{font_family:'Arial'}}]}}]};
+ const effect={schema:1,items:{'1':{value:{t:'Text',v:{font:'Arial'}}}}};
+ const content:Record<string,Buffer|string>={[project]:pluginId==='effectcraft'?JSON.stringify(effect):'fixture project','native.json':JSON.stringify(pluginId==='photocraft'?{layers:[{kind:'Type',text:{font:'Arial',text:'NOVA'}}]}:pluginId==='vectorcraft'?vector:{}),[location]:media};
  const ref=(location:string)=>({location,sha256:hash(content[location])});
  content['exchange-loss.json']=JSON.stringify({schema:'craft-exchange-loss/v1',pluginId,native:ref(project),inspection:ref('native.json'),acceptance:'technical-observations-only',outputs:[{...ref(location),format:mediaType==='image/png'?'png':'jpeg',role:'derivative',nativeSubstitute:false,observations:{},warnings:[],changes:[{code:'editable_layers',status:'lost',reason:'flattened_image'}]}]});
  const hashes:Record<string,string>={};for(const [name,value] of Object.entries(content)){await writeFile(join(made.root,name),value);hashes[name]=hash(value);}
@@ -36,13 +38,13 @@ test('Photo Vector Effect publish actual PNG and JPEG encoded facts in public ou
    assert.deepEqual(output.technicalMetadata,sample.facts,plugin+' '+sample.type);
    assert.equal(output.sha256,hash(sample.media));assert.ok(output.nativeProjectRef);assert.ok(output.lossReportRef);
    assert.equal(output.technicalMetadata.colorSpace,undefined);
-   if(plugin==='photocraft'){
+   {
     assert.equal(output.dependencies.length,1);
     assert.equal(output.dependencies[0].fontRequirement.family,'Arial');
     assert.equal(output.dependencies[0].assetRef,null);
     assert.equal(output.dependencies[0].packaged,false);
     assert.equal(output.dependencies[0].fontRequirement.nativeProjectSha256,output.nativeProjectRef.sha256);
-    assert.ok(output.evidenceRefs.some((ref:any)=>ref.location==='native.json'));
+    assert.ok(output.evidenceRefs.some((ref:any)=>ref.location===(plugin==='effectcraft'?'project.ecproj':'native.json')));
    }
   }finally{await f.cleanup();}}
  }

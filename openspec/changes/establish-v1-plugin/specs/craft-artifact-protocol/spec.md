@@ -24,6 +24,8 @@ ArtCraft SHALL 维护 craft-artifact/v1 的唯一规范事实源；清单包含 
 - **THEN** 字体依赖 SHALL 使用 assetRef=null、kind=font、packaged=false 和非空 missingReason；fontRequirement 记录 family、nativeProjectSha256 与 inspectionRef
 - **AND** inspectionRef SHALL 同时存在于 evidenceRefs，nativeProjectSha256 SHALL 匹配 nativeProjectRef；不得伪造字体文件摘要或把字体名称查询视为字体已打包
 - **AND** null 引用只允许用于以上完整的未收集字体状态；既有非空素材引用保持兼容，缺失状态随交付保留，不证明字体迁移完成
+- **AND** 四领域均提取完整工程中的静态文字字体：Photo 使用图层检查，Vector 使用完整图层树，Film 使用原生 schema12 工程（含字幕、图形与字符样式、字体关键帧），Effect 使用原生 schema1 工程中的完整 TextDoc（含字符样式与关键帧）；不以当前帧的简化检查替代完整文字样式
+- **AND** 原生 JSON 按原始字节摘要绑定，仅读取字体字段、不重写时间数值；不支持的工程结构、超过16 MiB、深度超过128或无法识别的字体记录明确拒绝，不能返回伪造的空依赖
 
 #### Scenario: AC-CP-002-P 合同条件满足
 

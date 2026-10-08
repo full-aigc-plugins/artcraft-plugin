@@ -41,7 +41,7 @@ test('native Effect to Film typed LUT and motion revision preserves upstream/aud
   const engine=new WorkflowEngine(ledger,new LocalRunner(ledger,async request=>assert.equal(request.authorizationRef,'lut-motion-native')),factories);
   const first=await engine.run(plan);assert.equal(first.state,'review_ready',JSON.stringify(first));
   const old=first.nodes.film.root!,original=await snapshot(old),artifact=first.nodes.film.outputs![0],manifest=JSON.parse(await readFile(join(old,'manifest.json'),'utf8'));
-  assert.equal(artifact.dependencies.find((entry:any)=>entry.assetRef.assetId==='grade-source').kind,'lut');
+  assert.equal(artifact.dependencies.find((entry:any)=>entry.assetRef?.assetId==='grade-source').kind,'lut');
   const before=JSON.parse(await readFile(join(old,'native.json'),'utf8')).sequence;
   const revised=structuredClone(plan);revised.revision='v2';const node=revised.nodes[1];node.expectedRevision=artifact.nativeProjectRef.sha256;
   node.externalInputs=[voiceInput,{root:old,artifact:{...lutInput.artifact,location:manifest.assets.grade.path}}, {root:old,artifact}];

@@ -5,7 +5,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { createHash } from 'node:crypto';
 import { strictMcpRunner } from './strict_mcp_runner.ts';
-import { photoFontDependencies } from './font_dependencies.ts';
+import { domainFontDependencies } from './font_dependencies.ts';
 import { parseEffectExportProbe } from './effect_export_probe.ts';
 import { parseDesignSourceInspection } from './design_source_inspection.ts';
 import { filmExportMetadata } from './film_export_metadata.ts';
@@ -221,12 +221,16 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
     const report=validateExchangeLossReport(JSON.parse(await readFile(join(delivery,lossRef.location),'utf8')));
     if(report.pluginId!==locked.pluginId || report.native.sha256!==nativeRef.sha256 || report.outputs.some((item:any)=>manifest.files[item.location]!==item.sha256))throw new Error('skill_loss_report_binding_mismatch');
     const fontDependencies:any[]=[];
-    if(locked.pluginId==='photocraft'){
-     if(!manifest.files['native.json'])throw new Error('font_inspection_missing');
-     const bytes=await readFile(join(delivery,'native.json'));
-     if(bytes.length>16*1024*1024 || hash(bytes)!==manifest.files['native.json'])throw new Error('font_inspection_invalid');
-     const inspectionRef=ref('native.json',manifest.files['native.json']);
-     fontDependencies.push(...photoFontDependencies(JSON.parse(bytes.toString('utf8')),nativeRef.sha256,inspectionRef));
+    {
+     // Film／Effect 的简化检查会丢失字体样式；直接检查已核验的原生 JSON 全工程。
+     const location=['filmcraft','effectcraft'].includes(locked.pluginId)?nativeLocation:'native.json';
+     if(!manifest.files[location])throw new Error('font_inspection_missing');
+     if((await stat(join(delivery,location))).size>16*1024*1024)throw new Error('font_inspection_invalid');
+     const bytes=await readFile(join(delivery,location));
+     if(bytes.length>16*1024*1024 || hash(bytes)!==manifest.files[location])throw new Error('font_inspection_invalid');
+     const inspectionRef=ref(location,manifest.files[location]);
+     let inspection:any;try{inspection=JSON.parse(bytes.toString('utf8'));}catch{throw new Error('font_inspection_invalid');}
+     fontDependencies.push(...domainFontDependencies(locked.pluginId,inspection,nativeRef.sha256,inspectionRef));
      if(fontDependencies.length)dependencyRefs.push(inspectionRef);
     }
     const sourceRefs=inputs.map(input=>({assetId:input.artifact.assetId,version:input.artifact.version,sha256:input.artifact.sha256}));

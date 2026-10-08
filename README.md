@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Four-domain font candidate: native creation, moved packages and all four source reopens pass;644 runtime tests pass. A new pinned development chain is being prepared. [Architecture and limits](docs/ArtCraft-Four-Domain-Fonts-Architecture.md).
+
 Current source candidate records Photo editable font requirements explicitly as uncollected, with native-project and inspection binding. Fixed distribution and other-domain font mapping remain pending. [Font state and evidence](docs/ArtCraft-Font-Dependency-Architecture.md).
 
 Fixed137 artifact checkpoint: full9.85-hour/12fps movie exports and independently decodes425,512frames; current native dynamic/version/JPEG scenarios pass. CP-002 remains open because editable native fonts are absent from public dependencies. [Audit and remaining gap](docs/ArtCraft-Artifact-Protocol-Acceptance-Architecture.md).

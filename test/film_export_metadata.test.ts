@@ -21,7 +21,7 @@ async function fixture(change:(probe:any,native:any)=>void=()=>{},missing=false)
  const native={sequence:{duration:'21946982400000001',settings:{width:320,height:180,frame_rate:{num:30000,den:1001}}}};
  const probe:any={name:'film.mp4',kind:'Movie',file_size:media.length,duration:'21946982400000001',video:{width:320,height:180,frame_rate:{num:30000,den:1001},has_alpha:false},audio:{sample_rate:48000,channels:2}};
  change(probe,native);
- const content:Record<string,Buffer|string>={'project.fcproj':'fixture project','native.json':JSON.stringify(native),'export-probe.json':JSON.stringify(probe),'film.mp4':media};
+ const content:Record<string,Buffer|string>={'project.fcproj':JSON.stringify({format:'filmcraft.project',schema_version:12,project:{items:{'1':{kind:{Sequence:{caption_tracks:[{style:{font:'Arial'}}]}}}}}}),'native.json':JSON.stringify(native),'export-probe.json':JSON.stringify(probe),'film.mp4':media};
  if(missing)delete content['export-probe.json'];
  const ref=(location:string)=>({location,sha256:hash(content[location])});
  const loss={schema:'craft-exchange-loss/v1',pluginId:'filmcraft',native:ref('project.fcproj'),inspection:ref('native.json'),acceptance:'technical-observations-only',outputs:[{...ref('film.mp4'),format:'mp4',role:'derivative',nativeSubstitute:false,observations:{},warnings:[],changes:[{code:'native_timeline',status:'lost',reason:'rendered_frames'}]}]};
@@ -34,6 +34,8 @@ test('Film adapter publishes exact large ticks, rational rates and bound probe e
  const f=await fixture();try{
   const result=await f.made.adapter.verify({runtimeIdentity:f.identity} as any);const output=result.outputs[0];
   assert.deepEqual(output.technicalMetadata,{durationTicks:'21946982400000001',timeBase:{num:1,den:254016000000},frameRate:{num:30000,den:1001},width:320,height:180,alpha:false,audio:{sampleRate:48000,channels:2}});
+  assert.equal(output.dependencies[0].fontRequirement.family,'Arial');assert.equal(output.dependencies[0].packaged,false);
+  assert.equal(output.dependencies[0].fontRequirement.inspectionRef.location,'project.fcproj');
   const roundtrip=JSON.parse(JSON.stringify(output));assert.equal(BigInt(roundtrip.technicalMetadata.durationTicks),21946982400000001n);
   for(const location of ['native.json','export-probe.json'])assert.ok(output.evidenceRefs.some((r:any)=>r.location===location));
  }finally{await f.cleanup();}
