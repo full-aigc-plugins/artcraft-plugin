@@ -20,7 +20,7 @@
 
 历史版本证据：当前 Art dev.104 的八项独立场景角色验证通过：规划、返工、素材、交付、审阅、恢复、执行及安装诊断。测试使用真实固定安装副本、单技能复制和公开运行时下载，检查源工程修改与无关节点复用、移动验包、过期／篡改审阅拒绝、重复取消、执行回执和按领域安装。规划证据复用上一轮源码未变化的当前安装验证；审阅仍为 pending／creative NOT_RUN，取消验证不证明未知 worker 恢复。实际通用 Skills CLI 安装、全量命令上下文和完整 V1仍未完成。 [证据](docs/evidence/artcraft104-installed-role-first-use-20261007.json).
 
-维护者的安装计划、安装副本 CLI 验证和完成审计现默认使用已核验的 dev.112 工作流错误锁；审计绑定对应固定首用证据。显式历史锁／证据参数继续兼容。[当前审计架构](docs/ArtCraft-First-Use-Completion-Audit-Architecture.zh_CN.md)。
+维护者的安装计划、安装副本 CLI 验证和完成审计现默认使用已核验的 dev.113 预算协议锁；审计绑定对应固定首用证据。显式历史锁／证据参数继续兼容。[当前审计架构](docs/ArtCraft-First-Use-Completion-Audit-Architecture.zh_CN.md)。
 
 维护者来源校验拒绝符号链接、不完整锁及版本同名分支，并在替换任一管理技能前检查全部声明来源；已发布技能／运行时身份保持。[快照预检架构](docs/Skill-Snapshot-Self-Contained.zh_CN.md)。
 
@@ -445,3 +445,5 @@ CLI 验收默认锁现为 `host-acceptance-strict64.lock.json`：领域插件 de
 当前实际安装技能已保留两个五子工程品牌版本和字幕局部返工包：品牌依赖更新、无关节点复用、旧产物保全、移动验包及原路径不可用时CLI源工程重链接通过。具名视觉审阅发现并修正小尺寸字幕，人工验收仍pending。[交付与证据](docs/Craft-Retained-Mixed-Delivery.zh_CN.md)。
 
 dev.110 内置不可变独立技能源dev.82，锁定Film源36并重建完整命令索引身份。小尺寸字幕模板及自身指引更新，源码混合原生首用通过；新固定安装另验。[证据](docs/Caption-Size-First-Use.zh_CN.md)。
+
+[固定预算协议首次使用](docs/ArtCraft-Budget-Protocol-Architecture.zh_CN.md)：64技能发现、10变化项冷安装及54整树相等历史项复用通过；原生修订拒绝保全原任务和文件，完整V1仍开放。
