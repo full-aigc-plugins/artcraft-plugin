@@ -2,6 +2,7 @@
 """绑定当前交付的具名审阅记录；不执行模型、不修改包或任务状态。"""
 import argparse
 import hashlib
+import importlib.util
 import json
 import math
 import os
@@ -12,6 +13,9 @@ import subprocess
 import sys
 import tempfile
 sys.dont_write_bytecode = True
+SPEC_PUBLIC = importlib.util.spec_from_file_location('craft_public_call', Path(__file__).with_name('public_call.py'))
+P = importlib.util.module_from_spec(SPEC_PUBLIC)
+SPEC_PUBLIC.loader.exec_module(P)
 DIMENSIONS = ('technical', 'creative', 'acceptance')
 HEX = re.compile(r'^[a-f0-9]{64}$')
 MAX_BYTES = 8 * 1024 * 1024
@@ -170,10 +174,7 @@ def verify_package(args):
     for flag, value in (('--node-archive', args.node_archive), ('--bundle-dir', args.bundle_dir), ('--native-archive-dir', args.native_archive_dir)):
         if value is not None:
             command += [flag, str(value)]
-    result = subprocess.run(command, capture_output=True, text=True, timeout=600)
-    if result.returncode:
-        raise RuntimeError('review_package_verification_failed: ' + result.stdout.strip())
-    return load_json(result.stdout)
+    return P.run(command, 'review_package_verification_failed: ', args.runtime_home, parser=load_json)
 
 
 def portable_input(value):
@@ -288,7 +289,9 @@ def main():
         result = record(args, package) if args.action == 'record' else verify_record(args, package)
         print(json.dumps(result, ensure_ascii=False))
     except (ValueError, RuntimeError, OSError, KeyError, TypeError, subprocess.SubprocessError) as error:
-        print(json.dumps({'error': str(error), 'result': 'unknown' if isinstance(error, subprocess.TimeoutExpired) else 'failed'}, ensure_ascii=False))
+        reply = {'error': str(error), 'result': 'unknown' if isinstance(error, subprocess.TimeoutExpired) else 'failed'}
+        if isinstance(error, P.PublicCallFailure):reply.update(error.diagnostic)
+        print(json.dumps(reply, ensure_ascii=False))
         raise SystemExit(1)
 
 

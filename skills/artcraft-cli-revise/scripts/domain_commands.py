@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """完整领域命令的Art公开交接组件；回执通过不是DAG交付完成。"""
+import importlib.util
 import argparse,hashlib,json,os,re,subprocess,sys,tempfile
 from pathlib import Path
+SPEC_PUBLIC = importlib.util.spec_from_file_location('craft_public_call', Path(__file__).with_name('public_call.py'))
+P = importlib.util.module_from_spec(SPEC_PUBLIC)
+SPEC_PUBLIC.loader.exec_module(P)
 ROOT=Path(__file__).resolve().parent.parent
 NAMES=('filmcraft','effectcraft','photocraft','vectorcraft')
 COUNTS=dict(zip(NAMES,(666,640,755,585)))
@@ -111,8 +115,19 @@ def launch_command(root,args,frozen,runtime_home,inputs):
    command+=['--mode',args.mode]
    if args.connect is not None:command+=['--connect',args.connect]
    if args.control_token_file is not None:command+=['--control-token-file',str(args.control_token_file)]
- else:command+=['--mode','bridge' if args.mode=='desktop' else args.mode]
+ elif args.domain=='effectcraft':command+=['--mode','bridge' if args.mode=='desktop' else args.mode]
  return command
+
+def check_reply(returncode,stdout,stderr,runtime_home):
+ # 固定领域版本的结构检查参数不同；保留拒绝原因，不能把非零退出当 JSON 成功。
+ if len(stdout)>65536:raise ValueError('command_check_reply_too_large')
+ try:result=json_value(stdout)
+ except ValueError:result=None
+ if returncode or not isinstance(result,dict) or result.get('result')!='PASS' or result.get('nativeExecution')!='NOT_RUN':
+  error=P.PublicCallFailure('command_check_failed',result,runtime_home)
+  error.diagnostic['domainCall']={'returncode':returncode,'stdout':stdout.decode('utf-8',errors='replace'),'stderr':stderr[:65536].decode('utf-8',errors='replace')}
+  raise error
+ return result
 
 def validate_desktop_receipt(desktop_proof,domain,result,lock,returncode):
  if not isinstance(desktop_proof,dict) or desktop_proof.get('schema')!='craft-owned-desktop-session/v1' or desktop_proof.get('domain')!=domain or desktop_proof.get('result')!=result or desktop_proof.get('ownedProcessesStopped') is not True or not isinstance(desktop_proof.get('desktop'),dict) or desktop_proof['desktop'].get('binarySha256')!=lock['binarySha256'] or desktop_proof['desktop'].get('version')!=lock['version']:raise ValueError('outcome_unknown: desktop_receipt_identity')
@@ -138,9 +153,8 @@ def dispatch(args):
   if args.output.exists() or args.output.is_symlink():raise ValueError('output_exists')
   if not args.output.parent.is_dir():raise ValueError('output_parent_missing')
  lock=json_value((ROOT/'scripts/distribution.lock.json').read_text())
- boot=subprocess.run([sys.executable,'-I','-B',str(ROOT/'scripts/bootstrap.py'),'--runtime-home',str(args.runtime_home),'--plugin',args.domain],capture_output=True,text=True)
- if boot.returncode:raise ValueError('domain_setup_failed: '+boot.stdout.strip())
- receipt=json_value(boot.stdout);root,runtime_sha,protected=installed_files(receipt,args.domain,lock)
+ receipt=P.run([sys.executable,'-I','-B',str(ROOT/'scripts/bootstrap.py'),'--runtime-home',str(args.runtime_home),'--plugin',args.domain], 'domain_setup_failed: ', args.runtime_home, parser=json_value, installation=True)
+ root,runtime_sha,protected=installed_files(receipt,args.domain,lock)
  def preserved():
   if any(Path(path).is_symlink() or sha(path)!=expected for path,expected in protected.items()):raise ValueError('outcome_unknown: installed_identity_changed')
   if any(sha(inputs[name])!=expected for name,expected in input_hashes.items()):raise ValueError('outcome_unknown: input_changed')
@@ -151,10 +165,9 @@ def dispatch(args):
   with (temporary/'stdout').open('wb') as stdout,(temporary/'stderr').open('wb') as stderr:child=subprocess.run(command,stdout=stdout,stderr=stderr)
   preserved()
   if args.action=='check':
-   text=(temporary/'stdout').read_bytes()
-   if len(text)>65536:raise ValueError('command_check_reply_too_large')
-   result=json_value(text)
-   if child.returncode or not isinstance(result,dict) or result.get('result')!='PASS' or result.get('nativeExecution')!='NOT_RUN':raise ValueError('command_check_failed')
+   with (temporary/'stdout').open('rb') as stream:text=stream.read(65537)
+   with (temporary/'stderr').open('rb') as stream:errors=stream.read(65536)
+   result=check_reply(child.returncode,text,errors,args.runtime_home)
    return {'schema':'artcraft-domain-command-call/v1','domain':args.domain,'result':'PASS','phase':'structure-check','nativeExecution':'NOT_RUN','dagDeliveryAcceptance':'NOT_RUN','sourceBundleSha256':entry['bundleSha256'],'commandReceipt':result},0
   evidence=args.output/('success.json' if child.returncode==0 else 'failure.json')
   if evidence.is_symlink() or not evidence.is_file() or evidence.stat().st_size>16*1024*1024:raise ValueError('outcome_unknown: command_receipt_missing')
@@ -177,5 +190,7 @@ def dispatch(args):
 if __name__=='__main__':
  try:
   result,code=dispatch(parser().parse_args());print(json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False));raise SystemExit(code)
- except (ValueError,OSError,subprocess.SubprocessError,KeyError,TypeError) as error:
-  print(json.dumps({'error':str(error)},ensure_ascii=False));raise SystemExit(1)
+ except (ValueError,RuntimeError,OSError,subprocess.SubprocessError,KeyError,TypeError) as error:
+  reply={'error':str(error)}
+  if isinstance(error,P.PublicCallFailure):reply.update(error.diagnostic)
+  print(json.dumps(reply,ensure_ascii=False));raise SystemExit(1)

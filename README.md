@@ -16,7 +16,7 @@ Fixed source86/plugin114 passes ten independent Art cold installations and a ret
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current plugin: `0.1.0-dev.120`; skill source: `0.1.0-dev.92`; 10 independent skills.
+Current plugin: `0.1.0-dev.121`; skill source: `0.1.0-dev.93`; 10 independent skills.
 
 Workflow launcher structured rejection is fixed in source84. Legacy error and workflowReceipt remain compatible; fixed installed112 qualification is recorded separately. [Architecture](docs/ArtCraft-Workflow-Error-Detail-Architecture.md).
 Previous fixed caption-size qualification:64 installed identities and CLI probes match;23 changed skills each pass independent cold discovery, while41 unchanged whole-tree hashes retain historical cold proof. Two current installed native caption/brand cases pass. This is bounded installation and scene evidence, not fullV1. [Current fixed evidence](docs/Craft-Caption-Fixed-First-Use.md).
@@ -131,9 +131,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.120 |
+| Plugin ID / version | artcraft / 0.1.0-dev.121 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.92 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.93 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -477,3 +477,5 @@ Fixed Art119/source91 passes the bounded identity/guidance distribution gate:64 
 Scenario bootstrap diagnostics are qualified in fixed source92/plugin120; see the bounded acceptance below. [Evidence](docs/evidence/scenario-setup-diagnostics-20261008.json).
 
 Fixed Art120/source92 passes ten new independent public cold installs,64 host identities/CLI probes,20 real failed calls from installed isolated copies, and public cold recovery/native Vector creation/same-task reuse/moved-package recovery.54 other skills reuse historical cold evidence only after complete hash equality. Only3.29 closes; full V1 and the overall goal remain incomplete. [Evidence](docs/evidence/craft-art120-scenario-setup-fixed-first-use-20261008.json).
+
+Nested setup diagnostics and pinned check-parser compatibility pass source regression and real public cold recovery; fixed-release qualification remains open. [Evidence](docs/evidence/nested-setup-diagnostics-candidate-20261008.json).

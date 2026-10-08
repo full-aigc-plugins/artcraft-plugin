@@ -204,3 +204,19 @@
 - **THEN** 顶层回执 SHALL 保留兼容 error 字符串，并返回当前技能自身的 dependencySetup；结构化安装器失败回执 SHALL 以 installationReceipt 保留，不嵌入字符串后丢失可查询字段
 - **AND** 安装超时 SHALL 标记 result=unknown，其他安装失败标记 failed；不启动后续领域任务、不生成虚构 workflowReceipt，不自动重放
 - **AND** 安装成功后的原生操作错误及安装前的输入拒绝 SHALL 保持各自语义，不附加依赖安装失败诊断；非 JSON 或仅 stderr 的安装失败 SHALL 保留原始诊断
+
+
+#### Scenario: AC-SK-003-NESTED-SETUP 嵌套场景保留自身安装诊断
+
+- **WHEN** 单独技能的审阅、受限返工或领域命令入口收到自身下层入口返回的结构化安装失败
+- **THEN** 顶层 SHALL 保留兼容错误字符串与原 publicCallReceipt，并公开当前技能自身的 dependencySetup；安装原回执可继续通过 installationReceipt 查询
+- **AND** 原生业务拒绝不得伪装为安装失败；原调用回执中其他安装目录不得成为执行或恢复路径
+- **AND** 已进入受限返工的未知步骤 SHALL 继续保持 outcome_unknown 和原 pending 身份，不自动重放；诊断保留不得归还修订额度或覆盖原交付
+- **AND** 安装器调用须有界等待；领域命令的安装阶段超时 SHALL 明确报告 unknown，不据此推断领域编辑已发生
+
+#### Scenario: AC-SK-003-PINNED-CHECK 固定领域检查兼容与诊断
+
+- **WHEN** Art 调用固定发行的领域命令检查入口
+- **THEN** SHALL 使用该固定入口实际支持的参数；不向不支持模式选项的检查器传递模式参数
+- **AND** 非零退出、无效JSON或非PASS回复 SHALL 拒绝，保留退出码、有界stdout／stderr及可用原始回执；不得以解析错误掩盖领域拒绝，不标记为安装失败
+- **AND** 结构检查成功仍保持 nativeExecution=NOT_RUN，不代表原生命令执行或DAG交付验收

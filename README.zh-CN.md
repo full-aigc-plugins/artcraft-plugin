@@ -16,7 +16,7 @@
 
 多领域创作需求进入，交付项目清单、工作流记录、四领域子工程引用及验收记录。
 
-当前插件：`0.1.0-dev.120`；技能源：`0.1.0-dev.92`；10 个独立技能。
+当前插件：`0.1.0-dev.121`；技能源：`0.1.0-dev.93`；10 个独立技能。
 
 源84修复工作流入口结构化拒绝，兼容保留error与workflowReceipt；固定安装112验收另行记录。[架构](docs/ArtCraft-Workflow-Error-Detail-Architecture.zh_CN.md)。
 此前固定字幕修正版验收：64安装身份与CLI探测匹配；23变化技能各自独立冷安装／命令发现通过，41完整摘要一致技能复用历史冷证据；两个当前安装原生字幕／品牌案例通过。仅证明所列安装和场景，完整V1仍开放。[当前固定证据](docs/Craft-Caption-Fixed-First-Use.zh_CN.md)。
@@ -129,9 +129,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.120 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.121 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.92 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.93 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
@@ -475,3 +475,5 @@ Vector33 捆绑升级候选已通过两入口真实混合返工、九变体及�
 固定源92／插件120已完成场景安装诊断的有界验收，见下方记录。 [Evidence](docs/evidence/scenario-setup-diagnostics-20261008.json).
 
 固定Art120／源92：十项新独立公开冷安装、64安装身份与CLI核验、20个安装副本真实失败调用、安装失败后公开冷安装／原生图形创建／同任务复用／移动交付恢复通过。54项其他技能仅复用整树摘要相等的历史冷证明。只关闭3.29，完整V1与目标保持未完成。 [Evidence](docs/evidence/craft-art120-scenario-setup-fixed-first-use-20261008.json).
+
+嵌套安装诊断与固定领域检查参数兼容已通过源码回归和真实公开冷恢复；固定发行验收仍开放。 [Evidence](docs/evidence/nested-setup-diagnostics-candidate-20261008.json).

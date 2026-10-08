@@ -15,6 +15,9 @@ sys.dont_write_bytecode = True
 SPEC = importlib.util.spec_from_file_location('craft_local_review', Path(__file__).with_name('review.py'))
 R = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(R)
+SPEC_PUBLIC = importlib.util.spec_from_file_location('craft_public_call', Path(__file__).with_name('public_call.py'))
+P = importlib.util.module_from_spec(SPEC_PUBLIC)
+SPEC_PUBLIC.loader.exec_module(P)
 DOMAINS = {'filmcraft', 'effectcraft', 'photocraft', 'vectorcraft'}
 
 
@@ -178,14 +181,7 @@ def invoke(args, script, values):
         value = getattr(args, name)
         if value is not None:
             command += ['--' + flag, str(value)]
-    result = subprocess.run(command, capture_output=True, text=True, timeout=600)
-    try:
-        value = R.load_json(result.stdout)
-    except ValueError:
-        raise RuntimeError('revision_public_result_unknown') from None
-    if result.returncode:
-        raise RuntimeError('revision_public_call_failed: ' + result.stdout.strip())
-    return value
+    return P.run(command, 'revision_public_call_failed: ', args.runtime_home, parser=R.load_json, invalid='revision_public_result_unknown')
 
 
 def read_state(root):
@@ -283,8 +279,19 @@ def step(args):
         pending = state['pending']
         if pending and (pending['key'] != key or not args.resume):
             return {'state': 'outcome_unknown', 'reason': 'resume_same_step_required', 'pendingStep': pending['key'], 'bestPackage': state['bestPackage']}
-        package = invoke(args, 'package.py', ['verify', '--package', args.package, '--sha', args.package_sha])
-        review = invoke(args, 'review.py', ['verify', '--package', args.package, '--package-sha', args.package_sha, '--review', args.review, '--review-sha', args.review_sha])
+        try:
+            package = invoke(args, 'package.py', ['verify', '--package', args.package, '--sha', args.package_sha])
+            review = invoke(args, 'review.py', ['verify', '--package', args.package, '--package-sha', args.package_sha, '--review', args.review, '--review-sha', args.review_sha])
+        except P.PublicCallFailure as error:
+            if not pending:raise
+            # 恢复前置安装失败不证明原编辑失败，也不能清除未知步骤或归还额度。
+            state['pending']['error'] = str(error)
+            state['pending'].update(error.diagnostic)
+            save_state(root, state)
+            return {'state': 'outcome_unknown', 'reason': 'resume_preflight_failed',
+                    'error': str(error), 'pendingStep': pending['key'],
+                    'rounds': state['rounds'], 'bestPackage': state['bestPackage'],
+                    **error.diagnostic}
         identity(policy, package)
         if not pending and state['latestRunKey'] is not None and package['workflow']['runKey'] != state['latestRunKey']:
             raise ValueError('revision_current_package_required')
@@ -344,12 +351,15 @@ def step(args):
             return receipt
         except (ValueError, RuntimeError, OSError, subprocess.SubprocessError) as error:
             state['pending']['error'] = str(error)
+            if isinstance(error, P.PublicCallFailure):state['pending'].update(error.diagnostic)
             if 'budget_exceeded:' in str(error):
                 state['stopped'] = 'budget_exceeded'
             save_state(root, state)
             if state['stopped']:
                 return {**stopped_receipt(args, state, state['stopped']), 'error': str(error), 'pendingStep': key}
-            return {'state': 'outcome_unknown', 'reason': state['stopped'], 'error': str(error), 'pendingStep': key, 'rounds': state['rounds'], 'bestPackage': state['bestPackage']}
+            reply = {'state': 'outcome_unknown', 'reason': state['stopped'], 'error': str(error), 'pendingStep': key, 'rounds': state['rounds'], 'bestPackage': state['bestPackage']}
+            if isinstance(error, P.PublicCallFailure):reply.update(error.diagnostic)
+            return reply
 
 
 def main():
@@ -378,7 +388,11 @@ def main():
         if result.get('state') == 'outcome_unknown':
             raise SystemExit(2)
     except (ValueError, RuntimeError, OSError, KeyError, TypeError, subprocess.SubprocessError) as error:
-        print(json.dumps({'error': str(error), 'state': 'outcome_unknown' if isinstance(error, subprocess.TimeoutExpired) else 'failed'}, ensure_ascii=False))
+        reply = {'error': str(error), 'state': 'outcome_unknown' if isinstance(error, subprocess.TimeoutExpired) else 'failed'}
+        if isinstance(error, P.PublicCallFailure):
+            reply.update(error.diagnostic)
+            if reply.get('result') == 'unknown':reply['state'] = 'outcome_unknown'
+        print(json.dumps(reply, ensure_ascii=False))
         raise SystemExit(1)
 
 
