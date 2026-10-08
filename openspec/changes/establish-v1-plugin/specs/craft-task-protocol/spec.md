@@ -61,3 +61,4 @@ ArtCraft SHALL 维护 craft-task/v1 的唯一规范事实源；请求包含 prot
 - **THEN** 节点 SHALL 在 `taskReceipt` 中公开当前持久账本的 taskId、attemptId、state、runtimeIdentity、outputRefs、evidenceRefs 和结构化 error；节点摘要不替代该回执，不把准备阶段提升为真实执行
 - **AND** 准备或授权阶段的拒绝 SHALL 提供结构化 `errorDetail`，保留现有字符串 error 以兼容调用者；未登记的节点不得伪造 taskReceipt，拒绝不新增原生启动、预算分配或工程占用
 - **AND** 重开或复用 SHALL 保留原 taskId 与 attemptId，并重新读取当前账本状态；候选源码回归不替代固定发行安装或本需求整体验收
+- **AND** 技能公开 `workflow.py` 入口的输入、安装前置或原生工作流非零退出 SHALL 在保留原字符串 `error` 和既有 `workflowReceipt` 的同时返回顶层 `errorDetail`；有上游结构化拒绝时保留其错误码，未就绪回执使用 `workflow_not_ready`，未登记的失败不得伪造任务身份或重新执行

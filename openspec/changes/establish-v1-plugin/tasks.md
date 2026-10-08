@@ -394,3 +394,5 @@ SC-007固定发行证据：`docs/evidence/artcraft99-film29-fixed-first-use-2026
 2026-10-08 固定Art111／源83／runtime108混合ASR交接验收：实际安装单技能首次模型下载与五子工程创建、品牌返工、单行6段字幕、文字／时间与旧产物／配音／模型保全、无关徽标复用、移动包117.673秒通过。新固定矩阵64技能发现、零错误；23变化项逐个独立空公开缓存CLI及目录发现通过，41项完整摘要相等复用历史冷证明，执行后64安装摘要匹配。仅关闭此交接门禁，所有角色、全部命令上下文、人工创作、通用Skills CLI与完整V1保持开放。证据 docs/evidence/craft-asr-caption-fixed-first-use-20261008.json。
 
 2026-10-08 固定Film40／Art111变化角色补证：19项测试通过、零跳过，包含静态合同与纯Python规划；Film十领域角色及中文路径use、Art规划／原生返工／素材状态／移动交付／审阅记录／授权隔离／Film命令组件／调度器SIGKILL恢复／渲染中取消均按实际范围核验。前后64安装整树摘要一致。临时原生fixture由测试清理，日志与摘要保留；历史混合ASR工程仍保留。不关闭全场景、全部命令、通用SkillsCLI、模型派发、GUI／其他平台及完整V1。证据 `docs/evidence/craft-fixed-role-first-use-20261008.json`。
+
+- [ ] [AC-CP-001-WORKFLOW-LAUNCHER-ERROR] 补齐单技能 workflow.py 顶层结构化拒绝，保留字符串error与上游workflowReceipt；以真实独立冷安装验证创建／账本回执／不重放复用及输入、修订、授权拒绝，并完成固定发行安装后仅关闭此入口门禁。

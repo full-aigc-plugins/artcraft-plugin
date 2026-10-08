@@ -1,0 +1,43 @@
+{
+  "schema": "craft-workflow-launcher-error-detail/v1",
+  "result": "candidate_pass",
+  "goalStatus": "not_complete",
+  "sourceVersion": "0.1.0-dev.84",
+  "sourceCommit": "c2699ae8e00bb9c2585d00ee7f99a004c87300bf",
+  "pluginVersion": "0.1.0-dev.112",
+  "runtimeVersion": "0.1.0-dev.108",
+  "red": {
+    "unitTests": 7,
+    "errors": 6,
+    "failures": 1,
+    "installed111": "missing_errorDetail_before_runtime_install"
+  },
+  "green": {
+    "unitTests": 7,
+    "sourceTests": 153,
+    "skipped": 37,
+    "nativeSeconds": 26.339,
+    "nativeScope": "single skill cold public native creation, durable receipt query, same-attempt reuse, input/revision/authorization refusal; original native files preserved",
+    "unitPassed": 7,
+    "sourcePassed": 116
+  },
+  "hashes": {
+    "red.log": "292210c82d105ba71974e3c08d47136ab0a2eef831d10dbf1a6803c85d62a592",
+    "green.log": "b7e6c52c33dfbf31ac4606719cc45672a7a47f16fd9f0f30df0603c3e5643a20",
+    "source-final.log": "83b797dfead62da06b21df9b0e65176ac496d559ef2dc99d31d1bd66951bf123",
+    "installed111-red.log": "c6ade52cd1944f83a5e664d182700b7144828f33d42a9f34cd25be92b3d7784c",
+    "native-final.log": "3200601a197140dd18f4d782aa70542d4868ec23f13b038a3e009efdf00f127a",
+    "native-final/proof.json": "8ee7943bd698040deb93752d55db9bf6889787ee6bbf3c358fce521465142681"
+  },
+  "fixedInstalledAcceptance": "NOT_RUN",
+  "remaining": [
+    "full AC-CP-001",
+    "all role business scenarios",
+    "all command contexts",
+    "generic Skills CLI",
+    "model dispatch",
+    "GUI and other platforms",
+    "creative acceptance",
+    "full V1"
+  ]
+}

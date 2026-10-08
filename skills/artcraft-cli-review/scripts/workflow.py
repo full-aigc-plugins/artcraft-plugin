@@ -23,6 +23,21 @@ class WorkflowFailure(RuntimeError):
         self.receipt = json.loads(serialized)
 
 
+def error_detail(error):
+    """补齐公开错误详情；保留原消息及上游回执，不推断任务是否执行。"""
+    if isinstance(error, WorkflowFailure):
+        detail = error.receipt.get('errorDetail')
+        if (isinstance(detail, dict) and isinstance(detail.get('code'), str)
+                and re.fullmatch(r'[a-z][a-z0-9_]*', detail['code'])
+                and isinstance(detail.get('message'), str)):
+            return {'code': detail['code'], 'message': detail['message']}
+        return {'code': 'workflow_not_ready', 'message': str(error)}
+    message = str(error)
+    code = message.split(':', 1)[0]
+    return {'code': code if re.fullmatch(r'[a-z][a-z0-9_]*', code) else 'operation_failed',
+            'message': message}
+
+
 def digest(value):
     return hashlib.sha256(value).hexdigest()
 
@@ -271,7 +286,7 @@ def main():
     try:
         print(json.dumps(execute(args.plan, args.output, args.owner, args.authorization, args.runtime_home, args.node_archive, args.bundle_dir, args.native_archive_dir, args.asset, args.video_factory_root, args.ffmpeg, args.ffprobe, args.brief, args.brief_sha), ensure_ascii=False))
     except (ValueError, RuntimeError, OSError, subprocess.SubprocessError) as error:
-        reply = {'error': str(error)}
+        reply = {'error': str(error), 'errorDetail': error_detail(error)}
         if isinstance(error, WorkflowFailure):
             reply['workflowReceipt'] = error.receipt
         print(json.dumps(reply, ensure_ascii=False));raise SystemExit(1)
