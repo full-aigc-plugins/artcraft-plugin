@@ -21,7 +21,17 @@ async function fixture(plugin='fixture'){
   await writeFile(script,`import{writeFileSync}from'node:fs';setTimeout(()=>{writeFileSync(process.argv[2],${JSON.stringify(content)});},30);`);
   return {root:directory,adapter:{prepare:async()=>{launches.push(node.id);return {executable:process.execPath,args:[script,output],cwd:directory,actualRevision:null,budgetUsage:{minorUnits:0,externalCalls:0}};},verify:async()=>{const bytes=await readFile(output);
    // 调度器单元夹具的摘要绑定元数据，不是实际 VectorCraft 工程验收。
-   let nativeProjectRef:any=null,evidenceRefs:any[]=[],location='output.bin';
+   let nativeProjectRef:any=null,evidenceRefs:any[]=[],dependencies:any[]=[],location='output.bin';
+   if(plugin==='photocraft'){
+    const projectBytes='scheduler-photo-native',nativeBytes=JSON.stringify({layers:[{kind:'Type',text:{font:'Arial'}}]});
+    await writeFile(join(directory,'project.pcraft'),projectBytes);await writeFile(join(directory,'native.json'),nativeBytes);
+    const manifest=JSON.stringify({schema:'photocraft-delivery/v1',runtimeSha256:runtime,files:{'project.pcraft':sha(projectBytes),'native.json':sha(nativeBytes),[location]:sha(bytes)}});
+    await writeFile(join(directory,'manifest.json'),manifest);
+    nativeProjectRef={assetId:'unit-native',version:sha(projectBytes),sha256:sha(projectBytes),location:'project.pcraft'};
+    const inspectionRef={assetId:'unit-inspection',version:sha(nativeBytes),sha256:sha(nativeBytes),location:'native.json'};
+    evidenceRefs=[{assetId:'unit-manifest',version:sha(manifest),sha256:sha(manifest),location:'manifest.json'},inspectionRef];
+    dependencies=[{assetRef:null,kind:'font',packaged:false,missingReason:'font_file_not_collected',fontRequirement:{family:'Arial',nativeProjectSha256:nativeProjectRef.sha256,inspectionRef}}];
+   }
    if(plugin==='vectorcraft'){
     location='artboard-1.svg';await writeFile(join(directory,location),bytes);
     const projectBytes=Buffer.from('scheduler-unit-native'),nativeBytes=JSON.stringify({artboards:[{rect:{x0:0,y0:0,x1:node.payload.plan.document.width,y1:node.payload.plan.document.height}}]});
@@ -30,7 +40,7 @@ async function fixture(plugin='fixture'){
     nativeProjectRef={assetId:'unit-native',version:sha(projectBytes),sha256:sha(projectBytes),location:'project.vectorcraft'};
     evidenceRefs=[{assetId:'unit-manifest',version:sha(manifest),sha256:sha(manifest),location:'manifest.json'}];
    }
-   return {root:directory,evidenceRefs:[],outputs:[{protocolVersion:'craft-artifact/v1',assetId:node.id,version:sha(bytes),sha256:sha(bytes),bytes:bytes.length,mediaType:'application/octet-stream',producerTaskId:taskId,sourceRefs:inputs.map(item=>({assetId:item.artifact.assetId,version:item.artifact.version,sha256:item.artifact.sha256})),nativeProjectRef,renditions:[],dependencies:[],technicalMetadata:{},lossReportRef:null,evidenceRefs,location}]};}}};
+   return {root:directory,evidenceRefs:[],outputs:[{protocolVersion:'craft-artifact/v1',assetId:node.id,version:sha(bytes),sha256:sha(bytes),bytes:bytes.length,mediaType:'application/octet-stream',producerTaskId:taskId,sourceRefs:inputs.map(item=>({assetId:item.artifact.assetId,version:item.artifact.version,sha256:item.artifact.sha256})),nativeProjectRef,renditions:[],dependencies,technicalMetadata:{},lossReportRef:null,evidenceRefs,location}]};}}};
  };
  const engine=new WorkflowEngine(ledger,new LocalRunner(ledger,async()=>{}),{[plugin]:factory});
  const node=(id:string,dependsOn:string[]=[])=>({id,dependsOn,projectKey:'project-'+id,runtimeIdentity:identity,payload:{schemaVersion:'fixture/v1',plan:{text:id}},expectedRevision:null});
@@ -361,5 +371,19 @@ test('registration rejection cannot fabricate a receipt or mask its original con
   assert.equal(node.errorDetail.code,'idempotency_conflict');assert.equal(node.error,'idempotency_conflict');
   assert.equal(node.taskReceipt,undefined);assert.deepEqual(f.ledger.list(),[]);
   assert.deepEqual(f.launches,[]);assert.deepEqual(f.ledger.leases(),[]);
+ }finally{await f.cleanup();}
+});
+
+for(const newRevision of [false,true])test(`public Photo ${newRevision?'cross-revision cache':'same-revision resume'} rejects old missing font metadata without replay`,async()=>{
+ const f=await fixture('photocraft');try{
+  f.plan.nodes=f.plan.nodes.slice(0,1);f.plan.nodes[0].payload.schemaVersion='craft-skill-workflow/v1';
+  const first=await f.engine.run(f.plan);assert.equal(first.state,'review_ready');
+  const node=f.ledger.workflowNode(first.runKey,'logo');node.outputs[0].dependencies=[];
+  f.ledger.saveWorkflowNode(first.runKey,'logo',node);f.clear();
+  const plan=structuredClone(f.plan);if(newRevision)plan.revision='v2';
+  const second=await f.engine.run(plan);
+  assert.equal(second.state,'blocked');assert.deepEqual(f.launches,[]);
+  assert.match(JSON.stringify(second),/font_dependency_mismatch/);
+  assert.deepEqual(f.ledger.workflowNode(first.runKey,'logo').outputs,node.outputs);
  }finally{await f.cleanup();}
 });

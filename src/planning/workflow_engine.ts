@@ -2,6 +2,7 @@
 import { verifyNativeBriefOutput } from './native_brief_output.ts';
 import { verifyPhotoVariantOutput } from './photo_variant_output.ts';
 import { verifyFilmDuration } from './film_duration.ts';
+import { verifyDomainFontOutput } from '../adapters/font_output.ts';
 import { assessBrief, nodeBriefConstraints, pendingNativeAssessment } from './project_brief.ts';
 import type { SourceInspection } from './project_brief.ts';
 import { orderGraph } from '../protocol/dependency_graph.ts';
@@ -74,6 +75,7 @@ export class WorkflowEngine {
     for(const artifact of result.outputs){
       await verifyArtifact(artifact,result.root);
       if(artifact.producerTaskId!==result.taskId)throw new Error('artifact_task_mismatch');
+      if(node?.payload.schemaVersion==='craft-skill-workflow/v1')await verifyDomainFontOutput(result.root,artifact,node.runtimeIdentity.pluginId,node.runtimeIdentity.sha256);
     }
     if(node)await verifyPhotoVariantOutput(result.root,result.outputs,node);
     if(brief){

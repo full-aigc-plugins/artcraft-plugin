@@ -1,0 +1,157 @@
+{
+  "schema": "artcraft-font-reuse-evidence/v1",
+  "status": "current_source_pass_fixed_distribution_pending",
+  "runtimeTests": {
+    "total": 680,
+    "passed": 654,
+    "skipped": 26,
+    "failed": 0
+  },
+  "behaviorRed": {
+    "tests": 2,
+    "actual": "review_ready",
+    "expected": "blocked",
+    "sameRevisionAndCrossRevision": true
+  },
+  "behaviorGreen": {
+    "schedulerTestsPassed": 32,
+    "mappingAndEvidenceTestsPassed": 19,
+    "noNativeReplay": true,
+    "oldRecordsPreserved": true
+  },
+  "logsSha256": {
+    "red": "a11dddfb1469477a029bdce08262dd35ab44ac62a6d24389c79a6515a18ef88a",
+    "green": "f1921eeed108bc4b859f10bb50d7151f4f7d8e6bbdffa5c02fc2351aa2710854",
+    "full": "9224bbf5ae1d63fb8945bf70d991a035b5c0a30e137232fcb2887938cb237433"
+  },
+  "actualNative": {
+    "status": "passed",
+    "scope": "current-source four-domain native creation, same-revision verified reuse and moved-source reopen; not fixed distribution or target font availability",
+    "fonts": {
+      "logo": [
+        {
+          "assetRef": null,
+          "kind": "font",
+          "packaged": false,
+          "missingReason": "font_file_not_collected",
+          "fontRequirement": {
+            "family": "Source Sans 3",
+            "nativeProjectSha256": "c2f06003367dd70a7823ee3955cfd653dc0bd0b767071fc520930256920e741e",
+            "inspectionRef": {
+              "assetId": "wf-133a1763792a6226c45d1b64e7fd700e14ed660f13fcd219-912c6c7421119bb7",
+              "version": "e37a73a12ee3bc15140d8eb1a426f31bbb02cc967e00ed621d91c7c2c8054097",
+              "sha256": "e37a73a12ee3bc15140d8eb1a426f31bbb02cc967e00ed621d91c7c2c8054097",
+              "location": "native.json"
+            }
+          }
+        }
+      ],
+      "poster": [
+        {
+          "assetRef": null,
+          "kind": "font",
+          "packaged": false,
+          "missingReason": "font_file_not_collected",
+          "fontRequirement": {
+            "family": "Arial",
+            "nativeProjectSha256": "b78941910f7a7c545455393b4bcb358de75356f00d476f09d16aba4baf731535",
+            "inspectionRef": {
+              "assetId": "wf-d5e3cbbaa4431b2aafe03c97b3839fb08edb1d72a279097b-912c6c7421119bb7",
+              "version": "5bcb5ea947a37f91b34ea752a5c5355b4cf77ee9ab2c21d9fdded1ed68651783",
+              "sha256": "5bcb5ea947a37f91b34ea752a5c5355b4cf77ee9ab2c21d9fdded1ed68651783",
+              "location": "native.json"
+            }
+          }
+        }
+      ],
+      "intro": [
+        {
+          "assetRef": null,
+          "kind": "font",
+          "packaged": false,
+          "missingReason": "font_file_not_collected",
+          "fontRequirement": {
+            "family": "Arial",
+            "nativeProjectSha256": "8a7f53442ecdf88d450f7070e16d64cf30b0c270ed7a8fad1d2a3e42853cf873",
+            "inspectionRef": {
+              "assetId": "wf-79f5b6df55e05b7adb9b7632a3b4eb447dbe941a4bc10e26-ccf7ce43c87e3645",
+              "version": "8a7f53442ecdf88d450f7070e16d64cf30b0c270ed7a8fad1d2a3e42853cf873",
+              "sha256": "8a7f53442ecdf88d450f7070e16d64cf30b0c270ed7a8fad1d2a3e42853cf873",
+              "location": "project.ecproj"
+            }
+          }
+        }
+      ],
+      "film": [
+        {
+          "assetRef": null,
+          "kind": "font",
+          "packaged": false,
+          "missingReason": "font_file_not_collected",
+          "fontRequirement": {
+            "family": "Arial",
+            "nativeProjectSha256": "a64edd2d3077310407c2f08c990151e12a614dc8af4f43d5097634f2607ba4d7",
+            "inspectionRef": {
+              "assetId": "wf-3cb6e20a4afe31039fa36ffeb6a6d65ccda47a8c25922af0-9e6a55f19dc1283d",
+              "version": "a64edd2d3077310407c2f08c990151e12a614dc8af4f43d5097634f2607ba4d7",
+              "sha256": "a64edd2d3077310407c2f08c990151e12a614dc8af4f43d5097634f2607ba4d7",
+              "location": "project.fcproj"
+            }
+          }
+        }
+      ]
+    },
+    "sourceHashes": {
+      "src/adapters/font_output.ts": "89b63721b00a19bc065eb09488b02eff6a7549dade1dbfebbfca67c51a8721d9",
+      "src/planning/workflow_engine.ts": "9d59a5b8ce9be4992a3d0685d237fae6998022b52b34f4490e81212795d2a154",
+      "src/adapters/font_dependencies.ts": "043d67d8759965cc81cb91b7629add29aaaa1bf3fb182405cd85ce3bb5df100b",
+      "src/adapters/public_skill.ts": "5baebb6bf00e2a39684351cc1375cc95209c834edde039e650317d9981e9d172",
+      "src/protocol/contracts.ts": "2197306ecd36980221a6f44e04d8c5a829d565c08ff127aa38308c9f196292b8",
+      "schemas/craft-artifact-v1.json": "52d6fa53f2d799b15ec907b8e0ab77aee6f074bee6a740a3c2abb2e1c3f0649a",
+      "package.json": "8887d6c3159ce1b3e280f428723a6a4046efc2affee4364106d53ff5996fd8b5"
+    },
+    "packageSha256": "ba60e72a6037140a98e978cc75f911d77606266a78c7a7aeb91ef5ace0a2eaa3",
+    "reopenedPackageSha256": "f173297d1bc855ed5e93089f1a4b22a95309d7cd9f0e4ce8771e90e7230b6366",
+    "runtimeIdentities": {
+      "effectcraft": {
+        "capabilitySnapshotSha256": "b1a01df2e697b77b11275305696d1a2943de29ed5d89b9fa4557485e965ddddd",
+        "cliVersion": "0.2.0",
+        "mode": "headless",
+        "pluginId": "effectcraft",
+        "pluginVersion": "0.1.0-dev.34",
+        "sha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+      },
+      "filmcraft": {
+        "capabilitySnapshotSha256": "1a7d42946c3325cb32169c8c3efc7906863b6f9133f6347b1181d9829e15b1db",
+        "cliVersion": "0.2.0-craft.4",
+        "mode": "headless",
+        "pluginId": "filmcraft",
+        "pluginVersion": "0.1.0-dev.38",
+        "sha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893"
+      },
+      "photocraft": {
+        "capabilitySnapshotSha256": "8fbd9cb0286af66e5915b3fc02cd04e1dbf255c03a0b925c68117cae56ddb57f",
+        "cliVersion": "0.2.0-craft.1",
+        "mode": "headless",
+        "pluginId": "photocraft",
+        "pluginVersion": "0.1.0-dev.34",
+        "sha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf"
+      },
+      "vectorcraft": {
+        "capabilitySnapshotSha256": "ef1a213fb6f71c4319f321fc4c3220aa471e20bc6ca4f41876921d846e49b0f8",
+        "cliVersion": "0.2.0-craft.2",
+        "mode": "headless",
+        "pluginId": "vectorcraft",
+        "pluginVersion": "0.1.0-dev.33",
+        "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+      }
+    },
+    "inputVoiceSha256": "6fc34dec7c0eb6a247b2c7f0d82059af6d00530d43a6ca1f45321da7bf4666de"
+  },
+  "remaining": [
+    "fixed runtime and single-skill distribution acceptance",
+    "complete AC-CP-002 scenario audit",
+    "full V1 acceptance"
+  ],
+  "task2_3Complete": false
+}

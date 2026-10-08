@@ -32,3 +32,22 @@ flowchart TD
 Current-source runtime regression:644 passed,26 conditional skips. Actual native brand creation, moved-package verification, four source reopens and re-exports pass. Logo uses Source Sans3; poster, text intro and captioned film use Arial. The Font boundary tests also cover nested/hidden text, character overrides, future text keys, malformed records and unsupported schemas. See `docs/evidence/four-domain-fonts-candidate-20261009.json`.
 
 Existing non-null dependencies remain accepted. Old strict consumers may reject the null-font form, so runtime, independent skills and plugin must be published as one pinned development chain. Remaining acceptance includes that immutable distribution, the full CP-002 scenario matrix and target environment checks. These bounded results do not complete task2.3 or V1.
+
+## Font revalidation on cache reuse
+
+Plugin138/source110/runtime137 passed single-skill four-domain creation, moved packaging and four source reopens with a warm runtime cache. A subsequent regression exposed old outputs with omitted font metadata being accepted on both same-revision resume and cross-revision cache reuse: both tests returned review_ready instead of blocked.
+
+The current increment revalidates full digest-bound font evidence for fresh public domain results, same-revision resume, cross-revision cache hits and downstream handoffs. It checks delivery schema, native runtime identity, native digest and inspection digest, then compares the complete font set and missing state. Extra, duplicate, missing or incorrectly referenced requirements return font_dependency_mismatch. Generic path, digest and read-change protections apply with a16MiB limit. Fontless projects with valid full evidence remain reusable.
+
+It does not rewrite historical metadata or native files and never repairs a cache by replaying native operations. A newly generated delivery requires an explicit new plan. This is not evidence of font-binary availability, migration of old outputs or complete package-protocol qualification.
+
+```mermaid
+flowchart TD
+  C[Fresh result or historical cache] --> D[Generic file verification]
+  D --> N[Full font evidence and runtime binding]
+  N --> F{Declared font set matches?}
+  F -->|Yes| R[Reuse or downstream handoff]
+  F -->|No| B[Block Preserve history No replay]
+```
+
+Current-source regression:654 passed,26 conditional skips. Actual four-domain creation, same-revision reuse, moved package, source reopen and re-export passed. Fixed distribution remains pending and task2.3 stays open. See `docs/evidence/font-reuse-candidate-20261009.json`.
