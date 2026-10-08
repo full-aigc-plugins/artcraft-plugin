@@ -5,5 +5,7 @@ export interface TaskErrorDetail {code:string;message:string;}
 export function taskErrorDetail(value:unknown):TaskErrorDetail {
  const message=typeof value==='string' ? value : value instanceof Error ? value.message : 'operation_failed';
  const candidate=message.split(':',1)[0];
- return {code:/^[a-z][a-z0-9_]*$/.test(candidate) ? candidate : 'operation_failed',message};
+ // 内部事务异常和兼容消息保持原样，公开错误码按 craft-task/v1 归一化。
+ const code=candidate==='budget_exceeded' ? 'budget_exhausted' : candidate;
+ return {code:/^[a-z][a-z0-9_]*$/.test(code) ? code : 'operation_failed',message};
 }

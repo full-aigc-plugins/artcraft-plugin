@@ -1,0 +1,27 @@
+{
+  "schema": "craft-budget-code-source-candidate/v1",
+  "result": "PASS",
+  "goalStatus": "not_complete",
+  "runtimeCandidateVersion": "0.1.0-dev.113-runtime.1",
+  "redRuntimeFailures": 4,
+  "targetedGreen": {
+    "total": 33,
+    "passed": 33
+  },
+  "runtimeRegressionBeforeVersionMetadata": {
+    "total": 243,
+    "passed": 223,
+    "skipped": 20
+  },
+  "installed112Red": {
+    "seconds": 35.021,
+    "reason": "canonical budget_exhausted expected; actual budget_exceeded"
+  },
+  "fixedInstallation": "NOT_RUN",
+  "hashes": {
+    "red-runtime.log": "4a760dfdd410b0938fcb2b6f70c34f5e4788d0b7ecad97331d67b9a889c53891",
+    "green-runtime.log": "aef76595c4a7b0e433ab660c00f5daad8926aa1920712851688003cdcc0fb612",
+    "full-runtime.log": "6f25b3b288a3ac27e123f05a58e65b25f972ab002e57b84b212fdff4a4058bd4",
+    "installed112-red.log": "311747beb50b0e495964f064f368da5d524bdd001effa6ff59ea6145996b60bb"
+  }
+}

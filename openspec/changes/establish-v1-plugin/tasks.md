@@ -398,3 +398,5 @@ SC-007固定发行证据：`docs/evidence/artcraft99-film29-fixed-first-use-2026
 - [x] [AC-CP-001-WORKFLOW-LAUNCHER-ERROR] 补齐单技能 workflow.py 顶层结构化拒绝，保留字符串error与上游workflowReceipt；以真实独立冷安装验证创建／账本回执／不重放复用及输入、修订、授权拒绝，并完成固定发行安装后仅关闭此入口门禁。
 
 2026-10-08 固定Art112／源84入口拒绝门禁：实际隔离Codex发现64项零错误，10变化技能各自公开冷安装，54整树相等项复用历史冷证明；十技能输入前置拒绝无运行时与虚构回执，安装后execute单技能真实创建／回执查询／同身份复用／输入、修订、授权拒绝39.512秒通过。默认工具改为当前矩阵，3旧默认断言先失败，29目标通过2条件跳过。只关闭入口错误门禁，完整公共协议、全业务／全命令／GUI／其他平台／通用SkillsCLI／模型／创作／完整V1仍开放。证据 `docs/evidence/craft-workflow-error-detail-fixed-first-use-20261008.json`。
+
+- [ ] [AC-CP-001-BUDGET-CODE] 公开预算拒绝统一budget_exhausted并保留原字符串；以三预算维度与工作流回归、固定独立冷安装的真实原生创建和重复修订拒绝验证账本／任务／占用／产物保全后，仅关闭错误码门禁。

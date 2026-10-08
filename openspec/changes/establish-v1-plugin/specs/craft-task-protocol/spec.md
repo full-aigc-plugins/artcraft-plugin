@@ -38,6 +38,8 @@ ArtCraft SHALL 维护 craft-task/v1 的唯一规范事实源；请求包含 prot
 
 响应 SHALL 包含 taskId、attemptId、state、runtimeIdentity、outputRefs、evidenceRefs 和结构化 error（若有）。accepted 仅表示已登记；completed 需要当前版本的交付验收。允许状态为 planned、blocked、ready、running、reconciling、cancel_requested、cancelled、verifying、review_ready、completed、failed。错误须区分 runtime_missing、capability_missing、revision_conflict、idempotency_conflict、outcome_unknown、artifact_invalid、budget_exhausted 和 authorization_required。
 
+预算耗尽公开错误详情 SHALL 使用 `budget_exhausted`；兼容保留原字符串 `budget_exceeded: minorUnits|externalCalls|revisions`，内部事务异常无需改名。额度拒绝不得新增执行、占用或预算分配；修订登记拒绝不得新增工作流或任务，原账本与产物保持可读。未知原任务不得因为预算拒绝获得重放权限。
+
 #### Scenario: AC-CP-001-V 协议升级
 
 - **WHEN** 请求使用未知主版本或核心字段出现不支持的字段

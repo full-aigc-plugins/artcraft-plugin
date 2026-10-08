@@ -145,6 +145,9 @@ test('DAG reserves a shared cap before child spawn and resuming does not double 
   assert.equal(f.ledger.list().filter(task=>f.ledger.execution(task.taskId)).length,1);
   assert.equal(f.ledger.leases().length,0);
   assert.ok(Object.values(first.nodes).some(node=>node.error?.includes('budget_exceeded')));
+  const exhausted=Object.values(first.nodes).filter(node=>node.error?.startsWith('budget_exceeded:'));
+  assert.ok(exhausted.length>0);
+  for(const node of exhausted)assert.deepEqual(node.errorDetail,{code:'budget_exhausted',message:node.error});
   const repeated=await engine.run(f.plan);assert.deepEqual(repeated.budget,first.budget);
   assert.equal(f.ledger.list().filter(task=>f.ledger.execution(task.taskId)).length,1);
  }finally{await f.cleanup();}
