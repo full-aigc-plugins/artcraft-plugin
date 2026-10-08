@@ -1,5 +1,7 @@
 # ArtCraft 版本化 Brief 架构
 
+2026-10-08 补证：技能 Python 入口与 TypeScript 运行时共用 19 个需求约束样本，当前全部一致；历史提交 `5311ec6` 回放出现 2 个时长行为失败，记录为事后历史回放，不冒充原始 TDD 日志。运行时回归 278 通过／21 条件跳过，技能源回归 137 通过／46 条件跳过。任务 6.1 的正反测试证据已完成；6.2 实现逐项审计及 6.3 八场景原生／安装验收继续开放。本次只修改测试和文档，33 个固定运行时文件与十份独立 Brief 脚本摘要均一致，不新增发布版本。见 [证据](evidence/brief-contract-parity-20261008.json)。
+
 状态：固定发布、单技能冷启动及实际宿主有界联调通过；OpenSpec AC-DM-001-BRIEF / 任务 6.23 已验证。运行时 dev.28 已发布不可变制品，技能 dev.25 锁定该制品；插件 dev.29 已同步该固定快照。
 
 Brief 是需求元数据，包含版本、拥有者、授权范围、预算、原生交付格式、尺寸、可选帧率/时长、品牌、主体、参考素材版本、上传政策与未解决歧义。它不作为媒体输入，不让领域适配器消费虚假素材。
@@ -29,3 +31,11 @@ Python 公开入口支持 --brief 与 --brief-sha，读取带摘要的独占记�
 候选技能 dev.25 的隔离单技能在线 Brief 测试通过：3 项，98.048 秒，系统 Python 3.14.3。真实原生交付及冻结计划摘要见 versioned-brief-first-use.json；固定发布与安装宿主复验仍待完成。
 
 实际固定插件 dev.29／技能 dev.25／运行时 dev.28 的在线首次使用复验通过：3 项，89.841 秒；58 个安装技能摘要均未改变，加载错误 0。见 codex-release29-brief-native-20261006.json。通用 Skills CLI 安装、模型调用及完整创作接受仍未验证。
+
+在独立 `artcraft-skills` 仓库执行下列测试；先将 `ARTCRAFT_PLUGIN_SOURCE` 指向已核对的 ArtCraft 插件源码，将 `NODE_EXECUTABLE` 指向 Node 24+ 可执行文件。测试不会安装工具，未显式提供两项配置时默认跳过；19个样本是一个测试方法中的子场景，不能计为19次原生验收。
+
+```sh
+CRAFT_BRIEF_PARITY_RUNTIME="$ARTCRAFT_PLUGIN_SOURCE" \
+CRAFT_BRIEF_PARITY_NODE="$NODE_EXECUTABLE" \
+python3 -I -B -m unittest discover -s tests -p test_brief_contract_parity.py -v
+```

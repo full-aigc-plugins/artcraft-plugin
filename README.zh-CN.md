@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+2026-10-08 补证：技能 Python 入口与 TypeScript 运行时共用 19 个需求约束样本，当前全部一致；历史提交 `5311ec6` 回放出现 2 个时长行为失败，记录为事后历史回放，不冒充原始 TDD 日志。运行时回归 278 通过／21 条件跳过，技能源回归 137 通过／46 条件跳过。任务 6.1 的正反测试证据已完成；6.2 实现逐项审计及 6.3 八场景原生／安装验收继续开放。本次只修改测试和文档，33 个固定运行时文件与十份独立 Brief 脚本摘要均一致，不新增发布版本。见 [证据](docs/evidence/brief-contract-parity-20261008.json)。
+
 DAG节点身份修复已固定至插件126／源98／runtime126；6.7／6.8核心任务完成，6.9原生调度验收现已完成，见[三场景验收](docs/ArtCraft-Native-Scheduling-Acceptance-Architecture.zh_CN.md)。[架构与证据](docs/ArtCraft-Dag-Identity-Architecture.zh_CN.md)。此前6.12七场景证据绑定插件125，不表示已在126重跑完整矩阵。
 
 核心素材版本与选择性失效实现已核验，任务6.10／6.11完成；原生源工程修订后旧包与旧审阅仍可独立追溯，旧审阅应用到新包时拒绝。6.12七场景验收已完成，见[当前验收架构](docs/ArtCraft-Selective-Version-Acceptance-Architecture.zh_CN.md)。完整V1仍开放。见[实现架构](docs/ArtCraft-Selective-Version-Implementation-Architecture.zh_CN.md)。

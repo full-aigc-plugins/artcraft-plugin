@@ -1,0 +1,94 @@
+{
+  "schema": "craft-brief-contract-parity/v1",
+  "result": "PASS",
+  "cases": [
+    "ready",
+    "ambiguity",
+    "upload-forbidden",
+    "cloud-unavailable",
+    "exact-reference",
+    "stale-reference-version",
+    "stale-reference-bytes",
+    "nested-brand-font",
+    "native-format-substitution",
+    "size-conflict",
+    "subject-reference-present",
+    "subject-reference-missing",
+    "film-all-tracks-match",
+    "film-long-audio",
+    "owner-conflict",
+    "authorization-conflict",
+    "budget-conflict",
+    "workflow-conflict",
+    "missing-deliverable"
+  ],
+  "files": {
+    "full-aigc-skills-repositories/artcraft-skills/skills/artcraft-use/scripts/brief.py": "a1b2e526c4f631e60998c777e1d8332ed6d2f61ca4afa106bf9068f15f3f3124",
+    "full-aigc-plugins-repositories/artcraft-plugin/src/planning/project_brief.ts": "1a5f0a9f85b16dee0f6cca73f5ba468765e2e98f9b45f710cab81c94b7177587",
+    "full-aigc-skills-repositories/artcraft-skills/tests/test_brief_contract_parity.py": "102d2c5109b82ceb2014b519857d0644c64b2de3c67f152a7a3b711dc50249c6"
+  },
+  "inputSha256": "c979cad0aa6fafbe60df2fdd42023523ad6f2831884c30eda95e4f9724efada5",
+  "stdoutSha256": "b5ec6956ff323189b500876d06ea80e2ac78bda2bbae8ee52e7c14237548cc42",
+  "scope": "declared constraint parity only; not native or installed-host acceptance",
+  "fixedRuntimeFilesMatched": 33,
+  "versions": {
+    "runtime": "0.1.0-dev.126-runtime.1",
+    "source": "0.1.0-dev.98",
+    "plugin": "0.1.0-dev.126"
+  },
+  "baselineReplay": {
+    "commit": "5311ec6df548f84cfb74914116f6d5ecae58cdd5",
+    "exitCode": 1,
+    "failedCases": [
+      "film-all-tracks-match",
+      "film-long-audio"
+    ],
+    "logSha256": "1400dbf5bf8d815a34531b9a182f072664f557e74f2b6803061e3326be163b66",
+    "moduleSha256": "19538979d00d449f8bce6e931377ebd6aadea2884b3d548122318b26b7e44303",
+    "scope": "historical implementation replay performed after current implementation; not an original pre-implementation TDD log; valid ticks rejected and long audio misclassified as requiring inspection"
+  },
+  "runtimeRegression": {
+    "tests": 299,
+    "passed": 278,
+    "skipped": 21,
+    "logSha256": "5849d434b1c6cc1ab2960b983b29d4ad869d1988c31ee12e2875ed2a70c1efa1"
+  },
+  "sourceRegression": {
+    "tests": 183,
+    "passed": 137,
+    "skipped": 46,
+    "logSha256": "d772a0a0571427b2afe45033a84d56fcb2b074258f664fed79066ec4ea7e9a2a"
+  },
+  "standaloneBriefCopiesMatched": [
+    "artcraft-cli",
+    "artcraft-cli-assets",
+    "artcraft-cli-deliver",
+    "artcraft-cli-execute",
+    "artcraft-cli-plan",
+    "artcraft-cli-recover",
+    "artcraft-cli-review",
+    "artcraft-cli-revise",
+    "artcraft-cli-setup",
+    "artcraft-use"
+  ],
+  "requirement": "AC-DM-001",
+  "completedTasks": [
+    "6.1"
+  ],
+  "openTasks": [
+    "6.2",
+    "6.3"
+  ],
+  "goalComplete": false,
+  "remaining": [
+    "complete current-version source-to-spec implementation audit for 6.2",
+    "complete all eight AC-DM-001 scenario native/installed acceptance for 6.3",
+    "no installed-host or native acceptance rerun claimed by this parity test"
+  ],
+  "pluginRegression": {
+    "tests": 112,
+    "passed": 106,
+    "skipped": 6,
+    "logSha256": "f2d56e88ee126b53d77e6b902da86eb0412d3c07a343fc75d5c58a507bba2895"
+  }
+}
