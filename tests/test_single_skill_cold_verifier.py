@@ -45,3 +45,28 @@ class LockedVersionTests(unittest.TestCase):
                 lock.write_text(json.dumps({'resolvedVersion':value}))
                 with self.assertRaisesRegex(ValueError, 'cold_runtime_lock_invalid'):
                     module.locked_native_version(root, 'filmcraft')
+
+class UpgradeProbeTests(unittest.TestCase):
+    def test_missing_ledger_refusal_proves_public_command_was_dispatched(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'missing.sqlite'
+            module.validate_upgrade_refusal(1, '{"error":"ENOENT: missing database"}', path)
+
+    def test_help_or_wrapper_rejection_cannot_count_as_upgrade_entry_acceptance(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'missing.sqlite'
+            for code, stdout in [(0, '{"commands":["upgrade"]}'), (2, 'unsupported_cli_subcommand'), (1, '{"error":"cli_command_invalid"}'), (1, 'invalid json')]:
+                with self.subTest(code=code, stdout=stdout):
+                    with self.assertRaisesRegex(ValueError, 'upgrade_entrypoint_not_verified'):
+                        module.validate_upgrade_refusal(code, stdout, path)
+
+    def test_claimed_missing_ledger_error_cannot_hide_a_created_file(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'missing.sqlite'
+            path.write_bytes(b'user marker')
+            with self.assertRaisesRegex(ValueError, 'upgrade_entrypoint_not_verified'):
+                module.validate_upgrade_refusal(1, '{"error":"ENOENT: missing database"}', path)
+            self.assertEqual(path.read_bytes(), b'user marker')

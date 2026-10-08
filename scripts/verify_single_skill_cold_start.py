@@ -19,6 +19,18 @@ skill_hash = _host_module.skill_hash
 verify_installed_skill = _host_module.verify_installed_skill
 
 
+def validate_upgrade_refusal(returncode, stdout, missing):
+    """缺失账本的真实拒绝证明公开升级命令已到达运行时，而非仅出现在帮助中。"""
+    try:
+        value = json.loads(stdout)
+    except (ValueError, TypeError):
+        raise ValueError('upgrade_entrypoint_not_verified') from None
+    if (returncode != 1 or not isinstance(value, dict)
+            or not isinstance(value.get('error'), str)
+            or not value['error'].startswith('ENOENT:') or missing.exists()):
+        raise ValueError('upgrade_entrypoint_not_verified')
+
+
 def native_version_matches(output, domain, expected):
     if domain == "artcraft":
         try:
@@ -73,9 +85,15 @@ def verify(host, lock, python, output):
                     raise ValueError('unexpected_native_version:' + name)
                 discovery = call(['--help'] if domain == 'artcraft' else ['commands', *([] if domain == 'vectorcraft' else ['--json'])])
                 command_count = None
+                upgrade_proof = {}
                 if domain == 'artcraft':
                     if 'verify-package' not in discovery:
                         raise ValueError('runtime_command_missing')
+                    if 'upgrade' in json.loads(discovery).get('commands', []):
+                        missing = root / 'missing-ledger.sqlite'
+                        refused = subprocess.run([python, '-I', '-B', str(target / 'scripts/cli.py'), '--runtime-home', str(home), '--', 'upgrade', '--database', str(missing)], env=environment, text=True, capture_output=True, timeout=300)
+                        validate_upgrade_refusal(refused.returncode, refused.stdout, missing)
+                        upgrade_proof = {'upgradeMissingLedgerRefused': True, 'upgradeRefusalSha256': hashlib.sha256(refused.stdout.encode()).hexdigest()}
                 else:
                     commands = json.loads(discovery)
                     contract = json.loads((target / 'references/commands.json').read_text())
@@ -84,7 +102,7 @@ def verify(host, lock, python, output):
                     command_count = len(commands)
                 if not home.is_dir() or skill_hash(target) != expected_digest or list(target.rglob('*.pyc')):
                     raise ValueError('installed_skill_mutated:' + name)
-                records.append({'pluginId': domain, 'skill': name, 'expectedSkillSha256': expected_digest, 'nativeVersion': version.strip(), 'coldRuntimeForSkill': True, 'commandCount': command_count, 'discoverySha256': hashlib.sha256(discovery.encode()).hexdigest(), 'isolated': True})
+                records.append({'pluginId': domain, 'skill': name, 'expectedSkillSha256': expected_digest, 'nativeVersion': version.strip(), 'coldRuntimeForSkill': True, 'commandCount': command_count, 'discoverySha256': hashlib.sha256(discovery.encode()).hexdigest(), 'isolated': True, **upgrade_proof})
             verify_installed_skill(original, entry)
             print(name + ' cold first use passed', flush=True)
     if len(records) != expected_count:

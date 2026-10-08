@@ -7,7 +7,7 @@ from pathlib import Path
 import subprocess
 import sys
 sys.dont_write_bytecode=True
-ALLOWED={'--version','--help','run','status','cancel','package','verify-package','register-video-factory'}
+ALLOWED={'--version','--help','run','status','upgrade','cancel','package','verify-package','register-video-factory'}
 def setup_failure(runtime_home):
  """安装器缺失时也保留当前技能自身的恢复位置，不读取兄弟技能。"""
  return {'skill':'artcraft-cli-setup','bootstrapScript':str(Path(__file__).with_name('bootstrap.py').resolve()),'runtimeHome':str(Path(runtime_home).expanduser().absolute()),'automaticRetry':False}

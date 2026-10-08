@@ -160,3 +160,5 @@ ArtCraft SHALL support explicit domain command `--mode desktop` using immutable 
 - **THEN** CLI SHALL 返回当前运行时版本、目标状态schema及实际迁移时的旧快照路径和SHA-256；当前schema重复调用返回未迁移，不产生第二份快照
 - **AND** 活跃旧账本拒绝时保留全部旧记录，缺失账本不创建空文件；高版本账本拒绝降级，不自动选择旧运行时、不重放原生任务
 - **AND** 保留的兼容旧运行时仅能显式读取其支持的快照；不能将新schema账本交给旧版强制打开
+
+- **AND** 每个独立技能的公开Python入口SHALL将upgrade转发至固定运行时；仅在帮助中出现命令不构成可调用证明，冷验收须实际调用不存在账本并得到运行时ENOENT拒绝且不创建文件
