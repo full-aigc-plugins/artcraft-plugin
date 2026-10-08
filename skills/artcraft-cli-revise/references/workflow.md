@@ -202,3 +202,9 @@ On artifact_version_conflict, compare the original registration with current fil
 失败产物可保留供核对，但不能打包成已就绪结果。历史版本矛盾不会被自动改写，旧冻结计划也不能绕过该检查。技术就绪仍不代表创作或人工验收通过。
 
 Failed outputs may remain for inspection but cannot become ready deliveries. Contradictory history is never automatically rewritten, and frozen replay cannot bypass the check. Technical readiness does not establish creative or human acceptance.
+
+## Film 成片的精确时间交接 / Exact Film timing
+
+Film 成片的 `technicalMetadata` 来自摘要绑定的 `native.json` 和 `export-probe.json`：`durationTicks` 保留十进制字符串，`timeBase` 固定为原生 Film 的 `1/254016000000` 秒，`frameRate` 保留分子分母，同时交接尺寸、alpha和适用音频字段。不得先转浮点秒再推导帧边界。探测报告缺失、数值ticks、溢出、错误时间基准或原生／导出不一致会阻止技术就绪；保留失败记录，修正来源或重新生成有效交付。
+
+Film video metadata comes from digest-bound native/export probe files. Preserve decimal `durationTicks`, native `timeBase` of `1/254016000000` seconds and rational `frameRate`, plus dimensions, alpha and applicable audio facts. Do not round-trip timing through floating seconds. Missing/invalid timing or inconsistent native/export facts prevents technical readiness. This technical mapping does not establish visual or creative equivalence.
