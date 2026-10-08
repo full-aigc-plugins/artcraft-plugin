@@ -1,0 +1,94 @@
+{
+  "schema": "artcraft-photo-dependency-candidate/v1",
+  "result": "PASS",
+  "status": "source_candidate_fixed_plugin_acceptance_open",
+  "photoBundle": {
+    "version": "0.1.0-dev.34",
+    "filename": "photocraft-skills-0.1.0-dev.34.zip",
+    "url": "https://github.com/full-aigc-skills/photocraft-skills/releases/download/v0.1.0-dev.34/photocraft-skills-0.1.0-dev.34.zip",
+    "sha256": "9773df829a565a6ee79d302fbb1a74310a02039b1bf94f5666a46fe83c5cb55c",
+    "bytes": 3941901,
+    "sourceRepository": "https://github.com/full-aigc-skills/photocraft-skills",
+    "archiveFormat": "git-archive-zip",
+    "sourceCommit": "c3b23207b6a6f09032c9dd0a68c7b173a36b11c0",
+    "archivePrefix": "photocraft-skills-0.1.0-dev.34/"
+  },
+  "runtimeVersion": "0.1.0-dev.113-runtime.1",
+  "native": {
+    "schema": "artcraft-photo-adjustment-first-use/v1",
+    "result": "PASS",
+    "skill": "artcraft-use",
+    "initialPixel": [
+      152,
+      152,
+      152,
+      255
+    ],
+    "revisedPixel": [
+      106,
+      106,
+      106,
+      255
+    ],
+    "emptyPublicRuntime": true,
+    "nativeProjectSha256": "9dc6e8d8288feecf973c1a2e69bf711e2b84480b9779791d01349028b0358501",
+    "maskAndAdjustmentPersisted": true,
+    "sourceRevision": true,
+    "controlPixelsUnchanged": true,
+    "nonTargetLayersPreserved": true,
+    "originalDeliveryPreserved": true,
+    "movedChildren": 1,
+    "skillUnchanged": true,
+    "packageSha256": "6b0c7a378fc62c4272c535d5bdb3a65bc32a3cac40b3e90e070a99713902766d",
+    "photoSourceVersion": "0.1.0-dev.34",
+    "deliveryScriptSha256": "64d11d08d153b96095102d49e267dbe5dd5cf84eeade091924f897692d15fcfa",
+    "deliveryLauncherIdentityBound": true,
+    "deliveryIntegrity": {
+      "schema": "photocraft-delivery-integrity/v1",
+      "result": "PASS",
+      "manifestSha256": "0b11022c3af845a2f1953cef88a5aec36657f3f8caee379398d45628d6b359a7",
+      "nativeSha256": "dd49b0e3ab4403559531e3dc8808f032ee1aa9fd3b5a4a5800883a90f632b25f",
+      "files": 6,
+      "scope": "File and exchange identity only; not native reopening, external authorship or creative acceptance."
+    },
+    "scope": "native Photo adjustment/mask sample; not exhaustive commands, PSD, GUI, model or fullV1"
+  },
+  "sourceFiles": {
+    "skills/artcraft-use/scripts/setup.py": "f426b25b32644c1df15898e6b2c68f5028d4c12faa51f8570e9a05141ab8661c",
+    "skills/artcraft-use/scripts/distribution.lock.json": "907699efbc792bec75f6c53dd3804094586203fa9b3344254882d97b417dd181",
+    "tests/test_archive_prefix.py": "2c6d0b46d2b01e959c81e6f8a020a99e98dfd484510681c2824846895324bf87",
+    "tests/test_selected_setup.py": "035d5c71f2255bfbdea331d17f5cdf21c1fe668731bfc21e62875ee4deaa6e54",
+    "tests/test_photo_adjustment_first_use.py": "7f78811a50d76d9fd339dea8d8c6dfe5c96776d12eafc41b1252595c64f9160a"
+  },
+  "logHashes": {
+    "prefix-red.log": "1600bdaf5a0218262dec5031e38be9c5abf2d6cf3e179818717c226edb941bc8",
+    "prefix-green.log": "042d2161e1a6d2a2a54316d134fe80af6c666ce7aaf1a1c44b173b39cc34f584",
+    "builder-red.log": "8d59c815988b04670397648540e75b6fa50a13de9edaf755e84d113f90fb193f",
+    "builder-green.log": "c5a9586302459402ee573496f885315518bf266484996db50fe24dd7d0ed8338",
+    "source-photo34-identity-native.log": "e79d42383b23f75d768eaea047730a7a9716d124b8cb75beb4ad63fce767e027"
+  },
+  "unverified": [
+    "new immutable source release",
+    "vendored plugin snapshot upgrade",
+    "actual new installed plugin native acceptance",
+    "ten Art skill independent cold installs for new source",
+    "exhaustive command/runtime/GUI/model acceptance",
+    "full V1"
+  ],
+  "sourceRegression": {
+    "total": 156,
+    "passed": 118,
+    "skipped": 38,
+    "result": "PASS",
+    "logSha256": "97ee6fca8d2a6144b03d6711ca15163d87135bde55e9b9aac087ec81b7f03794"
+  },
+  "pluginRegression": {
+    "result": "PASS",
+    "logSha256": "3a3fafc21940b26e03cd12b7e345dbe74c9122e93866578aa92f17e7a40c3c5a",
+    "total": 105,
+    "passed": 99,
+    "skipped": 6
+  },
+  "documentationValidation": "PASS; 439 Markdown files, 25 requirements, 142 scenarios; documentation scope only",
+  "openSpecValidation": "establish-v1-plugin strict PASS; no archive or sync"
+}

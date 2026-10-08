@@ -1,8 +1,10 @@
 # ArtCraft Agent Plugin
 
+Photo34 delivery dependency is pinned; new fixed host acceptance remains pending. [Architecture](docs/ArtCraft-Photo-Integrity-Dependency-Architecture.md).
+
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current plugin: `0.1.0-dev.113`; skill source: `0.1.0-dev.85`; 10 independent skills.
+Current plugin: `0.1.0-dev.114`; skill source: `0.1.0-dev.86`; 10 independent skills.
 
 Workflow launcher structured rejection is fixed in source84. Legacy error and workflowReceipt remain compatible; fixed installed112 qualification is recorded separately. [Architecture](docs/ArtCraft-Workflow-Error-Detail-Architecture.md).
 Previous fixed caption-size qualification:64 installed identities and CLI probes match;23 changed skills each pass independent cold discovery, while41 unchanged whole-tree hashes retain historical cold proof. Two current installed native caption/brand cases pass. This is bounded installation and scene evidence, not fullV1. [Current fixed evidence](docs/Craft-Caption-Fixed-First-Use.md).
@@ -117,9 +119,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.113 |
+| Plugin ID / version | artcraft / 0.1.0-dev.114 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.85 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.86 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |

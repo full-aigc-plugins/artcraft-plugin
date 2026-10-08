@@ -89,3 +89,5 @@ Photo原生调整层、选区蒙版与可信源返工见 [局部调整指南](re
 真实配音识别与混合字幕任务，请读取本技能的 [混合 ASR 指南 / Mixed ASR guide](references/mixed-asr.md)，按固定领域分发和持久模型目录执行；规划、返工与验收分别保留依赖、原生工程和执行证据。
 
 任务身份及拒绝详情按 [任务回执说明](references/task-receipts.md) 读取；节点摘要不代替实际执行回执。
+
+混合海报、封面和源工程返工前阅读 [Photo完整交付](references/photo-delivery-integrity.md)，区分宿主独立插件与Art内部固定依赖。
