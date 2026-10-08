@@ -55,7 +55,7 @@ def validate_bundle_lock(lock):
     if not isinstance(filename, str) or not safe_path(filename) or '/' in filename:
         raise ValueError('bundle_path_invalid')
     if 'version' in lock and (not isinstance(lock['version'], str)
-            or not re.fullmatch(r'\d+\.\d+\.\d+(?:-dev\.\d+)?', lock['version'])):
+            or not re.fullmatch(r'\d+\.\d+\.\d+(?:-dev\.\d+(?:-runtime\.\d+)?)?', lock['version'])):
         raise ValueError('bundle_version_invalid')
     if 'archiveFormat' in lock and lock['archiveFormat'] not in ('canonical-skills-zip', 'git-archive-zip'):
         raise ValueError('bundle_lock_invalid')
@@ -80,7 +80,7 @@ def validate_distribution(lock):
     """验证完整分发锁，包括未选择的依赖身份；本函数没有安装副作用。"""
     if (not isinstance(lock, dict) or lock.get('schema') != 'artcraft-distribution/v1'
             or not isinstance(lock.get('version'), str)
-            or not re.fullmatch(r'\d+\.\d+\.\d+(?:-dev\.\d+)?', lock['version'])
+            or not re.fullmatch(r'\d+\.\d+\.\d+(?:-dev\.\d+(?:-runtime\.\d+)?)?', lock['version'])
             or not isinstance(lock.get('bundles'), dict)
             or set(lock['bundles']) != {'artcraft-runtime', *[name+'-skills' for name in NAMES]}):
         raise ValueError('distribution_lock_invalid')
@@ -152,7 +152,7 @@ def install_bundle(lock, target, archive=None):
 def bundle_version(lock, entry):
     """组合版本升级不改变未升级的领域技能身份；缺失字段兼容旧锁。"""
     version = entry.get('version', lock['version'])
-    if not isinstance(version, str) or not re.fullmatch(r'\d+\.\d+\.\d+(?:-dev\.\d+)?', version):
+    if not isinstance(version, str) or not re.fullmatch(r'\d+\.\d+\.\d+(?:-dev\.\d+(?:-runtime\.\d+)?)?', version):
         raise ValueError('bundle_version_invalid')
     return version
 

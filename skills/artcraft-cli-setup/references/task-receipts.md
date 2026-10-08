@@ -8,8 +8,12 @@ Workflow node status is a scheduling summary. Read taskReceipt for durable task/
 
 Preparation, registration or authorization rejection supplies errorDetail code/message and retains the legacy error string. Unregistered nodes have no fabricated receipt. Durable failure stays in taskReceipt.error. Unknown results and cancellation waiting require reconciliation of the original task, never automatic native replay.
 
-The independent skill pins runtime dev.108. Complete protocol, native creative and fixed full-plugin acceptance remain separate gates.
+The independent skill pins runtime dev.113-runtime.1. Complete protocol, native creative and fixed full-plugin acceptance remain separate gates.
 
 公开 workflow.py 的顶层失败也包含 errorDetail。输入／安装前置失败不伪造 workflowReceipt 或 taskReceipt；原生非零回执保留 workflowReceipt 和原 error 字符串，上游已有 errorDetail 则保留其 code/message，等待或其他未就绪回执以 workflow_not_ready 表达。读取嵌套节点 taskReceipt 判断实际状态，不能把 workflow_not_ready 当作任务失败或自动重试依据。
 
 The public workflow.py launcher also returns top-level errorDetail. Input/setup refusal does not fabricate workflowReceipt or taskReceipt. Nonzero runtime replies retain workflowReceipt and the legacy error string; upstream structured rejection details are preserved, otherwise workflow_not_ready describes the envelope. Inspect nested durable receipts; this code does not declare task failure or authorize replay.
+
+预算耗尽公开code为budget_exhausted，message与原CLI error保留budget_exceeded及具体维度。预算拒绝不新增attempt、不释放未知任务占用或授权重放，先查询原账本和产物。
+
+Budget exhaustion exposes code budget_exhausted while message and legacy CLI error retain budget_exceeded and the dimension. Refusal does not create attempts, release unknown-task ownership or authorize replay; inspect the original ledger and artifacts.

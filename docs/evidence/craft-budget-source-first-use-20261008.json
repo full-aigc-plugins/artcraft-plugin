@@ -1,0 +1,37 @@
+{
+  "schema": "craft-budget-source-first-use/v1",
+  "result": "PASS",
+  "goalStatus": "not_complete",
+  "sourceVersion": "0.1.0-dev.85",
+  "runtimeVersion": "0.1.0-dev.113-runtime.1",
+  "nativeSeconds": 36.701,
+  "sourceRegression": {
+    "total": 155,
+    "passed": 117,
+    "skipped": 38
+  },
+  "canonicalError": {
+    "code": "budget_exhausted",
+    "message": "budget_exceeded: revisions"
+  },
+  "repeatedRefusalStable": true,
+  "allLedgerTablesUnchanged": [
+    "tasks",
+    "executions",
+    "leases",
+    "workflow_runs",
+    "workflow_nodes",
+    "budget_accounts",
+    "workflow_budget_links",
+    "events"
+  ],
+  "runtimeSha256": "702673972df1694167de6b5646485d28000c0e00a2486f602cd1e82dd0ce2f3a",
+  "hashes": {
+    "source85-native-fixed.log": "5a48e7d76fc69de14d234612f8d8cfada90b6bc4dabe1d1ecb9293d83cbbcccd",
+    "source85-native-fixed/proof.json": "9e33aebfe9cbaa8c4844a3a2426182323c1a1c4ff60e95101603bb0f2ba3b516",
+    "source85-regression-fixed.log": "07cf4f6383dc94eb00ccf08da87cceaac1284daf48be0c8672a0a030fc583789",
+    "setup-version-red.log": "90e7601a50a929ff0640be374b213243659f993b5634f4e27ee6d7d1eaf1d1aa",
+    "setup-version-green.log": "6ff8cb6673e52248481ba0fa0eca3657ce430b443dbc93e93c7a3e25938b7877"
+  },
+  "scope": "Single copied source skill public cold install; native Vector creation and revision-budget refusal. Not fixed plugin 113 host acceptance, all budget dimensions, full V1, or generic Skills CLI."
+}

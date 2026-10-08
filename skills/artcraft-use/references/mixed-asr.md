@@ -2,7 +2,7 @@
 
 当前源dev.83将Film分发锁定到源dev.36／原生craft.4，Art编排运行时仍为不可变dev.108；四领域目录为2,646条（666／640／755／585）。按当前实际安装锁核对，不把旧Art104或其他不可变版的指南用于证明新版。本次新增操作模板和字号交接，不改变原生运行时或领域分发锁。
 
-Source83 pins Film source36/nativecraft.4 and immutable Art runtime108. Four-domain discovery contains2,646 commands (666/640/755/585). Verify the loaded installation's lock. This revision adds a caption handoff template without changing native/runtime dependencies.
+Source85 pins Film source36/nativecraft.4 and immutable Art runtime113-runtime.1. Four-domain discovery contains2,646 commands (666/640/755/585). Verify the loaded installation's lock. The caption handoff template and native domain dependencies are retained; the Art runtime now normalizes public budget refusal codes.
 
 ## 安装、模型与目录 / Setup, model and directory
 
@@ -17,7 +17,7 @@ Set `ART_SKILL_DIR` to the installed skill directory and bootstrap only needed d
 
 ```mermaid
 flowchart LR
-    Art[Art skill and runtime108] --> Logo[Vector brand project]
+    Art[Art skill and runtime113-runtime.1] --> Logo[Vector brand project]
     Logo --> Poster[Photo poster]
     Logo --> Intro[Effect intro]
     Intro --> Film[Film native craft.4]
