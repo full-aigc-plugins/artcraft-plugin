@@ -15,7 +15,10 @@ import sys
 sys.dont_write_bytecode = True
 import tarfile
 import tempfile
+import time
 import urllib.request
+
+LOCK_WAIT_SECONDS = 120
 
 
 def sha(path):
@@ -62,7 +65,17 @@ def install_node(lock, runtime_home, archive=None, platform_key=None):
     home = Path(runtime_home).expanduser().resolve()
     home.mkdir(parents=True, exist_ok=True)
     with (home/'.artcraft-node-install.lock').open('a+b') as ownership:
-        fcntl.flock(ownership.fileno(), fcntl.LOCK_EX)
+        # 只等待安装互斥，不能无限阻塞首次使用或重放原生操作。
+        deadline = time.monotonic() + LOCK_WAIT_SECONDS
+        while True:
+            try:
+                fcntl.flock(ownership.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+                break
+            except BlockingIOError:
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    raise TimeoutError('runtime_install_busy: Node installation lock wait expired') from None
+                time.sleep(min(.05, remaining))
         target = home/'artcraft/node'/version
         if target.exists() or target.is_symlink():
             return verify(target, lock)

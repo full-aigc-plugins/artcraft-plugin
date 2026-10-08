@@ -1,10 +1,14 @@
 # ArtCraft Agent Plugin
 
+Art 技能源工作树候选已修复 Node／组合安装无限等待；source86／plugin114 固定发行尚未包含该修复。[候选架构](docs/ArtCraft-Install-Lock-Architecture.zh_CN.md)。
+
+独立安装验收器已保留逐次调用的失败诊断，包括超时部分输出；真实通用 Skills CLI 安装仍未完成。[诊断说明](docs/Independent-Skill-Install-Diagnostics-Architecture.zh_CN.md)。
+
 固定源86／插件114通过10技能独立冷安装、保留工程的四域原生返工与移动交付，64个安装身份一致；完整首版仍开放。[证据](docs/evidence/craft-art-photo34-fixed-first-use-20261008.json)。[架构](docs/ArtCraft-Photo-Integrity-Dependency-Architecture.zh_CN.md)。
 
 多领域创作需求进入，交付项目清单、工作流记录、四领域子工程引用及验收记录。
 
-当前插件：`0.1.0-dev.114`；技能源：`0.1.0-dev.86`；10 个独立技能。
+当前插件：`0.1.0-dev.115`；技能源：`0.1.0-dev.87`；10 个独立技能。
 
 源84修复工作流入口结构化拒绝，兼容保留error与workflowReceipt；固定安装112验收另行记录。[架构](docs/ArtCraft-Workflow-Error-Detail-Architecture.zh_CN.md)。
 此前固定字幕修正版验收：64安装身份与CLI探测匹配；23变化技能各自独立冷安装／命令发现通过，41完整摘要一致技能复用历史冷证据；两个当前安装原生字幕／品牌案例通过。仅证明所列安装和场景，完整V1仍开放。[当前固定证据](docs/Craft-Caption-Fixed-First-Use.zh_CN.md)。
@@ -117,9 +121,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.114 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.115 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.86 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.87 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

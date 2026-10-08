@@ -1,10 +1,14 @@
 # ArtCraft Agent Plugin
 
+Art skills source candidate fixes unbounded Node/setup lock waits; fixed source86/plugin114 do not yet include it. [Candidate architecture](docs/ArtCraft-Install-Lock-Architecture.md).
+
+The independent-install verifier now preserves per-call failure diagnostics, including timeout output. Actual generic Skills CLI installation remains open. [Diagnostics](docs/Independent-Skill-Install-Diagnostics-Architecture.md).
+
 Fixed source86/plugin114 passes ten independent Art cold installations and a retained four-domain native workflow with revisions and moved delivery. All64 installed identities match; full V1 remains open. [Evidence](docs/evidence/craft-art-photo34-fixed-first-use-20261008.json). [Architecture](docs/ArtCraft-Photo-Integrity-Dependency-Architecture.md).
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current plugin: `0.1.0-dev.114`; skill source: `0.1.0-dev.86`; 10 independent skills.
+Current plugin: `0.1.0-dev.115`; skill source: `0.1.0-dev.87`; 10 independent skills.
 
 Workflow launcher structured rejection is fixed in source84. Legacy error and workflowReceipt remain compatible; fixed installed112 qualification is recorded separately. [Architecture](docs/ArtCraft-Workflow-Error-Detail-Architecture.md).
 Previous fixed caption-size qualification:64 installed identities and CLI probes match;23 changed skills each pass independent cold discovery, while41 unchanged whole-tree hashes retain historical cold proof. Two current installed native caption/brand cases pass. This is bounded installation and scene evidence, not fullV1. [Current fixed evidence](docs/Craft-Caption-Fixed-First-Use.md).
@@ -119,9 +123,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.114 |
+| Plugin ID / version | artcraft / 0.1.0-dev.115 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.86 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.87 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |

@@ -77,10 +77,35 @@ def verify(node, cli, python, lock, output):
     env = dict(os.environ, DO_NOT_TRACK='1', SKILLS_NO_TELEMETRY='1')
     for key in ('CRAFT_RUNTIME_HOME', 'CRAFT_NODE_ARCHIVE', 'CRAFT_BUNDLE_DIRECTORY', 'CRAFT_NATIVE_ARCHIVE_DIRECTORY'):
         env.pop(key, None)
+    calls = output / 'calls'
+    calls.mkdir(mode=0o700)
+    call_number = 0
     def run(argv, cwd, native=False):
-        value = subprocess.run(list(map(str, argv)), cwd=cwd, env=dict(env, PATH="/usr/bin:/bin") if native else env, capture_output=True, text=True, timeout=600)
+        nonlocal call_number
+        call_number += 1
+        stem = f'{call_number:04d}'
+        argv = list(map(str, argv))
+        record = {'argv': argv, 'cwd': str(cwd), 'native': native, 'timeoutSeconds': 600,
+                  'stdout': stem+'.stdout.log', 'stderr': stem+'.stderr.log'}
+        def preserve(status, stdout, stderr, returncode=None):
+            # TimeoutExpired 即使 text=True 也可能携带 bytes；仅存进程输出，不存环境。
+            def as_text(value):
+                return value.decode('utf-8', errors='replace') if isinstance(value, bytes) else (value or '')
+            (calls / record['stdout']).write_text(as_text(stdout), encoding='utf-8')
+            (calls / record['stderr']).write_text(as_text(stderr), encoding='utf-8')
+            record.update(status=status, returncode=returncode)
+            (calls / (stem+'.json')).write_text(json.dumps(record, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+        try:
+            value = subprocess.run(argv, cwd=cwd, env=dict(env, PATH="/usr/bin:/bin") if native else env, capture_output=True, text=True, timeout=600)
+        except subprocess.TimeoutExpired as error:
+            preserve('timeout', error.stdout, error.stderr)
+            raise
+        except OSError as error:
+            preserve('launch', '', str(error))
+            raise
+        preserve('exit' if value.returncode else 'success', value.stdout, value.stderr, value.returncode)
         if value.returncode:
-            raise RuntimeError('independent_install_call_failed: ' + value.stdout[-2000:] + value.stderr[-2000:])
+            raise RuntimeError('independent_install_call_failed: ' + value.stdout[-2000:] + value.stderr[-2000:] + '\nEvidence: ' + str(calls / (stem+'.json')))
         return value.stdout
     version = run([node, cli, '--version'], output).strip()
     records = []

@@ -120,4 +120,45 @@ class NativeVersionGateTests(unittest.TestCase):
    self.assertEqual(environments[0]['PATH'],'/usr/bin:/bin')
    for key in ('CRAFT_NODE_ARCHIVE','CRAFT_BUNDLE_DIRECTORY','CRAFT_NATIVE_ARCHIVE_DIRECTORY','CRAFT_RUNTIME_HOME'):self.assertNotIn(key,environments[0])
 
+class InstallCallEvidenceTests(unittest.TestCase):
+ def failure(self, kind):
+  fixture=NativeVersionGateTests()
+  for m,root,lock,output,environments in fixture.fixture('filmcraft-cli 0.2.0-craft.1'):
+   original=m.subprocess.run
+   def run(argv,**kwargs):
+    if 'add' not in argv:return original(argv,**kwargs)
+    if kind=='timeout':raise subprocess.TimeoutExpired(argv,600,output=b'partial download',stderr=b'network stalled')
+    if kind=='launch':raise OSError('tool could not start')
+    return SimpleNamespace(returncode=7,stdout='download started',stderr='public archive unavailable')
+   with patch.object(m.subprocess,'run',side_effect=run):
+    with self.assertRaises((RuntimeError,subprocess.TimeoutExpired,OSError)):
+     m.verify(root/'node',root/'cli',root/'python',lock,output)
+   self.assertFalse((output/'receipt.json').exists())
+   calls=sorted((output/'calls').glob('*.json'))
+   self.assertEqual(len(calls),2)
+   record=json.loads(calls[-1].read_text())
+   self.assertEqual(record['status'],kind)
+   self.assertEqual(record['argv'][2],'add')
+   self.assertEqual(record['timeoutSeconds'],600)
+   stdout=(output/'calls'/record['stdout']).read_text()
+   stderr=(output/'calls'/record['stderr']).read_text()
+   if kind=='timeout':self.assertEqual((stdout,stderr),('partial download','network stalled'))
+   elif kind=='launch':self.assertIn('tool could not start',stderr)
+   else:self.assertEqual((stdout,stderr),('download started','public archive unavailable'))
+ def test_nonzero_keeps_complete_call_evidence(self):self.failure('exit')
+ def test_timeout_keeps_partial_bytes_and_does_not_publish_success(self):self.failure('timeout')
+ def test_launch_failure_keeps_diagnostic_and_does_not_publish_success(self):self.failure('launch')
+ def test_real_external_failure_keeps_output(self):
+  m=IndependentInstallTests().module()
+  lock=json.loads((ROOT/'host-acceptance-art-photo34.lock.json').read_text())
+  with tempfile.TemporaryDirectory() as temporary:
+   root=Path(temporary);cli=root/'fixture.py';output=root/'output'
+   cli.write_text("import sys\nif '--version' in sys.argv: print('fixture 1')\nelse:\n print('actual stdout')\n print('actual stderr',file=sys.stderr)\n sys.exit(7)\n")
+   with self.assertRaisesRegex(RuntimeError,'independent_install_call_failed'):
+    m.verify(sys.executable,cli,sys.executable,lock,output)
+   record=json.loads((output/'calls/0002.json').read_text())
+   self.assertEqual(record['returncode'],7)
+   self.assertEqual((output/'calls'/record['stderr']).read_text(),'actual stderr\n')
+   self.assertFalse((output/'receipt.json').exists())
+
 if __name__=='__main__':unittest.main()

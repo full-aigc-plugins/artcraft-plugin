@@ -1,0 +1,46 @@
+{
+  "schema": "craft-install-diagnostic-evidence/v1",
+  "scope": "verifier external-process failure diagnostics only; no actual Skills CLI installation",
+  "baselineCommit": "66be397ad59db54dc0e1ab47e98aaeb87a0dde12",
+  "results": {
+    "red": {
+      "actualExternalProcessExit": 7,
+      "callRecords": 0,
+      "successReceipt": false
+    },
+    "green": {
+      "actualExternalProcessExit": 7,
+      "callRecords": 2,
+      "successReceipt": false,
+      "recordHashes": {
+        "0001.stdout.log": "a021c4552422dc50467bd974b58e9b63fec98001a0f9d2f9edd79798a4f75ac1",
+        "0002.json": "57056637f5b876b5a24f516a33bd49805cd1d1062de98cfd35e51f37fcfcc8d1",
+        "0002.stderr.log": "9f1deb7baaaad0005fe438f3b46663bf0511970cfd650af2eae6a92d96be493f",
+        "0001.json": "0eb797bb1af76707af5f45d5d046df73da50fa50784d474d86d0e58b537d43de",
+        "0001.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "0002.stdout.log": "9a2be52d5b04ada19082c9ffd781d5cf434e054f19701f9b182fd83870d6d491"
+      }
+    }
+  },
+  "regression": {
+    "total": 109,
+    "passed": 103,
+    "skipped": 6
+  },
+  "targetTests": {
+    "total": 15,
+    "passed": 15
+  },
+  "fingerprints": {
+    "scripts/verify_independent_skill_install.py": "c07e37a417ad7d8c857e5559fc46b5283a35017539f43b0e639df53698b1f1d4",
+    "tests/test_independent_skill_install.py": "9c81db9f425cf954cc53a4c23a746e0eb94aa3336a0930de2ae00c001f75259f",
+    "openspec/changes/establish-v1-plugin/specs/skills-distribution/spec.md": "777c07ad6ceaea5d14a9a6da1e49c53973459dcbcd2eefc29d7a2dec21d389ee"
+  },
+  "unverified": [
+    "actual generic Skills CLI installation",
+    "complete V1",
+    "creative acceptance",
+    "GUI",
+    "other platforms"
+  ]
+}

@@ -11,11 +11,13 @@ import stat
 import subprocess
 import sys
 import tempfile
+import time
 import urllib.parse
 import urllib.request
 import zipfile
 
 NAMES = ('filmcraft', 'effectcraft', 'photocraft', 'vectorcraft')
+LOCK_WAIT_SECONDS = 120
 
 
 def sha(path):
@@ -169,7 +171,17 @@ def setup(lock, runtime_home, node, bundle_directory=None, native_archive_direct
     selected = [name for name in NAMES if name in selected]
     home = Path(runtime_home).expanduser().resolve();home.mkdir(parents=True, exist_ok=True)
     with (home/'.artcraft-setup.lock').open('a+b') as ownership:
-        fcntl.flock(ownership.fileno(), fcntl.LOCK_EX)
+        # 锁超时发生在任何下载、领域启动及发布安装目录之前。
+        deadline = time.monotonic() + LOCK_WAIT_SECONDS
+        while True:
+            try:
+                fcntl.flock(ownership.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+                break
+            except BlockingIOError:
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    raise TimeoutError('runtime_install_busy: ArtCraft setup lock wait expired') from None
+                time.sleep(min(.05, remaining))
         installed = {}
         for name in ['artcraft-runtime', *[plugin+'-skills' for plugin in selected]]:
             entry = lock['bundles'][name]
