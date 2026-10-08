@@ -20,3 +20,9 @@ EffectCraft bridge adds nine tools from its separately locked bridge snapshot. T
 Evidence is deliberately separated:180 controlled command cases across4 domains and3 modes;26 bridge identity refusals;220 combined boundary targets;206 current source tests (154 pass/52 conditional skips),551 runtime tests (526 pass/25 conditional skips),123 plugin Python tests (112 pass/11 conditional skips);36 real headless native post-save faults against candidate core and fixed133 dependencies. The ten standalone launchers match the embedded DAG bytes. [Candidate evidence](evidence/command-mode-candidate-20261009.json).
 
 Actual bridge/GUI and a new fixed distribution are not verified by these fixtures. Desktop automation again fails during initialization with a kernel-assets filesystem error. Task4.6 and5.3 remain open, as do all12 outstanding tasks. Previously published134/106 assets retain their original behavior and evidence.
+
+## Actual EffectCraft bridge checkpoint
+
+A fixed signed EffectCraft0.2.0 desktop is installed in the isolated QA directory with archive/binary/signature verification. The candidate guard validates30 live tools (21 base plus9 bridge),640 command IDs/descriptors and then reads actual ui_inspect/ui_elements responses. The listener is verified as belonging to the launched desktop PID; both owned desktop and native CLI processes stop after the session. Raw replies and process evidence are retained and hashed. [Native bridge evidence](evidence/native-effect-bridge-candidate-20261009.json).
+
+This supersedes the earlier lack of any actual bridge probe for EffectCraft. It does not prove GUI editing, the other domains' bridge sessions or a newly installed fixed distribution. The native bridge is a usable next path for the actual GUI revision-conflict gate despite the separate CUA initialization failure.
