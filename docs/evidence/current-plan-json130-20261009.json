@@ -1,0 +1,59 @@
+{
+  "schema": "artcraft-current-plan-json-acceptance/v1",
+  "result": "PASS",
+  "scope": "Current fixed installed Python public gateways; pre-install duplicate-key rejection only",
+  "pluginVersion": "0.1.0-dev.130",
+  "skillsVersion": "0.1.0-dev.102",
+  "runtimeVersion": "0.1.0-dev.129-runtime.1",
+  "platform": "darwin-arm64",
+  "pythonVersion": "3.13.5",
+  "hostLockSha256": "ab85201987330a67a5d06b59fb4ceee9b318513493c38067b7967ede21b160bf",
+  "skillDigests": {
+    "artcraft-cli": "e3b6ed8cc65290a1841bf222c1971b35a340d7b963e84cdf309c48592bd83dc8",
+    "artcraft-cli-assets": "c015fa7d0dfbf969aec8519d8dfd0dd06c0c6224e405f9645b39b5fef2171d76",
+    "artcraft-cli-deliver": "c4202caa90c0e29d0ef82036938d0608a065b7e70332121ae174ec1989d257f9",
+    "artcraft-cli-execute": "a76f63b840873d8e239a3ca542e425c80681ca6b156ac2a730213cb9df3a2ce6",
+    "artcraft-cli-plan": "5c185c15832e494f4425bb2163307e5eb76467bebe62b303e7d4c0532b955a12",
+    "artcraft-cli-recover": "99e602af885500362be31257273eb1c4b882631dad12b25896e39018abafc6da",
+    "artcraft-cli-review": "af8462b041e035b1a871d17055ec44ab98772a1234620073a20e6a585b76c506",
+    "artcraft-cli-revise": "3f587057b0668e51828d79c7f9b3ab8334d058f914be776266424c23d28c59fe",
+    "artcraft-cli-setup": "19adcf8d7be3e9353528287a775d2fc3bf521210274b799b6a7fb0b742425d9e",
+    "artcraft-use": "80cb4b7444787707b356fd648a73816fb53e6693588ce900488e40e4aa7b9a1b"
+  },
+  "test": {
+    "path": "tests/test_installed_plan_json.py",
+    "sha256": "3538d2767a28878a0fb811c80ae439aa253692b2980b50ca8de91a53906ba1c7",
+    "passed": 1,
+    "skipped": 0,
+    "calls": 240,
+    "seconds": 19.703
+  },
+  "rawProof": {
+    "path": "artifacts/artcraft-plan-json130-20261009/proof.json",
+    "sha256": "f87c8f277e3cf6a6aabc6bafbe49234206100dc9ba1acf6cd93887358076c0e2"
+  },
+  "log": {
+    "path": "artifacts/artcraft-plan-json130-20261009.log",
+    "sha256": "2c2e065872640e5573304713b554f0a5c83f888a7146d71ef688f6b0e5fc175b"
+  },
+  "matrix": {
+    "skills": 10,
+    "domains": 4,
+    "duplicateLocations": [
+      "root",
+      "operation",
+      "params"
+    ],
+    "actions": [
+      "check",
+      "run"
+    ]
+  },
+  "runtimeAndOutputCreated": false,
+  "installedAndCopiedSkillBytesPreserved": true,
+  "remaining": [
+    "full immutable source/archive/file binding audit",
+    "historical candidate versus fixed native mixed acceptance reconciliation",
+    "complete task4.6 and V1 acceptance"
+  ]
+}

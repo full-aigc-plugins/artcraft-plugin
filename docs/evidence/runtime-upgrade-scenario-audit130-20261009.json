@@ -120,15 +120,17 @@
     },
     {
       "scenario": "[AC-RT-002-PLAN-JSON] 严格命令计划的独立分发",
-      "status": "retained-evidence-needs-audit",
+      "status": "partial-current-evidence",
       "reference": "docs/evidence/artcraft97-strict-plan-fixed-first-use-20261007.json",
       "referenceSha256": "f2ec2609c3b25a2fb514c887cadad5395f7ce6ea8c02308f45368a4e0e89edfc",
-      "remainingAudit": "Correct Art-specific fixed historical evidence located. Still reconcile current pinned bytes, inputs and every acceptance clause before reusing it.",
+      "remainingAudit": "Current installed 240 public duplicate-key refusals verified; full bundle identity and candidate/fixed native mixed clause reconciliation remain open.",
       "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/artcraft97-strict-plan-fixed-first-use-20261007.json",
       "excludedReference": {
         "reference": "docs/evidence/command-plan-json-fixed-first-use-20261007.json",
         "reason": "Previous reference uses unchanged Art96; Art97 evidence binds the actual updated Art strict-plan distribution."
-      }
+      },
+      "currentEvidence": "docs/evidence/current-plan-json130-20261009.json",
+      "currentEvidenceSha256": "a29f09bea96d6456f43a872534b18b66c63d4009afe248a4984608996c9f667a"
     },
     {
       "scenario": "[AC-RT-002-BRAND-GUARD] 品牌依赖保护的独立分发",

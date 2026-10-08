@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+当前安装版严格计划入口：240次重复键拒绝通过，未创建运行时／输出，十技能原安装及副本摘要保全。完整PLAN-JSON场景仍开放。[验收说明](docs/ArtCraft-Installed-Strict-Plan-Architecture.zh_CN.md)。
+
 固定账本迁移／公开升级条款验收通过：15类只读拒写、公开旧账本status／cancel及未知schema0／77，既有原生工程与快照身份复核不变。14场景累计六个通过，4.6仍开放。[账本验收](docs/ArtCraft-Ledger-Upgrade-Acceptance-Architecture.zh_CN.md)。
 
 当前固定下载恢复通过：四领域空缓存原生安装，以及Node／核心／Vector归档故障后第三次真实公开下载；另有79项受控边界测试通过。四个运行场景已验证，4.6仍开放。[下载验收](docs/ArtCraft-Current-Download-Recovery-Architecture.zh_CN.md)。
