@@ -61,6 +61,7 @@ ArtCraft SHALL 维护 craft-artifact/v1 的唯一规范事实源；清单包含 
 
 - **WHEN** FilmCraft 的大整数 ticks 经过 JSON 与下游适配器交换
 - **THEN** 仍能精确还原帧边界；溢出或基准丢失时拒绝转换
+- **AND** Film 成片的公共素材 SHALL 从摘要绑定的原生重开记录与导出探测报告映射十进制 durationTicks、原生 timeBase、frameRate、尺寸、alpha及适用的音频信息；禁止以空技术元数据交接成片，也不将精度转换为浮点秒
 
 #### Scenario: 外部 JSON 验收证据
 

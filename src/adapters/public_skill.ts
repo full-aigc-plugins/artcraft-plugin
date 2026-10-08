@@ -6,6 +6,7 @@ import { promisify } from 'node:util';
 import { createHash } from 'node:crypto';
 import { parseEffectExportProbe } from './effect_export_probe.ts';
 import { parseDesignSourceInspection } from './design_source_inspection.ts';
+import { filmExportMetadata } from './film_export_metadata.ts';
 import { parseFilmSourceInspection } from './film_source_inspection.ts';
 import { imageSequenceMime, inspectImageSequence, sequenceMetadata } from '../protocol/image_sequence.ts';
 import { verifyArtifact, validateExchangeLossReport } from '../protocol/contracts.ts';
@@ -213,11 +214,17 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
      if(manifest.imageSequence?.path===item.location && item.mediaType!==imageSequenceMime)throw new Error('skill_sequence_output_mismatch');
      const output=await artifact(item.location,manifest.files[item.location],item.mediaType,item.assetId);
      let technicalMetadata={};
+     const technicalEvidence:ReturnType<typeof ref>[]=[];
+     if(locked.pluginId==='filmcraft' && item.mediaType==='video/mp4'){
+      if(!manifest.files['native.json'] || !manifest.files['export-probe.json'])throw new Error('film_export_metadata_missing');
+      technicalMetadata=filmExportMetadata(await readFile(join(delivery,'native.json'),'utf8'),await readFile(join(delivery,'export-probe.json'),'utf8'),item.location,output.bytes);
+      for(const location of ['native.json','export-probe.json'])technicalEvidence.push(ref(location,manifest.files[location]));
+     }
      if(item.mediaType===imageSequenceMime){
       if(locked.pluginId!=='effectcraft' || manifest.imageSequence?.path!==item.location || manifest.imageSequence?.sha256!==output.sha256)throw new Error('skill_sequence_output_mismatch');
       technicalMetadata=sequenceMetadata(await sequenceRefs(item.location,output.sha256));
      }
-     const publicOutput={...output,technicalMetadata,sourceRefs,nativeProjectRef:nativeRef,lossReportRef:lossRef,evidenceRefs:[manifestRef,...dependencyRefs],dependencies:sourceRefs.filter(assetRef=>!source || assetRef.assetId!==source.artifact.assetId).map(assetRef=>({assetRef,kind:assets.find(asset=>asset.input.artifact.assetId===assetRef.assetId)?.kind==='lut'?'lut':'media',packaged:true,missingReason:null}))};
+     const publicOutput={...output,technicalMetadata,sourceRefs,nativeProjectRef:nativeRef,lossReportRef:lossRef,evidenceRefs:[manifestRef,...dependencyRefs,...technicalEvidence],dependencies:sourceRefs.filter(assetRef=>!source || assetRef.assetId!==source.artifact.assetId).map(assetRef=>({assetRef,kind:assets.find(asset=>asset.input.artifact.assetId===assetRef.assetId)?.kind==='lut'?'lut':'media',packaged:true,missingReason:null}))};
      await verifyArtifact(publicOutput,delivery);outputs.push(publicOutput);
     }
     return {root:delivery,outputs,evidenceRefs:[manifestRef]};
