@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+固定安装互斥补验：十个公开入口通过Node／组合安装的真实120秒超时与持锁者退出复用，共40调用。4.6仍开放。[互斥验收](docs/ArtCraft-Install-Mutex-Acceptance-Architecture.zh_CN.md)。
+
 固定安装升级边界补验：24次公开调用覆盖12类账本边界，64个安装身份复核通过。4.6完整14场景验收仍开放。[边界架构](docs/ArtCraft-Upgrade-Boundaries-Architecture.zh_CN.md)。
 
 当前验收：插件130／源102／runtime129固定升级分发通过，任务4.5完成，剩余12项；4.6完整场景矩阵继续开放。64宿主技能树、十入口独立冷启动与实际升级拒绝、原生旧账本迁移／兼容快照、四领域返工／移动包及旧版本保全通过。源101／插件129的升级白名单错误已记录并由新版本修复。[分发架构](docs/ArtCraft-Runtime-Upgrade-Distribution-Architecture.zh_CN.md)。

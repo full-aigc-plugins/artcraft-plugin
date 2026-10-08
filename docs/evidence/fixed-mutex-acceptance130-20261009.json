@@ -1,0 +1,92 @@
+{
+  "schema": "artcraft-fixed-mutex-acceptance/v1",
+  "result": "PASS",
+  "scenario": "AC-RT-002-ART-INSTALL-LOCK",
+  "pluginVersion": "0.1.0-dev.130",
+  "sourceVersion": "0.1.0-dev.102",
+  "runtimeVersion": "0.1.0-dev.129-runtime.1",
+  "platform": "darwin-arm64",
+  "python": "3.14.8",
+  "publicCalls": 40,
+  "productionWaitSeconds": 120,
+  "records": [
+    {
+      "phase": "node",
+      "kind": "production-timeout",
+      "calls": 10,
+      "exitCodes": [
+        1
+      ],
+      "minSeconds": 120.156,
+      "maxSeconds": 120.178,
+      "runtimeFilesPreserved": true
+    },
+    {
+      "phase": "node",
+      "kind": "os-owner-exit-reuse",
+      "calls": 10,
+      "exitCodes": [
+        0
+      ],
+      "minSeconds": 2.805,
+      "maxSeconds": 3.83,
+      "runtimeFilesPreserved": true
+    },
+    {
+      "phase": "setup",
+      "kind": "production-timeout",
+      "calls": 10,
+      "exitCodes": [
+        1
+      ],
+      "minSeconds": 120.263,
+      "maxSeconds": 120.979,
+      "runtimeFilesPreserved": true
+    },
+    {
+      "phase": "setup",
+      "kind": "os-owner-exit-reuse",
+      "calls": 10,
+      "exitCodes": [
+        0
+      ],
+      "minSeconds": 2.674,
+      "maxSeconds": 3.69,
+      "runtimeFilesPreserved": true
+    }
+  ],
+  "runtimeFileCount": 3740,
+  "runtimeFilesSha256": "50389701f74c9af9c56de3dd77135dff016931a49e4ed22491d41f9c95041f09",
+  "installedHostTrees": 64,
+  "historicalInstallerComparison": {
+    "bootstrap.py": {
+      "retainedSource87Sha256": "e019fa5b35c819f6025eec1f0711b180eefe5351bc1b0db84a2f4dc50fec8fdf",
+      "currentSha256": "e019fa5b35c819f6025eec1f0711b180eefe5351bc1b0db84a2f4dc50fec8fdf",
+      "equal": true
+    },
+    "setup.py": {
+      "retainedSource87Sha256": "6d3c6e9d31a5088ac50f566af40b3ad0b17a960fdd73414406277eac4dd4e67e",
+      "currentSha256": "8a4926bbabdf6edbddf8f46b9ad3c20066e50b6472a037206b2a394e7eaff472",
+      "equal": false
+    },
+    "download.py": {
+      "retainedSource87Sha256": "f569dd3f0d4765a0cdf9c4efd26060963ef774128f29575a38c578f44ae07263",
+      "currentSha256": "f569dd3f0d4765a0cdf9c4efd26060963ef774128f29575a38c578f44ae07263",
+      "equal": true
+    },
+    "node.lock.json": {
+      "retainedSource87Sha256": "5d47b1f8b5a1738686f3033981444489eafeb99854d2102254be0375ae4462b8",
+      "currentSha256": "5d47b1f8b5a1738686f3033981444489eafeb99854d2102254be0375ae4462b8",
+      "equal": true
+    }
+  },
+  "currentColdFirstUseEvidence": "docs/evidence/fixed-upgrade-distribution130-20261009.json",
+  "currentColdRawSha256": "c0deb942b40c074b363f3a50f3e0d0893e8bad8e43234a1b8c7118bf1d5d2a77",
+  "evidenceFiles": {
+    "artifacts/artcraft-mutex-fixed130-20261009/proof.json": "611270bb9cfff7da6d8a09363c2bd049e1ab6286f5abcb8051dc2b4f50b57675",
+    "artifacts/artcraft-mutex-fixed130-20261009.log": "77a500168ae5ed45be1ba422d229b4c28bff6583770fb82def70f7c5d616f3ee",
+    "tests/test_installed_install_mutex.py": "89475e21320980e9f05411402be26948349d34395a58222aea06df64732d3aac"
+  },
+  "scope": "Current public installed entry actual production-timeout and OS-owner-exit reuse on verified warm installations, plus existing immutable current empty-cache first-use evidence. No domain native edit or GUI claimed.",
+  "task4_6": "open; this one scenario verified, other rows remain open"
+}

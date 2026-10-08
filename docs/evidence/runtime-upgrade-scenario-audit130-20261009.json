@@ -40,11 +40,13 @@
     },
     {
       "scenario": "AC-RT-002-ART-INSTALL-LOCK Art 首次安装有界互斥",
-      "status": "retained-evidence-needs-audit",
+      "status": "verified-current-installed",
       "reference": "docs/evidence/craft-art115-install-lock-fixed-first-use-20261008.json",
       "referenceSha256": "ebd9fbaec261f1e87546339387dcff9409b59c5b73237ea6694c88d8978524c0",
-      "remainingAudit": "Retained fixed115 real mutex evidence; compare current installer bytes and all clauses before reuse.",
-      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/craft-art115-install-lock-fixed-first-use-20261008.json"
+      "remainingAudit": "None for this named scenario; complete task4.6 remains open.",
+      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/craft-art115-install-lock-fixed-first-use-20261008.json",
+      "currentEvidence": "docs/evidence/fixed-mutex-acceptance130-20261009.json",
+      "currentEvidenceSha256": "4cb5989381dc05484c528130034a584f9a20fbcbdb5d9ddfc6c4d87012f03581"
     },
     {
       "scenario": "[AC-RT-002-DOWNLOAD] 有界只读下载恢复",
@@ -121,5 +123,6 @@
   ],
   "completionRule": "Resolve every clause using applicable unchanged historical evidence or actual fixed installed evidence. No scenario is closed solely by this routing audit.",
   "referenceRepository": "https://github.com/full-aigc-plugins/artcraft-plugin",
-  "referenceBaseCommit": "3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920"
+  "referenceBaseCommit": "3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920",
+  "verifiedCurrentInstalledScenarioCount": 1
 }

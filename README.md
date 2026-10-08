@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Fixed installed mutex acceptance:all10 public entries passed actual120-second timeout and OS-owner-exit reuse for Node and combined setup,40 calls total. Task4.6 remains open. [Mutex acceptance](docs/ArtCraft-Install-Mutex-Acceptance-Architecture.md).
+
 Fixed installed upgrade boundary supplement:24 public calls cover12 blocked ledger cases;64 installation identities reverified. Full14-scenario acceptance4.6 remains open. [Boundary architecture](docs/ArtCraft-Upgrade-Boundaries-Architecture.md).
 
 Current acceptance: fixed plugin130/source102/runtime129 upgrade distribution passes; task4.5 is complete,12 tasks remain. Full scenario matrix4.6 remains open.64 host trees,10 independent cold entries with actual upgrade refusals, native legacy migration/compatible snapshot, four-domain revisions/moved package and prior version preservation pass. Source101/plugin129 whitelist failure is preserved and fixed by this new release. [Distribution architecture](docs/ArtCraft-Runtime-Upgrade-Distribution-Architecture.md).
