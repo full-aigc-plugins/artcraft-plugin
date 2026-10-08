@@ -1,0 +1,177 @@
+{
+  "schema": "artcraft-font-reuse-fixed139/v1",
+  "status": "font_reuse_increment_verified_full_protocol_incomplete",
+  "releases": [
+    {
+      "repository": "full-aigc-plugins/artcraft-plugin",
+      "tag": "v0.1.0-dev.139",
+      "url": "https://github.com/full-aigc-plugins/artcraft-plugin/releases/tag/v0.1.0-dev.139",
+      "asset": "artcraft-plugin-0.1.0-dev.139.zip",
+      "sha256": "4543e2a6e41ba3afce562b4d0a7d42602663552a2190e22f9c18248c95e5d7a6",
+      "bytes": 11580148,
+      "githubDigestMatched": true
+    },
+    {
+      "repository": "full-aigc-skills/artcraft-skills",
+      "tag": "v0.1.0-dev.111",
+      "url": "https://github.com/full-aigc-skills/artcraft-skills/releases/tag/v0.1.0-dev.111",
+      "asset": "artcraft-skills-0.1.0-dev.111.zip",
+      "sha256": "bf4bb87436e6b7001dc1de39cffd112c99005d06c7c77d4a696e71beb6c0e6a4",
+      "bytes": 10258093,
+      "githubDigestMatched": true
+    },
+    {
+      "repository": "full-aigc-plugins/artcraft-plugin",
+      "tag": "v0.1.0-dev.138-runtime.1",
+      "url": "https://github.com/full-aigc-plugins/artcraft-plugin/releases/tag/v0.1.0-dev.138-runtime.1",
+      "asset": "artcraft-runtime-0.1.0-dev.138-runtime.1.zip",
+      "sha256": "35aa5b444e68c2eae3a6410d6b537248e7330ee736331a5a33c831dcb15a262c",
+      "bytes": 87981,
+      "githubDigestMatched": true
+    }
+  ],
+  "runtimeCommit": "c09ba9e33018f3c356ce726fda5c5864d3d9082e",
+  "pluginCommit": "f2adcad6c8b36bb26857f394ce7b65ca026281d9",
+  "sourceCommit": "d841bbbb97e9ac69c0325da45f2f444b946bd765",
+  "runtimeTests": {
+    "passed": 654,
+    "skipped": 26,
+    "failed": 0
+  },
+  "fixedRuntimeTargetTests": {
+    "passed": 51,
+    "failed": 0,
+    "initialHarnessFailure": "JPEG fixture omitted; preserved first log; supplied fixture and reran51 successfully"
+  },
+  "sourcePython": {
+    "passed": 162,
+    "skipped": 53
+  },
+  "pluginPython": {
+    "passed": 112,
+    "skipped": 11
+  },
+  "installedNative": {
+    "status": "passed",
+    "runtimeVersion": "0.1.0-dev.138-runtime.1",
+    "warmRuntimeCache": true,
+    "fonts": {
+      "logo": [
+        "Source Sans 3"
+      ],
+      "poster": [
+        "Arial"
+      ],
+      "intro": [
+        "Arial"
+      ],
+      "film": [
+        "Arial"
+      ]
+    },
+    "packageSha256": "0115349c97646871fd496802f7cff53b8b863d8c1404a10d806833f68bdbc036",
+    "reopenedPackageSha256": "c0592c178c5f1361c2ff2cd557f7f6488533a9f425ff053dd54aee0e42315a50",
+    "proofSha256": "78f4a58323f3db0635442ac25157330d73eb150f87f8ea2b2b1f4920b9ae67eb",
+    "sourceAndSkillPreserved": true,
+    "scope": "single fixed plugin skill; four-domain create, same-revision reuse, moved package, source reopen, export and repackage; not cold-cache or host64"
+  },
+  "logsSha256": {
+    "fixed-runtime-first-attempt": "26ceb9d99cddd25a65a6eb832274562d02fb28facf1b483250cfe18e6f22dd67",
+    "fixed-runtime-retry1": "c99fc554f9d871af8cff8b8800d55b9fba58e8ad707c3a6ffa45a0277f748f6d",
+    "fixed-plugin-native": "41b477d15f396c0aa9a2a36d3ec4cdf479d9c4b1ace6dc8e95b4a35a9567891f",
+    "source-python": "d1668a66a0b1a3fae70b51f22ac97034cc9f84494d41366661a08018f146d078"
+  },
+  "remainingPublicDependencyGap": [
+    {
+      "nodeId": "poster",
+      "nativeProjectSha256": "b78941910f7a7c545455393b4bcb358de75356f00d476f09d16aba4baf731535",
+      "manifestSha256": "ca0b08ac5eaca408a67ac0b23901853bc645cd9e2f12aa92a1758ea41fb93040",
+      "collectedAssets": {
+        "logo": {
+          "path": "asset-logo.png",
+          "sha256": "1f71944897e57184b4be3deebc754807d37a9717f89969db31ed9d6f0d2323f6"
+        }
+      },
+      "publicNonFontDependencies": []
+    },
+    {
+      "nodeId": "intro",
+      "nativeProjectSha256": "d49e64d2fce8297d21da8dea901449fb023a10ceee0718076079f3d6b4275df7",
+      "manifestSha256": "6e5404b2e136468645f10b6b5226679ea552a707c8a38ce9059c9f9f9b040b91",
+      "collectedAssets": {
+        "logo": {
+          "sha256": "1f71944897e57184b4be3deebc754807d37a9717f89969db31ed9d6f0d2323f6",
+          "item": 2,
+          "path": "(Footage)/logo.png"
+        }
+      },
+      "publicNonFontDependencies": []
+    },
+    {
+      "nodeId": "film",
+      "nativeProjectSha256": "f6c3d60da513a4bac4586ef49c3c00e71a22620086c2e196c98cfbdce7a76168",
+      "manifestSha256": "e0adba2bae07b9a5698cd7b9191097036831e44b24601ea19089194c9b4f5c99",
+      "collectedAssets": {
+        "intro": {
+          "sha256": "54c374d3a5796abf4c58f96c118173bd8e6d8223ad72d387da20163c210b7010",
+          "probe": {
+            "audio": null,
+            "container": "MPEG-4",
+            "duration": "254016000000",
+            "file_size": 18463,
+            "kind": "Movie",
+            "name": "intro.mp4",
+            "start_timecode": null,
+            "video": {
+              "bitrate": 140760,
+              "codec": "H.264 (High)",
+              "color": {
+                "matrix": "Bt601",
+                "primaries": "Bt709",
+                "range": "Limited",
+                "transfer": "Bt709"
+              },
+              "frame_rate": {
+                "den": 1,
+                "num": 12
+              },
+              "has_alpha": false,
+              "height": 180,
+              "par": [
+                1,
+                1
+              ],
+              "pixel_format": "YUV 4:2:0 8-bit",
+              "width": 320
+            }
+          },
+          "item": 8,
+          "path": "intro.mp4"
+        },
+        "voice": {
+          "sha256": "75230ab4b54bdf5433f55d823afa81bb2193224df0f4dbc62be64951980dd685",
+          "probe": {
+            "audio": {
+              "bits_per_sample": 16,
+              "channels": 1,
+              "codec": "PCM",
+              "sample_rate": 48000
+            },
+            "container": "WAV",
+            "duration": "254016000000",
+            "file_size": 96044,
+            "kind": "AudioOnly",
+            "name": "voice.wav",
+            "start_timecode": null,
+            "video": null
+          },
+          "item": 9,
+          "path": "voice.wav"
+        }
+      },
+      "publicNonFontDependencies": []
+    }
+  ],
+  "task2_3Complete": false,
+  "v1Complete": false
+}

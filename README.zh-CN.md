@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+固定139／源111／runtime138已通过字体复用重验及实际四领域创建／复用／移动源重开；继承媒体的公共依赖清单仍有已确认缺口，2.3与完整V1继续开放。[验收](docs/ArtCraft-Font-Reuse-Acceptance-Architecture.zh_CN.md)。
+
 四领域字体候选已通过真实创建、移动包和四个源工程重开；644项运行时测试通过。正在准备新的固定开发发行链。[架构与边界](docs/ArtCraft-Four-Domain-Fonts-Architecture.zh_CN.md)。
 
 当前源码候选已明确记录 Photo 可编辑字体的未收集状态，并绑定原生工程与检查证据；固定发行和其他领域字体映射仍待完成。[字体状态与证据](docs/ArtCraft-Font-Dependency-Architecture.zh_CN.md)。

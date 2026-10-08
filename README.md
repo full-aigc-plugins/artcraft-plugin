@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Fixed139/source111/runtime138 qualifies font revalidation and actual four-domain creation/reuse/moved-source reopening. Inherited media still has a confirmed public dependency-list gap;2.3 and full V1 remain open. [Acceptance](docs/ArtCraft-Font-Reuse-Acceptance-Architecture.md).
+
 Four-domain font candidate: native creation, moved packages and all four source reopens pass;644 runtime tests pass. A new pinned development chain is being prepared. [Architecture and limits](docs/ArtCraft-Four-Domain-Fonts-Architecture.md).
 
 Current source candidate records Photo editable font requirements explicitly as uncollected, with native-project and inspection binding. Fixed distribution and other-domain font mapping remain pending. [Font state and evidence](docs/ArtCraft-Font-Dependency-Architecture.md).
