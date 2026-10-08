@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-The maintenance branch corrects command guidance in all ten standalone source skills: offline discovery, standalone domain calls and DAG native delivery now have explicit routes, with obsolete dependency versions removed. Sixteen command regressions and documentation/fixed-index checks pass. Runtime and immutable releases are unchanged; the plugin retains its pinned embedded skill snapshot, and fixed distribution of the new guidance remains pending. [Evidence](docs/evidence/command-guidance-refresh-20261008.json).
+The maintenance branch corrects command guidance in all ten standalone source skills: offline discovery, standalone domain calls and DAG native delivery now have explicit routes, with obsolete dependency versions removed. Sixteen command regressions and documentation/fixed-index checks pass. Runtime and domain dependencies are unchanged. This plugin locks source91 with the corrected guidance; fixed installation and actual native use require their own version-bound evidence. [Evidence](docs/evidence/command-guidance-refresh-20261008.json).
 
 Fixed source88/plugin116 passes ten independent Art public cold installs (Node/core and selected Vector32), fixed installed five-node brand revision/moved delivery and two real native brand-violation cases. All64 installed identities match;54 unchanged skills retain historical cold evidence. Complete V1 remains open. [Fixed evidence](docs/evidence/craft-art116-brand-guard-fixed-first-use-20261008.json).
 
@@ -16,7 +16,7 @@ Fixed source86/plugin114 passes ten independent Art cold installations and a ret
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current plugin: `0.1.0-dev.118`; skill source: `0.1.0-dev.90`; 10 independent skills.
+Current plugin: `0.1.0-dev.119`; skill source: `0.1.0-dev.91`; 10 independent skills.
 
 Workflow launcher structured rejection is fixed in source84. Legacy error and workflowReceipt remain compatible; fixed installed112 qualification is recorded separately. [Architecture](docs/ArtCraft-Workflow-Error-Detail-Architecture.md).
 Previous fixed caption-size qualification:64 installed identities and CLI probes match;23 changed skills each pass independent cold discovery, while41 unchanged whole-tree hashes retain historical cold proof. Two current installed native caption/brand cases pass. This is bounded installation and scene evidence, not fullV1. [Current fixed evidence](docs/Craft-Caption-Fixed-First-Use.md).
@@ -131,9 +131,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.118 |
+| Plugin ID / version | artcraft / 0.1.0-dev.119 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.90 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.91 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |

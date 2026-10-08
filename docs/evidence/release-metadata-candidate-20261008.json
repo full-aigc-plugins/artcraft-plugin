@@ -1,0 +1,34 @@
+{
+  "schema": "artcraft-release-metadata-candidate/v1",
+  "result": "PASS",
+  "previousSuiteVersion": "0.1.0-dev.90",
+  "previousPackageVersion": "0.1.0-dev.87",
+  "newSourceVersion": "0.1.0-dev.91",
+  "sourceMetadataAgreement": "PASS",
+  "runtimeAndDependencyLocksChanged": false,
+  "fixedReleaseAndInstalledFirstUse": "NOT_RUN",
+  "fullV1": "OPEN",
+  "tests": {
+    "metadataRed": "package87 differs from suite90",
+    "metadataGreen": {
+      "total": 1,
+      "passed": 1
+    },
+    "sourceRegression": {
+      "total": 163,
+      "passed": 125,
+      "skipped": 38,
+      "seconds": 34.064
+    }
+  },
+  "unchangedRuntimeResourceCount": 140,
+  "publicSourceArchiveSha256": "bcc9c263adbb8aa750e25d71f92a7c86b6f5cf4916ecb90b5fae19341a3e702a",
+  "publicSourceArchiveMatchesTaggedBuild": true,
+  "pluginRegression": {
+    "total": 112,
+    "passed": 106,
+    "skipped": 6,
+    "seconds": 10.219
+  },
+  "newPluginVersion": "0.1.0-dev.119"
+}

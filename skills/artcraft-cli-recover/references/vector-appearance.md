@@ -1,6 +1,6 @@
 # Vector 原生渐变与多重外观 / Native Vector appearance
 
-当前技能自带 `examples/vector-appearance-workflow.json` 和 `examples/vector-appearance-revision-plan.json`。首次执行公开工作流会按分发锁安装 Node、Art runtime83、Vector技能源19及原生CLI；该计划只需要Vector领域，无需其他领域下载。
+当前技能自带 `examples/vector-appearance-workflow.json` 和 `examples/vector-appearance-revision-plan.json`。首次执行公开工作流会按分发锁安装 本技能分发锁中的 Node、Art runtime、Vector 技能源及原生 CLI；该计划只需要Vector领域，无需其他领域下载。
 
 ```bash
 python3 -I -B "$SKILL_DIR/scripts/workflow.py" "$SKILL_DIR/examples/vector-appearance-workflow.json" --output "$PROJECT_DIR" --runtime-home "$RUNTIME_HOME" --owner local-user --authorization vector-appearance-local
@@ -12,4 +12,4 @@ python3 -I -B "$SKILL_DIR/scripts/workflow.py" "$SKILL_DIR/examples/vector-appea
 
 源返工：复制创建计划到自己的路径，revision改为v2；从上次workflow回执取得badge节点的root和outputs[0]。设置expectedRevision为该artifact.nativeProjectRef.sha256，externalInputs为[{root,artifact}]，payload.sourceProject为{assetId:artifact.assetId}；payload.plan换成自带返工示例并去除示例expectedProjectSha256，由编排器从可信源引用填充。原交付不改写，绑定对象ID继承，brandEnd全局色板修改为紫色。
 
-English: use the installed skill's public workflow entry. The supplied example downloads only the selected Vector domain at its immutable source19 lock. To revise, copy the plan, set v2, bind the previous node's root/artifact as externalInputs, use the nativeProjectRef digest as expectedRevision and set payload.sourceProject. Replace payload.plan with the local revision example, removing its placeholder expectedProjectSha256; the adapter supplies the actual trusted source digest. Preserve selection and active appearance context. Source revision keeps geometry, IDs, unrelated control and top fill. SVG gradient/decoded PNG checks and PDF header checks are separate from PDF visual equivalence, exhaustive commands, GUI and fullV1 acceptance.
+English: use the installed skill's public workflow entry. The supplied example downloads only the selected Vector domain at the immutable source version in this skill’s distribution lock. To revise, copy the plan, set v2, bind the previous node's root/artifact as externalInputs, use the nativeProjectRef digest as expectedRevision and set payload.sourceProject. Replace payload.plan with the local revision example, removing its placeholder expectedProjectSha256; the adapter supplies the actual trusted source digest. Preserve selection and active appearance context. Source revision keeps geometry, IDs, unrelated control and top fill. SVG gradient/decoded PNG checks and PDF header checks are separate from PDF visual equivalence, exhaustive commands, GUI and fullV1 acceptance.

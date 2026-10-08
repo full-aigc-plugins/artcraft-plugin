@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-维护分支已修正十个独立技能源的命令使用指南：明确离线查询、单领域调用与 DAG 原生命令交付的入口，清理旧依赖版本说明。16项命令回归及文档／固定索引检查通过；未修改运行时或不可变发行，插件内技能快照仍为原固定版本，新指南尚未完成固定分发。 [Evidence](docs/evidence/command-guidance-refresh-20261008.json).
+维护分支已修正十个独立技能源的命令使用指南：明确离线查询、单领域调用与 DAG 原生命令交付的入口，清理旧依赖版本说明。16项命令回归及文档／固定索引检查通过；运行时和领域依赖未变，本插件已锁定包含新指南的source91；固定安装与实际原生使用须分别记录版本绑定的证据。 [Evidence](docs/evidence/command-guidance-refresh-20261008.json).
 
 固定 source88／plugin116 已通过十项 Art 独立公开冷安装（Node／核心及所选 Vector32）、固定安装副本五节点品牌返工／移动交付和两条真实原生品牌误改阻断。64 安装摘要一致；54 个未变技能沿用历史冷安装证明。完整首版仍开放。[固定证据](docs/evidence/craft-art116-brand-guard-fixed-first-use-20261008.json)。
 
@@ -16,7 +16,7 @@
 
 多领域创作需求进入，交付项目清单、工作流记录、四领域子工程引用及验收记录。
 
-当前插件：`0.1.0-dev.118`；技能源：`0.1.0-dev.90`；10 个独立技能。
+当前插件：`0.1.0-dev.119`；技能源：`0.1.0-dev.91`；10 个独立技能。
 
 源84修复工作流入口结构化拒绝，兼容保留error与workflowReceipt；固定安装112验收另行记录。[架构](docs/ArtCraft-Workflow-Error-Detail-Architecture.zh_CN.md)。
 此前固定字幕修正版验收：64安装身份与CLI探测匹配；23变化技能各自独立冷安装／命令发现通过，41完整摘要一致技能复用历史冷证据；两个当前安装原生字幕／品牌案例通过。仅证明所列安装和场景，完整V1仍开放。[当前固定证据](docs/Craft-Caption-Fixed-First-Use.zh_CN.md)。
@@ -129,9 +129,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.118 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.119 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.90 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.91 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
