@@ -3,6 +3,9 @@ import importlib.util
 import hashlib
 import json
 import math
+import subprocess
+import time
+from datetime import datetime, timezone
 from pathlib import Path
 import runpy
 import sys
@@ -10,6 +13,70 @@ import sys
 module_path, script, *arguments = sys.argv[1:]
 expected = Path(module_path).resolve()
 original_spec = importlib.util.spec_from_file_location
+
+# ART_NATIVE_BUDGET_BEGIN
+class ArtNativeBudget:
+    """仅为固定Film导出与完整解码分配剩余截止时间，不修改领域文件。"""
+    def __init__(self, original, value):
+        if (not isinstance(value, dict) or set(value) != {'executable', 'sha256', 'deadline'}
+                or not isinstance(value['executable'], str)
+                or not Path(value['executable']).is_absolute()
+                or Path(value['executable']).name != 'filmcraft-cli'
+                or not isinstance(value['sha256'], str) or len(value['sha256']) != 64
+                or any(c not in '0123456789abcdef' for c in value['sha256'])
+                or not isinstance(value['deadline'], str)):
+            raise ValueError('native_call_budget_invalid')
+        try:
+            deadline = datetime.fromisoformat(value['deadline'].replace('Z', '+00:00'))
+            if deadline.tzinfo is None or deadline.utcoffset().total_seconds() != 0:
+                raise ValueError('deadline_utc_required')
+            remaining = (deadline - datetime.now(timezone.utc)).total_seconds()
+            if not math.isfinite(remaining):
+                raise ValueError('deadline_invalid')
+        except (ValueError, OverflowError, TypeError):
+            raise ValueError('native_call_budget_invalid') from None
+        self.original = original
+        self.executable = value['executable']
+        self.sha256 = value['sha256']
+        self.ends = time.monotonic() + remaining
+
+    def __getattr__(self, name):
+        return getattr(self.original, name)
+
+    def run(self, command, **kwargs):
+        verb = None
+        if (isinstance(command, (list, tuple)) and command
+                and command[0] == self.executable and all(isinstance(x, str) for x in command)):
+            position = 1
+            while position < len(command) and command[position] in ('--data-dir', '--project'):
+                position += 2
+            if position < len(command):
+                verb = command[position]
+        if verb in ('export', 'bench-decode'):
+            native = Path(self.executable)
+            digest = hashlib.sha256()
+            if native.is_symlink() or not native.is_file() or kwargs.get('shell', False):
+                raise ValueError('native_call_identity_mismatch')
+            with native.open('rb') as stream:
+                for block in iter(lambda: stream.read(1024 * 1024), b''):
+                    digest.update(block)
+            if digest.hexdigest() != self.sha256:
+                raise ValueError('native_call_identity_mismatch')
+            timeout = kwargs.get('timeout')
+            if type(timeout) not in (int, float) or not math.isfinite(timeout) or not 0 < timeout <= 180:
+                raise ValueError('native_call_budget_invalid')
+            remaining = self.ends - time.monotonic()
+            if remaining <= 0:
+                raise subprocess.TimeoutExpired(command, 0)
+            kwargs['timeout'] = min(3600, remaining)
+        return self.original.run(command, **kwargs)
+# ART_NATIVE_BUDGET_END
+
+native_budgets = [a for a in arguments if a.startswith('--art-native-budget=')]
+if len(native_budgets) > 1:
+    raise ValueError('native_call_budget_invalid')
+if native_budgets:
+    arguments.remove(native_budgets[0])
 
 # 模式来自受信启动参数；桌面入口沿用其自有会话和停止管理。
 mode = 'desktop' if Path(script).name == 'desktop.py' else 'headless'
@@ -223,5 +290,18 @@ if mode != 'headless' and Path(script).resolve() == expected.with_name('commands
     spec = guarded_spec('art_trusted_commands', script)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
+    raise SystemExit(module.main())
+if native_budgets:
+    if (mode != 'headless' or snapshot_value.get('pluginId') != 'filmcraft'
+            or Path(script).resolve() != expected.with_name('workflow.py')):
+        raise ValueError('native_call_budget_invalid')
+    budget = json.loads(native_budgets[0].split('=', 1)[1], parse_constant=constant,
+                        parse_float=finite_float, object_pairs_hook=pairs)
+    if not isinstance(budget, dict) or budget.get('sha256') != snapshot_value.get('runtimeSha256'):
+        raise ValueError('native_call_identity_mismatch')
+    spec = guarded_spec('art_trusted_film_workflow', script)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    module.subprocess = ArtNativeBudget(module.subprocess, budget)
     raise SystemExit(module.main())
 runpy.run_path(script, run_name='__main__')

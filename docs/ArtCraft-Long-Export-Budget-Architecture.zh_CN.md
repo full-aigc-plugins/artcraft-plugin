@@ -31,3 +31,5 @@ flowchart TD
 事实源为 `establish-v1-plugin` 中 `craft-artifact-protocol` 的 AC-CP-002-TIME-BUDGET。未改变公开任务／产物协议版本；内部预算参数不可由领域计划指定。父任务取消、失败暂存、停止确认和禁止自动重放规则继续适用。Vector重复命令拒绝规则保留。发布保留所有历史标签和资产。
 
 [Regression evidence](evidence/long-export-budget137-20261009.json): runtime630 PASS /26 skips; source162 PASS /52 skips; targeted budget3 PASS.
+
+[Native one-second public workflow smoke](evidence/short-native-film137-20261009.json):12 independently decoded frames PASS on runtime136; source entry, not fixed-host installation or long-timeline acceptance.

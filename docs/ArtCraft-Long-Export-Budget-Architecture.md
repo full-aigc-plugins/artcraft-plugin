@@ -31,3 +31,5 @@ The opt-in public long-timeline test preserves12fps and the original large integ
 The authority is AC-CP-002-TIME-BUDGET in `establish-v1-plugin` / `craft-artifact-protocol`. Public task/artifact protocol versions do not change. Domain plans cannot choose the internal budget. Parent cancellation, failed-stage retention, confirmed stopping and no automatic replay continue to apply. Vector duplicate-command refusal is preserved. Existing tags and assets remain immutable.
 
 [Regression evidence](evidence/long-export-budget137-20261009.json): runtime630 PASS /26 skips; source162 PASS /52 skips; targeted budget3 PASS.
+
+[Native one-second public workflow smoke](evidence/short-native-film137-20261009.json):12 independently decoded frames PASS on runtime136; source entry, not fixed-host installation or long-timeline acceptance.
