@@ -166,5 +166,17 @@
     "type": "test assertion mismatch, native refusal already correct",
     "logSha256": "521cef531c83bce87e9298b66b5534882677283b164764177d21d26736f54a49"
   },
-  "scope": "actual native geometry and package/cache refusals; injected lossy flag and missing-file fault are explicit fixtures; no historical public-domain legacy install claimed; no human acceptance"
+  "scope": "actual native geometry and package/cache refusals; injected lossy flag and missing-file fault are explicit fixtures; no historical public-domain legacy install claimed; no human acceptance",
+  "exactMissingManifestBinding": {
+    "schema": "craft-native-legacy-geometry-binding/v1",
+    "result": "PASS",
+    "refusal": "photo_variant_evidence_missing",
+    "blockedBeforeReplay": true,
+    "restoredSameTaskAndBudget": true,
+    "stdoutSha256": "a39c0ca1897098f3a865a1b7560d19e650ac8bd7e3b71ce880e1e21a7935f333",
+    "restoredStdoutSha256": "6c54947ef820ef86bf8d34be39d90e73b418e874e3d9b6a82e8ec2f549a57380",
+    "nativeSha256": "dbc108c8bb1a192f7eeac0ee44b77d1ad9975504541a791fd4e8eed3cc47865a",
+    "manifestRestoredSha256": "c140969355ec89e4a36c257562d8180d717a894084881cd4dd37599a8c6a69d9",
+    "scope": "actual native cached delivery with injected missing manifest geometry binding and matching outer artifact hashes; cache row restored; not a historical public-domain installation"
+  }
 }

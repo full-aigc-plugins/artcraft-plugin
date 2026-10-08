@@ -36,7 +36,7 @@ flowchart TD
 | Bound native exchange loss report | Native, reopened inspection and each export bind hashes; lost/observed/unknown stay distinct. Three hash-consistent native/output/inspection identity faults are refused through the public entry. |
 | Variant relocation | 320×400 source becomes 352×400; native layers, text, roles, safe area and resize receipts survive package relocation. |
 | Altered packaged variant | Changed layout-variant.json is refused; restoring bytes verifies the same package. |
-| Legacy cache missing geometry | Removing native-cache geometry blocks without replay; restoration reuses the same task/budget. A separate matching-outer-hash unit fixture without manifest binding verifies the specific missing gate. |
+| Legacy cache missing geometry | Actual native cache with an injected missing manifest geometry binding and matching outer hashes returns photo_variant_evidence_missing; removing the geometry file also blocks. Restoration reuses the same task/budget without replay; a unit case supplements the same gate. |
 | Geometry before handoff | New/reused deliveries validate target, safe area, native roles/bounds and actual resize receipts; hash-consistent geometric forgeries are refused. |
 | AC-AR-001-SEGMENT | A current fixed installed skill copied alone starts with an empty cache and public downloads: 1920×1080, 5 seconds, 120 frames, four segments. Per-frame RGBA/hashes, actual Film decoding/pixels, selective logo revision, independent reuse, corrupt-frame refusal/restoration and moved five-child package pass. |
 
@@ -44,7 +44,7 @@ flowchart TD
 
 ## 4. Evidence layers and failures
 
-Source reopens and variant runs use the existing verified cache; the segmented HD run independently starts empty. The legacy missing-binding case is a protocol fixture and the native missing-file case an injected fault, not an old domain public release installation. The initial substitute assertion expected loss_report_invalid; actual correct refusal is protocol_invalid: $.outputs[0].nativeSubstitute. Its failure log is retained and the actual protocol checked without changing production behavior to fit the test.
+Source reopens and variant runs use the existing verified cache; the segmented HD run independently starts empty. Missing-binding and missing-file cases are explicit faults injected into actual native caches, supplemented by a protocol unit fixture; no old domain public release installation is claimed. The initial substitute assertion expected loss_report_invalid; actual correct refusal is protocol_invalid: $.outputs[0].nativeSubstitute. Its failure log is retained and the actual protocol checked without changing production behavior to fit the test.
 
 Flattening/parameter losses remain lost, observed structure remains observed, and unverified fonts/cross-editor effect fidelity stays unknown. Technical readiness is neither lossless fidelity nor human acceptance. The HD sample does not establish arbitrary-duration performance, GUI or other-platform qualification.
 

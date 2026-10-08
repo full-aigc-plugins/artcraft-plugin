@@ -37,7 +37,7 @@
     "Legacy variant cache lacks required geometry evidence": {
       "result": "verified",
       "evidence": "native-loss-variant-fixed127-20261009.json",
-      "observed": "native cache file removal blocks before replay; restore reuses same task/budget; separate hash-consistent missing manifest binding unit case passes"
+      "observed": "actual native cached delivery with injected missing manifest geometry binding and matching outer artifact hashes refused as photo_variant_evidence_missing; restored same task/budget without replay; missing-file fault and independent unit case also pass"
     },
     "Variant evidence is consistent before handoff": {
       "result": "verified",
@@ -82,7 +82,7 @@
   "productionBytesChanged": false,
   "limits": [
     "named macOS arm64 native and fault scenarios only; no full V1 claim",
-    "legacy missing-binding case is a protocol fixture, native cache missing-file case is an injected fault; not a historical domain public release install",
+    "legacy missing-binding and missing-file cases use actual native cache fault injection; the separate unit case is a protocol fixture; no historical domain public release install claimed",
     "five-source reopen and variant tests use the existing verified runtime cache; segmented HD test starts empty and downloads public fixed assets",
     "format losses remain declared; unknown cross-editor fonts/effects fidelity stays unknown; no human creative acceptance",
     "initial refusal assertion expected a different error spelling; correct protocol_invalid refusal and first failure log retained"
