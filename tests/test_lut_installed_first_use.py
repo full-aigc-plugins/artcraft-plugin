@@ -8,15 +8,18 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from contextlib import nullcontext
 import unittest
 
 def hashes(root):
  return {p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in root.rglob('*') if p.is_file()}
 
-@unittest.skipUnless(os.environ.get('CRAFT_LUT_INSTALLED_FIRST_USE')=='1','requires immutable installed Art dev69 and public downloads')
+@unittest.skipUnless(os.environ.get('CRAFT_LUT_INSTALLED_FIRST_USE')=='1','requires immutable installed Art skill and public downloads')
 class InstalledLutFirstUse(unittest.TestCase):
  def test_public_cold_install_lut_motion_revision_and_repeat(self):
-  with tempfile.TemporaryDirectory() as temporary:
+  retained=os.environ.get('CRAFT_LUT_INSTALLED_ROOT')
+  if retained:Path(retained).mkdir(parents=True,exist_ok=False)
+  with nullcontext(retained) if retained else tempfile.TemporaryDirectory() as temporary:
    root=Path(temporary);skill=root/'.agents/skills/artcraft-cli-execute'
    shutil.copytree(Path(os.environ['CRAFT_INSTALLED_LUT_ART_SKILL']),skill)
    baseline=hashes(skill);runtime=root/'empty-runtime';project=root/'project'
@@ -38,7 +41,7 @@ class InstalledLutFirstUse(unittest.TestCase):
     result=subprocess.run([sys.executable,'-I','-B',str(skill/'scripts/workflow.py'),str(path),'--output',str(project),'--runtime-home',str(runtime),'--authorization','installed-lut-motion','--asset','voice='+str(voice),'--asset','grade='+str(lut_path)],capture_output=True,text=True,env=environment,timeout=600)
     self.assertEqual(result.returncode,expected,result.stdout+result.stderr);receipt=json.loads(result.stdout);return json.loads(receipt['error']) if expected else receipt
    first=run(plan,cube);self.assertEqual(first['state'],'review_ready')
-   setup=json.loads((project/'installation-receipt.json').read_text());self.assertEqual(setup['version'],'0.1.0-dev.68');self.assertEqual(setup['skills']['filmcraft']['runtimeIdentity']['pluginVersion'],'0.1.0-dev.10')
+   setup=json.loads((project/'installation-receipt.json').read_text());lock=json.loads((skill/'scripts/distribution.lock.json').read_text());self.assertEqual(setup['version'],lock['bundles']['artcraft-runtime']['version']);self.assertEqual(setup['skills']['filmcraft']['runtimeIdentity']['pluginVersion'],lock['bundles']['filmcraft-skills']['version'])
    old=Path(first['nodes']['film']['root']);original=hashes(old);artifact=first['nodes']['film']['outputs'][0];manifest=json.loads((old/'manifest.json').read_text())
    self.assertEqual(next(d for d in artifact['dependencies'] if d['assetRef']['assetId']=='grade')['kind'],'lut')
    before=json.loads((old/'native.json').read_text())['sequence']
@@ -60,6 +63,6 @@ class InstalledLutFirstUse(unittest.TestCase):
    failed=run(broken,retained,1);self.assertEqual(failed['state'],'failed');self.assertEqual(failed['nodes']['film']['status'],'failed');self.assertEqual(failed['nodes']['film']['outputs'],[])
    recovery=copy.deepcopy(revised);recovery['revision']='v4';recovered=run(recovery,retained);self.assertEqual(recovered['state'],'review_ready');self.assertEqual(recovered['nodes']['intro']['taskId'],second['nodes']['intro']['taskId']);self.assertEqual(original,hashes(old));self.assertEqual(baseline,hashes(skill))
    if os.environ.get('CRAFT_LUT_INSTALLED_EVIDENCE'):
-    evidence={'schema':'artcraft69-installed-lut-motion-first-use/v1','result':'PASS','scope':'copied-alone actual installed Art dev69 execute skill; empty runtime; default public downloads; two-domain native LUT/motion revision','runtimeVersion':setup['version'],'filmSourceVersion':setup['skills']['filmcraft']['runtimeIdentity']['pluginVersion'],'decodedFrames':24,'lutPixel':pixel,'upstreamReused':True,'originalLutRemoved':True,'sourcePreserved':True,'audioPreserved':True,'captionsPreserved':True,'lutPreserved':True,'repeatPreserved':True,'failureAndCorrectionPassed':True,'skillPreserved':True,'driverSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+    evidence={'schema':'artcraft-installed-lut-motion-first-use/v1','result':'PASS','scope':'copied-alone actual fixed installed Art execute skill; empty runtime; default public downloads; two-domain native LUT/motion revision','runtimeVersion':setup['version'],'filmSourceVersion':setup['skills']['filmcraft']['runtimeIdentity']['pluginVersion'],'decodedFrames':24,'lutPixel':pixel,'upstreamReused':True,'originalLutRemoved':True,'sourcePreserved':True,'audioPreserved':True,'captionsPreserved':True,'lutPreserved':True,'repeatPreserved':True,'failureAndCorrectionPassed':True,'skillPreserved':True,'driverSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
     with Path(os.environ['CRAFT_LUT_INSTALLED_EVIDENCE']).open('x') as stream:json.dump(evidence,stream,indent=2)
 if __name__=='__main__':unittest.main()

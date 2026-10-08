@@ -1,5 +1,7 @@
 # ArtCraft 素材版本与选择性失效实现架构
 
+当前补充：6.12七场景验收已完成；下文保留此前核心实现检查点的证据边界。见[当前验收架构](ArtCraft-Selective-Version-Acceptance-Architecture.zh_CN.md)。
+
 核心实现任务 6.10、6.11 已完成核验并勾选；完整合同验收 6.12 继续开放。[绑定证据](evidence/selective-version-implementation-audit-20261008.json)。本次不修改生产运行时或技能文件，沿用插件125／技能源97／runtime125。
 
 ```mermaid

@@ -1,5 +1,7 @@
 # ArtCraft selective asset version implementation architecture
 
+Current supplement: task6.12 seven-scenario acceptance is complete. The earlier core checkpoint and its boundaries remain recorded below. See [current acceptance architecture](ArtCraft-Selective-Version-Acceptance-Architecture.md).
+
 Core implementation tasks 6.10 and 6.11 are verified and checked; complete contract acceptance 6.12 stays open. [Bound evidence](evidence/selective-version-implementation-audit-20261008.json). Production runtime and skill files are unchanged, retaining plugin125/source97/runtime125.
 
 ```mermaid

@@ -1,7 +1,7 @@
 /** 公开领域技能的真实序列交接；候选 Art 实现，不替代固定 Art 安装验收。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, writeFile, rm, rename, readdir } from 'node:fs/promises';
+import { mkdtemp, readFile, writeFile, rm, rename, readdir, mkdir } from 'node:fs/promises';
 import { join, dirname, relative } from 'node:path';
 import { tmpdir } from 'node:os';
 import { createHash } from 'node:crypto';
@@ -17,8 +17,13 @@ const hash=(data:Buffer|string)=>createHash('sha256').update(data).digest('hex')
 const native=promisify(execFile);
 const enabled=process.env.CRAFT_ART_SEGMENT_HD_NATIVE==='1';
 test('candidate Art executes HD segmented sequence, moved selective text revision and corruption recovery',{skip:!enabled},async()=>{
- const root=await mkdtemp(join(tmpdir(),'art-sequence-hd-native-')),ledger=new TaskLedger(join(root,'ledger.sqlite'));
+ const retained=process.env.CRAFT_ART_SEGMENT_HD_ROOT;
+ const root=retained ?? await mkdtemp(join(tmpdir(),'art-sequence-hd-native-'));
+ if(retained)await mkdir(root,{recursive:false});
+ const ledger=new TaskLedger(join(root,'ledger.sqlite'));
  try{
+  assert.ok(process.env.CRAFT_SEQUENCE_IDENTITIES,'native acceptance requires identity records from a fixed installation receipt');
+  const installedIdentities=JSON.parse(await readFile(process.env.CRAFT_SEQUENCE_IDENTITIES!,'utf8'));
   const python=process.env.CRAFT_SEQUENCE_PYTHON!,identities:any={},factories:any={},sourceSkills:any={},skillFiles:{path:string;sha256:string}[]=[];
   for(const domain of ['effectcraft','filmcraft'] as const){
    const skillRoot=process.env[domain==='effectcraft'?'CRAFT_SEQUENCE_EFFECT_SKILL':'CRAFT_SEQUENCE_FILM_SKILL']!,cli=process.env[domain==='effectcraft'?'CRAFT_SEQUENCE_EFFECT_CLI':'CRAFT_SEQUENCE_FILM_CLI']!;
@@ -26,7 +31,10 @@ test('candidate Art executes HD segmented sequence, moved selective text revisio
    const files=await Promise.all((await walk(skillRoot)).map(async path=>({path,sha256:hash(await readFile(path))})));
    skillFiles.push(...files);
    sourceSkills[domain]=Object.fromEntries(files.map(file=>[relative(skillRoot,file.path),file.sha256]));
-   identities[domain]={pluginId:domain,pluginVersion:'0.1.0',cliVersion:domain==='filmcraft'?'0.2.0-craft.2':'0.2.0',sha256:hash(await readFile(cli)),mode:'headless',capabilitySnapshotSha256:hash(JSON.stringify(files))};
+   identities[domain]=installedIdentities[domain];
+   assert.equal(identities[domain]?.pluginId,domain);
+   assert.equal(identities[domain]?.sha256,hash(await readFile(cli)));
+   assert.equal(identities[domain]?.mode,'headless');
    factories[domain]=publicSkillFactory({pluginId:domain,skillRoot,python,pythonSha256:hash(await readFile(python)),nativeExecutable:cli,runtimeHome:dirname(dirname(dirname(cli))),files,outputRoot:join(root,domain)});
   }
   const effectSkill=process.env.CRAFT_SEQUENCE_EFFECT_SKILL!,effectPlan=JSON.parse(await readFile(join(effectSkill,'examples/brand-intro.json'),'utf8'));effectPlan.document={...effectPlan.document,width:1920,height:1080,frameRate:24,duration:5};effectPlan.frames=[0,.5];effectPlan.exports=[{format:'png-segmented',chunkFrames:32}];
@@ -105,5 +113,5 @@ assert checks==8
   for(const id of ['intro','film'])assert.equal(restored.nodes[id].taskId,second.nodes[id].taskId);assert.deepEqual(restored.budget,second.budget);
   for(const file of skillFiles)assert.equal(hash(await readFile(file.path)),file.sha256);
   if(process.env.CRAFT_ART_SEGMENT_HD_EVIDENCE)await writeFile(process.env.CRAFT_ART_SEGMENT_HD_EVIDENCE,JSON.stringify({schema:'artcraft-segment-hd-adapter-candidate/v1',result:'PASS',driverSha256:hash(await readFile(new URL(import.meta.url))),runtimeIdentities:identities,sourceSkills,sourceFilesPreserved:true,width:1920,height:1080,fps:24,seconds:5,frameCount:120,segmentCount:4,independentDecodedFrames:120,independentSourceFrames:120,animatedTitlePixelVerified:true,compositePixelChecks:8,independentVideoProbe:probe,movedFilmTextRevision:true,backgroundAndInitialFramePreserved:true,corruptSegmentBlockedAndRestored:true,restoredTaskIdsReused:true,budgetUnchangedOnRestore:true,scope:'actual candidate Art HD runtime adapters and current independent domain source; existing verified local native runtime',excluded:['public cold Art installation','immutable new plugin','full V1','GUI/model/creative acceptance']},null,2)+'\n');
- }finally{ledger.close();await rm(root,{recursive:true});}
+ }finally{ledger.close();if(!retained)await rm(root,{recursive:true});}
 });
