@@ -485,3 +485,5 @@ Vector33 捆绑升级候选已通过两入口真实混合返工、九变体及�
 固定Art122／源94／运行时122-runtime.1通过10项独立公开冷启动、64宿主身份／CLI核验，以及安装副本可控ESRCH和普通期限两条原生取消。原attempt／预算保留，下游不启动，重复不重放。54项其他技能仅复用整树摘要相等历史冷证明。只关闭5.19；完整5.9／V1及原偶发并行失败归因仍开放。 [Evidence](docs/evidence/craft-art122-cancel-signal-fixed-first-use-20261008.json).
 
 公共任务协议实施审计已完成 OpenSpec 任务 1.1、1.2：固定107基线复现两项行为失败，当前固定122协议测试135项通过，完整回归255通过／20条件跳过，两次独立公开原生首用通过。1.3仍开放，需补全四领域消费者对新增预算错误码的兼容性及完整公开响应／错误矩阵证据。[审计架构](docs/ArtCraft-Public-Task-Architecture.zh_CN.md) · [证据](docs/evidence/public-task-implementation-audit-20261008.json)。
+
+质量证据分离与受限明确补丁修订已完成任务8.1–8.6：当前固定技能的审阅迁移／篡改拒绝、真实 Film 解码与损坏副本拒绝、三种原生停止策略及中断恢复通过。创作观察为测试声明，不代表真实审美或人工接受；完整 V1 仍未完成。[机制架构](docs/ArtCraft-Quality-Gates-Architecture.zh_CN.md) · [证据](docs/evidence/quality-mechanisms-acceptance-20261008.json)。

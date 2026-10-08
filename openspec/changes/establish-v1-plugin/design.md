@@ -70,7 +70,7 @@
 
 ## Shared budget implementation
 
-采用 SQLite 共享预算账户，范围为 ownerId/workflowId/authorizationRef，政策固定。原生执行的可信消耗上界与工程租约在同一写事务分配；新计划修订计轮次，未知执行保留额度，同修订重跑与复用不重复占用。账本 schema 2 保留旧历史读取，但无计量旧范围拒绝新执行。实施和边界见[预算架构](../../../docs/ArtCraft-Budget-Architecture.zh_CN.md)。付费适配器实际账单核销和质量停滞循环仍未实现。
+采用 SQLite 共享预算账户，范围为 ownerId/workflowId/authorizationRef，政策固定。原生执行的可信消耗上界与工程租约在同一写事务分配；新计划修订计轮次，未知执行保留额度，同修订重跑与复用不重复占用。账本 schema 2 保留旧历史读取，但无计量旧范围拒绝新执行。实施和边界见[预算架构](../../../docs/ArtCraft-Budget-Architecture.zh_CN.md)。付费适配器实际账单核销仍未实现。独立 revision.py 已实现基于具名审阅失败计数的轮次／停滞循环，自动审美评价和自动补丁生成未实现；当前机制验收见[质量架构](../../../docs/ArtCraft-Quality-Gates-Architecture.zh_CN.md)。
 
 ## dev.6 已实现恢复决策
 
@@ -83,3 +83,7 @@
 ## CLI 场景技能增量设计
 
 参考 Dreamina 的 use / CLI / setup / 业务场景分层，但按真实命令划分任务。四原生 CLI 保持各自 argv 和工程保存语义；每个技能打包自己的最小运行资源，禁止跨技能文件路径。共有资源在仓库发布脚本中按摘要同步，避免手工维护多份逻辑。上游 ArtCraft 的 scene 保存、生成请求与异步轮询仅作为设计参考，不复制受限代码；本项目 ArtCraft CLI 的事实源为现有 src/cli.ts。原有 use 公开入口保持兼容。插件从新不可变技能源标签同步全部清单，宿主验收锁按新版本单独更新。
+
+## 质量机制实施位置与验收
+
+AC-QA-001、AC-QA-002 的实现位于独立 artcraft-skills 的 review.py、revision.py，插件消费固定快照。早期 src/evaluation/ 路径不再作为实际模块描述。公开验包先于具名审阅；四类状态分别保存，失败不被视觉声明覆盖，审阅不改任务账本。修订冻结策略、目标、授权和命令范围，限于失败节点与依赖；原交付保留，未知步骤不自动重放，停止时重验最佳包并报告未解决问题。任务8.1–8.6 的当前固定安装验收及独立创作门禁见[中文架构](../../../docs/ArtCraft-Quality-Gates-Architecture.zh_CN.md)和[English architecture](../../../docs/ArtCraft-Quality-Gates-Architecture.md)。
