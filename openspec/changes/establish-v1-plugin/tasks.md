@@ -395,4 +395,6 @@ SC-007固定发行证据：`docs/evidence/artcraft99-film29-fixed-first-use-2026
 
 2026-10-08 固定Film40／Art111变化角色补证：19项测试通过、零跳过，包含静态合同与纯Python规划；Film十领域角色及中文路径use、Art规划／原生返工／素材状态／移动交付／审阅记录／授权隔离／Film命令组件／调度器SIGKILL恢复／渲染中取消均按实际范围核验。前后64安装整树摘要一致。临时原生fixture由测试清理，日志与摘要保留；历史混合ASR工程仍保留。不关闭全场景、全部命令、通用SkillsCLI、模型派发、GUI／其他平台及完整V1。证据 `docs/evidence/craft-fixed-role-first-use-20261008.json`。
 
-- [ ] [AC-CP-001-WORKFLOW-LAUNCHER-ERROR] 补齐单技能 workflow.py 顶层结构化拒绝，保留字符串error与上游workflowReceipt；以真实独立冷安装验证创建／账本回执／不重放复用及输入、修订、授权拒绝，并完成固定发行安装后仅关闭此入口门禁。
+- [x] [AC-CP-001-WORKFLOW-LAUNCHER-ERROR] 补齐单技能 workflow.py 顶层结构化拒绝，保留字符串error与上游workflowReceipt；以真实独立冷安装验证创建／账本回执／不重放复用及输入、修订、授权拒绝，并完成固定发行安装后仅关闭此入口门禁。
+
+2026-10-08 固定Art112／源84入口拒绝门禁：实际隔离Codex发现64项零错误，10变化技能各自公开冷安装，54整树相等项复用历史冷证明；十技能输入前置拒绝无运行时与虚构回执，安装后execute单技能真实创建／回执查询／同身份复用／输入、修订、授权拒绝39.512秒通过。默认工具改为当前矩阵，3旧默认断言先失败，29目标通过2条件跳过。只关闭入口错误门禁，完整公共协议、全业务／全命令／GUI／其他平台／通用SkillsCLI／模型／创作／完整V1仍开放。证据 `docs/evidence/craft-workflow-error-detail-fixed-first-use-20261008.json`。

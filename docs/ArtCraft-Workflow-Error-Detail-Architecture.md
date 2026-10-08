@@ -4,7 +4,7 @@ Source84 synchronizes ten independent skills; plugin112 pins that source commit.
 
 Input/setup refusal returns errorDetail code/message. Valid error identifiers are retained; other messages use operation_failed. A nonzero upstream receipt preserves valid structured details; otherwise workflow_not_ready describes the envelope and the original receipt remains available. This code neither declares task failure nor authorizes replay. Inspect durable receipts and original stop evidence; unregistered refusal does not invent task/attempt identity.
 
-Seven unit tests first produced six errors and one failure, then passed. Source regression:153 tests,116 passed and37 conditional skips. Actual installed111 reproduces missing errorDetail before runtime installation. Candidate single-skill public cold native Vector creation, durable receipt querying, same-task/attempt reuse, input/revision refusal and upstream authorization-conflict rejection pass, preserving original native file hashes. Fixed plugin112 installation qualification remains separate and pending.
+Seven unit tests first produced six errors and one failure, then passed. Source regression:153 tests,116 passed and37 conditional skips. Actual installed111 reproduces missing errorDetail before runtime installation. Candidate single-skill public cold native Vector creation, durable receipt querying, same-task/attempt reuse, input/revision refusal and upstream authorization-conflict rejection pass, preserving original native file hashes. Fixed installed112 native qualification passes in39.512seconds;64 skills are discovered without loading errors,10 changed skills pass independent cold installation and54 whole-tree-equal skills reuse historical cold evidence. All ten installed entrypoints reject invalid input before runtime installation without fabricated receipts.
 
 ```mermaid
 flowchart TD
@@ -19,3 +19,7 @@ flowchart TD
 This covers the error envelope and bounded native first-use behavior. Full protocol, all business/command contexts, generic Skills CLI, model dispatch, GUI/other platforms, human creative acceptance and fullV1 remain open. No OpenSpec sync/archive or Jianying adapter is introduced.
 
 [Evidence](evidence/artcraft-workflow-error-detail-20261008.json).
+
+[Fixed installation evidence](evidence/craft-workflow-error-detail-fixed-first-use-20261008.json). Defaults now use host-acceptance-workflow-error.lock.json; historical explicit arguments remain supported. No full protocol task is closed.
+
+The actual default audit verifies64 installed identities and retains120 full requirements /250 open tasks. Final maintainer regression:104 total,98 passed,6 conditional skips.

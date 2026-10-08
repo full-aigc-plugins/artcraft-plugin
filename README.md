@@ -20,7 +20,7 @@ Historical dev.104 maintainer correction: acceptance tools used the then-verifie
 
 Historical: Current Art dev.104 standalone scene-role verification passes for plan, revise, assets, deliver, review, recover, execute and setup. Tests use the actual installed fixed snapshot, independent copied skills and public runtime downloads. Native source revision and unrelated reuse, moved packages, stale/tampered review rejection, repeated cancellation, execution receipts and selected-domain setup are checked. Planning evidence is reused from the preceding unchanged-source installed run. Review remains pending with creative NOT_RUN; cancellation checks do not prove unknown-worker recovery. This does not close generic Skills CLI installation, all command contexts or full V1. [Evidence](docs/evidence/artcraft104-installed-role-first-use-20261007.json).
 
-Maintainer installation planning, installed CLI verification and completion auditing now default to the verified dev.105 lock; the audit binds its matching ASR evidence. Explicit historical lock/evidence arguments remain supported. [Current audit architecture](docs/ArtCraft-First-Use-Completion-Audit-Architecture.md).
+Maintainer installation planning, installed CLI verification and completion auditing now default to the verified dev.112 workflow-error lock; the audit binds its matching fixed first-use evidence. Explicit historical lock/evidence arguments remain supported. [Current audit architecture](docs/ArtCraft-First-Use-Completion-Audit-Architecture.md).
 
 Maintainer source validation rejects symbolic links, incomplete locks and version-named branches, and checks all declared sources before replacing any managed skill. Published skill/runtime identities remain unchanged. [Snapshot preflight architecture](docs/Skill-Snapshot-Self-Contained.md).
 
@@ -404,7 +404,7 @@ Current fixed distribution: ten Art plus twelve Photo installed cold native adju
 The four domain source21 packages and plugin23 releases include pinned desktop+CLI installers and owned same-session command workflows. Art89/source62 delegates desktop startup to its selected immutable domain bundle, checks command and lifecycle receipts, and preserves failed or unknown outcomes. [Architecture](docs/Craft-Desktop-First-Use-Architecture.md).
 
 Previous source-skill cold evidence is [recorded separately](docs/evidence/craft-owned-desktop-first-use-20261007.json). Current fixed-release installation/discovery and desktop cold acceptance remain pending until their exact version-bound reports pass. Exhaustive command and full V1 gates remain open.
-## Current independent-install acceptance lock
+## Historical independent-install acceptance lock
 
 Both CLI acceptance entrypoints now default to `host-acceptance-current64.lock.json`: FilmCraft/EffectCraft/VectorCraft plugin dev.29, PhotoCraft dev.30 and ArtCraft dev.96, totaling 64 skills. The previous `host-acceptance.lock.json` remains a historical 58-skill matrix. Reports derive probe counts from verified records. Generating the plan and testing the verifier do not prove an actual Skills CLI installation; that gate remains pending.
 

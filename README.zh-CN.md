@@ -20,7 +20,7 @@
 
 历史版本证据：当前 Art dev.104 的八项独立场景角色验证通过：规划、返工、素材、交付、审阅、恢复、执行及安装诊断。测试使用真实固定安装副本、单技能复制和公开运行时下载，检查源工程修改与无关节点复用、移动验包、过期／篡改审阅拒绝、重复取消、执行回执和按领域安装。规划证据复用上一轮源码未变化的当前安装验证；审阅仍为 pending／creative NOT_RUN，取消验证不证明未知 worker 恢复。实际通用 Skills CLI 安装、全量命令上下文和完整 V1仍未完成。 [证据](docs/evidence/artcraft104-installed-role-first-use-20261007.json).
 
-维护者的安装计划、安装副本 CLI 验证和完成审计现默认使用已核验的 dev.105 锁；审计绑定对应 ASR 证据。显式历史锁／证据参数继续兼容。[当前审计架构](docs/ArtCraft-First-Use-Completion-Audit-Architecture.zh_CN.md)。
+维护者的安装计划、安装副本 CLI 验证和完成审计现默认使用已核验的 dev.112 工作流错误锁；审计绑定对应固定首用证据。显式历史锁／证据参数继续兼容。[当前审计架构](docs/ArtCraft-First-Use-Completion-Audit-Architecture.zh_CN.md)。
 
 维护者来源校验拒绝符号链接、不完整锁及版本同名分支，并在替换任一管理技能前检查全部声明来源；已发布技能／运行时身份保持。[快照预检架构](docs/Skill-Snapshot-Self-Contained.zh_CN.md)。
 
@@ -402,7 +402,7 @@ Art HD 源码候选通过五秒 1080p 分段编排、移动文字返工及损坏
 四领域source21与plugin23已包含固定桌面及CLI安装器和自有同会话命令入口。Art89／source62向所选固定领域包交接桌面启动，核对命令与生命周期回执，保留失败和未知结果。[架构](docs/Craft-Desktop-First-Use-Architecture.zh_CN.md)。
 
 此前候选技能源的冷启动证据[单独记录](docs/evidence/craft-owned-desktop-first-use-20261007.json)。当前固定发行安装发现与桌面冷启动验收仍待确切版本报告通过；全量命令与完整V1仍保持开放。
-## 当前独立安装验收锁
+## 历史独立安装验收锁
 
 两条 CLI 验收入口现默认使用 `host-acceptance-current64.lock.json`：FilmCraft／EffectCraft／VectorCraft 插件 dev.29、PhotoCraft dev.30、ArtCraft dev.96，共 64 个技能。原 `host-acceptance.lock.json` 保留为历史 58 技能矩阵。报告中的探测数来自实际验证记录。生成安装计划和验证脚本测试不证明真实 Skills CLI 安装通过，该门禁仍待执行。
 
