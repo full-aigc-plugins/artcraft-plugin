@@ -25,3 +25,11 @@ Fixed Art124/source96/runtime124 acceptance passes: 64 host discoveries and inst
 [Fixed evidence](evidence/craft-art124-film-time-fixed-first-use-20261008.json).
 
 Task 2.3 stays open: complete native large-tick handoff proof, applicable PNG/JPEG derived metadata and full protocol scenario acceptance are still incomplete. Generic Skills CLI installation 3.16 and GUI/creative/human/full V1 gates are not closed.
+
+## Native large-integer supplement (2026-10-08)
+
+The former dev.124 fixture-only boundary now has [native save and handoff evidence](evidence/native-film-big-time-20261008.json). Fixed Film `0.2.0-craft.4` creates a project at `9007199254740993` ticks with a one-frame duration of `21168000000` ticks. Saving and reopening preserves the end at `9007220422740993`. Ordinary JSON Number parsing rounds this value; Art's raw-token parser preserves its decimal string.
+
+A one-frame trim on a copy changes the end to `9007241590740993` without changing the original project digest. Trusted `publicSkillFactory.inspectSource` reads the real project after checking executable, project and manifest digests. JSON roundtrip and BigInt reconstruction preserve the two-frame interval; source drift is refused. A separate globally aligned project verifies an integer frame index. Fixed installed Film skill files and executable remain unchanged. All 26 timing-related tests pass, including existing overflow, absent time base and inconsistent probe rejection.
+
+The acceptance driver constructs the manifest wrapper. This is not a public domain workflow long-timeline render or a full-length video export. Production runtime and all ten source skills are unchanged, retaining Art125/source97/runtime125; this is test and documentation maintenance. Fixed125 evidence separately closes derived PNG/JPEG metadata. Task 2.3 remains open for the complete protocol scenario matrix and unverified end-to-end boundaries. Native inspection cannot substitute for those gates.

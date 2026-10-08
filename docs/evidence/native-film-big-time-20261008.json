@@ -1,0 +1,399 @@
+{
+  "schema": "craft-native-big-time/v1",
+  "result": "PASS",
+  "platform": "darwin-arm64",
+  "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+  "testSha256": "1be6abb718b91ebfc2792b158c3e17db3256ba3d17d7370e59ee8db052d22cda",
+  "startTicks": "9007199254740993",
+  "frameTicks": "21168000000",
+  "initialDurationTicks": "9007220422740993",
+  "editedDurationTicks": "9007241590740993",
+  "originalProjectSha256": "14280bbe24f79791ac60e8a836d55a9b50278c61c357586d3e5138e5b59c2237",
+  "editedProjectSha256": "b0b766c703a3a0fc319259a5bbca7e0b6056d8ea78dfe64d5915084131a0b6c2",
+  "inspection": {
+    "schema": "craft-source-inspection/v1",
+    "pluginId": "filmcraft",
+    "nativeInspectionSha256": "1b62d87d81167d252ab60067be5821515a071a41e94ae69a3ab7ca79c38c39e8",
+    "document": {
+      "width": 320,
+      "height": 180,
+      "frameRate": {
+        "den": 1,
+        "num": 12
+      }
+    },
+    "durationTicks": "9007241590740993",
+    "nativeProjectSha256": "b0b766c703a3a0fc319259a5bbca7e0b6056d8ea78dfe64d5915084131a0b6c2",
+    "nativeRuntimeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893"
+  },
+  "alignedInspection": {
+    "schema": "craft-source-inspection/v1",
+    "pluginId": "filmcraft",
+    "nativeInspectionSha256": "0ed61c6e2cb0dafe5ce5e5d51a465173c48f0ab0fbecdef18abf69a29fbaf82e",
+    "document": {
+      "width": 320,
+      "height": 180,
+      "frameRate": {
+        "den": 1,
+        "num": 12
+      }
+    },
+    "durationTicks": "9007238016000000",
+    "nativeProjectSha256": "1ea76d1591c7481ec7e912d24aeb9513714d36d215a3ed6c70a5e28974b3498d",
+    "nativeRuntimeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893"
+  },
+  "calls": [
+    {
+      "args": [
+        "--save-as",
+        "QA_ROOT/created.fcproj",
+        "exec",
+        "file.newSequence",
+        "{\"name\":\"Exact ticks\",\"width\":320,\"height\":180,\"fps\":12}"
+      ],
+      "stdoutSha256": "8d69fcbd5994c0b97f83039aab4d0cdf25946d2377f4e0cbb09d2898878920b8"
+    },
+    {
+      "args": [
+        "--project",
+        "QA_ROOT/created.fcproj",
+        "--save",
+        "exec",
+        "file.newColorMatte",
+        "{\"color\":\"#ff0000\",\"seconds\":1}"
+      ],
+      "stdoutSha256": "0388bac39cdcdb35c03c9cfabf7bb07336ea71c33cc43f8d31cec8138c21a0f2"
+    },
+    {
+      "args": [
+        "--project",
+        "QA_ROOT/created.fcproj",
+        "--save-as",
+        "QA_ROOT/placed.fcproj",
+        "exec",
+        "timeline.place",
+        "{\"item\":8,\"track\":\"V1\",\"time\":9007199254740993,\"duration\":21168000000,\"insert\":false}"
+      ],
+      "stdoutSha256": "75426958bffe297736c5ad5763043206cdf57a0bbcdb31e9ce72082642baa4b7"
+    },
+    {
+      "args": [
+        "--project",
+        "QA_ROOT/placed.fcproj",
+        "inspect"
+      ],
+      "stdoutSha256": "99d3e7a711d4a6c39f37b831b587b3d3978a1e8c850c7bbc124c0c86c72efedb"
+    },
+    {
+      "args": [
+        "--project",
+        "QA_ROOT/placed.fcproj",
+        "--save-as",
+        "QA_ROOT/edited.fcproj",
+        "exec",
+        "timeline.trim",
+        "{\"clip\":9,\"edge\":\"out\",\"mode\":\"regular\",\"deltaFrames\":1}"
+      ],
+      "stdoutSha256": "41acf0dae5528119d68d0714b06b610a4ea648936c91119d6d423f29c9867545"
+    },
+    {
+      "args": [
+        "--project",
+        "QA_ROOT/edited.fcproj",
+        "inspect"
+      ],
+      "stdoutSha256": "88fc3462fb8b3ff66db516974e43068a132850be78fc46466ab930cf1ffa533a"
+    },
+    {
+      "args": [
+        "--project",
+        "QA_ROOT/created.fcproj",
+        "--save-as",
+        "QA_ROOT/aligned.fcproj",
+        "exec",
+        "timeline.place",
+        "{\"item\":8,\"track\":\"V1\",\"time\":9007216848000000,\"duration\":21168000000,\"insert\":false}"
+      ],
+      "stdoutSha256": "75426958bffe297736c5ad5763043206cdf57a0bbcdb31e9ce72082642baa4b7"
+    },
+    {
+      "args": [
+        "--project",
+        "QA_ROOT/aligned.fcproj",
+        "inspect"
+      ],
+      "stdoutSha256": "0ed61c6e2cb0dafe5ce5e5d51a465173c48f0ab0fbecdef18abf69a29fbaf82e"
+    }
+  ],
+  "skillFiles": [
+    {
+      "path": "SKILL.md",
+      "sha256": "683fc2519bdfd3c3c7efd34dab41446ed1b13fd4b56653fe9516e682f204c975"
+    },
+    {
+      "path": "examples/asr-captions-revision.json",
+      "sha256": "9ca7217e51646e591582cb817acc025ca5d8708ace814bb86268965c108eea3f"
+    },
+    {
+      "path": "examples/asr-short-film.json",
+      "sha256": "b94c0f9ab4aca84621ee66a380ba8037034c964e2b8b3e2345b87c29b4257897"
+    },
+    {
+      "path": "examples/chinese-short-film.json",
+      "sha256": "a98445ad963ffea38cfb7781c91ffbbd3f8bebea4bb77456ef0167fda324a375"
+    },
+    {
+      "path": "examples/commands-advanced.json",
+      "sha256": "de489d735caa481500fd0ede481d6034b9e2652eb39232541ded6a6a7b11dc1e"
+    },
+    {
+      "path": "examples/commands-revision-create.json",
+      "sha256": "de489d735caa481500fd0ede481d6034b9e2652eb39232541ded6a6a7b11dc1e"
+    },
+    {
+      "path": "examples/commands-revision.json",
+      "sha256": "33d91cf6b63982dfe7fb9c75b2aec6babf4ff2184f0673dcf00e19ad72e3f611"
+    },
+    {
+      "path": "examples/desktop-first-use.json",
+      "sha256": "3c64e48acff1905c49114b75f2ee09cb4949f64fde666970b40c12fe726980b3"
+    },
+    {
+      "path": "examples/motion-lut-film.json",
+      "sha256": "3407f44e4a5bbde6ab8e00a993da1221b47ca6d668d7e525c6d96a595fae96f6"
+    },
+    {
+      "path": "examples/multicam-create.json",
+      "sha256": "4c5455b691355592db0e4cebf79ac936917b77777e152e90f2eed6f44338e8e1"
+    },
+    {
+      "path": "examples/multicam-reopen.json",
+      "sha256": "f077ccc6d3e11b83fa629bc42d3cb6581dff1bf79b4a206901713ae7287ccbd7"
+    },
+    {
+      "path": "examples/native-workflow.json",
+      "sha256": "19818bc13fd25f02c4a0e364de7ff2901caf6e59d5d5d9e7f5ee6955ab253354"
+    },
+    {
+      "path": "examples/short-film.json",
+      "sha256": "46574358e9d62131de4d51173f22fdf4e0dc62f9d35ccec0f3dcc9df06d5aa9e"
+    },
+    {
+      "path": "examples/transcript-import-captions.json",
+      "sha256": "37ff3209723ed119b738003dc1d13bbed4f85f3dc0057f2eb51c2761b4463685"
+    },
+    {
+      "path": "examples/transcript-reopen.json",
+      "sha256": "732b43c05aa089c409a4c180449bffb3c4557da5ae61b5da1786d5448eb00f82"
+    },
+    {
+      "path": "references/business-scenes.md",
+      "sha256": "93838bcabe0b58b748a1b11daeeb9262393425b7c557c5f049db496df48e8d92"
+    },
+    {
+      "path": "references/command-coverage.json",
+      "sha256": "34dcd5d53c1bbe73625b8c4aaac2d97f892d80d1ba12463f591d2793695f749c"
+    },
+    {
+      "path": "references/command-reference.md",
+      "sha256": "96a7258924e26c60bda96db27717467ecf1f1c3f71353b59914762cbfbd3f84e"
+    },
+    {
+      "path": "references/command-usage.md",
+      "sha256": "b4739710c46ebc035a4648683e7eba37b3918057dcce0a2bf9b3583c45f93643"
+    },
+    {
+      "path": "references/commands.json",
+      "sha256": "96b7b5bbb664942ce836d33bb4f14545e5d18fa456201ae1c169b4bfea4fefa8"
+    },
+    {
+      "path": "references/desktop-install.md",
+      "sha256": "db2db151b0eff30a3381a03ae377fb23ac09b2b4a919859740bd9343e7f14887"
+    },
+    {
+      "path": "references/exchange-loss.md",
+      "sha256": "eee665f62b77274ca8ce0efc4117012ade85978905cdfd40ab488af64297b8ae"
+    },
+    {
+      "path": "references/first-use-failures.md",
+      "sha256": "ce2a8d1a8ca6b8a29a084d52d105d510476de88d40b439d6c2ff79212581d61d"
+    },
+    {
+      "path": "references/installation-concurrency.md",
+      "sha256": "69067acebcd47f1924a8d6aa9d8a4ce6f44ad0756d44888a21eb224bcdb1c215"
+    },
+    {
+      "path": "references/multicam-scene.md",
+      "sha256": "522b52daeb6d564cf318e68ffdd839d95615b3c183af06d87674549d67007eec"
+    },
+    {
+      "path": "references/native-command-snapshot.json",
+      "sha256": "8c6c6fbb796acadb6640d74e21ee2634d8b4460adf5ef2e07f9b62051ac2b5ec"
+    },
+    {
+      "path": "references/native-workflow.md",
+      "sha256": "42fee416c66a69f6f3802abe1be6f002963cf109e7e22a4d6297b6dcaf62b8e9"
+    },
+    {
+      "path": "references/output-execution.md",
+      "sha256": "20d8aa35e82e23d755cc1572f6ee80716664f960031c58d5fc1b3cd2ce5a52e7"
+    },
+    {
+      "path": "references/segmented-assets.md",
+      "sha256": "24a7a3e1813bb99b45b690577a348f364f056c5360c4ccc105fc816ceb7a2a83"
+    },
+    {
+      "path": "references/transcript-scene.md",
+      "sha256": "e503b3cb5c7a6c4d927831be0c99032214160f9343e2fe2cf07c19b8f72a028c"
+    },
+    {
+      "path": "references/workflow.md",
+      "sha256": "0c5a35b92e95062b8817e17e45bb3a71d9511e842ade07603256b5651d93becd"
+    },
+    {
+      "path": "scripts/bootstrap.py",
+      "sha256": "bd0c370eace07fe88ae63d4be08374d9b1845b68f0cd43ab0e23a444504623fe"
+    },
+    {
+      "path": "scripts/cli.py",
+      "sha256": "840c0b4dd54c074ff65be8fd98444917cc2d8af81b2bb3784794bd26512d38f6"
+    },
+    {
+      "path": "scripts/commands.py",
+      "sha256": "b055d20f64347ead10d940a331f9d1aff929d4f8e1ddc96fb4ede8fcddc02b28"
+    },
+    {
+      "path": "scripts/desktop.lock.json",
+      "sha256": "6442756305dd763889e7130a43b324053cbd2dc1239f3c3ee622ac547e8b0d5a"
+    },
+    {
+      "path": "scripts/desktop.py",
+      "sha256": "24dddb82f1c51ca8e835c582d9b7228aa9d643dfcada11b570bde9191f002f0f"
+    },
+    {
+      "path": "scripts/desktop_session.py",
+      "sha256": "b6b07a9a18b77386d481a7f263190b0981a7a763dda4f46ad7417a92d416fbb5"
+    },
+    {
+      "path": "scripts/exchange_loss.py",
+      "sha256": "374d7869082055a45d4c3eb60185dd97416b2b2428ddd562be5b062c0ced9bee"
+    },
+    {
+      "path": "scripts/mcp_session.py",
+      "sha256": "ad8a8fb3f84f9fbf814b5a593c96faf3cf9bb476ff32627039975d7f57c86616"
+    },
+    {
+      "path": "scripts/native_workflow.py",
+      "sha256": "290108267b948b6ddda6f0865e20f1bdfadd7558442fb1d617125a1ed25eb116"
+    },
+    {
+      "path": "scripts/output_guard.py",
+      "sha256": "5555f0560d956678a38a2753ea0f7746fba69401940b25b49a81d3a03f4e315c"
+    },
+    {
+      "path": "scripts/png_inspection.py",
+      "sha256": "0e3c50907c66c6dcc45256d045920da346ad77892e47401de3103c8f6232938d"
+    },
+    {
+      "path": "scripts/preserved_stage.py",
+      "sha256": "64199df3ee6af2901a859a5aac401fd27ca2f0c6ba9238e6f72c3563f681ad63"
+    },
+    {
+      "path": "scripts/runtime.lock.json",
+      "sha256": "5682d32eb1f849eec9e3968611cdc61dc67f1e1515ac6df5c885d2558841ee8e"
+    },
+    {
+      "path": "scripts/sequence_assets.py",
+      "sha256": "e9669276f0e98b178cc0c5e3788c3b114091c1054c5bd298c6c7c16fd45e708e"
+    },
+    {
+      "path": "scripts/workflow.py",
+      "sha256": "2a958d80a5913d0e29b328d9f279958c63793078ba1a6e68a9ab0ae404822668"
+    }
+  ],
+  "scope": [
+    "native save and reopen",
+    "one-frame edit without source mutation",
+    "trusted Art source inspection and JSON roundtrip",
+    "source drift rejection",
+    "absolute frame boundary roundtrip",
+    "fixed installed Film skill files remain unchanged"
+  ],
+  "excluded": [
+    "public domain workflow rendering",
+    "full-length export",
+    "complete artifact protocol matrix"
+  ],
+  "requirement": "AC-CP-002-TIME",
+  "task": "2.3",
+  "taskComplete": false,
+  "goalComplete": false,
+  "artRuntimeVersion": "0.1.0-dev.125-runtime.1",
+  "artPluginVersion": "0.1.0-dev.125",
+  "artSkillSourceVersion": "0.1.0-dev.97",
+  "filmNativeVersion": "0.2.0-craft.4",
+  "filmPluginVersion": "0.1.0-dev.41",
+  "filmSkillSourceVersion": "0.1.0-dev.38",
+  "targetedTests": {
+    "total": 26,
+    "passed": 26,
+    "failed": 0,
+    "skipped": 0,
+    "logSha256": "7b78ebcdc22aa0df35e19abacbaf9cea59eb6566524abad082f3adcb9995f10e"
+  },
+  "limitations": [
+    "The native project and manifest wrapper were created by this acceptance driver, not by a full public rendering workflow.",
+    "Odd tick positions exercise raw integer precision; an additional aligned project proves an absolute 12 fps frame boundary.",
+    "No full-length long timeline export, domain public workflow long-tick render, GUI, creative or complete protocol matrix acceptance."
+  ],
+  "regression": {
+    "total": 298,
+    "passed": 277,
+    "failed": 0,
+    "skipped": 21,
+    "logSha256": "9c2b86207f03ea8eb691c55063df2e4ba8b6423528fc1a866def271a72e3be09",
+    "scope": "complete plugin test glob; optional native test separately executed in targeted run"
+  },
+  "fixedRuntimeIdentityCheck": {
+    "sourceCommit": "a520673eb747027bc69969db2e0577c426759d7f",
+    "tag": "v0.1.0-dev.125-runtime.1",
+    "runtimeFilesMatched": 33,
+    "files": {
+      "LICENSE": "f51b5b32a3b7c3df50ef7153f4dd46233221574f07384d2cf99c6fae08c59f03",
+      "package.json": "65b163eb4ae63ace0081c4374c035a02315f94d22863f1a46c607b6f26467b75",
+      "schemas/craft-artifact-v1.json": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d",
+      "schemas/craft-exchange-loss-v1.json": "483670333c2ddb6515abe61fc30b9160bbe097b6abc01bda6c1ba73fc1832858",
+      "schemas/craft-task-v1.json": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+      "src/adapters/design_source_inspection.ts": "5fdf1bd17537a2dc328dfa293b3bf86b144eede3f3e176e92beae3d66e64c3fa",
+      "src/adapters/effect_export_probe.ts": "1e0569d15146913c32e948922a980d4f18e4e4bcced22b2b47ffe80fd4b873f5",
+      "src/adapters/film_export_metadata.ts": "db8fa0c1955cf935bc908f5cfa622a201113d6b4ac989cbb46085998fcb754c1",
+      "src/adapters/film_source_inspection.ts": "6d6c2b0323b5e0ec510d08e894b4d807fe8106de55d2b7e32ea4bf0e9f8d14ed",
+      "src/adapters/public_skill.ts": "1a748394854b6ee859e1ca18b03672d7623446c081e2ff987c1b4e51a1fc0710",
+      "src/adapters/video_factory.ts": "1a5bf385baa46d06e1ce451b05d42707b0b67071584bf1239d2764d497a41e74",
+      "src/adapters/video_factory_driver.ts": "c0887a85adbf3eb119c2ac45d38e4f8de1d8f886c86ac8f6b2d3a9f9d817ce9d",
+      "src/artifacts/project_package.ts": "f57104c4a71e27f2a17b54a895c3c44eaff5c2eaa1dc0c740f7556325e5d1dd6",
+      "src/cli.ts": "85351147736fcf27c08b0523207e46f7a8a8ec4aea621a24575090129e02dd82",
+      "src/harness/budget.ts": "a8a41bc4d4f7dad1103ac674cd71ef3d18449ab6206fc414c9287b45634ebf79",
+      "src/harness/execution_worker.ts": "1a6f3ee91fc96465ec93121c0de0bf1e2f72a87d875856767e39e8acda574a1a",
+      "src/harness/local_runner.ts": "3d8a65c256163d394a10936361eff52f3b83cb8abd3a25ea6a77091aeff1ed6d",
+      "src/harness/native_diagnostics.ts": "3aaa72b67880594c3844a91a0e12102ed464028e0f15a1c97fb427e942b76902",
+      "src/harness/process_group.ts": "7260149d70d6312292db4a9c5419b4a33e6d24599215b164c814c6e1a7af0714",
+      "src/harness/task_ledger.ts": "b3874dafa4e1f0d3b2f5a7affa85fc0d6805abcee7032408320745f6b79500b2",
+      "src/planning/film_duration.ts": "e25a1ec1d2eac5bc2f7a64e45bb78766d79d55a68af9bae3b133ce3dc2b9a85f",
+      "src/planning/native_brief_output.ts": "876ddcf956cc130ed932543ebe6d4f9c2623bb53e230b518a39414a03da3eaac",
+      "src/planning/photo_variant_output.ts": "225ee0e64cc2bf318cca1f9dcd0804dc3da53f99c14e910e8d64e2b2a6bd1bd6",
+      "src/planning/project_brief.ts": "1a5f0a9f85b16dee0f6cca73f5ba468765e2e98f9b45f710cab81c94b7177587",
+      "src/planning/workflow_engine.ts": "5f17132724200dba8f417d4e22d631df29f5c17287a4af86e902cf2ccd638fd8",
+      "src/protocol/artifact_versions.ts": "8b2c127fe32fa97b34458d8934abe6a43cfb3ebabb396805a7bda31d60c3094c",
+      "src/protocol/contracts.ts": "3fd69dfc7533f1ce3dac4cc5f4764aa3916be7a173694eb8194a619014c23ebb",
+      "src/protocol/dependency_graph.ts": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43",
+      "src/protocol/image_sequence.ts": "e63b178aa61abf0e0bee6d407bf747acf947b880352138be70b2c26e4a3bcc56",
+      "src/protocol/jpeg_inspection.ts": "efbc9a0eddc220a9648d0af42dbac3c6bb9b0131f795d1247f01b6172203a417",
+      "src/protocol/png_inspection.ts": "9bab80e8acd3e623827786f46f8b205341146de6ec7556638b4059543c65f5fd",
+      "src/protocol/task_error.ts": "37c9215dcbf8ce754943dde2f02be4112ab06640c50dfb4dc979c67d97a930db",
+      "src/protocol/wav_inspection.ts": "6ec1968f2c4a52f43ea4129ad6334158e696f9eebef981477cff803ad642e645"
+    },
+    "nativeShaMatchesPriorFixedFilmDelivery": true,
+    "priorManifestSha256": "a9feba76db3cea4ffbe3c496f42bcc0600af64b94ef9fdd7c481abec0db128f5"
+  }
+}
