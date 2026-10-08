@@ -32,11 +32,13 @@
     },
     {
       "scenario": "领域 CLI 并行安装与复用",
-      "status": "retained-evidence-needs-audit",
+      "status": "verified-current-installed",
       "reference": "docs/evidence/install-concurrency.json",
       "referenceSha256": "f456fdeeb01bdf014cbe4dae62aaa9053ccdff346308d113a267f53956803dcd",
-      "remainingAudit": "Retained historical process concurrency evidence; current locked installers and coverage need explicit identity audit.",
-      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/install-concurrency.json"
+      "remainingAudit": "None for this named concurrency/reuse scenario; complete task4.6 remains open.",
+      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/install-concurrency.json",
+      "currentEvidence": "docs/evidence/fixed-domain-mutex-acceptance130-20261009.json",
+      "currentEvidenceSha256": "4b9ba4474bb5415d87bdbbf480a904525086ae60fb466ccfc5a7ca78644c9e95"
     },
     {
       "scenario": "AC-RT-002-ART-INSTALL-LOCK Art 首次安装有界互斥",
@@ -59,34 +61,68 @@
     {
       "scenario": "[AC-RT-002-FAILED-STAGE] 失败暂存保全分发升级",
       "status": "retained-evidence-needs-audit",
-      "reference": "docs/evidence/codex-failed-stage-first-use-20261007.json",
-      "referenceSha256": "2a7e5e3753c892abf26e28d144f57401829cb08b6a4d400ee618acb9117dfe09",
-      "remainingAudit": "Retained native response-unknown evidence; reconcile exact domain module identities with current pins.",
-      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/codex-failed-stage-first-use-20261007.json"
+      "reference": "docs/evidence/codex-art79-failed-stage-first-use-20261007.json",
+      "referenceSha256": "db597e8acb57512673a604da1e58ff90917205dc64e387588361584e604e4464",
+      "remainingAudit": "Correct Art-specific fixed historical evidence located. Still reconcile current pinned bytes, inputs and every acceptance clause before reusing it.",
+      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/codex-art79-failed-stage-first-use-20261007.json",
+      "excludedReference": {
+        "reference": "docs/evidence/codex-failed-stage-first-use-20261007.json",
+        "reason": "Previous reference proves standalone domain plugins and explicitly excludes Art bundled upgrade."
+      }
     },
     {
       "scenario": "[AC-RT-002-INNER-JSON] 完整命令响应修复的独立分发",
       "status": "retained-evidence-needs-audit",
-      "reference": "docs/evidence/codex-art82-complete-domain-component-first-use-20261007.json",
-      "referenceSha256": "926d6ad3a2541009c6a56001f99cf52921a3c7457abe05ce0c7bd84592765e6b",
-      "remainingAudit": "Retained full-command response repair evidence; reconcile current pinned module identities and covered cases.",
-      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/codex-art82-complete-domain-component-first-use-20261007.json"
+      "reference": "docs/evidence/codex-native-download-first-use-20261007.json",
+      "referenceSha256": "026f0bd4bd3ccaf2ced988d252036d96c4a714038d62991d9d130e291cdb919f",
+      "remainingAudit": "Correct Art-specific fixed historical evidence located. Still reconcile current pinned bytes, inputs and every acceptance clause before reusing it.",
+      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/codex-native-download-first-use-20261007.json",
+      "excludedReference": {
+        "reference": "docs/evidence/codex-art82-complete-domain-component-first-use-20261007.json",
+        "reason": "Previous reference is standalone full-command component acceptance and explicitly excludes complete DAG delivery; Art81 exact bundled fault/cold/mixed proof is authoritative."
+      }
     },
     {
       "scenario": "[AC-RT-002-NATIVE-DOWNLOAD] 领域原生安装子进程的临时下载恢复",
       "status": "retained-evidence-needs-audit",
       "reference": "docs/evidence/codex-native-download-first-use-20261007.json",
       "referenceSha256": "026f0bd4bd3ccaf2ced988d252036d96c4a714038d62991d9d130e291cdb919f",
-      "remainingAudit": "Retained native download recovery proof; verify relevant current child installers and failure cases.",
-      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/codex-native-download-first-use-20261007.json"
+      "remainingAudit": "All four current child bootstrap digests differ from historical download proof; audit changed behavior and scope or obtain fresh actual fixed download-recovery evidence before reuse.",
+      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/codex-native-download-first-use-20261007.json",
+      "currentInstallerComparison": {
+        "filmcraft": {
+          "retainedDownloadProofSha256": "4ccde613d5bb41ef6889ea7c0f240d7e11844c4e0bdc0b23ff4e548094c31478",
+          "currentSha256": "bd0c370eace07fe88ae63d4be08374d9b1845b68f0cd43ab0e23a444504623fe",
+          "equal": false
+        },
+        "effectcraft": {
+          "retainedDownloadProofSha256": "29d147df9357059024a5a6a8df1b5971a669343be96b1df18c16da4fc85576e6",
+          "currentSha256": "ad89838b5fd4452685c8cbcfb4394e93597624825356e134e0b809a6a0b3606b",
+          "equal": false
+        },
+        "photocraft": {
+          "retainedDownloadProofSha256": "2f6d9b94f456593870ca2eafcfafd4e02d69b04597d5d3e42e3e651d29f43133",
+          "currentSha256": "a6e3e9f7b3ab4898b88ecac46fdfa72b32338fcd51d540dde1280882b6813179",
+          "equal": false
+        },
+        "vectorcraft": {
+          "retainedDownloadProofSha256": "594af69f53e2df5accba79e0b611e46fdbe2adb1aa172cd7bc983f50e78f255e",
+          "currentSha256": "78d5bdf16bf08e9abc96b4b23e5d071da72b648698b888b85fa1b90f81cf32a9",
+          "equal": false
+        }
+      }
     },
     {
       "scenario": "[AC-RT-002-PLAN-JSON] 严格命令计划的独立分发",
       "status": "retained-evidence-needs-audit",
-      "reference": "docs/evidence/command-plan-json-fixed-first-use-20261007.json",
-      "referenceSha256": "a54ae86a2e22a35bdbbd88fcc939da53c18eea7cb9a8282fb8a0ff53a8c3364a",
-      "remainingAudit": "Retained fixed plan JSON rejection evidence; compare current child/runtime identities.",
-      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/command-plan-json-fixed-first-use-20261007.json"
+      "reference": "docs/evidence/artcraft97-strict-plan-fixed-first-use-20261007.json",
+      "referenceSha256": "f2ec2609c3b25a2fb514c887cadad5395f7ce6ea8c02308f45368a4e0e89edfc",
+      "remainingAudit": "Correct Art-specific fixed historical evidence located. Still reconcile current pinned bytes, inputs and every acceptance clause before reusing it.",
+      "referenceUrl": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920/docs/evidence/artcraft97-strict-plan-fixed-first-use-20261007.json",
+      "excludedReference": {
+        "reference": "docs/evidence/command-plan-json-fixed-first-use-20261007.json",
+        "reason": "Previous reference uses unchanged Art96; Art97 evidence binds the actual updated Art strict-plan distribution."
+      }
     },
     {
       "scenario": "[AC-RT-002-BRAND-GUARD] 品牌依赖保护的独立分发",
@@ -124,5 +160,5 @@
   "completionRule": "Resolve every clause using applicable unchanged historical evidence or actual fixed installed evidence. No scenario is closed solely by this routing audit.",
   "referenceRepository": "https://github.com/full-aigc-plugins/artcraft-plugin",
   "referenceBaseCommit": "3fba69ae04c4b82c23c8ea1bd4a49b8c1152f920",
-  "verifiedCurrentInstalledScenarioCount": 1
+  "verifiedCurrentInstalledScenarioCount": 2
 }

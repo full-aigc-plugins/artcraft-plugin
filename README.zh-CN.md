@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Art固定四领域安装并行补验通过：每领域三个等待者、24次实际调用，覆盖生产120秒拒绝与OS锁释放后的核验复用。两个互斥场景已验证，4.6仍开放。[领域互斥验收](docs/ArtCraft-Domain-Install-Mutex-Architecture.zh_CN.md)。
+
 固定安装互斥补验：十个公开入口通过Node／组合安装的真实120秒超时与持锁者退出复用，共40调用。4.6仍开放。[互斥验收](docs/ArtCraft-Install-Mutex-Acceptance-Architecture.zh_CN.md)。
 
 固定安装升级边界补验：24次公开调用覆盖12类账本边界，64个安装身份复核通过。4.6完整14场景验收仍开放。[边界架构](docs/ArtCraft-Upgrade-Boundaries-Architecture.zh_CN.md)。

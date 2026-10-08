@@ -1,0 +1,144 @@
+{
+  "schema": "artcraft-fixed-domain-mutex-acceptance/v1",
+  "result": "PASS",
+  "scenario": "领域 CLI 并行安装与复用",
+  "pluginVersion": "0.1.0-dev.130",
+  "sourceVersion": "0.1.0-dev.102",
+  "runtimeVersion": "0.1.0-dev.129-runtime.1",
+  "platform": "darwin-arm64",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 11:23:37) [Clang 14.0.6 ]",
+  "publicCalls": 24,
+  "workersPerDomain": 3,
+  "productionWaitSeconds": 120,
+  "records": [
+    {
+      "kind": "production-timeout",
+      "publicCalls": 12,
+      "minSeconds": 120.068,
+      "maxSeconds": 120.112,
+      "runtimeAndProjectsPreserved": true,
+      "domains": {
+        "filmcraft": {
+          "workers": 3,
+          "exitCodes": [
+            1
+          ],
+          "nativeVersionOutputs": []
+        },
+        "effectcraft": {
+          "workers": 3,
+          "exitCodes": [
+            1
+          ],
+          "nativeVersionOutputs": []
+        },
+        "photocraft": {
+          "workers": 3,
+          "exitCodes": [
+            1
+          ],
+          "nativeVersionOutputs": []
+        },
+        "vectorcraft": {
+          "workers": 3,
+          "exitCodes": [
+            1
+          ],
+          "nativeVersionOutputs": []
+        }
+      }
+    },
+    {
+      "kind": "os-owner-exit-parallel-reuse",
+      "publicCalls": 12,
+      "minSeconds": 2.521,
+      "maxSeconds": 2.763,
+      "runtimeAndProjectsPreserved": true,
+      "domains": {
+        "filmcraft": {
+          "workers": 3,
+          "exitCodes": [
+            0
+          ],
+          "nativeVersionOutputs": [
+            "filmcraft-cli 0.2.0-craft.4"
+          ]
+        },
+        "effectcraft": {
+          "workers": 3,
+          "exitCodes": [
+            0
+          ],
+          "nativeVersionOutputs": [
+            "effectcraft-cli 0.2.0"
+          ]
+        },
+        "photocraft": {
+          "workers": 3,
+          "exitCodes": [
+            0
+          ],
+          "nativeVersionOutputs": [
+            "photocraft-cli 0.2.0-craft.1 (dev build)"
+          ]
+        },
+        "vectorcraft": {
+          "workers": 3,
+          "exitCodes": [
+            0
+          ],
+          "nativeVersionOutputs": [
+            "vectorcraft-cli 0.2.0-craft.2"
+          ]
+        }
+      }
+    }
+  ],
+  "nativeVersions": {
+    "filmcraft": "0.2.0-craft.4",
+    "effectcraft": "0.2.0",
+    "photocraft": "0.2.0-craft.1",
+    "vectorcraft": "0.2.0-craft.2"
+  },
+  "protectedFileCount": 3995,
+  "protectedNativeProjectCount": 12,
+  "protectedFileMapSha256": "ed4f46ae8b0d4fd438ae1b0a9cbccc550c63cd56dac100cc70ee34c7b1f5d886",
+  "childBootstrapSha256": {
+    "filmcraft": "bd0c370eace07fe88ae63d4be08374d9b1845b68f0cd43ab0e23a444504623fe",
+    "effectcraft": "ad89838b5fd4452685c8cbcfb4394e93597624825356e134e0b809a6a0b3606b",
+    "photocraft": "a6e3e9f7b3ab4898b88ecac46fdfa72b32338fcd51d540dde1280882b6813179",
+    "vectorcraft": "78d5bdf16bf08e9abc96b4b23e5d071da72b648698b888b85fa1b90f81cf32a9"
+  },
+  "downloadBootstrapComparison": {
+    "filmcraft": {
+      "retainedDownloadProofSha256": "4ccde613d5bb41ef6889ea7c0f240d7e11844c4e0bdc0b23ff4e548094c31478",
+      "currentSha256": "bd0c370eace07fe88ae63d4be08374d9b1845b68f0cd43ab0e23a444504623fe",
+      "equal": false
+    },
+    "effectcraft": {
+      "retainedDownloadProofSha256": "29d147df9357059024a5a6a8df1b5971a669343be96b1df18c16da4fc85576e6",
+      "currentSha256": "ad89838b5fd4452685c8cbcfb4394e93597624825356e134e0b809a6a0b3606b",
+      "equal": false
+    },
+    "photocraft": {
+      "retainedDownloadProofSha256": "2f6d9b94f456593870ca2eafcfafd4e02d69b04597d5d3e42e3e651d29f43133",
+      "currentSha256": "a6e3e9f7b3ab4898b88ecac46fdfa72b32338fcd51d540dde1280882b6813179",
+      "equal": false
+    },
+    "vectorcraft": {
+      "retainedDownloadProofSha256": "594af69f53e2df5accba79e0b611e46fdbe2adb1aa172cd7bc983f50e78f255e",
+      "currentSha256": "78d5bdf16bf08e9abc96b4b23e5d071da72b648698b888b85fa1b90f81cf32a9",
+      "equal": false
+    }
+  },
+  "evidenceFiles": {
+    "artifacts/artcraft-domain-mutex130-20261009-case2/proof.json": "5386e05608311ece8137ac7173dca5dc8d02fad3c76d76008ffeda55dac7d59a",
+    "artifacts/artcraft-domain-mutex130-20261009-case2.log": "773e7c981501feb9575fde7b6bec7a1baf4ce0feaa6af1b732a885f12933cd51",
+    "tests/test_installed_domain_mutex.py": "731abb4cedfa0c1e393e8a78bc3a15413ddc3562abb360512136af29fa5aefc3",
+    "artifacts/artcraft-domain-mutex130-20261009/interrupted.json": "3af4440945db27e38fd8c67f1b045606d2ef0406a2fa80d17cb6db1a5c6e69b3",
+    "artifacts/artcraft-domain-mutex130-20261009/interrupted-driver.py": "b6d2bb51b1fb17a4365f8d86d375da4bc378ae23c32c2eda68b3232992d6e39f"
+  },
+  "earlierAttempt": "Stopped own QA process tree after detecting invalid test-driver receipt field assumptions. No success claimed; current driver verifies actual binarySha256 and invokes native --version.",
+  "scope": "Current Art-owned immutable child installation entry points, genuine published native CLI verified reuse, real OS holder/timeouts and parallel waiters. Warm installation only; no editing/rendering or fresh archive download claimed.",
+  "task4_6": "open; only domain concurrency scenario newly verified"
+}
