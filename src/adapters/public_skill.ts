@@ -10,7 +10,7 @@ import { parseDesignSourceInspection } from './design_source_inspection.ts';
 import { filmExportMetadata } from './film_export_metadata.ts';
 import { parseFilmSourceInspection } from './film_source_inspection.ts';
 import { imageSequenceMime, inspectImageSequence, sequenceMetadata } from '../protocol/image_sequence.ts';
-import { verifyArtifact, validateExchangeLossReport } from '../protocol/contracts.ts';
+import { verifyArtifact, verifySourceRevision, validateExchangeLossReport } from '../protocol/contracts.ts';
 import { inspectPng } from '../protocol/png_inspection.ts';
 import { inspectJpeg } from '../protocol/jpeg_inspection.ts';
 import type { AdapterFactory, ArtifactInput } from '../planning/workflow_engine.ts';
@@ -63,9 +63,10 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
   let sourceManifest:any;
   const checkSource=async()=>{
    if(!source)return;
-   await verifyArtifact(source.artifact,source.root);
    const native=source.artifact.nativeProjectRef;
    if(!native || native.location!==projects[locked.pluginId] || native.sha256!==node.expectedRevision)throw new Error('skill_source_revision_mismatch');
+   await verifySourceRevision(source.artifact,source.root,node.expectedRevision!);
+   await verifyArtifact(source.artifact,source.root);
    const evidence=source.artifact.evidenceRefs.filter((item:{location:string})=>item.location==='manifest.json');
    if(evidence.length!==1)throw new Error('skill_source_manifest_missing');
    const bytes=await readFile(join(source.root,'manifest.json'));

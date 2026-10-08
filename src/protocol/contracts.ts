@@ -126,6 +126,19 @@ function matchesMime(prefix: Buffer, type: string): boolean {
   throw new Error('media_type_unsupported: ' + type);
 }
 
+/** 核对已绑定原生源工程的实际版本；参数为素材、根目录及旧计划摘要，成功无返回值。 */
+export async function verifySourceRevision(value:unknown,root:string,expectedRevision:string):Promise<void> {
+  const artifact=validateArtifact(value),native=artifact.nativeProjectRef;
+  if(!/^[a-f0-9]{64}$/.test(expectedRevision) || !native || native.sha256!==expectedRevision)throw new Error('skill_source_revision_mismatch');
+  const target=await allowedPath(root,native.location),before=await stat(target);
+  if(!before.isFile())throw new Error('artifact_not_file');
+  const digest=createHash('sha256');
+  for await(const chunk of createReadStream(target))digest.update(chunk);
+  const after=await stat(target);
+  if(before.ino!==after.ino || before.size!==after.size || before.mtimeMs!==after.mtimeMs)throw new Error('artifact_changed_during_read');
+  if(digest.digest('hex')!==expectedRevision)throw new Error('revision_conflict');
+}
+
 /** 实际读取文件，检查摘要、字节数和支持的 MIME 文件签名。 */
 export async function verifyArtifact(value: unknown, root: string): Promise<Record<string, any>> {
   const artifact = validateArtifact(value);

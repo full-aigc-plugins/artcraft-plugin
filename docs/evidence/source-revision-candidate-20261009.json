@@ -1,0 +1,38 @@
+{
+  "schema": "artcraft-source-revision-checkpoint/v1",
+  "result": "PASS",
+  "scope": "candidate core, actual isolated EffectCraft GUI modification and frozen-plan refusal; not fixed installation or complete V1",
+  "gui": {
+    "result": "PASS",
+    "scope": "actual GUI click and save in isolated registered native source; no direct project JSON edits",
+    "beforeSha256": "bc715e59f89596b4de5fdd783d732b555c0995a1b2e62ded283124ee8f93914f",
+    "beforeActiveComp": 1,
+    "afterActiveComp": 26,
+    "nativeProjectChanged": true,
+    "commandsVerified": true,
+    "toolsVerified": true,
+    "guardClass": "guarded_spec.<locals>.execute.<locals>.StrictSession",
+    "afterSha256": "06c9abed29427a35a96cb57b68f9f6892df8024761cddcb30967f83921acdab0",
+    "listenerOwnedByPID": true,
+    "ownedProcessesStopped": true,
+    "desktopPID": 88977,
+    "nativePID": 88985
+  },
+  "runtimeTests": {
+    "total": 596,
+    "passed": 571,
+    "skipped": 25
+  },
+  "openTasks": [
+    "4.6",
+    "5.3"
+  ],
+  "evidenceSha256": {
+    "gui-proof.json": "033f13fd05240b7bac2f6715acc5d8069a897419e516e50877fda0ce90ec1512",
+    "red-cli.stdout": "c321d219f5787a39a3eac3d1a4fc162fba019d0fec04da4bd745f84b287f9e50",
+    "green-cli.stdout": "8c6f0dff3e859b95ba969ccf00e4289d1295dac0d35668892c2fe30714b2c12a",
+    "after-gui.png": "47e6275941c1aa6219908f69decc373c0365b6064fad4ed321ee4f65185e795c",
+    "reopen-comp-1.stdout": "6b654cfec5e184f42e170fceece2932ade35931b420cf4a2d04d2a996f5df3e4",
+    "reopen-comp-26.stdout": "71a9ca9d15743e45ec8eec06dc9ead26195d4e248e5ca0268937c79249feaf50"
+  }
+}

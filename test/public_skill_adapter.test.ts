@@ -133,8 +133,8 @@ test('source binding derives public source argv and refuses revision drift',asyn
   node.expectedRevision='b'.repeat(64);
   assert.equal((await made.adapter.prepare({runtimeIdentity:node.runtimeIdentity,expectedRevision:digest} as any)).actualRevision,digest);
   await writeFile(join(source,'project.ecproj'),'changed externally');
-  await assert.rejects(made.adapter.prepare({runtimeIdentity:node.runtimeIdentity,expectedRevision:digest} as any),/artifact_digest_mismatch|artifact_reference_mismatch/);
-  await assert.rejects(made.adapter.verify({runtimeIdentity:node.runtimeIdentity,expectedRevision:digest} as any),/artifact_digest_mismatch|artifact_reference_mismatch/);
+  await assert.rejects(made.adapter.prepare({runtimeIdentity:node.runtimeIdentity,expectedRevision:digest} as any),/^Error: revision_conflict$/);
+  await assert.rejects(made.adapter.verify({runtimeIdentity:node.runtimeIdentity,expectedRevision:digest} as any),/^Error: revision_conflict$/);
  }finally{await rm(root,{recursive:true});}
 });
 

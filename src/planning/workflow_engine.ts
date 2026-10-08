@@ -5,7 +5,7 @@ import { verifyFilmDuration } from './film_duration.ts';
 import { assessBrief, nodeBriefConstraints, pendingNativeAssessment } from './project_brief.ts';
 import type { SourceInspection } from './project_brief.ts';
 import { orderGraph } from '../protocol/dependency_graph.ts';
-import { planHash, validateTask, verifyArtifact } from '../protocol/contracts.ts';
+import { planHash, validateTask, verifyArtifact, verifySourceRevision } from '../protocol/contracts.ts';
 import { TaskLedger } from '../harness/task_ledger.ts';
 import type { TaskReceipt } from '../harness/task_ledger.ts';
 import { taskErrorDetail } from '../protocol/task_error.ts';
@@ -59,6 +59,14 @@ export class WorkflowEngine {
     return order;
   }
 
+  /** 仅核对计划明确绑定的原生源；普通素材仍使用素材合同错误。 */
+  private async verifySourceInputs(node:WorkflowNode,inputs:ArtifactInput[]):Promise<void> {
+    const assetId=node.payload.sourceProject?.assetId,revision=node.expectedRevision;
+    if(typeof assetId!=='string' || typeof revision!=='string' || !/^[a-f0-9]{64}$/.test(revision))return;
+    const matches=inputs.filter(input=>input.artifact.assetId===assetId);
+    if(matches.length===1 && matches[0].artifact.nativeProjectRef?.sha256===revision)await verifySourceRevision(matches[0].artifact,matches[0].root,revision);
+  }
+
   private async verifyResult(result:NodeResult,duration?:number,brief?:Record<string,any>,node?:WorkflowNode):Promise<void> {
     if(!result.taskId || !result.root || !result.outputs?.length)throw new Error('artifact_missing');
     const state=this.ledger.status(result.taskId).state;
@@ -102,6 +110,18 @@ export class WorkflowEngine {
     };
     // 所有已有就绪产物先核对，禁止在损坏缓存旁继续编译下游。
     try{
+      // 源版本检查先于缓存的通用摘要检查，准确报告GUI修改而不放宽其他素材校验。
+      for(const node of plan.nodes){
+        const sources=[...(node.externalInputs ?? [])];
+        for(const parent of node.dependsOn){
+          const prior=this.ledger.workflowNode(key,parent) as NodeResult;
+          const requested=node.inputBindings?.filter(binding=>binding.from===parent);
+          if(prior?.root && ['review_ready','reused'].includes(prior.status))for(const artifact of prior.outputs ?? []){
+            if(!requested || requested.some(binding=>binding.assetId===artifact.assetId))sources.push({root:prior.root,artifact});
+          }
+        }
+        await this.verifySourceInputs(node,sources);
+      }
       for(const id of order){
         const existing=this.ledger.workflowNode(key,id) as NodeResult;
         if(['review_ready','reused'].includes(existing.status))await this.verifyResult(existing,duration(id),brief(id),byId.get(id)!);
@@ -118,13 +138,15 @@ export class WorkflowEngine {
       try{
         let inputs:ArtifactInput[]=[];
         for(const parent of node.dependsOn){
-          const result=results[parent];await this.verifyResult(result,duration(parent),brief(parent),byId.get(parent)!);
+          const result=results[parent];
           const requested=node.inputBindings?.filter(binding=>binding.from===parent);
           const selected=requested ? result.outputs!.filter(artifact=>requested.some(binding=>binding.assetId===artifact.assetId)) : result.outputs!;
           if(requested && selected.length!==requested.length)throw new Error('dependency_asset_missing');
           inputs.push(...selected.map(artifact=>({root:result.root!,artifact})));
         }
         inputs.push(...(node.externalInputs ?? []));
+        await this.verifySourceInputs(node,inputs);
+        for(const parent of node.dependsOn)await this.verifyResult(results[parent],duration(parent),brief(parent),byId.get(parent)!);
         for(const input of inputs)await verifyArtifact(input.artifact,input.root);
         const refs=inputs.map(input=>({assetId:input.artifact.assetId,version:input.artifact.version,sha256:input.artifact.sha256}));
         const content={payload:node.payload,inputRefs:refs,runtimeIdentity:node.runtimeIdentity,projectKey:node.projectKey,expectedRevision:node.expectedRevision};
