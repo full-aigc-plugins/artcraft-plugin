@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+固定135命令检查点：十技能独立空缓存首用、40项真实原生命令探测、210项模式目标、真实Effect bridge与36项保存后故障通过。完整任务4.6继续开放。[证据及范围](docs/ArtCraft-Fixed-Command-Checkpoint-Architecture.zh_CN.md)。
+
 固定135版本绑定与单写验收完成任务5.3：64宿主身份、四领域原生创建／修订、同源串行、冻结元数据与授权复用，以及真实GUI保存后的固定安装旧计划冲突均通过。仍有11项编号任务与完整V1开放。[验收](docs/ArtCraft-Version-Single-Writer-Acceptance-Architecture.zh_CN.md)。
 
 开发插件135固定独立技能源107与运行时134-runtime.1，包含三模式命令校验和源版本冲突修复。运行时571项通过、25项条件跳过；真实隔离EffectCraft界面及固定运行时重复拒绝已核验。新宿主／空缓存分发验收、完整V1继续开放。[架构](docs/ArtCraft-Source-Revision-Architecture.zh_CN.md)。

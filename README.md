@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Fixed135 command checkpoint:ten independent cold starts,40 real native command probes,210 mode targets, actual Effect bridge and36 post-save fault cases pass. Full task4.6 remains open. [Evidence and scope](docs/ArtCraft-Fixed-Command-Checkpoint-Architecture.md).
+
 Fixed135 version binding and single-writer acceptance completes task5.3:64 host identities, four-domain native creation/revision, same-source serialization, frozen metadata and authorization reuse, plus actual GUI save followed by repeated installed revision_conflict. Eleven numbered tasks and complete V1 remain open. [Acceptance](docs/ArtCraft-Version-Single-Writer-Acceptance-Architecture.md).
 
 Development plugin135 pins independent source107 and runtime134-runtime.1: all-mode command guards and canonical source revision conflicts.571 runtime tests pass (25 conditional skips). Actual isolated EffectCraft GUI evidence and fixed runtime repeated refusal are available; new host/cold distribution acceptance and complete V1 remain open. [Architecture](docs/ArtCraft-Source-Revision-Architecture.md).
