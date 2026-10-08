@@ -116,7 +116,7 @@ def launch_command(root,args,frozen,runtime_home,inputs):
    if args.connect is not None:command+=['--connect',args.connect]
    if args.control_token_file is not None:command+=['--control-token-file',str(args.control_token_file)]
  elif args.domain=='effectcraft':command+=['--mode','bridge' if args.mode=='desktop' else args.mode]
- if args.action=='run' and args.mode=='headless':
+ if args.action=='run':
   command=command[:3]+[str(ROOT/'scripts/native_contract.py'),str(root/'scripts/mcp_session.py')]+command[3:]
  return command
 

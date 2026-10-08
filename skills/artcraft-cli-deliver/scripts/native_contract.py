@@ -10,6 +10,16 @@ module_path, script, *arguments = sys.argv[1:]
 expected = Path(module_path).resolve()
 original_spec = importlib.util.spec_from_file_location
 
+# 模式来自受信启动参数；桌面入口沿用其自有会话和停止管理。
+mode = 'desktop' if Path(script).name == 'desktop.py' else 'headless'
+if '--mode' in arguments:
+    position = arguments.index('--mode')
+    if mode == 'desktop' or arguments.count('--mode') != 1 or position + 1 >= len(arguments):
+        raise RuntimeError('capability_missing: native_tool_schema invalid mode')
+    mode = arguments[position + 1]
+if mode not in ('headless', 'bridge', 'desktop'):
+    raise RuntimeError('capability_missing: native_tool_schema invalid mode')
+
 def constant(value):
     raise ValueError('nonfinite')
 
@@ -65,6 +75,24 @@ try:
     locked_tools = tool_map(snapshot_value)
     if not locked_tools:
         raise ValueError('empty_snapshot')
+    if mode in ('bridge', 'desktop') and snapshot_value.get('pluginId') == 'effectcraft':
+        bridge = json.loads((snapshot.parent / 'bridge-tools.json').read_text(encoding='utf-8'),
+                            parse_constant=constant, parse_float=finite_float, object_pairs_hook=pairs)
+        desktop = json.loads((expected.parent / 'desktop.lock.json').read_text(encoding='utf-8'),
+                             parse_constant=constant, parse_float=finite_float, object_pairs_hook=pairs)
+        if (not isinstance(bridge, dict) or not isinstance(desktop, dict)
+                or bridge.get('schema') != 'craft-bridge-tools/v1' or bridge.get('pluginId') != 'effectcraft'
+                or bridge.get('mode') != 'bridge' or bridge.get('runtimeSha256') != snapshot_value.get('runtimeSha256')
+                or not isinstance(bridge.get('runtimeSha256'), str) or len(bridge['runtimeSha256']) != 64
+                or any(c not in '0123456789abcdef' for c in bridge['runtimeSha256'])
+                or not isinstance(bridge.get('desktopBinarySha256'), str) or len(bridge['desktopBinarySha256']) != 64
+                or any(c not in '0123456789abcdef' for c in bridge['desktopBinarySha256'])
+                or bridge['desktopBinarySha256'] != desktop.get('binarySha256')):
+            raise ValueError('bridge_snapshot_identity')
+        additional = tool_map(bridge)
+        if not additional or set(additional) & set(locked_tools):
+            raise ValueError('bridge_snapshot_tool_collision')
+        locked_tools.update(additional)
 except (OSError, ValueError, TypeError, RecursionError):
     raise RuntimeError('capability_missing: native_tool_schema snapshot invalid') from None
 

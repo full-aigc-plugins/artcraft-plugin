@@ -98,4 +98,4 @@ Photo原生调整层、选区蒙版与可信源返工见 [局部调整指南](re
 
 遇到 `runtime_upgrade_busy` 时，保留旧运行时、原工程和账本，不删除租约或强行修改状态。先用旧版本完成或可信停止任务，再按新版本迁移；只读 `status` 的旧预算标记表示历史未跟踪。详见本技能的[升级指南](references/runtime-upgrade.md)。
 
-Headless原生命令执行的校验和模式边界见 [命令合同边界](references/command-contract-boundary.md)。
+原生命令执行的校验和模式边界见 [命令合同边界](references/command-contract-boundary.md)。
