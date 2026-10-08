@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-Current installed strict-plan gateways:240 duplicate-key refusals pass without runtime/output creation; ten installed/copy digests preserved. Full PLAN-JSON scenario remains open. [Acceptance](docs/ArtCraft-Installed-Strict-Plan-Architecture.md).
+Current strict-plan distribution clauses verified: fresh online native mixed acceptance3/3 PASS (138.920s),22 logged calls,2646-command identity and240 pre-install refusals. Seven of14 runtime scenarios verified;task4.6 remains open. [Acceptance](docs/ArtCraft-Installed-Strict-Plan-Architecture.md).
+
+Earlier precheck-only acceptance:240 duplicate-key refusals pass without runtime/output creation; ten installed/copy digests preserved. The full scenario was pending at that point; subsequent clause acceptance is above. [Acceptance](docs/ArtCraft-Installed-Strict-Plan-Architecture.md).
 
 Fixed ledger migration/public upgrade clauses verified:15 readonly write refusals, public legacy status/cancel and unknown schema0/77 checks, with unchanged fixed native/snapshot identities. Six of14 runtime scenarios verified;task4.6 remains open. [Ledger acceptance](docs/ArtCraft-Ledger-Upgrade-Acceptance-Architecture.md).
 
