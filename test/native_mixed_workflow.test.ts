@@ -51,6 +51,10 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
    node('intro','effectcraft',['logo'],payload({document:{name:'NOVA intro',width:320,height:180,frameRate:12,duration:1},operations:[operation('asset.import',{asset:'logo'},'logo'),operation('layer.addItem',{item:ref('logo.item'),duration:1},'logoLayer'),operation('prop.addKey',{layer:ref('logoLayer.layer'),path:'transform/opacity',time:0,value:0}),operation('prop.addKey',{layer:ref('logoLayer.layer'),path:'transform/opacity',time:.5,value:100})],frames:[0,.5],exports:[{format:'mp4'}]},[{name:'logo',assetId:'logo-png'}],'intro-video','intro.mp4','video/mp4')),
    {...node('film','filmcraft',['intro'],payload({document:{name:'NOVA campaign',width:320,height:180,frameRate:{num:12,den:1}},operations:[operation('asset.import',{asset:'intro'},'intro'),operation('asset.import',{asset:'voice'},'voice'),operation('timeline.place',{item:ref('intro.item'),track:'V1',time:'0',sourceIn:'0',duration:tick,insert:false},'introClip'),operation('timeline.place',{item:ref('voice.item'),track:'A1',audioTrack:'A1',time:'0',sourceIn:'0',duration:tick,insert:false}),operation('captions.newTrack',{format:'Subtitle',name:'Brand subtitle',language:'en'}),operation('captions.setStyle',{track:'C1',font:'Arial',size:18,color:'#ffffff',background:true}),operation('caption.add',{track:'C1',text:'NOVA essentials',startTicks:'0',durationTicks:tick})],frames:['127008000000'],export:{audioRequired:true}},[{name:'intro',assetId:'intro-video'},{name:'voice',assetId:'voice'}],'film-video','film.mp4','video/mp4')),externalInputs:[voiceInput]}
   ]};
+  plan.nodes[1].payload.plan.exports.push({format:'jpg'});
+  plan.nodes[1].payload.outputs.push({assetId:'poster-jpeg',location:'design.jpg',mediaType:'image/jpeg'});
+  plan.nodes[2].payload.outputs.push({assetId:'intro-preview',location:'frame-0000.png',mediaType:'image/png'});
+  (plan.nodes[3] as any).inputBindings=[{from:'intro',assetId:'intro-video'}];
   // 实际领域计划携带需求元数据；不把 Brief 伪装成媒体输入。
   (plan as any).projectBrief={schema:'craft-brief/v1',workflowId:plan.workflowId,revision:'brief-v1',ownerId:plan.ownerId,authorizationRef:plan.authorizationRef,budget:structuredClone(plan.budget),brand:{name:'NOVA',colors:[],fonts:[],appliesTo:['logo','poster','intro','film'],referenceAssets:[]},subjects:[],dataPolicy:{allowUpload:false},ambiguities:[],deliverables:plan.nodes.map(node=>({id:node.id,nativeFormat:({vectorcraft:'.vectorcraft',photocraft:'.pcraft',effectcraft:'.ecproj',filmcraft:'.fcproj'} as any)[node.runtimeIdentity.pluginId],width:node.payload.plan.document.width,height:node.payload.plan.document.height,dependsOn:node.dependsOn,execution:'local',...(['intro','film'].includes(node.id)?{frameRate:{num:12,den:1},durationSeconds:1}:{})}))};
   const engine=new WorkflowEngine(ledger,new LocalRunner(ledger,async request=>assert.equal(request.authorizationRef,'mixed-test-scope')),factories);
@@ -58,6 +62,18 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
   assert.equal(first.state,'review_ready',JSON.stringify(first)+' evidence='+root);
   for(const id of ['logo','poster','intro','film'])assert.equal(first.nodes[id].status,'review_ready');
   const decode=async(file:string)=>JSON.parse((await exec('ffprobe',['-v','error','-count_frames','-show_streams','-of','json',file])).stdout);
+  const checkImageMetadata=async(result:any)=>{
+   for(const id of ['logo','poster','intro'])for(const output of result.nodes[id].outputs){
+    if(!['image/png','image/jpeg'].includes(output.mediaType))continue;
+    const stream=(await decode(join(result.nodes[id].root,output.location))).streams[0];
+    assert.deepEqual([output.technicalMetadata.width,output.technicalMetadata.height],[stream.width,stream.height]);
+    assert.equal(output.technicalMetadata.bitDepth,8);
+    if(output.mediaType==='image/png')assert.ok(['rgb24','rgba'].includes(stream.pix_fmt),id+' '+stream.pix_fmt);
+    assert.equal(output.technicalMetadata.alpha,output.mediaType==='image/png' && stream.pix_fmt==='rgba',id+' alpha');
+    assert.equal(output.technicalMetadata.colorSpace,undefined);
+   }
+  };
+  await checkImageMetadata(first);
   const streams=(await decode(join(first.nodes.film.root!,'film.mp4'))).streams;
   const video=streams.find((item:any)=>item.codec_type==='video'),audio=streams.find((item:any)=>item.codec_type==='audio');
   assert.deepEqual([video.width,video.height,video.avg_frame_rate,video.nb_read_frames],[320,180,'12/1','12']);assert.ok(audio);
@@ -73,6 +89,7 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
   for(const item of changed.nodes[0].payload.plan.operations)if(item.params?.color==='#ef5b36')item.params.color='#2366e8';
   const second=await engine.run(changed,2);await writeFile(join(root,'v2-result.json'),JSON.stringify(second,null,2));
   assert.equal(second.state,'review_ready',JSON.stringify(second)+' evidence='+root);
+  await checkImageMetadata(second);
   for(const id of ['logo','poster','intro','film']){
    assert.notEqual(second.nodes[id].taskId,first.nodes[id].taskId);
    assert.notEqual(second.nodes[id].outputs![0].sha256,first.nodes[id].outputs![0].sha256);
@@ -85,11 +102,13 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
   // 真实旧工程修订通过公开 --source 交接；四个旧包均为登记输入。
   const sourceNode=(id:string,plugin:string,domainPlan:Record<string,any>,dependsOn:string[]=[],assetBindings:{name:string;assetId:string}[]=[])=>{
    const old=second.nodes[id];const output=old.outputs![0];
-   return {...node(id,plugin,dependsOn,{...payload(domainPlan,assetBindings,output.assetId,output.location,output.mediaType),sourceProject:{assetId:output.assetId}}),expectedRevision:output.nativeProjectRef.sha256,externalInputs:[{root:old.root!,artifact:output}]};
+   const result={...node(id,plugin,dependsOn,{...payload(domainPlan,assetBindings,output.assetId,output.location,output.mediaType),outputs:old.outputs!.map((artifact:any)=>({assetId:artifact.assetId,location:artifact.location,mediaType:artifact.mediaType})),sourceProject:{assetId:output.assetId}}),expectedRevision:output.nativeProjectRef.sha256,externalInputs:[{root:old.root!,artifact:output}]};
+   if(id==='film')(result as any).inputBindings=[{from:'intro',assetId:'intro-video'}];
+   return result;
   };
   const revisionPlan={...plan,workflowId:'native-source-revisions',revision:'v1',nodes:[
    sourceNode('logo','vectorcraft',{operations:[operation('paint.setFill',{ids:[ref('logo.ids.0'),ref('wordmark.id')],color:'#175cce'})],exports:vectorPlan.exports}),
-   sourceNode('poster','photocraft',{minimumLayers:3,operations:[operation('type.edit',{layer:ref('title.layer'),text:'NOVA PLUS'})],exports:[{format:'png'},{format:'psd'}]}),
+   sourceNode('poster','photocraft',{minimumLayers:3,operations:[operation('type.edit',{layer:ref('title.layer'),text:'NOVA PLUS'})],exports:[{format:'png'},{format:'psd'},{format:'jpg'}]}),
    sourceNode('intro','effectcraft',{operations:[operation('asset.replace',{asset:'logo',replacement:'replacement'})],frames:[0,.5],exports:[{format:'mp4'}]},['logo'],[{name:'replacement',assetId:'logo-png'}]),
    sourceNode('film','filmcraft',{operations:[operation('asset.import',{asset:'replacement'},'replacement'),operation('clip.replaceFromBin',{clips:ref('introClip.clips'),item:ref('replacement.item')})],frames:['127008000000'],export:{audioRequired:true}},['intro'],[{name:'replacement',assetId:'intro-video'}])
   ]};
@@ -145,6 +164,7 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
   assert.deepEqual(JSON.parse(await readFile(join(movedBrief,'workflow-plan-portable.json'),'utf8')).projectBrief,(plan as any).projectBrief);
   const checked=JSON.parse((await exec(runtimeNode,[cli,'verify-package','--package',moved,'--sha',packed.sha256])).stdout);
   assert.equal(checked.children.length,4);
+  await checkImageMetadata({nodes:Object.fromEntries(checked.children.map((child:any)=>[child.nodeId,child]))});
   const reopen={...plan,workflowId:'moved-package-reopen',revision:'v1',nodes:checked.children.map((child:any)=>({
    id:child.nodeId,dependsOn:[],projectKey:'moved-'+child.nodeId,runtimeIdentity:child.runtimeIdentity,expectedRevision:child.outputs[0].nativeProjectRef.sha256,
    externalInputs:[{root:child.root,artifact:child.outputs[0]}],
@@ -170,6 +190,7 @@ test('four native public skills hand off Logo, poster, intro and narrated film; 
   }
   await writeFile(join(root,'design-source-inspection-receipt.json'),JSON.stringify(designInspections,null,2));
   const reopened=await engine.run(reopen,2);assert.equal(reopened.state,'review_ready',JSON.stringify(reopened));
+  await checkImageMetadata(reopened);
   const movedFilm=JSON.parse(await readFile(join(reopened.nodes.film.root!,'manifest.json'),'utf8'));
   assert.equal(movedFilm.assets.voice.sha256,voiceHash);
   assert.ok((await decode(join(reopened.nodes.film.root!,'film.mp4'))).streams.some((stream:any)=>stream.codec_type==='audio'));

@@ -10,6 +10,8 @@ import { filmExportMetadata } from './film_export_metadata.ts';
 import { parseFilmSourceInspection } from './film_source_inspection.ts';
 import { imageSequenceMime, inspectImageSequence, sequenceMetadata } from '../protocol/image_sequence.ts';
 import { verifyArtifact, validateExchangeLossReport } from '../protocol/contracts.ts';
+import { inspectPng } from '../protocol/png_inspection.ts';
+import { inspectJpeg } from '../protocol/jpeg_inspection.ts';
 import type { AdapterFactory, ArtifactInput } from '../planning/workflow_engine.ts';
 
 export interface PublicSkillConfig {
@@ -215,6 +217,9 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
      const output=await artifact(item.location,manifest.files[item.location],item.mediaType,item.assetId);
      let technicalMetadata={};
      const technicalEvidence:ReturnType<typeof ref>[]=[];
+     // 图片属性来自摘要绑定的编码内容；不从扩展名、工程尺寸或未知 ICC 推断。
+     if(item.mediaType==='image/png')technicalMetadata=await inspectPng(join(delivery,item.location),output.bytes,false,output.sha256);
+     if(item.mediaType==='image/jpeg')technicalMetadata=await inspectJpeg(join(delivery,item.location),output.bytes,output.sha256);
      if(locked.pluginId==='filmcraft' && item.mediaType==='video/mp4'){
       if(!manifest.files['native.json'] || !manifest.files['export-probe.json'])throw new Error('film_export_metadata_missing');
       technicalMetadata=filmExportMetadata(await readFile(join(delivery,'native.json'),'utf8'),await readFile(join(delivery,'export-probe.json'),'utf8'),item.location,output.bytes);

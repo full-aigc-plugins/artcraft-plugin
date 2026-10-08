@@ -57,6 +57,13 @@ ArtCraft SHALL 维护 craft-artifact/v1 的唯一规范事实源；清单包含 
 - **WHEN** 完整交付包移动到另一允许目录
 - **THEN** 消费者根据相对引用及摘要重新关联；不依赖生产机器绝对路径
 
+#### Scenario: AC-CP-002-IMAGE 派生图片属性交接
+
+- **WHEN** 领域公开工作流交付 PNG 或 JPEG 派生图片
+- **THEN** ArtCraft SHALL 从与交付摘要一致的实际编码内容填入 width、height、bitDepth、alpha，不以空 technicalMetadata 交接适用的图片属性
+- **AND** 原生工程、交换损失报告与素材来源引用保持绑定，图片内容损坏或解析时摘要变化时拒绝发布；未知颜色空间显式省略
+- **AND** 属性描述编码栅格；Alpha 表示不证明存在可见透明像素，JPEG 标记检查不证明熵数据可解码、EXIF 方向已应用或 ICC 保真
+
 #### Scenario: AC-CP-002-TIME 精确时间交接
 
 - **WHEN** FilmCraft 的大整数 ticks 经过 JSON 与下游适配器交换

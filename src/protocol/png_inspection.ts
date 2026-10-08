@@ -12,11 +12,12 @@ function crc32(bytes:Buffer):number{
  return (crc^0xffffffff)>>>0;
 }
 /** 支持标准颜色类型、位深和 Adam7；明确拒绝 APNG 与超限输入。 */
-export async function inspectPng(path:string,size:number,rgbaPixels=false):Promise<{width:number;height:number;bitDepth:number;alpha:boolean;rgbaSha256?:string;alphaExtrema?:number[];encodedSha256?:string}>{
+export async function inspectPng(path:string,size:number,rgbaPixels=false,expectedSha256?:string):Promise<{width:number;height:number;bitDepth:number;alpha:boolean;rgbaSha256?:string;alphaExtrema?:number[];encodedSha256?:string}>{
  if(size>maxFile)throw new Error('png_artifact_too_large');
  const handle=await open(path,'r');const buffer=Buffer.alloc(size+1);let count=0;
  try{while(count<buffer.length){const read=await handle.read(buffer,count,buffer.length-count,count);if(!read.bytesRead)break;count+=read.bytesRead;}}finally{await handle.close();}
  const data=buffer.subarray(0,count);
+ if(expectedSha256!==undefined && createHash('sha256').update(data).digest('hex')!==expectedSha256)throw new Error('artifact_changed_during_read');
  if(data.length!==size || data.length>maxFile || !data.subarray(0,8).equals(signature))invalid();
  let offset=8,width=0,height=0,depth=0,color=0,interlace=0,palette=0,transparency=false,ended=false,closedData=false;
  const compressed:Buffer[]=[];

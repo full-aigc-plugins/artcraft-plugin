@@ -493,3 +493,5 @@ Vector33 捆绑升级候选已通过两入口真实混合返工、九变体及�
 素材版本不可变保护已固定至runtime123／源95／插件123：十项Art独立冷启动、64项安装CLI及原生冲突拒绝／合法新版本／四领域返工通过。任务2.2完成，2.3与完整V1保持开放。 [Evidence](docs/evidence/craft-art123-artifact-version-fixed-first-use-20261008.json).
 
 Film精确时间交接固定至runtime124／源96／插件124：原生ticks字符串、时间基准、有理帧率及摘要绑定的探测记录进入公共素材；安装后的创建、返工、复用与移动包通过。完整素材协议2.3仍开放。[架构](docs/ArtCraft-Film-Timing-Architecture.zh_CN.md)。
+
+派生 PNG/JPEG 元数据映射已形成工作树候选，固定发行与安装复验仍待完成。见[架构与证据](docs/ArtCraft-Image-Metadata-Architecture.zh_CN.md)。完整素材协议任务2.3保持开放。

@@ -495,3 +495,5 @@ Implementation tasks **5.1–5.2** have current fixed-runtime, installed-skill a
 Immutable artifact version protection is fixed in runtime123 / source95 / plugin123: ten independent Art cold starts, 64 installed CLI probes, native conflict refusal/new-version execution and four-domain revision pass. Task 2.2 is verified; 2.3 and full V1 remain open. [Evidence](docs/evidence/craft-art123-artifact-version-fixed-first-use-20261008.json).
 
 Exact Film timing is fixed in runtime124/source96/plugin124: public artifacts carry decimal native ticks, time base, rational frame rate and digest-bound probe evidence. Installed create/revise/reuse/moved-package checks pass. Complete artifact protocol task 2.3 remains open. [Architecture](docs/ArtCraft-Film-Timing-Architecture.md).
+
+Derived PNG/JPEG metadata mapping is a working-tree candidate, with fixed distribution and installed verification still pending. See [architecture and evidence](docs/ArtCraft-Image-Metadata-Architecture.md). Full protocol task2.3 remains open.

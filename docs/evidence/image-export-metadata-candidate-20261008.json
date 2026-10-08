@@ -1,0 +1,319 @@
+{
+  "schema": "craft-image-export-metadata-candidate/v1",
+  "result": "PASS-CANDIDATE",
+  "goalComplete": false,
+  "task2_3Complete": false,
+  "distribution": "new runtime/source/plugin releases and installed verification pending; plugin124 remains the installed baseline",
+  "red": {
+    "failed": 1,
+    "passed": 1,
+    "reason": "Public PNG metadata empty; initial loss-report extension fixture error excluded"
+  },
+  "green": {
+    "targetTests": 3,
+    "runtimeTotal": 297,
+    "runtimePassed": 277,
+    "runtimeSkipped": 20,
+    "nativeMixedPassed": 1
+  },
+  "native": {
+    "firstState": "review_ready",
+    "revisedState": "review_ready",
+    "packageState": "review_ready",
+    "reopenedState": "review_ready",
+    "packagedImages": [
+      {
+        "node": "logo",
+        "artifact": {
+          "protocolVersion": "craft-artifact/v1",
+          "assetId": "logo-png",
+          "version": "970ef431d499e4038b74524c64c52985250e0cd44b071eddd08ff59b8839c4c8",
+          "sha256": "970ef431d499e4038b74524c64c52985250e0cd44b071eddd08ff59b8839c4c8",
+          "bytes": 4351,
+          "mediaType": "image/png",
+          "producerTaskId": "wf-570c249a29b1b703a0a87bbc8042e9d7a43871d80e9f267f",
+          "sourceRefs": [
+            {
+              "assetId": "logo-png",
+              "version": "acb309d45f5fcb959ae8a08a656164c379ae3cd243b737771873fbbdee83a8a0",
+              "sha256": "acb309d45f5fcb959ae8a08a656164c379ae3cd243b737771873fbbdee83a8a0"
+            }
+          ],
+          "nativeProjectRef": {
+            "assetId": "wf-570c249a29b1b703a0a87bbc8042e9d7a43871d80e9f267f-bd874764e1b6eff2",
+            "version": "6e1f6658248e1b2f257383ef38361294eb2a8e4bc3d77795a521228c8ed75a78",
+            "sha256": "6e1f6658248e1b2f257383ef38361294eb2a8e4bc3d77795a521228c8ed75a78",
+            "location": "project.vectorcraft"
+          },
+          "renditions": [],
+          "dependencies": [],
+          "technicalMetadata": {
+            "width": 256,
+            "height": 256,
+            "bitDepth": 8,
+            "alpha": true
+          },
+          "lossReportRef": {
+            "assetId": "wf-570c249a29b1b703a0a87bbc8042e9d7a43871d80e9f267f-832b6e90dd1c3c59",
+            "version": "343044eeec7aa6f12120a5bf15cafbe0f6a5d5c62cf9763567b61f911de6aec9",
+            "sha256": "343044eeec7aa6f12120a5bf15cafbe0f6a5d5c62cf9763567b61f911de6aec9",
+            "location": "exchange-loss.json"
+          },
+          "evidenceRefs": [
+            {
+              "assetId": "wf-570c249a29b1b703a0a87bbc8042e9d7a43871d80e9f267f-ffa5b716b5a57837",
+              "version": "4ea1cec337e3d590f22fec1ec33189b0d39a32531bf10ca2c367e40e026faf88",
+              "sha256": "4ea1cec337e3d590f22fec1ec33189b0d39a32531bf10ca2c367e40e026faf88",
+              "location": "manifest.json"
+            }
+          ],
+          "location": "artboard-1.png"
+        }
+      },
+      {
+        "node": "poster",
+        "artifact": {
+          "protocolVersion": "craft-artifact/v1",
+          "assetId": "poster-png",
+          "version": "311df52f2100ef1b1590e80c800e325b1fd3780f4a068b74518f55ffb95ebe29",
+          "sha256": "311df52f2100ef1b1590e80c800e325b1fd3780f4a068b74518f55ffb95ebe29",
+          "bytes": 8316,
+          "mediaType": "image/png",
+          "producerTaskId": "wf-b08411d4f58a9c8b2fa03b48a1e41c27b6f5eb116f243717",
+          "sourceRefs": [
+            {
+              "assetId": "poster-png",
+              "version": "14690b8ef5b39b95e246d049d6e1c4fbdc793cbe2139aeadc14773850d78275b",
+              "sha256": "14690b8ef5b39b95e246d049d6e1c4fbdc793cbe2139aeadc14773850d78275b"
+            }
+          ],
+          "nativeProjectRef": {
+            "assetId": "wf-b08411d4f58a9c8b2fa03b48a1e41c27b6f5eb116f243717-db69c59fbc5bf076",
+            "version": "861aff4cbc1764dd0880f4062117d4a2d89bc7e68ae5e3e87db9d628a6831052",
+            "sha256": "861aff4cbc1764dd0880f4062117d4a2d89bc7e68ae5e3e87db9d628a6831052",
+            "location": "project.pcraft"
+          },
+          "renditions": [],
+          "dependencies": [],
+          "technicalMetadata": {
+            "width": 320,
+            "height": 400,
+            "bitDepth": 8,
+            "alpha": false
+          },
+          "lossReportRef": {
+            "assetId": "wf-b08411d4f58a9c8b2fa03b48a1e41c27b6f5eb116f243717-832b6e90dd1c3c59",
+            "version": "3810510a6925c7501087808cea07cc1024b0d5b7d054214cc5985bf63b2abbfe",
+            "sha256": "3810510a6925c7501087808cea07cc1024b0d5b7d054214cc5985bf63b2abbfe",
+            "location": "exchange-loss.json"
+          },
+          "evidenceRefs": [
+            {
+              "assetId": "wf-b08411d4f58a9c8b2fa03b48a1e41c27b6f5eb116f243717-ffa5b716b5a57837",
+              "version": "29b1fcde2b60b75d4204f8d9203021877238db1e68dc76c3629b89e3612d7de4",
+              "sha256": "29b1fcde2b60b75d4204f8d9203021877238db1e68dc76c3629b89e3612d7de4",
+              "location": "manifest.json"
+            },
+            {
+              "assetId": "wf-b08411d4f58a9c8b2fa03b48a1e41c27b6f5eb116f243717-b531703de170eb19",
+              "version": "acb309d45f5fcb959ae8a08a656164c379ae3cd243b737771873fbbdee83a8a0",
+              "sha256": "acb309d45f5fcb959ae8a08a656164c379ae3cd243b737771873fbbdee83a8a0",
+              "location": "asset-logo.png"
+            }
+          ],
+          "location": "design.png"
+        }
+      },
+      {
+        "node": "poster",
+        "artifact": {
+          "protocolVersion": "craft-artifact/v1",
+          "assetId": "poster-jpeg",
+          "version": "64d86ab4860c4147602b9df91370c8e3f745abf644306968714e236510b76393",
+          "sha256": "64d86ab4860c4147602b9df91370c8e3f745abf644306968714e236510b76393",
+          "bytes": 9292,
+          "mediaType": "image/jpeg",
+          "producerTaskId": "wf-b08411d4f58a9c8b2fa03b48a1e41c27b6f5eb116f243717",
+          "sourceRefs": [
+            {
+              "assetId": "poster-png",
+              "version": "14690b8ef5b39b95e246d049d6e1c4fbdc793cbe2139aeadc14773850d78275b",
+              "sha256": "14690b8ef5b39b95e246d049d6e1c4fbdc793cbe2139aeadc14773850d78275b"
+            }
+          ],
+          "nativeProjectRef": {
+            "assetId": "wf-b08411d4f58a9c8b2fa03b48a1e41c27b6f5eb116f243717-db69c59fbc5bf076",
+            "version": "861aff4cbc1764dd0880f4062117d4a2d89bc7e68ae5e3e87db9d628a6831052",
+            "sha256": "861aff4cbc1764dd0880f4062117d4a2d89bc7e68ae5e3e87db9d628a6831052",
+            "location": "project.pcraft"
+          },
+          "renditions": [],
+          "dependencies": [],
+          "technicalMetadata": {
+            "width": 320,
+            "height": 400,
+            "bitDepth": 8,
+            "alpha": false
+          },
+          "lossReportRef": {
+            "assetId": "wf-b08411d4f58a9c8b2fa03b48a1e41c27b6f5eb116f243717-832b6e90dd1c3c59",
+            "version": "3810510a6925c7501087808cea07cc1024b0d5b7d054214cc5985bf63b2abbfe",
+            "sha256": "3810510a6925c7501087808cea07cc1024b0d5b7d054214cc5985bf63b2abbfe",
+            "location": "exchange-loss.json"
+          },
+          "evidenceRefs": [
+            {
+              "assetId": "wf-b08411d4f58a9c8b2fa03b48a1e41c27b6f5eb116f243717-ffa5b716b5a57837",
+              "version": "29b1fcde2b60b75d4204f8d9203021877238db1e68dc76c3629b89e3612d7de4",
+              "sha256": "29b1fcde2b60b75d4204f8d9203021877238db1e68dc76c3629b89e3612d7de4",
+              "location": "manifest.json"
+            },
+            {
+              "assetId": "wf-b08411d4f58a9c8b2fa03b48a1e41c27b6f5eb116f243717-b531703de170eb19",
+              "version": "acb309d45f5fcb959ae8a08a656164c379ae3cd243b737771873fbbdee83a8a0",
+              "sha256": "acb309d45f5fcb959ae8a08a656164c379ae3cd243b737771873fbbdee83a8a0",
+              "location": "asset-logo.png"
+            }
+          ],
+          "location": "design.jpg"
+        }
+      },
+      {
+        "node": "intro",
+        "artifact": {
+          "protocolVersion": "craft-artifact/v1",
+          "assetId": "intro-preview",
+          "version": "b86fd4be541ec836d1c12dced54e51f2d6a1704b56ee637c5709e7f2a0c9811c",
+          "sha256": "b86fd4be541ec836d1c12dced54e51f2d6a1704b56ee637c5709e7f2a0c9811c",
+          "bytes": 1602,
+          "mediaType": "image/png",
+          "producerTaskId": "wf-37f689023203c4801e562d5becda2148ab398ea746f5f5b2",
+          "sourceRefs": [
+            {
+              "assetId": "logo-png",
+              "version": "970ef431d499e4038b74524c64c52985250e0cd44b071eddd08ff59b8839c4c8",
+              "sha256": "970ef431d499e4038b74524c64c52985250e0cd44b071eddd08ff59b8839c4c8"
+            },
+            {
+              "assetId": "intro-video",
+              "version": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9",
+              "sha256": "054c40e3133a0a8e40a376f9cac263f8cfb855508581f4f179b8325d2abea2a9"
+            }
+          ],
+          "nativeProjectRef": {
+            "assetId": "wf-37f689023203c4801e562d5becda2148ab398ea746f5f5b2-ccf7ce43c87e3645",
+            "version": "bd1f2b9444cec4512757d5253364c78542ee007e2386a92ef1b2d84f1d243e92",
+            "sha256": "bd1f2b9444cec4512757d5253364c78542ee007e2386a92ef1b2d84f1d243e92",
+            "location": "project.ecproj"
+          },
+          "renditions": [],
+          "dependencies": [
+            {
+              "assetRef": {
+                "assetId": "logo-png",
+                "version": "970ef431d499e4038b74524c64c52985250e0cd44b071eddd08ff59b8839c4c8",
+                "sha256": "970ef431d499e4038b74524c64c52985250e0cd44b071eddd08ff59b8839c4c8"
+              },
+              "kind": "media",
+              "packaged": true,
+              "missingReason": null
+            }
+          ],
+          "technicalMetadata": {
+            "width": 320,
+            "height": 180,
+            "bitDepth": 8,
+            "alpha": true
+          },
+          "lossReportRef": {
+            "assetId": "wf-37f689023203c4801e562d5becda2148ab398ea746f5f5b2-832b6e90dd1c3c59",
+            "version": "a966808f7d80e036451bc5ded080f398e08ddf920de4b17d200eb452d0f23cfa",
+            "sha256": "a966808f7d80e036451bc5ded080f398e08ddf920de4b17d200eb452d0f23cfa",
+            "location": "exchange-loss.json"
+          },
+          "evidenceRefs": [
+            {
+              "assetId": "wf-37f689023203c4801e562d5becda2148ab398ea746f5f5b2-ffa5b716b5a57837",
+              "version": "3310447ca57a4be65840fae32e41d1ceae5d265d4982da8e5897fd2db1116aa2",
+              "sha256": "3310447ca57a4be65840fae32e41d1ceae5d265d4982da8e5897fd2db1116aa2",
+              "location": "manifest.json"
+            },
+            {
+              "assetId": "wf-37f689023203c4801e562d5becda2148ab398ea746f5f5b2-e82275f21fcb128f",
+              "version": "970ef431d499e4038b74524c64c52985250e0cd44b071eddd08ff59b8839c4c8",
+              "sha256": "970ef431d499e4038b74524c64c52985250e0cd44b071eddd08ff59b8839c4c8",
+              "location": "(Footage)/replacement.png"
+            }
+          ],
+          "location": "frame-0000.png"
+        }
+      }
+    ],
+    "receiptSha256": "2fe132fd514af4c30bcf0992f13230529a0e07148b0fda81b94f27585d012d3d",
+    "acceptanceSha256": "0450ac5525b56ccb3012634af87b28e6e0d2b42c22fb5b9342413a6bce5d9a21",
+    "retainedEvidenceDirectory": "NATIVE_EVIDENCE"
+  },
+  "domainIdentities": {
+    "filmcraft": {
+      "pluginId": "filmcraft",
+      "pluginVersion": "0.1.0-dev.38",
+      "cliVersion": "0.2.0-craft.4",
+      "sha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+      "mode": "headless",
+      "capabilitySnapshotSha256": "13af8b9cb52dcfcb7bd735b71a8e598084cdb3958bcd4e838fc3978bfccbf9c0"
+    },
+    "effectcraft": {
+      "pluginId": "effectcraft",
+      "pluginVersion": "0.1.0-dev.34",
+      "cliVersion": "0.2.0",
+      "sha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+      "mode": "headless",
+      "capabilitySnapshotSha256": "5979bb60611eef755ebf4e1b5934bcb4256b6dba012b26389ae62750a3f2feaf"
+    },
+    "photocraft": {
+      "pluginId": "photocraft",
+      "pluginVersion": "0.1.0-dev.34",
+      "cliVersion": "0.2.0-craft.1",
+      "sha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+      "mode": "headless",
+      "capabilitySnapshotSha256": "5abc5495df1d7b5487d9a215065ac2d0c9bf8f8989abf8ae2c2cdc9bf6d1614f"
+    },
+    "vectorcraft": {
+      "pluginId": "vectorcraft",
+      "pluginVersion": "0.1.0-dev.33",
+      "cliVersion": "0.2.0-craft.2",
+      "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+      "mode": "headless",
+      "capabilitySnapshotSha256": "2664a32fc2681a8eb8dca8045bfe0cae2d3661b434f88a27dd171a14603d444f"
+    }
+  },
+  "codeHashes": {
+    "src/adapters/public_skill.ts": "1a748394854b6ee859e1ca18b03672d7623446c081e2ff987c1b4e51a1fc0710",
+    "src/protocol/contracts.ts": "3fd69dfc7533f1ce3dac4cc5f4764aa3916be7a173694eb8194a619014c23ebb",
+    "src/protocol/png_inspection.ts": "9bab80e8acd3e623827786f46f8b205341146de6ec7556638b4059543c65f5fd",
+    "src/protocol/jpeg_inspection.ts": "efbc9a0eddc220a9648d0af42dbac3c6bb9b0131f795d1247f01b6172203a417",
+    "test/image_export_metadata.test.ts": "0ea0414daaa481d291009310bbf7e6cdd434b6f5aefe70a9d5a2f6b02558de5a",
+    "test/native_mixed_workflow.test.ts": "41e13a14d6c912734d79495349723e3d0af540ed791e8e37ba4da9f38cf0cb66"
+  },
+  "logHashes": {
+    "red.log": "b74d7cd84ced56beacad339936018617a11ea0f3ef0b976c75ae0e01e458c5c0",
+    "red-final.log": "472059bf2a85b649d3238d36ab2c2529e232132e4e162f3fe904aa9113ea5af7",
+    "green-final.log": "3171e378579b8359b32128ec928d06c7d027df3e75cae0c41ad30c41a6e474fe",
+    "native-candidate.log": "81b111b5436725ed977ef434d462bbe6dfbcc79396e9c0e2c3aa2503327ad958",
+    "native-candidate-final.log": "537414e4e430c61e1cee76009ba1e321c13fb9e9849345b254ddba73e7864925",
+    "native-green-final.log": "7416e77803faed2d3017e4c28b9e5704e571d2d263d97f0da04c89fe405d34bb",
+    "regression-current.log": "940c4dd320d73b2f74e750d26930ec1a8d7f7222b37d8413f2b3a28faa123bd4",
+    "plugin-tests.log": "9bb13e69f9ac72b2f92fd5dcc1d04fbef18461d172a3c957f2cbef066b111fff",
+    "source-tests.log": "8cfeae54a55669e8dbde4a7c3b223c43b2210ddb62856a1580e53b14e091ba45",
+    "openspec.log": "5f003a0a2d4f2c08c308d5649dff0b10b722ed6ed856cdfc72f2acb9525a3774"
+  },
+  "limitations": [
+    "Candidate native test, not new installed distribution",
+    "PNG representation does not establish visible transparency or color fidelity",
+    "JPEG marker corpus does not establish entropy decoding; native exports independently decoded in mixed test",
+    "First native fixture passed an unbound preview to Film; corrected with explicit dependency selection",
+    "First Alpha assertion incorrectly assumed all PNGs have Alpha; corrected against independent decode facts",
+    "Full protocol matrix and native large-integer timing handoff remain open",
+    "No GUI or creative human acceptance"
+  ]
+}

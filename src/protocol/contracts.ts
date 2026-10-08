@@ -157,7 +157,7 @@ export async function verifyArtifact(value: unknown, root: string): Promise<Reco
     if(!isDeepStrictEqual(artifact.technicalMetadata,sequenceMetadata(descriptor)))throw new Error('image_sequence_metadata_mismatch');
   }
   if(artifact.mediaType==='image/png' || artifact.mediaType==='image/jpeg'){
-    const facts=artifact.mediaType==='image/png' ? await inspectPng(target,bytes) : await inspectJpeg(target,bytes),declared=artifact.technicalMetadata;
+    const facts=artifact.mediaType==='image/png' ? await inspectPng(target,bytes,false,artifact.sha256) : await inspectJpeg(target,bytes,artifact.sha256),declared=artifact.technicalMetadata;
     const current=await stat(target);
     if(after.ino!==current.ino||after.size!==current.size||after.mtimeMs!==current.mtimeMs)throw new Error('artifact_changed_during_read');
     for(const field of ['width','height','bitDepth','alpha'] as const)if(declared[field]!==undefined && declared[field]!==facts[field])throw new Error('image_metadata_mismatch');
