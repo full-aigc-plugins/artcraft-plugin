@@ -1,6 +1,6 @@
 # ArtCraft 混合需求验收架构
 
-当前状态：AC-DM-001 实现和当前七个命名场景验收完成，任务 6.1／6.2／6.3 已完成；完整 V1 与其余 28 项计划仍开放。事实源为 OpenSpec `establish-v1-plugin/specs/domain-workflow/spec.md`，未归档。此前提到“八场景”是计数错误；本次逐项核对实际的 P、N、BRIEF、TIME、SOURCE-FILM、SOURCE-DESIGN、SAVED 七个场景，没有删减规格。
+当前状态：AC-DM-001 实现和当前七个命名场景验收完成，任务 6.1／6.2／6.3 已完成；完整 V1 与其他计划仍开放。事实源为 OpenSpec `establish-v1-plugin/specs/domain-workflow/spec.md`，未归档。此前提到“八场景”是计数错误；本次逐项核对实际的 P、N、BRIEF、TIME、SOURCE-FILM、SOURCE-DESIGN、SAVED 七个场景，没有删减规格。
 
 固定版本为 Art 插件 126、独立技能源 98、运行时 126-runtime.1。领域固定版本来自 `host-acceptance-art126.lock.json`。33 个实际加载的运行时文件与当前源码、64 个宿主安装技能树，以及四份原生适配器测试技能副本均核对一致。本次只增加测试与文档，沿用已有不可变预发布制品。
 

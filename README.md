@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-Mixed Brief implementation and all seven current specification scenarios are verified;tasks6.1/6.2/6.3 are complete. Fixed installed eight-case refusal,four-domain native delivery/source revision/saved-output gates/reuse/moved Brief package pass.28 tasks and fullV1 remain open.See [current acceptance architecture](docs/ArtCraft-Brief-Acceptance-Architecture.md).
+Core capability-routing tasks6.4/6.5 are complete.Fixed installed planning skill passes Vector-only public cold install,incremental Photo,preserved prior delivery/runtime,independent verification and pre-download Jianying refusal.Full11-ID scenario acceptance6.6 and26 tasks remain open.See [current implementation architecture](docs/ArtCraft-Selected-Setup-Architecture.md).
+
+Mixed Brief implementation and all seven current specification scenarios are verified;tasks6.1/6.2/6.3 are complete. Fixed installed eight-case refusal,four-domain native delivery/source revision/saved-output gates/reuse/moved Brief package pass.Other tasks and fullV1 remain open.See [current acceptance architecture](docs/ArtCraft-Brief-Acceptance-Architecture.md).
 
 2026-10-08 evidence update: 19 shared constraint cases agree between the Python skill and TypeScript runtime. Historical commit `5311ec6` fails two duration cases in a replay performed after implementation; this is not an original TDD log. Runtime regression: 278 passed / 21 conditional skips; skill-source regression: 137 passed / 46 conditional skips. That checkpoint completed task6.1;6.2/6.3 were still open then and are now complete.See the current seven-scenario acceptance above. Only tests and documentation change; all 33 fixed runtime files and ten independent Brief script copies match. No new release is needed. See [evidence](docs/evidence/brief-contract-parity-20261008.json).
 

@@ -1,6 +1,6 @@
 # ArtCraft Mixed Brief Acceptance Architecture
 
-Status: AC-DM-001 implementation and all seven current named scenarios are verified. Tasks 6.1/6.2/6.3 are complete; full V1 and 28 other tasks remain open. The authority is OpenSpec `establish-v1-plugin/specs/domain-workflow/spec.md`, which remains unarchived. Earlier references to eight scenarios were a counting error. The actual P, N, BRIEF, TIME, SOURCE-FILM, SOURCE-DESIGN and SAVED scenarios are all accounted for; no requirement was removed.
+Status: AC-DM-001 implementation and all seven current named scenarios are verified. Tasks 6.1/6.2/6.3 are complete; full V1 and other tasks remain open. The authority is OpenSpec `establish-v1-plugin/specs/domain-workflow/spec.md`, which remains unarchived. Earlier references to eight scenarios were a counting error. The actual P, N, BRIEF, TIME, SOURCE-FILM, SOURCE-DESIGN and SAVED scenarios are all accounted for; no requirement was removed.
 
 Versions: Art plugin126, independent source98 and runtime126-runtime.1. Domain identities come from `host-acceptance-art126.lock.json`. All 33 loaded runtime files match current source, all64 installed host skill trees match, and all four copied domain-use trees match. This is a tests/documentation change and reuses existing immutable prereleases.
 

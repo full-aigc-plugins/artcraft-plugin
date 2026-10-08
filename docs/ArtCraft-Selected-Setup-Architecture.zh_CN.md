@@ -1,5 +1,40 @@
 # ArtCraft 按任务图安装架构
 
+## 当前固定126实现补证
+
+任务6.4／6.5的核心测试与实现已完成；6.6全场景验收继续开放。固定版本为插件126／独立源98／运行时126-runtime.1，领域身份由 `host-acceptance-art126.lock.json` 固定。本次只有测试与文档变化，不创建重复发布。
+
+三个公开安装边界测试在历史提交 `53a26b4f1884cba0b12de1f4bc61b30572e08f1f` 回放时失败：未知剪映与冲突身份到达安装器，Vector计划未携带领域选择参数。当前三个测试均通过。这是事后历史行为回放，不是原始TDD日志；没有新增产品修复。
+
+实际宿主安装的规划技能单独复制到隔离项目，空缓存公开下载后只安装Vector；新增海报后只增量安装Photo。旧Logo任务和交付、Vector技能与原生运行时全部文件摘要保持不变。重复任务图复用任务ID和预算；打包和查询不补装Film或Effect；另一个空缓存独立验包只安装Node及Art运行时，不安装任何领域。剪映请求在下载前拒绝，无剪映安装、调用或fcproj替代。
+
+| 实现边界 | 当前定位与证据 |
+|---|---|
+| 任务执行器选择 | 独立workflow.py的required_plugins先于安装器检查身份，稳定去重；setup.py只登记实际安装的依赖。3个边界测试与1个实际冷安装用例通过。 |
+| 原生格式与能力绑定 | Brief的assessBrief及WorkflowEngine.validate拒绝格式替换／未登记工厂；setup绑定实际CLI目录、bundle与脚本摘要，publicSkillFactory禁止payload选择执行器。此前当前版本Brief全场景证据继续独立保留。 |
+| 完整命令组件与DAG | 固定index绑定发布锁；domain_commands.py只通过选定领域公开commands.py交接；Art工厂锁定网关、解析器、目录及原生结果。组件回执与DAG交付门禁分开。 |
+| ASR与领域场景 | 固定四域bundle委派真实Whisper、Vector外观、Effect表达式、Photo蒙版等能力；当前锁与通用适配器已存在，对应专项历史证明保持版本边界。 |
+| 公开网关Brief | Python与TypeScript只延后可核验的原生元数据；授权、歧义及畸形请求仍拒绝。完整当前固定冷安装网关矩阵仍属于6.6。 |
+
+当前完整离线目录查询返回2646条（Film666／Effect640／Photo755／Vector585）；四领域各一次describe成功且未创建运行时目录。这只证明查询和说明入口，不证明2646次原生执行。
+
+本轮选择安装测试套件7项通过，其中6项为协议fixture、1项为真实公开冷安装／增量／独立验包，合计50.046秒；技能源默认回归187项中140通过／47条件跳过。33个实际运行时文件与当前源码一致，64个宿主安装技能树保持固定身份，十份独立路由资源相同。具体调用参数、退出状态、输出摘要、子工程文件摘要与回放日志摘要见[当前证据](evidence/routing-implementation-fixed126-20261008.json)。
+
+复验从独立技能源仓库执行，显式提供已核对的固定安装技能和不存在的隔离输出路径；此入口使用公开下载，不传本地归档覆盖参数：
+
+```sh
+CRAFT_SELECTED_FIRST_USE=1 \
+CRAFT_SELECTED_ROOT="$ISOLATED_ACCEPTANCE_ROOT" \
+CRAFT_SELECTED_SKILL="$INSTALLED_ARTCRAFT_PLAN_SKILL" \
+python3 -I -B -m unittest discover -s tests -p test_selected_setup.py -v
+python3 -I -B -m unittest discover -s tests -p test_routing_boundary.py -v
+```
+
+6.6仍按全部11个AC-DM-002前缀场景核对；其中PUBLIC-GATEWAY-BRIEF位于AC-DM-006标题下，本次记录其归属差异，没有忽略或移动它。当前选择安装证据不替代完整网关四域、真实ASR混合交付、Vector外观、Effect表达式、Photo蒙版及可信／不可信源返工的当前矩阵。专项旧版本验收仍保留原范围。本机macOS arm64、程序化样本和真实下载边界明确；模型派发、GUI、其他平台、人工创作、通用SkillsCLI及完整V1没有因此完成。
+
+以下章节保留dev.16的历史设计与当时证据；当前版本与状态以上述记录为准。
+
+
 ## 边界与事实源
 
 独立技能套件 dev.16 的 Python 安装与规划入口选择所需执行器；固定编排运行时仍为 dev.16，领域技能源版本及 ZIP 摘要保持不变。既有 OpenSpec 的 AC-DM-002 与 SELECT 场景为规范事实源。该能力解决仅做一个图形也安装全部领域工具的问题，不把未知原生工程要求转换为已有工具。
