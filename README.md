@@ -16,7 +16,7 @@ Fixed source86/plugin114 passes ten independent Art cold installations and a ret
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current plugin: `0.1.0-dev.125`; independent skills: `0.1.0-dev.97`; runtime125 image metadata; installed qualification pending; full V1 remains in progress.
+Current fixed plugin: `0.1.0-dev.125`; independent skills: `0.1.0-dev.97`; bounded installed technical acceptance passed; full V1 remains in progress.
 
 Workflow launcher structured rejection is fixed in source84. Legacy error and workflowReceipt remain compatible; fixed installed112 qualification is recorded separately. [Architecture](docs/ArtCraft-Workflow-Error-Detail-Architecture.md).
 Previous fixed caption-size qualification:64 installed identities and CLI probes match;23 changed skills each pass independent cold discovery, while41 unchanged whole-tree hashes retain historical cold proof. Two current installed native caption/brand cases pass. This is bounded installation and scene evidence, not fullV1. [Current fixed evidence](docs/Craft-Caption-Fixed-First-Use.md).
@@ -496,4 +496,4 @@ Immutable artifact version protection is fixed in runtime123 / source95 / plugin
 
 Exact Film timing is fixed in runtime124/source96/plugin124: public artifacts carry decimal native ticks, time base, rational frame rate and digest-bound probe evidence. Installed create/revise/reuse/moved-package checks pass. Complete artifact protocol task 2.3 remains open. [Architecture](docs/ArtCraft-Film-Timing-Architecture.md).
 
-Derived PNG/JPEG metadata mapping is a working-tree candidate, with fixed distribution and installed verification still pending. See [architecture and evidence](docs/ArtCraft-Image-Metadata-Architecture.md). Full protocol task2.3 remains open.
+Derived PNG/JPEG metadata is fixed in runtime125/source97/plugin125; installed image revision/reuse/moved-package checks pass. [Architecture and evidence](docs/ArtCraft-Image-Metadata-Architecture.md). Full task2.3 remains open.

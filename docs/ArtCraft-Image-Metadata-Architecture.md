@@ -1,6 +1,6 @@
 # ArtCraft derived image metadata architecture
 
-Status: working-tree candidate; no new fixed runtime, skill source or plugin has been released for this change. The installed release remains plugin124 / source96 / runtime124. Full artifact protocol task2.3 remains open.
+Status: fixed runtime125 / independent source97 / plugin125, with installed technical acceptance passed. Full artifact protocol task2.3 remains open.
 
 ## Contract and use
 
@@ -35,4 +35,10 @@ The target test first reproduces empty public image metadata. Tests cover three 
 
 The native mixed test uses fixed public domain packages and adds Photo JPEG and Effect PNG preview outputs. An independent decoder checks dimensions and Alpha representation. Logo revisions, native source revisions, historical preservation, reuse, moved packages and reopening remain covered. Film explicitly selects the intro video so an unused preview cannot fabricate lineage.
 
-Candidate evidence: `docs/evidence/image-export-metadata-candidate-20261008.json`. A new immutable runtime, ten independent skill lock updates, source release, vendored plugin release and installed verification remain required. Plugin124 installation evidence cannot prove this candidate is distributed. Native large-integer timing handoff and the complete artifact protocol matrix remain open.
+Fixed installed evidence: `docs/evidence/craft-art125-image-metadata-fixed-first-use-20261008.json`. All64 host skills discovered, zero loading errors; ten Art skills independently cold installed;64 installed CLI probes; installed image and Film first use plus four-domain mixed revision/reuse/moved-package verification pass. Three public archives byte-match and five fixed bundles rebuild exactly. Eight fixed-commit CI runs pass. Native large-integer timing handoff and the full protocol scenario matrix remain open.
+
+[Fixed evidence](evidence/craft-art125-image-metadata-fixed-first-use-20261008.json).
+
+The color fixture was corrected before source97; visible-frame selection was corrected in the test driver after that tag. Released skill bytes were not changed; installed acceptance binds the actual driver hash. Alpha representation, JPEG markers and raster facts do not establish creative, color-fidelity or human acceptance.
+
+The current whole-working-copy source audit refuses an overall conclusion: the four other domain working copies differ from pinned tags; ArtCraft tracked skill files match source97. Installed acceptance binds fixed releases. Other domain working copies were not modified to satisfy the audit.
