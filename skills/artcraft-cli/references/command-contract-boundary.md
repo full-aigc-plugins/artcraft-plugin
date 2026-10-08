@@ -1,0 +1,5 @@
+# 实际命令合同边界
+
+独立domain_commands.py run的headless模式在同一会话执行受信工具发现和完整原生命令目录校验。ID及参数描述／存在性必须与固定快照一致；发现漂移应停止并报告capability_missing，不重试编辑。完整目录查询失败同样拒绝。
+
+通过list／describe查询离线分类和参数，通过check校验计划，再以run执行。不能把check的NOT_RUN视为原生完成。bridge／desktop保留原路径，其完整命令合同覆盖仍在验收中；不要把headless校验结论套用到这些模式。
