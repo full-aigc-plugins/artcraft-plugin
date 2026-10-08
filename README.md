@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Four-domain RT-001 runtime source/integrity acceptance now covers every current scenario; existing pinned skill bytes remain unchanged. Runtime upgrades and fullV1 remain open. [Acceptance architecture](docs/Craft-Fixed-Runtime-Integrity-Architecture.md).
+
 Fixed source87/plugin115 includes bounded Node/setup installation locks across all ten Art skills, with a 120-second budget per lock. Actual Codex discovery finds all64 skills with zero loading errors; ten changed skills pass independent cold installations and54 unchanged skills reuse historical cold evidence only after full-tree identity checks. [Install-lock architecture](docs/ArtCraft-Install-Lock-Architecture.md). The fixed installed skill also passes four-domain native creation, source revisions, same-revision reuse, receipt-tamper refusal and moved-package verification; both disk-full failures remain recorded. [Fixed acceptance](docs/evidence/craft-art115-install-lock-fixed-first-use-20261008.json).
 
 The independent-install verifier now preserves per-call failure diagnostics, including timeout output. Actual generic Skills CLI installation remains open. [Diagnostics](docs/Independent-Skill-Install-Diagnostics-Architecture.md).

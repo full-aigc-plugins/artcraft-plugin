@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+四领域RT-001运行时来源与完整性已完成当前全部场景验收，固定技能字节保持不变；运行时升级与完整首版仍开放。[验收架构](docs/Craft-Fixed-Runtime-Integrity-Architecture.zh_CN.md)。
+
 固定 source87／plugin115 已包含十个 Art 技能的 Node／组合安装锁修复，每把锁最多等待 120 秒。实际 Codex 安装发现全部 64 个技能，零加载错误；10 个变化技能逐项独立冷安装通过，其余 54 项仅在完整摘要相等时复用历史冷证明。[安装锁架构](docs/ArtCraft-Install-Lock-Architecture.zh_CN.md)。 固定安装副本的四领域原生创建、源返工、同修订复用、回执篡改拒绝及移动包验证通过；前两次磁盘不足失败日志保留。[固定验收](docs/evidence/craft-art115-install-lock-fixed-first-use-20261008.json)。
 
 独立安装验收器已保留逐次调用的失败诊断，包括超时部分输出；真实通用 Skills CLI 安装仍未完成。[诊断说明](docs/Independent-Skill-Install-Diagnostics-Architecture.zh_CN.md)。
