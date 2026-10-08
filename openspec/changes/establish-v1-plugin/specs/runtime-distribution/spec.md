@@ -136,3 +136,11 @@ ArtCraft SHALL support explicit domain command `--mode desktop` using immutable 
 - **THEN** 十个独立 Art 技能 SHALL 绑定不可变完整 ZIP、提交、逐文件摘要和对应命令目录，旧分发保留；显式空 exports 列表维持仅原生交付语义
 - **AND** 两入口 SHALL 验证旧计划后继承全部九份 SVG／PNG／PDF 变体，关联颜色改变，无关画板和原交付保全，旧计划篡改须在原生编辑前拒绝；Vector 领域工作流自身安装调用前的校验不得宣称为 Art 外层 bootstrap 前校验
 - **AND** 候选验收与固定发行的十技能独立冷安装、真实混合网关返工／局部复用／移动包验收 SHALL 分别记录；独立 VectorCraft 通过不能替代 Art 捆绑验收
+
+#### Scenario: [AC-RT-002-SEGMENT-GUIDE] 分段首用说明与固定依赖一致
+
+- **GIVEN** 既有固定分发已验证分段动画，但技能指南仍残留历史候选版本限制
+- **WHEN** Art 更新指南和不可变 Film 技能源绑定
+- **THEN** 十技能 SHALL 绑定新ZIP、源码提交、全部文件摘要及对应命令索引，读取当前锁与回执识别版本，旧发行保留
+- **AND** 新固定安装 SHALL 独立验证十技能空运行时首用、1920×1080／24fps／120帧混合交付、Logo依赖返工、坏帧拒绝与原字节恢复、五子工程迁移及安装字节保全
+- **AND** 既有Art117原生证据、通用CLI发现或独立Film验收 SHALL NOT 单独替代本分发验收；Effect未发布候选不进入锁
