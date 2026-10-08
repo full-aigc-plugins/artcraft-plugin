@@ -16,7 +16,7 @@
 
 多领域创作需求进入，交付项目清单、工作流记录、四领域子工程引用及验收记录。
 
-当前插件：`0.1.0-dev.124`；技能源：`0.1.0-dev.96`；固定安装验证待完成；10个独立技能。
+当前固定插件：`0.1.0-dev.124`；独立技能源：`0.1.0-dev.96`；限定安装后技术验收通过，完整V1仍在实施。
 
 源84修复工作流入口结构化拒绝，兼容保留error与workflowReceipt；固定安装112验收另行记录。[架构](docs/ArtCraft-Workflow-Error-Detail-Architecture.zh_CN.md)。
 此前固定字幕修正版验收：64安装身份与CLI探测匹配；23变化技能各自独立冷安装／命令发现通过，41完整摘要一致技能复用历史冷证据；两个当前安装原生字幕／品牌案例通过。仅证明所列安装和场景，完整V1仍开放。[当前固定证据](docs/Craft-Caption-Fixed-First-Use.zh_CN.md)。
@@ -491,3 +491,5 @@ Vector33 捆绑升级候选已通过两入口真实混合返工、九变体及�
 版本绑定与单写的实施任务 **5.1–5.2** 已有当前固定运行时、独立安装技能及四领域原生返工证据。完整 AC-TX-001 验收 **5.3 继续开放**，包括实际 GUI 冲突观察。[版本绑定架构](docs/ArtCraft-Version-Binding-Architecture.zh_CN.md)。
 
 素材版本不可变保护已固定至runtime123／源95／插件123：十项Art独立冷启动、64项安装CLI及原生冲突拒绝／合法新版本／四领域返工通过。任务2.2完成，2.3与完整V1保持开放。 [Evidence](docs/evidence/craft-art123-artifact-version-fixed-first-use-20261008.json).
+
+Film精确时间交接固定至runtime124／源96／插件124：原生ticks字符串、时间基准、有理帧率及摘要绑定的探测记录进入公共素材；安装后的创建、返工、复用与移动包通过。完整素材协议2.3仍开放。[架构](docs/ArtCraft-Film-Timing-Architecture.zh_CN.md)。

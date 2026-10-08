@@ -1,6 +1,6 @@
 # ArtCraft Film timing metadata
 
-The Film adapter previously verified native/export files but published an empty `technicalMetadata` object for video. That loses the public time base required by AC-CP-002-TIME. The runtime124 candidate maps digest-bound Film evidence into public metadata; complete protocol acceptance 2.3 remains open.
+The Film adapter previously verified native/export files but published an empty `technicalMetadata` object for video. That loses the public time base required by AC-CP-002-TIME. Fixed runtime124/source96/plugin124 maps digest-bound Film evidence into public metadata; complete protocol acceptance 2.3 remains open.
 
 ```mermaid
 flowchart LR
@@ -17,6 +17,11 @@ flowchart LR
 
 The public adapter verifies every manifest file first, requires native/export probe entries for Film MP4 outputs, then binds both report files as versioned evidence references. Other domains keep their existing mapping. No native GUI, creative or color fidelity claim follows from metadata. Large-tick preservation has synthetic protocol evidence; it is not a long timeline render.
 
-Two new contract tests reproduce the old missing metadata and accepted invalid probe behavior, then pass. Runtime regression: 294 total, 274 passed and 20 conditional skips. A real four-domain native mixed workflow passes with metadata assertions and saved-source revisions. Fixed source/plugin installation qualification is pending.
+Two new contract tests reproduce the old missing metadata and accepted invalid probe behavior, then pass. Runtime regression: 294 total, 274 passed and 20 conditional skips. A real four-domain native mixed workflow passes with metadata assertions and saved-source revisions. Fixed installed acceptance is recorded below.
 
 The single source96 candidate skill passes real public cold first use (25.825 seconds): Film creation/native reopen, timing metadata and evidence hashes, source caption style revision, original preservation, reuse and moved package. [Candidate evidence](evidence/film-time-metadata-candidate-20261008.json).
+
+Fixed Art124/source96/runtime124 acceptance passes: 64 host discoveries and installed CLI probes, ten independently cold Art skills, installed Film timing first use and four-domain creation/revision/reuse/moved-package checks. All 64 installed trees remain unchanged. Three public archives byte-match; five fixed bundles rebuild exactly; eight fixed-commit CI runs pass. The 54 unchanged domain cold records are reused only after exact whole-tree identity equality.
+[Fixed evidence](evidence/craft-art124-film-time-fixed-first-use-20261008.json).
+
+Task 2.3 stays open: complete native large-tick handoff proof, applicable PNG/JPEG derived metadata and full protocol scenario acceptance are still incomplete. Generic Skills CLI installation 3.16 and GUI/creative/human/full V1 gates are not closed.
