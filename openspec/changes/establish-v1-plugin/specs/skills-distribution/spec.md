@@ -196,3 +196,11 @@
 - **THEN** 技能源包清单、套件清单和当前 README 的来源版本 SHALL 一致；插件 SHALL 只收录新固定来源标签及其逐技能摘要
 - **AND** 每个技能自带指南 SHALL 区分离线命令查询、单领域命令组件与 DAG native.command 工作流，安装版本由自身分发锁决定
 - **AND** 固定安装后的十个单技能首次安装与代表性公开工作流须独立验收；查询、目录存在或历史发行证据不能代替本次首次使用
+
+
+#### Scenario: AC-SK-003-SCENARIO-SETUP 场景入口安装失败诊断
+
+- **WHEN** 单独安装任一 Art 技能后，通过 workflow.py 或 package.py 调用其自身安装器失败、超时或无法启动
+- **THEN** 顶层回执 SHALL 保留兼容 error 字符串，并返回当前技能自身的 dependencySetup；结构化安装器失败回执 SHALL 以 installationReceipt 保留，不嵌入字符串后丢失可查询字段
+- **AND** 安装超时 SHALL 标记 result=unknown，其他安装失败标记 failed；不启动后续领域任务、不生成虚构 workflowReceipt，不自动重放
+- **AND** 安装成功后的原生操作错误及安装前的输入拒绝 SHALL 保持各自语义，不附加依赖安装失败诊断；非 JSON 或仅 stderr 的安装失败 SHALL 保留原始诊断

@@ -16,7 +16,7 @@ Fixed source86/plugin114 passes ten independent Art cold installations and a ret
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current plugin: `0.1.0-dev.119`; skill source: `0.1.0-dev.91`; 10 independent skills.
+Current plugin: `0.1.0-dev.120`; skill source: `0.1.0-dev.92`; 10 independent skills.
 
 Workflow launcher structured rejection is fixed in source84. Legacy error and workflowReceipt remain compatible; fixed installed112 qualification is recorded separately. [Architecture](docs/ArtCraft-Workflow-Error-Detail-Architecture.md).
 Previous fixed caption-size qualification:64 installed identities and CLI probes match;23 changed skills each pass independent cold discovery, while41 unchanged whole-tree hashes retain historical cold proof. Two current installed native caption/brand cases pass. This is bounded installation and scene evidence, not fullV1. [Current fixed evidence](docs/Craft-Caption-Fixed-First-Use.md).
@@ -131,9 +131,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.119 |
+| Plugin ID / version | artcraft / 0.1.0-dev.120 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.91 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.92 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -473,3 +473,5 @@ Fixed source89/plugin117: all ten actual installed skills independently cold-ins
 Fixed Film41/source38 and Art118/source90 first use passes: all64 installation identities match; Film13 and Art10 independently cold-install, while41 unchanged skills reuse identity-matched historical cold evidence only. The new installed Art skill passes1080p/24fps/120-frame creation, Logo dependency revision, corrupt-frame recovery and moved five-child packaging. Film passes relocated text revision and animation-key preservation. FullV1 remains open. [Evidence](docs/evidence/craft-art118-segment-guide-fixed-first-use-20261008.json).
 
 Fixed Art119/source91 passes the bounded identity/guidance distribution gate:64 host identities and public CLI probes,10 new independent cold starts,54 whole-hash-matched historical cold records only, and actual installed execute-skill expression creation/source revision/preserved original and control pixels/moved packaging. Source package and suite both identify91. Only3.28 closes; fullV1 remains open. [Evidence](docs/evidence/craft-art119-guidance-fixed-first-use-20261008.json).
+
+Scenario bootstrap diagnostics: candidate implementation and real single-skill public installation recovery passed; immutable release acceptance remains separate. [Evidence](docs/evidence/scenario-setup-diagnostics-20261008.json).

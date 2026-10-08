@@ -16,7 +16,7 @@
 
 多领域创作需求进入，交付项目清单、工作流记录、四领域子工程引用及验收记录。
 
-当前插件：`0.1.0-dev.119`；技能源：`0.1.0-dev.91`；10 个独立技能。
+当前插件：`0.1.0-dev.120`；技能源：`0.1.0-dev.92`；10 个独立技能。
 
 源84修复工作流入口结构化拒绝，兼容保留error与workflowReceipt；固定安装112验收另行记录。[架构](docs/ArtCraft-Workflow-Error-Detail-Architecture.zh_CN.md)。
 此前固定字幕修正版验收：64安装身份与CLI探测匹配；23变化技能各自独立冷安装／命令发现通过，41完整摘要一致技能复用历史冷证据；两个当前安装原生字幕／品牌案例通过。仅证明所列安装和场景，完整V1仍开放。[当前固定证据](docs/Craft-Caption-Fixed-First-Use.zh_CN.md)。
@@ -129,9 +129,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.119 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.120 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.91 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.92 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |
@@ -471,3 +471,5 @@ Vector33 捆绑升级候选已通过两入口真实混合返工、九变体及�
 固定 Film41/source38 与 Art118/source90 首用通过：64项安装身份一致；Film13和Art10分别独立冷安装，41项未变技能仅复用摘要匹配的历史冷安装证据。新Art安装副本通过1080p／24fps／120帧混合创建、Logo依赖返工、坏帧恢复及五子工程迁移；Film通过移动工程文字返工与关键帧保全。完整V1仍开放。 [Evidence](docs/evidence/craft-art118-segment-guide-fixed-first-use-20261008.json).
 
 固定Art119／源91身份与指南分发门禁通过：64项宿主身份及公开CLI核验，十项新独立冷安装，54项仅复用整树摘要一致的历史冷证明；安装的execute技能真实表达式创建、源返工、原工程／非目标像素保全及移动包通过。技能源包清单与套件均为91。只关闭3.28，完整V1仍开放。 [Evidence](docs/evidence/craft-art119-guidance-fixed-first-use-20261008.json).
+
+场景安装诊断：候选实现及真实单技能公开安装恢复已通过；固定发行验收另行核验。 [Evidence](docs/evidence/scenario-setup-diagnostics-20261008.json).

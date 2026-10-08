@@ -1,0 +1,267 @@
+{
+  "schema": "craft-scenario-installation-diagnostic/v1",
+  "result": "PASS",
+  "candidateOnly": true,
+  "sourceSkillFiles": {
+    "SKILL.md": "e89eaa9ad6dbd70f3b129d57306987dc660d578366f0672e37c401e4c7fabd2a",
+    "references/scenario.md": "80468047d33d83e28fed4ee1173ba780789cbcd59c7f1730cd4d2e4790e4dfa4",
+    "references/revision.md": "d664983acdbb2cd83ecc2c979bd6cc81fb59696fdaddb99d702e9fe0311fcb01",
+    "references/desktop-handoff.md": "a1229e22f44d7cdc7aa0dd9e18f318e0dcc806f871a8f7fb9410fc2eb26e6fb5",
+    "references/domain-commands.md": "9842360fab9cb0c4a4cf38a0c78b4467e6f17d2d4fc2ab37148913dca25ff689",
+    "references/domain-command-index.json": "bb0c7f91de4a172b5ff015074f631d67321dc1824ed4f6da8473cc80898a7339",
+    "references/task-receipts.md": "16d39c623b23b52e572eee69879511365fcbb56f09a9e0fd40071429c2ee88b2",
+    "references/photo-delivery-integrity.md": "7db9fa72936d71a8cb03d6b3dc6ef922431b85b76ce88568b6d8a12d0606bc55",
+    "references/business-scenes.md": "74f4dee63a006ba2c1dd51e61ad8f0476ec04f3a5a5d3cc751f546207e9cffd8",
+    "references/vector-appearance.md": "0269d33e166b092c1efe91463fb99410df72da37a2748e5fb6da9623db6c32c7",
+    "references/workflow.md": "79c5e499cd4f6d592dfb18ed6443ea1e959d1c1a8ad602ecea652f9c18a677e9",
+    "references/brand-token-workflow.md": "28f955155ca50f4dfa54da53c9e20ea035171aac70681972d9d6638900d0f8c0",
+    "references/commands.json": "6da027ae418ef7d24a69560a01bbb05f2db3de7df50ede9341a924aee6220ad9",
+    "references/recovery.md": "04c7d80ca1bee85f084b91074223b7412d1c810fffa548a82f02eb0f37700773",
+    "references/video-factory.md": "ce5edfe349cb0d74a7e5126440523c157e71aba8a26f8d71e79149343212f6b5",
+    "references/photo-adjustment.md": "8a40cc9b35d51ee15382415be25e546942f382e3c5c14753eea8d5c12f6ae229",
+    "references/project-package.md": "3ed74526a8a93125f7f28002cf80c130298f8fb570bf0d9a2f487795c1eb343b",
+    "references/mixed-asr.md": "e3f8159b92a38b72b5f586873758944699f189eeef4fb2070e901a1a4bc0094d",
+    "references/dynamic-sequence.md": "e464c7a033e2f99c9dd1d33047c2a37441e01271fb06806f43d2f290c773225b",
+    "references/brief.md": "db2d255e41211ee3b3166e15b1758c455c65d3d0a7c4e19b59f790e30790cccf",
+    "references/exchange-loss.md": "52102251621536a3cd9251ebafcfe62f47493a1c9b24aa26471b15a52a2debb2",
+    "references/review.md": "5bd0e417ab1db9363a5fa9f40ff75fbb706cd15a4a19fa3c6002300c0c8bcb43",
+    "references/first-use-failures.md": "d17485036dd3027f86a5bad99b722d0713ae7e472d30c6d2cfb4b22037ab31c9",
+    "references/effect-expression.md": "cd89fe9670a41a06ba1918a86717cfde9ef21a5f8445939f8b3272d8e85481d3",
+    "examples/domain-effectcraft-create.json": "03d3d7796210dfd4ff27f6cde0e1ba10b4376b0243dc4938d87103ca991f5f61",
+    "examples/photo-adjustment-revision-plan.json": "bee2a7ecc778f24b141a5a82858226f617db99406e053f1303f7065308132369",
+    "examples/brand-token-campaign.json": "3af8b60f59361eea0b7ad7531155922aa7fbc588673a89387a7ef727c3b830eb",
+    "examples/segmented-hd-brand-campaign.json": "14d7cea358da18da488b76f73e53c6f820fe0236440f168efe0720ce729b97c1",
+    "examples/brand-brief.json": "83bd8bcccec8fe4d9560687f85db757f4f44906ab50d817a657f573c1db9ffd0",
+    "examples/domain-filmcraft-desktop.json": "3c64e48acff1905c49114b75f2ee09cb4949f64fde666970b40c12fe726980b3",
+    "examples/domain-photocraft-create.json": "d0585885b908e265e385c6c57507e074e71158f9c41862990690a7ebb7967fde",
+    "examples/domain-photocraft-desktop.json": "8912f9c817eabfc95faf5e37af113b7d0e8c3c7d4a8c8b1b06aa2c340f53eed2",
+    "examples/mixed-asr-operations.json": "b4a4c3905f84b2b13c750c578768249603db02c5568f8ed90fb9b745c1eca23b",
+    "examples/domain-effectcraft-desktop.json": "38c54bb2c653f9ac1490e0953d5081e5c74869438baf3731173540f0332119f1",
+    "examples/vector-appearance-revision-plan.json": "3e464a7576f55684c45eaf4b3b4ce94bc53c52a4e360e2a1609372201686f616",
+    "examples/domain-vectorcraft-revise.json": "8e416f9ed55a21862cfc6848ca4e9f97b3fbd2b405b9a56faf89dbc016cbe779",
+    "examples/chinese-brand-campaign.json": "e98b5bb3e2eb45b5f12c02477b0f8a8d5a5f6ca4acd367b5a5d5d5b889c09712",
+    "examples/dynamic-brand-campaign.json": "61d79ea215130e7f3b54184d211912430be15856e909e66fa0550456791fa18c",
+    "examples/brand-campaign.json": "3e5e60ffda7efac81c8940e5f1e1e817f29a9807eebd3e4bb905998d7b041bf4",
+    "examples/domain-filmcraft-create.json": "de489d735caa481500fd0ede481d6034b9e2652eb39232541ded6a6a7b11dc1e",
+    "examples/vector-appearance-workflow.json": "e24206309610238ab6ace633e0bb82ee1d3c22377219c5b1d1b8bb0be6f6b6a9",
+    "examples/domain-effectcraft-revise.json": "d54bfa78c48b674136b56a8e0c7e36e4c1c475a5907ba46ae450b2ac86e17d1e",
+    "examples/domain-photocraft-revise.json": "444baa22f6c1f6c26e0f498dbac68bdfc5c93280678f08f41486057ccd3a165f",
+    "examples/effect-expression-workflow.json": "2fd9547a8d13f879266ffb4b53c29e4a92dbb29488436fc2580423a5be3d475b",
+    "examples/smart-dynamic-brand-campaign.json": "da86092048e3d73bc9757e09a8a1ef02c7b8c4407c557caaedb3d9e68ca97e76",
+    "examples/photo-adjustment-workflow.json": "8152390a3e55ffc6ccab77a33f63182b040b169c36abb601e523147817297299",
+    "examples/domain-vectorcraft-desktop.json": "41461b895abe438b35cfa2fcedec42d883ceb0a77812cb5e21e071b5473f3b2b",
+    "examples/domain-vectorcraft-create.json": "c7668b298747a3dec9266826344778e8c977a36df293436531ea1ea8db4a44bc",
+    "examples/domain-filmcraft-revise.json": "33d91cf6b63982dfe7fb9c75b2aec6babf4ff2184f0673dcf00e19ad72e3f611",
+    "examples/effect-expression-revision-plan.json": "8076203648de8834c0681149e557ea4ffed35e0863c2e7a2dec2b4001e3ca22f",
+    "scripts/package.py": "9d98f5c17e707b5fd80c43dde55c4d5b50cb2b27c2945607a5376c6a13ecc48c",
+    "scripts/bootstrap.py": "e019fa5b35c819f6025eec1f0711b180eefe5351bc1b0db84a2f4dc50fec8fdf",
+    "scripts/jpeg_inspection.py": "6d057317962954b147864ae33966582553dc0591335af42bfdc3da333ed2257c",
+    "scripts/download.py": "f569dd3f0d4765a0cdf9c4efd26060963ef774128f29575a38c578f44ae07263",
+    "scripts/domain_commands.py": "82a937ab04867c5a47b73ca9b87b6697259e53f13ecdd3909668f90d18efab39",
+    "scripts/brief.py": "a1b2e526c4f631e60998c777e1d8332ed6d2f61ca4afa106bf9068f15f3f3124",
+    "scripts/review.py": "fde29e2cb937a7aa19a796a0bed28481fdcef818e9d8169d63abf9fddb5787ef",
+    "scripts/node.lock.json": "5d47b1f8b5a1738686f3033981444489eafeb99854d2102254be0375ae4462b8",
+    "scripts/setup.py": "8a4926bbabdf6edbddf8f46b9ad3c20066e50b6472a037206b2a394e7eaff472",
+    "scripts/cli.py": "338bb31c726bdaf9b9545c478aa60d4dfbe813049dc849f8ae6040a34a42ff97",
+    "scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+    "scripts/revision.py": "22795a5d63fa651233db30569304aa4c79b8508eb02545c96768774e25a62eb9",
+    "scripts/workflow.py": "032dff716caaca208f55946ecb7f1fc8e407ab397c37c251388953207b32499d",
+    "scripts/distribution.lock.json": "702b939ff4defb39840a08cac1c8d1ad9323bce644c0a5eec265ed204267b43e"
+  },
+  "skillUnchanged": true,
+  "runtimeInitiallyAbsent": true,
+  "failureBeforeNativeTask": true,
+  "workflowFailure": {
+    "error": "setup_failed: {\"error\": \"distribution_lock_invalid\", \"installed\": false, \"dependencySetup\": {\"skill\": \"artcraft-cli-setup\", \"bootstrapScript\": \"QA_ROOT/retained-final/.agents/skills/artcraft-cli-execute/scripts/bootstrap.py\", \"runtimeHome\": \"QA_ROOT/retained-final/empty-runtime\", \"automaticRetry\": false}}",
+    "errorDetail": {
+      "code": "setup_failed",
+      "message": "setup_failed: {\"error\": \"distribution_lock_invalid\", \"installed\": false, \"dependencySetup\": {\"skill\": \"artcraft-cli-setup\", \"bootstrapScript\": \"QA_ROOT/retained-final/.agents/skills/artcraft-cli-execute/scripts/bootstrap.py\", \"runtimeHome\": \"QA_ROOT/retained-final/empty-runtime\", \"automaticRetry\": false}}"
+    },
+    "dependencySetup": {
+      "skill": "artcraft-cli-setup",
+      "bootstrapScript": "QA_ROOT/retained-final/.agents/skills/artcraft-cli-execute/scripts/bootstrap.py",
+      "runtimeHome": "QA_ROOT/retained-final/empty-runtime",
+      "automaticRetry": false
+    },
+    "result": "failed",
+    "installationReceipt": {
+      "error": "distribution_lock_invalid",
+      "installed": false,
+      "dependencySetup": {
+        "skill": "artcraft-cli-setup",
+        "bootstrapScript": "QA_ROOT/retained-final/.agents/skills/artcraft-cli-execute/scripts/bootstrap.py",
+        "runtimeHome": "QA_ROOT/retained-final/empty-runtime",
+        "automaticRetry": false
+      }
+    }
+  },
+  "packageFailure": {
+    "error": "package_setup_failed: {\"error\": \"distribution_lock_invalid\", \"installed\": false, \"dependencySetup\": {\"skill\": \"artcraft-cli-setup\", \"bootstrapScript\": \"QA_ROOT/retained-final/.agents/skills/artcraft-cli-execute/scripts/bootstrap.py\", \"runtimeHome\": \"QA_ROOT/retained-final/empty-runtime\", \"automaticRetry\": false}}",
+    "dependencySetup": {
+      "skill": "artcraft-cli-setup",
+      "bootstrapScript": "QA_ROOT/retained-final/.agents/skills/artcraft-cli-execute/scripts/bootstrap.py",
+      "runtimeHome": "QA_ROOT/retained-final/empty-runtime",
+      "automaticRetry": false
+    },
+    "result": "failed",
+    "installationReceipt": {
+      "error": "distribution_lock_invalid",
+      "installed": false,
+      "dependencySetup": {
+        "skill": "artcraft-cli-setup",
+        "bootstrapScript": "QA_ROOT/retained-final/.agents/skills/artcraft-cli-execute/scripts/bootstrap.py",
+        "runtimeHome": "QA_ROOT/retained-final/empty-runtime",
+        "automaticRetry": false
+      }
+    }
+  },
+  "runKey": "17292f2212a968be112d0acc6ceb009df156045ac0fa8f4a543c427dbcf470ec",
+  "taskId": "wf-deed09a22e1df7ed99b6124ed07bf01dfb54a0b72fa22d30",
+  "nativeFiles": {
+    "plan.json": "8dc86d739e76d61920ce0ffeaabb834229c5f80f6c7e5ff39ed9d186ccc3a78b",
+    "project.vectorcraft": "e4699ddaf0db02675f06f981ad91564d2d185e2ea90d9766be7dcfa8d2211e31",
+    "exchange-loss.json": "9d09ffc190c486b86a33de74de39cb7a4bc3e9ce7631a16ca8ff39c2abeb1d25",
+    "native.json": "05ee308a20d61869212c49dc4fb8860463f0b9c810d2b905fa2f704cedd723ab",
+    "manifest.json": "630675ecd104a58289837451bf54499e4ac5a069940294730f9c90353c347bb1",
+    "artboard-1.png": "f271ef43e9ff8efc341da1a03d073871662b38903c3766f119bef95f117da2b3",
+    "artboard-1.svg": "42a700a429329156470c6a4cd62077c1505c0ec74a40a37e7907a86c8a07e2c3",
+    "operations.json": "0a424aac4bc702db40893db672b44e12b384ed779cf90e9fd8ba0cf7246a076a"
+  },
+  "movedChildren": 1,
+  "packageSha256": "975f0c143567a81e27a17d98b6aafa93579124227dfbc230dbf34a64a21718a4",
+  "calls": [
+    {
+      "script": "workflow.py",
+      "argv": [
+        "/opt/anaconda3/bin/python3",
+        "-I",
+        "-B",
+        "QA_ROOT/retained-final/.agents/skills/artcraft-cli-execute/scripts/workflow.py",
+        "QA_ROOT/retained-final/plan.json",
+        "--output",
+        "QA_ROOT/retained-final/project",
+        "--runtime-home",
+        "QA_ROOT/retained-final/empty-runtime",
+        "--owner",
+        "local-user",
+        "--authorization",
+        "local-scenario-recovery"
+      ],
+      "returncode": 1,
+      "seconds": 0.1074932500050636
+    },
+    {
+      "script": "workflow.py",
+      "argv": [
+        "/opt/anaconda3/bin/python3",
+        "-I",
+        "-B",
+        "QA_ROOT/retained-final/.agents/skills/artcraft-cli-execute/scripts/workflow.py",
+        "QA_ROOT/retained-final/plan.json",
+        "--output",
+        "QA_ROOT/retained-final/project",
+        "--runtime-home",
+        "QA_ROOT/retained-final/empty-runtime",
+        "--owner",
+        "local-user",
+        "--authorization",
+        "local-scenario-recovery"
+      ],
+      "returncode": 0,
+      "seconds": 25.809125375002623
+    },
+    {
+      "script": "workflow.py",
+      "argv": [
+        "/opt/anaconda3/bin/python3",
+        "-I",
+        "-B",
+        "QA_ROOT/retained-final/.agents/skills/artcraft-cli-execute/scripts/workflow.py",
+        "QA_ROOT/retained-final/plan.json",
+        "--output",
+        "QA_ROOT/retained-final/project",
+        "--runtime-home",
+        "QA_ROOT/retained-final/empty-runtime",
+        "--owner",
+        "local-user",
+        "--authorization",
+        "local-scenario-recovery"
+      ],
+      "returncode": 0,
+      "seconds": 0.4796182080026483
+    },
+    {
+      "script": "package.py",
+      "argv": [
+        "/opt/anaconda3/bin/python3",
+        "-I",
+        "-B",
+        "QA_ROOT/retained-final/.agents/skills/artcraft-cli-execute/scripts/package.py",
+        "create",
+        "--project",
+        "QA_ROOT/retained-final/project",
+        "--workflow",
+        "17292f2212a968be112d0acc6ceb009df156045ac0fa8f4a543c427dbcf470ec",
+        "--output",
+        "QA_ROOT/retained-final/package",
+        "--runtime-home",
+        "QA_ROOT/retained-final/empty-runtime",
+        "--owner",
+        "local-user",
+        "--authorization",
+        "local-scenario-recovery"
+      ],
+      "returncode": 1,
+      "seconds": 0.08044287499797065
+    },
+    {
+      "script": "package.py",
+      "argv": [
+        "/opt/anaconda3/bin/python3",
+        "-I",
+        "-B",
+        "QA_ROOT/retained-final/.agents/skills/artcraft-cli-execute/scripts/package.py",
+        "create",
+        "--project",
+        "QA_ROOT/retained-final/project",
+        "--workflow",
+        "17292f2212a968be112d0acc6ceb009df156045ac0fa8f4a543c427dbcf470ec",
+        "--output",
+        "QA_ROOT/retained-final/package",
+        "--runtime-home",
+        "QA_ROOT/retained-final/empty-runtime",
+        "--owner",
+        "local-user",
+        "--authorization",
+        "local-scenario-recovery"
+      ],
+      "returncode": 0,
+      "seconds": 0.35121091599285137
+    },
+    {
+      "script": "package.py",
+      "argv": [
+        "/opt/anaconda3/bin/python3",
+        "-I",
+        "-B",
+        "QA_ROOT/retained-final/.agents/skills/artcraft-cli-execute/scripts/package.py",
+        "verify",
+        "--package",
+        "QA_ROOT/retained-final/moved-package",
+        "--sha",
+        "975f0c143567a81e27a17d98b6aafa93579124227dfbc230dbf34a64a21718a4",
+        "--runtime-home",
+        "QA_ROOT/retained-final/empty-runtime"
+      ],
+      "returncode": 0,
+      "seconds": 0.3408059170033084
+    }
+  ],
+  "scope": "one candidate single skill: real invalid lock, public cold installation, native Vector create/reuse, package failure and recovery; not fixed new distribution/host/full V1",
+  "sourceRegression": {
+    "tests": 167,
+    "passed": 129,
+    "conditionalSkipped": 38
+  },
+  "redFailures": 28
+}

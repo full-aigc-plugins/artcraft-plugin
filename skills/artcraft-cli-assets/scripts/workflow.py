@@ -15,6 +15,46 @@ import shutil
 
 
 
+class InstallationFailure(ValueError):
+    """保留场景入口的安装错误，恢复位置仅取当前技能自身。"""
+    def __init__(self, message, runtime_home, receipt=None, unknown=False):
+        super().__init__(message)
+        home = runtime_home or os.environ.get('CRAFT_RUNTIME_HOME', str(Path.home()/'.local/share/craft-runtimes'))
+        self.diagnostic = {'dependencySetup': {
+            'skill': 'artcraft-cli-setup',
+            'bootstrapScript': str(Path(__file__).with_name('bootstrap.py').resolve()),
+            'runtimeHome': str(Path(home).expanduser().absolute()),
+            'automaticRetry': False}, 'result': 'unknown' if unknown else 'failed'}
+        if isinstance(receipt, dict):
+            self.diagnostic['installationReceipt'] = receipt
+
+
+def run_installation(command, runtime_home, prefix):
+    """仅封装安装阶段；后续原生任务错误不进入依赖诊断。"""
+    try:
+        installed = subprocess.run(command, capture_output=True, text=True, timeout=600)
+    except (OSError, subprocess.SubprocessError) as error:
+        raise InstallationFailure(str(error), runtime_home,
+            unknown=isinstance(error, subprocess.TimeoutExpired)) from error
+    if installed.returncode:
+        message = installed.stdout.strip() or installed.stderr.strip() or 'bootstrap_failed'
+        try:
+            receipt = json.loads(installed.stdout)
+        except ValueError:
+            receipt = None
+        raise InstallationFailure(prefix+message, runtime_home, receipt)
+    try:
+        receipt = json.loads(installed.stdout)
+    except ValueError as error:
+        raise InstallationFailure(str(error), runtime_home) from error
+    if (not isinstance(receipt, dict) or receipt.get('schema') != 'artcraft-setup/v1'
+            or any(not isinstance(receipt.get(field), str) or not receipt[field]
+                   for field in ('nodeExecutable', 'entryPoint'))):
+        raise InstallationFailure('setup_incomplete', runtime_home, receipt)
+    return receipt
+
+
+
 class WorkflowFailure(RuntimeError):
     """保留非零工作流回执的对象快照，同时兼容已有error字符串。"""
     def __init__(self, receipt):
@@ -211,10 +251,7 @@ def _execute(plan_path, output, owner, authorization, runtime_home=None, node_ar
     if required:
         for name in required:args += ['--plugin', name]
     else:args += ['--runtime-only']
-    installed = subprocess.run(args, capture_output=True, text=True, timeout=600)
-    if installed.returncode:
-        raise ValueError('setup_failed: '+installed.stdout.strip())
-    setup = json.loads(installed.stdout)
+    setup = run_installation(args, runtime_home, 'setup_failed: ')
     if setup.get('schema') != 'artcraft-setup/v1' or set(setup.get('skills', {})) != set(required):
         raise ValueError('setup_incomplete')
     output.mkdir(parents=True, exist_ok=True)
@@ -287,6 +324,8 @@ def main():
         print(json.dumps(execute(args.plan, args.output, args.owner, args.authorization, args.runtime_home, args.node_archive, args.bundle_dir, args.native_archive_dir, args.asset, args.video_factory_root, args.ffmpeg, args.ffprobe, args.brief, args.brief_sha), ensure_ascii=False))
     except (ValueError, RuntimeError, OSError, subprocess.SubprocessError) as error:
         reply = {'error': str(error), 'errorDetail': error_detail(error)}
+        if isinstance(error, InstallationFailure):
+            reply.update(error.diagnostic)
         if isinstance(error, WorkflowFailure):
             reply['workflowReceipt'] = error.receipt
         print(json.dumps(reply, ensure_ascii=False));raise SystemExit(1)

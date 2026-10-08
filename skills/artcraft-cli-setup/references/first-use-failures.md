@@ -29,3 +29,9 @@ These errors reject structurally invalid runtime/Node locks before download or r
 `distribution_lock_invalid` / `bundle_lock_invalid`：分发根对象或制品字段结构损坏。完整分发锁在 Node 安装前检查；未选中的依赖身份也须有效。制品路径、来源地址和版本另保留各自明确的 invalid 错误。
 
 Distribution and bundle shape failures are checked before Node installation, including identities of dependencies not selected for installation. Path, URL and version errors retain their specific invalid diagnostics.
+
+## 场景入口 / Scenario entry points
+
+`workflow.py` 与 `package.py` 安装失败时保留原 `error` 字符串，顶层同时返回 `dependencySetup` 与 `result`；原安装器的 JSON 对象保存在 `installationReceipt`。恢复路径始终指向当前技能自身，不能从另一副本借用脚本。仅 stderr 或非 JSON 诊断也会保留。安装器超时返回 `result=unknown`；其他安装失败返回 `failed`。零退出但安装身份回执不完整也会拒绝，不启动原生任务。
+
+After a scenario installer fails, read top-level `dependencySetup` for the current skill's own recovery path and `installationReceipt` for the original structured installer error. Bootstrap timeouts are unknown; other installation failures are failed. A zero exit with an invalid setup receipt cannot start native work. Input refusal and errors after successful installation keep their own semantics without an installation diagnostic. No native task is replayed automatically.
