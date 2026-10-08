@@ -1,5 +1,7 @@
 # ArtCraft 按任务图安装架构
 
+本文保留此前检查点。任务6.6现已完成，见[当前11场景完整验收](ArtCraft-Capability-Routing-Acceptance-Architecture.zh_CN.md)。
+
 ## 当前固定126实现补证
 
 任务6.4／6.5的核心测试与实现已完成；6.6全场景验收继续开放。固定版本为插件126／独立源98／运行时126-runtime.1，领域身份由 `host-acceptance-art126.lock.json` 固定。本次只有测试与文档变化，不创建重复发布。

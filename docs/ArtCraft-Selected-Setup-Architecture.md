@@ -1,5 +1,7 @@
 # ArtCraft task-selected setup architecture
 
+This document records an earlier checkpoint. Task6.6 is now complete; see [current eleven-scenario acceptance](ArtCraft-Capability-Routing-Acceptance-Architecture.md).
+
 ## Current fixed126 implementation evidence
 
 Core tests and implementation tasks6.4/6.5 are complete;full acceptance6.6 remains open. Versions are plugin126/source98/runtime126-runtime.1,with domain identities in host-acceptance-art126.lock.json. Only tests and documentation change;no duplicate release is created.

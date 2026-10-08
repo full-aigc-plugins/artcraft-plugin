@@ -1,5 +1,7 @@
 # ArtCraft 固定版本路由场景补验
 
+本文保留此前检查点。任务6.6现已完成，见[当前11场景完整验收](ArtCraft-Capability-Routing-Acceptance-Architecture.zh_CN.md)。
+
 本次补验固定 Art 插件 `0.1.0-dev.126`、技能源 `0.1.0-dev.98`、运行时 `0.1.0-dev.126-runtime.1`。生产资源未变化；测试与文档维护不创建替代发布。证据见 [路由场景记录](evidence/routing-scenes-fixed126-20261008.json)。
 
 ```mermaid

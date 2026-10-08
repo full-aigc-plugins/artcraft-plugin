@@ -1,5 +1,7 @@
 # ArtCraft fixed-release routing scenario revalidation
 
+This document records an earlier checkpoint. Task6.6 is now complete; see [current eleven-scenario acceptance](ArtCraft-Capability-Routing-Acceptance-Architecture.md).
+
 This run binds plugin `0.1.0-dev.126`, skill source `0.1.0-dev.98`, and runtime `0.1.0-dev.126-runtime.1`. Production bytes are unchanged; test and documentation maintenance does not replace immutable releases. See [routing evidence](evidence/routing-scenes-fixed126-20261008.json).
 
 ```mermaid
