@@ -11,6 +11,8 @@ import {publicSkillFactory} from '../src/adapters/public_skill.ts';
 import {strictMcpRunner} from '../src/adapters/strict_mcp_runner.ts';
 const exec=promisify(execFile);
 const tool={name:'save',inputSchema:{type:'object',properties:{path:{type:'string'}},required:['path']}};
+const queryTool={name:'list_commands',inputSchema:{type:'object'}};
+const commands=[{id:'fixture.command',params:'{}'}];
 const cases=[
  {name:'matching',tools:[tool],valid:true},
  {name:'matching calls reuse discovery',tools:[tool],repeatCall:true,valid:true},
@@ -30,14 +32,15 @@ for(const item of cases)test('native schema boundary: '+item.name,async()=>{
  try{
   await mkdir(join(root,'scripts'));await mkdir(join(root,'references'));
   const module=join(root,'scripts/mcp_session.py'),entry=join(root,'entry.py'),runner=join(root,'runner.py'),log=join(root,'requests');
-  await writeFile(join(root,'references/native-command-snapshot.json'),JSON.stringify({tools:[tool]}));
+  await writeFile(join(root,'references/native-command-snapshot.json'),JSON.stringify({pluginId:'effectcraft',tools:[tool,queryTool],commands}));
   await writeFile(runner,strictMcpRunner);
   await writeFile(module,`import json,sys
 from pathlib import Path
 class Session:
  def request(self,method,params):
-  with Path(sys.argv[2]).open('a') as f:f.write(method+'\\n')
+  with Path(sys.argv[2]).open('a') as f:f.write(method+(':'+params['name'] if method=='tools/call' else '')+'\\n')
   if method=='tools/list':return json.loads(sys.argv[1])
+  if method=='tools/call' and params.get('name')=='list_commands':return {'content':[{'type':'text','text':'[{"id":"fixture.command","params":"{}"}]'}]}
   return {'content':[{'type':'text','text':'{"saved":true}'}]}
 `);
   await writeFile(entry,`import importlib.util,sys
@@ -50,12 +53,13 @@ if sys.argv[6]=='recover':
 c.request('tools/call',{'name':sys.argv[4],'arguments':{'path':'project'}})
 if sys.argv[6]=='repeat':c.request('tools/call',{'name':'save','arguments':{'path':'second'}})
 `);
-  const result=await exec(process.env.CRAFT_TEST_PYTHON||'python3',['-I','-B',runner,module,entry,JSON.stringify({tools:item.tools}),log,module,item.call||'save',item.discover?'yes':'no',item.recover?'recover':item.repeatCall?'repeat':'once']).then(value=>({code:0,...value}),error=>({code:error.code,stderr:error.stderr}));
+  const result=await exec(process.env.CRAFT_TEST_PYTHON||'python3',['-I','-B',runner,module,entry,JSON.stringify({tools:Array.isArray(item.tools)?[...item.tools,queryTool]:item.tools}),log,module,item.call||'save',item.discover?'yes':'no',item.recover?'recover':item.repeatCall?'repeat':'once']).then(value=>({code:0,...value}),error=>({code:error.code,stderr:error.stderr}));
   assert.equal(result.code===0,item.valid,JSON.stringify(result));
   if(!item.valid)assert.match(result.stderr,/capability_missing: native_tool_schema/);
   const methods=(await readFile(log,'utf8')).trim().split('\n');
   assert.equal(methods.filter(x=>x==='tools/list').length,1);
-  assert.equal(methods.filter(x=>x==='tools/call').length,item.valid?(item.repeatCall?2:1):0,'no edit on refusal; no retry');
+  assert.equal(methods.filter(x=>x==='tools/call:list_commands').length,item.valid?1:0);
+  assert.equal(methods.filter(x=>x==='tools/call:save').length,item.valid?(item.repeatCall?2:1):0,'no edit on refusal; no retry');
  }finally{await rm(root,{recursive:true,force:true});}
 });
 
@@ -68,7 +72,7 @@ test('native snapshot must be locked and unchanged before preparing task files',
   const config={pluginId:'effectcraft' as const,skillRoot:root,python:process.execPath,pythonSha256:hash(await readFile(process.execPath)),nativeExecutable:process.execPath,runtimeHome:root,files,outputRoot:join(root,'outputs')};
   const node={runtimeIdentity:{pluginId:'effectcraft',mode:'headless'},expectedRevision:null,payload:{schemaVersion:'craft-skill-workflow/v1',plan:{},assetBindings:[],outputs:[{assetId:'native',location:'project.ecproj',mediaType:'application/octet-stream'}]}};
   await assert.rejects(publicSkillFactory(config)(node,[],'missing'),/capability_missing: native_tool_schema snapshot unlocked/);
-  const path=join(root,'references/native-command-snapshot.json');await writeFile(path,JSON.stringify({tools:[tool]}));
+  const path=join(root,'references/native-command-snapshot.json');await writeFile(path,JSON.stringify({pluginId:'effectcraft',tools:[tool,queryTool],commands}));
   files.push({path,sha256:hash(await readFile(path))});
   const locked=publicSkillFactory(config);await writeFile(path,JSON.stringify({tools:[]}));
   await assert.rejects(locked(node,[],'drift'),/launcher_file_identity_mismatch/);

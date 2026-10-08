@@ -259,9 +259,10 @@ export class TaskLedger {
       const row=this.row(taskId);this.requireLease(row,epoch);this.requireStopped(taskId,token);
       if(state==='cancelled' ? row.state!=='cancel_requested' : !['running','reconciling','verifying'].includes(row.state)) throw new Error('invalid_transition');
       const diagnostics=code==='native_execution_failed' ? this.execution(taskId)?.diagnostics : undefined;
-      this.database.prepare('UPDATE tasks SET state=?,error_json=? WHERE task_id=?').run(state,state==='failed' ? JSON.stringify({code,...(diagnostics ? {diagnostics} : {})}) : null,taskId);
+      const publicCode=code==='native_execution_failed' && diagnostics?.domainCode==='capability_missing' ? 'capability_missing' : code;
+      this.database.prepare('UPDATE tasks SET state=?,error_json=? WHERE task_id=?').run(state,state==='failed' ? JSON.stringify({code:publicCode,...(diagnostics ? {diagnostics} : {})}) : null,taskId);
       this.database.prepare('DELETE FROM leases WHERE task_id=? AND epoch=?').run(taskId,epoch);
-      this.event(taskId,row.state,state,epoch,{code});
+      this.event(taskId,row.state,state,epoch,{code:publicCode});
       return this.receipt(this.row(taskId));
     });
   }

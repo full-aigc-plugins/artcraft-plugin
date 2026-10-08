@@ -35,6 +35,18 @@ test('successful process is verified, review-ready and releases writer ownership
   assert.equal((await fixture.runner.execute('task1',fixture.adapter)).attemptId,receipt.attemptId);assert.equal(fixture.starts,1);
  }finally{await fixture.cleanup();}
 });
+test('stopped capability refusal exposes its public code, preserves diagnostics and never replays',async()=>{
+ const fixture=await context('failure');try{
+  const stdout=JSON.stringify({error:'capability_missing: native_command_schema mismatch'})+'\n';
+  await writeFile(join(fixture.root,'worker.mjs'),`process.stdout.write(${JSON.stringify(stdout)});process.exitCode=1;`);
+  const receipt=await fixture.runner.execute('task1',fixture.adapter);
+  assert.equal(receipt.state,'failed');assert.equal((receipt.error as any).code,'capability_missing');
+  assert.equal((receipt.error as any).diagnostics.domainCode,'capability_missing');
+  assert.equal((receipt.error as any).diagnostics.stdout.sha256,hash(stdout));
+  assert.equal(fixture.ledger.execution('task1')?.groupStopped,true);assert.equal(fixture.ledger.leases().length,0);
+  assert.deepEqual((await fixture.runner.reconcile('task1',fixture.adapter)).error,receipt.error);assert.equal(fixture.starts,1);
+ }finally{await fixture.cleanup();}
+});
 test('known nonzero exit fails with recorded stop evidence and releases ownership',async()=>{
  const fixture=await context('failure');try{
   const receipt=await fixture.runner.execute('task1',fixture.adapter);assert.equal(receipt.state,'failed');

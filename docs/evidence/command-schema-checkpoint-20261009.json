@@ -1,0 +1,282 @@
+{
+  "schema": "artcraft-command-schema-checkpoint/v1",
+  "status": "candidate-verified",
+  "plannedDistribution": {
+    "plugin": "0.1.0-dev.134",
+    "skills": "0.1.0-dev.106",
+    "runtime": "0.1.0-dev.133-runtime.1"
+  },
+  "runtimeTests": {
+    "total": 405,
+    "pass": 380,
+    "skip": 25
+  },
+  "nativeFaultTests": {
+    "total": 36,
+    "pass": 36,
+    "skip": 0,
+    "dependencies": "fixed133 native dependencies with candidate Art runtime"
+  },
+  "nativeCatalogProbes": {
+    "result": "PASS",
+    "scope": "candidate guard against fixed133 native dependencies; actual readonly catalogs with controlled ID/parameter corruption; no native editing; not fixed134 installation acceptance",
+    "records": [
+      {
+        "domain": "effectcraft",
+        "fault": "matching",
+        "result": "PASS",
+        "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "snapshotSha256": "e56c41e8ca946b4af71e38c94bfcfd162aeaff10289dd45937c5434ec1e07a37",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "eb9ae36510bbb3bc3015b22c83b5ad637ffa83d9162ce9b762dbce9afd778adf",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "domain": "effectcraft",
+        "fault": "missing",
+        "result": "PASS",
+        "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "snapshotSha256": "e56c41e8ca946b4af71e38c94bfcfd162aeaff10289dd45937c5434ec1e07a37",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e8ca6ad05777eea04cb9e0e2a3407f66dad917856c262c084b0594f0e5994954"
+      },
+      {
+        "domain": "effectcraft",
+        "fault": "schema",
+        "result": "PASS",
+        "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "snapshotSha256": "e56c41e8ca946b4af71e38c94bfcfd162aeaff10289dd45937c5434ec1e07a37",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "debd85b46023dcc6b64a7d7150583dc9523b927f8524db17c29298d39063c59d"
+      },
+      {
+        "domain": "effectcraft",
+        "fault": "duplicate",
+        "result": "PASS",
+        "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "snapshotSha256": "e56c41e8ca946b4af71e38c94bfcfd162aeaff10289dd45937c5434ec1e07a37",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "8d1607be99da70380e61663ea7c69d2ce90f00e17bcdd2fa20aae37cb8787970"
+      },
+      {
+        "domain": "effectcraft",
+        "fault": "malformed",
+        "result": "PASS",
+        "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "snapshotSha256": "e56c41e8ca946b4af71e38c94bfcfd162aeaff10289dd45937c5434ec1e07a37",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "45cdd74b44576ca70a7b133af0b98aa5f35588fec5dd597cc57d1159f58501a4"
+      },
+      {
+        "domain": "filmcraft",
+        "fault": "matching",
+        "result": "PASS",
+        "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+        "snapshotSha256": "8c6c6fbb796acadb6640d74e21ee2634d8b4460adf5ef2e07f9b62051ac2b5ec",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "5e6a0b8de5577da5b47b479bdc668ea5ddc036d44e75253351db64cb35f06f59",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "domain": "filmcraft",
+        "fault": "missing",
+        "result": "PASS",
+        "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+        "snapshotSha256": "8c6c6fbb796acadb6640d74e21ee2634d8b4460adf5ef2e07f9b62051ac2b5ec",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "b6b7d81cc8bf5a06c7266af6ff6efc26a880c268c9f3712f7dc779278984b7db"
+      },
+      {
+        "domain": "filmcraft",
+        "fault": "schema",
+        "result": "PASS",
+        "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+        "snapshotSha256": "8c6c6fbb796acadb6640d74e21ee2634d8b4460adf5ef2e07f9b62051ac2b5ec",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "8b5ef02e2a3b1971dbc4c24d2a421070b3128e4dc451d7eb37398ac9364d5c3d"
+      },
+      {
+        "domain": "filmcraft",
+        "fault": "duplicate",
+        "result": "PASS",
+        "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+        "snapshotSha256": "8c6c6fbb796acadb6640d74e21ee2634d8b4460adf5ef2e07f9b62051ac2b5ec",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "5d5fe9e9dd81902621dbf999eb523bdc1ddcf6678a4980c8fa33689e693e9961"
+      },
+      {
+        "domain": "filmcraft",
+        "fault": "malformed",
+        "result": "PASS",
+        "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+        "snapshotSha256": "8c6c6fbb796acadb6640d74e21ee2634d8b4460adf5ef2e07f9b62051ac2b5ec",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "18caf50b560940257a14f6db73fc1cfb3ce3be74e5787757640f992d27d87349"
+      },
+      {
+        "domain": "photocraft",
+        "fault": "matching",
+        "result": "PASS",
+        "nativeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+        "snapshotSha256": "04fb30c79c01a849bda81689c26afb8c63741d1e0bf58b000d5d6bd23b44a10f",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "d02a9fa9c4e8597a449ed51f47b9f1658a7d92050c2f0168aab2b00a6dedb050",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "domain": "photocraft",
+        "fault": "missing",
+        "result": "PASS",
+        "nativeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+        "snapshotSha256": "04fb30c79c01a849bda81689c26afb8c63741d1e0bf58b000d5d6bd23b44a10f",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "3b83e04e9afcad837ba60d150c44eece7944bbfeb32259e80871daf5989929f3"
+      },
+      {
+        "domain": "photocraft",
+        "fault": "schema",
+        "result": "PASS",
+        "nativeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+        "snapshotSha256": "04fb30c79c01a849bda81689c26afb8c63741d1e0bf58b000d5d6bd23b44a10f",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "b8e5850bb3013232361159eb0f597754d90076c93b53b25f38ff56a6af5e17e7"
+      },
+      {
+        "domain": "photocraft",
+        "fault": "duplicate",
+        "result": "PASS",
+        "nativeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+        "snapshotSha256": "04fb30c79c01a849bda81689c26afb8c63741d1e0bf58b000d5d6bd23b44a10f",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "11d27f195ece2fad1f0e724ad91be85f71f2c35ce473662aa40eeef686ba4912"
+      },
+      {
+        "domain": "photocraft",
+        "fault": "malformed",
+        "result": "PASS",
+        "nativeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+        "snapshotSha256": "04fb30c79c01a849bda81689c26afb8c63741d1e0bf58b000d5d6bd23b44a10f",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "4d9a82d5f5d75aeaf723dc6b477c55338c9c2e4258f71b7e8d95180efe2667b8"
+      },
+      {
+        "domain": "vectorcraft",
+        "fault": "matching",
+        "result": "PASS",
+        "nativeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+        "snapshotSha256": "1e63722f850930947c4cc6e9bdbe24638413e43c2e5127dd385f167d493e10e1",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "aa1628d88bcf905f36438ceb45689638b6a2e06c1cdb187d14517bf51068bb39",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "domain": "vectorcraft",
+        "fault": "missing",
+        "result": "PASS",
+        "nativeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+        "snapshotSha256": "1e63722f850930947c4cc6e9bdbe24638413e43c2e5127dd385f167d493e10e1",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "b2519bc1c0e844dbb7d02d5385bf728ab1beb415759c2c58c4b697003e6541d2"
+      },
+      {
+        "domain": "vectorcraft",
+        "fault": "schema",
+        "result": "PASS",
+        "nativeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+        "snapshotSha256": "1e63722f850930947c4cc6e9bdbe24638413e43c2e5127dd385f167d493e10e1",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "2e8a4ec5f6829665b319bb372c683602a327bab5aff794f9d260073142e45bfd"
+      },
+      {
+        "domain": "vectorcraft",
+        "fault": "duplicate",
+        "result": "PASS",
+        "nativeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+        "snapshotSha256": "1e63722f850930947c4cc6e9bdbe24638413e43c2e5127dd385f167d493e10e1",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "91d7c6d8364fc42e5e9cbe54c17d8667ac4575a2a141735b3046dd55399d3ea2"
+      },
+      {
+        "domain": "vectorcraft",
+        "fault": "malformed",
+        "result": "PASS",
+        "nativeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+        "snapshotSha256": "1e63722f850930947c4cc6e9bdbe24638413e43c2e5127dd385f167d493e10e1",
+        "toolsListCount": 1,
+        "toolsCallCount": 1,
+        "callIsReadonly": true,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "2e4b6f2d2febf7e922c6133126e527890f3c0b66987c11a9b66e777ad9fee109"
+      }
+    ]
+  },
+  "commandCounts": {
+    "filmcraft": 666,
+    "effectcraft": 640,
+    "photocraft": 755,
+    "vectorcraft": 585
+  },
+  "limits": [
+    "No new fixed host/cold-start/mixed acceptance claimed",
+    "Standalone bridge/desktop command contract enforcement is not covered",
+    "Task4.6 and other12 tasks remain open"
+  ],
+  "logs": {
+    "full-node.log": "17f476afd6a2aa0a78236db357ad3db9c83a523a22d53d8e65c6661bc2605b39",
+    "native-faults.log": "47e46426625eb0c3da345512d05ef7ba0d7bb19971bc51e33edd4edafecc15d2",
+    "native-command-schema/proof.json": "b57ab4e654c5f6fc88fa9724de7fdebbaddd4bb9f18ed8deac24669e915a2d61"
+  }
+}

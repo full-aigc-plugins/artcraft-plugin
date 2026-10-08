@@ -13,9 +13,9 @@ test('strict MCP runner rejects ambiguous inner JSON without retry and retains v
  try{
   const runner=join(root,'runner.py'),module=join(root,'scripts/mcp_session.py'),entry=join(root,'entry.py'),count=join(root,'calls');
   await mkdir(join(root,'scripts'));await mkdir(join(root,'references'));
-  await writeFile(join(root,'references/native-command-snapshot.json'),JSON.stringify({tools:[{name:'save',inputSchema:{type:'object'}}]}));
+  await writeFile(join(root,'references/native-command-snapshot.json'),JSON.stringify({pluginId:'effectcraft',tools:[{name:'save',inputSchema:{type:'object'}},{name:'list_commands',inputSchema:{type:'object'}}],commands:[{id:'fixture.command',params:'{}'}]}));
   await writeFile(runner,strictMcpRunner);
-  await writeFile(module,`import json,sys\nfrom pathlib import Path\nclass Session:\n def request(self,method,params):\n  with Path(sys.argv[2]).open('a') as f:f.write(method+'\\n')\n  if method=='tools/list':return {'tools':[{'name':'save','inputSchema':{'type':'object'}}]}\n  return json.loads(sys.argv[1])\n`);
+  await writeFile(module,`import json,sys\nfrom pathlib import Path\nclass Session:\n def request(self,method,params):\n  with Path(sys.argv[2]).open('a') as f:f.write(method+(':'+params['name'] if method=='tools/call' else '')+'\\n')\n  if method=='tools/list':return {'tools':[{'name':'save','inputSchema':{'type':'object'}},{'name':'list_commands','inputSchema':{'type':'object'}}]}\n  if method=='tools/call' and params.get('name')=='list_commands':return {'content':[{'type':'text','text':'[{"id":"fixture.command","params":"{}"}]'}]}\n  return json.loads(sys.argv[1])\n`);
   await writeFile(entry,`import importlib.util,sys,json\ns=importlib.util.spec_from_file_location('fixture',sys.argv[3]);m=importlib.util.module_from_spec(s);s.loader.exec_module(m)\nprint(json.dumps(m.Session().request(sys.argv[4],{'name':'save'})))\n`);
   const cases=[
    {text:'{"saved":true,"nested":{"x":1.5},"items":[1,null]}',valid:true},
@@ -39,7 +39,8 @@ test('strict MCP runner rejects ambiguous inner JSON without retry and retains v
    if(item.valid)assert.deepEqual(JSON.parse(result.stdout),reply);
    else assert.match(result.stderr,/outcome_unknown: invalid_tool_content_json; request not retried/);
    const calls=(await readFile(count,'utf8')).trim().split('\n');
-   assert.equal(calls.filter(method=>method!=='tools/list').length,index+1);
+   assert.equal(calls.filter(method=>method!=='tools/list'&&method!=='tools/call:list_commands').length,index+1);
+   assert.equal(calls.filter(method=>method==='tools/call:list_commands').length,index+(item.method==='initialize'?0:1));
    assert.equal(calls.filter(method=>method==='tools/list').length,index+(item.method==='initialize'?0:1));
   }
  }finally{await rm(root,{recursive:true,force:true});}

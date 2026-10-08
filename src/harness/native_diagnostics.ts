@@ -5,7 +5,7 @@ import type { Readable } from 'node:stream';
 export type OutputDigest={bytes:number;sha256:string;truncated:boolean;complete:boolean};
 export type NativeDiagnostics={schema:'craft-native-diagnostics/v1';domainCode:string|null;source:'stdout'|'stderr'|null;stdout:OutputDigest;stderr:OutputDigest};
 const limit=16384;
-const codes=new Set(['protected_region_changed','missing_fonts','unsupported_command','unsupported_mapping','parameter_contract_identity_mismatch','parameter_schema_mismatch','revision_conflict','asset_checksum_mismatch','asset_svg_external_dependency','unresolved_reference','invalid_source','export_missing','export_audio_missing','editable_layer_gate_failed','invalid_export','protected_source_required','command_failed']);
+const codes=new Set(['capability_missing','protected_region_changed','missing_fonts','unsupported_command','unsupported_mapping','parameter_contract_identity_mismatch','parameter_schema_mismatch','revision_conflict','asset_checksum_mismatch','asset_svg_external_dependency','unresolved_reference','invalid_source','export_missing','export_audio_missing','editable_layer_gate_failed','invalid_export','protected_source_required','command_failed']);
 
 /** 持续排空管道并计算全部已观察字节摘要，结构化解析缓冲最多 16 KiB。 */
 export class OutputObservation {
@@ -27,7 +27,10 @@ export class OutputObservation {
   let code:string|null=null;
   if(this.complete && this.bytes<=limit){
    try{
-    const value=JSON.parse(Buffer.concat(this.chunks).toString('utf8'));
+    const text=new TextDecoder('utf-8',{fatal:true}).decode(Buffer.concat(this.chunks));
+    // 领域错误仅接受单一 error 字段，拒绝 JSON.parse 会折叠的重复键。
+    if(!/^\s*\{\s*"error"\s*:\s*"(?:\\(?:["\\/bfnrt]|u[0-9a-fA-F]{4})|[^"\\\u0000-\u001f])*"\s*\}\s*$/.test(text))throw new Error('ambiguous_native_error');
+    const value=JSON.parse(text);
     if(value && typeof value==='object' && !Array.isArray(value) && Object.keys(value).length===1 && typeof value.error==='string'){
      const prefix=value.error.split(':',1)[0];if(codes.has(prefix))code=prefix;
     }

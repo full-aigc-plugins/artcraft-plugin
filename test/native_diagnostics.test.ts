@@ -73,3 +73,11 @@ test('pinned parameter contract failures retain codes without exposing private d
   assert.equal(nativeDiagnostics(await observe(payload),await observe('{"error":"revision_conflict"}')).domainCode,null);
  }
 });
+
+test('capability reports remain bounded and ambiguous duplicate fields are not promoted',async()=>{
+ const valid=nativeDiagnostics(await observe('{"error":"capability_missing: native_command_schema mismatch"}'),await observe(''));
+ assert.equal(valid.domainCode,'capability_missing');
+ for(const value of ['{"error":"missing_fonts","error":"capability_missing"}','{"error":"capability_missing","\\u0065rror":"capability_missing"}']){
+  assert.equal(nativeDiagnostics(await observe(value),await observe('')).domainCode,null);
+ }
+});

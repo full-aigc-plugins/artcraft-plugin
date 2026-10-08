@@ -1,8 +1,10 @@
 # ArtCraft Agent Plugin
 
+开发检查点134／源106／runtime133增加headless编辑前2646命令合同校验。运行时380通过／25跳过，20项原生只读探针及36项原生故障回归通过；新固定宿主／混合验收和任务4.6保持开放。[架构](docs/ArtCraft-Live-Command-Contract-Architecture.zh_CN.md)。
+
 固定133／源105／runtime132实际工具schema验收通过：64宿主身份、十独立冷首用、20原生schema探针、四领域快照／模式拒绝、混合3/3及36保存后故障。仅关闭4.18；整体4.6为16项中14项，2646命令参数只读一致不能代替漂移拒绝。[验收](docs/ArtCraft-Live-Tool-Schema-Architecture.zh_CN.md)。
 
-当前候选133／源105／runtime132补齐DAG编辑前受信实际工具schema发现；固定宿主与原生验收待完成。任务4.18与整体4.6保持开放。[架构](docs/ArtCraft-Live-Tool-Schema-Architecture.zh_CN.md)。
+此前候选133／源105／runtime132补齐DAG编辑前受信实际工具schema发现；固定宿主与原生验收待完成。任务4.18与整体4.6保持开放。[架构](docs/ArtCraft-Live-Tool-Schema-Architecture.zh_CN.md)。
 
 固定132／源104／runtime131模式修复验收通过：四领域bridge DAG均在输出／原生启动前拒绝，独立显式模式检查保持区分；64宿主身份、十独立冷首用、实际四领域混合返工／移动包和36项原生响应故障通过。任务4.17完成；4.6仍开放（新增MODE后13/15场景），12个编号任务仍开放。[固定模式验收](docs/ArtCraft-Runtime-Mode-Boundary-Architecture.zh_CN.md)。
 
