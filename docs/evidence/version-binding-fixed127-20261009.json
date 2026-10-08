@@ -1,0 +1,202 @@
+{
+  "schema": "craft-version-binding-installed/v1",
+  "result": "PASS",
+  "platform": "darwin",
+  "runtimeVersion": "0.1.0-dev.126-runtime.1",
+  "skillFiles": {
+    "SKILL.md": "2448bd7a6c3843c1ff46b2486ad2974351a77267587611f075398ea63626bb58",
+    "references/scenario.md": "e8820ef0b632b32393375754957d177b21b36595b79442a05aa0b6845c1c02c8",
+    "references/revision.md": "d664983acdbb2cd83ecc2c979bd6cc81fb59696fdaddb99d702e9fe0311fcb01",
+    "references/desktop-handoff.md": "a1229e22f44d7cdc7aa0dd9e18f318e0dcc806f871a8f7fb9410fc2eb26e6fb5",
+    "references/domain-commands.md": "9842360fab9cb0c4a4cf38a0c78b4467e6f17d2d4fc2ab37148913dca25ff689",
+    "references/domain-command-index.json": "bb0c7f91de4a172b5ff015074f631d67321dc1824ed4f6da8473cc80898a7339",
+    "references/task-receipts.md": "8170f08be9dad6c9649749e59867a8a2a1224207549929375b1b1695bc20087f",
+    "references/photo-delivery-integrity.md": "444a7cc41be0de89e0c492d3a355e8bdbded50e70ffeaabe696ac125a354a5e4",
+    "references/business-scenes.md": "74f4dee63a006ba2c1dd51e61ad8f0476ec04f3a5a5d3cc751f546207e9cffd8",
+    "references/vector-appearance.md": "0269d33e166b092c1efe91463fb99410df72da37a2748e5fb6da9623db6c32c7",
+    "references/workflow.md": "53303d3825c1ed8ae2f124469a43f7fb187334cda3e9ceaf31d55ad1257dbb86",
+    "references/brand-token-workflow.md": "28f955155ca50f4dfa54da53c9e20ea035171aac70681972d9d6638900d0f8c0",
+    "references/commands.json": "6da027ae418ef7d24a69560a01bbb05f2db3de7df50ede9341a924aee6220ad9",
+    "references/recovery.md": "04c7d80ca1bee85f084b91074223b7412d1c810fffa548a82f02eb0f37700773",
+    "references/video-factory.md": "ce5edfe349cb0d74a7e5126440523c157e71aba8a26f8d71e79149343212f6b5",
+    "references/photo-adjustment.md": "8a40cc9b35d51ee15382415be25e546942f382e3c5c14753eea8d5c12f6ae229",
+    "references/project-package.md": "3ed74526a8a93125f7f28002cf80c130298f8fb570bf0d9a2f487795c1eb343b",
+    "references/mixed-asr.md": "c7db016c33c960156de045b43af0222996c700c8bb863de57726006d36a5c8b6",
+    "references/dynamic-sequence.md": "e464c7a033e2f99c9dd1d33047c2a37441e01271fb06806f43d2f290c773225b",
+    "references/brief.md": "db2d255e41211ee3b3166e15b1758c455c65d3d0a7c4e19b59f790e30790cccf",
+    "references/exchange-loss.md": "52102251621536a3cd9251ebafcfe62f47493a1c9b24aa26471b15a52a2debb2",
+    "references/review.md": "5bd0e417ab1db9363a5fa9f40ff75fbb706cd15a4a19fa3c6002300c0c8bcb43",
+    "references/first-use-failures.md": "d17485036dd3027f86a5bad99b722d0713ae7e472d30c6d2cfb4b22037ab31c9",
+    "references/effect-expression.md": "cd89fe9670a41a06ba1918a86717cfde9ef21a5f8445939f8b3272d8e85481d3",
+    "references/consistency.md": "c5739f48e3f281059a6de86021a5ad2dc9e26a10c2aba86ad028dce92719a0c1",
+    "examples/domain-effectcraft-create.json": "03d3d7796210dfd4ff27f6cde0e1ba10b4376b0243dc4938d87103ca991f5f61",
+    "examples/photo-adjustment-revision-plan.json": "bee2a7ecc778f24b141a5a82858226f617db99406e053f1303f7065308132369",
+    "examples/brand-token-campaign.json": "3af8b60f59361eea0b7ad7531155922aa7fbc588673a89387a7ef727c3b830eb",
+    "examples/segmented-hd-brand-campaign.json": "14d7cea358da18da488b76f73e53c6f820fe0236440f168efe0720ce729b97c1",
+    "examples/brand-brief.json": "83bd8bcccec8fe4d9560687f85db757f4f44906ab50d817a657f573c1db9ffd0",
+    "examples/domain-filmcraft-desktop.json": "3c64e48acff1905c49114b75f2ee09cb4949f64fde666970b40c12fe726980b3",
+    "examples/domain-photocraft-create.json": "d0585885b908e265e385c6c57507e074e71158f9c41862990690a7ebb7967fde",
+    "examples/domain-photocraft-desktop.json": "8912f9c817eabfc95faf5e37af113b7d0e8c3c7d4a8c8b1b06aa2c340f53eed2",
+    "examples/mixed-asr-operations.json": "b4a4c3905f84b2b13c750c578768249603db02c5568f8ed90fb9b745c1eca23b",
+    "examples/domain-effectcraft-desktop.json": "38c54bb2c653f9ac1490e0953d5081e5c74869438baf3731173540f0332119f1",
+    "examples/vector-appearance-revision-plan.json": "3e464a7576f55684c45eaf4b3b4ce94bc53c52a4e360e2a1609372201686f616",
+    "examples/domain-vectorcraft-revise.json": "8e416f9ed55a21862cfc6848ca4e9f97b3fbd2b405b9a56faf89dbc016cbe779",
+    "examples/chinese-brand-campaign.json": "e98b5bb3e2eb45b5f12c02477b0f8a8d5a5f6ca4acd367b5a5d5d5b889c09712",
+    "examples/dynamic-brand-campaign.json": "61d79ea215130e7f3b54184d211912430be15856e909e66fa0550456791fa18c",
+    "examples/brand-campaign.json": "3e5e60ffda7efac81c8940e5f1e1e817f29a9807eebd3e4bb905998d7b041bf4",
+    "examples/domain-filmcraft-create.json": "de489d735caa481500fd0ede481d6034b9e2652eb39232541ded6a6a7b11dc1e",
+    "examples/vector-appearance-workflow.json": "e24206309610238ab6ace633e0bb82ee1d3c22377219c5b1d1b8bb0be6f6b6a9",
+    "examples/domain-effectcraft-revise.json": "d54bfa78c48b674136b56a8e0c7e36e4c1c475a5907ba46ae450b2ac86e17d1e",
+    "examples/domain-photocraft-revise.json": "444baa22f6c1f6c26e0f498dbac68bdfc5c93280678f08f41486057ccd3a165f",
+    "examples/effect-expression-workflow.json": "2fd9547a8d13f879266ffb4b53c29e4a92dbb29488436fc2580423a5be3d475b",
+    "examples/smart-dynamic-brand-campaign.json": "da86092048e3d73bc9757e09a8a1ef02c7b8c4407c557caaedb3d9e68ca97e76",
+    "examples/photo-adjustment-workflow.json": "8152390a3e55ffc6ccab77a33f63182b040b169c36abb601e523147817297299",
+    "examples/domain-vectorcraft-desktop.json": "41461b895abe438b35cfa2fcedec42d883ceb0a77812cb5e21e071b5473f3b2b",
+    "examples/domain-vectorcraft-create.json": "c7668b298747a3dec9266826344778e8c977a36df293436531ea1ea8db4a44bc",
+    "examples/domain-filmcraft-revise.json": "33d91cf6b63982dfe7fb9c75b2aec6babf4ff2184f0673dcf00e19ad72e3f611",
+    "examples/effect-expression-revision-plan.json": "8076203648de8834c0681149e557ea4ffed35e0863c2e7a2dec2b4001e3ca22f",
+    "scripts/package.py": "9d98f5c17e707b5fd80c43dde55c4d5b50cb2b27c2945607a5376c6a13ecc48c",
+    "scripts/bootstrap.py": "e019fa5b35c819f6025eec1f0711b180eefe5351bc1b0db84a2f4dc50fec8fdf",
+    "scripts/public_call.py": "94388742c4b959319469d7389321e2226845c81b8166cc6f923419da65e9dbd8",
+    "scripts/jpeg_inspection.py": "6d057317962954b147864ae33966582553dc0591335af42bfdc3da333ed2257c",
+    "scripts/consistency.py": "2057087981a082dc004f3dbe813516c514f2fb88fc40faf9af78eefe5a45b385",
+    "scripts/download.py": "f569dd3f0d4765a0cdf9c4efd26060963ef774128f29575a38c578f44ae07263",
+    "scripts/domain_commands.py": "12cfdf2424d7e5507fe95580c8d52b9d0b186b63964df91d3a9dd8d29c110c03",
+    "scripts/brief.py": "a1b2e526c4f631e60998c777e1d8332ed6d2f61ca4afa106bf9068f15f3f3124",
+    "scripts/review.py": "a0141dc735e1178680f3313f9071f0f1a96fe55fe9c4aad3e33afb719a6d9406",
+    "scripts/node.lock.json": "5d47b1f8b5a1738686f3033981444489eafeb99854d2102254be0375ae4462b8",
+    "scripts/setup.py": "8a4926bbabdf6edbddf8f46b9ad3c20066e50b6472a037206b2a394e7eaff472",
+    "scripts/cli.py": "338bb31c726bdaf9b9545c478aa60d4dfbe813049dc849f8ae6040a34a42ff97",
+    "scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+    "scripts/revision.py": "ecb0c7da71c213519f6e62b33748cb818715722854e1c457b9a3f39811884a93",
+    "scripts/workflow.py": "032dff716caaca208f55946ecb7f1fc8e407ab397c37c251388953207b32499d",
+    "scripts/distribution.lock.json": "e0fc656413d474a9e39048e59474b9c039680da6af56beb8437e4ff166ed78e0"
+  },
+  "installation": "single copied fixed installed skill; existing verified runtime cache; not cold or generic Skills CLI installation",
+  "nativeCreateCount": 8,
+  "domains": [
+    "effectcraft",
+    "filmcraft",
+    "photocraft",
+    "vectorcraft"
+  ],
+  "refusals": [
+    {
+      "fault": "plan",
+      "error": "workflow_revision_conflict",
+      "allProjectFilesAndLedgerTablesPreserved": true
+    },
+    {
+      "fault": "authorization",
+      "error": "workflow_revision_conflict",
+      "allProjectFilesAndLedgerTablesPreserved": true
+    },
+    {
+      "fault": "input",
+      "error": "workflow_revision_conflict",
+      "allProjectFilesAndLedgerTablesPreserved": true
+    },
+    {
+      "fault": "launcher",
+      "error": "workflow_revision_conflict",
+      "allProjectFilesAndLedgerTablesPreserved": true
+    }
+  ],
+  "requestHashes": {
+    "wf-3b00b4d638f21854ff710e018fa9fa4d928b8fdaff78d50d": "bb34f424445e7e48c0dd21b4e29c174a6cd57b888790d2d949d0207689148496",
+    "wf-1dc879ec36ba04aafd18b2f55738f167f34aaccbda52371f": "ac56caf11c9fbc7e8767f30c1642416ba2e7dd4ad86bbaa34ddcae2acf3b71b6",
+    "wf-32db649c7f4b0159e4d2f9255eccd74d320509b88706ac6f": "4ebcb3d1dc50abd95ff1af742d4bc70c9edf9dba57d144057253c8b224c448a3",
+    "wf-f62d356b62e7d636c929eae823e38050ff76f777a9161584": "9c0ada69c523391cdb519d69f72ae61c4652b2716f13d6c174e131e57cea70d5",
+    "wf-ca8fc06bbfc553016215f96e9504796131ca1f49516cfee8": "380aff9b632e9913457b35ffe4b0834700837556c039d64dc0a8a4655171db21",
+    "wf-8d70a317caf3ad574a6c97318c3e4ba75e26fe1a3059a736": "5a1fcf151dcee38fd42ab9a961d69f13b51c8e09594afe8f6f93e6260e6b1106",
+    "wf-6fd27c06915c1ec69e5201086a5a962e841ef4aa4d81789f": "d3f155fcfb92279eb8027e139b33f3d7fa5299a37c1c7070cff6f41f03ef4006",
+    "wf-6791965e639ea5cc4ac70bb23444a834ba923f27ae9160f9": "d2824b14277bd8a164d9074e4ca5ea5af5c3b7a07ab3eafc78c519202e42f49e"
+  },
+  "launcherHashes": [
+    "5527e998a5bd993c838437c9326e6de73bd4e3820f2931247458022df251a2ce",
+    "7ebde552773a4045532637b114d645a313e045ac07b26f5e520bf039f1e34063"
+  ],
+  "sameScopeReusesOriginalTasks": true,
+  "newScopeHasOwnTasks": true,
+  "oldDeliveriesPreserved": true,
+  "movedPackageSha256": "b0d36c2ea0bb6e2008547e71cd9e797d6e196b13b05ceb8e972a9062a97bd4db",
+  "calls": [
+    {
+      "label": "create",
+      "exitCode": 0,
+      "stdoutSha256": "ce3b4d051e72a07d2a0ff7b69bca64ac4ddd38c89d751d2179dd38e336e670a3",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "frozen-plan",
+      "exitCode": 1,
+      "stdoutSha256": "2e4421171a2b4d385a66408f94181c13d1f6b7015c0f88b3f1ec3d9347d7eb0a",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "frozen-authorization",
+      "exitCode": 1,
+      "stdoutSha256": "2e4421171a2b4d385a66408f94181c13d1f6b7015c0f88b3f1ec3d9347d7eb0a",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "frozen-input",
+      "exitCode": 1,
+      "stdoutSha256": "2e4421171a2b4d385a66408f94181c13d1f6b7015c0f88b3f1ec3d9347d7eb0a",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "frozen-launcher",
+      "exitCode": 1,
+      "stdoutSha256": "2e4421171a2b4d385a66408f94181c13d1f6b7015c0f88b3f1ec3d9347d7eb0a",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "same-scope-replay",
+      "exitCode": 0,
+      "stdoutSha256": "72dd072932ff66b0406283a7df0809e99035c57441c7f78c527527492f8c08f7",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "same-scope-new-revision",
+      "exitCode": 0,
+      "stdoutSha256": "d674b5b9e7b2934d0561a4638ac42902f60754857eb5e964c34ba151b1f5576a",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "new-scope-create",
+      "exitCode": 0,
+      "stdoutSha256": "d74da586097663d70f6daeac68bad2daf877670fba1c812d2a0dd67162125694",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "new-scope-replay",
+      "exitCode": 0,
+      "stdoutSha256": "02ad73b3efcd3a8844970149579568e2f4ba47f230c62279e960222e407e9dc6",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "package",
+      "exitCode": 0,
+      "stdoutSha256": "626a639416684af8d63ba5a2bc8ea7fd9e0c742b4891d67e10cfc47694383372",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "verify-moved",
+      "exitCode": 0,
+      "stdoutSha256": "26c3a71338358e9014a5375ff3ef85ea01981111d0828ca48929a3f5d65eb432",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "driverSha256": "1113815cfa5351ce6c298d0751c445f99a3e5dc581997a14d898934c8173c17a",
+  "remaining": [
+    "actual GUI edit and stale-plan revision_conflict; task 5.3 remains open",
+    "single-writer matrix is separate scheduling evidence; not rerun by this test",
+    "human acceptance, model dispatch and other platforms"
+  ],
+  "date": "2026-10-09",
+  "plugin": "0.1.0-dev.127",
+  "source": "0.1.0-dev.99",
+  "hostIdentityEvidence": "budget-cancel-complete-fixed127-20261009.json",
+  "testLogSha256": "d3f2798300f2c9324c19dbfb1d69f099dbef5a344bab8f5a1ce1b3ebe56d8aa9"
+}

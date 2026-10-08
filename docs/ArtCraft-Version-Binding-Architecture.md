@@ -1,5 +1,7 @@
 # ArtCraft version binding and single-writer implementation audit
 
+Current fixed127/source99 update: four-domain eight-native-output execution, frozen plan/authorization/input/actual-Python-launcher refusal with complete project and ledger preservation, same-scope reuse/new-scope tasks and moved packaging pass. [Current evidence](evidence/version-binding-fixed127-20261009.json). Actual GUI modification followed by stale-plan revision_conflict remains NOT_RUN;5.3 stays open. The older runtime122/source94 section below is historical.
+
 This audit covers AC-TX-001 test and minimal implementation tasks 5.1 and 5.2. Complete real-boundary acceptance, task 5.3, remains open: an actual GUI edit followed by a stale-plan revision_conflict response has not been observed. The normative specification and acceptance criteria remain unchanged.
 
 ## Execution architecture

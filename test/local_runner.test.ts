@@ -328,3 +328,28 @@ test('permission signal failure retains unknown ownership even after observed na
   const budget=fixture.ledger.budgetAccounts();assert.equal((await fixture.runner.reconcile('task1',fixture.adapter)).attemptId,receipt.attemptId);assert.deepEqual(fixture.ledger.budgetAccounts(),budget);assert.equal(fixture.ledger.events('task1').filter(event=>(event.detail as any).execution==='spawned').length,1);
  }finally{if(original===undefined)delete process.env.NODE_OPTIONS;else process.env.NODE_OPTIONS=original;await fixture.cleanup();}
 });
+
+for(const sustained of [false,true])test(`post-close EPERM ${sustained?'retains unknown ownership':'is re-probed until trusted absence'}`,async()=>{
+ const fixture=await context('wait');const original=process.env.NODE_OPTIONS;
+ try{
+  const preload=join(fixture.root,'post-close-probe.mjs'),marker=join(fixture.root,'post-close-probes.json');
+  // 真实子进程已经退出后才注入权限探测错误；不改变发出的终止信号。
+  await writeFile(preload,`import{writeFileSync}from'node:fs';const send=process.kill.bind(process);let denied=0,absent=0;process.kill=(pid,signal)=>{try{return send(pid,signal);}catch(error){if(pid<0&&signal===0&&error.code==='ESRCH'){absent++;if(${sustained}||denied<2){denied++;writeFileSync(${JSON.stringify(marker)},JSON.stringify({denied,absent}));throw Object.assign(new Error('controlled post-close permission probe'),{code:'EPERM'});}writeFileSync(${JSON.stringify(marker)},JSON.stringify({denied,absent}));}throw error;}};`);
+  process.env.NODE_OPTIONS='--import='+preload;
+  const executing=fixture.runner.execute('task1',fixture.adapter);
+  for(let count=0;!fixture.ledger.execution('task1')?.pid && count<300;count++)await new Promise(resolve=>setTimeout(resolve,10));
+  assert.ok(fixture.ledger.execution('task1')?.pid);fixture.ledger.cancel('task1');
+  assert.equal(fixture.ledger.status('task1').state,'cancel_requested');assert.equal(fixture.ledger.leases().length,1);
+  const receipt=await executing,probes=JSON.parse(await readFile(marker,'utf8'));
+  assert.ok(probes.denied>=2);assert.equal(fixture.ledger.events('task1').filter(event=>(event.detail as any).execution==='spawned').length,1);
+  const budget=fixture.ledger.budgetAccounts(),execution=fixture.ledger.execution('task1');
+  if(sustained){
+   assert.equal(receipt.state,'cancel_requested');assert.equal(execution?.groupStopped,false);assert.equal(fixture.ledger.leases().length,1);
+  }else{
+   assert.equal(probes.denied,2);assert.ok(probes.absent>probes.denied);
+   assert.equal(receipt.state,'cancelled');assert.equal(execution?.groupStopped,true);assert.equal(fixture.ledger.leases().length,0);
+  }
+  assert.equal((await fixture.runner.reconcile('task1',fixture.adapter)).attemptId,receipt.attemptId);
+  assert.deepEqual(fixture.ledger.budgetAccounts(),budget);assert.deepEqual(fixture.ledger.execution('task1'),execution);
+ }finally{if(original===undefined)delete process.env.NODE_OPTIONS;else process.env.NODE_OPTIONS=original;await fixture.cleanup();}
+});

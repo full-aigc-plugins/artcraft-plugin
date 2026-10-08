@@ -1,6 +1,8 @@
 # ArtCraft Agent Plugin
 
-当前维护修复：独立安装计划、安装副本CLI验收与完成审计默认统一到已验收插件127／源99及匹配证据。3.4／3.5完成；33项目标测试、十入口20次公开发现及安装失败自身setup路径验证通过。实际Skills CLI安装3.16与完整安装验收3.6仍开放；全工作区审计正确拒绝四域跟踪源漂移。剩余15项任务，完整V1未完成。见[默认身份架构](docs/ArtCraft-Independent-Install-Defaults-Architecture.zh_CN.md)。
+当前验收：固定插件127／源99／runtime126的预算与取消六场景通过，5.9已完成。真实主动／期限取消、额度及政策拒绝、空缓存原生worker崩溃恢复通过。运行时303项：282通过／21条件跳过；技能源201项：149通过／52条件跳过。剩余14项，5.3仍缺实际GUI旧计划冲突证据。生产发行包不变。见[预算与取消验收](docs/ArtCraft-Budget-Cancel-Acceptance-Architecture.zh_CN.md)。
+
+此前维护检查点：独立安装计划、安装副本CLI验收与完成审计默认统一到已验收插件127／源99及匹配证据。3.4／3.5完成；33项目标测试、十入口20次公开发现及安装失败自身setup路径验证通过。实际Skills CLI安装3.16与完整安装验收3.6仍开放；全工作区审计正确拒绝四域跟踪源漂移。剩余15项任务，完整V1未完成。见[默认身份架构](docs/ArtCraft-Independent-Install-Defaults-Architecture.zh_CN.md)。
 
 此前原生验收检查点：当前补充：原生工程与交换损失八场景验收完成，任务 7.6 已标记完成；历史 SC-003 已审计，四领域当前固定源均超过 dev.27 目标。五源重开、损失拒绝、尺寸变体／移动包、空缓存 HD 分段混合通过。运行时回归 301 项：280 通过、21 条件跳过。剩余 17 项编号任务；人工接受与完整 V1 继续开放。见[原生与损失验收架构](docs/ArtCraft-Native-Loss-Acceptance-Architecture.zh_CN.md)。
 

@@ -1,0 +1,430 @@
+{
+  "schema": "craft-budget-cancel-acceptance/v1",
+  "date": "2026-10-09",
+  "result": "PASS",
+  "completedTasks": [
+    "5.9"
+  ],
+  "plugin": "0.1.0-dev.127",
+  "source": "0.1.0-dev.99",
+  "runtime": "0.1.0-dev.126-runtime.1",
+  "platform": "darwin-arm64",
+  "specSha256": "ec30b2c2123d4a299a4b9463299d841e9e019d1e23bbb61592dd35abceb5068d",
+  "scenarioEvidence": {
+    "AC-TX-003-P": {
+      "layers": [
+        "installed actual native quota/render",
+        "fixed identity rehash"
+      ],
+      "evidence": "nativeInstalled"
+    },
+    "AC-TX-003-N": {
+      "layers": [
+        "public workflow cancel",
+        "actual renderer ps observation",
+        "close then cancelled event order"
+      ],
+      "evidence": "nativeInstalled.cancellations"
+    },
+    "AC-TX-003-B": {
+      "layers": [
+        "real SQLite transaction",
+        "two OS processes",
+        "controlled trusted nonzero costs"
+      ],
+      "tests": [
+        "test/shared_budget.test.ts",
+        "test/local_runner.test.ts: missing or excessive trusted cost"
+      ]
+    },
+    "AC-TX-003-R": {
+      "layers": [
+        "installed repeated quota exhaustion and policy refusal",
+        "current native worker SIGKILL and structured waiting recovery",
+        "SQLite reopen and legacy-history fixture"
+      ],
+      "evidence": "nativeWorkerCrash",
+      "tests": [
+        "test/shared_budget.test.ts"
+      ]
+    },
+    "AC-TX-003-PROBE": {
+      "layers": [
+        "real supervised processes",
+        "explicit post-close transient and persistent EPERM injection"
+      ],
+      "tests": [
+        "test/local_runner.test.ts: post-close EPERM",
+        "test/process_group.test.ts"
+      ]
+    },
+    "AC-TX-003-SIGNAL": {
+      "layers": [
+        "real supervised processes",
+        "explicit ESRCH and signal EPERM injection",
+        "native manual/deadline termination separately observed"
+      ],
+      "tests": [
+        "test/local_runner.test.ts: signal exit race",
+        "test/local_runner.test.ts: ESRCH alone",
+        "test/local_runner.test.ts: permission signal failure",
+        "test/process_group.test.ts"
+      ]
+    }
+  },
+  "nativeInstalled": {
+    "schema": "craft-budget-cancel-installed/v1",
+    "result": "PASS",
+    "platform": "darwin",
+    "installation": "single copied fixed installed recover skill; existing verified runtime cache; no new cold-install claim",
+    "runtimeVersion": "0.1.0-dev.126-runtime.1",
+    "skillFiles": {
+      "SKILL.md": "600e1d3e66b7670ae1ea8210c363d58190cc7d8c5a85d75c110f3dfd184c3c38",
+      "references/scenario.md": "277033fd6ba9d07a28a5ca6f7ab611078a0ec02e9927586a4c414cd0b96c3a45",
+      "references/revision.md": "d664983acdbb2cd83ecc2c979bd6cc81fb59696fdaddb99d702e9fe0311fcb01",
+      "references/desktop-handoff.md": "a1229e22f44d7cdc7aa0dd9e18f318e0dcc806f871a8f7fb9410fc2eb26e6fb5",
+      "references/domain-commands.md": "9842360fab9cb0c4a4cf38a0c78b4467e6f17d2d4fc2ab37148913dca25ff689",
+      "references/domain-command-index.json": "bb0c7f91de4a172b5ff015074f631d67321dc1824ed4f6da8473cc80898a7339",
+      "references/task-receipts.md": "8170f08be9dad6c9649749e59867a8a2a1224207549929375b1b1695bc20087f",
+      "references/photo-delivery-integrity.md": "444a7cc41be0de89e0c492d3a355e8bdbded50e70ffeaabe696ac125a354a5e4",
+      "references/business-scenes.md": "74f4dee63a006ba2c1dd51e61ad8f0476ec04f3a5a5d3cc751f546207e9cffd8",
+      "references/vector-appearance.md": "0269d33e166b092c1efe91463fb99410df72da37a2748e5fb6da9623db6c32c7",
+      "references/workflow.md": "53303d3825c1ed8ae2f124469a43f7fb187334cda3e9ceaf31d55ad1257dbb86",
+      "references/brand-token-workflow.md": "28f955155ca50f4dfa54da53c9e20ea035171aac70681972d9d6638900d0f8c0",
+      "references/commands.json": "6da027ae418ef7d24a69560a01bbb05f2db3de7df50ede9341a924aee6220ad9",
+      "references/recovery.md": "04c7d80ca1bee85f084b91074223b7412d1c810fffa548a82f02eb0f37700773",
+      "references/video-factory.md": "ce5edfe349cb0d74a7e5126440523c157e71aba8a26f8d71e79149343212f6b5",
+      "references/photo-adjustment.md": "8a40cc9b35d51ee15382415be25e546942f382e3c5c14753eea8d5c12f6ae229",
+      "references/project-package.md": "3ed74526a8a93125f7f28002cf80c130298f8fb570bf0d9a2f487795c1eb343b",
+      "references/mixed-asr.md": "7881965ab8bfd02cc20c538eb92d5b12302c0ca1b4d3764b14e6afa13c78f7d5",
+      "references/dynamic-sequence.md": "e464c7a033e2f99c9dd1d33047c2a37441e01271fb06806f43d2f290c773225b",
+      "references/brief.md": "db2d255e41211ee3b3166e15b1758c455c65d3d0a7c4e19b59f790e30790cccf",
+      "references/exchange-loss.md": "52102251621536a3cd9251ebafcfe62f47493a1c9b24aa26471b15a52a2debb2",
+      "references/review.md": "5bd0e417ab1db9363a5fa9f40ff75fbb706cd15a4a19fa3c6002300c0c8bcb43",
+      "references/first-use-failures.md": "d17485036dd3027f86a5bad99b722d0713ae7e472d30c6d2cfb4b22037ab31c9",
+      "references/effect-expression.md": "cd89fe9670a41a06ba1918a86717cfde9ef21a5f8445939f8b3272d8e85481d3",
+      "references/consistency.md": "c5739f48e3f281059a6de86021a5ad2dc9e26a10c2aba86ad028dce92719a0c1",
+      "examples/domain-effectcraft-create.json": "03d3d7796210dfd4ff27f6cde0e1ba10b4376b0243dc4938d87103ca991f5f61",
+      "examples/photo-adjustment-revision-plan.json": "bee2a7ecc778f24b141a5a82858226f617db99406e053f1303f7065308132369",
+      "examples/brand-token-campaign.json": "3af8b60f59361eea0b7ad7531155922aa7fbc588673a89387a7ef727c3b830eb",
+      "examples/segmented-hd-brand-campaign.json": "14d7cea358da18da488b76f73e53c6f820fe0236440f168efe0720ce729b97c1",
+      "examples/brand-brief.json": "83bd8bcccec8fe4d9560687f85db757f4f44906ab50d817a657f573c1db9ffd0",
+      "examples/domain-filmcraft-desktop.json": "3c64e48acff1905c49114b75f2ee09cb4949f64fde666970b40c12fe726980b3",
+      "examples/domain-photocraft-create.json": "d0585885b908e265e385c6c57507e074e71158f9c41862990690a7ebb7967fde",
+      "examples/domain-photocraft-desktop.json": "8912f9c817eabfc95faf5e37af113b7d0e8c3c7d4a8c8b1b06aa2c340f53eed2",
+      "examples/mixed-asr-operations.json": "b4a4c3905f84b2b13c750c578768249603db02c5568f8ed90fb9b745c1eca23b",
+      "examples/domain-effectcraft-desktop.json": "38c54bb2c653f9ac1490e0953d5081e5c74869438baf3731173540f0332119f1",
+      "examples/vector-appearance-revision-plan.json": "3e464a7576f55684c45eaf4b3b4ce94bc53c52a4e360e2a1609372201686f616",
+      "examples/domain-vectorcraft-revise.json": "8e416f9ed55a21862cfc6848ca4e9f97b3fbd2b405b9a56faf89dbc016cbe779",
+      "examples/chinese-brand-campaign.json": "e98b5bb3e2eb45b5f12c02477b0f8a8d5a5f6ca4acd367b5a5d5d5b889c09712",
+      "examples/dynamic-brand-campaign.json": "61d79ea215130e7f3b54184d211912430be15856e909e66fa0550456791fa18c",
+      "examples/brand-campaign.json": "3e5e60ffda7efac81c8940e5f1e1e817f29a9807eebd3e4bb905998d7b041bf4",
+      "examples/domain-filmcraft-create.json": "de489d735caa481500fd0ede481d6034b9e2652eb39232541ded6a6a7b11dc1e",
+      "examples/vector-appearance-workflow.json": "e24206309610238ab6ace633e0bb82ee1d3c22377219c5b1d1b8bb0be6f6b6a9",
+      "examples/domain-effectcraft-revise.json": "d54bfa78c48b674136b56a8e0c7e36e4c1c475a5907ba46ae450b2ac86e17d1e",
+      "examples/domain-photocraft-revise.json": "444baa22f6c1f6c26e0f498dbac68bdfc5c93280678f08f41486057ccd3a165f",
+      "examples/effect-expression-workflow.json": "2fd9547a8d13f879266ffb4b53c29e4a92dbb29488436fc2580423a5be3d475b",
+      "examples/smart-dynamic-brand-campaign.json": "da86092048e3d73bc9757e09a8a1ef02c7b8c4407c557caaedb3d9e68ca97e76",
+      "examples/photo-adjustment-workflow.json": "8152390a3e55ffc6ccab77a33f63182b040b169c36abb601e523147817297299",
+      "examples/domain-vectorcraft-desktop.json": "41461b895abe438b35cfa2fcedec42d883ceb0a77812cb5e21e071b5473f3b2b",
+      "examples/domain-vectorcraft-create.json": "c7668b298747a3dec9266826344778e8c977a36df293436531ea1ea8db4a44bc",
+      "examples/domain-filmcraft-revise.json": "33d91cf6b63982dfe7fb9c75b2aec6babf4ff2184f0673dcf00e19ad72e3f611",
+      "examples/effect-expression-revision-plan.json": "8076203648de8834c0681149e557ea4ffed35e0863c2e7a2dec2b4001e3ca22f",
+      "scripts/package.py": "9d98f5c17e707b5fd80c43dde55c4d5b50cb2b27c2945607a5376c6a13ecc48c",
+      "scripts/bootstrap.py": "e019fa5b35c819f6025eec1f0711b180eefe5351bc1b0db84a2f4dc50fec8fdf",
+      "scripts/public_call.py": "94388742c4b959319469d7389321e2226845c81b8166cc6f923419da65e9dbd8",
+      "scripts/jpeg_inspection.py": "6d057317962954b147864ae33966582553dc0591335af42bfdc3da333ed2257c",
+      "scripts/consistency.py": "2057087981a082dc004f3dbe813516c514f2fb88fc40faf9af78eefe5a45b385",
+      "scripts/download.py": "f569dd3f0d4765a0cdf9c4efd26060963ef774128f29575a38c578f44ae07263",
+      "scripts/domain_commands.py": "12cfdf2424d7e5507fe95580c8d52b9d0b186b63964df91d3a9dd8d29c110c03",
+      "scripts/brief.py": "a1b2e526c4f631e60998c777e1d8332ed6d2f61ca4afa106bf9068f15f3f3124",
+      "scripts/review.py": "a0141dc735e1178680f3313f9071f0f1a96fe55fe9c4aad3e33afb719a6d9406",
+      "scripts/node.lock.json": "5d47b1f8b5a1738686f3033981444489eafeb99854d2102254be0375ae4462b8",
+      "scripts/setup.py": "8a4926bbabdf6edbddf8f46b9ad3c20066e50b6472a037206b2a394e7eaff472",
+      "scripts/cli.py": "338bb31c726bdaf9b9545c478aa60d4dfbe813049dc849f8ae6040a34a42ff97",
+      "scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+      "scripts/revision.py": "ecb0c7da71c213519f6e62b33748cb818715722854e1c457b9a3f39811884a93",
+      "scripts/workflow.py": "032dff716caaca208f55946ecb7f1fc8e407ab397c37c251388953207b32499d",
+      "scripts/distribution.lock.json": "e0fc656413d474a9e39048e59474b9c039680da6af56beb8437e4ff166ed78e0"
+    },
+    "budgetRefusals": [
+      "budget_exhausted twice",
+      "budget_policy_conflict"
+    ],
+    "quotaOriginalTaskId": "wf-5cef3ef78229297498d4a807301436eefbac5746fae73421",
+    "quotaAllLedgerTablesPreserved": true,
+    "nativeOriginalFiles": {
+      "plan.json": "8dc86d739e76d61920ce0ffeaabb834229c5f80f6c7e5ff39ed9d186ccc3a78b",
+      "project.vectorcraft": "4342bed76a7ec4faac01cdb03f2cf7cbfd97ce5b4c14e50b023ad3df24264898",
+      "exchange-loss.json": "dc10872353b804afa37c693fa815f91e25412e0f093ea05bf8ae2478c662c359",
+      "native.json": "fb2abf224074164d5c317e6cd29515282b9d14ad2ca72158bac16d5c8b46dd17",
+      "manifest.json": "915a0ac2b4407b283f77e61e9ceb2f0e9d3ee03a939fd69e54726120dd94ea5a",
+      "artboard-1.png": "c2cd169f6895579b9c681a483735e9ba12fc22374b9636faa6343556fc8c51c7",
+      "artboard-1.svg": "42a700a429329156470c6a4cd62077c1505c0ec74a40a37e7907a86c8a07e2c3",
+      "operations.json": "0a424aac4bc702db40893db672b44e12b384ed779cf90e9fd8ba0cf7246a076a"
+    },
+    "cancellations": [
+      {
+        "kind": "manual",
+        "actualNativeRenderObserved": true,
+        "publicWorkflowCancelRequested": true,
+        "deadlineSeconds": 45,
+        "stopSignal": "SIGTERM",
+        "spawnCount": 1,
+        "consumerTaskCount": 0,
+        "cancelRequestedBeforeStopBeforeCancelled": true,
+        "attemptAndBudgetPreserved": true,
+        "repeatDoesNotReplay": true,
+        "originalFilesPreservedAfterStop": true,
+        "leaseCountAfterStop": 0,
+        "outcomeCount": 0
+      },
+      {
+        "kind": "deadline",
+        "actualNativeRenderObserved": true,
+        "publicWorkflowCancelRequested": false,
+        "deadlineSeconds": 4,
+        "stopSignal": "SIGTERM",
+        "spawnCount": 1,
+        "consumerTaskCount": 0,
+        "cancelRequestedBeforeStopBeforeCancelled": true,
+        "attemptAndBudgetPreserved": true,
+        "repeatDoesNotReplay": true,
+        "originalFilesPreservedAfterStop": true,
+        "leaseCountAfterStop": 0,
+        "outcomeCount": 0
+      }
+    ],
+    "calls": [
+      {
+        "label": "quota-native-create",
+        "exitCode": 0,
+        "stdoutSha256": "2d67b1f0352b86b825320e6f79ac8884979e3c22e7c9ded07a3a3c48f968b5a3",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "label": "quota-refusal-0",
+        "exitCode": 1,
+        "stdoutSha256": "a2be6168979fadf5dc5669a633714e678893df78d6d77c623fb8e944b60a2a36",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "label": "quota-refusal-1",
+        "exitCode": 1,
+        "stdoutSha256": "a2be6168979fadf5dc5669a633714e678893df78d6d77c623fb8e944b60a2a36",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "label": "quota-policy-raise",
+        "exitCode": 1,
+        "stdoutSha256": "f8a769670135452d8861123bec8aec07d729cbf01bd3f63042bf789fa3b73939",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "label": "quota-original-status",
+        "exitCode": 0,
+        "stdoutSha256": "d0b88edc533515f585d42b25146a53366aea71617064de53f28330c98e7ca3ea",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "label": "manual-request",
+        "exitCode": 0,
+        "stdoutSha256": "60993c4b96b9b23837bfa1ceac4e208dba3eee227439bee7718fafc8a0920eec",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "label": "manual-settled",
+        "exitCode": 0,
+        "stdoutSha256": "eeb2a7cdad853dbbfadeb6f7a6bbdb15ed7c492541ac69bd55ee629a220a05fe",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "label": "manual-replay",
+        "exitCode": 0,
+        "stdoutSha256": "eeb2a7cdad853dbbfadeb6f7a6bbdb15ed7c492541ac69bd55ee629a220a05fe",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "label": "deadline-settled",
+        "exitCode": 0,
+        "stdoutSha256": "60824af60257a29d15ff4e982328b1be7f735942eafabae494e883db2168920f",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "label": "deadline-replay",
+        "exitCode": 0,
+        "stdoutSha256": "60824af60257a29d15ff4e982328b1be7f735942eafabae494e883db2168920f",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "driverSha256": "6cd18b69c7369aeb6b569409bac5ce970d7ca11995236601a8c7b838817f6abe",
+    "limits": [
+      "local zero-cost adapters only; paid-service cost allocation is separately tested using trusted-adapter fixtures",
+      "EPERM/ESRCH faults and legacy budget history require separate controlled boundary tests",
+      "not human acceptance, model dispatch, GUI or cross-platform qualification"
+    ]
+  },
+  "nativeWorkerCrash": {
+    "schema": "craft-installed-worker-crash-first-use/v1",
+    "result": "PASS",
+    "runtimeVersion": "0.1.0-dev.126-runtime.1",
+    "installationReceiptSha256": "2f4457cd03b9dd5537a7f596a67b0238550a34f218b13828a78c8b7523c43acb",
+    "nativeRuntimeIdentity": {
+      "capabilitySnapshotSha256": "d167d260a61a970d0441532cb00316a0bb48072f98a5b0a2ee16d4259bec5109",
+      "cliVersion": "0.2.0",
+      "mode": "headless",
+      "pluginId": "effectcraft",
+      "pluginVersion": "0.1.0-dev.34",
+      "sha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe"
+    },
+    "requestSha256": "0390bbf7ba862348b011d85ca3935fc19e9207778143733721336d61bcb53e7c",
+    "driverSha256": "876c8080559f6fd708433b838ff2fd8315435bf4f365db260fbf16cae0e8df84",
+    "skillSha256": "d435c444cea474df8658a0d5697dca284ee94a0e4b72440e590b2cf32796c48f",
+    "planSha256": "917168b9d516829d174d36b70f807ce3ab74412704a0ce152a8c1134e5e1509d",
+    "runtimeMode": "one installed recover skill, empty runtime, default public downloads",
+    "fault": "SIGKILL only the owned execution supervision worker after native spawn",
+    "attemptId": "53f30093-21f5-43e0-aa44-7f69568d3572",
+    "executionStatus": "running",
+    "taskState": "reconciling",
+    "stopEvidence": null,
+    "nativeGroupGoneObservedByTestOnly": true,
+    "artifacts": {
+      "project.ecproj": "524a2c35de0f225404729ee69f339a35ea2370a7329da96cf7c53f0db9907506",
+      "plan.json": "ac56ee6adc9426b10c4c45f81508d71356fd9bb303bce7815e3ad2f908b33aa6",
+      "exchange-loss.json": "8b9403547d8203b97229730fc18474e853e31d92e4c223b781fd4ee5539381ac",
+      "native.json": "f116e292bd32785a2128d58b36f89cc138c657a99500ea795b467582ce2a5a2e",
+      "frame-0000.png": "2af5a19c85ac6515c152fe6d1a40956d7fa54135a78b8db0fe7446a6709acb0d",
+      "frame-0001.png": "2af5a19c85ac6515c152fe6d1a40956d7fa54135a78b8db0fe7446a6709acb0d",
+      "manifest.json": "4753857e6faeb2984c61833afc84d5f493e87b7d92162b269cf3cad38b2f8f04",
+      "intro.mp4": "f9c0700fcac7dab546445e18862abb7835fd0b7cbbdf5e1b303537c6cdccfdbe",
+      "operations.json": "12dc75381f066cd01710fa2f280054121920ff51818fb88b27c1a256057568f9"
+    },
+    "nativeSpawnCount": 1,
+    "repeatCount": 2,
+    "structuredWorkflowReceiptChecked": true,
+    "budgetPreserved": true,
+    "projectLeasePreserved": true,
+    "installedSkillBytesPreserved": true,
+    "unverified": [
+      "automatic settlement without trusted stop evidence",
+      "pre-spawn submission window",
+      "concurrent recoverers",
+      "creative acceptance"
+    ]
+  },
+  "identity": {
+    "schema": "craft-current-budget-runtime-identity/v1",
+    "result": "PASS",
+    "hostSkillCount": 64,
+    "hostLockSha256": "2bd2b36233d1ebf9c1eabe79b4777139cfc7de7951f5f25f9afaf579b8d210bf",
+    "runtimeVersion": "0.1.0-dev.126-runtime.1",
+    "runtimeFiles": {
+      "src/adapters/design_source_inspection.ts": "5fdf1bd17537a2dc328dfa293b3bf86b144eede3f3e176e92beae3d66e64c3fa",
+      "src/adapters/effect_export_probe.ts": "1e0569d15146913c32e948922a980d4f18e4e4bcced22b2b47ffe80fd4b873f5",
+      "src/adapters/film_export_metadata.ts": "db8fa0c1955cf935bc908f5cfa622a201113d6b4ac989cbb46085998fcb754c1",
+      "src/adapters/film_source_inspection.ts": "6d6c2b0323b5e0ec510d08e894b4d807fe8106de55d2b7e32ea4bf0e9f8d14ed",
+      "src/adapters/public_skill.ts": "1a748394854b6ee859e1ca18b03672d7623446c081e2ff987c1b4e51a1fc0710",
+      "src/adapters/video_factory.ts": "1a5bf385baa46d06e1ce451b05d42707b0b67071584bf1239d2764d497a41e74",
+      "src/adapters/video_factory_driver.ts": "c0887a85adbf3eb119c2ac45d38e4f8de1d8f886c86ac8f6b2d3a9f9d817ce9d",
+      "src/artifacts/project_package.ts": "f57104c4a71e27f2a17b54a895c3c44eaff5c2eaa1dc0c740f7556325e5d1dd6",
+      "src/cli.ts": "85351147736fcf27c08b0523207e46f7a8a8ec4aea621a24575090129e02dd82",
+      "src/harness/budget.ts": "a8a41bc4d4f7dad1103ac674cd71ef3d18449ab6206fc414c9287b45634ebf79",
+      "src/harness/execution_worker.ts": "1a6f3ee91fc96465ec93121c0de0bf1e2f72a87d875856767e39e8acda574a1a",
+      "src/harness/local_runner.ts": "3d8a65c256163d394a10936361eff52f3b83cb8abd3a25ea6a77091aeff1ed6d",
+      "src/harness/native_diagnostics.ts": "3aaa72b67880594c3844a91a0e12102ed464028e0f15a1c97fb427e942b76902",
+      "src/harness/process_group.ts": "7260149d70d6312292db4a9c5419b4a33e6d24599215b164c814c6e1a7af0714",
+      "src/harness/task_ledger.ts": "b3874dafa4e1f0d3b2f5a7affa85fc0d6805abcee7032408320745f6b79500b2",
+      "src/planning/film_duration.ts": "e25a1ec1d2eac5bc2f7a64e45bb78766d79d55a68af9bae3b133ce3dc2b9a85f",
+      "src/planning/native_brief_output.ts": "876ddcf956cc130ed932543ebe6d4f9c2623bb53e230b518a39414a03da3eaac",
+      "src/planning/photo_variant_output.ts": "225ee0e64cc2bf318cca1f9dcd0804dc3da53f99c14e910e8d64e2b2a6bd1bd6",
+      "src/planning/project_brief.ts": "1a5f0a9f85b16dee0f6cca73f5ba468765e2e98f9b45f710cab81c94b7177587",
+      "src/planning/workflow_engine.ts": "f125d82635bf4dad7498d6a4c55e8d1bfc7dd4bc4bc9a93f7d0f1a4ed76b7908",
+      "src/protocol/artifact_versions.ts": "8b2c127fe32fa97b34458d8934abe6a43cfb3ebabb396805a7bda31d60c3094c",
+      "src/protocol/contracts.ts": "3fd69dfc7533f1ce3dac4cc5f4764aa3916be7a173694eb8194a619014c23ebb",
+      "src/protocol/dependency_graph.ts": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43",
+      "src/protocol/image_sequence.ts": "e63b178aa61abf0e0bee6d407bf747acf947b880352138be70b2c26e4a3bcc56",
+      "src/protocol/jpeg_inspection.ts": "efbc9a0eddc220a9648d0af42dbac3c6bb9b0131f795d1247f01b6172203a417",
+      "src/protocol/png_inspection.ts": "9bab80e8acd3e623827786f46f8b205341146de6ec7556638b4059543c65f5fd",
+      "src/protocol/task_error.ts": "37c9215dcbf8ce754943dde2f02be4112ab06640c50dfb4dc979c67d97a930db",
+      "src/protocol/wav_inspection.ts": "6ec1968f2c4a52f43ea4129ad6334158e696f9eebef981477cff803ad642e645",
+      "package.json": "1ab08a7455edae9e8c521289b6b29d5f4064354d9c55eb749b16bd018266b76e"
+    },
+    "scope": "all64 installed trees rehashed after native tests; all runtime source modules and package bytes match installed immutable runtime; new tests only, production unchanged"
+  },
+  "inheritedNativeRequestDeadlineAndBudgetVerified": true,
+  "regression": {
+    "runtime": {
+      "total": 303,
+      "passed": 282,
+      "conditionalSkips": 21
+    },
+    "skills": {
+      "total": 201,
+      "passed": 149,
+      "conditionalSkips": 52
+    },
+    "targetedExisting": {
+      "passed": 50
+    },
+    "newPostCloseProbes": {
+      "passed": 2
+    },
+    "actualInstalledQuotaCancelDeadline": {
+      "passed": 1
+    },
+    "actualColdWorkerCrash": {
+      "passed": 1
+    },
+    "pluginPython": {
+      "total": 112,
+      "passed": 106,
+      "conditionalSkips": 6
+    }
+  },
+  "logs": {
+    "native": {
+      "location": "artifacts/craft-art-budget-cancel-fixed127-20261009.log",
+      "sha256": "b618d64190422091b76f5c8c5f6291025c1aeb5afad9951f20d5dc6d85b7af03"
+    },
+    "worker": {
+      "location": "artifacts/craft-art-budget-cancel-worker-bound-20261009.log",
+      "sha256": "d7b8373742a2b158d0023dd08690cd2042017b70c738686732de49b57641d9ab"
+    },
+    "runtime": {
+      "location": "artifacts/craft-art-budget-cancel-runtime-20261009.log",
+      "sha256": "baa5e91dbb3d8f78a7ca01ef07fb6f92b85b74c6ca0e8a58267e56975c1140e8"
+    },
+    "source": {
+      "location": "artifacts/craft-art-budget-cancel-source-bound-20261009.log",
+      "sha256": "52f890357d9f079997ffeef0875531ef953be04edcde336eafdf8afd6d92cde4"
+    },
+    "targeted": {
+      "location": "artifacts/craft-art-budget-cancel-unit-20261009.log",
+      "sha256": "2e77bf32b9f1abdc9f2694a0a1491be45981303744ee8b38c9dcfb5f158dd3c8"
+    },
+    "probe": {
+      "location": "artifacts/craft-art-budget-cancel-probe-20261009.log",
+      "sha256": "7b3b936ed3abc7cabe6fe8584b7d0c4ab9160bfa202c106e1bffa531f20c1a6e"
+    },
+    "pluginPython": {
+      "location": "artifacts/craft-art-budget-cancel-plugin-20261009.log",
+      "sha256": "d1e088350ce55b08a28976b6b445081a11c8157a82c5aad8a9de05a494f9b2d5"
+    }
+  },
+  "testFiles": {
+    "plugin/test/local_runner.test.ts": "f0fd26cc25d223072cad2ed248c8debacc7758aede7107b921487dab1873527b",
+    "skills/tests/test_budget_cancel_installed.py": "6cd18b69c7369aeb6b569409bac5ce970d7ca11995236601a8c7b838817f6abe",
+    "skills/tests/test_worker_crash_first_use.py": "876c8080559f6fd708433b838ff2fd8315435bf4f365db260fbf16cae0e8df84"
+  },
+  "productionSkillRuntimeBytesChanged": false,
+  "remaining": [
+    "14 numbered tasks, including5.3 GUI stale-plan response",
+    "actual generic Skills CLI installation and host/fullV1 gates",
+    "paid-service/native cross-platform qualification is not claimed"
+  ],
+  "limits": [
+    "manual/deadline native workflows reuse verified cache; worker-crash case independently cold-installs public pinned runtime",
+    "nonzero shared costs and permission/signal races use explicit controlled fixtures; no claim of natural macOS race or paid-service calls",
+    "missing trustworthy worker stop evidence intentionally remains reconciling; PASS means correct refusal, not delivered output"
+  ]
+}
