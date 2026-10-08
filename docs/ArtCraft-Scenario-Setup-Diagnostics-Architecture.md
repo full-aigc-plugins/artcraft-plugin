@@ -25,3 +25,5 @@ Preflight refusal and native errors after successful installation retain their o
 workflow.py and package.py each wrap only the installation stage; all ten standalone skills carry the same resources. Twenty isolated copy calls and eight startup/timeout/text cases first exposed28 failures. Further checks cover malformed successful receipts, native errors and input refusal. Source regression:167 tests,129 passed,38 conditional skips.
 
 Public cold-install evidence is recorded in docs/evidence/scenario-setup-diagnostics-20261008.json. Candidate and immutable-release acceptance remain separate. Generic Skills CLI installation, all creative scenarios, GUI, other platforms and complete V1 are not established by these checks.
+
+Fixed source92/plugin120 installed acceptance: [evidence](evidence/craft-art120-scenario-setup-fixed-first-use-20261008.json). Full V1 remains open.

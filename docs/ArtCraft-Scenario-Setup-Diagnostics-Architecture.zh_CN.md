@@ -25,3 +25,5 @@ flowchart TD
 workflow.py 与 package.py 分别封装安装阶段，十独立技能携带相同实现。先以20个独立副本调用与8个启动／超时／文本诊断用例复现28处失败；再覆盖零退出的无效回执、原生错误与输入拒绝。源码167项回归中129通过、38条件跳过。
 
 真实公开冷安装证据见 docs/evidence/scenario-setup-diagnostics-20261008.json。候选与固定发行的首用证据分别记录；不由此关闭通用Skills CLI、全部创作、GUI、跨平台或完整V1。
+
+Fixed source92/plugin120 installed acceptance: [evidence](evidence/craft-art120-scenario-setup-fixed-first-use-20261008.json). Full V1 remains open.

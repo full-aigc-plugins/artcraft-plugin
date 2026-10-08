@@ -474,4 +474,6 @@ Fixed Film41/source38 and Art118/source90 first use passes: all64 installation i
 
 Fixed Art119/source91 passes the bounded identity/guidance distribution gate:64 host identities and public CLI probes,10 new independent cold starts,54 whole-hash-matched historical cold records only, and actual installed execute-skill expression creation/source revision/preserved original and control pixels/moved packaging. Source package and suite both identify91. Only3.28 closes; fullV1 remains open. [Evidence](docs/evidence/craft-art119-guidance-fixed-first-use-20261008.json).
 
-Scenario bootstrap diagnostics: candidate implementation and real single-skill public installation recovery passed; immutable release acceptance remains separate. [Evidence](docs/evidence/scenario-setup-diagnostics-20261008.json).
+Scenario bootstrap diagnostics are qualified in fixed source92/plugin120; see the bounded acceptance below. [Evidence](docs/evidence/scenario-setup-diagnostics-20261008.json).
+
+Fixed Art120/source92 passes ten new independent public cold installs,64 host identities/CLI probes,20 real failed calls from installed isolated copies, and public cold recovery/native Vector creation/same-task reuse/moved-package recovery.54 other skills reuse historical cold evidence only after complete hash equality. Only3.29 closes; full V1 and the overall goal remain incomplete. [Evidence](docs/evidence/craft-art120-scenario-setup-fixed-first-use-20261008.json).

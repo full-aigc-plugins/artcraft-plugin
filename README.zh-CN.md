@@ -472,4 +472,6 @@ Vector33 捆绑升级候选已通过两入口真实混合返工、九变体及�
 
 固定Art119／源91身份与指南分发门禁通过：64项宿主身份及公开CLI核验，十项新独立冷安装，54项仅复用整树摘要一致的历史冷证明；安装的execute技能真实表达式创建、源返工、原工程／非目标像素保全及移动包通过。技能源包清单与套件均为91。只关闭3.28，完整V1仍开放。 [Evidence](docs/evidence/craft-art119-guidance-fixed-first-use-20261008.json).
 
-场景安装诊断：候选实现及真实单技能公开安装恢复已通过；固定发行验收另行核验。 [Evidence](docs/evidence/scenario-setup-diagnostics-20261008.json).
+固定源92／插件120已完成场景安装诊断的有界验收，见下方记录。 [Evidence](docs/evidence/scenario-setup-diagnostics-20261008.json).
+
+固定Art120／源92：十项新独立公开冷安装、64安装身份与CLI核验、20个安装副本真实失败调用、安装失败后公开冷安装／原生图形创建／同任务复用／移动交付恢复通过。54项其他技能仅复用整树摘要相等的历史冷证明。只关闭3.29，完整V1与目标保持未完成。 [Evidence](docs/evidence/craft-art120-scenario-setup-fixed-first-use-20261008.json).
