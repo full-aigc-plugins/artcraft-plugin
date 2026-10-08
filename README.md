@@ -464,4 +464,6 @@ Dev.110 vendors immutable standalone source dev.82, pins Film source36, and rege
 
 Historical standalone Photo38 acceptance: [proof](docs/evidence/craft-photo-delivery-integrity-fixed-first-use-20261008.json). Its default lock was host-acceptance-photo-integrity.lock.json and Art113 internally pinned Photo33. Art114 now internally pins Photo34; the current default is host-acceptance-art-photo34.lock.json.
 
-Unpublished Vector33 bundle candidate: both real mixed brand revision entries deliver nine variants and a verified moved five-child package. Source88/plugin116 remain the current fixed release; fixed installation and cold10 acceptance are pending. [Evidence](docs/evidence/art-vector33-gateway-export-candidate-20261008.json).
+Unpublished Vector33 bundle candidate: both real mixed brand revision entries deliver nine variants and a verified moved five-child package. This historical candidate record predates fixed source89/plugin117 acceptance below. [Evidence](docs/evidence/art-vector33-gateway-export-candidate-20261008.json).
+
+Fixed source89/plugin117: all ten actual installed skills independently cold-install public Node/core/Vector33, trust the fixed workflow and discover585 native commands. Both installed mixed brand entries deliver all nine variants, update consumers, preserve controls and verify moved five-child packages. All64 installation identities match;54 historical cold records were not rerun. FullV1 remains incomplete. [Evidence](docs/evidence/craft-art117-gateway-export-fixed-first-use-20261008.json).

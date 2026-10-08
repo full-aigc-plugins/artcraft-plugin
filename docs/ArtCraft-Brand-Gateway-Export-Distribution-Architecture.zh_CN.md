@@ -28,3 +28,5 @@ flowchart LR
 两条入口分别完成真实五节点创作、品牌返工、重复请求及移动后的五子工程包验证。三画板九份 SVG／PNG／PDF 完整交付；关联 PNG 与三个消费节点像素改变，独立画板三种格式字节保持。直接案例保留全源树摘要比较；网关案例在验收脚本编号假设修正后从已保存结果核验源 manifest 摘要，没有重放编辑。
 
 [候选证据](evidence/art-vector33-gateway-export-candidate-20261008.json) 仅覆盖未发布技能源与已有原生缓存。固定发行、实际宿主安装、十独立空缓存首用仍由任务4.14管理；完整AC-RT-002和V1保持开放。磁盘空间不足不构成通过证据。
+
+固定source89/plugin117的十项独立安装首用及两条真实混合返工现已通过；仅关闭本次有限分发门禁4.14。54项未变历史冷启动未重跑；完整AC-RT-002和V1仍开放。 [Evidence](evidence/craft-art117-gateway-export-fixed-first-use-20261008.json).

@@ -28,3 +28,5 @@ flowchart LR
 Each entry completes a real five-node creation, brand revision, repeated request and moved five-child package verification. Nine SVG/PNG/PDF variants over three artboards are delivered; bound preview and consumer pixels change while control-board files remain identical. The direct case compares original whole-tree hashes. The gateway QA filename assumption was corrected and saved-output checks resumed using source manifest hashes, without replaying native edits.
 
 [Candidate evidence](evidence/art-vector33-gateway-export-candidate-20261008.json) covers unpublished source and a warm native cache. Task4.14 still requires immutable publication, actual host installation and ten independent cold first-use runs. Full AC-RT-002 and V1 remain open; insufficient disk space is not acceptance evidence.
+
+Fixed source89/plugin117 acceptance now passes for all ten independent installed skills and both real mixed entries. Task4.14 is closed only for this bounded distribution gate.54 unchanged historical cold cases were not rerun; full AC-RT-002 andV1 remain open. [Evidence](evidence/craft-art117-gateway-export-fixed-first-use-20261008.json).

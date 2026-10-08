@@ -462,4 +462,6 @@ dev.110 内置不可变独立技能源dev.82，锁定Film源36并重建完整命
 
 历史独立Photo38验收：[证据](docs/evidence/craft-photo-delivery-integrity-fixed-first-use-20261008.json)。当时默认锁为host-acceptance-photo-integrity.lock.json，Art113内部固定Photo33。历史Art114内部升级Photo34；当前Art115保持该领域依赖，默认锁为host-acceptance-art115.lock.json。
 
-Vector33 捆绑升级候选已通过两入口真实混合返工、九变体及移动五子工程包验收。当前固定发行仍为source88/plugin116；实际固定安装和十技能冷启动尚未验收。 [Evidence](docs/evidence/art-vector33-gateway-export-candidate-20261008.json).
+Vector33 捆绑升级候选已通过两入口真实混合返工、九变体及移动五子工程包验收。此候选记录早于下方source89/plugin117固定验收。 [Evidence](docs/evidence/art-vector33-gateway-export-candidate-20261008.json).
+
+固定source89/plugin117：十个实际安装技能分别空缓存公开安装Node／核心／Vector33，核对新工作流受信摘要并发现585个原生命令。两入口混合返工均交付九变体，更新消费产物、保留无关图形并验证移动五子工程包。64项安装身份一致，其中54项历史冷启动未重跑。完整V1尚未完成。 [Evidence](docs/evidence/craft-art117-gateway-export-fixed-first-use-20261008.json).

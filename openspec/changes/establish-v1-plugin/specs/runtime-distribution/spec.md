@@ -134,5 +134,5 @@ ArtCraft SHALL support explicit domain command `--mode desktop` using immutable 
 - **GIVEN** VectorCraft 固定技能源 dev.33 已修复通用命令入口品牌返工省略 exports 时丢失变体及跳过原计划完整性核验
 - **WHEN** ArtCraft 升级领域捆绑并使用 swatch.edit 或 native.command/swatch.edit 返工
 - **THEN** 十个独立 Art 技能 SHALL 绑定不可变完整 ZIP、提交、逐文件摘要和对应命令目录，旧分发保留；显式空 exports 列表维持仅原生交付语义
-- **AND** 两入口 SHALL 验证旧计划后继承全部九份 SVG／PNG／PDF 变体，关联颜色改变，无关画板和原交付保全，旧计划篡改须在安装和编辑前拒绝
+- **AND** 两入口 SHALL 验证旧计划后继承全部九份 SVG／PNG／PDF 变体，关联颜色改变，无关画板和原交付保全，旧计划篡改须在原生编辑前拒绝；Vector 领域工作流自身安装调用前的校验不得宣称为 Art 外层 bootstrap 前校验
 - **AND** 候选验收与固定发行的十技能独立冷安装、真实混合网关返工／局部复用／移动包验收 SHALL 分别记录；独立 VectorCraft 通过不能替代 Art 捆绑验收
