@@ -18,7 +18,7 @@ Fixed source86/plugin114 passes ten independent Art cold installations and a ret
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current fixed plugin: `0.1.0-dev.125`; independent skills: `0.1.0-dev.97`; bounded installed technical acceptance passed; full V1 remains in progress.
+Current candidate plugin: `0.1.0-dev.126`; independent skills: `0.1.0-dev.98`; runtime126 fixes opaque DAG node identities; fixed installed native verification pending. Full V1 remains in progress.
 
 Workflow launcher structured rejection is fixed in source84. Legacy error and workflowReceipt remain compatible; fixed installed112 qualification is recorded separately. [Architecture](docs/ArtCraft-Workflow-Error-Detail-Architecture.md).
 Previous fixed caption-size qualification:64 installed identities and CLI probes match;23 changed skills each pass independent cold discovery, while41 unchanged whole-tree hashes retain historical cold proof. Two current installed native caption/brand cases pass. This is bounded installation and scene evidence, not fullV1. [Current fixed evidence](docs/Craft-Caption-Fixed-First-Use.md).
@@ -133,9 +133,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.125 |
+| Plugin ID / version | artcraft / 0.1.0-dev.126 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.97 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.98 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |

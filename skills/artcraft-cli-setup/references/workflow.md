@@ -214,3 +214,7 @@ Film video metadata comes from digest-bound native/export probe files. Preserve 
 PNG/JPEG 派生图片在 `nodes.<id>.outputs[].technicalMetadata` 交接实际编码栅格 `width`、`height`、`bitDepth`、`alpha`。属性与解析字节摘要绑定，损坏或摘要不一致会阻止发布。PNG 不一定含 Alpha；Alpha 表示不证明存在可见透明像素。未知 `colorSpace` 省略，JPEG 标记检查不证明解码或 ICC 保真。原生工程、来源和交换损失引用仍须保留。
 
 Read encoded raster `width`, `height`, `bitDepth` and `alpha` from each PNG/JPEG output's `technicalMetadata`. Facts are bound to inspected bytes; invalid content or changed digests prevents publication. PNG can have no Alpha representation. Alpha does not establish visible transparency. Unknown color space is omitted; JPEG marker inspection does not establish decoding or ICC fidelity. Preserve native project, source and exchange-loss references.
+
+## 节点身份与持久恢复
+
+节点 ID 是不透明字符串；`__proto__`、`constructor`、`toString` 等合法名称与普通名称使用同一套依赖核验。runtime126 修复了旧实现与对象属性冲突时的错误阻断。每个节点结果、JSON 回执和恢复记录必须保留；重复执行复用已验证任务和预算。该修复的调度回归不代表所有四领域原生并发场景已通过。
