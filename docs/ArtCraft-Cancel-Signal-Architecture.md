@@ -1,6 +1,6 @@
 # ArtCraft cancellation signal exit race
 
-Contract: AC-TX-003-SIGNAL; task5.19. Candidate only; keep the task open until immutable runtime and independent installed-skill qualification. The earlier intermittent parallel parent-cancellation failure did not reproduce on this turn's first rerun, so its cause is not attributed to this patch.
+Contract: AC-TX-003-SIGNAL; task5.19. Fixed runtime122-runtime.1/source94/plugin122 now qualifies this bounded task; see the fixed evidence below. The earlier intermittent parallel parent-cancellation failure did not reproduce on this turn's first rerun, so its cause is not attributed to this patch.
 
 A process group may exit between its existence probe and SIGTERM/SIGKILL. Previously, ESRCH from the signal was retained as an observation failure even after actual close and independent group-stop confirmation, leaving cancellation and writer ownership pending.
 
@@ -23,3 +23,5 @@ The controlled real-process RED records groupStopped=false/outcome_unknown after
 Thirty runner/process-group tests pass. Both complete parallel and serial suites pass227 of247 tests, with20 conditional skips. Fixed installed native rendering, first use, host discovery and full-contract acceptance remain separate. Complete task5.9 and V1 stay open.
 
 Real native RED from fixed121/runtime113 and candidate GREEN with public runtime122-runtime.1 pass the controlled Effect render injection test. [Evidence](evidence/cancel-signal-candidate-20261008.json). Installed new-plugin qualification remains pending.
+
+Fixed bounded task5.19 qualification: [evidence](evidence/craft-art122-cancel-signal-fixed-first-use-20261008.json). Complete5.9/V1 remain open.

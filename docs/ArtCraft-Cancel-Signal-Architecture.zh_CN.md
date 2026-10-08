@@ -1,6 +1,6 @@
 # ArtCraft 取消信号退出竞态
 
-规格：AC-TX-003-SIGNAL；任务5.19。当前为候选；固定运行时与独立技能安装复验完成前保持开放。上轮并行父取消偶发失败本轮首次复跑未复现，不能断言与本修复同因。
+规格：AC-TX-003-SIGNAL；任务5.19。固定运行时122-runtime.1／源94／插件122已完成本项有界验收，见下方固定证据。上轮并行父取消偶发失败本轮首次复跑未复现，不能断言与本修复同因。
 
 监督器先探测进程组，再发送SIGTERM或SIGKILL，两个系统调用之间进程组可能退出。原实现会把发送返回的ESRCH记录为观察失败，即使之后已有真实close与组停止证据，仍永久保留cancel_requested和工程占用。
 
@@ -23,3 +23,5 @@ flowchart TD
 30项runner／进程组测试通过；完整并行与串行各247项：227通过、20条件跳过。固定版原生渲染、首用、插件宿主与全部合同验收另行核验；完整5.9与V1仍开放。
 
 固定121／运行时113原生红灯与公开新运行时122-runtime.1候选绿灯已完成可控Effect渲染注入对照。[证据](evidence/cancel-signal-candidate-20261008.json)。新插件安装复验仍待完成。
+
+Fixed bounded task5.19 qualification: [evidence](evidence/craft-art122-cancel-signal-fixed-first-use-20261008.json). Complete5.9/V1 remain open.

@@ -45,7 +45,7 @@ class InstallLockPreflightTests(unittest.TestCase):
  def test_default_plan_matches_current_published_source_refs(self):
   result=subprocess.run([sys.executable,'-I','-B',str(ROOT/'scripts/verify_independent_skill_install.py'),'--plan'],capture_output=True,text=True)
   self.assertEqual(result.returncode,0,result.stderr)
-  rows=json.loads(result.stdout);current=json.loads((ROOT/'host-acceptance-art121.lock.json').read_text())
+  rows=json.loads(result.stdout);current=json.loads((ROOT/'host-acceptance-art122.lock.json').read_text())
   for row in rows:
    entry=current['plugins'][row['plugin']]
    self.assertTrue(row['source'].endswith('/'+entry['skillSourceRef']))
