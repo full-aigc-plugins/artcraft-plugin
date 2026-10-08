@@ -37,8 +37,8 @@ class FirstUseCompletionAuditTests(unittest.TestCase):
                   '--host-receipt','fixture-host.json','--output',str(output)]
             with patch.object(sys,'argv',argv),patch.object(module,'audit',return_value=report) as audit,redirect_stdout(io.StringIO()):
                 module.main()
-            self.assertEqual(audit.call_args.args[2],module.ROOT/'host-acceptance-archive-prefix.lock.json')
-            self.assertEqual(audit.call_args.args[3],module.ROOT/'docs/evidence/craft-archive-prefix-fixed-first-use-20261008.json')
+            self.assertEqual(audit.call_args.args[2],module.ROOT/'host-acceptance-caption-size.lock.json')
+            self.assertEqual(audit.call_args.args[3],module.ROOT/'docs/evidence/craft-caption-size-fixed-first-use-20261008.json')
 
     def test_explicit_historical_lock_and_evidence_remain_supported(self):
         module = self.module()

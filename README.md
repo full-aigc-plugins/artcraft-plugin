@@ -4,6 +4,8 @@ Coordinate mixed creative work into project/workflow records, four-domain native
 
 Current plugin: `0.1.0-dev.110`; skill source: `0.1.0-dev.82`; 10 independent skills.
 
+Fixed caption-size qualification:64 installed identities and CLI probes match;23 changed skills each pass independent cold discovery, while41 unchanged whole-tree hashes retain historical cold proof. Two current installed native caption/brand cases pass. This is bounded installation and scene evidence, not fullV1. [Current fixed evidence](docs/Craft-Caption-Fixed-First-Use.md).
+
 Historical distribution: plugin dev.107 / source dev.80 / Art runtime dev.106. Ten fresh independent cold installations and 390 protocol checks pass; the real four-domain mixed workflow passes. [Evidence](docs/evidence/artcraft107-protocol-fixed-first-use-20261008.json). Complete V1 remains open.
 
 

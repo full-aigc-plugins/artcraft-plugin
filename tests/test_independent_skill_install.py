@@ -41,7 +41,7 @@ class IndependentInstallTests(unittest.TestCase):
    with self.assertRaisesRegex(ValueError,'independent_skill_symlink'):m.skill_hash(folder)
 class InstallLockPreflightTests(unittest.TestCase):
  def module(self):return IndependentInstallTests().module()
- def lock(self):return json.loads((ROOT/'host-acceptance-archive-prefix.lock.json').read_text())
+ def lock(self):return json.loads((ROOT/'host-acceptance-caption-size.lock.json').read_text())
  def test_default_plan_matches_current_published_source_refs(self):
   result=subprocess.run([sys.executable,'-I','-B',str(ROOT/'scripts/verify_independent_skill_install.py'),'--plan'],capture_output=True,text=True)
   self.assertEqual(result.returncode,0,result.stderr)
