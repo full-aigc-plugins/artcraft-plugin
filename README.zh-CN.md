@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-Art 技能源工作树候选已修复 Node／组合安装无限等待；source86／plugin114 固定发行尚未包含该修复。[候选架构](docs/ArtCraft-Install-Lock-Architecture.zh_CN.md)。
+固定 source87／plugin115 已包含十个 Art 技能的 Node／组合安装锁修复，每把锁最多等待 120 秒。实际 Codex 安装发现全部 64 个技能，零加载错误；10 个变化技能逐项独立冷安装通过，其余 54 项仅在完整摘要相等时复用历史冷证明。[安装锁架构](docs/ArtCraft-Install-Lock-Architecture.zh_CN.md)。 固定安装副本的四领域原生创建、源返工、同修订复用、回执篡改拒绝及移动包验证通过；前两次磁盘不足失败日志保留。[固定验收](docs/evidence/craft-art115-install-lock-fixed-first-use-20261008.json)。
 
 独立安装验收器已保留逐次调用的失败诊断，包括超时部分输出；真实通用 Skills CLI 安装仍未完成。[诊断说明](docs/Independent-Skill-Install-Diagnostics-Architecture.zh_CN.md)。
 
@@ -26,7 +26,7 @@ Art 技能源工作树候选已修复 Node／组合安装无限等待；source86
 
 历史版本证据：当前 Art dev.104 的八项独立场景角色验证通过：规划、返工、素材、交付、审阅、恢复、执行及安装诊断。测试使用真实固定安装副本、单技能复制和公开运行时下载，检查源工程修改与无关节点复用、移动验包、过期／篡改审阅拒绝、重复取消、执行回执和按领域安装。规划证据复用上一轮源码未变化的当前安装验证；审阅仍为 pending／creative NOT_RUN，取消验证不证明未知 worker 恢复。实际通用 Skills CLI 安装、全量命令上下文和完整 V1仍未完成。 [证据](docs/evidence/artcraft104-installed-role-first-use-20261007.json).
 
-维护者的安装计划、安装副本 CLI 验证和完成审计现默认使用已核验的 Art114／Photo34 依赖矩阵锁；审计绑定对应固定首用证据。显式历史锁／证据参数继续兼容。[当前审计架构](docs/ArtCraft-First-Use-Completion-Audit-Architecture.zh_CN.md)。
+维护者的安装计划、安装副本 CLI 验证和完成审计现默认使用已核验的 Art115／Photo34 依赖矩阵锁；审计绑定对应固定首用证据。显式历史锁／证据参数继续兼容。[当前审计架构](docs/ArtCraft-First-Use-Completion-Audit-Architecture.zh_CN.md)。
 
 维护者来源校验拒绝符号链接、不完整锁及版本同名分支，并在替换任一管理技能前检查全部声明来源；已发布技能／运行时身份保持。[快照预检架构](docs/Skill-Snapshot-Self-Contained.zh_CN.md)。
 
@@ -454,4 +454,4 @@ dev.110 内置不可变独立技能源dev.82，锁定Film源36并重建完整命
 
 [固定预算协议首次使用](docs/ArtCraft-Budget-Protocol-Architecture.zh_CN.md)：64技能发现、10变化项冷安装及54整树相等历史项复用通过；原生修订拒绝保全原任务和文件，完整V1仍开放。
 
-历史独立Photo38验收：[证据](docs/evidence/craft-photo-delivery-integrity-fixed-first-use-20261008.json)。当时默认锁为host-acceptance-photo-integrity.lock.json，Art113内部固定Photo33。本次Art114内部已升级Photo34，默认锁为host-acceptance-art-photo34.lock.json。
+历史独立Photo38验收：[证据](docs/evidence/craft-photo-delivery-integrity-fixed-first-use-20261008.json)。当时默认锁为host-acceptance-photo-integrity.lock.json，Art113内部固定Photo33。历史Art114内部升级Photo34；当前Art115保持该领域依赖，默认锁为host-acceptance-art115.lock.json。

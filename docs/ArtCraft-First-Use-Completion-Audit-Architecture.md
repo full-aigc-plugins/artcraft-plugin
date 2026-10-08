@@ -1,6 +1,6 @@
 # Five-plugin first-use completion audit
 
-Current defaults: `host-acceptance-art-photo34.lock.json` and `craft-art-photo34-fixed-first-use-20261008.json`. Actual current audit binds all64 identities and records120 formal requirements /250 open tasks. Art114/source86 pins internal Photo34. Ten Art skills pass independent cold installs;54 historical cases are reused only by complete tree equality. Installed CLI64 probes pass in69.508s with five fresh domain caches and later reuse. A retained four-domain native mixed creation/revision/moved-delivery test passes in222.429s; this is bounded technical evidence, not fullV1. [Current proof](evidence/craft-art-photo34-fixed-first-use-20261008.json).
+Current defaults: `host-acceptance-art115.lock.json` and `craft-art115-install-lock-fixed-first-use-20261008.json`. Art115/source87 includes bounded install locks and retains internal Film36/Effect34/Photo34/Vector31. Ten changed skills pass separate empty-cache public installation;54 historical cases are reused only by complete tree equality. Installation identity is audited separately from formal scenario completion; fullV1 remains incomplete.
 
 Historical dev.107: the three maintainer defaults used `host-acceptance-art107.lock.json`; the auditor uses `artcraft107-protocol-fixed-first-use-20261008.json`. The actual default audit verifies 64 identities and reports 120 requirements and 262 open tasks. Historical overrides remain supported.
 

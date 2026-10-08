@@ -41,7 +41,7 @@ class IndependentInstallTests(unittest.TestCase):
    with self.assertRaisesRegex(ValueError,'independent_skill_symlink'):m.skill_hash(folder)
 class InstallLockPreflightTests(unittest.TestCase):
  def module(self):return IndependentInstallTests().module()
- def lock(self):return json.loads((ROOT/'host-acceptance-art-photo34.lock.json').read_text())
+ def lock(self):return json.loads((ROOT/'host-acceptance-art115.lock.json').read_text())
  def test_default_plan_matches_current_published_source_refs(self):
   result=subprocess.run([sys.executable,'-I','-B',str(ROOT/'scripts/verify_independent_skill_install.py'),'--plan'],capture_output=True,text=True)
   self.assertEqual(result.returncode,0,result.stderr)
@@ -150,7 +150,7 @@ class InstallCallEvidenceTests(unittest.TestCase):
  def test_launch_failure_keeps_diagnostic_and_does_not_publish_success(self):self.failure('launch')
  def test_real_external_failure_keeps_output(self):
   m=IndependentInstallTests().module()
-  lock=json.loads((ROOT/'host-acceptance-art-photo34.lock.json').read_text())
+  lock=json.loads((ROOT/'host-acceptance-art115.lock.json').read_text())
   with tempfile.TemporaryDirectory() as temporary:
    root=Path(temporary);cli=root/'fixture.py';output=root/'output'
    cli.write_text("import sys\nif '--version' in sys.argv: print('fixture 1')\nelse:\n print('actual stdout')\n print('actual stderr',file=sys.stderr)\n sys.exit(7)\n")

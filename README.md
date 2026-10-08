@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-Art skills source candidate fixes unbounded Node/setup lock waits; fixed source86/plugin114 do not yet include it. [Candidate architecture](docs/ArtCraft-Install-Lock-Architecture.md).
+Fixed source87/plugin115 includes bounded Node/setup installation locks across all ten Art skills, with a 120-second budget per lock. Actual Codex discovery finds all64 skills with zero loading errors; ten changed skills pass independent cold installations and54 unchanged skills reuse historical cold evidence only after full-tree identity checks. [Install-lock architecture](docs/ArtCraft-Install-Lock-Architecture.md). The fixed installed skill also passes four-domain native creation, source revisions, same-revision reuse, receipt-tamper refusal and moved-package verification; both disk-full failures remain recorded. [Fixed acceptance](docs/evidence/craft-art115-install-lock-fixed-first-use-20261008.json).
 
 The independent-install verifier now preserves per-call failure diagnostics, including timeout output. Actual generic Skills CLI installation remains open. [Diagnostics](docs/Independent-Skill-Install-Diagnostics-Architecture.md).
 
@@ -26,7 +26,7 @@ Historical dev.104 maintainer correction: acceptance tools used the then-verifie
 
 Historical: Current Art dev.104 standalone scene-role verification passes for plan, revise, assets, deliver, review, recover, execute and setup. Tests use the actual installed fixed snapshot, independent copied skills and public runtime downloads. Native source revision and unrelated reuse, moved packages, stale/tampered review rejection, repeated cancellation, execution receipts and selected-domain setup are checked. Planning evidence is reused from the preceding unchanged-source installed run. Review remains pending with creative NOT_RUN; cancellation checks do not prove unknown-worker recovery. This does not close generic Skills CLI installation, all command contexts or full V1. [Evidence](docs/evidence/artcraft104-installed-role-first-use-20261007.json).
 
-Maintainer installation planning, installed CLI verification and completion auditing now default to the verified Art114/Photo34 dependency matrix lock; the audit binds its matching fixed first-use evidence. Explicit historical lock/evidence arguments remain supported. [Current audit architecture](docs/ArtCraft-First-Use-Completion-Audit-Architecture.md).
+Maintainer installation planning, installed CLI verification and completion auditing now default to the verified Art115/Photo34 dependency matrix lock; the audit binds its matching fixed first-use evidence. Explicit historical lock/evidence arguments remain supported. [Current audit architecture](docs/ArtCraft-First-Use-Completion-Audit-Architecture.md).
 
 Maintainer source validation rejects symbolic links, incomplete locks and version-named branches, and checks all declared sources before replacing any managed skill. Published skill/runtime identities remain unchanged. [Snapshot preflight architecture](docs/Skill-Snapshot-Self-Contained.md).
 
