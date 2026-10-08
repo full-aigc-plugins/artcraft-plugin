@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+The DAG identity fix is verified in plugin126/source98/runtime126;core tasks6.7/6.8 are complete.Task6.9 full native concurrency acceptance remains open.[Architecture and evidence](docs/ArtCraft-Dag-Identity-Architecture.md).The earlier6.12 seven-scenario evidence is bound to plugin125 and is not a full rerun on126.
+
 Core asset versioning and selective invalidation implementation is verified; tasks6.10/6.11 are complete. Old packages and review records remain traceable after a native source revision; old review on a new package is refused. Task6.12 seven-scenario acceptance is complete; see [current acceptance architecture](docs/ArtCraft-Selective-Version-Acceptance-Architecture.md). Complete V1 stays open. See [implementation architecture](docs/ArtCraft-Selective-Version-Implementation-Architecture.md).
 
 The maintenance branch corrects command guidance in all ten standalone source skills: offline discovery, standalone domain calls and DAG native delivery now have explicit routes, with obsolete dependency versions removed. Sixteen command regressions and documentation/fixed-index checks pass. Runtime and domain dependencies are unchanged. This plugin locks source91 with the corrected guidance; fixed installation and actual native use require their own version-bound evidence. [Evidence](docs/evidence/command-guidance-refresh-20261008.json).
@@ -18,7 +20,7 @@ Fixed source86/plugin114 passes ten independent Art cold installations and a ret
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current candidate plugin: `0.1.0-dev.126`; independent skills: `0.1.0-dev.98`; runtime126 fixes opaque DAG node identities; fixed installed native verification pending. Full V1 remains in progress.
+Current fixed plugin: `0.1.0-dev.126`; independent skills: `0.1.0-dev.98`; bounded installed DAG identity acceptance passed. Full V1 remains in progress.
 
 Workflow launcher structured rejection is fixed in source84. Legacy error and workflowReceipt remain compatible; fixed installed112 qualification is recorded separately. [Architecture](docs/ArtCraft-Workflow-Error-Detail-Architecture.md).
 Previous fixed caption-size qualification:64 installed identities and CLI probes match;23 changed skills each pass independent cold discovery, while41 unchanged whole-tree hashes retain historical cold proof. Two current installed native caption/brand cases pass. This is bounded installation and scene evidence, not fullV1. [Current fixed evidence](docs/Craft-Caption-Fixed-First-Use.md).

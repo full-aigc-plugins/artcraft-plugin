@@ -28,3 +28,7 @@ flowchart TD
 The regression failed before the fix because `blocked` differed from `review_ready`, then passed. Runtime regression: 299 tests, 278 passed and 21 conditional skips. CLI regression was rerun after updating the version field. Domain versions, the 2646-command catalog and native formats retain their existing contracts. Upgrades use separate version directories and preserve old runtimes; rolling back to a defective old version does not preserve this fix.
 
 This proves the scheduler fix and affected regressions. The complete four-domain native concurrent/single-writer matrix, generic Skills CLI, GUI, human creative approval and full V1 require separate acceptance; task6.9 remains open. A passing fixed-install scenario does not automatically close that matrix.
+
+Fixed plugin126/source98/runtime126 acceptance passes:64-skill discovery with zero errors,10 independent Art cold installs,64 CLI probes,four-domain opaque-ID native creation/reuse/moved package,and installed-tree preservation.[Fixed evidence](evidence/craft-art126-dag-identity-fixed-first-use-20261008.json). Earlier candidate-pending wording describes the release checkpoint;6.9 remains open.
+
+The whole-workspace source audit refused because the four domain worktrees differ from the pinned tags;Art skill files match source98.Fixed release archives,host skills and cold copies were verified independently against the lock.This does not prove all five current source worktrees match pinned refs.Other repositories were not modified;the refusal and32 open tasks remain explicit.
