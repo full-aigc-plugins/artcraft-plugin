@@ -1,5 +1,7 @@
 # ArtCraft DAG 节点身份架构
 
+当前6.9已完成，见[原生调度验收](ArtCraft-Native-Scheduling-Acceptance-Architecture.zh_CN.md)。以下6.9开放表述保留核心修复发布时的历史检查点。
+
 本文记录 AC-DM-003 的调度器节点身份修复，供实施、技能维护和验收使用。规格事实源为插件 OpenSpec；独立技能固定运行时，插件接收不可变技能快照。[核心实现证据](evidence/dag-identity-implementation-20261008.json)。
 
 合法 ID 为 `__proto__`、`constructor` 或 `toString` 时，旧结果对象会读到继承属性或触发原型赋值，导致依赖链错误阻断。新实现按已验证的拓扑序，以 `Object.fromEntries` 预建每个节点的自有可写数据属性；调度、保存和消费者验证继续使用原有路径。不限制合法 ID，也不改变公共 JSON、素材协议或节点指纹。

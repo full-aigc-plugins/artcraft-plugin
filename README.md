@@ -1,6 +1,6 @@
 # ArtCraft Agent Plugin
 
-The DAG identity fix is verified in plugin126/source98/runtime126;core tasks6.7/6.8 are complete.Task6.9 full native concurrency acceptance remains open.[Architecture and evidence](docs/ArtCraft-Dag-Identity-Architecture.md).The earlier6.12 seven-scenario evidence is bound to plugin125 and is not a full rerun on126.
+The DAG identity fix is verified in plugin126/source98/runtime126;core tasks6.7/6.8 are complete.Task6.9 native scheduling acceptance is complete;see [three-scenario acceptance](docs/ArtCraft-Native-Scheduling-Acceptance-Architecture.md).[Architecture and evidence](docs/ArtCraft-Dag-Identity-Architecture.md).The earlier6.12 seven-scenario evidence is bound to plugin125 and is not a full rerun on126.
 
 Core asset versioning and selective invalidation implementation is verified; tasks6.10/6.11 are complete. Old packages and review records remain traceable after a native source revision; old review on a new package is refused. Task6.12 seven-scenario acceptance is complete; see [current acceptance architecture](docs/ArtCraft-Selective-Version-Acceptance-Architecture.md). Complete V1 stays open. See [implementation architecture](docs/ArtCraft-Selective-Version-Implementation-Architecture.md).
 

@@ -1,5 +1,7 @@
 # ArtCraft DAG Node Identity Architecture
 
+Task6.9 is now complete;see [native scheduling acceptance](ArtCraft-Native-Scheduling-Acceptance-Architecture.md).Open6.9 statements below describe the historical core-fix release checkpoint.
+
 This document covers the AC-DM-003 scheduler identity fix for implementation, skill maintenance and acceptance. Plugin OpenSpec owns behavior; standalone skills pin the runtime, and the plugin vendors immutable skill snapshots. [Implementation evidence](evidence/dag-identity-implementation-20261008.json).
 
 Legal IDs such as `__proto__`, `constructor` and `toString` previously collided with inherited object properties or the prototype setter, incorrectly blocking a valid dependency chain. The scheduler now uses `Object.fromEntries` over the validated topological order to create an own writable data property for every node. Scheduling, persistence and consumer verification retain their existing paths. Legal IDs, public JSON, artifact protocols and node fingerprints are unchanged.
