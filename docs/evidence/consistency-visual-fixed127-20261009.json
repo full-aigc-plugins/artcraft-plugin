@@ -1,0 +1,89 @@
+{
+  "schema": "craft-consistency-visual-observation/v1",
+  "evaluator": {
+    "kind": "model",
+    "id": "codex-current-session-visual-observation",
+    "version": "session-2026-10-09"
+  },
+  "packageSha256": "572cba385952a75ab6b3540624913c80308fb0dd54c6223c972297c20c1ebf88",
+  "reviewSha256": "3fe672e1725ef5739459e8f9e9ad5a980d3e5533779dfbfb7c83859120bd588f",
+  "viewedFiles": {
+    "logo": {
+      "sha256": "e987859c0faaf11fe03950f5fea7b699979ee904f20bbcbd88aadb5352d110d6",
+      "location": "native-package/children/3598ce6f965b2481fe26316c06b30950c46ac7f8e7229f104aa78f579997668d/artboard-1.png"
+    },
+    "product": {
+      "sha256": "63aae2044d42b3f53945e139d7642f48d922bfadaf3933a67cc164f7f03be4c8",
+      "location": "native-package/children/a8792157cb4f27fb949c035f45518c61e884bb86e6f420204379c2baa8beb66e/artboard-1.png"
+    },
+    "poster": {
+      "sha256": "d737af4abcb6dada2fd043ffe59c20b88d7a46613e8364712878c4bd66a305cf",
+      "location": "native-package/children/293b9207228b7854bc3ccb2959ebea1583e066d41983124a5b381d6fdf6575f8/design.png"
+    },
+    "introFrame6": {
+      "sha256": "5fa7b660179b2a551d99caf5f88e1451bf081fe78fc350575dd75b5762637d6c",
+      "location": "intro-frame6.png"
+    },
+    "filmFrame6": {
+      "sha256": "24412ba35698c563593cd120c0c0b30baf69307fbb6cbeda031fcdfe30b8b619",
+      "location": "film-frame6.png"
+    }
+  },
+  "observations": {
+    "poster": {
+      "target": {
+        "nodeId": "poster",
+        "assetId": "poster-png",
+        "version": "d737af4abcb6dada2fd043ffe59c20b88d7a46613e8364712878c4bd66a305cf",
+        "sha256": "d737af4abcb6dada2fd043ffe59c20b88d7a46613e8364712878c4bd66a305cf",
+        "region": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      "observationSha256": "a47efdb548e9b1760f3de18172886d3f14d45a0e9feea321a3a103b8568aa45b",
+      "description": "Viewed the fixed blue union shape (rounded rectangle joined to right circular lobe) and blue NOVA wordmark against its transparent PNG reference, plus the separate red circular subject reference. Poster preserves recognizable blue silhouette and NOVA wordmark, with the red circle separately placed at the upper right on a cream background. A second dark NOVA headline is visible above. This is a bounded brand/subject identity observation, not approval of typography or final composition."
+    },
+    "intro": {
+      "target": {
+        "nodeId": "intro",
+        "assetId": "intro-video",
+        "version": "2e98b18b7dbe05640b0b418f79f843f5d4c08709b3d43bf5f8d70b7a7305ff49",
+        "sha256": "2e98b18b7dbe05640b0b418f79f843f5d4c08709b3d43bf5f8d70b7a7305ff49",
+        "region": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "frame": 6
+      },
+      "observationSha256": "e616fb848aa4bdbf3f4d0e09827d338820c0a585c7db34da1e364d6e36772d70",
+      "description": "Viewed decoded frame6 against both source references. Blue rounded-rectangle/right-lobe mark and blue NOVA wordmark are visible on black; red circular subject is composited over the lower central portion of the blue mark. The subject circle and NOVA identity are recognizable. The overlap is explicitly observed; this record does not claim an unoccluded logo, safe-area approval, or a review of all frames."
+    },
+    "film": {
+      "target": {
+        "nodeId": "film",
+        "assetId": "film-video",
+        "version": "c99d2e8e23b5c617cd8931525eff65d8b804e3ddd0d7c25409ab3c1aeed2279d",
+        "sha256": "c99d2e8e23b5c617cd8931525eff65d8b804e3ddd0d7c25409ab3c1aeed2279d",
+        "region": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "frame": 6
+      },
+      "observationSha256": "6f082c6a9565d0e4283a85fbdfcb003982c0356acdf1d94d6650ce95abb95f43",
+      "description": "Viewed decoded frame6 against both source references and intro frame6. The same blue mark, blue NOVA wordmark and red circular subject retain the observed arrangement. White NOVA essentials subtitle appears below the wordmark. This verifies the sampled-frame identity continuity; audio, complete temporal quality, safe areas and human approval are outside this observation."
+    }
+  },
+  "result": "PASS",
+  "decision": "pending",
+  "acceptance": "NOT_RUN",
+  "movedRecordVerified": true,
+  "scope": "actual current-session visual observation of fixed references and sampled native outputs; model observation is not user approval; no automatic runtime model dispatch or full-video quality claim"
+}

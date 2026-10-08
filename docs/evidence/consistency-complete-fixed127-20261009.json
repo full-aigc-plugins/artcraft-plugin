@@ -1,0 +1,113 @@
+{
+  "schema": "craft-consistency-complete-acceptance/v1",
+  "date": "2026-10-09",
+  "requirement": "AC-DM-005",
+  "completedTask": "6.15",
+  "result": "all four current named scenarios verified on bounded macOS arm64 inputs",
+  "currentPlugin": {
+    "repository": "https://github.com/full-aigc-plugins/artcraft-plugin.git",
+    "version": "0.1.0-dev.127",
+    "ref": "v0.1.0-dev.127",
+    "sha": "e4dfdef14a71922ad506af112b3ce2e7319f5474",
+    "skillSourceSha": "d3d52a6324c5db133150c922addebe57a09f7b2a",
+    "skillSourceRef": "v0.1.0-dev.99",
+    "skillSha256": "6b3ec9a876fc29aec669a46ac69fcd2a94a0b9d75ed8069ec0c1c4fbfa541fde",
+    "pluginManifestSha256": "ba7407ea60b5c661e5d0be965d70db05d454e25f9331c379a123c4396340b3dd",
+    "skills": {
+      "artcraft-cli": "126ba0a212e7feaa8f162b999b81bb53ae490d2c6714658f1386320e394d151c",
+      "artcraft-cli-assets": "0758897156f5ced7f3586377c3532f86be9237a21caa6a737fc7f26b004333a7",
+      "artcraft-cli-deliver": "1d7bb490c9f08bbc0b2163a202570ac300db220633bb6e24ffa0278d7674420d",
+      "artcraft-cli-execute": "f56c241fd57ba4b3cbd48bcae545a8e8397ffd3051e1823c1ba9046197776c18",
+      "artcraft-cli-plan": "e63a6fe9c977b859392d4159e588503247988a96e6b7fa6d9a183b5174f5a949",
+      "artcraft-cli-recover": "d435c444cea474df8658a0d5697dca284ee94a0e4b72440e590b2cf32796c48f",
+      "artcraft-cli-review": "feb9808c095482d0a6654649268fd046b7252712501b6150a271693a4728bf31",
+      "artcraft-cli-revise": "8dac4391fa8383455aaf6aca792883e00c80d16a463c272ae42060b4ad311002",
+      "artcraft-cli-setup": "b3ba79ff37cd7b90fce1dcf08af0edba6b1ed8b99676bce395080811d586f9ae",
+      "artcraft-use": "6b3ec9a876fc29aec669a46ac69fcd2a94a0b9d75ed8069ec0c1c4fbfa541fde"
+    }
+  },
+  "runtime": "0.1.0-dev.126-runtime.1",
+  "source": "0.1.0-dev.99",
+  "platform": "darwin-arm64",
+  "hostSkillsAfterAllOperations": 64,
+  "scenarios": {
+    "AC-DM-005-P": {
+      "result": "PASS",
+      "evidence": [
+        "consistency-fixed127-20261009.json",
+        "consistency-visual-fixed127-20261009.json"
+      ],
+      "observed": "fixed brand/subject PNGs compared with native poster and decoded intro/film frame6; actual shape, wordmark, subject and caption observations; frame0 issue retains version/frame; prompt-only refusal and moved record verified"
+    },
+    "AC-DM-005-N": {
+      "result": "PASS",
+      "evidence": [
+        "consistency-fixed127-20261009.json"
+      ],
+      "observed": "actual installed source99 refuses old reference version and missing target digest as STALE with action reevaluate; no review output published"
+    },
+    "AC-DM-005-PHOTO": {
+      "result": "PASS",
+      "evidence": [
+        "consistency-fixed127-20261009.json"
+      ],
+      "observed": "current installed single skill rejects changed protected header with collected protected_region_changed; zero outputs; failure-only retention and no replay; original delivery preserved; legal revision with before/after PNG and zero-change footer report survives moved package"
+    },
+    "AC-DM-005-RETOUCH": {
+      "result": "PASS",
+      "evidence": [
+        "consistency-fixed127-20261009.json",
+        "consistency-legacy-refusal-20261009.json"
+      ],
+      "observed": "current source34 Photo pixel-layer and brush damage, source SHA, protected report and moved package verified; immutable legacy Art26/runtime28/Photo6 rejects unsupported brush, remains failed on same request, preserves original and moved old package; domain unsupported_command separately observed, not promoted into generic legacy Art diagnostics"
+    }
+  },
+  "specBlockSha256": "26557734d9e42e7294f33d6a15f416e809d5658c7487f3b5781fbdd96e34b0d7",
+  "legacyTest": {
+    "result": "1 passed, 0 skipped",
+    "logSha256": "5c695a577ae812dcc5e97fc01584d78287f86d9bde37192d5d2e393a7d5c5c14",
+    "testSourceSha256": "7af7a05c367ad9049fcc3628595e1051cf3d8dd4c81a57fff6aa8e0e1d95657a"
+  },
+  "visualObservations": {
+    "reviewSha256": "3fe672e1725ef5739459e8f9e9ad5a980d3e5533779dfbfb7c83859120bd588f",
+    "acceptance": "NOT_RUN",
+    "decision": "pending",
+    "viewedFiles": {
+      "logo": {
+        "sha256": "e987859c0faaf11fe03950f5fea7b699979ee904f20bbcbd88aadb5352d110d6",
+        "location": "native-package/children/3598ce6f965b2481fe26316c06b30950c46ac7f8e7229f104aa78f579997668d/artboard-1.png"
+      },
+      "product": {
+        "sha256": "63aae2044d42b3f53945e139d7642f48d922bfadaf3933a67cc164f7f03be4c8",
+        "location": "native-package/children/a8792157cb4f27fb949c035f45518c61e884bb86e6f420204379c2baa8beb66e/artboard-1.png"
+      },
+      "poster": {
+        "sha256": "d737af4abcb6dada2fd043ffe59c20b88d7a46613e8364712878c4bd66a305cf",
+        "location": "native-package/children/293b9207228b7854bc3ccb2959ebea1583e066d41983124a5b381d6fdf6575f8/design.png"
+      },
+      "introFrame6": {
+        "sha256": "5fa7b660179b2a551d99caf5f88e1451bf081fe78fc350575dd75b5762637d6c",
+        "location": "intro-frame6.png"
+      },
+      "filmFrame6": {
+        "sha256": "24412ba35698c563593cd120c0c0b30baf69307fbb6cbeda031fcdfe30b8b619",
+        "location": "film-frame6.png"
+      }
+    }
+  },
+  "coreEvidence": "docs/evidence/consistency-fixed127-20261009.json",
+  "coreEvidenceSha256": "60791ce505843aebc5bd36b30019669701a24ebe66802e98c7ded4a9f5894bb4",
+  "productionBytesChanged": false,
+  "sourceIdentityScope": "Git-tracked source files; ignored historical Python caches are excluded from source/archive identity; exact whole installed trees verified",
+  "limits": [
+    "bounded sample visual and color observations; no full-video/aesthetic guarantee",
+    "model observation in this session is not user consent or runtime model dispatch qualification",
+    "actual generic Skills CLI, remaining requirements, marketplace and fullV1 stay open"
+  ],
+  "sourceRegression": {
+    "total": 199,
+    "passed": 149,
+    "conditionalSkips": 50,
+    "logSha256": "c31639ad1a4d54831ab05ae0967bf557ac1ddc987f5bfd89a93520cd6655c180"
+  }
+}

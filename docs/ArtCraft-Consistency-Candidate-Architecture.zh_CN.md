@@ -1,5 +1,7 @@
 # ArtCraft 固定参考一致性审阅架构
 
+当前补充：6.15 四场景验收已完成，以下保留此前检查点。见[当前验收](ArtCraft-Consistency-Acceptance-Architecture.zh_CN.md)。
+
 固定127／源99核心实现及安装复验现已通过，6.14完成；此前段落为历史检查点。6.15仍需完成旧依赖不支持命令／源保全证据审计，保持未完成。[固定证据](evidence/consistency-fixed127-20261009.json)。
 
 此前分发检查点：技能源99已发布并收录到插件候选127；runtime126及领域依赖不变。固定安装与完整场景验收仍未完成。[分发证据](evidence/consistency-distribution-candidate-20261009.json)。下文源码候选段落描述此前检查点。

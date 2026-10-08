@@ -1,0 +1,73 @@
+{
+  "schema": "craft-consistency-legacy-refusal/v1",
+  "sourceRef": "v0.1.0-dev.26",
+  "sourceCommit": "65b1b53e61deecb26ccc97f6a523a8893c10bf10",
+  "sourceZipSha256": "12bccde093a30874c77538207a44f8ec9af8410a6e27966af91a9a13b64847ec",
+  "runtime": "0.1.0-dev.28",
+  "photoSource": {
+    "capabilitySnapshotSha256": "d424ac4f122f51a0383df5df5bd631997d05a30d22f9ef8000570b38dbd2058f",
+    "cliVersion": "0.2.0",
+    "mode": "headless",
+    "pluginId": "photocraft",
+    "pluginVersion": "0.1.0-dev.6",
+    "sha256": "57cefe9ee7bda1d996c11741bef84f934cf28d4729eb237900f00d76678d6fa4"
+  },
+  "calls": [
+    {
+      "label": "create",
+      "script": "workflow.py",
+      "exitCode": 0,
+      "stdoutSha256": "3ed2af7369a04b8a1da8804b69a995b0a3334d30d322970e95c0d68c10ebe972",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "refused",
+      "script": "workflow.py",
+      "exitCode": 1,
+      "stdoutSha256": "c86c9344ac23f62c35ef73da65b1647351d691d0dbd48d57b876e6407d6c5a43",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "same-failure",
+      "script": "workflow.py",
+      "exitCode": 1,
+      "stdoutSha256": "88029dfef1600855a4c6c2d152a24a9ca4aaf9a8c3748e92441cca8bcb0ce6f6",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "pack-old-source",
+      "script": "package.py",
+      "exitCode": 0,
+      "stdoutSha256": "a81eae29568b4d0d70dd6d6c4e2c66b37ab1685cf29ecf59df2164c1e599c836",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "verify-old-source",
+      "script": "package.py",
+      "exitCode": 0,
+      "stdoutSha256": "cbde437279d9e9fd7a31a6a4b5518546645d2a56927505094f9f85c06ac49e92",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "originalFiles": {
+    "design.png": "e02f31ad6fa79dab7a27966c1958c9430da724fee83e3821a53cbecb25862df1",
+    "plan.json": "7ffbc35e4b8f58c7f08ef7aced02230aa1e25a34d751fb1db09bb7c9b7ee39b8",
+    "exchange-loss.json": "85da3f7b8b27d248be29ca88665ea1fc4b82ceb578762cd03cb7a758c940e397",
+    "native.json": "ffe05b5c92bb7979c0ea5a2227f6d4e6e9be8c33aea0ea94c9d74a4c1a69e1a2",
+    "project.pcraft": "a0c57d5282d3eec9ef0f678bba4c1220ecbf62fbce505cdad5170e5f10c2b87d",
+    "manifest.json": "c89e5b88e8c2ff89470230590ac0acd7e32187f7b2b05e98739b815aae09f718",
+    "operations.json": "5dbde64276501229bebe19289501bd5a609a0479a120af483b53c7de92c4fecf"
+  },
+  "sourcePreserved": true,
+  "oldPackageSha256": "2dac069d1931a04a4d39228f5562b6fbdbf7679199670b72ef35e365b5b29ccc",
+  "failedTaskId": "wf-f2122b367a39c0541b49f11157e4ba04addee07a13295aba",
+  "failedNodeStatus": "failed",
+  "failedOutputs": [],
+  "sameFailureTaskAndBudget": true,
+  "domainPublicRefusal": {
+    "error": "unsupported_command"
+  },
+  "domainPublicRefusalStdoutSha256": "71ff8d7f7fe1f26b8bae8a74d06ebdb4320f8c9af2ce891ecddbab2cbb86a556",
+  "scope": "legacy public Art26/runtime28 with pinned Photo6; separate domain unsupported_command observation; generic Art failure not promoted to uncollected domain diagnostics; original source and moved old package preserved",
+  "failedDeliveryRootExists": false
+}
