@@ -187,3 +187,18 @@ FilmCraft caption size is normalized to 1080 lines, not expressed directly in ou
 音频 `timeline.place` 的显式duration必须落在已登记源范围内；短配音不能直接复制视频全长。需要完整短配音时可省略duration，由实际媒体长度与sourceIn决定；核对片段结束时间和成片尾部，防止非预期延长序列。示例中明确两秒的裁切要求对应输入至少两秒。
 
 Explicit audio placement duration must stay within the registered source range. Do not assign the full video duration to shorter narration. Omit duration when placing the complete short source, then check clip end time and exported tail for unintended sequence extension. Examples explicitly trimming two seconds require sources of at least two seconds.
+
+
+## 素材版本不可改写 / Immutable artifact versions
+
+固定 runtime123 在同一 owner／workflow 的全部修订与授权范围内，核对相同 assetId、version 对应的内容摘要；独立任务按调用者与工程隔离。检查涵盖原生工程、表示、依赖与证据引用。输入冲突在新任务及修订预算登记前拒绝，输出冲突不能发布为就绪产物。
+
+Fixed runtime123 checks one content digest per assetId/version across revisions and authorization scopes of the same owner/workflow. Standalone tasks are isolated by caller/project. Native projects, renditions, dependencies and evidence references participate. Input conflicts refuse before task/revision budget allocation; output conflicts cannot publish ready outputs.
+
+遇到 artifact_version_conflict，先核对原始登记与当前文件摘要。确需替换内容时使用新素材版本和新计划修订；不要改写旧交付、替换授权或盲目重试。通过 --asset 导入时版本自动取内容摘要，替换文件会得到新版本；直接声明 externalInputs 时也必须使用准确版本和摘要，并通过 assetBindings 或 sourceProject 实际消费。
+
+On artifact_version_conflict, compare the original registration with current file digests. Intended replacement needs a new artifact version and plan revision. Preserve old deliveries; changing authorization or blindly retrying cannot resolve the conflict. --asset imports derive versions from content hashes. Explicit externalInputs must declare accurate versions/digests and be consumed through assetBindings or sourceProject.
+
+失败产物可保留供核对，但不能打包成已就绪结果。历史版本矛盾不会被自动改写，旧冻结计划也不能绕过该检查。技术就绪仍不代表创作或人工验收通过。
+
+Failed outputs may remain for inspection but cannot become ready deliveries. Contradictory history is never automatically rewritten, and frozen replay cannot bypass the check. Technical readiness does not establish creative or human acceptance.
