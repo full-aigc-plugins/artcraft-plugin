@@ -1,0 +1,139 @@
+{
+  "schema": "artcraft-fixed-mode-error-checkpoint/v1",
+  "status": "PARTIAL",
+  "platform": "macOS arm64",
+  "pluginVersion": "0.1.0-dev.136",
+  "pluginSha": "b6e07fddb08de3ecb02991312f1a5901135f008c",
+  "skillSourceVersion": "0.1.0-dev.108",
+  "skillSourceSha": "32b524bf7e18b8f14438578ec41447eb1cd6a80c",
+  "runtimeVersion": "0.1.0-dev.135-runtime.1",
+  "runtimeSha": "a8b4a7b8cd313554df83f7faa94fdf0885824265",
+  "hostLockSha256": "27f616aeea7aa8c3508db53e792c384d65463fcd89a367984bbd001e6ff966de",
+  "host": {
+    "plugins": 5,
+    "skills": 64,
+    "loadingErrors": 0,
+    "installedSkillIdentitiesAfterUse": 64,
+    "receiptSha256": "bbd7e60264bdac72ec480cf7a12306bb6364b8080a41f6f7b347283e9c8435a3"
+  },
+  "cold": {
+    "entries": 10,
+    "seconds": 189.683,
+    "receiptSha256": "c26847710ef7b6559707fcdf253b5851c1b62724aa12af91d4c6203a6b8d31f0",
+    "runtimeMode": "one empty independent runtime home per skill; skill and runtime removed before the next skill"
+  },
+  "modeQueries": {
+    "calls": 100,
+    "receiptSha256": "bf9cf017eff81920dffea929d3aa97b0eebbb6e977955fc7d690204fee5cdb4b",
+    "scope": "80 complete headless/desktop directory queries;20 Film parameter descriptions across ten installed skills; no per-command execution claim"
+  },
+  "desktopNative": {
+    "filmcraft": {
+      "receiptSha256": "22808b9d7d5a8f2044a83bfd88d92498e657c617e4ebe83bd5edceae749ab119",
+      "sourceBundleSha256": "7e39386e9d70f0c552e786d71a26e96bf9e1f86f6bd0c7464e5b7ec4b510949a",
+      "runtimeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+      "modeCatalogSha256": "69aa578e1685996cea4fa5aa99260697a8c61d2273ad639e0885410baa07ce2c",
+      "desktopBinarySha256": "f47862a07ce43aa3d3bc14344dc2d9015cc3ca5a21f9868271007cba8f7f99fa",
+      "ownedProcessesStopped": true,
+      "listenerOwnedByPID": true,
+      "fullCommandAcceptance": "NOT_RUN"
+    },
+    "photocraft": {
+      "receiptSha256": "2c1c075e285a104bfaa30a5a907a535dc9cd22217c993af64074e7866b7326c4",
+      "sourceBundleSha256": "9773df829a565a6ee79d302fbb1a74310a02039b1bf94f5666a46fe83c5cb55c",
+      "runtimeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+      "modeCatalogSha256": "69aa578e1685996cea4fa5aa99260697a8c61d2273ad639e0885410baa07ce2c",
+      "desktopBinarySha256": "8a4ea2ec9164b818af193b35e3dc59ab51da9ca92165565b88eab729b32baa31",
+      "ownedProcessesStopped": true,
+      "listenerOwnedByPID": true,
+      "fullCommandAcceptance": "NOT_RUN"
+    },
+    "effectcraft": {
+      "receiptSha256": "5fc184c503714a49900395ded9eeafa9d27b3f6f6c9041b1318e35938ec3f73f",
+      "sourceBundleSha256": "cf21a5aa06966b69a8424ef9cf423634839bbaabb9ef5390d3a99b150492b007",
+      "runtimeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+      "modeCatalogSha256": "69aa578e1685996cea4fa5aa99260697a8c61d2273ad639e0885410baa07ce2c",
+      "desktopBinarySha256": "e7db491a0b7af0a12977e32fa1da23490df8087f38a56c60a9ae2a7d914a22de",
+      "ownedProcessesStopped": true,
+      "listenerOwnedByPID": true,
+      "fullCommandAcceptance": "NOT_RUN"
+    }
+  },
+  "explicitModeChecks": {
+    "valid": 3,
+    "ambiguityRefusals": 1,
+    "processReceiptSha256": "4bd034bb2f8989081e475dcf209a8046159f5124102ac347094f936b215d1eaa"
+  },
+  "errors": {
+    "fixedRuntimeControlledTests": 44,
+    "fixedRuntimeFiles": 35,
+    "installedWrappers": {
+      "testMethods": 2,
+      "subcases": 120,
+      "sourceTestSha256": "02a921c899325e1a519a2110b45392e2aac9a6f89ba9b7b6a17017acf577f493",
+      "installedRoot": "host-loaded plugin136 skills directory",
+      "exitCode": 0
+    },
+    "actualNativePostSaveCases": 4,
+    "runtimeExecutionSource": "digest-verified135-runtime.1 archive root explicitly overrides retained installation132 metadata",
+    "releaseProofSha256": "343bf407872f1b6a7bcc18768d0e0976773c8796d018d1be8709a04b12891cf4"
+  },
+  "environmentFailures": {
+    "coldAttempts": 2,
+    "cause": "disk exhausted; no success receipt emitted",
+    "desktopEffectFirstAttempt": "temporary directory unavailable; terminal before retry",
+    "modeCheckFirstAttempt": "QA omitted explicit runtime home; default-home domain setup reached disk exhaustion; excluded from isolated acceptance",
+    "mitigation": "serial cold retry; explicit warm QA runtime home; recoverable QA Git metadata and uploaded duplicate ZIPs removed; installed docs temporarily compressed then restored with hashes"
+  },
+  "logsSha256": {
+    "artcraft-cold136.log": "f4cd9ac9756463ab699765e3a55d851e934998dcc5cd2f512492582dab6adf65",
+    "artcraft-cold136-retry.log": "72df1936c3d5e58ff0867a9ebfad41bb1429a72ee1caeba844ee3c191d142754",
+    "artcraft-cold136-serial.log": "3b54cb419a4f3e24fa197109e078b6b2630435f3bfda1f4018078d585fdb7f47",
+    "artcraft-desktop136.log": "96746113c93c0a8aea3c9368c5b10ff1dad6d9211e3573a2ab6a554016c0b149",
+    "artcraft-desktop136-effect-retry.log": "ee573b16efab632961bf961ca6e702e5b4e91db6c1a1f6b4da98ff4f12f0eef4",
+    "artcraft-fixed136-errors.log": "faea96644988bd34a6b619328e9d6569ac1693131441c690c08d17fab31cda22",
+    "artcraft136-native.log": "95d5121264676d5d3cee636867c8096a4144fb7c4fe08f468fc90997e69148af",
+    "artcraft-bridge136.log": "b7b5f974ebdf92e0a83e340fa092be3f3d0151fc993f6706818a071e712869e6"
+  },
+  "pending": [
+    "VectorCraft763 records/762 IDs and conflicting file.place descriptors; current desktop/bridge refusal preserved",
+    "Vector bridge ambiguity and current runtime upgrade scenario audit",
+    "complete public task consumer compatibility",
+    "generic Skills CLI installation",
+    "full V1 and host/platform/permission gates"
+  ],
+  "openNumberedTasks": 12,
+  "bridgeNative": {
+    "filmcraft": {
+      "exitCode": 0,
+      "stdoutSha256": "4828d5de755cbc89f60485f6d61446a9a05008136c330d5be7759b500704747e",
+      "result": "PASS",
+      "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+      "modeCatalogSha256": "69aa578e1685996cea4fa5aa99260697a8c61d2273ad639e0885410baa07ce2c",
+      "listenerOwnedByPID": true,
+      "ownedProcessesStopped": true,
+      "seconds": 2.212
+    },
+    "photocraft": {
+      "exitCode": 0,
+      "stdoutSha256": "8059dc33a8d1a5dac8bd83d052e07d140ded056ae9d37cfe2b5b89fe33f3304f",
+      "result": "PASS",
+      "nativeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+      "modeCatalogSha256": "69aa578e1685996cea4fa5aa99260697a8c61d2273ad639e0885410baa07ce2c",
+      "listenerOwnedByPID": true,
+      "ownedProcessesStopped": true,
+      "seconds": 1.915
+    },
+    "effectcraft": {
+      "exitCode": 0,
+      "stdoutSha256": "fbd0488f51c323a6edc7b3abd3c70de43c60ca6bcfca04992d63284b047c0cf7",
+      "result": "PASS",
+      "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+      "modeCatalogSha256": "69aa578e1685996cea4fa5aa99260697a8c61d2273ad639e0885410baa07ce2c",
+      "listenerOwnedByPID": true,
+      "ownedProcessesStopped": true,
+      "seconds": 1.854
+    }
+  },
+  "bridgeProcessReceiptSha256": "4c949a16ac93a7e5651216f1d6f2320c945726aa099e45506b9b5d31b81c2284"
+}
