@@ -4,9 +4,9 @@
 
 ## 1. craft-task-protocol
 
-- [ ] 1.1 [AC-CP-001] 编写能暴露“公共任务协议所有权”缺失的正向与失败测试并确认预期失败。责任：Harness owner；前置：协议评审；实现前冻结首个协议版本，供四个领域仓消费。产物：fixture、断言及失败日志；验证：失败原因必须是目标行为缺失。
-- [ ] 1.2 [AC-CP-001] 在 公共 craft-task/v1 schema 与消费 fixture 实现“公共任务协议所有权”的最小行为，不扩大支持范围。责任：Harness owner；前置：1.1。产物：对应源码/独立技能源/锁定材料；验证：目标测试和受影响回归通过。 候选进展：工作流任务回执与结构化拒绝源码回归已通过，见 `docs/evidence/craft-workflow-task-receipt-candidate-20261008.json`；固定运行时、独立技能和全协议验收未完成，保持开放。
-- [ ] 1.3 [AC-CP-001] 完成“公共任务协议所有权”真实边界验收并记录版本、平台、输入输出摘要及未验证项。责任：QA owner；前置：1.2。产物：evidence/ac-cp-001/；验证：规范所有场景有证据，且 README 能力状态与证据一致。
+- [x] 1.1 [AC-CP-001] 编写能暴露“公共任务协议所有权”缺失的正向与失败测试并确认预期失败。责任：Harness owner；前置：协议评审；实现前冻结首个协议版本，供四个领域仓消费。产物：fixture、断言及失败日志；验证：失败原因必须是目标行为缺失。 证据：`docs/evidence/public-task-implementation-audit-20261008.json`；固定107源码已重新复现两项回执／结构化拒绝行为失败，当前固定122协议相关135项通过。
+- [x] 1.2 [AC-CP-001] 在 公共 craft-task/v1 schema 与消费 fixture 实现“公共任务协议所有权”的最小行为，不扩大支持范围。责任：Harness owner；前置：1.1。产物：对应源码/独立技能源/锁定材料；验证：目标测试和受影响回归通过。 证据：`docs/evidence/public-task-implementation-audit-20261008.json`；当前源码与固定122运行时29项文件摘要一致，完整回归275项中255通过／20条件跳过；两份独立固定技能的公开原生首用通过。完整消费者兼容性与公开响应／错误矩阵留在1.3。
+- [ ] 1.3 [AC-CP-001] 完成“公共任务协议所有权”真实边界验收并记录版本、平台、输入输出摘要及未验证项。责任：QA owner；前置：1.2。产物：evidence/ac-cp-001/；验证：规范所有场景有证据，且 README 能力状态与证据一致。 当前差距：四领域引用固定owner109的任务规格，后续预算规范错误码增量尚需消费者映射与完整响应／错误矩阵证据；见 `docs/ArtCraft-Public-Task-Architecture.zh_CN.md`。
 
 ## 2. craft-artifact-protocol
 

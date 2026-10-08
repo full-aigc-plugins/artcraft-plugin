@@ -1,0 +1,759 @@
+{
+  "schema": "craft-public-task-implementation-audit/v1",
+  "result": "PASS",
+  "goalComplete": false,
+  "completedTasks": [
+    "1.1",
+    "1.2"
+  ],
+  "openTasks": [
+    "1.3"
+  ],
+  "runtime": {
+    "version": "0.1.0-dev.122-runtime.1",
+    "archiveSha256": "dee84246361abde40086c64a4a7032c41bae91c4402ebbc28bcb8d25c61e0232",
+    "currentRuntimeFileHashes": {
+      "src/cli.ts": "85351147736fcf27c08b0523207e46f7a8a8ec4aea621a24575090129e02dd82",
+      "src/artifacts/project_package.ts": "f57104c4a71e27f2a17b54a895c3c44eaff5c2eaa1dc0c740f7556325e5d1dd6",
+      "src/planning/photo_variant_output.ts": "225ee0e64cc2bf318cca1f9dcd0804dc3da53f99c14e910e8d64e2b2a6bd1bd6",
+      "src/planning/project_brief.ts": "1a5f0a9f85b16dee0f6cca73f5ba468765e2e98f9b45f710cab81c94b7177587",
+      "src/planning/native_brief_output.ts": "876ddcf956cc130ed932543ebe6d4f9c2623bb53e230b518a39414a03da3eaac",
+      "src/planning/workflow_engine.ts": "5f17132724200dba8f417d4e22d631df29f5c17287a4af86e902cf2ccd638fd8",
+      "src/planning/film_duration.ts": "e25a1ec1d2eac5bc2f7a64e45bb78766d79d55a68af9bae3b133ce3dc2b9a85f",
+      "src/protocol/contracts.ts": "ecfdb1a4a30b1cbe13977ef09bc875fbf2146e73bf4d0a4eb2409fc0a9e7e0e9",
+      "src/protocol/png_inspection.ts": "86b6d604ca3660cf2bd76fab96a266e06406bd9269e1cfa2e76e7cff0ea22265",
+      "src/protocol/wav_inspection.ts": "6ec1968f2c4a52f43ea4129ad6334158e696f9eebef981477cff803ad642e645",
+      "src/protocol/jpeg_inspection.ts": "5dc20a65aed1311dd05bccd70a2a610ac9380d2254d4ebf1ef2ba3d4eb48e865",
+      "src/protocol/dependency_graph.ts": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43",
+      "src/protocol/image_sequence.ts": "e63b178aa61abf0e0bee6d407bf747acf947b880352138be70b2c26e4a3bcc56",
+      "src/protocol/task_error.ts": "37c9215dcbf8ce754943dde2f02be4112ab06640c50dfb4dc979c67d97a930db",
+      "src/adapters/public_skill.ts": "b977c320b0332e54783d631b4369518549f5a7674f2fafac62551284c2935db8",
+      "src/adapters/design_source_inspection.ts": "5fdf1bd17537a2dc328dfa293b3bf86b144eede3f3e176e92beae3d66e64c3fa",
+      "src/adapters/film_source_inspection.ts": "6d6c2b0323b5e0ec510d08e894b4d807fe8106de55d2b7e32ea4bf0e9f8d14ed",
+      "src/adapters/video_factory.ts": "1a5bf385baa46d06e1ce451b05d42707b0b67071584bf1239d2764d497a41e74",
+      "src/adapters/video_factory_driver.ts": "c0887a85adbf3eb119c2ac45d38e4f8de1d8f886c86ac8f6b2d3a9f9d817ce9d",
+      "src/adapters/effect_export_probe.ts": "1e0569d15146913c32e948922a980d4f18e4e4bcced22b2b47ffe80fd4b873f5",
+      "src/harness/process_group.ts": "7260149d70d6312292db4a9c5419b4a33e6d24599215b164c814c6e1a7af0714",
+      "src/harness/execution_worker.ts": "1a6f3ee91fc96465ec93121c0de0bf1e2f72a87d875856767e39e8acda574a1a",
+      "src/harness/local_runner.ts": "d2e87c2b3d14d331b748598c4c4e5c9c9570116df19777eccec65133dedb1ca5",
+      "src/harness/native_diagnostics.ts": "3aaa72b67880594c3844a91a0e12102ed464028e0f15a1c97fb427e942b76902",
+      "src/harness/budget.ts": "a8a41bc4d4f7dad1103ac674cd71ef3d18449ab6206fc414c9287b45634ebf79",
+      "src/harness/task_ledger.ts": "fbd079ade17a3ad1251b1a5ac515e116dc56e7fc19ab457f2a743d659724e9a1",
+      "schemas/craft-task-v1.json": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+      "schemas/craft-exchange-loss-v1.json": "483670333c2ddb6515abe61fc30b9160bbe097b6abc01bda6c1ba73fc1832858",
+      "schemas/craft-artifact-v1.json": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d"
+    },
+    "sourceAndFixedArchiveIdentical": true
+  },
+  "subjects": {
+    "pluginVersion": "0.1.0-dev.122",
+    "skillSourceVersion": "0.1.0-dev.94",
+    "sourcePluginCommit": "3ed1c3ed929b19f63a2b435ee356011e3d1b7767",
+    "sourceSkillsCommit": "c2e4ca2a09814bc1f98e2880084426792a9cd6cc"
+  },
+  "red": {
+    "baselineCommit": "caa4317a68d9e122deb6f3aaf3790b5afa5a8fd9",
+    "total": 2,
+    "failed": 2,
+    "reason": "Missing durable taskReceipt and structured errorDetail on public workflow; real fixture processes and SQLite, not imports or environment failure"
+  },
+  "green": {
+    "fixedExistingProtocolTests": 107,
+    "fixedAdditionalFieldBindingTests": 28,
+    "fixedFailures": 0,
+    "currentRuntimeRegression": {
+      "total": 275,
+      "passed": 255,
+      "skipped": 20,
+      "failures": 0
+    }
+  },
+  "nativeReceipt": {
+    "schema": "craft-native-task-receipt-first-use/v1",
+    "result": "PASS",
+    "receipt": {
+      "taskId": "wf-bbed0b95ce693b0510907fd99ce52680bb507e975a717e25",
+      "attemptId": "776a5d33-c36c-48fd-9080-78b02ba532db",
+      "state": "review_ready",
+      "epoch": 1,
+      "runtimeIdentity": {
+        "capabilitySnapshotSha256": "79cecce75958b699a9fced5b9ca9d686f4f44497414297d69d5bdeb6c39132ef",
+        "cliVersion": "0.2.0-craft.2",
+        "mode": "headless",
+        "pluginId": "vectorcraft",
+        "pluginVersion": "0.1.0-dev.33",
+        "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+      },
+      "outputRefs": [
+        {
+          "protocolVersion": "craft-artifact/v1",
+          "assetId": "logo-png",
+          "version": "cc51aeafa0f6393c3292ddb9b651a40e45339391c8de48e4cf81b82a9bd12ddd",
+          "sha256": "cc51aeafa0f6393c3292ddb9b651a40e45339391c8de48e4cf81b82a9bd12ddd",
+          "bytes": 4303,
+          "mediaType": "image/png",
+          "producerTaskId": "wf-bbed0b95ce693b0510907fd99ce52680bb507e975a717e25",
+          "sourceRefs": [],
+          "nativeProjectRef": {
+            "assetId": "wf-bbed0b95ce693b0510907fd99ce52680bb507e975a717e25-bd874764e1b6eff2",
+            "version": "ea5b4b852e11036a23a08fc429b58b281530150d7f9586b51689e7f228576f18",
+            "sha256": "ea5b4b852e11036a23a08fc429b58b281530150d7f9586b51689e7f228576f18",
+            "location": "project.vectorcraft"
+          },
+          "renditions": [],
+          "dependencies": [],
+          "technicalMetadata": {},
+          "lossReportRef": {
+            "assetId": "wf-bbed0b95ce693b0510907fd99ce52680bb507e975a717e25-832b6e90dd1c3c59",
+            "version": "662085ff9325d4136d9b9a2ac9ed86af6d37fa91aeca75af7fed68163ea2acc2",
+            "sha256": "662085ff9325d4136d9b9a2ac9ed86af6d37fa91aeca75af7fed68163ea2acc2",
+            "location": "exchange-loss.json"
+          },
+          "evidenceRefs": [
+            {
+              "assetId": "wf-bbed0b95ce693b0510907fd99ce52680bb507e975a717e25-ffa5b716b5a57837",
+              "version": "0bf3a5f31e3f470cb3a6c2f7e2c9bcf6cdd4c30f9b914004bbee2dcadef68a35",
+              "sha256": "0bf3a5f31e3f470cb3a6c2f7e2c9bcf6cdd4c30f9b914004bbee2dcadef68a35",
+              "location": "manifest.json"
+            }
+          ],
+          "location": "artboard-1.png"
+        }
+      ],
+      "evidenceRefs": [
+        {
+          "assetId": "wf-bbed0b95ce693b0510907fd99ce52680bb507e975a717e25-ffa5b716b5a57837",
+          "version": "0bf3a5f31e3f470cb3a6c2f7e2c9bcf6cdd4c30f9b914004bbee2dcadef68a35",
+          "sha256": "0bf3a5f31e3f470cb3a6c2f7e2c9bcf6cdd4c30f9b914004bbee2dcadef68a35",
+          "location": "manifest.json"
+        }
+      ],
+      "error": null
+    },
+    "initialRunKey": "98a4dc2cdd9da0db889565838ef9da8e1c30f98758164c8f0727ddb53a785d68",
+    "reusedRunKey": "98a4dc2cdd9da0db889565838ef9da8e1c30f98758164c8f0727ddb53a785d68",
+    "invalidInput": {
+      "error": "workflow_plan_invalid",
+      "errorDetail": {
+        "code": "workflow_plan_invalid",
+        "message": "workflow_plan_invalid"
+      }
+    },
+    "revisionConflict": {
+      "error": "workflow_revision_conflict",
+      "errorDetail": {
+        "code": "workflow_revision_conflict",
+        "message": "workflow_revision_conflict"
+      }
+    },
+    "authorizationConflict": {
+      "error": "{\"error\": \"authorization_scope_mismatch\", \"errorDetail\": {\"code\": \"authorization_scope_mismatch\", \"message\": \"authorization_scope_mismatch\"}, \"projectRoot\": \"WORKSPACE/artifacts/craft-art-public-task-audit-20261008/native-receipt/unauthorized-project\"}",
+      "errorDetail": {
+        "code": "authorization_scope_mismatch",
+        "message": "authorization_scope_mismatch"
+      },
+      "workflowReceipt": {
+        "error": "authorization_scope_mismatch",
+        "errorDetail": {
+          "code": "authorization_scope_mismatch",
+          "message": "authorization_scope_mismatch"
+        },
+        "projectRoot": "WORKSPACE/artifacts/craft-art-public-task-audit-20261008/native-receipt/unauthorized-project"
+      }
+    },
+    "oldNativeFiles": {
+      "plan.json": "8dc86d739e76d61920ce0ffeaabb834229c5f80f6c7e5ff39ed9d186ccc3a78b",
+      "project.vectorcraft": "ea5b4b852e11036a23a08fc429b58b281530150d7f9586b51689e7f228576f18",
+      "exchange-loss.json": "662085ff9325d4136d9b9a2ac9ed86af6d37fa91aeca75af7fed68163ea2acc2",
+      "native.json": "e83b1c4f3923fd67d7724a35a6bee7efb763a1bcdcf6ae434725a7fc677b5121",
+      "manifest.json": "0bf3a5f31e3f470cb3a6c2f7e2c9bcf6cdd4c30f9b914004bbee2dcadef68a35",
+      "artboard-1.png": "cc51aeafa0f6393c3292ddb9b651a40e45339391c8de48e4cf81b82a9bd12ddd",
+      "artboard-1.svg": "42a700a429329156470c6a4cd62077c1505c0ec74a40a37e7907a86c8a07e2c3",
+      "operations.json": "0a424aac4bc702db40893db672b44e12b384ed779cf90e9fd8ba0cf7246a076a"
+    },
+    "calls": [
+      {
+        "script": "workflow.py",
+        "exitCode": 1,
+        "logSha256": "c05acce6e8e4051127040ff057afdfaf306bb1957f77b739cf0a53a803d01ac9"
+      },
+      {
+        "script": "workflow.py",
+        "exitCode": 0,
+        "logSha256": "e6e6cedf1fd27b7cdaa2cae1ea841ebeb95a84219ecc1de038cd7beeaa28d870"
+      },
+      {
+        "script": "cli.py",
+        "exitCode": 0,
+        "logSha256": "d2a0ce49be7f3e5d77c3df76c2eea92f971542d5f37e09cd449863636a1cb836"
+      },
+      {
+        "script": "workflow.py",
+        "exitCode": 0,
+        "logSha256": "e533b647f21b80024317257bf4302f2c006e373a5f8f121c98a5e59c14b6a0a5"
+      },
+      {
+        "script": "cli.py",
+        "exitCode": 0,
+        "logSha256": "d2a0ce49be7f3e5d77c3df76c2eea92f971542d5f37e09cd449863636a1cb836"
+      },
+      {
+        "script": "workflow.py",
+        "exitCode": 1,
+        "logSha256": "2e4421171a2b4d385a66408f94181c13d1f6b7015c0f88b3f1ec3d9347d7eb0a"
+      },
+      {
+        "script": "cli.py",
+        "exitCode": 0,
+        "logSha256": "d2a0ce49be7f3e5d77c3df76c2eea92f971542d5f37e09cd449863636a1cb836"
+      },
+      {
+        "script": "workflow.py",
+        "exitCode": 1,
+        "logSha256": "b8863d1435715e346f2e87bfb56c2d91dd522268eccfa919779ec7a6de535a5b"
+      },
+      {
+        "script": "cli.py",
+        "exitCode": 0,
+        "logSha256": "d2a0ce49be7f3e5d77c3df76c2eea92f971542d5f37e09cd449863636a1cb836"
+      }
+    ],
+    "scope": "single copied skill; cold public runtime, Vector native creation, durable receipt query, replay without new attempt, invalid-input/same-revision/authorization refusal; not full protocol or creative acceptance"
+  },
+  "nativeBudget": {
+    "schema": "craft-budget-protocol-first-use/v1",
+    "result": "PASS",
+    "runtimeVersion": "0.1.0-dev.122-runtime.1",
+    "taskReceipt": {
+      "taskId": "wf-516b2e7e6b1d2cd3c43d281e36b8360f8d22ef8fd920fb19",
+      "attemptId": "421c9c1b-8769-4262-8600-03cc3d932942",
+      "state": "review_ready",
+      "epoch": 1,
+      "runtimeIdentity": {
+        "capabilitySnapshotSha256": "79cecce75958b699a9fced5b9ca9d686f4f44497414297d69d5bdeb6c39132ef",
+        "cliVersion": "0.2.0-craft.2",
+        "mode": "headless",
+        "pluginId": "vectorcraft",
+        "pluginVersion": "0.1.0-dev.33",
+        "sha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b"
+      },
+      "outputRefs": [
+        {
+          "protocolVersion": "craft-artifact/v1",
+          "assetId": "logo-png",
+          "version": "2b67a0d76ccabae069f0a1e823376664f9e34ea63fc9cdb65d7c48d2c162ce7d",
+          "sha256": "2b67a0d76ccabae069f0a1e823376664f9e34ea63fc9cdb65d7c48d2c162ce7d",
+          "bytes": 4303,
+          "mediaType": "image/png",
+          "producerTaskId": "wf-516b2e7e6b1d2cd3c43d281e36b8360f8d22ef8fd920fb19",
+          "sourceRefs": [],
+          "nativeProjectRef": {
+            "assetId": "wf-516b2e7e6b1d2cd3c43d281e36b8360f8d22ef8fd920fb19-bd874764e1b6eff2",
+            "version": "d29f9cd034316cf67c90bb6aaf8237c00c309639870e9353ac3df07377285067",
+            "sha256": "d29f9cd034316cf67c90bb6aaf8237c00c309639870e9353ac3df07377285067",
+            "location": "project.vectorcraft"
+          },
+          "renditions": [],
+          "dependencies": [],
+          "technicalMetadata": {},
+          "lossReportRef": {
+            "assetId": "wf-516b2e7e6b1d2cd3c43d281e36b8360f8d22ef8fd920fb19-832b6e90dd1c3c59",
+            "version": "1bc5881c16e9c3cf283a8b8731aa75279cfbd7963b7bd58f9bc1a6344306039f",
+            "sha256": "1bc5881c16e9c3cf283a8b8731aa75279cfbd7963b7bd58f9bc1a6344306039f",
+            "location": "exchange-loss.json"
+          },
+          "evidenceRefs": [
+            {
+              "assetId": "wf-516b2e7e6b1d2cd3c43d281e36b8360f8d22ef8fd920fb19-ffa5b716b5a57837",
+              "version": "22ff586a830b790429b8ff06009c109ed480d299a15d28d382b7a42f9af6562a",
+              "sha256": "22ff586a830b790429b8ff06009c109ed480d299a15d28d382b7a42f9af6562a",
+              "location": "manifest.json"
+            }
+          ],
+          "location": "artboard-1.png"
+        }
+      ],
+      "evidenceRefs": [
+        {
+          "assetId": "wf-516b2e7e6b1d2cd3c43d281e36b8360f8d22ef8fd920fb19-ffa5b716b5a57837",
+          "version": "22ff586a830b790429b8ff06009c109ed480d299a15d28d382b7a42f9af6562a",
+          "sha256": "22ff586a830b790429b8ff06009c109ed480d299a15d28d382b7a42f9af6562a",
+          "location": "manifest.json"
+        }
+      ],
+      "error": null
+    },
+    "canonicalError": {
+      "code": "budget_exhausted",
+      "message": "budget_exceeded: revisions"
+    },
+    "legacyError": "budget_exceeded: revisions",
+    "repeatedRefusalStable": true,
+    "allLedgerTablesUnchanged": [
+      "tasks",
+      "executions",
+      "leases",
+      "workflow_runs",
+      "workflow_nodes",
+      "budget_accounts",
+      "workflow_budget_links",
+      "events"
+    ],
+    "originalNativeFiles": {
+      "plan.json": "8dc86d739e76d61920ce0ffeaabb834229c5f80f6c7e5ff39ed9d186ccc3a78b",
+      "project.vectorcraft": "d29f9cd034316cf67c90bb6aaf8237c00c309639870e9353ac3df07377285067",
+      "exchange-loss.json": "1bc5881c16e9c3cf283a8b8731aa75279cfbd7963b7bd58f9bc1a6344306039f",
+      "native.json": "dbebf393b13711345c7dd2b533b902ad23eb3ed8887effa712eb1a8de3c231b4",
+      "manifest.json": "22ff586a830b790429b8ff06009c109ed480d299a15d28d382b7a42f9af6562a",
+      "artboard-1.png": "2b67a0d76ccabae069f0a1e823376664f9e34ea63fc9cdb65d7c48d2c162ce7d",
+      "artboard-1.svg": "42a700a429329156470c6a4cd62077c1505c0ec74a40a37e7907a86c8a07e2c3",
+      "operations.json": "0a424aac4bc702db40893db672b44e12b384ed779cf90e9fd8ba0cf7246a076a"
+    },
+    "calls": [
+      {
+        "script": "workflow.py",
+        "exitCode": 0,
+        "logSha256": "577090db1148c99fe846700da38e20b03a1fb590b67cf74f7f78ed2d42c68f56"
+      },
+      {
+        "script": "workflow.py",
+        "exitCode": 1,
+        "logSha256": "149d2a79da50101816551588cec5a0423a4007cb2e88916be8e8de4178cd102b"
+      },
+      {
+        "script": "workflow.py",
+        "exitCode": 1,
+        "logSha256": "149d2a79da50101816551588cec5a0423a4007cb2e88916be8e8de4178cd102b"
+      },
+      {
+        "script": "cli.py",
+        "exitCode": 0,
+        "logSha256": "4c6b40e14ca0507b63424ae45f9a04ab0a78f0a4a3eb1d4a0daec1f17c2d5fb8"
+      }
+    ],
+    "scope": "single copied skill cold public runtime; native Vector create, two revision-cap refusals, durable task/attempt and ledger/native preservation; not all budget/creative/full protocol acceptance"
+  },
+  "firstUseScope": "Two separately copied fixed plugin skills, each empty default public runtime and real Vector creation; entire skill trees equal source94 and actual previously installed Codex skill before and after use. No new host installation or generic Skills CLI installation.",
+  "nativeSeconds": {
+    "receipt": 32.384,
+    "budget": 36.828
+  },
+  "skillFilesAfterUse": {
+    "SKILL.md": "e89eaa9ad6dbd70f3b129d57306987dc660d578366f0672e37c401e4c7fabd2a",
+    "references/scenario.md": "80468047d33d83e28fed4ee1173ba780789cbcd59c7f1730cd4d2e4790e4dfa4",
+    "references/revision.md": "d664983acdbb2cd83ecc2c979bd6cc81fb59696fdaddb99d702e9fe0311fcb01",
+    "references/desktop-handoff.md": "a1229e22f44d7cdc7aa0dd9e18f318e0dcc806f871a8f7fb9410fc2eb26e6fb5",
+    "references/domain-commands.md": "9842360fab9cb0c4a4cf38a0c78b4467e6f17d2d4fc2ab37148913dca25ff689",
+    "references/domain-command-index.json": "bb0c7f91de4a172b5ff015074f631d67321dc1824ed4f6da8473cc80898a7339",
+    "references/task-receipts.md": "8170f08be9dad6c9649749e59867a8a2a1224207549929375b1b1695bc20087f",
+    "references/photo-delivery-integrity.md": "444a7cc41be0de89e0c492d3a355e8bdbded50e70ffeaabe696ac125a354a5e4",
+    "references/business-scenes.md": "74f4dee63a006ba2c1dd51e61ad8f0476ec04f3a5a5d3cc751f546207e9cffd8",
+    "references/vector-appearance.md": "0269d33e166b092c1efe91463fb99410df72da37a2748e5fb6da9623db6c32c7",
+    "references/workflow.md": "79c5e499cd4f6d592dfb18ed6443ea1e959d1c1a8ad602ecea652f9c18a677e9",
+    "references/brand-token-workflow.md": "28f955155ca50f4dfa54da53c9e20ea035171aac70681972d9d6638900d0f8c0",
+    "references/commands.json": "6da027ae418ef7d24a69560a01bbb05f2db3de7df50ede9341a924aee6220ad9",
+    "references/recovery.md": "04c7d80ca1bee85f084b91074223b7412d1c810fffa548a82f02eb0f37700773",
+    "references/video-factory.md": "ce5edfe349cb0d74a7e5126440523c157e71aba8a26f8d71e79149343212f6b5",
+    "references/photo-adjustment.md": "8a40cc9b35d51ee15382415be25e546942f382e3c5c14753eea8d5c12f6ae229",
+    "references/project-package.md": "3ed74526a8a93125f7f28002cf80c130298f8fb570bf0d9a2f487795c1eb343b",
+    "references/mixed-asr.md": "fb3eec49c7aaa217ead689dd2880fd3451425ed74f9debb00fa1988afb1c872d",
+    "references/dynamic-sequence.md": "e464c7a033e2f99c9dd1d33047c2a37441e01271fb06806f43d2f290c773225b",
+    "references/brief.md": "db2d255e41211ee3b3166e15b1758c455c65d3d0a7c4e19b59f790e30790cccf",
+    "references/exchange-loss.md": "52102251621536a3cd9251ebafcfe62f47493a1c9b24aa26471b15a52a2debb2",
+    "references/review.md": "5bd0e417ab1db9363a5fa9f40ff75fbb706cd15a4a19fa3c6002300c0c8bcb43",
+    "references/first-use-failures.md": "d17485036dd3027f86a5bad99b722d0713ae7e472d30c6d2cfb4b22037ab31c9",
+    "references/effect-expression.md": "cd89fe9670a41a06ba1918a86717cfde9ef21a5f8445939f8b3272d8e85481d3",
+    "examples/domain-effectcraft-create.json": "03d3d7796210dfd4ff27f6cde0e1ba10b4376b0243dc4938d87103ca991f5f61",
+    "examples/photo-adjustment-revision-plan.json": "bee2a7ecc778f24b141a5a82858226f617db99406e053f1303f7065308132369",
+    "examples/brand-token-campaign.json": "3af8b60f59361eea0b7ad7531155922aa7fbc588673a89387a7ef727c3b830eb",
+    "examples/segmented-hd-brand-campaign.json": "14d7cea358da18da488b76f73e53c6f820fe0236440f168efe0720ce729b97c1",
+    "examples/brand-brief.json": "83bd8bcccec8fe4d9560687f85db757f4f44906ab50d817a657f573c1db9ffd0",
+    "examples/domain-filmcraft-desktop.json": "3c64e48acff1905c49114b75f2ee09cb4949f64fde666970b40c12fe726980b3",
+    "examples/domain-photocraft-create.json": "d0585885b908e265e385c6c57507e074e71158f9c41862990690a7ebb7967fde",
+    "examples/domain-photocraft-desktop.json": "8912f9c817eabfc95faf5e37af113b7d0e8c3c7d4a8c8b1b06aa2c340f53eed2",
+    "examples/mixed-asr-operations.json": "b4a4c3905f84b2b13c750c578768249603db02c5568f8ed90fb9b745c1eca23b",
+    "examples/domain-effectcraft-desktop.json": "38c54bb2c653f9ac1490e0953d5081e5c74869438baf3731173540f0332119f1",
+    "examples/vector-appearance-revision-plan.json": "3e464a7576f55684c45eaf4b3b4ce94bc53c52a4e360e2a1609372201686f616",
+    "examples/domain-vectorcraft-revise.json": "8e416f9ed55a21862cfc6848ca4e9f97b3fbd2b405b9a56faf89dbc016cbe779",
+    "examples/chinese-brand-campaign.json": "e98b5bb3e2eb45b5f12c02477b0f8a8d5a5f6ca4acd367b5a5d5d5b889c09712",
+    "examples/dynamic-brand-campaign.json": "61d79ea215130e7f3b54184d211912430be15856e909e66fa0550456791fa18c",
+    "examples/brand-campaign.json": "3e5e60ffda7efac81c8940e5f1e1e817f29a9807eebd3e4bb905998d7b041bf4",
+    "examples/domain-filmcraft-create.json": "de489d735caa481500fd0ede481d6034b9e2652eb39232541ded6a6a7b11dc1e",
+    "examples/vector-appearance-workflow.json": "e24206309610238ab6ace633e0bb82ee1d3c22377219c5b1d1b8bb0be6f6b6a9",
+    "examples/domain-effectcraft-revise.json": "d54bfa78c48b674136b56a8e0c7e36e4c1c475a5907ba46ae450b2ac86e17d1e",
+    "examples/domain-photocraft-revise.json": "444baa22f6c1f6c26e0f498dbac68bdfc5c93280678f08f41486057ccd3a165f",
+    "examples/effect-expression-workflow.json": "2fd9547a8d13f879266ffb4b53c29e4a92dbb29488436fc2580423a5be3d475b",
+    "examples/smart-dynamic-brand-campaign.json": "da86092048e3d73bc9757e09a8a1ef02c7b8c4407c557caaedb3d9e68ca97e76",
+    "examples/photo-adjustment-workflow.json": "8152390a3e55ffc6ccab77a33f63182b040b169c36abb601e523147817297299",
+    "examples/domain-vectorcraft-desktop.json": "41461b895abe438b35cfa2fcedec42d883ceb0a77812cb5e21e071b5473f3b2b",
+    "examples/domain-vectorcraft-create.json": "c7668b298747a3dec9266826344778e8c977a36df293436531ea1ea8db4a44bc",
+    "examples/domain-filmcraft-revise.json": "33d91cf6b63982dfe7fb9c75b2aec6babf4ff2184f0673dcf00e19ad72e3f611",
+    "examples/effect-expression-revision-plan.json": "8076203648de8834c0681149e557ea4ffed35e0863c2e7a2dec2b4001e3ca22f",
+    "scripts/package.py": "9d98f5c17e707b5fd80c43dde55c4d5b50cb2b27c2945607a5376c6a13ecc48c",
+    "scripts/bootstrap.py": "e019fa5b35c819f6025eec1f0711b180eefe5351bc1b0db84a2f4dc50fec8fdf",
+    "scripts/public_call.py": "94388742c4b959319469d7389321e2226845c81b8166cc6f923419da65e9dbd8",
+    "scripts/jpeg_inspection.py": "6d057317962954b147864ae33966582553dc0591335af42bfdc3da333ed2257c",
+    "scripts/download.py": "f569dd3f0d4765a0cdf9c4efd26060963ef774128f29575a38c578f44ae07263",
+    "scripts/domain_commands.py": "12cfdf2424d7e5507fe95580c8d52b9d0b186b63964df91d3a9dd8d29c110c03",
+    "scripts/brief.py": "a1b2e526c4f631e60998c777e1d8332ed6d2f61ca4afa106bf9068f15f3f3124",
+    "scripts/review.py": "6893faaac485343ff964784b363ec4676ad3ea3002bed20ec88df8089b5dfebf",
+    "scripts/node.lock.json": "5d47b1f8b5a1738686f3033981444489eafeb99854d2102254be0375ae4462b8",
+    "scripts/setup.py": "8a4926bbabdf6edbddf8f46b9ad3c20066e50b6472a037206b2a394e7eaff472",
+    "scripts/cli.py": "338bb31c726bdaf9b9545c478aa60d4dfbe813049dc849f8ae6040a34a42ff97",
+    "scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+    "scripts/revision.py": "ecb0c7da71c213519f6e62b33748cb818715722854e1c457b9a3f39811884a93",
+    "scripts/workflow.py": "032dff716caaca208f55946ecb7f1fc8e407ab397c37c251388953207b32499d",
+    "scripts/distribution.lock.json": "8fbd6be07fae705a8a0a559f1d30771231bf97aaae3ac7416013ecc7e60e0f90"
+  },
+  "consumerReferences": [
+    {
+      "pluginId": "filmcraft",
+      "version": "0.1.0-dev.41",
+      "commit": "66627bc6c970859db5b950aab1595b83201b4072",
+      "reference": {
+        "status": "fixed-protocol-authority-reference",
+        "owner": "full-aigc-plugins/artcraft-plugin",
+        "source": {
+          "repository": "https://github.com/full-aigc-plugins/artcraft-plugin.git",
+          "ref": "v0.1.0-dev.109",
+          "sha": "09d4ac5b8ff82f8fe819189e4be487b45ab2472b"
+        },
+        "protocols": {
+          "task": "craft-task/v1",
+          "artifact": "craft-artifact/v1"
+        },
+        "files": {
+          "taskSpec": {
+            "path": "openspec/changes/establish-v1-plugin/specs/craft-task-protocol/spec.md",
+            "sha256": "c6f17c1d03422a92f57a129f680808cf548f859cb1f12bfc4f88cf4a6dea0b9f",
+            "url": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/09d4ac5b8ff82f8fe819189e4be487b45ab2472b/openspec/changes/establish-v1-plugin/specs/craft-task-protocol/spec.md"
+          },
+          "artifactSpec": {
+            "path": "openspec/changes/establish-v1-plugin/specs/craft-artifact-protocol/spec.md",
+            "sha256": "d73aacc5adc872dbe437dd28e27d040d6fed38072efec55527707691ebd3d90b",
+            "url": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/09d4ac5b8ff82f8fe819189e4be487b45ab2472b/openspec/changes/establish-v1-plugin/specs/craft-artifact-protocol/spec.md"
+          },
+          "taskSchema": {
+            "path": "schemas/craft-task-v1.json",
+            "sha256": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+            "url": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/09d4ac5b8ff82f8fe819189e4be487b45ab2472b/schemas/craft-task-v1.json"
+          },
+          "artifactSchema": {
+            "path": "schemas/craft-artifact-v1.json",
+            "sha256": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d",
+            "url": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/09d4ac5b8ff82f8fe819189e4be487b45ab2472b/schemas/craft-artifact-v1.json"
+          }
+        },
+        "scope": "Protocol authority only; not a runtime lock or full protocol acceptance."
+      },
+      "referenceSha256": "a5416c35f997ffa914780df2efba26c63b72a95ccc1df8d0f6bc06b3d0ab5feb"
+    },
+    {
+      "pluginId": "effectcraft",
+      "version": "0.1.0-dev.38",
+      "commit": "b7752dd1a2f934c4e374c8cf85500d24a9b98435",
+      "reference": {
+        "status": "fixed-protocol-authority-reference",
+        "owner": "full-aigc-plugins/artcraft-plugin",
+        "source": {
+          "repository": "https://github.com/full-aigc-plugins/artcraft-plugin.git",
+          "ref": "v0.1.0-dev.109",
+          "sha": "09d4ac5b8ff82f8fe819189e4be487b45ab2472b"
+        },
+        "protocols": {
+          "task": "craft-task/v1",
+          "artifact": "craft-artifact/v1"
+        },
+        "files": {
+          "taskSpec": {
+            "path": "openspec/changes/establish-v1-plugin/specs/craft-task-protocol/spec.md",
+            "sha256": "c6f17c1d03422a92f57a129f680808cf548f859cb1f12bfc4f88cf4a6dea0b9f",
+            "url": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/09d4ac5b8ff82f8fe819189e4be487b45ab2472b/openspec/changes/establish-v1-plugin/specs/craft-task-protocol/spec.md"
+          },
+          "artifactSpec": {
+            "path": "openspec/changes/establish-v1-plugin/specs/craft-artifact-protocol/spec.md",
+            "sha256": "d73aacc5adc872dbe437dd28e27d040d6fed38072efec55527707691ebd3d90b",
+            "url": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/09d4ac5b8ff82f8fe819189e4be487b45ab2472b/openspec/changes/establish-v1-plugin/specs/craft-artifact-protocol/spec.md"
+          },
+          "taskSchema": {
+            "path": "schemas/craft-task-v1.json",
+            "sha256": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+            "url": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/09d4ac5b8ff82f8fe819189e4be487b45ab2472b/schemas/craft-task-v1.json"
+          },
+          "artifactSchema": {
+            "path": "schemas/craft-artifact-v1.json",
+            "sha256": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d",
+            "url": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/09d4ac5b8ff82f8fe819189e4be487b45ab2472b/schemas/craft-artifact-v1.json"
+          }
+        },
+        "scope": "Protocol authority only; not a runtime lock or full protocol acceptance."
+      },
+      "referenceSha256": "a5416c35f997ffa914780df2efba26c63b72a95ccc1df8d0f6bc06b3d0ab5feb"
+    },
+    {
+      "pluginId": "photocraft",
+      "version": "0.1.0-dev.38",
+      "commit": "e70772bc80cfabc605a247ac9107a6f28929852c",
+      "reference": {
+        "status": "fixed-protocol-authority-reference",
+        "owner": "full-aigc-plugins/artcraft-plugin",
+        "source": {
+          "repository": "https://github.com/full-aigc-plugins/artcraft-plugin.git",
+          "ref": "v0.1.0-dev.109",
+          "sha": "09d4ac5b8ff82f8fe819189e4be487b45ab2472b"
+        },
+        "protocols": {
+          "task": "craft-task/v1",
+          "artifact": "craft-artifact/v1"
+        },
+        "files": {
+          "taskSpec": {
+            "path": "openspec/changes/establish-v1-plugin/specs/craft-task-protocol/spec.md",
+            "sha256": "c6f17c1d03422a92f57a129f680808cf548f859cb1f12bfc4f88cf4a6dea0b9f",
+            "url": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/09d4ac5b8ff82f8fe819189e4be487b45ab2472b/openspec/changes/establish-v1-plugin/specs/craft-task-protocol/spec.md"
+          },
+          "artifactSpec": {
+            "path": "openspec/changes/establish-v1-plugin/specs/craft-artifact-protocol/spec.md",
+            "sha256": "d73aacc5adc872dbe437dd28e27d040d6fed38072efec55527707691ebd3d90b",
+            "url": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/09d4ac5b8ff82f8fe819189e4be487b45ab2472b/openspec/changes/establish-v1-plugin/specs/craft-artifact-protocol/spec.md"
+          },
+          "taskSchema": {
+            "path": "schemas/craft-task-v1.json",
+            "sha256": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+            "url": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/09d4ac5b8ff82f8fe819189e4be487b45ab2472b/schemas/craft-task-v1.json"
+          },
+          "artifactSchema": {
+            "path": "schemas/craft-artifact-v1.json",
+            "sha256": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d",
+            "url": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/09d4ac5b8ff82f8fe819189e4be487b45ab2472b/schemas/craft-artifact-v1.json"
+          }
+        },
+        "scope": "Protocol authority only; not a runtime lock or full protocol acceptance."
+      },
+      "referenceSha256": "a5416c35f997ffa914780df2efba26c63b72a95ccc1df8d0f6bc06b3d0ab5feb"
+    },
+    {
+      "pluginId": "vectorcraft",
+      "version": "0.1.0-dev.37",
+      "commit": "f781b2e271004a7a1ad15d8ff306331d396d3ad2",
+      "reference": {
+        "status": "fixed-protocol-authority-reference",
+        "owner": "full-aigc-plugins/artcraft-plugin",
+        "source": {
+          "repository": "https://github.com/full-aigc-plugins/artcraft-plugin.git",
+          "ref": "v0.1.0-dev.109",
+          "sha": "09d4ac5b8ff82f8fe819189e4be487b45ab2472b"
+        },
+        "protocols": {
+          "task": "craft-task/v1",
+          "artifact": "craft-artifact/v1"
+        },
+        "files": {
+          "taskSpec": {
+            "path": "openspec/changes/establish-v1-plugin/specs/craft-task-protocol/spec.md",
+            "sha256": "c6f17c1d03422a92f57a129f680808cf548f859cb1f12bfc4f88cf4a6dea0b9f",
+            "url": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/09d4ac5b8ff82f8fe819189e4be487b45ab2472b/openspec/changes/establish-v1-plugin/specs/craft-task-protocol/spec.md"
+          },
+          "artifactSpec": {
+            "path": "openspec/changes/establish-v1-plugin/specs/craft-artifact-protocol/spec.md",
+            "sha256": "d73aacc5adc872dbe437dd28e27d040d6fed38072efec55527707691ebd3d90b",
+            "url": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/09d4ac5b8ff82f8fe819189e4be487b45ab2472b/openspec/changes/establish-v1-plugin/specs/craft-artifact-protocol/spec.md"
+          },
+          "taskSchema": {
+            "path": "schemas/craft-task-v1.json",
+            "sha256": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+            "url": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/09d4ac5b8ff82f8fe819189e4be487b45ab2472b/schemas/craft-task-v1.json"
+          },
+          "artifactSchema": {
+            "path": "schemas/craft-artifact-v1.json",
+            "sha256": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d",
+            "url": "https://github.com/full-aigc-plugins/artcraft-plugin/blob/09d4ac5b8ff82f8fe819189e4be487b45ab2472b/schemas/craft-artifact-v1.json"
+          }
+        },
+        "scope": "Protocol authority only; not a runtime lock or full protocol acceptance."
+      },
+      "referenceSha256": "a5416c35f997ffa914780df2efba26c63b72a95ccc1df8d0f6bc06b3d0ab5feb"
+    }
+  ],
+  "consumerOwnerComparison": [
+    {
+      "pluginId": "filmcraft",
+      "file": "taskSpec",
+      "fixedOwnerSha256": "c6f17c1d03422a92f57a129f680808cf548f859cb1f12bfc4f88cf4a6dea0b9f",
+      "currentSha256": "0f85a66294886fd2ecd4f8bb2aabb0a6699a6c3291548c397ebfe9d874783ade"
+    },
+    {
+      "pluginId": "filmcraft",
+      "file": "artifactSpec",
+      "fixedOwnerSha256": "d73aacc5adc872dbe437dd28e27d040d6fed38072efec55527707691ebd3d90b",
+      "currentSha256": "d73aacc5adc872dbe437dd28e27d040d6fed38072efec55527707691ebd3d90b"
+    },
+    {
+      "pluginId": "filmcraft",
+      "file": "taskSchema",
+      "fixedOwnerSha256": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+      "currentSha256": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad"
+    },
+    {
+      "pluginId": "filmcraft",
+      "file": "artifactSchema",
+      "fixedOwnerSha256": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d",
+      "currentSha256": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d"
+    },
+    {
+      "pluginId": "effectcraft",
+      "file": "taskSpec",
+      "fixedOwnerSha256": "c6f17c1d03422a92f57a129f680808cf548f859cb1f12bfc4f88cf4a6dea0b9f",
+      "currentSha256": "0f85a66294886fd2ecd4f8bb2aabb0a6699a6c3291548c397ebfe9d874783ade"
+    },
+    {
+      "pluginId": "effectcraft",
+      "file": "artifactSpec",
+      "fixedOwnerSha256": "d73aacc5adc872dbe437dd28e27d040d6fed38072efec55527707691ebd3d90b",
+      "currentSha256": "d73aacc5adc872dbe437dd28e27d040d6fed38072efec55527707691ebd3d90b"
+    },
+    {
+      "pluginId": "effectcraft",
+      "file": "taskSchema",
+      "fixedOwnerSha256": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+      "currentSha256": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad"
+    },
+    {
+      "pluginId": "effectcraft",
+      "file": "artifactSchema",
+      "fixedOwnerSha256": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d",
+      "currentSha256": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d"
+    },
+    {
+      "pluginId": "photocraft",
+      "file": "taskSpec",
+      "fixedOwnerSha256": "c6f17c1d03422a92f57a129f680808cf548f859cb1f12bfc4f88cf4a6dea0b9f",
+      "currentSha256": "0f85a66294886fd2ecd4f8bb2aabb0a6699a6c3291548c397ebfe9d874783ade"
+    },
+    {
+      "pluginId": "photocraft",
+      "file": "artifactSpec",
+      "fixedOwnerSha256": "d73aacc5adc872dbe437dd28e27d040d6fed38072efec55527707691ebd3d90b",
+      "currentSha256": "d73aacc5adc872dbe437dd28e27d040d6fed38072efec55527707691ebd3d90b"
+    },
+    {
+      "pluginId": "photocraft",
+      "file": "taskSchema",
+      "fixedOwnerSha256": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+      "currentSha256": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad"
+    },
+    {
+      "pluginId": "photocraft",
+      "file": "artifactSchema",
+      "fixedOwnerSha256": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d",
+      "currentSha256": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d"
+    },
+    {
+      "pluginId": "vectorcraft",
+      "file": "taskSpec",
+      "fixedOwnerSha256": "c6f17c1d03422a92f57a129f680808cf548f859cb1f12bfc4f88cf4a6dea0b9f",
+      "currentSha256": "0f85a66294886fd2ecd4f8bb2aabb0a6699a6c3291548c397ebfe9d874783ade"
+    },
+    {
+      "pluginId": "vectorcraft",
+      "file": "artifactSpec",
+      "fixedOwnerSha256": "d73aacc5adc872dbe437dd28e27d040d6fed38072efec55527707691ebd3d90b",
+      "currentSha256": "d73aacc5adc872dbe437dd28e27d040d6fed38072efec55527707691ebd3d90b"
+    },
+    {
+      "pluginId": "vectorcraft",
+      "file": "taskSchema",
+      "fixedOwnerSha256": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+      "currentSha256": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad"
+    },
+    {
+      "pluginId": "vectorcraft",
+      "file": "artifactSchema",
+      "fixedOwnerSha256": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d",
+      "currentSha256": "c3385db540db71fccfdb049f79f05a9adba55ec008958579eab6fac46dd6ea5d"
+    }
+  ],
+  "sourceHashes": {
+    "test/public_task_contract.test.ts": "cc3f69c411ee3e455773371fb2eda7725f85096e8c4d62ba23e53104f6ff9da9",
+    "test/workflow_engine.test.ts": "eba1290c79488a8601bd6c55055ba730674ea16817bc84b26947cfac952ec713",
+    "test/protocol.test.ts": "f95546bf8382dacbeb84e7fba8ce34d52c71f625cb21b896acc5d6845d1b82b5",
+    "test/protocol_own_fields.test.ts": "421573d1a463b2b9a3fe6e77834a9b8cc546fdff16065bcf55b3386deb9df90d",
+    "test/task_ledger.test.ts": "23ede9701af86c63a398754afc72e34ac13ea1233c1396a549c795203d64574c",
+    "test/task_error.test.ts": "807aebbda660b2cded3ba45d9610da8d274274c462265df8a17e3b76b2855308",
+    "test/shared_budget.test.ts": "e270e814daa53e4a6af030f37b5e2a5932bad7f1d2df0e834d22d4aae28e798f",
+    "test/cli.test.ts": "4bc0078b5a1fcb2ac124c78f7722fc5d3a1f5315db9dde58033b908b14a39c40",
+    "openspec/changes/establish-v1-plugin/specs/craft-task-protocol/spec.md": "0f85a66294886fd2ecd4f8bb2aabb0a6699a6c3291548c397ebfe9d874783ade",
+    "tests/test_docs_traceability.py": "58bb8b833b9330d3672ff01be84ce23bdfcd852065e6fe5e8210f6999b06021d"
+  },
+  "scenarioEvidence": {
+    "AC-CP-001-P": [
+      "public_task_contract",
+      "task_ledger",
+      "nativeReceipt"
+    ],
+    "AC-CP-001-N": [
+      "public_task_contract",
+      "task_ledger",
+      "nativeReceipt"
+    ],
+    "AC-CP-001-V": [
+      "protocol",
+      "protocol_own_fields"
+    ],
+    "AC-CP-001-A": [
+      "workflow_engine",
+      "nativeReceipt"
+    ],
+    "AC-CP-001-OWN-FIELDS": [
+      "protocol_own_fields"
+    ],
+    "AC-CP-001-WORKFLOW-RECEIPT": [
+      "red",
+      "workflow_engine",
+      "nativeReceipt"
+    ],
+    "budget_error_requirement": [
+      "shared_budget",
+      "task_error",
+      "nativeBudget"
+    ]
+  },
+  "logSha256": {
+    "receipt-baseline-red.log": "56ed240b58d7c5bd17938ce0cccdc5246c7c52dbe81a2b295c2f4e03e30bde41",
+    "fixed-protocol-tests.log": "0775e71a8545c75ead6d4c7ef32d0b67d5a12958f2c9b8ad5a330b50bfdbeaa9",
+    "field-contract-tests.log": "414ef99773e87ebc0e3900a1d50bf3c287ebb333e91b7c71e4b048573fa1ed9c",
+    "current-runtime-regression.log": "b3a5b92758fb18c57d546ee15d05e38cdf095e113acc5d6aadeb5e00c8dc0358",
+    "native-receipt.log": "c87ba8b3771ce24a4d3d2b43b8de7fa7a6d6f3b267ef537b8226740561d8badf",
+    "native-budget.log": "270c8371c71fdae37f81167eeb955e4466b0008d1db31ac32479323eb330c61c",
+    "plugin-python-regression.log": "e19dd8e06dddd1a0fab731bf4e8005350aa7e0969b3e9bad408d7ae4de516176",
+    "plugin-python-green.log": "b477bffecf799f24f41b69e9206de8cb42e9fb23271f3336c640e606c1d8a2df",
+    "source-regression.log": "8f39e06832f843074c0574ed2ff9b2bb328d456fb70b4174d5b17bc8491940df",
+    "docs-validation.json": "afb21da6b7ad220bf282b36e6a774385722544189f4ecfe78817270e28ecc4eb",
+    "spec-validation.log": "5f003a0a2d4f2c08c308d5649dff0b10b722ed6ed856cdfc72f2acb9525a3774"
+  },
+  "unverified": [
+    "Task1.3: complete public response/error matrix and consumer compatibility for canonical budget requirements newer than pinned owner109 task specification",
+    "Generic Skills CLI actual installation",
+    "Model dispatch, GUI, creative approval, other platforms and full V1 retain separate gates"
+  ],
+  "implementationChange": "No production or installed skill change; new tests audit already implemented behavior and passed on first run. Historical fixed-source behavioral RED independently reproduced.",
+  "maintenanceTests": {
+    "pluginPython": {
+      "total": 112,
+      "passed": 106,
+      "conditionalSkipped": 6
+    },
+    "sourcePython": {
+      "total": 175,
+      "passed": 136,
+      "conditionalSkipped": 39
+    },
+    "documentation": "PASS; 47 open implementation tasks",
+    "openSpec": "strict validate PASS",
+    "initialMaintenanceFailure": "test_docs_traceability assumed task1.1 was unchecked; updated fixture selection accepts both completion states, while retaining real wrong-group injection and expected rejection"
+  },
+  "auditDocumentHashes": {
+    "ArtCraft-Public-Task-Architecture.md": "5581fccf6e51d5045efa1679ecc12d5b43ea102670d1035db0a6591e5941548c",
+    "ArtCraft-Public-Task-Architecture.zh_CN.md": "e25d7722dd96f179a661307a0fe8a587b939add8ff24fad5a4da66cb27541f51"
+  }
+}

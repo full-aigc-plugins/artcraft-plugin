@@ -483,3 +483,5 @@ Vector33 捆绑升级候选已通过两入口真实混合返工、九变体及�
 取消信号ESRCH退出竞态已通过可控真实进程红灯／绿灯与并行／串行回归；固定安装原生验收待完成。 [Architecture](docs/ArtCraft-Cancel-Signal-Architecture.zh_CN.md).
 
 固定Art122／源94／运行时122-runtime.1通过10项独立公开冷启动、64宿主身份／CLI核验，以及安装副本可控ESRCH和普通期限两条原生取消。原attempt／预算保留，下游不启动，重复不重放。54项其他技能仅复用整树摘要相等历史冷证明。只关闭5.19；完整5.9／V1及原偶发并行失败归因仍开放。 [Evidence](docs/evidence/craft-art122-cancel-signal-fixed-first-use-20261008.json).
+
+公共任务协议实施审计已完成 OpenSpec 任务 1.1、1.2：固定107基线复现两项行为失败，当前固定122协议测试135项通过，完整回归255通过／20条件跳过，两次独立公开原生首用通过。1.3仍开放，需补全四领域消费者对新增预算错误码的兼容性及完整公开响应／错误矩阵证据。[审计架构](docs/ArtCraft-Public-Task-Architecture.zh_CN.md) · [证据](docs/evidence/public-task-implementation-audit-20261008.json)。

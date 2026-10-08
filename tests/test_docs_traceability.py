@@ -39,7 +39,8 @@ class DocumentationTraceabilityTests(unittest.TestCase):
             def validate():
                 return subprocess.run([sys.executable,'-B',str(root/'scripts/validate_docs.py')],cwd=root,capture_output=True,text=True)
             positive=validate();self.assertEqual(positive.returncode,0,positive.stdout+positive.stderr)
-            task=next(line for line in baseline.splitlines() if line.startswith('- [ ] 1.1 '))
+            # 分组规则对已完成与未完成任务同样生效，不绑定任务的推进状态。
+            task=next(line for line in baseline.splitlines() if re.match(r'- \[[ xX]\] 1\.1 ',line))
             path.write_text(baseline.replace(task+'\n','')+'\n## 11. 错放任务测试分组\n\n'+task+'\n')
             negative=validate();self.assertEqual(negative.returncode,1,negative.stdout+negative.stderr)
             self.assertIn('task 1.1 is under group 11, expected group 1',json.loads(negative.stdout)['errors'])
