@@ -72,6 +72,7 @@ def validate_bundle_lock(lock):
         expected = {repository+'/'}
         if isinstance(lock.get('version'), str) and url.path.split('/')[5] == 'v'+lock['version']:
             expected.add(repository+'-'+lock['version']+'/')
+            expected.add(repository+'-v'+lock['version']+'/')
         if (lock.get('archiveFormat') != 'git-archive-zip' or url.path.split('/')[1] != 'full-aigc-skills'
                 or not isinstance(lock['archivePrefix'], str) or lock['archivePrefix'] not in expected):
             raise ValueError('bundle_prefix_invalid')
@@ -211,7 +212,7 @@ def setup(lock, runtime_home, node, bundle_directory=None, native_archive_direct
             if not json.loads(catalog):
                 raise ValueError('capability_missing')
             files = [{'path': str(root/'scripts'/file), 'sha256': sha(root/'scripts'/file)} for file in ('workflow.py', 'bootstrap.py', 'mcp_session.py', 'runtime.lock.json', 'exchange_loss.py', 'preserved_stage.py')]
-            for file in ('scripts/delivery.py','scripts/native_workflow.py','scripts/commands.py','references/command-coverage.json','scripts/desktop.py','scripts/desktop_session.py','scripts/desktop.lock.json'):
+            for file in ('scripts/brand_variants.py','scripts/delivery.py','scripts/native_workflow.py','scripts/commands.py','references/command-coverage.json','scripts/desktop.py','scripts/desktop_session.py','scripts/desktop.lock.json'):
                 if (root/file).is_file():
                     files.append({'path':str(root/file),'sha256':sha(root/file)})
             snapshot = {'commandCatalogSha256': hashlib.sha256(catalog).hexdigest(), 'skillBundleSha256': lock['bundles'][name+'-skills']['sha256'], 'artcraftRuntimeSha256': lock['bundles']['artcraft-runtime']['sha256'], 'scriptHashes': {Path(file['path']).name:file['sha256'] for file in files}}

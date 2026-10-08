@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+开发发行 source88／plugin116 固定 Vector32 并绑定品牌依赖校验；候选混合返工通过，固定安装验收仍待完成。[架构](docs/ArtCraft-Brand-Guard-Distribution-Architecture.zh_CN.md)。
+
 四领域RT-001运行时来源与完整性已完成当前全部场景验收，固定技能字节保持不变；运行时升级与完整首版仍开放。[验收架构](docs/Craft-Fixed-Runtime-Integrity-Architecture.zh_CN.md)。
 
 固定 source87／plugin115 已包含十个 Art 技能的 Node／组合安装锁修复，每把锁最多等待 120 秒。实际 Codex 安装发现全部 64 个技能，零加载错误；10 个变化技能逐项独立冷安装通过，其余 54 项仅在完整摘要相等时复用历史冷证明。[安装锁架构](docs/ArtCraft-Install-Lock-Architecture.zh_CN.md)。 固定安装副本的四领域原生创建、源返工、同修订复用、回执篡改拒绝及移动包验证通过；前两次磁盘不足失败日志保留。[固定验收](docs/evidence/craft-art115-install-lock-fixed-first-use-20261008.json)。
@@ -10,7 +12,7 @@
 
 多领域创作需求进入，交付项目清单、工作流记录、四领域子工程引用及验收记录。
 
-当前插件：`0.1.0-dev.115`；技能源：`0.1.0-dev.87`；10 个独立技能。
+当前插件：`0.1.0-dev.116`；技能源：`0.1.0-dev.88`；10 个独立技能。
 
 源84修复工作流入口结构化拒绝，兼容保留error与workflowReceipt；固定安装112验收另行记录。[架构](docs/ArtCraft-Workflow-Error-Detail-Architecture.zh_CN.md)。
 此前固定字幕修正版验收：64安装身份与CLI探测匹配；23变化技能各自独立冷安装／命令发现通过，41完整摘要一致技能复用历史冷证据；两个当前安装原生字幕／品牌案例通过。仅证明所列安装和场景，完整V1仍开放。[当前固定证据](docs/Craft-Caption-Fixed-First-Use.zh_CN.md)。
@@ -123,9 +125,9 @@ flowchart LR
 
 | 属性 | 当前状态 |
 | --- | --- |
-| Plugin ID / 版本 | artcraft / 0.1.0-dev.115 |
+| Plugin ID / 版本 | artcraft / 0.1.0-dev.116 |
 | 规格事实源 | openspec/changes/establish-v1-plugin |
-| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.87 |
+| 技能事实源 | 独立 artcraft-skills / 已发布 v0.1.0-dev.88 |
 | 运行环境 | macOS arm64；Python 3.11+；自动安装固定 Node |
 | 原生交付 | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | 宿主与市场 | Codex 受控安装与发现通过；尚不进入正式市场 |

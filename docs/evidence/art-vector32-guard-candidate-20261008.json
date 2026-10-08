@@ -1,0 +1,61 @@
+{
+  "result": "PASS",
+  "scope": "unpublished candidate skill; warm existing Node/core/native runtimes, public Vector32 bundle; five native nodes and brand revision, not fixed release/cold use/fault acceptance",
+  "version": "0.1.0-dev.32",
+  "brandReport": {
+    "schema": "vectorcraft-brand-dependencies/v1",
+    "checks": [
+      {
+        "schema": "vectorcraft-brand-dependency-check/v1",
+        "status": "passed",
+        "token": "Brand Primary",
+        "consumerIds": [
+          4,
+          5,
+          7
+        ],
+        "affectedObjectIds": [],
+        "unexpectedDependencies": [],
+        "artboardsChanged": false,
+        "beforeSha256": "6a54a332ca85b1caf3e35793a72cb1f48bfd4a0f8a50421059cf8390a6d014ca",
+        "afterSha256": "fc097bc4d6232ed29f0b3cb98c68acbe1ec0cfd9830d3986b64da3a1f7ab5ccd",
+        "scope": "native explicit swatch consumers; unbound own properties, identities and artboards",
+        "checkpoint": "brand-checkpoint-0.vectorcraft",
+        "checkpointSha256": "4086ea25c7fbec6d2ab0498513d22953bc80d310be26f8e64ccc593dfdad36a5",
+        "checkpointRetained": false
+      }
+    ]
+  },
+  "updated": [
+    "logo",
+    "poster",
+    "intro",
+    "film"
+  ],
+  "reused": [
+    "badge"
+  ],
+  "originalsPreserved": true,
+  "sameRevisionTasksAndBudgetPreserved": true,
+  "copiedSkillUnchanged": true,
+  "movedPackageChildren": 5,
+  "packageSha256": "c1d0be00d144bae5d0515a78c0d094e02fb0520357e9cf8f43e4583d1fc392cb",
+  "sourceTests": {
+    "total": 161,
+    "passed": 123,
+    "skipped": 38
+  },
+  "targetTests": {
+    "archivePrefix": 7,
+    "selectedSetupPassed": 6,
+    "selectedSetupSkipped": 1,
+    "distribution": 1
+  },
+  "guardSha256": "a600e765e8d2dccbae5c048e70e28e4272844c45fbc0d2eb9d43ca076559daa5",
+  "negativeBeforeFix": [
+    "bundle_prefix_invalid for exact locked v-tag archive",
+    "brand_variants.py absent from trusted receipt"
+  ],
+  "fixedReleaseAcceptance": "NOT_RUN",
+  "faultAcceptance": "NOT_RUN"
+}

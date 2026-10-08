@@ -118,3 +118,12 @@ ArtCraft SHALL support explicit domain command `--mode desktop` using immutable 
 - **WHEN** ArtCraft 更新十个独立技能的领域分发锁与完整命令索引
 - **THEN** 每个包 SHALL 绑定不可变标签提交、公开 ZIP 摘要和所有文件摘要；保留 Art 原运行时身份及完整 2,646 命令目录
 - **AND** 候选单技能公开下载安装、原生保存重开、混合返工和移动包 SHALL 与新固定发行安装复验证据分别记录；结构预检不得创建运行时或输出目录
+
+
+#### Scenario: [AC-RT-002-BRAND-GUARD] 品牌依赖保护的独立分发
+
+- **GIVEN** VectorCraft 固定技能源 dev.32 包含品牌消费者校验模块，公开 ZIP 使用与锁定 v 标签完全一致的单层仓库前缀
+- **WHEN** ArtCraft 升级领域捆绑包
+- **THEN** 分发 SHALL 绑定完整源 ZIP、不可变提交与逐文件摘要；安装器接受精确 repository-vVERSION 前缀，仅在 URL 标签、锁版本一致时生效，保留其他路径与完整性拒绝规则
+- **AND** brand_variants.py SHALL 同时进入安装回执 files 与 capabilitySnapshot.scriptHashes；缺失受信脚本或摘要漂移不得执行，旧标签及安装保留
+- **AND** 候选安装、固定发行独立首用及实际混合返工／错误阻断证据 SHALL 分开记录；不得以独立 VectorCraft 验收替代 ArtCraft 捆绑包验收

@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Development source88/plugin116 pins Vector32 with trusted brand dependency checks; candidate mixed revision passes, fixed installed acceptance remains pending. [Architecture](docs/ArtCraft-Brand-Guard-Distribution-Architecture.md).
+
 Four-domain RT-001 runtime source/integrity acceptance now covers every current scenario; existing pinned skill bytes remain unchanged. Runtime upgrades and fullV1 remain open. [Acceptance architecture](docs/Craft-Fixed-Runtime-Integrity-Architecture.md).
 
 Fixed source87/plugin115 includes bounded Node/setup installation locks across all ten Art skills, with a 120-second budget per lock. Actual Codex discovery finds all64 skills with zero loading errors; ten changed skills pass independent cold installations and54 unchanged skills reuse historical cold evidence only after full-tree identity checks. [Install-lock architecture](docs/ArtCraft-Install-Lock-Architecture.md). The fixed installed skill also passes four-domain native creation, source revisions, same-revision reuse, receipt-tamper refusal and moved-package verification; both disk-full failures remain recorded. [Fixed acceptance](docs/evidence/craft-art115-install-lock-fixed-first-use-20261008.json).
@@ -10,7 +12,7 @@ Fixed source86/plugin114 passes ten independent Art cold installations and a ret
 
 Coordinate mixed creative work into project/workflow records, four-domain native child references and acceptance records.
 
-Current plugin: `0.1.0-dev.115`; skill source: `0.1.0-dev.87`; 10 independent skills.
+Current plugin: `0.1.0-dev.116`; skill source: `0.1.0-dev.88`; 10 independent skills.
 
 Workflow launcher structured rejection is fixed in source84. Legacy error and workflowReceipt remain compatible; fixed installed112 qualification is recorded separately. [Architecture](docs/ArtCraft-Workflow-Error-Detail-Architecture.md).
 Previous fixed caption-size qualification:64 installed identities and CLI probes match;23 changed skills each pass independent cold discovery, while41 unchanged whole-tree hashes retain historical cold proof. Two current installed native caption/brand cases pass. This is bounded installation and scene evidence, not fullV1. [Current fixed evidence](docs/Craft-Caption-Fixed-First-Use.md).
@@ -125,9 +127,9 @@ flowchart LR
 
 | Property | Current state |
 | --- | --- |
-| Plugin ID / version | artcraft / 0.1.0-dev.115 |
+| Plugin ID / version | artcraft / 0.1.0-dev.116 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.87 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.88 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
