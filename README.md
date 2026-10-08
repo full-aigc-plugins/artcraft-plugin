@@ -20,7 +20,7 @@ Historical dev.104 maintainer correction: acceptance tools used the then-verifie
 
 Historical: Current Art dev.104 standalone scene-role verification passes for plan, revise, assets, deliver, review, recover, execute and setup. Tests use the actual installed fixed snapshot, independent copied skills and public runtime downloads. Native source revision and unrelated reuse, moved packages, stale/tampered review rejection, repeated cancellation, execution receipts and selected-domain setup are checked. Planning evidence is reused from the preceding unchanged-source installed run. Review remains pending with creative NOT_RUN; cancellation checks do not prove unknown-worker recovery. This does not close generic Skills CLI installation, all command contexts or full V1. [Evidence](docs/evidence/artcraft104-installed-role-first-use-20261007.json).
 
-Maintainer installation planning, installed CLI verification and completion auditing now default to the verified dev.113 budget-protocol lock; the audit binds its matching fixed first-use evidence. Explicit historical lock/evidence arguments remain supported. [Current audit architecture](docs/ArtCraft-First-Use-Completion-Audit-Architecture.md).
+Maintainer installation planning, installed CLI verification and completion auditing now default to the verified Photo38 delivery-integrity matrix lock; the audit binds its matching fixed first-use evidence. Explicit historical lock/evidence arguments remain supported. [Current audit architecture](docs/ArtCraft-First-Use-Completion-Audit-Architecture.md).
 
 Maintainer source validation rejects symbolic links, incomplete locks and version-named branches, and checks all declared sources before replacing any managed skill. Published skill/runtime identities remain unchanged. [Snapshot preflight architecture](docs/Skill-Snapshot-Self-Contained.md).
 
@@ -449,3 +449,5 @@ The current installed skill retains two five-child brand versions and a separate
 Dev.110 vendors immutable standalone source dev.82, pins Film source36, and regenerates all command-index identities. Small-frame caption templates and self-contained guidance are updated; native source mixed tests pass. New installed-host qualification is separate. [Evidence](docs/Caption-Size-First-Use.md).
 
 [Fixed budget protocol first use](docs/ArtCraft-Budget-Protocol-Architecture.md): 64 discovered skills, 10 changed cold installs and 54 whole-tree-equal historical cases; native revision refusal preserves the original task and files. Full V1 remains open.
+
+[Current standalone Photo38 proof](docs/evidence/craft-photo-delivery-integrity-fixed-first-use-20261008.json). Default lock: host-acceptance-photo-integrity.lock.json. Art113 internal mixed dependencies still pin Photo33; this host matrix does not upgrade that runtime.

@@ -1,0 +1,1709 @@
+{
+  "schema": "craft-photo-delivery-integrity-fixed-first-use/v1",
+  "result": "PASS",
+  "goalStatus": "not_complete",
+  "hostLock": {
+    "schema": "craft-host-release-lock/v1",
+    "plugins": {
+      "filmcraft": {
+        "repository": "https://github.com/full-aigc-plugins/filmcraft-plugin.git",
+        "version": "0.1.0-dev.40",
+        "ref": "v0.1.0-dev.40",
+        "sha": "b6af09516771f6c2a1dc3f5fcc841195d54c582a",
+        "skillSourceSha": "f4adfa8e30f18ee43feef33de9deaab3f10b39e2",
+        "skillSourceRef": "v0.1.0-dev.37",
+        "skillSha256": "62540c0885dedc4991d486ba65a0536e3dd0b6c9c16abf53be4bd6be4539f7e1",
+        "pluginManifestSha256": "76dbc9d80bde0f1f4d501327ded630b23423c1e7bdbde4fefb6c1cccafc661ac",
+        "skills": {
+          "filmcraft-cli": "cf2043a6dbaf22bfd7a9b628a48c805eb62e90146184703eb99f28c8ddee0cdc",
+          "filmcraft-cli-audio": "3d1ca757c9720e4372d01a14d59518a0c52b14ece9d2ad3b434506e70a1b6b8f",
+          "filmcraft-cli-color": "62ea444eb0d061b72163bfaaa7663a889bb348058b9fb92623125b31c358f738",
+          "filmcraft-cli-export": "23bd9e77b7545427e9ccdd0e9f49643f4bcf296ab5f79b3be38b2c6db5021461",
+          "filmcraft-cli-media": "f8622c2a7743b33938932769cc761133a1a1ba0010e0535a6e740abf3b425eb9",
+          "filmcraft-cli-motion": "6f86ea61e21f4f1dc2feb4922dfa847c4637c7fadaae5eb6537a6f2fdc6c7384",
+          "filmcraft-cli-multicam": "b93e91a16f7b91eadd0f2fce2cca99764ff8af587a8f49e566663d40d138fe86",
+          "filmcraft-cli-project": "aa9cfcd51a23af100a91602154a556cf0955b5329c21d8ebde9db31ace516468",
+          "filmcraft-cli-setup": "51ce76f7d32e7abae5e033a1e256ebcfe438ba73e42c003d4f5b4e6ac1e06050",
+          "filmcraft-cli-subtitles": "77009a4e7a749368c3f19d627c27bedc3f46896a93f348714199cf313a9393c8",
+          "filmcraft-cli-timeline": "d2727ae1011288dda24107b942fb3000433d3ac25695afc09e442c14140eda03",
+          "filmcraft-cli-transcript": "b86683f884f306a5ebaa8416655f8b8674a65636168b6cb9373b27b4f95cf11d",
+          "filmcraft-use": "62540c0885dedc4991d486ba65a0536e3dd0b6c9c16abf53be4bd6be4539f7e1"
+        }
+      },
+      "effectcraft": {
+        "repository": "https://github.com/full-aigc-plugins/effectcraft-plugin.git",
+        "version": "0.1.0-dev.38",
+        "ref": "v0.1.0-dev.38",
+        "sha": "b7752dd1a2f934c4e374c8cf85500d24a9b98435",
+        "skillSourceSha": "550a51842ba0feb3bb6cbd6d890f77e20f25101b",
+        "skillSourceRef": "v0.1.0-dev.34",
+        "skillSha256": "6275bea8397aeddbe93ee4ef7d66ab13698686e72655c7bc68e28fdd612f90e0",
+        "pluginManifestSha256": "3ee80cd46193aa49c2d4cc09eacbd207d3c084255fc67d1b12069e7504de4581",
+        "skills": {
+          "effectcraft-cli": "7800051387dbdc5dfe49ced0f97e3cc1c502fdf738cc9ae735ca5b5f6f25a8ee",
+          "effectcraft-cli-animation": "aeaf55514f5afb8c8151d37adff72b639a231015a412adf9ebc00bdd6692f50a",
+          "effectcraft-cli-camera": "f19299fe471a420359f55bcbe3ff3583594dbbcef9ec92441ac5972cfeae8414",
+          "effectcraft-cli-composition": "1e91faed542ae95ac034f6dfe2dfc1d5d80b3899d48c8f1068add120410d7b10",
+          "effectcraft-cli-effects": "955831de9a5f414c205dd30c5eb953f410c81871f1c8daff2a6ff064701521d6",
+          "effectcraft-cli-export": "efd03426738d714a27677a0ebe933c699c9469b4788450a25f2e850de84cfd2a",
+          "effectcraft-cli-expressions": "ac1137632f843f8ec9a7cfcdbe6240f54f5883618b781f6e9dc10e2c425dee51",
+          "effectcraft-cli-footage": "b13d729a269f7037908ccb48394bb1bfc971e4e93f593dbaa4b82ab6aaa3c4d9",
+          "effectcraft-cli-layers": "847f64d1053528a4cce1b2c2ed1ab4be485e25096fd3229fa6f22b265baa91d9",
+          "effectcraft-cli-masks": "42c1f76b33bbb6c0210d8bd79f06beb1610c16b8e0838fe544752ff45b583129",
+          "effectcraft-cli-project": "98ecdac4d1e5b66ec8718cabbff47e91b383bdc39bc4c349af37c09669f6951a",
+          "effectcraft-cli-puppet": "71bb9bc0633255e50bb1cff285d63f3ebfec4691119ba81945fc6fe03927ad8d",
+          "effectcraft-cli-setup": "d2fa99911d79b737d7ebe29ec29ae71cacc84d800d6198e31086dd275897499e",
+          "effectcraft-cli-tracking": "cfcc79c84d669fe1a16ab595cd60081166ee4778f6875144e9d0ae5a96282192",
+          "effectcraft-use": "6275bea8397aeddbe93ee4ef7d66ab13698686e72655c7bc68e28fdd612f90e0"
+        }
+      },
+      "photocraft": {
+        "repository": "https://github.com/full-aigc-plugins/photocraft-plugin.git",
+        "version": "0.1.0-dev.38",
+        "ref": "v0.1.0-dev.38",
+        "sha": "e70772bc80cfabc605a247ac9107a6f28929852c",
+        "skillSourceSha": "c3b23207b6a6f09032c9dd0a68c7b173a36b11c0",
+        "skillSourceRef": "v0.1.0-dev.34",
+        "skillSha256": "3d93bc0941de14157120c47788355e8f6678539b75b9b8ed6690ba6bfd302979",
+        "pluginManifestSha256": "50ddf302336cdc1ee59e1805376881f02f74ccdbde5a1639dd81f92f68a043d6",
+        "skills": {
+          "photocraft-cli": "92ea889f31d6d454027f400d9acbb1f8e25571daa70cb5e6f0ce91b225bf4882",
+          "photocraft-cli-adjustments": "71f7182c59a04f9351047dbb890679edb82c75c3cab59ee8715222d819a0f3dc",
+          "photocraft-cli-export": "4c095359c3040a1b5b74b7c4ecb73d806718ead1325401b656fd46c4c6ca7eae",
+          "photocraft-cli-filters": "5e5c562d4352e990fcc23159088c57238855581b456bebb79086c165516a9592",
+          "photocraft-cli-layers": "5624af33a149be746cc5e3dbb093236e5f217ff9da210470c657931361d6b0ff",
+          "photocraft-cli-masks": "f90dd7a3174939df275cd54fa4d7769f6952f57ada8b8c41ba011170ce74b551",
+          "photocraft-cli-project": "182bdbc20bbcffe7e6762801615b9e8130ef4b0f9e3baf3a121e020df3f8f7ed",
+          "photocraft-cli-resize": "15cff4113b747d36b61a7c4f8eff5e7eec82d75cd7a13ee1ad2f811854bba45d",
+          "photocraft-cli-retouch": "0f8d0e562a2f73bdb4e78fe99d0095abc7eba54fd361893a3e022be54bcdcda6",
+          "photocraft-cli-selection": "bad063d589c417945b33194550105d4289f80b84389553f494e1b27a81fcf0b7",
+          "photocraft-cli-setup": "53cce539624796984c1523a244c91afa337fe54372fe2789e0721a09435f8623",
+          "photocraft-cli-text": "204b0fe044a88c795522d02aaa4d94524371b6bfaf73a2e1b45bb622a6973d3f",
+          "photocraft-use": "3d93bc0941de14157120c47788355e8f6678539b75b9b8ed6690ba6bfd302979"
+        }
+      },
+      "vectorcraft": {
+        "repository": "https://github.com/full-aigc-plugins/vectorcraft-plugin.git",
+        "version": "0.1.0-dev.35",
+        "ref": "v0.1.0-dev.35",
+        "sha": "45e602b566ae74231f47f9d0ae6c929428002cbe",
+        "skillSourceSha": "3f7bb4f9b58239113230f171ab76d8a8ce8b5b73",
+        "skillSourceRef": "v0.1.0-dev.31",
+        "skillSha256": "251d3f4ab3b8af3c3da4f40028d975e28598e96add4a28c046e50b43f66f1d89",
+        "pluginManifestSha256": "ba151e1bbc736f41e18fb4e1296e52383e11a32d7a9cfaf95e251288b4ea7ff9",
+        "skills": {
+          "vectorcraft-cli": "db16523fd6bb3f23f5da962f744e91f009879c4184a9aff37c74ff10dfaafa49",
+          "vectorcraft-cli-appearance": "9bbabd93525e6e8e333effa90a5ee20bb3064203788feea8781b6cb9a8697144",
+          "vectorcraft-cli-artboards": "cae8b443d45154a4e6ae709d2880294f326a151faeddddc8e4d3cb7b5f431b4d",
+          "vectorcraft-cli-assets": "8ba9814dafaf1401262b591048fe86eb6bed7d6582ddcc5da3ce033d919a933e",
+          "vectorcraft-cli-boolean": "b3b38eec6bc64459514c4b0ae8885f2e1b57645a0b4a05d1d8a96240984df185",
+          "vectorcraft-cli-export": "4f23fa20c0f346f0c79dc13303b17f36f907b0c96b9b57dc56da840dd4e5e80a",
+          "vectorcraft-cli-paths": "ccd9a42beec98a818ac75207b830a9a7d58e69a7ba4741e177aca42a007f29cf",
+          "vectorcraft-cli-project": "ef66522b7d91c766cbce2b550c385c23236b60c2a7382e8c84b842ff70781732",
+          "vectorcraft-cli-selection": "7e367c7d329be902a8044e3c0be90d4e04e4a154010a891513ad61f801f8afc3",
+          "vectorcraft-cli-setup": "6060a2f644086128d6d6312bc5c62185b802c614374139d2af3a1822255fa915",
+          "vectorcraft-cli-shapes": "50f4319013d634f0fe8bd6364c10ec13f73f4a14990540293c0017a1fad76fd5",
+          "vectorcraft-cli-text": "927d86d51016cd5317559f636c82d64d12ebad6cdaf88e156f05dbd72f36d5ec",
+          "vectorcraft-use": "251d3f4ab3b8af3c3da4f40028d975e28598e96add4a28c046e50b43f66f1d89"
+        }
+      },
+      "artcraft": {
+        "repository": "https://github.com/full-aigc-plugins/artcraft-plugin.git",
+        "version": "0.1.0-dev.113",
+        "ref": "v0.1.0-dev.113",
+        "sha": "042cd0ad371c637cb973a7cfb1149c36578057b8",
+        "skillSourceSha": "952df315f142e20e61ffa3a10c87fa40fdd08976",
+        "skillSourceRef": "v0.1.0-dev.85",
+        "skillSha256": "e38cd0c88c86cd2f3d7436faa8a6a0a7af01b677c4e58e89d5623b5f0cbaf6a7",
+        "pluginManifestSha256": "45d52a401df2869a8e942ea32415ecc465fe82f389dede6e002abd7ac778d63d",
+        "skills": {
+          "artcraft-cli": "6b52544655b0229c0769c6942558bc1f0db661e79d3e047f6c1642411fcecc87",
+          "artcraft-cli-assets": "bc8503432c710a6b557c3095fa036f9639a583ff0747db9b1c5471c5b5277459",
+          "artcraft-cli-deliver": "ec5b3431bf897d692d42cdf9305ace2e63d4a0607c676493881dbce19c690d7d",
+          "artcraft-cli-execute": "75d5d70f0eab13c7d627ba114160dfcf5c66ee39c4d5e6866c99dd1b537dd4e7",
+          "artcraft-cli-plan": "756572f4157f501817b330c42186de2e19365a74cdc6a722d4ac2e7e9318b3c2",
+          "artcraft-cli-recover": "24e28e8e9889950f7a83e0f2c9461b495eb8ec87ee733aa1e0e50495dd139f62",
+          "artcraft-cli-review": "03cd552e9ddd4c965f7f4244e1bd06028f937f7a1a076d8954ccae71a510e2cb",
+          "artcraft-cli-revise": "beb73d58ffd72d2d89a11e14c770635ce4289afe6f912cce4860e502714b2892",
+          "artcraft-cli-setup": "df83cc8c8558fcde0c921b42eb4b53050cea09c4dc980db4a381ed02e18ded53",
+          "artcraft-use": "e38cd0c88c86cd2f3d7436faa8a6a0a7af01b677c4e58e89d5623b5f0cbaf6a7"
+        }
+      }
+    }
+  },
+  "host": {
+    "schema": "craft-codex-host-evidence/v2",
+    "result": "passed",
+    "cliVersion": "codex-cli 0.147.0",
+    "appServerUserAgent": "Codex Desktop/0.147.0 (Mac OS 27.0.1; arm64) dumb (craft-host-acceptance; 0.2.0)",
+    "platform": "darwin-arm64",
+    "plugins": [
+      {
+        "pluginId": "filmcraft",
+        "version": "0.1.0-dev.40",
+        "pluginManifestSha256": "76dbc9d80bde0f1f4d501327ded630b23423c1e7bdbde4fefb6c1cccafc661ac",
+        "sourceSha": "b6af09516771f6c2a1dc3f5fcc841195d54c582a",
+        "skillSourceSha": "f4adfa8e30f18ee43feef33de9deaab3f10b39e2",
+        "skillSha256": "62540c0885dedc4991d486ba65a0536e3dd0b6c9c16abf53be4bd6be4539f7e1",
+        "discoveredName": "filmcraft:filmcraft-use",
+        "scope": "user",
+        "enabled": true,
+        "skills": [
+          {
+            "name": "filmcraft:filmcraft-cli",
+            "sha256": "cf2043a6dbaf22bfd7a9b628a48c805eb62e90146184703eb99f28c8ddee0cdc",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "filmcraft:filmcraft-cli-audio",
+            "sha256": "3d1ca757c9720e4372d01a14d59518a0c52b14ece9d2ad3b434506e70a1b6b8f",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "filmcraft:filmcraft-cli-color",
+            "sha256": "62ea444eb0d061b72163bfaaa7663a889bb348058b9fb92623125b31c358f738",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "filmcraft:filmcraft-cli-export",
+            "sha256": "23bd9e77b7545427e9ccdd0e9f49643f4bcf296ab5f79b3be38b2c6db5021461",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "filmcraft:filmcraft-cli-media",
+            "sha256": "f8622c2a7743b33938932769cc761133a1a1ba0010e0535a6e740abf3b425eb9",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "filmcraft:filmcraft-cli-motion",
+            "sha256": "6f86ea61e21f4f1dc2feb4922dfa847c4637c7fadaae5eb6537a6f2fdc6c7384",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "filmcraft:filmcraft-cli-multicam",
+            "sha256": "b93e91a16f7b91eadd0f2fce2cca99764ff8af587a8f49e566663d40d138fe86",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "filmcraft:filmcraft-cli-project",
+            "sha256": "aa9cfcd51a23af100a91602154a556cf0955b5329c21d8ebde9db31ace516468",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "filmcraft:filmcraft-cli-setup",
+            "sha256": "51ce76f7d32e7abae5e033a1e256ebcfe438ba73e42c003d4f5b4e6ac1e06050",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "filmcraft:filmcraft-cli-subtitles",
+            "sha256": "77009a4e7a749368c3f19d627c27bedc3f46896a93f348714199cf313a9393c8",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "filmcraft:filmcraft-cli-timeline",
+            "sha256": "d2727ae1011288dda24107b942fb3000433d3ac25695afc09e442c14140eda03",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "filmcraft:filmcraft-cli-transcript",
+            "sha256": "b86683f884f306a5ebaa8416655f8b8674a65636168b6cb9373b27b4f95cf11d",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "filmcraft:filmcraft-use",
+            "sha256": "62540c0885dedc4991d486ba65a0536e3dd0b6c9c16abf53be4bd6be4539f7e1",
+            "scope": "user",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "pluginId": "effectcraft",
+        "version": "0.1.0-dev.38",
+        "pluginManifestSha256": "3ee80cd46193aa49c2d4cc09eacbd207d3c084255fc67d1b12069e7504de4581",
+        "sourceSha": "b7752dd1a2f934c4e374c8cf85500d24a9b98435",
+        "skillSourceSha": "550a51842ba0feb3bb6cbd6d890f77e20f25101b",
+        "skillSha256": "6275bea8397aeddbe93ee4ef7d66ab13698686e72655c7bc68e28fdd612f90e0",
+        "discoveredName": "effectcraft:effectcraft-use",
+        "scope": "user",
+        "enabled": true,
+        "skills": [
+          {
+            "name": "effectcraft:effectcraft-cli",
+            "sha256": "7800051387dbdc5dfe49ced0f97e3cc1c502fdf738cc9ae735ca5b5f6f25a8ee",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "effectcraft:effectcraft-cli-animation",
+            "sha256": "aeaf55514f5afb8c8151d37adff72b639a231015a412adf9ebc00bdd6692f50a",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "effectcraft:effectcraft-cli-camera",
+            "sha256": "f19299fe471a420359f55bcbe3ff3583594dbbcef9ec92441ac5972cfeae8414",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "effectcraft:effectcraft-cli-composition",
+            "sha256": "1e91faed542ae95ac034f6dfe2dfc1d5d80b3899d48c8f1068add120410d7b10",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "effectcraft:effectcraft-cli-effects",
+            "sha256": "955831de9a5f414c205dd30c5eb953f410c81871f1c8daff2a6ff064701521d6",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "effectcraft:effectcraft-cli-export",
+            "sha256": "efd03426738d714a27677a0ebe933c699c9469b4788450a25f2e850de84cfd2a",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "effectcraft:effectcraft-cli-expressions",
+            "sha256": "ac1137632f843f8ec9a7cfcdbe6240f54f5883618b781f6e9dc10e2c425dee51",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "effectcraft:effectcraft-cli-footage",
+            "sha256": "b13d729a269f7037908ccb48394bb1bfc971e4e93f593dbaa4b82ab6aaa3c4d9",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "effectcraft:effectcraft-cli-layers",
+            "sha256": "847f64d1053528a4cce1b2c2ed1ab4be485e25096fd3229fa6f22b265baa91d9",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "effectcraft:effectcraft-cli-masks",
+            "sha256": "42c1f76b33bbb6c0210d8bd79f06beb1610c16b8e0838fe544752ff45b583129",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "effectcraft:effectcraft-cli-project",
+            "sha256": "98ecdac4d1e5b66ec8718cabbff47e91b383bdc39bc4c349af37c09669f6951a",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "effectcraft:effectcraft-cli-puppet",
+            "sha256": "71bb9bc0633255e50bb1cff285d63f3ebfec4691119ba81945fc6fe03927ad8d",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "effectcraft:effectcraft-cli-setup",
+            "sha256": "d2fa99911d79b737d7ebe29ec29ae71cacc84d800d6198e31086dd275897499e",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "effectcraft:effectcraft-cli-tracking",
+            "sha256": "cfcc79c84d669fe1a16ab595cd60081166ee4778f6875144e9d0ae5a96282192",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "effectcraft:effectcraft-use",
+            "sha256": "6275bea8397aeddbe93ee4ef7d66ab13698686e72655c7bc68e28fdd612f90e0",
+            "scope": "user",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "pluginId": "photocraft",
+        "version": "0.1.0-dev.38",
+        "pluginManifestSha256": "50ddf302336cdc1ee59e1805376881f02f74ccdbde5a1639dd81f92f68a043d6",
+        "sourceSha": "e70772bc80cfabc605a247ac9107a6f28929852c",
+        "skillSourceSha": "c3b23207b6a6f09032c9dd0a68c7b173a36b11c0",
+        "skillSha256": "3d93bc0941de14157120c47788355e8f6678539b75b9b8ed6690ba6bfd302979",
+        "discoveredName": "photocraft:photocraft-use",
+        "scope": "user",
+        "enabled": true,
+        "skills": [
+          {
+            "name": "photocraft:photocraft-cli",
+            "sha256": "92ea889f31d6d454027f400d9acbb1f8e25571daa70cb5e6f0ce91b225bf4882",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "photocraft:photocraft-cli-adjustments",
+            "sha256": "71f7182c59a04f9351047dbb890679edb82c75c3cab59ee8715222d819a0f3dc",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "photocraft:photocraft-cli-export",
+            "sha256": "4c095359c3040a1b5b74b7c4ecb73d806718ead1325401b656fd46c4c6ca7eae",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "photocraft:photocraft-cli-filters",
+            "sha256": "5e5c562d4352e990fcc23159088c57238855581b456bebb79086c165516a9592",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "photocraft:photocraft-cli-layers",
+            "sha256": "5624af33a149be746cc5e3dbb093236e5f217ff9da210470c657931361d6b0ff",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "photocraft:photocraft-cli-masks",
+            "sha256": "f90dd7a3174939df275cd54fa4d7769f6952f57ada8b8c41ba011170ce74b551",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "photocraft:photocraft-cli-project",
+            "sha256": "182bdbc20bbcffe7e6762801615b9e8130ef4b0f9e3baf3a121e020df3f8f7ed",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "photocraft:photocraft-cli-resize",
+            "sha256": "15cff4113b747d36b61a7c4f8eff5e7eec82d75cd7a13ee1ad2f811854bba45d",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "photocraft:photocraft-cli-retouch",
+            "sha256": "0f8d0e562a2f73bdb4e78fe99d0095abc7eba54fd361893a3e022be54bcdcda6",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "photocraft:photocraft-cli-selection",
+            "sha256": "bad063d589c417945b33194550105d4289f80b84389553f494e1b27a81fcf0b7",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "photocraft:photocraft-cli-setup",
+            "sha256": "53cce539624796984c1523a244c91afa337fe54372fe2789e0721a09435f8623",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "photocraft:photocraft-cli-text",
+            "sha256": "204b0fe044a88c795522d02aaa4d94524371b6bfaf73a2e1b45bb622a6973d3f",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "photocraft:photocraft-use",
+            "sha256": "3d93bc0941de14157120c47788355e8f6678539b75b9b8ed6690ba6bfd302979",
+            "scope": "user",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "pluginId": "vectorcraft",
+        "version": "0.1.0-dev.35",
+        "pluginManifestSha256": "ba151e1bbc736f41e18fb4e1296e52383e11a32d7a9cfaf95e251288b4ea7ff9",
+        "sourceSha": "45e602b566ae74231f47f9d0ae6c929428002cbe",
+        "skillSourceSha": "3f7bb4f9b58239113230f171ab76d8a8ce8b5b73",
+        "skillSha256": "251d3f4ab3b8af3c3da4f40028d975e28598e96add4a28c046e50b43f66f1d89",
+        "discoveredName": "vectorcraft:vectorcraft-use",
+        "scope": "user",
+        "enabled": true,
+        "skills": [
+          {
+            "name": "vectorcraft:vectorcraft-cli",
+            "sha256": "db16523fd6bb3f23f5da962f744e91f009879c4184a9aff37c74ff10dfaafa49",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "vectorcraft:vectorcraft-cli-appearance",
+            "sha256": "9bbabd93525e6e8e333effa90a5ee20bb3064203788feea8781b6cb9a8697144",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "vectorcraft:vectorcraft-cli-artboards",
+            "sha256": "cae8b443d45154a4e6ae709d2880294f326a151faeddddc8e4d3cb7b5f431b4d",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "vectorcraft:vectorcraft-cli-assets",
+            "sha256": "8ba9814dafaf1401262b591048fe86eb6bed7d6582ddcc5da3ce033d919a933e",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "vectorcraft:vectorcraft-cli-boolean",
+            "sha256": "b3b38eec6bc64459514c4b0ae8885f2e1b57645a0b4a05d1d8a96240984df185",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "vectorcraft:vectorcraft-cli-export",
+            "sha256": "4f23fa20c0f346f0c79dc13303b17f36f907b0c96b9b57dc56da840dd4e5e80a",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "vectorcraft:vectorcraft-cli-paths",
+            "sha256": "ccd9a42beec98a818ac75207b830a9a7d58e69a7ba4741e177aca42a007f29cf",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "vectorcraft:vectorcraft-cli-project",
+            "sha256": "ef66522b7d91c766cbce2b550c385c23236b60c2a7382e8c84b842ff70781732",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "vectorcraft:vectorcraft-cli-selection",
+            "sha256": "7e367c7d329be902a8044e3c0be90d4e04e4a154010a891513ad61f801f8afc3",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "vectorcraft:vectorcraft-cli-setup",
+            "sha256": "6060a2f644086128d6d6312bc5c62185b802c614374139d2af3a1822255fa915",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "vectorcraft:vectorcraft-cli-shapes",
+            "sha256": "50f4319013d634f0fe8bd6364c10ec13f73f4a14990540293c0017a1fad76fd5",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "vectorcraft:vectorcraft-cli-text",
+            "sha256": "927d86d51016cd5317559f636c82d64d12ebad6cdaf88e156f05dbd72f36d5ec",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "vectorcraft:vectorcraft-use",
+            "sha256": "251d3f4ab3b8af3c3da4f40028d975e28598e96add4a28c046e50b43f66f1d89",
+            "scope": "user",
+            "enabled": true
+          }
+        ]
+      },
+      {
+        "pluginId": "artcraft",
+        "version": "0.1.0-dev.113",
+        "pluginManifestSha256": "45d52a401df2869a8e942ea32415ecc465fe82f389dede6e002abd7ac778d63d",
+        "sourceSha": "042cd0ad371c637cb973a7cfb1149c36578057b8",
+        "skillSourceSha": "952df315f142e20e61ffa3a10c87fa40fdd08976",
+        "skillSha256": "e38cd0c88c86cd2f3d7436faa8a6a0a7af01b677c4e58e89d5623b5f0cbaf6a7",
+        "discoveredName": "artcraft:artcraft-use",
+        "scope": "user",
+        "enabled": true,
+        "skills": [
+          {
+            "name": "artcraft:artcraft-cli",
+            "sha256": "6b52544655b0229c0769c6942558bc1f0db661e79d3e047f6c1642411fcecc87",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "artcraft:artcraft-cli-assets",
+            "sha256": "bc8503432c710a6b557c3095fa036f9639a583ff0747db9b1c5471c5b5277459",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "artcraft:artcraft-cli-deliver",
+            "sha256": "ec5b3431bf897d692d42cdf9305ace2e63d4a0607c676493881dbce19c690d7d",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "artcraft:artcraft-cli-execute",
+            "sha256": "75d5d70f0eab13c7d627ba114160dfcf5c66ee39c4d5e6866c99dd1b537dd4e7",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "artcraft:artcraft-cli-plan",
+            "sha256": "756572f4157f501817b330c42186de2e19365a74cdc6a722d4ac2e7e9318b3c2",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "artcraft:artcraft-cli-recover",
+            "sha256": "24e28e8e9889950f7a83e0f2c9461b495eb8ec87ee733aa1e0e50495dd139f62",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "artcraft:artcraft-cli-review",
+            "sha256": "03cd552e9ddd4c965f7f4244e1bd06028f937f7a1a076d8954ccae71a510e2cb",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "artcraft:artcraft-cli-revise",
+            "sha256": "beb73d58ffd72d2d89a11e14c770635ce4289afe6f912cce4860e502714b2892",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "artcraft:artcraft-cli-setup",
+            "sha256": "df83cc8c8558fcde0c921b42eb4b53050cea09c4dc980db4a381ed02e18ded53",
+            "scope": "user",
+            "enabled": true
+          },
+          {
+            "name": "artcraft:artcraft-use",
+            "sha256": "e38cd0c88c86cd2f3d7436faa8a6a0a7af01b677c4e58e89d5623b5f0cbaf6a7",
+            "scope": "user",
+            "enabled": true
+          }
+        ]
+      }
+    ],
+    "loadingErrors": 0,
+    "scope": [
+      "isolated fixed public-tag install",
+      "installed immutable skill content identity",
+      "app-server skill discovery"
+    ],
+    "excluded": [
+      "agent model dispatch",
+      "desktop GUI interaction",
+      "production acceptance"
+    ]
+  },
+  "current64ColdIdentityProof": {
+    "result": "PASS",
+    "count": 64,
+    "records": [
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli",
+        "sha256": "cf2043a6dbaf22bfd7a9b628a48c805eb62e90146184703eb99f28c8ddee0cdc",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-art-asr-handoff-20261008/cold-cases/filmcraft-cli",
+        "runtimeVersion": "0.2.0-craft.4",
+        "versionLogSha256": "460e395271bcda22a444a3ab21968c326ededc12b38cbd96c74f1540a27db4db",
+        "discoveryLogSha256": "277bc984fba45d9927711b472a2a65a75424f96a2bca987bd8e8cebf5fde6e6a",
+        "catalogCommands": 666,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-audio",
+        "sha256": "3d1ca757c9720e4372d01a14d59518a0c52b14ece9d2ad3b434506e70a1b6b8f",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-art-asr-handoff-20261008/cold-cases/filmcraft-cli-audio",
+        "runtimeVersion": "0.2.0-craft.4",
+        "versionLogSha256": "460e395271bcda22a444a3ab21968c326ededc12b38cbd96c74f1540a27db4db",
+        "discoveryLogSha256": "277bc984fba45d9927711b472a2a65a75424f96a2bca987bd8e8cebf5fde6e6a",
+        "catalogCommands": 666,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-color",
+        "sha256": "62ea444eb0d061b72163bfaaa7663a889bb348058b9fb92623125b31c358f738",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-art-asr-handoff-20261008/cold-cases/filmcraft-cli-color",
+        "runtimeVersion": "0.2.0-craft.4",
+        "versionLogSha256": "460e395271bcda22a444a3ab21968c326ededc12b38cbd96c74f1540a27db4db",
+        "discoveryLogSha256": "277bc984fba45d9927711b472a2a65a75424f96a2bca987bd8e8cebf5fde6e6a",
+        "catalogCommands": 666,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-export",
+        "sha256": "23bd9e77b7545427e9ccdd0e9f49643f4bcf296ab5f79b3be38b2c6db5021461",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-art-asr-handoff-20261008/cold-cases/filmcraft-cli-export",
+        "runtimeVersion": "0.2.0-craft.4",
+        "versionLogSha256": "460e395271bcda22a444a3ab21968c326ededc12b38cbd96c74f1540a27db4db",
+        "discoveryLogSha256": "277bc984fba45d9927711b472a2a65a75424f96a2bca987bd8e8cebf5fde6e6a",
+        "catalogCommands": 666,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-media",
+        "sha256": "f8622c2a7743b33938932769cc761133a1a1ba0010e0535a6e740abf3b425eb9",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-art-asr-handoff-20261008/cold-cases/filmcraft-cli-media",
+        "runtimeVersion": "0.2.0-craft.4",
+        "versionLogSha256": "460e395271bcda22a444a3ab21968c326ededc12b38cbd96c74f1540a27db4db",
+        "discoveryLogSha256": "277bc984fba45d9927711b472a2a65a75424f96a2bca987bd8e8cebf5fde6e6a",
+        "catalogCommands": 666,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-motion",
+        "sha256": "6f86ea61e21f4f1dc2feb4922dfa847c4637c7fadaae5eb6537a6f2fdc6c7384",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-art-asr-handoff-20261008/cold-cases/filmcraft-cli-motion",
+        "runtimeVersion": "0.2.0-craft.4",
+        "versionLogSha256": "460e395271bcda22a444a3ab21968c326ededc12b38cbd96c74f1540a27db4db",
+        "discoveryLogSha256": "277bc984fba45d9927711b472a2a65a75424f96a2bca987bd8e8cebf5fde6e6a",
+        "catalogCommands": 666,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-multicam",
+        "sha256": "b93e91a16f7b91eadd0f2fce2cca99764ff8af587a8f49e566663d40d138fe86",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-art-asr-handoff-20261008/cold-cases/filmcraft-cli-multicam",
+        "runtimeVersion": "0.2.0-craft.4",
+        "versionLogSha256": "460e395271bcda22a444a3ab21968c326ededc12b38cbd96c74f1540a27db4db",
+        "discoveryLogSha256": "277bc984fba45d9927711b472a2a65a75424f96a2bca987bd8e8cebf5fde6e6a",
+        "catalogCommands": 666,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-project",
+        "sha256": "aa9cfcd51a23af100a91602154a556cf0955b5329c21d8ebde9db31ace516468",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-art-asr-handoff-20261008/cold-cases/filmcraft-cli-project",
+        "runtimeVersion": "0.2.0-craft.4",
+        "versionLogSha256": "460e395271bcda22a444a3ab21968c326ededc12b38cbd96c74f1540a27db4db",
+        "discoveryLogSha256": "277bc984fba45d9927711b472a2a65a75424f96a2bca987bd8e8cebf5fde6e6a",
+        "catalogCommands": 666,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-setup",
+        "sha256": "51ce76f7d32e7abae5e033a1e256ebcfe438ba73e42c003d4f5b4e6ac1e06050",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-art-asr-handoff-20261008/cold-cases/filmcraft-cli-setup",
+        "runtimeVersion": "0.2.0-craft.4",
+        "versionLogSha256": "460e395271bcda22a444a3ab21968c326ededc12b38cbd96c74f1540a27db4db",
+        "discoveryLogSha256": "277bc984fba45d9927711b472a2a65a75424f96a2bca987bd8e8cebf5fde6e6a",
+        "catalogCommands": 666,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-subtitles",
+        "sha256": "77009a4e7a749368c3f19d627c27bedc3f46896a93f348714199cf313a9393c8",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-art-asr-handoff-20261008/cold-cases/filmcraft-cli-subtitles",
+        "runtimeVersion": "0.2.0-craft.4",
+        "versionLogSha256": "460e395271bcda22a444a3ab21968c326ededc12b38cbd96c74f1540a27db4db",
+        "discoveryLogSha256": "277bc984fba45d9927711b472a2a65a75424f96a2bca987bd8e8cebf5fde6e6a",
+        "catalogCommands": 666,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-timeline",
+        "sha256": "d2727ae1011288dda24107b942fb3000433d3ac25695afc09e442c14140eda03",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-art-asr-handoff-20261008/cold-cases/filmcraft-cli-timeline",
+        "runtimeVersion": "0.2.0-craft.4",
+        "versionLogSha256": "460e395271bcda22a444a3ab21968c326ededc12b38cbd96c74f1540a27db4db",
+        "discoveryLogSha256": "277bc984fba45d9927711b472a2a65a75424f96a2bca987bd8e8cebf5fde6e6a",
+        "catalogCommands": 666,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-cli-transcript",
+        "sha256": "b86683f884f306a5ebaa8416655f8b8674a65636168b6cb9373b27b4f95cf11d",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-art-asr-handoff-20261008/cold-cases/filmcraft-cli-transcript",
+        "runtimeVersion": "0.2.0-craft.4",
+        "versionLogSha256": "460e395271bcda22a444a3ab21968c326ededc12b38cbd96c74f1540a27db4db",
+        "discoveryLogSha256": "277bc984fba45d9927711b472a2a65a75424f96a2bca987bd8e8cebf5fde6e6a",
+        "catalogCommands": 666,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "filmcraft",
+        "skill": "filmcraft-use",
+        "sha256": "62540c0885dedc4991d486ba65a0536e3dd0b6c9c16abf53be4bd6be4539f7e1",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-art-asr-handoff-20261008/cold-cases/filmcraft-use",
+        "runtimeVersion": "0.2.0-craft.4",
+        "versionLogSha256": "460e395271bcda22a444a3ab21968c326ededc12b38cbd96c74f1540a27db4db",
+        "discoveryLogSha256": "277bc984fba45d9927711b472a2a65a75424f96a2bca987bd8e8cebf5fde6e6a",
+        "catalogCommands": 666,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli",
+        "sha256": "7800051387dbdc5dfe49ced0f97e3cc1c502fdf738cc9ae735ca5b5f6f25a8ee",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-animation",
+        "sha256": "aeaf55514f5afb8c8151d37adff72b639a231015a412adf9ebc00bdd6692f50a",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-animation",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-camera",
+        "sha256": "f19299fe471a420359f55bcbe3ff3583594dbbcef9ec92441ac5972cfeae8414",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-camera",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-composition",
+        "sha256": "1e91faed542ae95ac034f6dfe2dfc1d5d80b3899d48c8f1068add120410d7b10",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-composition",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-effects",
+        "sha256": "955831de9a5f414c205dd30c5eb953f410c81871f1c8daff2a6ff064701521d6",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-effects",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-export",
+        "sha256": "efd03426738d714a27677a0ebe933c699c9469b4788450a25f2e850de84cfd2a",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-export",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-expressions",
+        "sha256": "ac1137632f843f8ec9a7cfcdbe6240f54f5883618b781f6e9dc10e2c425dee51",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-expressions",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-footage",
+        "sha256": "b13d729a269f7037908ccb48394bb1bfc971e4e93f593dbaa4b82ab6aaa3c4d9",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-footage",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-layers",
+        "sha256": "847f64d1053528a4cce1b2c2ed1ab4be485e25096fd3229fa6f22b265baa91d9",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-layers",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-masks",
+        "sha256": "42c1f76b33bbb6c0210d8bd79f06beb1610c16b8e0838fe544752ff45b583129",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-masks",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-project",
+        "sha256": "98ecdac4d1e5b66ec8718cabbff47e91b383bdc39bc4c349af37c09669f6951a",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-project",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-puppet",
+        "sha256": "71bb9bc0633255e50bb1cff285d63f3ebfec4691119ba81945fc6fe03927ad8d",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-puppet",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-setup",
+        "sha256": "d2fa99911d79b737d7ebe29ec29ae71cacc84d800d6198e31086dd275897499e",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-setup",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-cli-tracking",
+        "sha256": "cfcc79c84d669fe1a16ab595cd60081166ee4778f6875144e9d0ae5a96282192",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-cli-tracking",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "effectcraft",
+        "skill": "effectcraft-use",
+        "sha256": "6275bea8397aeddbe93ee4ef7d66ab13698686e72655c7bc68e28fdd612f90e0",
+        "independentColdRuntime": true,
+        "runtimeVersion": "0.2.0",
+        "commands": 640,
+        "describedCommands": [
+          "layer.newCamera",
+          "camera.dolly"
+        ],
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "scope": "installation, registry, parameters and plan preflight; native workflow recorded separately",
+        "run": "effectcraft-camera-scene-20261008/effect15-cold/effectcraft-use",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli",
+        "sha256": "92ea889f31d6d454027f400d9acbb1f8e25571daa70cb5e6f0ce91b225bf4882",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-photo-delivery-integrity-20261008/cold-cases/photocraft-cli",
+        "runtimeVersion": "0.2.0-craft.1",
+        "versionLogSha256": "4584cac010cd70c78a70f81b9124505ccf94b7d754c353d41b95b2f24e25f11a",
+        "discoveryLogSha256": "34a0946b8db3671534aeee1b58ee1743ebf7fcc44d1c569ce8d5cb55f25faafa",
+        "catalogCommands": 755,
+        "deliveryVerificationLogSha256": "685bee66e15b5933ade225a4f7b42181e6ee78d18b2159d6f5207dce1df0c9d7",
+        "temporaryRuntimeRemovedAfterTerminalCalls": true
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-adjustments",
+        "sha256": "71f7182c59a04f9351047dbb890679edb82c75c3cab59ee8715222d819a0f3dc",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-photo-delivery-integrity-20261008/cold-cases/photocraft-cli-adjustments",
+        "runtimeVersion": "0.2.0-craft.1",
+        "versionLogSha256": "4584cac010cd70c78a70f81b9124505ccf94b7d754c353d41b95b2f24e25f11a",
+        "discoveryLogSha256": "34a0946b8db3671534aeee1b58ee1743ebf7fcc44d1c569ce8d5cb55f25faafa",
+        "catalogCommands": 755,
+        "deliveryVerificationLogSha256": "685bee66e15b5933ade225a4f7b42181e6ee78d18b2159d6f5207dce1df0c9d7",
+        "temporaryRuntimeRemovedAfterTerminalCalls": true
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-export",
+        "sha256": "4c095359c3040a1b5b74b7c4ecb73d806718ead1325401b656fd46c4c6ca7eae",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-photo-delivery-integrity-20261008/cold-cases/photocraft-cli-export",
+        "runtimeVersion": "0.2.0-craft.1",
+        "versionLogSha256": "4584cac010cd70c78a70f81b9124505ccf94b7d754c353d41b95b2f24e25f11a",
+        "discoveryLogSha256": "34a0946b8db3671534aeee1b58ee1743ebf7fcc44d1c569ce8d5cb55f25faafa",
+        "catalogCommands": 755,
+        "deliveryVerificationLogSha256": "685bee66e15b5933ade225a4f7b42181e6ee78d18b2159d6f5207dce1df0c9d7",
+        "temporaryRuntimeRemovedAfterTerminalCalls": true
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-filters",
+        "sha256": "5e5c562d4352e990fcc23159088c57238855581b456bebb79086c165516a9592",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-photo-delivery-integrity-20261008/cold-cases/photocraft-cli-filters",
+        "runtimeVersion": "0.2.0-craft.1",
+        "versionLogSha256": "4584cac010cd70c78a70f81b9124505ccf94b7d754c353d41b95b2f24e25f11a",
+        "discoveryLogSha256": "34a0946b8db3671534aeee1b58ee1743ebf7fcc44d1c569ce8d5cb55f25faafa",
+        "catalogCommands": 755,
+        "deliveryVerificationLogSha256": "685bee66e15b5933ade225a4f7b42181e6ee78d18b2159d6f5207dce1df0c9d7",
+        "temporaryRuntimeRemovedAfterTerminalCalls": true
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-layers",
+        "sha256": "5624af33a149be746cc5e3dbb093236e5f217ff9da210470c657931361d6b0ff",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-photo-delivery-integrity-20261008/cold-cases/photocraft-cli-layers",
+        "runtimeVersion": "0.2.0-craft.1",
+        "versionLogSha256": "4584cac010cd70c78a70f81b9124505ccf94b7d754c353d41b95b2f24e25f11a",
+        "discoveryLogSha256": "34a0946b8db3671534aeee1b58ee1743ebf7fcc44d1c569ce8d5cb55f25faafa",
+        "catalogCommands": 755,
+        "deliveryVerificationLogSha256": "685bee66e15b5933ade225a4f7b42181e6ee78d18b2159d6f5207dce1df0c9d7",
+        "temporaryRuntimeRemovedAfterTerminalCalls": true
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-masks",
+        "sha256": "f90dd7a3174939df275cd54fa4d7769f6952f57ada8b8c41ba011170ce74b551",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-photo-delivery-integrity-20261008/cold-cases/photocraft-cli-masks",
+        "runtimeVersion": "0.2.0-craft.1",
+        "versionLogSha256": "4584cac010cd70c78a70f81b9124505ccf94b7d754c353d41b95b2f24e25f11a",
+        "discoveryLogSha256": "34a0946b8db3671534aeee1b58ee1743ebf7fcc44d1c569ce8d5cb55f25faafa",
+        "catalogCommands": 755,
+        "deliveryVerificationLogSha256": "685bee66e15b5933ade225a4f7b42181e6ee78d18b2159d6f5207dce1df0c9d7",
+        "temporaryRuntimeRemovedAfterTerminalCalls": true
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-project",
+        "sha256": "182bdbc20bbcffe7e6762801615b9e8130ef4b0f9e3baf3a121e020df3f8f7ed",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-photo-delivery-integrity-20261008/cold-cases/photocraft-cli-project",
+        "runtimeVersion": "0.2.0-craft.1",
+        "versionLogSha256": "4584cac010cd70c78a70f81b9124505ccf94b7d754c353d41b95b2f24e25f11a",
+        "discoveryLogSha256": "34a0946b8db3671534aeee1b58ee1743ebf7fcc44d1c569ce8d5cb55f25faafa",
+        "catalogCommands": 755,
+        "deliveryVerificationLogSha256": "685bee66e15b5933ade225a4f7b42181e6ee78d18b2159d6f5207dce1df0c9d7",
+        "temporaryRuntimeRemovedAfterTerminalCalls": true
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-resize",
+        "sha256": "15cff4113b747d36b61a7c4f8eff5e7eec82d75cd7a13ee1ad2f811854bba45d",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-photo-delivery-integrity-20261008/cold-cases/photocraft-cli-resize",
+        "runtimeVersion": "0.2.0-craft.1",
+        "versionLogSha256": "4584cac010cd70c78a70f81b9124505ccf94b7d754c353d41b95b2f24e25f11a",
+        "discoveryLogSha256": "34a0946b8db3671534aeee1b58ee1743ebf7fcc44d1c569ce8d5cb55f25faafa",
+        "catalogCommands": 755,
+        "deliveryVerificationLogSha256": "685bee66e15b5933ade225a4f7b42181e6ee78d18b2159d6f5207dce1df0c9d7",
+        "temporaryRuntimeRemovedAfterTerminalCalls": true
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-retouch",
+        "sha256": "0f8d0e562a2f73bdb4e78fe99d0095abc7eba54fd361893a3e022be54bcdcda6",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-photo-delivery-integrity-20261008/cold-cases/photocraft-cli-retouch",
+        "runtimeVersion": "0.2.0-craft.1",
+        "versionLogSha256": "4584cac010cd70c78a70f81b9124505ccf94b7d754c353d41b95b2f24e25f11a",
+        "discoveryLogSha256": "34a0946b8db3671534aeee1b58ee1743ebf7fcc44d1c569ce8d5cb55f25faafa",
+        "catalogCommands": 755,
+        "deliveryVerificationLogSha256": "685bee66e15b5933ade225a4f7b42181e6ee78d18b2159d6f5207dce1df0c9d7",
+        "temporaryRuntimeRemovedAfterTerminalCalls": true
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-selection",
+        "sha256": "bad063d589c417945b33194550105d4289f80b84389553f494e1b27a81fcf0b7",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-photo-delivery-integrity-20261008/cold-cases/photocraft-cli-selection",
+        "runtimeVersion": "0.2.0-craft.1",
+        "versionLogSha256": "4584cac010cd70c78a70f81b9124505ccf94b7d754c353d41b95b2f24e25f11a",
+        "discoveryLogSha256": "34a0946b8db3671534aeee1b58ee1743ebf7fcc44d1c569ce8d5cb55f25faafa",
+        "catalogCommands": 755,
+        "deliveryVerificationLogSha256": "685bee66e15b5933ade225a4f7b42181e6ee78d18b2159d6f5207dce1df0c9d7",
+        "temporaryRuntimeRemovedAfterTerminalCalls": true
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-setup",
+        "sha256": "53cce539624796984c1523a244c91afa337fe54372fe2789e0721a09435f8623",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-photo-delivery-integrity-20261008/cold-cases/photocraft-cli-setup",
+        "runtimeVersion": "0.2.0-craft.1",
+        "versionLogSha256": "4584cac010cd70c78a70f81b9124505ccf94b7d754c353d41b95b2f24e25f11a",
+        "discoveryLogSha256": "34a0946b8db3671534aeee1b58ee1743ebf7fcc44d1c569ce8d5cb55f25faafa",
+        "catalogCommands": 755,
+        "deliveryVerificationLogSha256": "685bee66e15b5933ade225a4f7b42181e6ee78d18b2159d6f5207dce1df0c9d7",
+        "temporaryRuntimeRemovedAfterTerminalCalls": true
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-cli-text",
+        "sha256": "204b0fe044a88c795522d02aaa4d94524371b6bfaf73a2e1b45bb622a6973d3f",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-photo-delivery-integrity-20261008/cold-cases/photocraft-cli-text",
+        "runtimeVersion": "0.2.0-craft.1",
+        "versionLogSha256": "4584cac010cd70c78a70f81b9124505ccf94b7d754c353d41b95b2f24e25f11a",
+        "discoveryLogSha256": "34a0946b8db3671534aeee1b58ee1743ebf7fcc44d1c569ce8d5cb55f25faafa",
+        "catalogCommands": 755,
+        "deliveryVerificationLogSha256": "685bee66e15b5933ade225a4f7b42181e6ee78d18b2159d6f5207dce1df0c9d7",
+        "temporaryRuntimeRemovedAfterTerminalCalls": true
+      },
+      {
+        "pluginId": "photocraft",
+        "skill": "photocraft-use",
+        "sha256": "3d93bc0941de14157120c47788355e8f6678539b75b9b8ed6690ba6bfd302979",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-photo-delivery-integrity-20261008/cold-cases/photocraft-use",
+        "runtimeVersion": "0.2.0-craft.1",
+        "versionLogSha256": "4584cac010cd70c78a70f81b9124505ccf94b7d754c353d41b95b2f24e25f11a",
+        "discoveryLogSha256": "34a0946b8db3671534aeee1b58ee1743ebf7fcc44d1c569ce8d5cb55f25faafa",
+        "catalogCommands": 755,
+        "deliveryVerificationLogSha256": "685bee66e15b5933ade225a4f7b42181e6ee78d18b2159d6f5207dce1df0c9d7",
+        "temporaryRuntimeRemovedAfterTerminalCalls": true
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli",
+        "sha256": "db16523fd6bb3f23f5da962f744e91f009879c4184a9aff37c74ff10dfaafa49",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-appearance",
+        "sha256": "9bbabd93525e6e8e333effa90a5ee20bb3064203788feea8781b6cb9a8697144",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-artboards",
+        "sha256": "cae8b443d45154a4e6ae709d2880294f326a151faeddddc8e4d3cb7b5f431b4d",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-assets",
+        "sha256": "8ba9814dafaf1401262b591048fe86eb6bed7d6582ddcc5da3ce033d919a933e",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-boolean",
+        "sha256": "b3b38eec6bc64459514c4b0ae8885f2e1b57645a0b4a05d1d8a96240984df185",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-export",
+        "sha256": "4f23fa20c0f346f0c79dc13303b17f36f907b0c96b9b57dc56da840dd4e5e80a",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-paths",
+        "sha256": "ccd9a42beec98a818ac75207b830a9a7d58e69a7ba4741e177aca42a007f29cf",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-project",
+        "sha256": "ef66522b7d91c766cbce2b550c385c23236b60c2a7382e8c84b842ff70781732",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-selection",
+        "sha256": "7e367c7d329be902a8044e3c0be90d4e04e4a154010a891513ad61f801f8afc3",
+        "independentColdRuntime": true,
+        "run": "six-fixed-cold/vectorcraft-cli-selection",
+        "layout": "plugin cache/skills",
+        "unicodeAndSpaces": true,
+        "ownDirectoryExamples": true,
+        "runtimeVersion": "0.2.0-craft.2",
+        "actualVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "commands": 585,
+        "describedCommand": "select.all",
+        "singleSkill": true,
+        "skillUnchanged": true,
+        "userFilePreserved": true,
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-setup",
+        "sha256": "6060a2f644086128d6d6312bc5c62185b802c614374139d2af3a1822255fa915",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-shapes",
+        "sha256": "50f4319013d634f0fe8bd6364c10ec13f73f4a14990540293c0017a1fad76fd5",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-cli-text",
+        "sha256": "927d86d51016cd5317559f636c82d64d12ebad6cdaf88e156f05dbd72f36d5ec",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "vectorcraft",
+        "skill": "vectorcraft-use",
+        "sha256": "251d3f4ab3b8af3c3da4f40028d975e28598e96add4a28c046e50b43f66f1d89",
+        "independentColdRuntime": true,
+        "run": "craft-art102-all64-cold-first-use-20261007.json",
+        "provenance": "historical whole-tree byte-identical cold proof; unchanged current fixed plugin/source",
+        "nativeVersion": "vectorcraft-cli 0.2.0-craft.2",
+        "discoverySha256": "88d65230c7cfe7decc98bd4c835495d79e2d53bb068c43d0bdef974ffa7e53a8",
+        "originalProvenance": "historical byte-identical; original run retained",
+        "sourceEvidenceSha256": "2331a5c2119a0fcba51a6f3d6a7a23716a8361effbb4d73c5c2c2852e0d5ff5c",
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "artcraft",
+        "skill": "artcraft-cli",
+        "sha256": "6b52544655b0229c0769c6942558bc1f0db661e79d3e047f6c1642411fcecc87",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-budget-protocol-20261008/cold-cases/artcraft-cli",
+        "runtimeVersion": "0.1.0-dev.113-runtime.1",
+        "versionLogSha256": "1045f242c5c071ca8652f185fdc8af97c6432bbfc1640dd26a0240879c5ba759",
+        "discoveryLogSha256": "01206acb511ed7ffc2f8505a784a18a3707b0b28a9f8a4a92f7e757d562247a1",
+        "catalogCommands": null,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "artcraft",
+        "skill": "artcraft-cli-assets",
+        "sha256": "bc8503432c710a6b557c3095fa036f9639a583ff0747db9b1c5471c5b5277459",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-budget-protocol-20261008/cold-cases/artcraft-cli-assets",
+        "runtimeVersion": "0.1.0-dev.113-runtime.1",
+        "versionLogSha256": "1045f242c5c071ca8652f185fdc8af97c6432bbfc1640dd26a0240879c5ba759",
+        "discoveryLogSha256": "01206acb511ed7ffc2f8505a784a18a3707b0b28a9f8a4a92f7e757d562247a1",
+        "catalogCommands": null,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "artcraft",
+        "skill": "artcraft-cli-deliver",
+        "sha256": "ec5b3431bf897d692d42cdf9305ace2e63d4a0607c676493881dbce19c690d7d",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-budget-protocol-20261008/cold-cases/artcraft-cli-deliver",
+        "runtimeVersion": "0.1.0-dev.113-runtime.1",
+        "versionLogSha256": "1045f242c5c071ca8652f185fdc8af97c6432bbfc1640dd26a0240879c5ba759",
+        "discoveryLogSha256": "01206acb511ed7ffc2f8505a784a18a3707b0b28a9f8a4a92f7e757d562247a1",
+        "catalogCommands": null,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "artcraft",
+        "skill": "artcraft-cli-execute",
+        "sha256": "75d5d70f0eab13c7d627ba114160dfcf5c66ee39c4d5e6866c99dd1b537dd4e7",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-budget-protocol-20261008/cold-cases/artcraft-cli-execute",
+        "runtimeVersion": "0.1.0-dev.113-runtime.1",
+        "versionLogSha256": "1045f242c5c071ca8652f185fdc8af97c6432bbfc1640dd26a0240879c5ba759",
+        "discoveryLogSha256": "01206acb511ed7ffc2f8505a784a18a3707b0b28a9f8a4a92f7e757d562247a1",
+        "catalogCommands": null,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "artcraft",
+        "skill": "artcraft-cli-plan",
+        "sha256": "756572f4157f501817b330c42186de2e19365a74cdc6a722d4ac2e7e9318b3c2",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-budget-protocol-20261008/cold-cases/artcraft-cli-plan",
+        "runtimeVersion": "0.1.0-dev.113-runtime.1",
+        "versionLogSha256": "1045f242c5c071ca8652f185fdc8af97c6432bbfc1640dd26a0240879c5ba759",
+        "discoveryLogSha256": "01206acb511ed7ffc2f8505a784a18a3707b0b28a9f8a4a92f7e757d562247a1",
+        "catalogCommands": null,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "artcraft",
+        "skill": "artcraft-cli-recover",
+        "sha256": "24e28e8e9889950f7a83e0f2c9461b495eb8ec87ee733aa1e0e50495dd139f62",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-budget-protocol-20261008/cold-cases/artcraft-cli-recover",
+        "runtimeVersion": "0.1.0-dev.113-runtime.1",
+        "versionLogSha256": "1045f242c5c071ca8652f185fdc8af97c6432bbfc1640dd26a0240879c5ba759",
+        "discoveryLogSha256": "01206acb511ed7ffc2f8505a784a18a3707b0b28a9f8a4a92f7e757d562247a1",
+        "catalogCommands": null,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "artcraft",
+        "skill": "artcraft-cli-review",
+        "sha256": "03cd552e9ddd4c965f7f4244e1bd06028f937f7a1a076d8954ccae71a510e2cb",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-budget-protocol-20261008/cold-cases/artcraft-cli-review",
+        "runtimeVersion": "0.1.0-dev.113-runtime.1",
+        "versionLogSha256": "1045f242c5c071ca8652f185fdc8af97c6432bbfc1640dd26a0240879c5ba759",
+        "discoveryLogSha256": "01206acb511ed7ffc2f8505a784a18a3707b0b28a9f8a4a92f7e757d562247a1",
+        "catalogCommands": null,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "artcraft",
+        "skill": "artcraft-cli-revise",
+        "sha256": "beb73d58ffd72d2d89a11e14c770635ce4289afe6f912cce4860e502714b2892",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-budget-protocol-20261008/cold-cases/artcraft-cli-revise",
+        "runtimeVersion": "0.1.0-dev.113-runtime.1",
+        "versionLogSha256": "1045f242c5c071ca8652f185fdc8af97c6432bbfc1640dd26a0240879c5ba759",
+        "discoveryLogSha256": "01206acb511ed7ffc2f8505a784a18a3707b0b28a9f8a4a92f7e757d562247a1",
+        "catalogCommands": null,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "artcraft",
+        "skill": "artcraft-cli-setup",
+        "sha256": "df83cc8c8558fcde0c921b42eb4b53050cea09c4dc980db4a381ed02e18ded53",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-budget-protocol-20261008/cold-cases/artcraft-cli-setup",
+        "runtimeVersion": "0.1.0-dev.113-runtime.1",
+        "versionLogSha256": "1045f242c5c071ca8652f185fdc8af97c6432bbfc1640dd26a0240879c5ba759",
+        "discoveryLogSha256": "01206acb511ed7ffc2f8505a784a18a3707b0b28a9f8a4a92f7e757d562247a1",
+        "catalogCommands": null,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      },
+      {
+        "pluginId": "artcraft",
+        "skill": "artcraft-use",
+        "sha256": "e38cd0c88c86cd2f3d7436faa8a6a0a7af01b677c4e58e89d5623b5f0cbaf6a7",
+        "independentColdRuntime": true,
+        "run": "artifacts/craft-budget-protocol-20261008/cold-cases/artcraft-use",
+        "runtimeVersion": "0.1.0-dev.113-runtime.1",
+        "versionLogSha256": "1045f242c5c071ca8652f185fdc8af97c6432bbfc1640dd26a0240879c5ba759",
+        "discoveryLogSha256": "01206acb511ed7ffc2f8505a784a18a3707b0b28a9f8a4a92f7e757d562247a1",
+        "catalogCommands": null,
+        "temporaryRuntimeRemovedAfterTerminalCalls": true,
+        "reusedBecauseWholeTreeHashMatches": true
+      }
+    ],
+    "newIndependentColdCases": 13,
+    "reusedIdenticalHistoricalCases": 51,
+    "scope": "separate public empty runtimes for changed skills; complete tree identity required for historical reuse"
+  },
+  "native": {
+    "seconds": 5.141,
+    "schema": "photocraft-delivery-first-use/v1",
+    "result": "PASS",
+    "coldSingleSkill": true,
+    "manifestSha256": "9964935a29effa36732f9f8524386b4c32c921ab4448d4c1a00800d1dc67a9e4",
+    "originalFiles": {
+      "asset-product.png": "ee9c3aba3fe213badad0549b1ca4424da3ee2cd4faf09875224336cfd0855536",
+      "design.png": "cfcb56eaa3edadb6a4d9de939f9d0085f06899874faea0a3e492eb10b27ec7df",
+      "plan.json": "069348a869046c5f31218aa6d313e55b066df65ace54d62e5745eb39d770a888",
+      "design.psd": "8de32c27961d676562577a7649b2a71e8d95d3926e80342b0ff00aeb9d735dc0",
+      "exchange-loss.json": "011a02367ed02a1111943c91514214a6019d0d045e3d963f73fadbb0cc267e8a",
+      "psd-inspection.json": "a80d5aa65abcd9645359e74b14e16e0f15060a2b1c7b5c4f44238f05e2030c90",
+      "native.json": "c203821c7d498fa20f705cd83bce946a7ff22fbfe08dc0fa17b6a1500bd6301d",
+      "project.pcraft": "0ec07ecb329b7a7932760d5baafed2582eb4f4092487069a1a41c724a6f2af2c",
+      "manifest.json": "9964935a29effa36732f9f8524386b4c32c921ab4448d4c1a00800d1dc67a9e4",
+      "operations.json": "911900a469a80eefcfe2727ed517b8a3b7e1aa83c4bfc1b2eea8c747424c0a52"
+    },
+    "revisedManifestSha256": "fc746c5d74a5fc02a8a4ab2d5117547bd73fd603522e5b11da9a1f7503a09fc9",
+    "layers": [
+      {
+        "name": "Caption",
+        "id": 7,
+        "kind": "Type"
+      },
+      {
+        "name": "Headline",
+        "id": 6,
+        "kind": "Type"
+      },
+      {
+        "name": "Product",
+        "id": 5,
+        "kind": "Pixel"
+      },
+      {
+        "name": "Background",
+        "id": 2,
+        "kind": "Pixel"
+      }
+    ],
+    "publicIntegrity": {
+      "schema": "photocraft-delivery-integrity/v1",
+      "result": "PASS",
+      "manifestSha256": "9964935a29effa36732f9f8524386b4c32c921ab4448d4c1a00800d1dc67a9e4",
+      "nativeSha256": "0ec07ecb329b7a7932760d5baafed2582eb4f4092487069a1a41c724a6f2af2c",
+      "files": 9,
+      "scope": "File and exchange identity only; not native reopening, external authorship or creative acceptance."
+    },
+    "tamperRefusedBeforeInstall": true,
+    "movedAfterOriginalAssetDeleted": true,
+    "calls": [
+      {
+        "script": "workflow.py",
+        "exitCode": 0,
+        "logSha256": "94051566c9f653276f61ebf36e2f52a95268d2283417117eac6a76d4f2893d73"
+      },
+      {
+        "script": "delivery.py",
+        "exitCode": 0,
+        "logSha256": "67fefe0dff3cf4cb9a692b5613b48224838cdf218a501547569fc8f128309d58"
+      },
+      {
+        "script": "workflow.py",
+        "exitCode": 0,
+        "logSha256": "91ff0ae86e5cc5f8dc16bb0c245c6def1d56d73526110a70d6d89b6ada7154f3"
+      },
+      {
+        "script": "delivery.py",
+        "exitCode": 0,
+        "logSha256": "685bee66e15b5933ade225a4f7b42181e6ee78d18b2159d6f5207dce1df0c9d7"
+      },
+      {
+        "script": "delivery.py",
+        "exitCode": 1,
+        "logSha256": "0bdc0174d888fd699bf1b85da699e94951b4d4c62b597965ab751221d6e5207d"
+      },
+      {
+        "script": "workflow.py",
+        "exitCode": 1,
+        "logSha256": "f5499a65c39033238e3b1ce66ac9e426bcad2392da5b3eb0d40ec630911977a3"
+      }
+    ],
+    "scope": "Native masked poster and text revision, public integrity; not all PSD fidelity, all commands, human creative approval or full V1."
+  },
+  "regression": {
+    "source": {
+      "total": 149,
+      "passed": 118,
+      "skipped": 31
+    },
+    "photoPlugin": {
+      "total": 23,
+      "passed": 23
+    },
+    "artDefaultTargets": {
+      "total": 31,
+      "passed": 29,
+      "skipped": 2
+    }
+  },
+  "immutableReleaseCI": {
+    "commit": "e70772bc80cfabc605a247ac9107a6f28929852c",
+    "runs": [
+      37715169506,
+      37715169528,
+      37715169490,
+      37715169374
+    ],
+    "conclusion": "success"
+  },
+  "fileSha256": {
+    "plugin-regression-fixed.log": "b202c57302babe1e370a1428aa71aca39cb3b5966f9ed3a5b3eb9acb92432323",
+    "plugin-docs.log": "30e624699d7f16aaebe6088c124c356fc38b60d2cba70047c1aef6202829223b",
+    "cold_changed.py": "acb4a0ada4c9776c628fc6966f6367bdf71b763ea82e56d7c83259629c8de098",
+    "photocraft-skills-0.1.0-dev.34.zip": "9773df829a565a6ee79d302fbb1a74310a02039b1bf94f5666a46fe83c5cb55c",
+    "red.log": "60089dae0aeb407e9f0dc92ff313c29e259470e974125d19ffdbdd930b208adb",
+    "plugin-regression.log": "c7c2934d05a46777b28dee33e3286fab0648bb9aec9bc1a418cd4885b3764770",
+    "default-red-install.log": "17726b665d04d8c812beff4821562ece05b593b0d18e042af8ada7962708c45d",
+    "photocraft-plugin-0.1.0-dev.38.zip": "a84fe2d3aaf9ace934b6a7e669cd633ef14d416be9fc742e4d217f093a2a79b4",
+    "source-regression-final.log": "0e19581a52916a1b073d39f3a64d54ba7f8f8e6974bf8e6fe76caf4dfd51e7ee",
+    "reference-red.log": "1401cfa69ddd09b1973d7cfa366c54c129312c140ceabb6fd931aa9e545d6ef0",
+    "green.log": "7a559f5f3b288fe7710f7d08453f712cd2e9ce60025f248acc51ca1c2ff5db00",
+    "source-native-final.log": "df9e0151534ae43e3fc45dbf58089291afb5a211480d46a1602fdcd8e010c285",
+    "finalize.py": "12f8c36ce7c772a6ed33e6aef5e5e987618f44e08663fd2ce2670822367cd8b7",
+    "cold13.log": "5da0a9dff881a18aaff09bedd4c86ae0584be0bd03e2de8abcc730aa8edfa6b4",
+    "host.lock.json": "2e87bfbe19f663d3f78f7effcb0c322021305d246c50fa7e6bc33d5b67b5491c",
+    "cold13.json": "6ab6117e63bf377a6fd284081483338b82c07841b4f726bce9561db1218a2cbf",
+    "default-green-audit.log": "8411946213dc2a1118c87db5d3be2cdb981e124a9750eb02d3b60bc09fe65daa",
+    "installed-native.log": "79995aac54c30a796e48868722c7759ee46b4909811fcaaef12de487248512d8",
+    "default-red-audit.log": "5d0c28a7a0fece15b91f45ac34bc7426c0c5dd9859f978483a2e5639ae3086b1",
+    "source-native.log": "c20b1fb224810795505e22d2dfa903b48e429c2959bc62bb16afb2ed640df116",
+    "default-green-install.log": "9e2ecf2666f09a041200ca2070d71248532daa827633c14d866b3e7f29dc7d32",
+    "plugin-docs-fixed.log": "7e924b950c9008f3491ba4015ad1f775d70515c03308e90e66808e4973cead55",
+    "metadata-regression.log": "010bd3344cd7cef9b51d9b68a993e910279c325873fd23a2365005dfb1a67eaf",
+    "host.log": "c9ae6d9386a076ac0ca4fc9196f4f5c2ed805805a31f64df74fdd759ec9cb924",
+    "public-downloads.json": "eeeed191f836a262b329d0f8b40dd0e151678056c7c29173059737c24847144e",
+    "plugin-spec.log": "5f003a0a2d4f2c08c308d5649dff0b10b722ed6ed856cdfc72f2acb9525a3774",
+    "source-regression.log": "7908ec0678cc64f592add89f5f6a9bb3c0b50ffdd78a68c86adc9e0cc172b899",
+    "host-lock.log": "73a9bc6ac5eeccf4923221d29017216dcbcacb7b5ac347b7c4ea87c148103963",
+    "installed-native/proof.json": "ee7465628e5318b0a645a58ed2e84711a6b6369ed4913eff7d3de0c9078e3117"
+  },
+  "unverified": [
+    "Full immutable logical artifact/task lineage",
+    "Art113 mixed runtime still pins Photo source33; upgrade and mixed native verification required",
+    "All PSD fidelity",
+    "All commands and business contexts",
+    "Generic Skills CLI",
+    "GUI and other platforms",
+    "Model dispatch and human creative approval",
+    "Full V1"
+  ]
+}
