@@ -1,6 +1,6 @@
 # 旧账本升级使用指南
 
-runtime `0.1.0-dev.138-runtime.1` 对 schema1 迁移先检查任务、租约和执行是否排空。`runtime_upgrade_busy` 是保护性拒绝；不要删除数据库、租约或执行记录来绕过。使用原来固定运行时完成、取消或恢复任务并确认可信停止。未知状态与无法证实停止的执行仍须保留等待处理。
+runtime `0.1.0-dev.139-runtime.1` 对 schema1 迁移先检查任务、租约和执行是否排空。`runtime_upgrade_busy` 是保护性拒绝；不要删除数据库、租约或执行记录来绕过。使用原来固定运行时完成、取消或恢复任务并确认可信停止。未知状态与无法证实停止的执行仍须保留等待处理。
 
 先设置 `SKILL_DIR` 为当前加载技能目录，将 `DATABASE` 设置为原任务的 SQLite 账本绝对路径，保持账本身份。公开只读查询：
 
@@ -23,3 +23,7 @@ python3 -I -B "$SKILL_DIR/scripts/cli.py" -- upgrade --database "$DATABASE"
 完整固定安装升级与回退矩阵尚待专项验收。本技能指南和 SQLite 单元测试不代替该验收。
 
 DAG领域工作流仅使用headless身份；声明bridge时返回capability_missing，不能静默降级。需要bridge／desktop命令时使用完整命令组件的显式模式和会话授权。
+
+字体或继承媒体清单不完整的旧交付可能返回 `font_dependency_mismatch` 或 `dependency_manifest_mismatch`。保留旧运行时、原生工程和账本；不要删除记录来绕过检查。需要完整的新交付时，使用显式源重开计划并绑定原生摘要；未通过当前包核验的历史包不提升为完整交付。
+
+Historical deliveries with incomplete fonts or inherited media may return `font_dependency_mismatch` or `dependency_manifest_mismatch`. Preserve the old runtime, native files and ledger. Do not delete records to bypass checks. Generate a new complete delivery through an explicit source-reopen plan bound to the native digest; an unqualified old package is not promoted to a complete delivery.
