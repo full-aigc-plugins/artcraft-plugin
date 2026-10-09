@@ -1,0 +1,740 @@
+{
+  "schema": "artcraft-artifact-protocol-qualification140/v1",
+  "authority": "openspec/changes/establish-v1-plugin/specs/craft-artifact-protocol/spec.md",
+  "status": "AC-CP-002-qualified",
+  "specSha256": "7f94161300a53f6b2c8fa0689784ccba350939d065877d469836584d9635e433",
+  "pluginVersion": "0.1.0-dev.140",
+  "sourceVersion": "0.1.0-dev.112",
+  "runtimeVersion": "0.1.0-dev.139-runtime.1",
+  "pluginCommit": "0236f4fb4a503def818ea2584a83bf8fe0af5168",
+  "sourceCommit": "8ae5ecfc2bb38cd63248e6f2527795aa54e60775",
+  "runtimeCommit": "87c63bb3f12ee719f150064db7a385de4d533ff8",
+  "platform": "darwin-arm64",
+  "pythonVersion": "3.13.5",
+  "scenarios": [
+    {
+      "name": "AC-CP-002-JPEG",
+      "specScenario": "AC-CP-002-JPEG 产品图的内容登记与尺寸核验",
+      "status": "verified-current",
+      "nativeEvidence": [
+        "jpeg"
+      ],
+      "controlledTestFiles": [
+        "test/jpeg_artifact.test.ts",
+        "test/public_skill_adapter.test.ts"
+      ],
+      "scope": "Actual progressive JPEG-by-content import, editable Photo/PSD and independent Pillow decode; moved package; controlled malformed segment/process/precision/metadata and launch refusals."
+    },
+    {
+      "name": "AC-CP-002-FONT",
+      "specScenario": "AC-CP-002-FONT 未收集字体文件的明确状态",
+      "status": "verified-current",
+      "nativeEvidence": [
+        "inherited",
+        "dynamic"
+      ],
+      "controlledTestFiles": [
+        "test/font_dependency.test.ts",
+        "test/font_output.test.ts",
+        "test/workflow_engine.test.ts"
+      ],
+      "scope": "Four-domain explicit missing-font states, native/inspection identity binding, two successive source reopens and reuse; complete native font/style/keyframe extraction plus depth/size/structure/omitted-added/wrong binding controlled refusals."
+    },
+    {
+      "name": "AC-CP-002-P",
+      "specScenario": "AC-CP-002-P 合同条件满足",
+      "status": "verified-current",
+      "nativeEvidence": [
+        "dynamic",
+        "version",
+        "jpeg",
+        "inherited"
+      ],
+      "controlledTestFiles": [
+        "test/protocol.test.ts",
+        "test/protocol_own_fields.test.ts",
+        "test/project_package.test.ts"
+      ],
+      "scope": "Current public outputs contain versioned native, loss, technical, dependency and evidence references; strict schema/digest/own-field rejection and current identity-bound packaging. No creative or font-availability claim."
+    },
+    {
+      "name": "AC-CP-002-N",
+      "specScenario": "AC-CP-002-N 边界条件",
+      "status": "verified-current",
+      "nativeEvidence": [
+        "dynamic"
+      ],
+      "controlledTestFiles": [
+        "test/protocol.test.ts",
+        "test/workflow_engine.test.ts"
+      ],
+      "scope": "Logo revision rebuilds logo/poster/intro/film; independent node reuses; narration/background/original bytes preserved. Cyclic/missing edges refused by current graph/engine tests."
+    },
+    {
+      "name": "AC-CP-002-VERSION",
+      "specScenario": "AC-CP-002-VERSION 同版本内容不可改写",
+      "status": "verified-current",
+      "nativeEvidence": [
+        "version"
+      ],
+      "controlledTestFiles": [
+        "test/artifact_versions.test.ts"
+      ],
+      "scope": "Three actual cross-scope/repeat input conflicts refuse before registration, preserve12 tables/22 files; new version accepted and same revision reuses task/budget. Current stopped/concurrent output tests cover publication conflicts and owner/workflow isolation."
+    },
+    {
+      "name": "AC-CP-002-PATH",
+      "specScenario": "AC-CP-002-PATH 交付包迁移",
+      "status": "verified-current",
+      "nativeEvidence": [
+        "dynamic",
+        "jpeg",
+        "inherited",
+        "normalized"
+      ],
+      "controlledTestFiles": [
+        "test/protocol.test.ts",
+        "test/project_package.test.ts",
+        "test/collected_output.test.ts"
+      ],
+      "scope": "Current public moved packages verify5 dynamic/1 JPEG/4 inherited children and normalized sequence; relative dependency/inspection evidence, path escape and changed-byte refusal. Explicit missing fonts remain declared."
+    },
+    {
+      "name": "AC-CP-002-INHERIT",
+      "specScenario": "AC-CP-002-INHERIT 源工程继承素材的公共依赖",
+      "status": "verified-current",
+      "nativeEvidence": [
+        "inherited",
+        "normalized"
+      ],
+      "controlledTestFiles": [
+        "test/collected_dependencies.test.ts",
+        "test/collected_output.test.ts",
+        "test/project_package.test.ts",
+        "test/workflow_engine.test.ts"
+      ],
+      "scope": "Actual media/LUT retention through two reopens, Effect replacement and repeated reuse; normalized sequence actual descriptor identity and original lineage; unknown provenance/multiple known identities/dedup and legacy-incomplete refusals covered."
+    },
+    {
+      "name": "AC-CP-002-IMAGE",
+      "specScenario": "AC-CP-002-IMAGE 派生图片属性交接",
+      "status": "verified-current",
+      "nativeEvidence": [
+        "dynamic",
+        "jpeg"
+      ],
+      "controlledTestFiles": [
+        "test/image_export_metadata.test.ts",
+        "test/png_artifact.test.ts",
+        "test/jpeg_artifact.test.ts"
+      ],
+      "scope": "Current actual PNG output raster/depth/alpha bound to bytes; Photo JPEG derivative from current fixed public workflow carries320x400/8bit/no-alpha metadata and independently decodes with Pillow, alongside PNG/PSD and JPEG input; malformed/digest-change rejection tested at current public adapter boundary."
+    },
+    {
+      "name": "AC-CP-002-TIME",
+      "specScenario": "AC-CP-002-TIME 精确时间交接",
+      "status": "verified-current-with-retained-time-basis",
+      "nativeEvidence": [
+        "retainedTime",
+        "dynamic"
+      ],
+      "controlledTestFiles": [
+        "test/film_export_metadata.test.ts",
+        "test/protocol.test.ts"
+      ],
+      "scope": "Current exact metadata validator rechecks retained full9.85h movie/native/probe digests and JSON strings; original425512-frame independent decode reused only with unchanged native executable and time/budget paths. Current adapter tests exercise changed font/media context, overflow, missing timebase, imprecise numeric ticks and rational rates."
+    },
+    {
+      "name": "外部 JSON 验收证据",
+      "specScenario": "外部 JSON 验收证据",
+      "status": "verified-current",
+      "nativeEvidence": [],
+      "controlledTestFiles": [
+        "test/protocol.test.ts",
+        "test/protocol_own_fields.test.ts"
+      ],
+      "scope": "Current immutable runtime accepts digest-bound complete valid JSON at exact16MiB and refuses syntax errors/one-byte overflow; unknown metadata fields refused. Domain semantic binding exercised by native outputs."
+    },
+    {
+      "name": "AC-CP-002-WAV",
+      "specScenario": "AC-CP-002-WAV 配音的真实 PCM WAV 登记",
+      "status": "verified-current",
+      "nativeEvidence": [
+        "dynamic",
+        "inherited"
+      ],
+      "controlledTestFiles": [
+        "test/protocol.test.ts"
+      ],
+      "scope": "Actual48kHz PCM narration retained through native Film and moved delivery; current controlled header/chunk/alignment/format/metadata refusal corpus. No RF64/Extensible/compressed-support claim."
+    },
+    {
+      "name": "AC-CP-002-PNG",
+      "specScenario": "AC-CP-002-PNG 图片的内容登记与属性核验",
+      "status": "verified-current",
+      "nativeEvidence": [
+        "dynamic",
+        "jpeg",
+        "normalized"
+      ],
+      "controlledTestFiles": [
+        "test/png_artifact.test.ts",
+        "test/png_rgba_rows.test.ts",
+        "test/public_skill_adapter.test.ts"
+      ],
+      "scope": "Current actual static PNG import/derived output; controlled legal color/depth/Adam7/CRC/boundary/decompression/filter/tRNS/resource/APNG corpus and metadata mismatch refusal before launch. No color/creative-equivalence claim."
+    },
+    {
+      "name": "AC-CP-002-TIME-BUDGET",
+      "specScenario": "AC-CP-002-TIME-BUDGET 长时间线导出调用预算",
+      "status": "verified-current-with-retained-time-basis",
+      "nativeEvidence": [
+        "retainedTime"
+      ],
+      "controlledTestFiles": [
+        "test/native_export_budget.test.ts",
+        "test/film_export_metadata.test.ts"
+      ],
+      "scope": "Retained actual export exceeds old180s and independent full decode; byte-identical trusted runner/time mapping/native revalidated. Current OS-child deadline extension, identity/scope/expiry/3600cap and Film-only request binding tests. No fresh long re-render claimed."
+    }
+  ],
+  "qualifiedScenarios": 13,
+  "partialScenarios": 0,
+  "controlledSuite": {
+    "tests": 183,
+    "passed": 182,
+    "skipped": 1,
+    "failed": 0,
+    "skip": "public Effect script optional test; actual current Effect creation/export is covered by dynamic and inherited public installed native workflows"
+  },
+  "sourceRegression": {
+    "tests": 215,
+    "passed": 162,
+    "skipped": 53,
+    "failed": 0
+  },
+  "nativeEvidence": {
+    "dynamic": {
+      "proofPath": "artifacts/artcraft-protocol140-20261009/dynamic-proof.json",
+      "proofSha256": "c1ede6aa021529ced5267fc1598394148ba462a3f7913db46485d02a2427c84a",
+      "schema": "artcraft-dynamic-four-domain-first-use/v1",
+      "result": "PASS",
+      "runtimeVersion": "0.1.0-dev.139-runtime.1",
+      "warmRuntimeCache": true,
+      "publicColdInstallation": false,
+      "frameCount": 12,
+      "frameRate": {
+        "num": 12,
+        "den": 1
+      },
+      "independentlyDecodedFrames": 12,
+      "compositePixelChecks": 6,
+      "logoReplacementConsumersRebuilt": [
+        "logo",
+        "poster",
+        "intro",
+        "film"
+      ],
+      "independentTaskReused": true,
+      "backgroundVoiceAndInitialFramePreserved": true,
+      "originalInputsDeliveriesAndSkillsPreserved": true,
+      "sameRevisionTasksAndBudgetReused": true,
+      "corruptFrameBlockedAndRestoredWithoutReexecution": true,
+      "movedPackageChildren": 5,
+      "movedPackageSha256": "6c8ba6e343094bdbab391b2ef5661f744bee3edc15ccedcfb13c538ce89285a4",
+      "inputSha256": {
+        "background.png": "746bdca10246891a4dac08b9a5b4938e18a0e92623e76a289d9cee8827891616",
+        "voice.wav": "6fc34dec7c0eb6a247b2c7f0d82059af6d00530d43a6ca1f45321da7bf4666de"
+      }
+    },
+    "version": {
+      "proofPath": "artifacts/artcraft-protocol140-20261009/version/proof.json",
+      "proofSha256": "bce9c0ab0eecf588dc5cd1b1ca3389106269018622e42e58b62bb32b987d7839",
+      "schema": "craft-artifact-version-installed-first-use/v1",
+      "result": "PASS",
+      "runtimeVersion": "0.1.0-dev.139-runtime.1",
+      "warmRuntimeCache": true,
+      "publicColdInstallation": false,
+      "tablesPreserved": 12,
+      "filesPreserved": 22,
+      "validNewVersion": true,
+      "replayTaskAndBudgetPreserved": true,
+      "zeroLeases": true,
+      "refusals": [
+        {
+          "code": "artifact_version_conflict",
+          "message": "artifact_version_conflict"
+        },
+        {
+          "code": "artifact_version_conflict",
+          "message": "artifact_version_conflict"
+        },
+        {
+          "code": "artifact_version_conflict",
+          "message": "artifact_version_conflict"
+        }
+      ]
+    },
+    "jpeg": {
+      "proofPath": "artifacts/artcraft-protocol140-20261009/jpeg-derivative-proof.json",
+      "proofSha256": "a2cc4105bbfc657e1efaecaa7cbc5bf41ab7a54e38666f1cd6f46abacb3180f5",
+      "schema": "artcraft-jpeg-first-use-candidate/v1",
+      "result": "passed",
+      "runtimeVersion": "0.1.0-dev.139-runtime.1",
+      "warmRuntimeCache": true,
+      "publicColdInstallation": false,
+      "movedPackageChildren": 1,
+      "movedPackageSha256": "53f126783486aa8acc1d505bae7cc3113295ff012175eeec2541ed11db5fbb04",
+      "inputSha256": "5ff5028a365a1edfa29595fa76be0465caa2bf08462e0980a666fc18b706b346",
+      "jpegDerivative": {
+        "protocolVersion": "craft-artifact/v1",
+        "assetId": "poster-jpeg",
+        "version": "079771e8042b74293728ea5024cd5e321ad0e71aa63467cdffe65d8bee2445de",
+        "sha256": "079771e8042b74293728ea5024cd5e321ad0e71aa63467cdffe65d8bee2445de",
+        "bytes": 4309,
+        "mediaType": "image/jpeg",
+        "producerTaskId": "wf-488e1145fa47662aaadd23bf81917ec16c9c83e74c054623",
+        "sourceRefs": [
+          {
+            "assetId": "product",
+            "version": "5ff5028a365a1edfa29595fa76be0465caa2bf08462e0980a666fc18b706b346",
+            "sha256": "5ff5028a365a1edfa29595fa76be0465caa2bf08462e0980a666fc18b706b346"
+          }
+        ],
+        "nativeProjectRef": {
+          "assetId": "wf-488e1145fa47662aaadd23bf81917ec16c9c83e74c054623-db69c59fbc5bf076",
+          "version": "17599d6a2fdceac5a24bcba943edb08c9beba3b810be9dd149e3eb8b8c46f0f2",
+          "sha256": "17599d6a2fdceac5a24bcba943edb08c9beba3b810be9dd149e3eb8b8c46f0f2",
+          "location": "project.pcraft"
+        },
+        "renditions": [],
+        "dependencies": [
+          {
+            "assetRef": null,
+            "kind": "font",
+            "packaged": false,
+            "missingReason": "font_file_not_collected",
+            "fontRequirement": {
+              "family": "Arial",
+              "nativeProjectSha256": "17599d6a2fdceac5a24bcba943edb08c9beba3b810be9dd149e3eb8b8c46f0f2",
+              "inspectionRef": {
+                "assetId": "wf-488e1145fa47662aaadd23bf81917ec16c9c83e74c054623-912c6c7421119bb7",
+                "version": "45222d2a9d8c4479e6cedfa0f1632f277a6bcd168ed074b06fe7684c2c743ea7",
+                "sha256": "45222d2a9d8c4479e6cedfa0f1632f277a6bcd168ed074b06fe7684c2c743ea7",
+                "location": "native.json"
+              }
+            }
+          },
+          {
+            "assetRef": {
+              "assetId": "product",
+              "version": "5ff5028a365a1edfa29595fa76be0465caa2bf08462e0980a666fc18b706b346",
+              "sha256": "5ff5028a365a1edfa29595fa76be0465caa2bf08462e0980a666fc18b706b346"
+            },
+            "kind": "media",
+            "packaged": true,
+            "missingReason": null
+          }
+        ],
+        "technicalMetadata": {
+          "width": 320,
+          "height": 400,
+          "bitDepth": 8,
+          "alpha": false
+        },
+        "lossReportRef": {
+          "assetId": "wf-488e1145fa47662aaadd23bf81917ec16c9c83e74c054623-832b6e90dd1c3c59",
+          "version": "03356828ad0bcc04374f81928c2641b896a8e6cee9f7ddb0af3fc40610ea187e",
+          "sha256": "03356828ad0bcc04374f81928c2641b896a8e6cee9f7ddb0af3fc40610ea187e",
+          "location": "exchange-loss.json"
+        },
+        "evidenceRefs": [
+          {
+            "assetId": "wf-488e1145fa47662aaadd23bf81917ec16c9c83e74c054623-ffa5b716b5a57837",
+            "version": "f54719536548083ddd434dba746f4aaf9b876c1f4a8299db5cd78b00cb018ddc",
+            "sha256": "f54719536548083ddd434dba746f4aaf9b876c1f4a8299db5cd78b00cb018ddc",
+            "location": "manifest.json"
+          },
+          {
+            "assetId": "wf-488e1145fa47662aaadd23bf81917ec16c9c83e74c054623-701e94bde60208d4",
+            "version": "5ff5028a365a1edfa29595fa76be0465caa2bf08462e0980a666fc18b706b346",
+            "sha256": "5ff5028a365a1edfa29595fa76be0465caa2bf08462e0980a666fc18b706b346",
+            "location": "asset-logo.jpg"
+          },
+          {
+            "assetId": "product",
+            "version": "5ff5028a365a1edfa29595fa76be0465caa2bf08462e0980a666fc18b706b346",
+            "sha256": "5ff5028a365a1edfa29595fa76be0465caa2bf08462e0980a666fc18b706b346",
+            "location": "asset-logo.jpg"
+          },
+          {
+            "assetId": "wf-488e1145fa47662aaadd23bf81917ec16c9c83e74c054623-912c6c7421119bb7",
+            "version": "45222d2a9d8c4479e6cedfa0f1632f277a6bcd168ed074b06fe7684c2c743ea7",
+            "sha256": "45222d2a9d8c4479e6cedfa0f1632f277a6bcd168ed074b06fe7684c2c743ea7",
+            "location": "native.json"
+          }
+        ],
+        "location": "design.jpg"
+      },
+      "nativeLayers": 3,
+      "sourceAndSkillPreserved": true,
+      "technicalMetadata": {
+        "alpha": false,
+        "bitDepth": 8,
+        "height": 5,
+        "width": 7
+      }
+    },
+    "retainedTime": {
+      "proofPath": "artifacts/artcraft-protocol140-20261009/retained-time-proof.json",
+      "proofSha256": "b43a5c01967672e4521130152658e3909d80808fb1e4844c66b616a9844784df",
+      "schema": "artcraft-retained-time-current-applicability/v1",
+      "status": "passed-retained-unchanged-time-paths",
+      "originalRuntime": "0.1.0-dev.136-runtime.1",
+      "currentFixedRuntime": "0.1.0-dev.139-runtime.1",
+      "nativeExecutableSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+      "movieSha256": "27d6aff5612ea95c894975d2941bded7c7040b1be26c8e2c32a6b020e1145dc0",
+      "movieBytes": 1434591900,
+      "nativeProjectSha256": "904eb0e17a50b52bb2fde192021ccbe66c6babedaa9a844d443f7cdf0a65a025",
+      "technicalMetadata": {
+        "durationTicks": "9007238016000000",
+        "timeBase": {
+          "num": 1,
+          "den": 254016000000
+        },
+        "frameRate": {
+          "num": 12,
+          "den": 1
+        },
+        "width": 32,
+        "height": 32,
+        "alpha": false,
+        "audio": {
+          "sampleRate": 48000,
+          "channels": 2
+        }
+      },
+      "decodedFramesRetained": "425512",
+      "currentGenericArtifactDigestVerification": true,
+      "currentTimeMappingVerification": true,
+      "unchangedPaths": [
+        {
+          "path": "src/adapters/film_export_metadata.ts",
+          "old137Sha256": "db8fa0c1955cf935bc908f5cfa622a201113d6b4ac989cbb46085998fcb754c1",
+          "fixed139Sha256": "db8fa0c1955cf935bc908f5cfa622a201113d6b4ac989cbb46085998fcb754c1",
+          "byteIdentical": true
+        },
+        {
+          "path": "src/adapters/strict_mcp_runner.ts",
+          "old137Sha256": "bfe407d261fe9867ccf3f397bafe1154be8cc7752d8d30fc186f5c5c005bdaae",
+          "fixed139Sha256": "bfe407d261fe9867ccf3f397bafe1154be8cc7752d8d30fc186f5c5c005bdaae",
+          "byteIdentical": true
+        },
+        {
+          "path": "src/adapters/film_source_inspection.ts",
+          "old137Sha256": "6d6c2b0323b5e0ec510d08e894b4d807fe8106de55d2b7e32ea4bf0e9f8d14ed",
+          "fixed139Sha256": "6d6c2b0323b5e0ec510d08e894b4d807fe8106de55d2b7e32ea4bf0e9f8d14ed",
+          "byteIdentical": true
+        },
+        {
+          "path": "src/harness/local_runner.ts",
+          "old137Sha256": "3d8a65c256163d394a10936361eff52f3b83cb8abd3a25ea6a77091aeff1ed6d",
+          "fixed139Sha256": "3d8a65c256163d394a10936361eff52f3b83cb8abd3a25ea6a77091aeff1ed6d",
+          "byteIdentical": true
+        },
+        {
+          "path": "src/protocol/wav_inspection.ts",
+          "old137Sha256": "6ec1968f2c4a52f43ea4129ad6334158e696f9eebef981477cff803ad642e645",
+          "fixed139Sha256": "6ec1968f2c4a52f43ea4129ad6334158e696f9eebef981477cff803ad642e645",
+          "byteIdentical": true
+        },
+        {
+          "path": "src/protocol/png_inspection.ts",
+          "old137Sha256": "9bab80e8acd3e623827786f46f8b205341146de6ec7556638b4059543c65f5fd",
+          "fixed139Sha256": "9bab80e8acd3e623827786f46f8b205341146de6ec7556638b4059543c65f5fd",
+          "byteIdentical": true
+        },
+        {
+          "path": "src/protocol/jpeg_inspection.ts",
+          "old137Sha256": "efbc9a0eddc220a9648d0af42dbac3c6bb9b0131f795d1247f01b6172203a417",
+          "fixed139Sha256": "efbc9a0eddc220a9648d0af42dbac3c6bb9b0131f795d1247f01b6172203a417",
+          "byteIdentical": true
+        },
+        {
+          "path": "src/protocol/image_sequence.ts",
+          "old137Sha256": "e63b178aa61abf0e0bee6d407bf747acf947b880352138be70b2c26e4a3bcc56",
+          "fixed139Sha256": "e63b178aa61abf0e0bee6d407bf747acf947b880352138be70b2c26e4a3bcc56",
+          "byteIdentical": true
+        },
+        {
+          "path": "src/protocol/dependency_graph.ts",
+          "old137Sha256": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43",
+          "fixed139Sha256": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43",
+          "byteIdentical": true
+        }
+      ]
+    },
+    "inherited": {
+      "proofPath": "artifacts/artcraft-release140-20261009/fixed-inherited-first-use/proof.json",
+      "proofSha256": "7f68b862e89720167c37b1ae559df47bfc8be1db4586c786b5121b800a7b74b4",
+      "schema": "artcraft-fonts-installed-first-use/v1",
+      "status": "passed",
+      "runtimeVersion": "0.1.0-dev.139-runtime.1",
+      "warmRuntimeCache": true,
+      "packageSha256": "6a78fa3183f190320a3c2780c910451ed645fc0cd23c79fa46b2ec74468e5c8d",
+      "reopenedPackageSha256": "9186f7fd0a8678128ef334bbe20a886837d6c08a85f1fa60c1218ffba71c79a4",
+      "sourceAndSkillPreserved": true,
+      "legacyPackageRejected": true
+    },
+    "normalized": {
+      "proofPath": "artifacts/artcraft-release140-20261009/normalized-sequence-first-use-retry1/proof.json",
+      "proofSha256": "4bf46ac13a6bad6ba3d8f2bbf5afcc1781f1293549bc19b791634b4b7cf1cc56",
+      "status": "passed",
+      "runtimeVersion": "0.1.0-dev.139-runtime.1",
+      "warmRuntimeCache": true,
+      "frameCount": 12,
+      "movedPackageSha256": "bc7cf3534b5885d106d40b5c9e21e340a391b62f53b6306735c4adf10c6ec49d",
+      "sourceDescriptorSha256": "5fde34cd8fe6c182c52c1e8b813ef5795b62ca2bee4129e26fe21b1ffc0478a9",
+      "collectedDescriptorSha256": "5f07ad51d0618872e02841fd18251f833cad3cf86600962bca1004a493f6a8fa",
+      "sourceSequenceSha256": "5fde34cd8fe6c182c52c1e8b813ef5795b62ca2bee4129e26fe21b1ffc0478a9",
+      "notHdAcceptance": true,
+      "width": 320,
+      "height": 180,
+      "sourceFilesAndSkillPreserved": true
+    }
+  },
+  "immutableRuntimeFiles": {
+    "LICENSE": "f51b5b32a3b7c3df50ef7153f4dd46233221574f07384d2cf99c6fae08c59f03",
+    "package.json": "7a9610a48ef579c64baf1a07339d6ff6339ca7caab4f7135e2c8634bd674cc5c",
+    "schemas/craft-artifact-v1.json": "52d6fa53f2d799b15ec907b8e0ab77aee6f074bee6a740a3c2abb2e1c3f0649a",
+    "schemas/craft-exchange-loss-v1.json": "483670333c2ddb6515abe61fc30b9160bbe097b6abc01bda6c1ba73fc1832858",
+    "schemas/craft-task-v1.json": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+    "src/adapters/collected_dependencies.ts": "4a3f2fc1dcafbd2804ccb6bf6e6c6082005deb914b78e7d228e2105c7006335d",
+    "src/adapters/collected_output.ts": "5bc447240efe90c01c8c2a75c92ded7be8e23c73b6b254ecde8c13505961ec05",
+    "src/adapters/design_source_inspection.ts": "5fdf1bd17537a2dc328dfa293b3bf86b144eede3f3e176e92beae3d66e64c3fa",
+    "src/adapters/effect_export_probe.ts": "1e0569d15146913c32e948922a980d4f18e4e4bcced22b2b47ffe80fd4b873f5",
+    "src/adapters/film_export_metadata.ts": "db8fa0c1955cf935bc908f5cfa622a201113d6b4ac989cbb46085998fcb754c1",
+    "src/adapters/film_source_inspection.ts": "6d6c2b0323b5e0ec510d08e894b4d807fe8106de55d2b7e32ea4bf0e9f8d14ed",
+    "src/adapters/font_dependencies.ts": "043d67d8759965cc81cb91b7629add29aaaa1bf3fb182405cd85ce3bb5df100b",
+    "src/adapters/font_output.ts": "89b63721b00a19bc065eb09488b02eff6a7549dade1dbfebbfca67c51a8721d9",
+    "src/adapters/public_skill.ts": "95fc019cc06314e4dd6f8d076be6c98052034e6b42f50346a8c397fec0d1a085",
+    "src/adapters/strict_mcp_runner.ts": "bfe407d261fe9867ccf3f397bafe1154be8cc7752d8d30fc186f5c5c005bdaae",
+    "src/adapters/video_factory.ts": "1a5bf385baa46d06e1ce451b05d42707b0b67071584bf1239d2764d497a41e74",
+    "src/adapters/video_factory_driver.ts": "c0887a85adbf3eb119c2ac45d38e4f8de1d8f886c86ac8f6b2d3a9f9d817ce9d",
+    "src/artifacts/project_package.ts": "57b815030543f563089d6de770f1b3d5d2c8de7b7a3ee4f6e0868307d67c1147",
+    "src/cli.ts": "3af9051a8b01ee35fa36a91adfa7e8e215a38d26350a7f63741c87813c481518",
+    "src/harness/budget.ts": "a8a41bc4d4f7dad1103ac674cd71ef3d18449ab6206fc414c9287b45634ebf79",
+    "src/harness/execution_worker.ts": "1a6f3ee91fc96465ec93121c0de0bf1e2f72a87d875856767e39e8acda574a1a",
+    "src/harness/ledger_upgrade.ts": "fe144a8f65637952af92f9162ec30bed7b93b37bc76eb593b45c456ba511962d",
+    "src/harness/local_runner.ts": "3d8a65c256163d394a10936361eff52f3b83cb8abd3a25ea6a77091aeff1ed6d",
+    "src/harness/native_diagnostics.ts": "b78ebcd7694853d2c7da036a6c4be01ac3d135cc1a8f8851d152671c6672cc7c",
+    "src/harness/process_group.ts": "7260149d70d6312292db4a9c5419b4a33e6d24599215b164c814c6e1a7af0714",
+    "src/harness/task_ledger.ts": "324f77e81fc7fb17737e07bcd7d0645f48e285f326171da72a0ba0c826fe9d4e",
+    "src/planning/film_duration.ts": "e25a1ec1d2eac5bc2f7a64e45bb78766d79d55a68af9bae3b133ce3dc2b9a85f",
+    "src/planning/native_brief_output.ts": "876ddcf956cc130ed932543ebe6d4f9c2623bb53e230b518a39414a03da3eaac",
+    "src/planning/photo_variant_output.ts": "225ee0e64cc2bf318cca1f9dcd0804dc3da53f99c14e910e8d64e2b2a6bd1bd6",
+    "src/planning/project_brief.ts": "1a5f0a9f85b16dee0f6cca73f5ba468765e2e98f9b45f710cab81c94b7177587",
+    "src/planning/workflow_engine.ts": "700cacfe597e2f1629aeb7f1c34334fd90fffae0af7310ce80594ceab81ad9ba",
+    "src/protocol/artifact_versions.ts": "8b2c127fe32fa97b34458d8934abe6a43cfb3ebabb396805a7bda31d60c3094c",
+    "src/protocol/contracts.ts": "2197306ecd36980221a6f44e04d8c5a829d565c08ff127aa38308c9f196292b8",
+    "src/protocol/dependency_graph.ts": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43",
+    "src/protocol/image_sequence.ts": "e63b178aa61abf0e0bee6d407bf747acf947b880352138be70b2c26e4a3bcc56",
+    "src/protocol/jpeg_inspection.ts": "efbc9a0eddc220a9648d0af42dbac3c6bb9b0131f795d1247f01b6172203a417",
+    "src/protocol/png_inspection.ts": "9bab80e8acd3e623827786f46f8b205341146de6ec7556638b4059543c65f5fd",
+    "src/protocol/task_error.ts": "1640b84a5dc3850dc9f7c93f868ff0188f592a0aad68b6047dfc926cb73bdac7",
+    "src/protocol/wav_inspection.ts": "6ec1968f2c4a52f43ea4129ad6334158e696f9eebef981477cff803ad642e645"
+  },
+  "immutableSkillFiles": {
+    "skills/artcraft-cli-execute/SKILL.md": "bfeb2b94c6e4fee8cd9aa9c0512fbcec8a1c1af07c00cef42871b8b31d3f2c67",
+    "skills/artcraft-cli-execute/examples/brand-brief.json": "83bd8bcccec8fe4d9560687f85db757f4f44906ab50d817a657f573c1db9ffd0",
+    "skills/artcraft-cli-execute/examples/brand-campaign.json": "3e5e60ffda7efac81c8940e5f1e1e817f29a9807eebd3e4bb905998d7b041bf4",
+    "skills/artcraft-cli-execute/examples/brand-token-campaign.json": "3af8b60f59361eea0b7ad7531155922aa7fbc588673a89387a7ef727c3b830eb",
+    "skills/artcraft-cli-execute/examples/chinese-brand-campaign.json": "e98b5bb3e2eb45b5f12c02477b0f8a8d5a5f6ca4acd367b5a5d5d5b889c09712",
+    "skills/artcraft-cli-execute/examples/domain-effectcraft-create.json": "03d3d7796210dfd4ff27f6cde0e1ba10b4376b0243dc4938d87103ca991f5f61",
+    "skills/artcraft-cli-execute/examples/domain-effectcraft-desktop.json": "38c54bb2c653f9ac1490e0953d5081e5c74869438baf3731173540f0332119f1",
+    "skills/artcraft-cli-execute/examples/domain-effectcraft-revise.json": "d54bfa78c48b674136b56a8e0c7e36e4c1c475a5907ba46ae450b2ac86e17d1e",
+    "skills/artcraft-cli-execute/examples/domain-filmcraft-create.json": "de489d735caa481500fd0ede481d6034b9e2652eb39232541ded6a6a7b11dc1e",
+    "skills/artcraft-cli-execute/examples/domain-filmcraft-desktop.json": "3c64e48acff1905c49114b75f2ee09cb4949f64fde666970b40c12fe726980b3",
+    "skills/artcraft-cli-execute/examples/domain-filmcraft-revise.json": "33d91cf6b63982dfe7fb9c75b2aec6babf4ff2184f0673dcf00e19ad72e3f611",
+    "skills/artcraft-cli-execute/examples/domain-photocraft-create.json": "d0585885b908e265e385c6c57507e074e71158f9c41862990690a7ebb7967fde",
+    "skills/artcraft-cli-execute/examples/domain-photocraft-desktop.json": "8912f9c817eabfc95faf5e37af113b7d0e8c3c7d4a8c8b1b06aa2c340f53eed2",
+    "skills/artcraft-cli-execute/examples/domain-photocraft-revise.json": "444baa22f6c1f6c26e0f498dbac68bdfc5c93280678f08f41486057ccd3a165f",
+    "skills/artcraft-cli-execute/examples/domain-vectorcraft-create.json": "c7668b298747a3dec9266826344778e8c977a36df293436531ea1ea8db4a44bc",
+    "skills/artcraft-cli-execute/examples/domain-vectorcraft-desktop.json": "41461b895abe438b35cfa2fcedec42d883ceb0a77812cb5e21e071b5473f3b2b",
+    "skills/artcraft-cli-execute/examples/domain-vectorcraft-revise.json": "8e416f9ed55a21862cfc6848ca4e9f97b3fbd2b405b9a56faf89dbc016cbe779",
+    "skills/artcraft-cli-execute/examples/dynamic-brand-campaign.json": "61d79ea215130e7f3b54184d211912430be15856e909e66fa0550456791fa18c",
+    "skills/artcraft-cli-execute/examples/effect-expression-revision-plan.json": "8076203648de8834c0681149e557ea4ffed35e0863c2e7a2dec2b4001e3ca22f",
+    "skills/artcraft-cli-execute/examples/effect-expression-workflow.json": "2fd9547a8d13f879266ffb4b53c29e4a92dbb29488436fc2580423a5be3d475b",
+    "skills/artcraft-cli-execute/examples/mixed-asr-operations.json": "b4a4c3905f84b2b13c750c578768249603db02c5568f8ed90fb9b745c1eca23b",
+    "skills/artcraft-cli-execute/examples/photo-adjustment-revision-plan.json": "bee2a7ecc778f24b141a5a82858226f617db99406e053f1303f7065308132369",
+    "skills/artcraft-cli-execute/examples/photo-adjustment-workflow.json": "8152390a3e55ffc6ccab77a33f63182b040b169c36abb601e523147817297299",
+    "skills/artcraft-cli-execute/examples/segmented-hd-brand-campaign.json": "14d7cea358da18da488b76f73e53c6f820fe0236440f168efe0720ce729b97c1",
+    "skills/artcraft-cli-execute/examples/smart-dynamic-brand-campaign.json": "da86092048e3d73bc9757e09a8a1ef02c7b8c4407c557caaedb3d9e68ca97e76",
+    "skills/artcraft-cli-execute/examples/vector-appearance-revision-plan.json": "3e464a7576f55684c45eaf4b3b4ce94bc53c52a4e360e2a1609372201686f616",
+    "skills/artcraft-cli-execute/examples/vector-appearance-workflow.json": "e24206309610238ab6ace633e0bb82ee1d3c22377219c5b1d1b8bb0be6f6b6a9",
+    "skills/artcraft-cli-execute/references/brand-token-workflow.md": "28f955155ca50f4dfa54da53c9e20ea035171aac70681972d9d6638900d0f8c0",
+    "skills/artcraft-cli-execute/references/brief.md": "db2d255e41211ee3b3166e15b1758c455c65d3d0a7c4e19b59f790e30790cccf",
+    "skills/artcraft-cli-execute/references/business-scenes.md": "74f4dee63a006ba2c1dd51e61ad8f0476ec04f3a5a5d3cc751f546207e9cffd8",
+    "skills/artcraft-cli-execute/references/command-contract-boundary.md": "59e2bd65fa460c341f81697739dbabb1161f92e6dfa62a18649947bea819c22d",
+    "skills/artcraft-cli-execute/references/commands.json": "6da027ae418ef7d24a69560a01bbb05f2db3de7df50ede9341a924aee6220ad9",
+    "skills/artcraft-cli-execute/references/consistency.md": "c5739f48e3f281059a6de86021a5ad2dc9e26a10c2aba86ad028dce92719a0c1",
+    "skills/artcraft-cli-execute/references/desktop-handoff.md": "a1229e22f44d7cdc7aa0dd9e18f318e0dcc806f871a8f7fb9410fc2eb26e6fb5",
+    "skills/artcraft-cli-execute/references/domain-command-index.json": "bb0c7f91de4a172b5ff015074f631d67321dc1824ed4f6da8473cc80898a7339",
+    "skills/artcraft-cli-execute/references/domain-commands.md": "9842360fab9cb0c4a4cf38a0c78b4467e6f17d2d4fc2ab37148913dca25ff689",
+    "skills/artcraft-cli-execute/references/dynamic-sequence.md": "e464c7a033e2f99c9dd1d33047c2a37441e01271fb06806f43d2f290c773225b",
+    "skills/artcraft-cli-execute/references/effect-expression.md": "cd89fe9670a41a06ba1918a86717cfde9ef21a5f8445939f8b3272d8e85481d3",
+    "skills/artcraft-cli-execute/references/exchange-loss.md": "52102251621536a3cd9251ebafcfe62f47493a1c9b24aa26471b15a52a2debb2",
+    "skills/artcraft-cli-execute/references/first-use-failures.md": "d17485036dd3027f86a5bad99b722d0713ae7e472d30c6d2cfb4b22037ab31c9",
+    "skills/artcraft-cli-execute/references/mixed-asr.md": "fb3eec49c7aaa217ead689dd2880fd3451425ed74f9debb00fa1988afb1c872d",
+    "skills/artcraft-cli-execute/references/mode-command-catalog.json": "69aa578e1685996cea4fa5aa99260697a8c61d2273ad639e0885410baa07ce2c",
+    "skills/artcraft-cli-execute/references/mode-command-catalog.md": "2bc3868d05d5b812bdb203fc8d3164bcd51d7a9b88334b5464ede35d597e881a",
+    "skills/artcraft-cli-execute/references/photo-adjustment.md": "8a40cc9b35d51ee15382415be25e546942f382e3c5c14753eea8d5c12f6ae229",
+    "skills/artcraft-cli-execute/references/photo-delivery-integrity.md": "444a7cc41be0de89e0c492d3a355e8bdbded50e70ffeaabe696ac125a354a5e4",
+    "skills/artcraft-cli-execute/references/project-package.md": "a28959b5ad1f0d77b619242de9181b26f1ac532e63313578580d25d5b02529d2",
+    "skills/artcraft-cli-execute/references/recovery.md": "04c7d80ca1bee85f084b91074223b7412d1c810fffa548a82f02eb0f37700773",
+    "skills/artcraft-cli-execute/references/review.md": "5bd0e417ab1db9363a5fa9f40ff75fbb706cd15a4a19fa3c6002300c0c8bcb43",
+    "skills/artcraft-cli-execute/references/revision.md": "d664983acdbb2cd83ecc2c979bd6cc81fb59696fdaddb99d702e9fe0311fcb01",
+    "skills/artcraft-cli-execute/references/runtime-upgrade.md": "9750ab9a80c545b70c7fa4256644d8b6dad0bcb751a7ec1e1c67382c476ab712",
+    "skills/artcraft-cli-execute/references/scenario.md": "80468047d33d83e28fed4ee1173ba780789cbcd59c7f1730cd4d2e4790e4dfa4",
+    "skills/artcraft-cli-execute/references/task-receipts.md": "9edcb139566c9854902175dd4f93a9f869614d351a05e8d4919404ff203ad401",
+    "skills/artcraft-cli-execute/references/vector-appearance.md": "0269d33e166b092c1efe91463fb99410df72da37a2748e5fb6da9623db6c32c7",
+    "skills/artcraft-cli-execute/references/video-factory.md": "ce5edfe349cb0d74a7e5126440523c157e71aba8a26f8d71e79149343212f6b5",
+    "skills/artcraft-cli-execute/references/workflow.md": "53303d3825c1ed8ae2f124469a43f7fb187334cda3e9ceaf31d55ad1257dbb86",
+    "skills/artcraft-cli-execute/scripts/bootstrap.py": "e019fa5b35c819f6025eec1f0711b180eefe5351bc1b0db84a2f4dc50fec8fdf",
+    "skills/artcraft-cli-execute/scripts/brief.py": "a1b2e526c4f631e60998c777e1d8332ed6d2f61ca4afa106bf9068f15f3f3124",
+    "skills/artcraft-cli-execute/scripts/cli.py": "020603afe656bbe056e6208fbc03ce7dce68b941822ed4e7fea1efb413dc37a5",
+    "skills/artcraft-cli-execute/scripts/consistency.py": "2057087981a082dc004f3dbe813516c514f2fb88fc40faf9af78eefe5a45b385",
+    "skills/artcraft-cli-execute/scripts/distribution.lock.json": "8833ea5fd59e5aed225fbbe863daaf32d8c6215e02eee22991dbbd6ad780705f",
+    "skills/artcraft-cli-execute/scripts/domain_commands.py": "8c02bb31eb678b3065671ec5d223a8428cd62fdd74222f80bee3f3c1b3d5faf8",
+    "skills/artcraft-cli-execute/scripts/download.py": "f569dd3f0d4765a0cdf9c4efd26060963ef774128f29575a38c578f44ae07263",
+    "skills/artcraft-cli-execute/scripts/jpeg_inspection.py": "6d057317962954b147864ae33966582553dc0591335af42bfdc3da333ed2257c",
+    "skills/artcraft-cli-execute/scripts/mode_catalog.py": "fdd151617df9f311f49a73c39c4abd3550797b93b3c77393c702beaba96f25f0",
+    "skills/artcraft-cli-execute/scripts/native_contract.py": "5e1ef53a8ba7c526203cb0c82fdc926a383591b05213e1df0b59dfc19476f073",
+    "skills/artcraft-cli-execute/scripts/node.lock.json": "5d47b1f8b5a1738686f3033981444489eafeb99854d2102254be0375ae4462b8",
+    "skills/artcraft-cli-execute/scripts/package.py": "9d98f5c17e707b5fd80c43dde55c4d5b50cb2b27c2945607a5376c6a13ecc48c",
+    "skills/artcraft-cli-execute/scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+    "skills/artcraft-cli-execute/scripts/public_call.py": "94388742c4b959319469d7389321e2226845c81b8166cc6f923419da65e9dbd8",
+    "skills/artcraft-cli-execute/scripts/review.py": "a0141dc735e1178680f3313f9071f0f1a96fe55fe9c4aad3e33afb719a6d9406",
+    "skills/artcraft-cli-execute/scripts/revision.py": "ecb0c7da71c213519f6e62b33748cb818715722854e1c457b9a3f39811884a93",
+    "skills/artcraft-cli-execute/scripts/setup.py": "52d504e14c6a0765188fbdfd0f421fb701b368144dcd92fca41aa538faafa01e",
+    "skills/artcraft-cli-execute/scripts/workflow.py": "a09715d85b6c195fce8a571ae95c60003cd6c1845c58e77d04949126effddb63",
+    "skills/artcraft-cli-revise/SKILL.md": "d0c4b091ed758c23d50c14c39b39a47610b2966a004b55b3113684d2ad3d8d31",
+    "skills/artcraft-cli-revise/examples/brand-brief.json": "83bd8bcccec8fe4d9560687f85db757f4f44906ab50d817a657f573c1db9ffd0",
+    "skills/artcraft-cli-revise/examples/brand-campaign.json": "3e5e60ffda7efac81c8940e5f1e1e817f29a9807eebd3e4bb905998d7b041bf4",
+    "skills/artcraft-cli-revise/examples/brand-token-campaign.json": "3af8b60f59361eea0b7ad7531155922aa7fbc588673a89387a7ef727c3b830eb",
+    "skills/artcraft-cli-revise/examples/chinese-brand-campaign.json": "e98b5bb3e2eb45b5f12c02477b0f8a8d5a5f6ca4acd367b5a5d5d5b889c09712",
+    "skills/artcraft-cli-revise/examples/domain-effectcraft-create.json": "03d3d7796210dfd4ff27f6cde0e1ba10b4376b0243dc4938d87103ca991f5f61",
+    "skills/artcraft-cli-revise/examples/domain-effectcraft-desktop.json": "38c54bb2c653f9ac1490e0953d5081e5c74869438baf3731173540f0332119f1",
+    "skills/artcraft-cli-revise/examples/domain-effectcraft-revise.json": "d54bfa78c48b674136b56a8e0c7e36e4c1c475a5907ba46ae450b2ac86e17d1e",
+    "skills/artcraft-cli-revise/examples/domain-filmcraft-create.json": "de489d735caa481500fd0ede481d6034b9e2652eb39232541ded6a6a7b11dc1e",
+    "skills/artcraft-cli-revise/examples/domain-filmcraft-desktop.json": "3c64e48acff1905c49114b75f2ee09cb4949f64fde666970b40c12fe726980b3",
+    "skills/artcraft-cli-revise/examples/domain-filmcraft-revise.json": "33d91cf6b63982dfe7fb9c75b2aec6babf4ff2184f0673dcf00e19ad72e3f611",
+    "skills/artcraft-cli-revise/examples/domain-photocraft-create.json": "d0585885b908e265e385c6c57507e074e71158f9c41862990690a7ebb7967fde",
+    "skills/artcraft-cli-revise/examples/domain-photocraft-desktop.json": "8912f9c817eabfc95faf5e37af113b7d0e8c3c7d4a8c8b1b06aa2c340f53eed2",
+    "skills/artcraft-cli-revise/examples/domain-photocraft-revise.json": "444baa22f6c1f6c26e0f498dbac68bdfc5c93280678f08f41486057ccd3a165f",
+    "skills/artcraft-cli-revise/examples/domain-vectorcraft-create.json": "c7668b298747a3dec9266826344778e8c977a36df293436531ea1ea8db4a44bc",
+    "skills/artcraft-cli-revise/examples/domain-vectorcraft-desktop.json": "41461b895abe438b35cfa2fcedec42d883ceb0a77812cb5e21e071b5473f3b2b",
+    "skills/artcraft-cli-revise/examples/domain-vectorcraft-revise.json": "8e416f9ed55a21862cfc6848ca4e9f97b3fbd2b405b9a56faf89dbc016cbe779",
+    "skills/artcraft-cli-revise/examples/dynamic-brand-campaign.json": "61d79ea215130e7f3b54184d211912430be15856e909e66fa0550456791fa18c",
+    "skills/artcraft-cli-revise/examples/effect-expression-revision-plan.json": "8076203648de8834c0681149e557ea4ffed35e0863c2e7a2dec2b4001e3ca22f",
+    "skills/artcraft-cli-revise/examples/effect-expression-workflow.json": "2fd9547a8d13f879266ffb4b53c29e4a92dbb29488436fc2580423a5be3d475b",
+    "skills/artcraft-cli-revise/examples/mixed-asr-operations.json": "b4a4c3905f84b2b13c750c578768249603db02c5568f8ed90fb9b745c1eca23b",
+    "skills/artcraft-cli-revise/examples/photo-adjustment-revision-plan.json": "bee2a7ecc778f24b141a5a82858226f617db99406e053f1303f7065308132369",
+    "skills/artcraft-cli-revise/examples/photo-adjustment-workflow.json": "8152390a3e55ffc6ccab77a33f63182b040b169c36abb601e523147817297299",
+    "skills/artcraft-cli-revise/examples/segmented-hd-brand-campaign.json": "14d7cea358da18da488b76f73e53c6f820fe0236440f168efe0720ce729b97c1",
+    "skills/artcraft-cli-revise/examples/smart-dynamic-brand-campaign.json": "da86092048e3d73bc9757e09a8a1ef02c7b8c4407c557caaedb3d9e68ca97e76",
+    "skills/artcraft-cli-revise/examples/vector-appearance-revision-plan.json": "3e464a7576f55684c45eaf4b3b4ce94bc53c52a4e360e2a1609372201686f616",
+    "skills/artcraft-cli-revise/examples/vector-appearance-workflow.json": "e24206309610238ab6ace633e0bb82ee1d3c22377219c5b1d1b8bb0be6f6b6a9",
+    "skills/artcraft-cli-revise/references/brand-token-workflow.md": "28f955155ca50f4dfa54da53c9e20ea035171aac70681972d9d6638900d0f8c0",
+    "skills/artcraft-cli-revise/references/brief.md": "db2d255e41211ee3b3166e15b1758c455c65d3d0a7c4e19b59f790e30790cccf",
+    "skills/artcraft-cli-revise/references/business-scenes.md": "74f4dee63a006ba2c1dd51e61ad8f0476ec04f3a5a5d3cc751f546207e9cffd8",
+    "skills/artcraft-cli-revise/references/command-contract-boundary.md": "59e2bd65fa460c341f81697739dbabb1161f92e6dfa62a18649947bea819c22d",
+    "skills/artcraft-cli-revise/references/commands.json": "6da027ae418ef7d24a69560a01bbb05f2db3de7df50ede9341a924aee6220ad9",
+    "skills/artcraft-cli-revise/references/consistency.md": "c5739f48e3f281059a6de86021a5ad2dc9e26a10c2aba86ad028dce92719a0c1",
+    "skills/artcraft-cli-revise/references/desktop-handoff.md": "a1229e22f44d7cdc7aa0dd9e18f318e0dcc806f871a8f7fb9410fc2eb26e6fb5",
+    "skills/artcraft-cli-revise/references/domain-command-index.json": "bb0c7f91de4a172b5ff015074f631d67321dc1824ed4f6da8473cc80898a7339",
+    "skills/artcraft-cli-revise/references/domain-commands.md": "9842360fab9cb0c4a4cf38a0c78b4467e6f17d2d4fc2ab37148913dca25ff689",
+    "skills/artcraft-cli-revise/references/dynamic-sequence.md": "e464c7a033e2f99c9dd1d33047c2a37441e01271fb06806f43d2f290c773225b",
+    "skills/artcraft-cli-revise/references/effect-expression.md": "cd89fe9670a41a06ba1918a86717cfde9ef21a5f8445939f8b3272d8e85481d3",
+    "skills/artcraft-cli-revise/references/exchange-loss.md": "52102251621536a3cd9251ebafcfe62f47493a1c9b24aa26471b15a52a2debb2",
+    "skills/artcraft-cli-revise/references/first-use-failures.md": "d17485036dd3027f86a5bad99b722d0713ae7e472d30c6d2cfb4b22037ab31c9",
+    "skills/artcraft-cli-revise/references/mixed-asr.md": "c7db016c33c960156de045b43af0222996c700c8bb863de57726006d36a5c8b6",
+    "skills/artcraft-cli-revise/references/mode-command-catalog.json": "69aa578e1685996cea4fa5aa99260697a8c61d2273ad639e0885410baa07ce2c",
+    "skills/artcraft-cli-revise/references/mode-command-catalog.md": "2bc3868d05d5b812bdb203fc8d3164bcd51d7a9b88334b5464ede35d597e881a",
+    "skills/artcraft-cli-revise/references/photo-adjustment.md": "8a40cc9b35d51ee15382415be25e546942f382e3c5c14753eea8d5c12f6ae229",
+    "skills/artcraft-cli-revise/references/photo-delivery-integrity.md": "444a7cc41be0de89e0c492d3a355e8bdbded50e70ffeaabe696ac125a354a5e4",
+    "skills/artcraft-cli-revise/references/project-package.md": "a28959b5ad1f0d77b619242de9181b26f1ac532e63313578580d25d5b02529d2",
+    "skills/artcraft-cli-revise/references/recovery.md": "04c7d80ca1bee85f084b91074223b7412d1c810fffa548a82f02eb0f37700773",
+    "skills/artcraft-cli-revise/references/review.md": "5bd0e417ab1db9363a5fa9f40ff75fbb706cd15a4a19fa3c6002300c0c8bcb43",
+    "skills/artcraft-cli-revise/references/revision.md": "d664983acdbb2cd83ecc2c979bd6cc81fb59696fdaddb99d702e9fe0311fcb01",
+    "skills/artcraft-cli-revise/references/runtime-upgrade.md": "9750ab9a80c545b70c7fa4256644d8b6dad0bcb751a7ec1e1c67382c476ab712",
+    "skills/artcraft-cli-revise/references/scenario.md": "e8820ef0b632b32393375754957d177b21b36595b79442a05aa0b6845c1c02c8",
+    "skills/artcraft-cli-revise/references/task-receipts.md": "9edcb139566c9854902175dd4f93a9f869614d351a05e8d4919404ff203ad401",
+    "skills/artcraft-cli-revise/references/vector-appearance.md": "0269d33e166b092c1efe91463fb99410df72da37a2748e5fb6da9623db6c32c7",
+    "skills/artcraft-cli-revise/references/video-factory.md": "ce5edfe349cb0d74a7e5126440523c157e71aba8a26f8d71e79149343212f6b5",
+    "skills/artcraft-cli-revise/references/workflow.md": "53303d3825c1ed8ae2f124469a43f7fb187334cda3e9ceaf31d55ad1257dbb86",
+    "skills/artcraft-cli-revise/scripts/bootstrap.py": "e019fa5b35c819f6025eec1f0711b180eefe5351bc1b0db84a2f4dc50fec8fdf",
+    "skills/artcraft-cli-revise/scripts/brief.py": "a1b2e526c4f631e60998c777e1d8332ed6d2f61ca4afa106bf9068f15f3f3124",
+    "skills/artcraft-cli-revise/scripts/cli.py": "020603afe656bbe056e6208fbc03ce7dce68b941822ed4e7fea1efb413dc37a5",
+    "skills/artcraft-cli-revise/scripts/consistency.py": "2057087981a082dc004f3dbe813516c514f2fb88fc40faf9af78eefe5a45b385",
+    "skills/artcraft-cli-revise/scripts/distribution.lock.json": "8833ea5fd59e5aed225fbbe863daaf32d8c6215e02eee22991dbbd6ad780705f",
+    "skills/artcraft-cli-revise/scripts/domain_commands.py": "8c02bb31eb678b3065671ec5d223a8428cd62fdd74222f80bee3f3c1b3d5faf8",
+    "skills/artcraft-cli-revise/scripts/download.py": "f569dd3f0d4765a0cdf9c4efd26060963ef774128f29575a38c578f44ae07263",
+    "skills/artcraft-cli-revise/scripts/jpeg_inspection.py": "6d057317962954b147864ae33966582553dc0591335af42bfdc3da333ed2257c",
+    "skills/artcraft-cli-revise/scripts/mode_catalog.py": "fdd151617df9f311f49a73c39c4abd3550797b93b3c77393c702beaba96f25f0",
+    "skills/artcraft-cli-revise/scripts/native_contract.py": "5e1ef53a8ba7c526203cb0c82fdc926a383591b05213e1df0b59dfc19476f073",
+    "skills/artcraft-cli-revise/scripts/node.lock.json": "5d47b1f8b5a1738686f3033981444489eafeb99854d2102254be0375ae4462b8",
+    "skills/artcraft-cli-revise/scripts/package.py": "9d98f5c17e707b5fd80c43dde55c4d5b50cb2b27c2945607a5376c6a13ecc48c",
+    "skills/artcraft-cli-revise/scripts/png_inspection.py": "f5b55f58eb0f4d7d50664442eec75935cdebc3274e04b221acad54fed429bc02",
+    "skills/artcraft-cli-revise/scripts/public_call.py": "94388742c4b959319469d7389321e2226845c81b8166cc6f923419da65e9dbd8",
+    "skills/artcraft-cli-revise/scripts/review.py": "a0141dc735e1178680f3313f9071f0f1a96fe55fe9c4aad3e33afb719a6d9406",
+    "skills/artcraft-cli-revise/scripts/revision.py": "ecb0c7da71c213519f6e62b33748cb818715722854e1c457b9a3f39811884a93",
+    "skills/artcraft-cli-revise/scripts/setup.py": "52d504e14c6a0765188fbdfd0f421fb701b368144dcd92fca41aa538faafa01e",
+    "skills/artcraft-cli-revise/scripts/workflow.py": "a09715d85b6c195fce8a571ae95c60003cd6c1845c58e77d04949126effddb63"
+  },
+  "testSourceSha256": {
+    "plugin/test/native_export_budget.test.ts": "14a3d6c4d7ba503fe389e56a6cbdb3bfcd47fd9e9f631a849f4d5e94edb96606",
+    "plugin/test/protocol.test.ts": "8290937641cd168f4c23072293c879fea157dd8592f1b34bcd78db9478dfeead",
+    "plugin/test/font_output.test.ts": "0985e517e6c0447ddbf23418474a0835aac16f901374ac113302ae42e28dc6fd",
+    "plugin/test/artifact_versions.test.ts": "b779afbdac4092a7e272fcc9cd1380710090a3d03f4d7797bdd264e84119d02d",
+    "plugin/test/workflow_engine.test.ts": "74e6facfb52818b1c12dfdbff8dfeb4034698e22c85836e503a50e402170ef98",
+    "plugin/test/project_package.test.ts": "610b19b4771de088008f57b0a25a1197e28f4c283938927d3f8682f44b309e45",
+    "plugin/test/film_export_metadata.test.ts": "73831227c6042e7c53a9f6b6b4d26175e5acd81ebff3ab48fc4b1734e06d57e4",
+    "plugin/test/collected_dependencies.test.ts": "fc7cd1c8799ee652e60bdd4ef60a5e9642da520142b6661cd2427f10ec7bcce0",
+    "plugin/test/font_dependency.test.ts": "e7be75cb9a866327d88dffabcdfa034d89fb4f72249ce58830720c06c1219a07",
+    "plugin/test/png_rgba_rows.test.ts": "a72c6078bd2d66e88a320fa98d24f21c86c978c0ab9fb3769c42adf21b082e37",
+    "plugin/test/jpeg_artifact.test.ts": "7a9adaec1322adde4bdc90178e1b8b44bbfc83f348755ec50d8a89427b88fd46",
+    "plugin/test/png_artifact.test.ts": "72b3b7f750863dfe032c067d68ae81b242f91fdc19c3d6304b744204f1fd6690",
+    "plugin/test/image_sequence.test.ts": "3c7cc164a9bccae634cb05dbe019357e2d352b34c00e27028868b3977e13e850",
+    "plugin/test/segmented_sequence.test.ts": "778c37dc24ac48d93ac60098a50cd4946498cf70ae8b2262e3a2e55e0f474ec3",
+    "plugin/test/collected_output.test.ts": "0a35faa0801f80254d078f762973500af418dc3091ce859ce37c4ec1948b9dc7",
+    "plugin/test/protocol_own_fields.test.ts": "421573d1a463b2b9a3fe6e77834a9b8cc546fdff16065bcf55b3386deb9df90d",
+    "plugin/test/image_export_metadata.test.ts": "05eb73bcb6b1b12517f964d2240512d4091f77445f86ba230070d73c919ce386",
+    "plugin/test/lut_binding.test.ts": "32181e496300dbefc9f4ab9b23278d285e02deb09c204bf46660acaef279078c",
+    "plugin/test/public_skill_adapter.test.ts": "9dd3819d74edd7e6a33e52e56d29b1edcc83de56e6574da2b8ac8c9ff5f78715",
+    "skills/tests/test_dynamic_sequence_first_use.py": "b713179c67663ae0f1622a4f1aa105033708212fc5adf3ed0603e997a0dd4419",
+    "skills/tests/test_artifact_version_first_use.py": "479eb3c07e335a0fbcca8297ee37b49645e89bec0fdd7db02bfc7f46229f5b86",
+    "skills/tests/test_jpeg_first_use.py": "1b4fbad3575ef343b62d264b87b3dc7ec0a77e4ddd7a40cf200d491b00a6be6e"
+  },
+  "logsSha256": {
+    "fixed-core": "bac44375e3010fc2cc9ee878fbf0f9ab22ba752f5a93c09bcda636598cd1191c",
+    "dynamic": "d510e5bc43c49ca00b797738671cd519873d9630292702c15da756732ee3318a",
+    "version": "a62df2066b49bf2c15934e21550739ad8107beea664ace6b647a0fa7602072ce",
+    "jpeg": "82005fcfa2d1853dbd7d1e8867cbfee74ef6466309832f4e4a61b639fcf22f41",
+    "retained-time": "9ed43d093c37c922c671d3571c2b9ee6247e1676b1730df8aecac9cc2624441c",
+    "retained-time-retry1": "d8c6dad60f85aeb06d3104704be86db2afde1496a18831aecfc1bff5397f6108",
+    "source-regression-final": "32be4b1efbc8ae999c33c0418bdca7f1cd26498602f8a3fcdde1ef2fb6c3f2af",
+    "jpeg-derivative": "05fa4d3048b11ee65caf12e2abbcc5b8706b9c4ad7bc2bf6a971ae8218b058cb"
+  },
+  "task2_3Complete": true,
+  "v1Complete": false,
+  "limits": [
+    "macOS arm64 only",
+    "warm public pinned installer cache, not new cold/host-wide qualification",
+    "long movie is retained137 output rehashed by current validator with unchanged time/native paths, not a fresh140 render",
+    "legacy dependency/package records are not promoted to current qualified output",
+    "native font files remain explicitly uncollected; no portable font availability or license claim",
+    "controlled failures complement native positives; creative acceptance remains separate"
+  ],
+  "qaInvocationFailure": "Initial retained-time script used a latest Effect-only installation receipt and had no Film entry. Corrected to current dynamic four-domain receipt; no product change and no receipt rewrite."
+}
