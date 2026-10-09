@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Fixed140/source112/runtime139 now qualifies16/17 named runtime scenarios with explicit current/retained boundaries; Vector mode ambiguity and full V1 remain open. [Scenario audit](docs/ArtCraft-Runtime-Scenario-Audit-Architecture.md).
+
 AC-CP-001 qualifies across seven named scenarios for fixed140/source112/runtime139 on macOS arm64. Task1.3 completes;10 numbered tasks and full V1 remain open. [Task contract and consumer evidence](docs/ArtCraft-Task-Protocol-Qualification-Architecture.md).
 
 AC-CP-002 qualifies across13 named scenarios for fixed140/source112/runtime139 on macOS arm64. Task2.3 completes;11 numbered tasks and full V1 remain open. [Qualification and retained-evidence limits](docs/ArtCraft-Artifact-Protocol-Qualification-Architecture.md).

@@ -119,27 +119,6 @@
 - **WHEN** 单个Art技能以空缓存安装固定领域CLI，原生下载出现临时SSL EOF或不完整响应
 - **THEN** 分发SHALL绑定支持最多三次只读下载并丢弃半包的领域安装器；SHA、证书、权限及安全解压边界保留，原生编辑不得重放；此前失败证据与新固定安装验收分别记录
 
-### Requirement: AC-DS-001 Owned desktop domain handoff
-ArtCraft SHALL support explicit domain command `--mode desktop` using immutable pinned child skills. It SHALL verify the child bundle and native CLI, reject external connect/token options before installation, invoke the child's owned desktop launcher, validate the native bridge receipt and desktop lifecycle identity, and preserve unknown outcomes without replay. Headless and explicitly connected bridge modes SHALL retain their existing contracts.
-
-#### Scenario: Desktop command first use
-- **WHEN** a valid selected-domain plan runs in desktop mode with an empty runtime
-- **THEN** ArtCraft installs only the selected domain bundle, delegates owned startup to that skill, and validates command plus desktop identity and stopped-process receipts
-
-#### Scenario: Conflicting connection or untrusted receipt
-- **WHEN** desktop mode supplies an external connection/token or returns a mismatched desktop receipt
-- **THEN** ArtCraft rejects the call and does not replay edits
-
-#### Scenario: Desktop handoff receipt or metadata conflict
-- **WHEN** a desktop plan targets reserved desktop metadata, or a child receipt mismatches the pinned desktop identity, listener ownership or process cleanup
-- **THEN** Art rejects the plan before setup or reports the actual handoff as unknown without replay or claiming mixed-project acceptance
-
-#### Scenario: Mode-aware bridge-only tools
-- **WHEN** the selected immutable domain bundle includes a bridge-only tool snapshot
-- **THEN** Art verifies its locked file digest and CLI identity, exposes its actual schemas only in bridge or desktop queries and preflight, and refuses these tools in headless mode before installation
-- **AND** the child validates live bridge schemas before editing; unlocked snapshot injection and schema drift cannot widen the allowed native tool set
-
-
 #### Scenario: [AC-RT-002-PLAN-JSON] 严格命令计划的独立分发
 
 - **GIVEN** FilmCraft / EffectCraft / VectorCraft 固定技能源为 dev.28，PhotoCraft 为 dev.29，公开命令计划拒绝根对象、操作对象及参数对象中的重复 JSON 键
@@ -189,3 +168,23 @@ ArtCraft SHALL support explicit domain command `--mode desktop` using immutable 
 - **THEN** Art SHALL 使用对应模式的完整受信目录；桌面目录绑定领域源包、原生快照和桌面锁摘要，不能取交集、忽略参数差异或回退到 headless
 - **AND** 桌面新增命令可通过公开入口校验与调用，桌面缺失命令在安装前拒绝；分类与参数说明保留，未实际执行的逐命令验收标为 NOT_RUN
 - **AND** 执行入口 SHALL 在编辑前严格核对实时目录，保留未知结果不重放、领域源文件不变和独立桌面生命周期；公开回执分别记录基础目录与模式目录身份
+
+### Requirement: AC-DS-001 Owned desktop domain handoff
+ArtCraft SHALL support explicit domain command `--mode desktop` using immutable pinned child skills. It SHALL verify the child bundle and native CLI, reject external connect/token options before installation, invoke the child's owned desktop launcher, validate the native bridge receipt and desktop lifecycle identity, and preserve unknown outcomes without replay. Headless and explicitly connected bridge modes SHALL retain their existing contracts.
+
+#### Scenario: Desktop command first use
+- **WHEN** a valid selected-domain plan runs in desktop mode with an empty runtime
+- **THEN** ArtCraft installs only the selected domain bundle, delegates owned startup to that skill, and validates command plus desktop identity and stopped-process receipts
+
+#### Scenario: Conflicting connection or untrusted receipt
+- **WHEN** desktop mode supplies an external connection/token or returns a mismatched desktop receipt
+- **THEN** ArtCraft rejects the call and does not replay edits
+
+#### Scenario: Desktop handoff receipt or metadata conflict
+- **WHEN** a desktop plan targets reserved desktop metadata, or a child receipt mismatches the pinned desktop identity, listener ownership or process cleanup
+- **THEN** Art rejects the plan before setup or reports the actual handoff as unknown without replay or claiming mixed-project acceptance
+
+#### Scenario: Mode-aware bridge-only tools
+- **WHEN** the selected immutable domain bundle includes a bridge-only tool snapshot
+- **THEN** Art verifies its locked file digest and CLI identity, exposes its actual schemas only in bridge or desktop queries and preflight, and refuses these tools in headless mode before installation
+- **AND** the child validates live bridge schemas before editing; unlocked snapshot injection and schema drift cannot widen the allowed native tool set

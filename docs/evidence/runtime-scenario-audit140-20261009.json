@@ -1,0 +1,490 @@
+{
+  "schema": "artcraft-runtime-scenario-audit140/v1",
+  "status": "partial-qualified",
+  "task": "4.6",
+  "taskComplete": false,
+  "v1Complete": false,
+  "pluginVersion": "0.1.0-dev.140",
+  "sourceVersion": "0.1.0-dev.112",
+  "runtimeVersion": "0.1.0-dev.139-runtime.1",
+  "platform": "darwin-arm64",
+  "specSha256": "f05a7a7d7ec048f212b60f9bcb8550ca3ab412584ad947cf33dd97f22afe8030",
+  "scenarioCount": 17,
+  "qualifiedScenarios": 16,
+  "openScenarios": 1,
+  "rows": [
+    {
+      "scenario": "AC-RT-002-P 合同条件满足",
+      "status": "verified-current-with-explicit-retained-scope",
+      "evidenceGroups": [
+        "commands",
+        "tools",
+        "cold",
+        "retained-three-domain-desktop-bridge",
+        "current-native-brand-hd"
+      ],
+      "remaining": "None for this named scenario; full requirement remains open until every scenario qualifies."
+    },
+    {
+      "scenario": "AC-RT-002-N 边界条件",
+      "status": "verified-current-with-explicit-retained-scope",
+      "evidenceGroups": [
+        "commands",
+        "tools",
+        "controlled-all-mode-negative-matrix"
+      ],
+      "remaining": "None for this named scenario; full requirement remains open until every scenario qualifies."
+    },
+    {
+      "scenario": "AC-RT-002-MODE 显式模式不降级",
+      "status": "verified-current-with-explicit-retained-scope",
+      "evidenceGroups": [
+        "controlled-four-domain-DAG-mode-refusal",
+        "retained-fixed132-mode-entry"
+      ],
+      "remaining": "None for this named scenario; full requirement remains open until every scenario qualifies."
+    },
+    {
+      "scenario": "AC-RT-002-LIVE-TOOL-SCHEMA 编辑前实际工具合同",
+      "status": "verified-current-with-explicit-retained-scope",
+      "evidenceGroups": [
+        "tools",
+        "cold"
+      ],
+      "remaining": "None for this named scenario; full requirement remains open until every scenario qualifies."
+    },
+    {
+      "scenario": "AC-RT-002-LEDGER-MIGRATION 旧账本排空与回退快照",
+      "status": "verified-current-with-explicit-retained-scope",
+      "evidenceGroups": [
+        "readonly",
+        "current-upgrade140",
+        "cold"
+      ],
+      "remaining": "None for this named scenario; full requirement remains open until every scenario qualifies."
+    },
+    {
+      "scenario": "领域 CLI 并行安装与复用",
+      "status": "verified-retained-unchanged-boundary",
+      "evidenceGroups": [
+        "retained-domain-mutex130",
+        "unchanged-child-installers",
+        "current-native-binaries"
+      ],
+      "remaining": "None for this named scenario; full requirement remains open until every scenario qualifies."
+    },
+    {
+      "scenario": "AC-RT-002-ART-INSTALL-LOCK Art 首次安装有界互斥",
+      "status": "verified-retained-unchanged-boundary",
+      "evidenceGroups": [
+        "retained-Art-mutex130",
+        "unchanged-outer-lock-code",
+        "cold"
+      ],
+      "remaining": "None for this named scenario; full requirement remains open until every scenario qualifies."
+    },
+    {
+      "scenario": "[AC-RT-002-DOWNLOAD] 有界只读下载恢复",
+      "status": "verified-retained-unchanged-boundary",
+      "evidenceGroups": [
+        "retained-download130",
+        "unchanged-outer-download-and-install-validation",
+        "cold"
+      ],
+      "remaining": "None for this named scenario; full requirement remains open until every scenario qualifies."
+    },
+    {
+      "scenario": "[AC-RT-002-FAILED-STAGE] 失败暂存保全分发升级",
+      "status": "verified-current-with-explicit-retained-scope",
+      "evidenceGroups": [
+        "faults",
+        "current-native-brand-hd"
+      ],
+      "remaining": "None for this named scenario; full requirement remains open until every scenario qualifies."
+    },
+    {
+      "scenario": "[AC-RT-002-INNER-JSON] 完整命令响应修复的独立分发",
+      "status": "verified-current-with-explicit-retained-scope",
+      "evidenceGroups": [
+        "faults",
+        "unchanged-domain-bundles-from136",
+        "cold",
+        "current-native-brand-hd"
+      ],
+      "remaining": "None for this named scenario; full requirement remains open until every scenario qualifies."
+    },
+    {
+      "scenario": "[AC-RT-002-NATIVE-DOWNLOAD] 领域原生安装子进程的临时下载恢复",
+      "status": "verified-retained-unchanged-boundary",
+      "evidenceGroups": [
+        "retained-download130",
+        "unchanged-child-installers",
+        "current-native-binaries"
+      ],
+      "remaining": "None for this named scenario; full requirement remains open until every scenario qualifies."
+    },
+    {
+      "scenario": "[AC-RT-002-PLAN-JSON] 严格命令计划的独立分发",
+      "status": "verified-current-with-explicit-retained-scope",
+      "evidenceGroups": [
+        "current-fixed240-plan-refusals",
+        "cold",
+        "current-native-brand-hd"
+      ],
+      "remaining": "None for this named scenario; full requirement remains open until every scenario qualifies."
+    },
+    {
+      "scenario": "[AC-RT-002-BRAND-GUARD] 品牌依赖保护的独立分发",
+      "status": "verified-current-with-explicit-retained-scope",
+      "evidenceGroups": [
+        "brandDirect",
+        "brandGateway",
+        "brandFaults",
+        "brandTrust",
+        "cold"
+      ],
+      "remaining": "None for this named scenario; full requirement remains open until every scenario qualifies."
+    },
+    {
+      "scenario": "[AC-RT-002-GATEWAY-EXPORT] 品牌网关变体继承的独立分发",
+      "status": "verified-current-with-explicit-retained-scope",
+      "evidenceGroups": [
+        "brandDirect",
+        "brandGateway",
+        "brandTamper",
+        "brandEmpty",
+        "cold"
+      ],
+      "remaining": "None for this named scenario; full requirement remains open until every scenario qualifies."
+    },
+    {
+      "scenario": "[AC-RT-002-SEGMENT-GUIDE] 分段首用说明与固定依赖一致",
+      "status": "verified-current-with-explicit-retained-scope",
+      "evidenceGroups": [
+        "hd",
+        "cold",
+        "unchanged-segment-guide-example"
+      ],
+      "remaining": "None for this named scenario; full requirement remains open until every scenario qualifies."
+    },
+    {
+      "scenario": "[AC-RT-002-UPGRADE-ENTRY] 公开账本升级与回退身份",
+      "status": "verified-current-with-explicit-retained-scope",
+      "evidenceGroups": [
+        "readonly",
+        "current-upgrade140",
+        "cold"
+      ],
+      "remaining": "None for this named scenario; full requirement remains open until every scenario qualifies."
+    },
+    {
+      "scenario": "[AC-RT-002-MODE-CATALOG] 模式目录身份与完整命令交接",
+      "status": "open",
+      "evidenceGroups": [
+        "retained-three-domain-desktop-bridge",
+        "controlled-all-mode-negative-matrix",
+        "unresolved-Vector-file.place"
+      ],
+      "remaining": "Resolve trusted Vector desktop/bridge catalog ambiguity and qualify its actual workflow; duplicate refusal remains mandatory."
+    }
+  ],
+  "references": {
+    "docs/evidence/fixed-mode-error136-20261009.json": "0ae5d3b9d1d464a17adc62d91cc7ee414995494806f8374b59707c32a82a80dc",
+    "docs/evidence/fixed-mutex-acceptance130-20261009.json": "4cb5989381dc05484c528130034a584f9a20fbcbdb5d9ddfc6c4d87012f03581",
+    "docs/evidence/fixed-domain-mutex-acceptance130-20261009.json": "4b9ba4474bb5415d87bdbbf480a904525086ae60fb466ccfc5a7ca78644c9e95",
+    "docs/evidence/current-download-recovery130-20261009.json": "1fe10181123051206f5e35869bf7c63ceb7ff6d06c0d3a59c2ba5870b7137865",
+    "docs/evidence/current-upgrade140-20261009.json": "cf7aec80526df3f17436a76d978dd2a410d19131edec0a95c9211082f22d60bd",
+    "docs/evidence/ac-cp-001/qualification140-20261009.json": "edf56f2f59288959f243e8e01f793edba1372cb09fca8cd8799d29921004d90e",
+    "docs/evidence/ac-cp-002/qualification140-20261009.json": "9e84722e71b9856dc900363191a0c67d4663adbe88d43b4941b41da2fa32721e"
+  },
+  "freshEvidence": {
+    "cold": {
+      "path": "artifacts/artcraft-protocol140-20261009/cold140-proof.json",
+      "sha256": "4a8a22576f273cc75c6b744ec3c1048ca4afbf7b3232230dabce69afda94b1fd"
+    },
+    "readonly": {
+      "path": "artifacts/artcraft-protocol140-20261009/readonly140/proof.json",
+      "sha256": "8e1d4650deb721dca38c9d1fd7ca871dc07a407a7ffa2353e37ecb648c82e22b"
+    },
+    "commands": {
+      "path": "artifacts/artcraft-protocol140-20261009/native-command140/proof.json",
+      "sha256": "ae8f788ff96cba96cfd511b9633e1cb36af7d68f6ead9fa7a85f3cf03960e695"
+    },
+    "tools": {
+      "path": "artifacts/artcraft-protocol140-20261009/native-schema140/proof.json",
+      "sha256": "be2704aee43752ccb59d9f72c11c4f1bdcfac77ac5ec9a1fb7a82131dd395430"
+    },
+    "faults": {
+      "path": "artifacts/artcraft-protocol140-20261009/full-native-faults140-proof.json",
+      "sha256": "901713b327c02229fc3cbe36530a800e9d121c6dc8580d92f1c4445ad2d04743"
+    },
+    "brandDirect": {
+      "path": "artifacts/artcraft-protocol140-20261009/brand140/fixed-direct-proof.json",
+      "sha256": "0797086b6370bd774609051bdd771cf55c0b2e22f8723e9059a70315a44a4e44"
+    },
+    "brandGateway": {
+      "path": "artifacts/artcraft-protocol140-20261009/brand140/fixed-native-gateway-proof.json",
+      "sha256": "cd14097f86590082cfa5f125ae5893aa4ff77189c39be867b5170e233a51f471"
+    },
+    "brandFaults": {
+      "path": "artifacts/artcraft-protocol140-20261009/brand140/fixed-brand-fault-proof.json",
+      "sha256": "aa01750aab6b58cd9c6e5fe3499e47564ba95b938ae8de611ea43550301a0991"
+    },
+    "brandTrust": {
+      "path": "artifacts/artcraft-protocol140-20261009/brand140/trust-proof.json",
+      "sha256": "adc89e5a9e43ae0bf31cf30ae9b187c04a69f533ddbce94c5340af895a3958c8"
+    },
+    "brandTamper": {
+      "path": "artifacts/artcraft-protocol140-20261009/brand140/fixed-tamper-proof.json",
+      "sha256": "2b5c23d43205efbe0a615d21d8d800a56cc6635d2725e3cfa34c9b126fa3c6f4"
+    },
+    "brandEmpty": {
+      "path": "artifacts/artcraft-protocol140-20261009/brand140/empty-exports-proof.json",
+      "sha256": "6fb04c622e6dfc91c14e7c86588aafedb0650376abef1a9be80939cacddbef87"
+    },
+    "hd": {
+      "path": "artifacts/artcraft-protocol140-20261009/segmented-hd140-proof.json",
+      "sha256": "581d73dee8a0dca78b50436fa8fb825f6772ebe0d378112f69c320832d107c09"
+    }
+  },
+  "tests": {
+    "fixedCore": {
+      "passed": 218,
+      "failed": 0,
+      "skipped": 0
+    },
+    "nativeReadonlyCommandCases": 40,
+    "nativeReadonlyToolCases": 20,
+    "nativePostSaveFaults": 36,
+    "publicPlanRefusalCases": 240,
+    "coldIndependentSkills": 10,
+    "coldPublicCalls": 30,
+    "readonlyMutationRefusals": 15,
+    "readonlyPublicCalls": 4,
+    "sourceRegression": {
+      "total": 219,
+      "passed": 166,
+      "skipped": 53,
+      "failed": 0
+    },
+    "streamDecodeHelperTests": 4,
+    "pluginRegression": {
+      "total": 125,
+      "passed": 114,
+      "skipped": 11,
+      "failed": 0,
+      "logSha256": "9bc866a12e46cddeed052f1de8b9f03203104674c81dd1086cf06f1b6d034a11"
+    }
+  },
+  "identity": {
+    "immutableRuntimeFiles": {
+      "LICENSE": "f51b5b32a3b7c3df50ef7153f4dd46233221574f07384d2cf99c6fae08c59f03",
+      "package.json": "7a9610a48ef579c64baf1a07339d6ff6339ca7caab4f7135e2c8634bd674cc5c",
+      "schemas/craft-artifact-v1.json": "52d6fa53f2d799b15ec907b8e0ab77aee6f074bee6a740a3c2abb2e1c3f0649a",
+      "schemas/craft-exchange-loss-v1.json": "483670333c2ddb6515abe61fc30b9160bbe097b6abc01bda6c1ba73fc1832858",
+      "schemas/craft-task-v1.json": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+      "src/adapters/collected_dependencies.ts": "4a3f2fc1dcafbd2804ccb6bf6e6c6082005deb914b78e7d228e2105c7006335d",
+      "src/adapters/collected_output.ts": "5bc447240efe90c01c8c2a75c92ded7be8e23c73b6b254ecde8c13505961ec05",
+      "src/adapters/design_source_inspection.ts": "5fdf1bd17537a2dc328dfa293b3bf86b144eede3f3e176e92beae3d66e64c3fa",
+      "src/adapters/effect_export_probe.ts": "1e0569d15146913c32e948922a980d4f18e4e4bcced22b2b47ffe80fd4b873f5",
+      "src/adapters/film_export_metadata.ts": "db8fa0c1955cf935bc908f5cfa622a201113d6b4ac989cbb46085998fcb754c1",
+      "src/adapters/film_source_inspection.ts": "6d6c2b0323b5e0ec510d08e894b4d807fe8106de55d2b7e32ea4bf0e9f8d14ed",
+      "src/adapters/font_dependencies.ts": "043d67d8759965cc81cb91b7629add29aaaa1bf3fb182405cd85ce3bb5df100b",
+      "src/adapters/font_output.ts": "89b63721b00a19bc065eb09488b02eff6a7549dade1dbfebbfca67c51a8721d9",
+      "src/adapters/public_skill.ts": "95fc019cc06314e4dd6f8d076be6c98052034e6b42f50346a8c397fec0d1a085",
+      "src/adapters/strict_mcp_runner.ts": "bfe407d261fe9867ccf3f397bafe1154be8cc7752d8d30fc186f5c5c005bdaae",
+      "src/adapters/video_factory.ts": "1a5bf385baa46d06e1ce451b05d42707b0b67071584bf1239d2764d497a41e74",
+      "src/adapters/video_factory_driver.ts": "c0887a85adbf3eb119c2ac45d38e4f8de1d8f886c86ac8f6b2d3a9f9d817ce9d",
+      "src/artifacts/project_package.ts": "57b815030543f563089d6de770f1b3d5d2c8de7b7a3ee4f6e0868307d67c1147",
+      "src/cli.ts": "3af9051a8b01ee35fa36a91adfa7e8e215a38d26350a7f63741c87813c481518",
+      "src/harness/budget.ts": "a8a41bc4d4f7dad1103ac674cd71ef3d18449ab6206fc414c9287b45634ebf79",
+      "src/harness/execution_worker.ts": "1a6f3ee91fc96465ec93121c0de0bf1e2f72a87d875856767e39e8acda574a1a",
+      "src/harness/ledger_upgrade.ts": "fe144a8f65637952af92f9162ec30bed7b93b37bc76eb593b45c456ba511962d",
+      "src/harness/local_runner.ts": "3d8a65c256163d394a10936361eff52f3b83cb8abd3a25ea6a77091aeff1ed6d",
+      "src/harness/native_diagnostics.ts": "b78ebcd7694853d2c7da036a6c4be01ac3d135cc1a8f8851d152671c6672cc7c",
+      "src/harness/process_group.ts": "7260149d70d6312292db4a9c5419b4a33e6d24599215b164c814c6e1a7af0714",
+      "src/harness/task_ledger.ts": "324f77e81fc7fb17737e07bcd7d0645f48e285f326171da72a0ba0c826fe9d4e",
+      "src/planning/film_duration.ts": "e25a1ec1d2eac5bc2f7a64e45bb78766d79d55a68af9bae3b133ce3dc2b9a85f",
+      "src/planning/native_brief_output.ts": "876ddcf956cc130ed932543ebe6d4f9c2623bb53e230b518a39414a03da3eaac",
+      "src/planning/photo_variant_output.ts": "225ee0e64cc2bf318cca1f9dcd0804dc3da53f99c14e910e8d64e2b2a6bd1bd6",
+      "src/planning/project_brief.ts": "1a5f0a9f85b16dee0f6cca73f5ba468765e2e98f9b45f710cab81c94b7177587",
+      "src/planning/workflow_engine.ts": "700cacfe597e2f1629aeb7f1c34334fd90fffae0af7310ce80594ceab81ad9ba",
+      "src/protocol/artifact_versions.ts": "8b2c127fe32fa97b34458d8934abe6a43cfb3ebabb396805a7bda31d60c3094c",
+      "src/protocol/contracts.ts": "2197306ecd36980221a6f44e04d8c5a829d565c08ff127aa38308c9f196292b8",
+      "src/protocol/dependency_graph.ts": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43",
+      "src/protocol/image_sequence.ts": "e63b178aa61abf0e0bee6d407bf747acf947b880352138be70b2c26e4a3bcc56",
+      "src/protocol/jpeg_inspection.ts": "efbc9a0eddc220a9648d0af42dbac3c6bb9b0131f795d1247f01b6172203a417",
+      "src/protocol/png_inspection.ts": "9bab80e8acd3e623827786f46f8b205341146de6ec7556638b4059543c65f5fd",
+      "src/protocol/task_error.ts": "1640b84a5dc3850dc9f7c93f868ff0188f592a0aad68b6047dfc926cb73bdac7",
+      "src/protocol/wav_inspection.ts": "6ec1968f2c4a52f43ea4129ad6334158e696f9eebef981477cff803ad642e645"
+    },
+    "immutableSkillInventorySha256": "4d7067d6a3d1738004843dfb8075cc3a7a25a9e8abb20618d91f5a3424f941f5",
+    "domainInstallers": {
+      "filmcraft": {
+        "bootstrapSha256": "bd0c370eace07fe88ae63d4be08374d9b1845b68f0cd43ab0e23a444504623fe",
+        "nativeSha256": "80dfc579f7639dc1d182c4dc9ab9cd834beaa234e6144e664757d40632f36893",
+        "retainedNativeVersion": "filmcraft-cli 0.2.0-craft.4"
+      },
+      "effectcraft": {
+        "bootstrapSha256": "ad89838b5fd4452685c8cbcfb4394e93597624825356e134e0b809a6a0b3606b",
+        "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "retainedNativeVersion": "effectcraft-cli 0.2.0"
+      },
+      "photocraft": {
+        "bootstrapSha256": "a6e3e9f7b3ab4898b88ecac46fdfa72b32338fcd51d540dde1280882b6813179",
+        "nativeSha256": "3b59686b288c399078e51a631ca9133cdb075ba9fe8f2ae705db4a6f76e464bf",
+        "retainedNativeVersion": "photocraft-cli 0.2.0-craft.1 (dev build)"
+      },
+      "vectorcraft": {
+        "bootstrapSha256": "78d5bdf16bf08e9abc96b4b23e5d071da72b648698b888b85fa1b90f81cf32a9",
+        "nativeSha256": "ac47d32f34b8910dd559cff59d64cafaaade066227714359d1821cb2b0e59d1b",
+        "retainedNativeVersion": "vectorcraft-cli 0.2.0-craft.2"
+      }
+    },
+    "outerInstallerFiles": {
+      "bootstrap.py": "e019fa5b35c819f6025eec1f0711b180eefe5351bc1b0db84a2f4dc50fec8fdf",
+      "download.py": "f569dd3f0d4765a0cdf9c4efd26060963ef774128f29575a38c578f44ae07263",
+      "node.lock.json": "5d47b1f8b5a1738686f3033981444489eafeb99854d2102254be0375ae4462b8"
+    },
+    "unchangedSetupFunctionsFrom102": [
+      "sha",
+      "safe_path",
+      "verify_bundle",
+      "validate_bundle_lock",
+      "validate_distribution",
+      "install_bundle",
+      "bundle_version"
+    ],
+    "setupDelta": "New domain_launcher_files helper adds the native command snapshot to launcher binding; install validation functions remain identical. Current native workflows and ten cold core entries cover the parent entry.",
+    "modeEntryFilesUnchangedFrom108": {
+      "domain_commands.py": "8c02bb31eb678b3065671ec5d223a8428cd62fdd74222f80bee3f3c1b3d5faf8",
+      "setup.py": "52d504e14c6a0765188fbdfd0f421fb701b368144dcd92fca41aa538faafa01e",
+      "mode_catalog.py": "fdd151617df9f311f49a73c39c4abd3550797b93b3c77393c702beaba96f25f0"
+    },
+    "modeGuardDelta": "After removing only Film-native-budget additions, guard bytes equal runtime135. Desktop/bridge do not enter that headless Film workflow branch; current218 cases cover active guard paths.",
+    "retainedRawRehashed": {
+      "artifacts/artcraft-mutex-fixed130-20261009/proof.json": "611270bb9cfff7da6d8a09363c2bd049e1ab6286f5abcb8051dc2b4f50b57675",
+      "artifacts/artcraft-mutex-fixed130-20261009.log": "77a500168ae5ed45be1ba422d229b4c28bff6583770fb82def70f7c5d616f3ee",
+      "artifacts/artcraft-domain-mutex130-20261009-case2/proof.json": "5386e05608311ece8137ac7173dca5dc8d02fad3c76d76008ffeda55dac7d59a",
+      "artifacts/artcraft-domain-mutex130-20261009-case2.log": "773e7c981501feb9575fde7b6bec7a1baf4ce0feaa6af1b732a885f12933cd51",
+      "artifacts/artcraft-domain-mutex130-20261009/interrupted.json": "3af4440945db27e38fd8c67f1b045606d2ef0406a2fa80d17cb6db1a5c6e69b3",
+      "artifacts/artcraft-domain-mutex130-20261009/interrupted-driver.py": "b6d2bb51b1fb17a4365f8d86d375da4bc378ae23c32c2eda68b3232992d6e39f",
+      "artifacts/artcraft-native-download130-20261009/proof.json": "8330310ef75c1fc443a7c72cbdfa75511c5fc03b2b96b9eb8306a1a87667bb67",
+      "artifacts/artcraft-native-download130-20261009.log": "d3112a224f34165739991215da7c5a1fa74c18cfcb794bbb804b18e6de2338aa",
+      "artifacts/artcraft-outer-download130-20261009-case2/proof.json": "0eb02cab134b56b935974451b2a914d8c5b1d0be33b489bcc3a8845ada9c0f9e",
+      "artifacts/artcraft-outer-download130-20261009-case2/call.json": "51ada73ebe0c97a5be8b865b07bbc0110cdabebdcc6d3260c9dec0f1b2bdd518",
+      "artifacts/artcraft-outer-download130-20261009-case2/events.jsonl": "c33cc7fc0397043a1b19e98b60338f7e1bdb99cd65e24a511fa3d589e2b77454",
+      "artifacts/artcraft-outer-download130-20261009-case2.log": "474dd22f6b87350ea9e07fa7c00fa7b204034f5c771d090e04d3e97cd10e96e2"
+    }
+  },
+  "vectorBlocker": {
+    "records": 763,
+    "uniqueIds": 762,
+    "conflictingCommands": [
+      {
+        "id": "file.place",
+        "label": "Place…",
+        "category": "file",
+        "enabledAtEmptySession": false,
+        "executionAcceptance": "NOT_RUN",
+        "observedEmptySession": {
+          "disabled_reason": "no document open",
+          "enabled": false,
+          "id": "file.place",
+          "label": "Place…",
+          "menu": [
+            "File"
+          ],
+          "params": "{path | name+dataBase64, link?: true (a raster image keeps its file's path; other files are embedded), text?: {characterSet?: \"unicode\" (UTF-8, or UTF-16 with a byte-order mark; other bytes as the platform's 8-bit set) | \"ansi\" (the platform's 8-bit set), platform?: \"windows\" (Windows-1252) | \"mac\" (Mac Roman), removeLineReturns?: false (each block of lines becomes one paragraph; blank lines end paragraphs), removeParagraphReturns?: false (drop blank lines), replaceSpaces?: n (runs of n ≥ 2 spaces become a tab)} (a .txt file, placed as area type filling rect, the replaced object's bounds, or else the artboard less a 36 pt margin), template?: false (onto a new locked template layer below the current layer), replace?: false (swap the one selected object, keeping its stacking place and transform; no at/rect), at?: [x, y] centre (default: the first artboard's centre), rect?: [x, y, width, height] fit inside, aspect kept (wins over at), page?: 1 (PDF/.ai page, or a native document's artboard), crop?: \"crop\" (clipped to that page or artboard, default) | \"bounding\" (the art's bounds) | \"art\" | \"trim\" | \"bleed\" | \"media\" (a PDF page's boxes), password? (an encrypted PDF)} → {ids, name, format, linked, width, height, warnings}. Raster images come in at 100% of their physical size (the file's ppi, else 72); SVG, PDF/.ai and native documents as one group, with the images, symbols, patterns and swatches they use. One undo step; selects what it placed (unless on a template layer); never touches the clipboard",
+          "shortcut": "Cmd+Shift+P"
+        },
+        "params": "{path | name+dataBase64, link?: true (a raster image keeps its file's path; other files are embedded), text?: {characterSet?: \"unicode\" (UTF-8, or UTF-16 with a byte-order mark; other bytes as the platform's 8-bit set) | \"ansi\" (the platform's 8-bit set), platform?: \"windows\" (Windows-1252) | \"mac\" (Mac Roman), removeLineReturns?: false (each block of lines becomes one paragraph; blank lines end paragraphs), removeParagraphReturns?: false (drop blank lines), replaceSpaces?: n (runs of n ≥ 2 spaces become a tab)} (a .txt file, placed as area type filling rect, the replaced object's bounds, or else the artboard less a 36 pt margin), template?: false (onto a new locked template layer below the current layer), replace?: false (swap the one selected object, keeping its stacking place and transform; no at/rect), at?: [x, y] centre (default: the first artboard's centre), rect?: [x, y, width, height] fit inside, aspect kept (wins over at), page?: 1 (PDF/.ai page, or a native document's artboard), crop?: \"crop\" (clipped to that page or artboard, default) | \"bounding\" (the art's bounds) | \"art\" | \"trim\" | \"bleed\" | \"media\" (a PDF page's boxes), password? (an encrypted PDF)} → {ids, name, format, linked, width, height, warnings}. Raster images come in at 100% of their physical size (the file's ppi, else 72); SVG, PDF/.ai and native documents as one group, with the images, symbols, patterns and swatches they use. One undo step; selects what it placed (unless on a template layer); never touches the clipboard",
+        "ownerSkill": "vectorcraft-cli-assets",
+        "ownerInstall": "npx skills add full-aigc-skills/vectorcraft-skills --skill vectorcraft-cli-assets",
+        "nativeUsage": "commands.py describe file.place; commands.py run PLAN.json --output NEW_DIRECTORY",
+        "workflowMapped": false
+      },
+      {
+        "id": "file.place",
+        "label": "Place…",
+        "category": "file",
+        "enabledAtEmptySession": false,
+        "executionAcceptance": "NOT_RUN",
+        "observedEmptySession": {
+          "enabled": false,
+          "id": "file.place",
+          "label": "Place…",
+          "params": "{path? | paths?} no file: pick files, then the Place dialog (Link, Template, Replace); paths: that dialog for them; path (or name+dataBase64, …file.place params): file.place, centred in the view (a PDF with several pages or a password and no page opens the Place PDF dialog first)",
+          "shortcut": "Cmd+Shift+P",
+          "ui": true
+        },
+        "params": "{path? | paths?} no file: pick files, then the Place dialog (Link, Template, Replace); paths: that dialog for them; path (or name+dataBase64, …file.place params): file.place, centred in the view (a PDF with several pages or a password and no page opens the Place PDF dialog first)",
+        "ownerSkill": "vectorcraft-cli-assets",
+        "ownerInstall": "npx skills add full-aigc-skills/vectorcraft-skills --skill vectorcraft-cli-assets",
+        "nativeUsage": "commands.py describe file.place; commands.py run PLAN.json --output NEW_DIRECTORY",
+        "workflowMapped": false
+      }
+    ],
+    "policy": "No namespace exception or descriptor selection; strict duplicate refusal preserved."
+  },
+  "logSha256": {
+    "artcraft-current-runtime140.log": "729e9dbb489f64caaed76d3811e4e242d603aaae536f2d2c1e79b964dd841416",
+    "artcraft-full-native-faults140.log": "288fdfa7845e8cf2e6225571b82491bb672488d28916a448d4282f21137e22da",
+    "artcraft-cold140.log": "2937974b6328e4d7ca77a173a97229504c0695ecc9ff5cec3aa40d5b1062f617",
+    "artcraft-plan-json140.log": "18252eab600b30b621bca3547dffeecb4d80bd95f001289cd63169d85527b664",
+    "artcraft-source-runtime140-regression.log": "9e6a6db2e4fb8f4c1fdedc0cfcd22d52d95447c0aeb480555e2b459fb5e63c48",
+    "artcraft-segmented-hd140.log": "9a51d227677f07f96de68afdc9832d54dcb16bbd549a15901985491c48939e62"
+  },
+  "testSourceSha256": {
+    "full-aigc-skills-repositories/artcraft-skills/tests/rgb_decode.py": "c4828d1e0a45dfe87919f640f056d00bf7f1423a84cfe42b19700cf21d223933",
+    "full-aigc-skills-repositories/artcraft-skills/tests/test_rgb_decode.py": "cd98300f11985311c19198b47a89379bf70b6ebf664429634a993cb70f2bf42a",
+    "full-aigc-skills-repositories/artcraft-skills/tests/test_segmented_hd_first_use.py": "284b509586418e09c63c013e3f88d84b6fdc65f1e4379ac34f5bfc49430fbe7e",
+    "full-aigc-skills-repositories/artcraft-skills/tests/test_domain_plan_json.py": "2a40241349afc4e82efd57883ec18c88c0d59b3c78c0bcb43474db1b6001ead6",
+    "full-aigc-plugins-repositories/artcraft-plugin/test/installed_legacy_readonly.test.ts": "bdeac878efde5d4177222d558fad091d169b16ed7958ec43bdbad5f76306b39b",
+    "full-aigc-plugins-repositories/artcraft-plugin/test/native_command_schema.test.ts": "f1e2d3f785a3a466617fc71a1e0e7598c6219f521ac1f41d564c1122a9b39718",
+    "full-aigc-plugins-repositories/artcraft-plugin/test/native_schema_boundary.test.ts": "6f3a7957cc9afb92a2d151fda846184b48a7c44529c560a72e72476675468c71",
+    "full-aigc-plugins-repositories/artcraft-plugin/test/native_mode_catalog.test.ts": "d26077d37d6c234cf18b6550e4bf34cd35192c2df5289369fe4c46b317b7154a",
+    "full-aigc-plugins-repositories/artcraft-plugin/test/runtime_mode_boundary.test.ts": "602e3510d20e83a6a1c5372d467ee9a0d1bcdf67a0fbb9c26698977850b41b32",
+    "full-aigc-plugins-repositories/artcraft-plugin/test/native_protocol_workflow.test.ts": "e180fc1db6d84093e420e48283a401f0b5aabc45489e7b6f9dcc44f9c54b68e1",
+    "full-aigc-plugins-repositories/artcraft-plugin/tests/test_runtime_spec_ownership.py": "ff7a55c5e06b30ffd8e9491b7cf9e0086bbdec4d6b4b69b0f1ab493210b8f410"
+  },
+  "limits": [
+    "Four pinned domain versions on macOS arm64 only. Other platforms, model dispatch, creative approval and formal host/release gates remain separate.",
+    "Ten cold entries are copied exact immutable skill trees, not generic Skills CLI installation or fresh host discovery.",
+    "Native readonly probes mutate actual readonly replies under QA hooks; they do not execute editing commands.",
+    "Brand and HD native workflows use verified existing native caches; their current execution and ten independent cold-core starts are separate evidence.",
+    "Three actual desktop/bridge workflows are retained136 evidence with explicit current entry/source/binary and guard-path applicability, not newly launched GUI sessions.",
+    "Four installer scenarios reuse rehashed130 raw evidence only for unchanged locking/download/validation boundaries; version identities remain historical.",
+    "Current native fault override raw label is historical working-tree-candidate; executed39 core files independently match the immutable runtime139 inventory.",
+    "Full4.6,4.19 and ten numbered tasks remain open."
+  ],
+  "specStructureCorrection": {
+    "change": "Moved the unchanged AC-DS-001 block after all AC-RT-002 scenarios; six runtime scenarios now formally belong to AC-RT-002. No clause text, acceptance criterion or scenario ID changed.",
+    "runtimeScenarios": 17,
+    "desktopScenarios": 4,
+    "test": "tests/test_runtime_spec_ownership.py",
+    "red": "Two assertion failures on original scenario ownership; no environment failure.",
+    "green": "Two tests passed after section relocation.",
+    "redLogSha256": "9d974b2cd5140076cd4ef8d41e0775c6d47d9dd37749e41c38afb7fc00ef455a",
+    "greenLogSha256": "4c8c9e542540718362f8c644bf92d742bc30c90df823f6a2c9a61b4240edd903"
+  },
+  "streamDecodeQualification": {
+    "initialMissingHelper": "Initial test collection failed because rgb_decode did not exist; no behavior assertions ran at that stage.",
+    "negativeCases": "Truncated frame, extra bytes and nonzero decoder exit refuse success; complete selected-pixel case passes.",
+    "fullNativeDecodeBytes": 746496000,
+    "rawFileWritten": false,
+    "samplesRetained": [
+      0,
+      60,
+      119
+    ],
+    "originalHdPixelAssertionsPreserved": 8,
+    "warmVsCold": "HD uses verified native cache. Ten separate actual empty-core first uses qualify cold entry separately."
+  },
+  "environmentFailure": {
+    "localPluginRegression": "Initial complete plugin Python regression and subsequent vendor/doc checks could not complete because the temp filesystem exhausted space. This attempt is excluded from passing evidence.",
+    "failedLogSha256": "1c2c08fe4957d0ba0cbaa170071903bdb4aa09857c2407265ddfdf0d83c4b3aa",
+    "recovery": "Bounded cleanup restored capacity; complete plugin regression retry passed: 125 total, 114 passed, 11 conditional skips, 0 failures.",
+    "cleanupProofSha256": "3696fbda13ac166d5fabf2db56602ddf2ba8abda99155fe48b4ad912041f5f96"
+  }
+}

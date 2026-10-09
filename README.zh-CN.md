@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+固定140／源112／runtime139完成17项运行时具名场景中的16项验收，当前与保留证据分开记录；Vector模式冲突及完整V1仍开放。[逐场景审计](docs/ArtCraft-Runtime-Scenario-Audit-Architecture.zh_CN.md)。
+
 固定140／源112／runtime139在macOS arm64完成AC-CP-001的7个具名场景验收，任务1.3完成；10个编号任务及完整V1仍开放。[任务合同与消费者证据](docs/ArtCraft-Task-Protocol-Qualification-Architecture.zh_CN.md)。
 
 固定140／源112／runtime139在macOS arm64完成AC-CP-002的13个具名场景验收，任务2.3完成；11个编号任务及完整V1仍开放。[验收与历史证据复用边界](docs/ArtCraft-Artifact-Protocol-Qualification-Architecture.zh_CN.md)。
