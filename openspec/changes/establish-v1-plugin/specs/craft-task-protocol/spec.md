@@ -2,7 +2,7 @@
 
 ## Purpose
 
-本能力定义 ArtCraft 在 craft-task-protocol 范围内对用户、宿主与下游系统承诺的可观察行为、失败语义和验收证据，确保规划、执行与实际交付之间保持可验证的边界。当前为目标规范，尚未实现。
+本能力定义 ArtCraft 在 craft-task-protocol 范围内对用户、宿主与下游系统承诺的可观察行为、失败语义和验收证据，确保规划、执行与实际交付之间保持可验证的边界。本文件定义公共任务合同；固定140／源112／runtime139在macOS arm64的具名场景已验收，证据见 docs/evidence/ac-cp-001/qualification140-20261009.json；完整V1仍未完成。
 
 ## ADDED Requirements
 

@@ -1,5 +1,7 @@
 # ArtCraft public task protocol implementation audit
 
+Historical implementation audit for fixed122. Current task1.3 qualifies in fixed140; see [current qualification](ArtCraft-Task-Protocol-Qualification-Architecture.md). Remaining statements below describe the historical checkpoint.
+
 The OpenSpec change `establish-v1-plugin` remains authoritative. This audit completes implementation tasks **1.1 and 1.2**; boundary acceptance **1.3 remains open**. No runtime, skill snapshot, protocol schema or release identity was changed in this audit.
 
 ## Request, execution and response

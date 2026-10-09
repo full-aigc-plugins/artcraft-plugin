@@ -1,5 +1,7 @@
 # ArtCraft 公共任务协议实施审计
 
+本文保留固定122实施审计的历史状态。当前固定140已完成1.3，见[最新验收](ArtCraft-Task-Protocol-Qualification-Architecture.zh_CN.md)；下文未完成描述属于当时检查点。
+
 规格事实源仍为 OpenSpec 变更 `establish-v1-plugin`。本次审计完成实施任务 **1.1、1.2**；真实边界验收 **1.3 保持开放**。本次未改变运行时、技能快照、协议 schema 或发行身份。
 
 ## 请求、执行与响应

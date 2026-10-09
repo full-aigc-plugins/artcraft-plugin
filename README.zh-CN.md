@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+固定140／源112／runtime139在macOS arm64完成AC-CP-001的7个具名场景验收，任务1.3完成；10个编号任务及完整V1仍开放。[任务合同与消费者证据](docs/ArtCraft-Task-Protocol-Qualification-Architecture.zh_CN.md)。
+
 固定140／源112／runtime139在macOS arm64完成AC-CP-002的13个具名场景验收，任务2.3完成；11个编号任务及完整V1仍开放。[验收与历史证据复用边界](docs/ArtCraft-Artifact-Protocol-Qualification-Architecture.zh_CN.md)。
 
 固定插件140／技能源112／runtime139-runtime.1通过继承媒体与LUT、两次源重开、替换复用及移动包核验，规范化序列身份亦通过。仅完成2.10，完整2.3与V1保持开放。[验收记录](docs/ArtCraft-Inherited-Dependencies-Acceptance-Architecture.zh_CN.md)。

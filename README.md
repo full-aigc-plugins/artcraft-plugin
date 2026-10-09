@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+AC-CP-001 qualifies across seven named scenarios for fixed140/source112/runtime139 on macOS arm64. Task1.3 completes;10 numbered tasks and full V1 remain open. [Task contract and consumer evidence](docs/ArtCraft-Task-Protocol-Qualification-Architecture.md).
+
 AC-CP-002 qualifies across13 named scenarios for fixed140/source112/runtime139 on macOS arm64. Task2.3 completes;11 numbered tasks and full V1 remain open. [Qualification and retained-evidence limits](docs/ArtCraft-Artifact-Protocol-Qualification-Architecture.md).
 
 Fixed plugin140 / source112 / runtime139-runtime.1 passes inherited media/LUT retention, two source reopens, replacement/reuse and moved-package checks; normalized sequence identity also passes. Task2.10 completes; full2.3 and V1 remain open. [Acceptance](docs/ArtCraft-Inherited-Dependencies-Acceptance-Architecture.md).
