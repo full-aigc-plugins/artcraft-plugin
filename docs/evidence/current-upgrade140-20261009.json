@@ -1,0 +1,548 @@
+{
+  "schema": "artcraft-fixed-upgrade140-checkpoint/v1",
+  "result": "PASS",
+  "task": "4.6",
+  "taskComplete": false,
+  "v1Complete": false,
+  "platform": "darwin-arm64",
+  "pluginVersion": "0.1.0-dev.140",
+  "sourceVersion": "0.1.0-dev.112",
+  "runtimeVersion": "0.1.0-dev.139-runtime.1",
+  "specSha256": "e198fa247063698b97177331b7cb7860a2072e9c8aab13ff9366bcb2794884e4",
+  "testResult": {
+    "tests": 2,
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "publicCalls": 29,
+    "boundaryCases": 12
+  },
+  "immutableRuntimeFiles": {
+    "LICENSE": "f51b5b32a3b7c3df50ef7153f4dd46233221574f07384d2cf99c6fae08c59f03",
+    "package.json": "7a9610a48ef579c64baf1a07339d6ff6339ca7caab4f7135e2c8634bd674cc5c",
+    "schemas/craft-artifact-v1.json": "52d6fa53f2d799b15ec907b8e0ab77aee6f074bee6a740a3c2abb2e1c3f0649a",
+    "schemas/craft-exchange-loss-v1.json": "483670333c2ddb6515abe61fc30b9160bbe097b6abc01bda6c1ba73fc1832858",
+    "schemas/craft-task-v1.json": "4a153b1c9ec898807016dfb05ff81fcf5c7cffdb6777b6ab226e56aa2bcdf7ad",
+    "src/adapters/collected_dependencies.ts": "4a3f2fc1dcafbd2804ccb6bf6e6c6082005deb914b78e7d228e2105c7006335d",
+    "src/adapters/collected_output.ts": "5bc447240efe90c01c8c2a75c92ded7be8e23c73b6b254ecde8c13505961ec05",
+    "src/adapters/design_source_inspection.ts": "5fdf1bd17537a2dc328dfa293b3bf86b144eede3f3e176e92beae3d66e64c3fa",
+    "src/adapters/effect_export_probe.ts": "1e0569d15146913c32e948922a980d4f18e4e4bcced22b2b47ffe80fd4b873f5",
+    "src/adapters/film_export_metadata.ts": "db8fa0c1955cf935bc908f5cfa622a201113d6b4ac989cbb46085998fcb754c1",
+    "src/adapters/film_source_inspection.ts": "6d6c2b0323b5e0ec510d08e894b4d807fe8106de55d2b7e32ea4bf0e9f8d14ed",
+    "src/adapters/font_dependencies.ts": "043d67d8759965cc81cb91b7629add29aaaa1bf3fb182405cd85ce3bb5df100b",
+    "src/adapters/font_output.ts": "89b63721b00a19bc065eb09488b02eff6a7549dade1dbfebbfca67c51a8721d9",
+    "src/adapters/public_skill.ts": "95fc019cc06314e4dd6f8d076be6c98052034e6b42f50346a8c397fec0d1a085",
+    "src/adapters/strict_mcp_runner.ts": "bfe407d261fe9867ccf3f397bafe1154be8cc7752d8d30fc186f5c5c005bdaae",
+    "src/adapters/video_factory.ts": "1a5bf385baa46d06e1ce451b05d42707b0b67071584bf1239d2764d497a41e74",
+    "src/adapters/video_factory_driver.ts": "c0887a85adbf3eb119c2ac45d38e4f8de1d8f886c86ac8f6b2d3a9f9d817ce9d",
+    "src/artifacts/project_package.ts": "57b815030543f563089d6de770f1b3d5d2c8de7b7a3ee4f6e0868307d67c1147",
+    "src/cli.ts": "3af9051a8b01ee35fa36a91adfa7e8e215a38d26350a7f63741c87813c481518",
+    "src/harness/budget.ts": "a8a41bc4d4f7dad1103ac674cd71ef3d18449ab6206fc414c9287b45634ebf79",
+    "src/harness/execution_worker.ts": "1a6f3ee91fc96465ec93121c0de0bf1e2f72a87d875856767e39e8acda574a1a",
+    "src/harness/ledger_upgrade.ts": "fe144a8f65637952af92f9162ec30bed7b93b37bc76eb593b45c456ba511962d",
+    "src/harness/local_runner.ts": "3d8a65c256163d394a10936361eff52f3b83cb8abd3a25ea6a77091aeff1ed6d",
+    "src/harness/native_diagnostics.ts": "b78ebcd7694853d2c7da036a6c4be01ac3d135cc1a8f8851d152671c6672cc7c",
+    "src/harness/process_group.ts": "7260149d70d6312292db4a9c5419b4a33e6d24599215b164c814c6e1a7af0714",
+    "src/harness/task_ledger.ts": "324f77e81fc7fb17737e07bcd7d0645f48e285f326171da72a0ba0c826fe9d4e",
+    "src/planning/film_duration.ts": "e25a1ec1d2eac5bc2f7a64e45bb78766d79d55a68af9bae3b133ce3dc2b9a85f",
+    "src/planning/native_brief_output.ts": "876ddcf956cc130ed932543ebe6d4f9c2623bb53e230b518a39414a03da3eaac",
+    "src/planning/photo_variant_output.ts": "225ee0e64cc2bf318cca1f9dcd0804dc3da53f99c14e910e8d64e2b2a6bd1bd6",
+    "src/planning/project_brief.ts": "1a5f0a9f85b16dee0f6cca73f5ba468765e2e98f9b45f710cab81c94b7177587",
+    "src/planning/workflow_engine.ts": "700cacfe597e2f1629aeb7f1c34334fd90fffae0af7310ce80594ceab81ad9ba",
+    "src/protocol/artifact_versions.ts": "8b2c127fe32fa97b34458d8934abe6a43cfb3ebabb396805a7bda31d60c3094c",
+    "src/protocol/contracts.ts": "2197306ecd36980221a6f44e04d8c5a829d565c08ff127aa38308c9f196292b8",
+    "src/protocol/dependency_graph.ts": "73454afd86310c7107b333a92520fd07f06a97612f6d539aa84031e987e76c43",
+    "src/protocol/image_sequence.ts": "e63b178aa61abf0e0bee6d407bf747acf947b880352138be70b2c26e4a3bcc56",
+    "src/protocol/jpeg_inspection.ts": "efbc9a0eddc220a9648d0af42dbac3c6bb9b0131f795d1247f01b6172203a417",
+    "src/protocol/png_inspection.ts": "9bab80e8acd3e623827786f46f8b205341146de6ec7556638b4059543c65f5fd",
+    "src/protocol/task_error.ts": "1640b84a5dc3850dc9f7c93f868ff0188f592a0aad68b6047dfc926cb73bdac7",
+    "src/protocol/wav_inspection.ts": "6ec1968f2c4a52f43ea4129ad6334158e696f9eebef981477cff803ad642e645"
+  },
+  "immutableSkillFileCount": 727,
+  "immutableSkillInventorySha256": "4d7067d6a3d1738004843dfb8075cc3a7a25a9e8abb20618d91f5a3424f941f5",
+  "tests": {
+    "test/installed_upgrade_boundaries.test.ts": "7dc2ad56415eafe471e9ee207468cdcab4375ea8776bf3cc2787fedc3a392436",
+    "test/legacy_runtime_upgrade_native.test.ts": "17fd2c3ff677c1fdd2ab52e3e2814b80c6c7261df846722027e0cdbedadb2e53"
+  },
+  "logSha256": "8660899079a5f8cfddffd2343bd9ae6cc5d3e75091213f88fe74cee4276fbe4c",
+  "proofs": {
+    "upgrade-boundaries140": {
+      "retainedProof": "artifacts/artcraft-protocol140-20261009/upgrade-boundaries140/proof.json",
+      "rawProofSha256": "4fe116cf090011454e400b385f5b757baaf1670154340fd7392d9d688a4ddc4d",
+      "publicCalls": 24,
+      "proof": {
+        "schema": "artcraft-installed-upgrade-boundaries/v1",
+        "result": "PASS",
+        "entrySha256": "020603afe656bbe056e6208fbc03ce7dce68b941822ed4e7fea1efb413dc37a5",
+        "retainedLegacyModuleSha256": "fb44b28466a2d8d2f66a2364711a451023886e702dd584025ea76af26f6c5cf4",
+        "cases": [
+          {
+            "fault": "planned",
+            "expected": "runtime_upgrade_busy",
+            "statePreserved": true,
+            "priorSnapshotPreserved": true,
+            "partialSnapshotAbsent": true,
+            "ledgerStateSha256": "72743b1fc4d50102cbb147ef211702801d71dabd2cb6ad109bfce0b8ecaeabf6"
+          },
+          {
+            "fault": "ready",
+            "expected": "runtime_upgrade_busy",
+            "statePreserved": true,
+            "priorSnapshotPreserved": true,
+            "partialSnapshotAbsent": true,
+            "ledgerStateSha256": "408e8dfc359f39414a9652184bc261b2b1c08df8f5bf18dae94c15332aa533bb"
+          },
+          {
+            "fault": "running",
+            "expected": "runtime_upgrade_busy",
+            "statePreserved": true,
+            "priorSnapshotPreserved": true,
+            "partialSnapshotAbsent": true,
+            "ledgerStateSha256": "0b930fd648a4af952820c35fdb3f3a73aea0f8ae15867c0ea9cdd030611c2135"
+          },
+          {
+            "fault": "reconciling",
+            "expected": "runtime_upgrade_busy",
+            "statePreserved": true,
+            "priorSnapshotPreserved": true,
+            "partialSnapshotAbsent": true,
+            "ledgerStateSha256": "d9305d14f9cdb7c2d27f77e9590574da958b527a93436ad7db5275747aabdebe"
+          },
+          {
+            "fault": "cancel_requested",
+            "expected": "runtime_upgrade_busy",
+            "statePreserved": true,
+            "priorSnapshotPreserved": true,
+            "partialSnapshotAbsent": true,
+            "ledgerStateSha256": "772593b247e0eb706678a8dd75540bd2152544167d47e325a549cc4ffd109675"
+          },
+          {
+            "fault": "verifying",
+            "expected": "runtime_upgrade_busy",
+            "statePreserved": true,
+            "priorSnapshotPreserved": true,
+            "partialSnapshotAbsent": true,
+            "ledgerStateSha256": "92dac14d036ca3165b6c329ccfcd5df6688d2deeea4cb4f6c5fca5dbeb2451d8"
+          },
+          {
+            "fault": "unknown-future",
+            "expected": "runtime_upgrade_busy",
+            "statePreserved": true,
+            "priorSnapshotPreserved": true,
+            "partialSnapshotAbsent": true,
+            "ledgerStateSha256": "934a0e73e0747737add802463dc95766f239a83fea121e3549d6db77609cc058"
+          },
+          {
+            "fault": "lease",
+            "expected": "runtime_upgrade_busy",
+            "statePreserved": true,
+            "priorSnapshotPreserved": true,
+            "partialSnapshotAbsent": true,
+            "ledgerStateSha256": "7955f9873870a8cbade7293719c419959f182d327485e13d3b55dbc09a56724e"
+          },
+          {
+            "fault": "prepared",
+            "expected": "runtime_upgrade_busy",
+            "statePreserved": true,
+            "priorSnapshotPreserved": true,
+            "partialSnapshotAbsent": true,
+            "ledgerStateSha256": "d4eea00a5b866861611221fc77e64a9841efd34a7d283ce19b044f03f525cc22"
+          },
+          {
+            "fault": "unconfirmed-stop",
+            "expected": "runtime_upgrade_busy",
+            "statePreserved": true,
+            "priorSnapshotPreserved": true,
+            "partialSnapshotAbsent": true,
+            "ledgerStateSha256": "3c454e0c9c86cf72572ae513de29353c8646e10cabe7952563f05b7d99c73dcd"
+          },
+          {
+            "fault": "future-schema",
+            "expected": "ledger_schema_incompatible",
+            "statePreserved": true,
+            "priorSnapshotPreserved": true,
+            "partialSnapshotAbsent": true,
+            "ledgerStateSha256": "449b7f3ee5db9f76b10006ddb4c728ebb10bcfc690e6c548b9f527fcbbb0fdde"
+          },
+          {
+            "fault": "snapshot-write",
+            "expected": "ledger_upgrade_snapshot_failed",
+            "statePreserved": true,
+            "priorSnapshotPreserved": true,
+            "partialSnapshotAbsent": true,
+            "ledgerStateSha256": "731e966fab6d7c209b980aa483c403726b5020b252e38aab46686c6fa139e4e0"
+          }
+        ],
+        "missingLedgerAbsent": true,
+        "calls": [
+          {
+            "args": [
+              "status",
+              "--database",
+              "$QA/upgrade-boundaries140/planned/tasks.sqlite"
+            ],
+            "exitCode": 0,
+            "stdout": "{\"tasks\":[{\"taskId\":\"original\",\"attemptId\":null,\"state\":\"planned\",\"epoch\":0,\"runtimeIdentity\":{\"pluginId\":\"qa\",\"pluginVersion\":\"1\",\"cliVersion\":\"1\",\"sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"mode\":\"headless\",\"capabilitySnapshotSha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},\"outputRefs\":[],\"evidenceRefs\":[],\"error\":null}],\"leases\":[],\"budgets\":[],\"budgetTracking\":\"untracked-legacy-schema\"}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "upgrade",
+              "--database",
+              "$QA/upgrade-boundaries140/planned/tasks.sqlite"
+            ],
+            "exitCode": 1,
+            "stdout": "{\"error\":\"runtime_upgrade_busy\",\"errorDetail\":{\"code\":\"runtime_upgrade_busy\",\"message\":\"runtime_upgrade_busy\"}}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "status",
+              "--database",
+              "$QA/upgrade-boundaries140/ready/tasks.sqlite"
+            ],
+            "exitCode": 0,
+            "stdout": "{\"tasks\":[{\"taskId\":\"original\",\"attemptId\":null,\"state\":\"ready\",\"epoch\":0,\"runtimeIdentity\":{\"pluginId\":\"qa\",\"pluginVersion\":\"1\",\"cliVersion\":\"1\",\"sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"mode\":\"headless\",\"capabilitySnapshotSha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},\"outputRefs\":[],\"evidenceRefs\":[],\"error\":null}],\"leases\":[],\"budgets\":[],\"budgetTracking\":\"untracked-legacy-schema\"}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "upgrade",
+              "--database",
+              "$QA/upgrade-boundaries140/ready/tasks.sqlite"
+            ],
+            "exitCode": 1,
+            "stdout": "{\"error\":\"runtime_upgrade_busy\",\"errorDetail\":{\"code\":\"runtime_upgrade_busy\",\"message\":\"runtime_upgrade_busy\"}}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "status",
+              "--database",
+              "$QA/upgrade-boundaries140/running/tasks.sqlite"
+            ],
+            "exitCode": 0,
+            "stdout": "{\"tasks\":[{\"taskId\":\"original\",\"attemptId\":null,\"state\":\"running\",\"epoch\":0,\"runtimeIdentity\":{\"pluginId\":\"qa\",\"pluginVersion\":\"1\",\"cliVersion\":\"1\",\"sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"mode\":\"headless\",\"capabilitySnapshotSha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},\"outputRefs\":[],\"evidenceRefs\":[],\"error\":null}],\"leases\":[],\"budgets\":[],\"budgetTracking\":\"untracked-legacy-schema\"}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "upgrade",
+              "--database",
+              "$QA/upgrade-boundaries140/running/tasks.sqlite"
+            ],
+            "exitCode": 1,
+            "stdout": "{\"error\":\"runtime_upgrade_busy\",\"errorDetail\":{\"code\":\"runtime_upgrade_busy\",\"message\":\"runtime_upgrade_busy\"}}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "status",
+              "--database",
+              "$QA/upgrade-boundaries140/reconciling/tasks.sqlite"
+            ],
+            "exitCode": 0,
+            "stdout": "{\"tasks\":[{\"taskId\":\"original\",\"attemptId\":null,\"state\":\"reconciling\",\"epoch\":0,\"runtimeIdentity\":{\"pluginId\":\"qa\",\"pluginVersion\":\"1\",\"cliVersion\":\"1\",\"sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"mode\":\"headless\",\"capabilitySnapshotSha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},\"outputRefs\":[],\"evidenceRefs\":[],\"error\":null}],\"leases\":[],\"budgets\":[],\"budgetTracking\":\"untracked-legacy-schema\"}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "upgrade",
+              "--database",
+              "$QA/upgrade-boundaries140/reconciling/tasks.sqlite"
+            ],
+            "exitCode": 1,
+            "stdout": "{\"error\":\"runtime_upgrade_busy\",\"errorDetail\":{\"code\":\"runtime_upgrade_busy\",\"message\":\"runtime_upgrade_busy\"}}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "status",
+              "--database",
+              "$QA/upgrade-boundaries140/cancel_requested/tasks.sqlite"
+            ],
+            "exitCode": 0,
+            "stdout": "{\"tasks\":[{\"taskId\":\"original\",\"attemptId\":null,\"state\":\"cancel_requested\",\"epoch\":0,\"runtimeIdentity\":{\"pluginId\":\"qa\",\"pluginVersion\":\"1\",\"cliVersion\":\"1\",\"sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"mode\":\"headless\",\"capabilitySnapshotSha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},\"outputRefs\":[],\"evidenceRefs\":[],\"error\":null}],\"leases\":[],\"budgets\":[],\"budgetTracking\":\"untracked-legacy-schema\"}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "upgrade",
+              "--database",
+              "$QA/upgrade-boundaries140/cancel_requested/tasks.sqlite"
+            ],
+            "exitCode": 1,
+            "stdout": "{\"error\":\"runtime_upgrade_busy\",\"errorDetail\":{\"code\":\"runtime_upgrade_busy\",\"message\":\"runtime_upgrade_busy\"}}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "status",
+              "--database",
+              "$QA/upgrade-boundaries140/verifying/tasks.sqlite"
+            ],
+            "exitCode": 0,
+            "stdout": "{\"tasks\":[{\"taskId\":\"original\",\"attemptId\":null,\"state\":\"verifying\",\"epoch\":0,\"runtimeIdentity\":{\"pluginId\":\"qa\",\"pluginVersion\":\"1\",\"cliVersion\":\"1\",\"sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"mode\":\"headless\",\"capabilitySnapshotSha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},\"outputRefs\":[],\"evidenceRefs\":[],\"error\":null}],\"leases\":[],\"budgets\":[],\"budgetTracking\":\"untracked-legacy-schema\"}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "upgrade",
+              "--database",
+              "$QA/upgrade-boundaries140/verifying/tasks.sqlite"
+            ],
+            "exitCode": 1,
+            "stdout": "{\"error\":\"runtime_upgrade_busy\",\"errorDetail\":{\"code\":\"runtime_upgrade_busy\",\"message\":\"runtime_upgrade_busy\"}}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "status",
+              "--database",
+              "$QA/upgrade-boundaries140/unknown-future/tasks.sqlite"
+            ],
+            "exitCode": 0,
+            "stdout": "{\"tasks\":[{\"taskId\":\"original\",\"attemptId\":null,\"state\":\"unknown-future\",\"epoch\":0,\"runtimeIdentity\":{\"pluginId\":\"qa\",\"pluginVersion\":\"1\",\"cliVersion\":\"1\",\"sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"mode\":\"headless\",\"capabilitySnapshotSha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},\"outputRefs\":[],\"evidenceRefs\":[],\"error\":null}],\"leases\":[],\"budgets\":[],\"budgetTracking\":\"untracked-legacy-schema\"}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "upgrade",
+              "--database",
+              "$QA/upgrade-boundaries140/unknown-future/tasks.sqlite"
+            ],
+            "exitCode": 1,
+            "stdout": "{\"error\":\"runtime_upgrade_busy\",\"errorDetail\":{\"code\":\"runtime_upgrade_busy\",\"message\":\"runtime_upgrade_busy\"}}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "status",
+              "--database",
+              "$QA/upgrade-boundaries140/lease/tasks.sqlite"
+            ],
+            "exitCode": 0,
+            "stdout": "{\"tasks\":[{\"taskId\":\"original\",\"attemptId\":null,\"state\":\"cancelled\",\"epoch\":0,\"runtimeIdentity\":{\"pluginId\":\"qa\",\"pluginVersion\":\"1\",\"cliVersion\":\"1\",\"sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"mode\":\"headless\",\"capabilitySnapshotSha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},\"outputRefs\":[],\"evidenceRefs\":[],\"error\":null}],\"leases\":[{\"projectKey\":\"project\",\"taskId\":\"original\",\"epoch\":1}],\"budgets\":[],\"budgetTracking\":\"untracked-legacy-schema\"}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "upgrade",
+              "--database",
+              "$QA/upgrade-boundaries140/lease/tasks.sqlite"
+            ],
+            "exitCode": 1,
+            "stdout": "{\"error\":\"runtime_upgrade_busy\",\"errorDetail\":{\"code\":\"runtime_upgrade_busy\",\"message\":\"runtime_upgrade_busy\"}}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "status",
+              "--database",
+              "$QA/upgrade-boundaries140/prepared/tasks.sqlite"
+            ],
+            "exitCode": 0,
+            "stdout": "{\"tasks\":[{\"taskId\":\"original\",\"attemptId\":null,\"state\":\"cancelled\",\"epoch\":0,\"runtimeIdentity\":{\"pluginId\":\"qa\",\"pluginVersion\":\"1\",\"cliVersion\":\"1\",\"sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"mode\":\"headless\",\"capabilitySnapshotSha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},\"outputRefs\":[],\"evidenceRefs\":[],\"error\":null}],\"leases\":[],\"budgets\":[],\"budgetTracking\":\"untracked-legacy-schema\"}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "upgrade",
+              "--database",
+              "$QA/upgrade-boundaries140/prepared/tasks.sqlite"
+            ],
+            "exitCode": 1,
+            "stdout": "{\"error\":\"runtime_upgrade_busy\",\"errorDetail\":{\"code\":\"runtime_upgrade_busy\",\"message\":\"runtime_upgrade_busy\"}}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "status",
+              "--database",
+              "$QA/upgrade-boundaries140/unconfirmed-stop/tasks.sqlite"
+            ],
+            "exitCode": 0,
+            "stdout": "{\"tasks\":[{\"taskId\":\"original\",\"attemptId\":null,\"state\":\"cancelled\",\"epoch\":0,\"runtimeIdentity\":{\"pluginId\":\"qa\",\"pluginVersion\":\"1\",\"cliVersion\":\"1\",\"sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"mode\":\"headless\",\"capabilitySnapshotSha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},\"outputRefs\":[],\"evidenceRefs\":[],\"error\":null}],\"leases\":[],\"budgets\":[],\"budgetTracking\":\"untracked-legacy-schema\"}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "upgrade",
+              "--database",
+              "$QA/upgrade-boundaries140/unconfirmed-stop/tasks.sqlite"
+            ],
+            "exitCode": 1,
+            "stdout": "{\"error\":\"runtime_upgrade_busy\",\"errorDetail\":{\"code\":\"runtime_upgrade_busy\",\"message\":\"runtime_upgrade_busy\"}}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "upgrade",
+              "--database",
+              "$QA/upgrade-boundaries140/future-schema/tasks.sqlite"
+            ],
+            "exitCode": 1,
+            "stdout": "{\"error\":\"ledger_schema_incompatible\",\"errorDetail\":{\"code\":\"ledger_schema_incompatible\",\"message\":\"ledger_schema_incompatible\"}}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "status",
+              "--database",
+              "$QA/upgrade-boundaries140/snapshot-write/tasks.sqlite"
+            ],
+            "exitCode": 0,
+            "stdout": "{\"tasks\":[{\"taskId\":\"original\",\"attemptId\":null,\"state\":\"cancelled\",\"epoch\":0,\"runtimeIdentity\":{\"pluginId\":\"qa\",\"pluginVersion\":\"1\",\"cliVersion\":\"1\",\"sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"mode\":\"headless\",\"capabilitySnapshotSha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},\"outputRefs\":[],\"evidenceRefs\":[],\"error\":null}],\"leases\":[],\"budgets\":[],\"budgetTracking\":\"untracked-legacy-schema\"}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "upgrade",
+              "--database",
+              "$QA/upgrade-boundaries140/snapshot-write/tasks.sqlite"
+            ],
+            "exitCode": 1,
+            "stdout": "{\"error\":\"ledger_upgrade_snapshot_failed\",\"errorDetail\":{\"code\":\"ledger_upgrade_snapshot_failed\",\"message\":\"ledger_upgrade_snapshot_failed\"}}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "upgrade",
+              "--database",
+              "$QA/upgrade-boundaries140/missing.sqlite"
+            ],
+            "exitCode": 1,
+            "stdout": "{\"error\":\"ENOENT: no such file or directory, access '$QA/upgrade-boundaries140/missing.sqlite'\",\"errorDetail\":{\"code\":\"operation_failed\",\"message\":\"ENOENT: no such file or directory, access '$QA/upgrade-boundaries140/missing.sqlite'\"}}\n",
+            "stderr": ""
+          }
+        ],
+        "scope": "Actual fixed public Python entry and genuine retained-schema1 database constructor; controlled SQLite state/lease/stop fixtures and real directory permission denial. No native editing or GUI asserted; complements separate actual native drain proof."
+      }
+    },
+    "legacy-native-upgrade140": {
+      "retainedProof": "artifacts/artcraft-protocol140-20261009/legacy-native-upgrade140/proof.json",
+      "rawProofSha256": "08b8746e01e3bb5d7faacfc11db2f58108de5439c910e91ade5671942f5dae7c",
+      "publicCalls": 5,
+      "proof": {
+        "schema": "artcraft-legacy-native-upgrade/v1",
+        "result": "PASS",
+        "oldRuntimeVersion": "0.1.0-dev.0",
+        "currentRuntimeVersion": "0.1.0-dev.139-runtime.1",
+        "nativeVersion": "effectcraft-cli 0.2.0",
+        "installedEntrypoint": true,
+        "nativeSha256": "74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe",
+        "projectSha256": "3a72bd916c892b1ad1e79033e0e8d03daa959f411bd657899f245bbbe3243322",
+        "oldRuntimeFiles": [
+          "772734bed5178c420ede67adcac7a1d3d33ec2990ce2793d960643b33b97cc8b",
+          "929defa8363655bad13868c1f10548f9a7f12424f5b8fa2219ce2acf92511946",
+          "fb44b28466a2d8d2f66a2364711a451023886e702dd584025ea76af26f6c5cf4",
+          "8f952bc5ab0306b9d5f2589133a38c91ff33eb4cd30827eab2e74ed039ca8fd3"
+        ],
+        "upgrade": {
+          "state": "completed",
+          "runtimeVersion": "0.1.0-dev.139-runtime.1",
+          "schemaVersion": 2,
+          "migrated": true,
+          "snapshot": {
+            "path": "$QA/legacy-native-upgrade140/tasks.sqlite.schema-v1-a65154b9-3830-4997-a715-c52ba3139db6.sqlite",
+            "sha256": "a90c4be7f5ed07810dbed5898206ce4faf620923822a635f2e5295a123bb08d3",
+            "schemaVersion": 1
+          }
+        },
+        "oldSchemaDataPreserved": true,
+        "oldRuntimePreserved": true,
+        "nativeReopened": true,
+        "snapshotPreserved": true,
+        "noReplay": true,
+        "calls": [
+          {
+            "entry": "candidate",
+            "args": [
+              "upgrade",
+              "--database",
+              "$QA/legacy-native-upgrade140/tasks.sqlite"
+            ],
+            "exitCode": 1,
+            "stdout": "{\"error\":\"runtime_upgrade_busy\",\"errorDetail\":{\"code\":\"runtime_upgrade_busy\",\"message\":\"runtime_upgrade_busy\"}}\n"
+          },
+          {
+            "entry": "candidate",
+            "args": [
+              "upgrade",
+              "--database",
+              "$QA/legacy-native-upgrade140/tasks.sqlite"
+            ],
+            "exitCode": 0,
+            "stdout": "{\"state\":\"completed\",\"runtimeVersion\":\"0.1.0-dev.139-runtime.1\",\"schemaVersion\":2,\"migrated\":true,\"snapshot\":{\"path\":\"$QA/legacy-native-upgrade140/tasks.sqlite.schema-v1-a65154b9-3830-4997-a715-c52ba3139db6.sqlite\",\"sha256\":\"a90c4be7f5ed07810dbed5898206ce4faf620923822a635f2e5295a123bb08d3\",\"schemaVersion\":1}}\n"
+          },
+          {
+            "entry": "retained-schema1",
+            "args": [
+              "status",
+              "--database",
+              "$QA/legacy-native-upgrade140/explicit-rollback.sqlite",
+              "--task",
+              "native-original"
+            ],
+            "exitCode": 0,
+            "stdout": "{\"taskId\":\"native-original\",\"attemptId\":\"3bad20a8-f7fd-4103-b24d-60da7d888696\",\"state\":\"review_ready\",\"epoch\":1,\"runtimeIdentity\":{\"pluginId\":\"effectcraft\",\"pluginVersion\":\"legacy-qa\",\"cliVersion\":\"0.2.0\",\"sha256\":\"74d44fc90018ac381dc4516edff939ab26eb6d900ae5c3f49d1eba5ac14105fe\",\"mode\":\"headless\",\"capabilitySnapshotSha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},\"outputRefs\":[{\"protocolVersion\":\"craft-artifact/v1\",\"assetId\":\"native-original\",\"version\":\"v1\",\"sha256\":\"3a72bd916c892b1ad1e79033e0e8d03daa959f411bd657899f245bbbe3243322\",\"bytes\":2395,\"mediaType\":\"application/octet-stream\",\"producerTaskId\":\"native-original\",\"sourceRefs\":[],\"nativeProjectRef\":null,\"renditions\":[],\"dependencies\":[],\"technicalMetadata\":{},\"lossReportRef\":null,\"evidenceRefs\":[],\"location\":\"original.ecproj\"}],\"evidenceRefs\":[],\"error\":null}\n"
+          },
+          {
+            "entry": "retained-schema1",
+            "args": [
+              "status",
+              "--database",
+              "$QA/legacy-native-upgrade140/tasks.sqlite",
+              "--task",
+              "native-original"
+            ],
+            "exitCode": 1,
+            "stdout": "{\"error\":\"ledger_schema_incompatible\"}\n"
+          },
+          {
+            "entry": "candidate",
+            "args": [
+              "upgrade",
+              "--database",
+              "$QA/legacy-native-upgrade140/tasks.sqlite"
+            ],
+            "exitCode": 0,
+            "stdout": "{\"state\":\"completed\",\"runtimeVersion\":\"0.1.0-dev.139-runtime.1\",\"schemaVersion\":2,\"migrated\":false,\"snapshot\":null}\n"
+          }
+        ],
+        "scope": "Retained immutable schema1 source runtime, real headless Effect create/save/reopen, installed fixed skill public CLI migration and explicit copied-snapshot compatibility; no desktop GUI or full RT-002 matrix"
+      }
+    }
+  },
+  "applicability": [
+    "Current fixed public Python entry and exact installed runtime files verified after execution; all ten extracted fixed skill trees remain byte-identical.",
+    "Twelve controlled genuine SQLite legacy state/lease/execution cases use real OS snapshot write refusal, with readonly status and missing-ledger refusal.",
+    "Separate actual Effect native create/save/reopen drains a retained schema1 task, then current public upgrade creates the verified compatible snapshot; explicit old-runtime rollback reads only a copied snapshot; new schema is never downgraded."
+  ],
+  "limits": [
+    "Warm verified native/runtime cache; not cold installation, Skills CLI or full host qualification.",
+    "Retained schema1 source is fingerprinted; current native binary and old modules preserved. No claim of latest domain repository compatibility.",
+    "One public Art CLI skill used for 29 upgrade/status calls; does not requalify ten independent cold entry points.",
+    "No complete current17-scenario RT-002 qualification: mode catalog ambiguity and remaining installer/capability applicability must still be resolved."
+  ],
+  "currentNamedScenarioCount": 17,
+  "currentNamedScenarios": [
+    "AC-RT-002-P 合同条件满足",
+    "AC-RT-002-N 边界条件",
+    "AC-RT-002-MODE 显式模式不降级",
+    "AC-RT-002-LIVE-TOOL-SCHEMA 编辑前实际工具合同",
+    "AC-RT-002-LEDGER-MIGRATION 旧账本排空与回退快照",
+    "领域 CLI 并行安装与复用",
+    "AC-RT-002-ART-INSTALL-LOCK Art 首次安装有界互斥",
+    "[AC-RT-002-DOWNLOAD] 有界只读下载恢复",
+    "[AC-RT-002-FAILED-STAGE] 失败暂存保全分发升级",
+    "[AC-RT-002-INNER-JSON] 完整命令响应修复的独立分发",
+    "[AC-RT-002-NATIVE-DOWNLOAD] 领域原生安装子进程的临时下载恢复",
+    "[AC-RT-002-PLAN-JSON] 严格命令计划的独立分发",
+    "[AC-RT-002-BRAND-GUARD] 品牌依赖保护的独立分发",
+    "[AC-RT-002-GATEWAY-EXPORT] 品牌网关变体继承的独立分发",
+    "[AC-RT-002-SEGMENT-GUIDE] 分段首用说明与固定依赖一致",
+    "[AC-RT-002-UPGRADE-ENTRY] 公开账本升级与回退身份",
+    "[AC-RT-002-MODE-CATALOG] 模式目录身份与完整命令交接"
+  ]
+}
