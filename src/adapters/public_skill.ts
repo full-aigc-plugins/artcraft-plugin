@@ -6,6 +6,7 @@ import { promisify } from 'node:util';
 import { createHash } from 'node:crypto';
 import { strictMcpRunner } from './strict_mcp_runner.ts';
 import { domainFontDependencies } from './font_dependencies.ts';
+import { collectedDependencies } from './collected_dependencies.ts';
 import { parseEffectExportProbe } from './effect_export_probe.ts';
 import { parseDesignSourceInspection } from './design_source_inspection.ts';
 import { filmExportMetadata } from './film_export_metadata.ts';
@@ -190,6 +191,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
      }
      return descriptor;
     };
+    const boundDependencies:any[]=[];
     for(const asset of assets){
      // 原生素材替换归入原别名；只接受计划显式声明的替换映射。
      const replacements=['effectcraft','vectorcraft'].includes(locked.pluginId)?(plan.operations??[]).filter((operation:any)=>operation.command==='asset.replace' && operation.params?.replacement===asset.name):[];
@@ -205,7 +207,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
      await verifyArtifact(await artifact(collected.path,collected.sha256,'application/octet-stream',taskId),delivery);
      if(asset.kind==='lut' && collected.kind!=='lut')throw new Error('skill_dependency_uncollected');
      if(asset.input.artifact.mediaType===imageSequenceMime && collected.kind!=='image-sequence')throw new Error('skill_sequence_manifest_mismatch');
-
+     boundDependencies.push({alias,artifact:asset.input.artifact,kind:asset.kind});
     }
     // 继承的媒体也须收集并核验，局部修改不能丢失旧工程依赖。
     for(const collected of Object.values(manifest.assets??{}) as {path:string;sha256:string;kind?:string}[]){
@@ -213,6 +215,9 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
      dependencyRefs.push(ref(collected.path,collected.sha256));
      if(collected.kind==='image-sequence')await sequenceRefs(collected.path,collected.sha256);
     }
+    const assetDependencies=collectedDependencies(manifest,boundDependencies,source?.artifact,sourceManifest,JSON.stringify([locked.pluginId,node.projectKey]));
+    // 公共依赖身份与同身份 evidenceRef 关联，沿用现有协议字段并核验包内实际字节。
+    dependencyRefs.push(...assetDependencies.map(dependency=>dependency.assetRef));
     const nativeLocation=projects[locked.pluginId];
     if(!manifest.files[nativeLocation])throw new Error('skill_native_missing');
     const nativeRef=ref(nativeLocation,manifest.files[nativeLocation]),manifestRef=ref('manifest.json',hash(manifestBytes));
@@ -253,7 +258,7 @@ export function publicSkillFactory(config:PublicSkillConfig):AdapterFactory {
       if(locked.pluginId!=='effectcraft' || manifest.imageSequence?.path!==item.location || manifest.imageSequence?.sha256!==output.sha256)throw new Error('skill_sequence_output_mismatch');
       technicalMetadata=sequenceMetadata(await sequenceRefs(item.location,output.sha256));
      }
-     const publicOutput={...output,technicalMetadata,sourceRefs,nativeProjectRef:nativeRef,lossReportRef:lossRef,evidenceRefs:[manifestRef,...dependencyRefs,...technicalEvidence],dependencies:[...fontDependencies,...sourceRefs.filter(assetRef=>!source || assetRef.assetId!==source.artifact.assetId).map(assetRef=>({assetRef,kind:assets.find(asset=>asset.input.artifact.assetId===assetRef.assetId)?.kind==='lut'?'lut':'media',packaged:true,missingReason:null}))]};
+     const publicOutput={...output,technicalMetadata,sourceRefs,nativeProjectRef:nativeRef,lossReportRef:lossRef,evidenceRefs:[manifestRef,...dependencyRefs,...technicalEvidence],dependencies:[...fontDependencies,...assetDependencies.map(dependency=>{const {location,...assetRef}=dependency.assetRef;return {...dependency,assetRef};})]};
      await verifyArtifact(publicOutput,delivery);outputs.push(publicOutput);
     }
     return {root:delivery,outputs,evidenceRefs:[manifestRef]};

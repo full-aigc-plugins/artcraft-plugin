@@ -25,12 +25,18 @@ async function fixture(plugin='fixture'){
    if(plugin==='photocraft'){
     const projectBytes='scheduler-photo-native',nativeBytes=JSON.stringify({layers:[{kind:'Type',text:{font:'Arial'}}]});
     await writeFile(join(directory,'project.pcraft'),projectBytes);await writeFile(join(directory,'native.json'),nativeBytes);
-    const manifest=JSON.stringify({schema:'photocraft-delivery/v1',runtimeSha256:runtime,files:{'project.pcraft':sha(projectBytes),'native.json':sha(nativeBytes),[location]:sha(bytes)}});
+    const collected=node.payload.plan.media?{'asset.bin':sha('photo media')}:{},assets=node.payload.plan.media?{image:{path:'asset.bin',sha256:sha('photo media')}}:{};
+    if(node.payload.plan.media)await writeFile(join(directory,'asset.bin'),'photo media');
+    const manifest=JSON.stringify({schema:'photocraft-delivery/v1',runtimeSha256:runtime,files:{'project.pcraft':sha(projectBytes),'native.json':sha(nativeBytes),[location]:sha(bytes),...collected},assets});
     await writeFile(join(directory,'manifest.json'),manifest);
     nativeProjectRef={assetId:'unit-native',version:sha(projectBytes),sha256:sha(projectBytes),location:'project.pcraft'};
     const inspectionRef={assetId:'unit-inspection',version:sha(nativeBytes),sha256:sha(nativeBytes),location:'native.json'};
     evidenceRefs=[{assetId:'unit-manifest',version:sha(manifest),sha256:sha(manifest),location:'manifest.json'},inspectionRef];
     dependencies=[{assetRef:null,kind:'font',packaged:false,missingReason:'font_file_not_collected',fontRequirement:{family:'Arial',nativeProjectSha256:nativeProjectRef.sha256,inspectionRef}}];
+    if(node.payload.plan.media){
+     const assetRef={assetId:'unit-media',version:sha('photo media'),sha256:sha('photo media')};
+     evidenceRefs.push({...assetRef,location:'asset.bin'});dependencies.push({assetRef,kind:'media',packaged:true,missingReason:null});
+    }
    }
    if(plugin==='vectorcraft'){
     location='artboard-1.svg';await writeFile(join(directory,location),bytes);
@@ -385,5 +391,17 @@ for(const newRevision of [false,true])test(`public Photo ${newRevision?'cross-re
   assert.equal(second.state,'blocked');assert.deepEqual(f.launches,[]);
   assert.match(JSON.stringify(second),/font_dependency_mismatch/);
   assert.deepEqual(f.ledger.workflowNode(first.runKey,'logo').outputs,node.outputs);
+ }finally{await f.cleanup();}
+});
+
+for(const newRevision of [false,true])test(`public Photo ${newRevision?'cross-revision cache':'same-revision resume'} rejects omitted inherited media without replay`,async()=>{
+ const f=await fixture('photocraft');try{
+  f.plan.nodes=f.plan.nodes.slice(0,1);f.plan.nodes[0].payload.schemaVersion='craft-skill-workflow/v1';(f.plan.nodes[0].payload.plan as any).media=true;
+  const first=await f.engine.run(f.plan);assert.equal(first.state,'review_ready');
+  const record=f.ledger.workflowNode(first.runKey,'logo');record.outputs[0].dependencies=record.outputs[0].dependencies.filter((d:any)=>d.kind!=='media');
+  f.ledger.saveWorkflowNode(first.runKey,'logo',record);f.clear();
+  const plan=structuredClone(f.plan);if(newRevision)plan.revision='v2';
+  const second=await f.engine.run(plan);assert.equal(second.state,'blocked');assert.deepEqual(f.launches,[]);
+  assert.match(JSON.stringify(second),/dependency_manifest_mismatch/);assert.deepEqual(f.ledger.workflowNode(first.runKey,'logo').outputs,record.outputs);
  }finally{await f.cleanup();}
 });

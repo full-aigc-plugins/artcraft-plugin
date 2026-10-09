@@ -4,6 +4,8 @@ import {constants,createReadStream} from 'node:fs';
 import {join,dirname,isAbsolute,relative,resolve} from 'node:path';
 import {createHash} from 'node:crypto';
 import {verifyArtifact,planHash} from '../protocol/contracts.ts';
+import {verifyDomainFontOutput} from '../adapters/font_output.ts';
+import {verifyCollectedOutput} from '../adapters/collected_output.ts';
 import type {TaskLedger} from '../harness/task_ledger.ts';
 const hash=(x:Buffer|string)=>createHash('sha256').update(x).digest('hex');
 const safe=(x:unknown):x is string=>typeof x==='string' && !!x && !isAbsolute(x) && !/[\\:\x00]/.test(x) && !x.split('/').some(p=>['','..','.'].includes(p));
@@ -22,6 +24,15 @@ async function fileDigest(path:string):Promise<{sha256:string;bytes:number}>{
  return {sha256:digest.digest('hex'),bytes};
 }
 const json=(x:unknown)=>JSON.stringify(x,null,2)+'\n';
+
+/** 显式源输入可保留历史记录；公共领域子交付必须满足当前完整依赖合同。 */
+async function verifyPublicDependencies(root:string,outputs:any[],node:any):Promise<void>{
+ if(node.payload?.schemaVersion!=='craft-skill-workflow/v1')return;
+ for(const output of outputs){
+  await verifyDomainFontOutput(root,output,node.runtimeIdentity.pluginId,node.runtimeIdentity.sha256);
+  await verifyCollectedOutput(root,output,node.runtimeIdentity.pluginId,node.runtimeIdentity.sha256);
+ }
+}
 
 /** 必须使用打包回执中的清单摘要；文件表本身不能自证没有被替换。 */
 export async function verifyProjectPackage(root:string,expectedSha256:string):Promise<Record<string,any>>{
@@ -51,10 +62,13 @@ export async function verifyProjectPackage(root:string,expectedSha256:string):Pr
  for(const child of manifest.children){
   if(!safe(child.root) || !Array.isArray(child.outputs) || !child.outputs.length)throw new Error('package_location_invalid');
   const childRoot=join(root,child.root);
+  const node=original.nodes?.find((node:any)=>node.id===child.nodeId);
+  if(!node || (node.payload?.schemaVersion==='craft-skill-workflow/v1' && planHash(node.runtimeIdentity)!==planHash(child.runtimeIdentity)))throw new Error('package_plan_mismatch');
   for(const output of child.outputs){
    if(!manifest.files[join(child.root,output.location)])throw new Error('package_manifest_invalid');
    await verifyArtifact(output,childRoot);
   }
+  await verifyPublicDependencies(childRoot,child.outputs,node);
   children.push({...child,root:childRoot});
  }
  for(const input of manifest.inputs??[]){
@@ -76,6 +90,7 @@ export async function packageProject(ledger:TaskLedger,runKey:string,owner:strin
   if(source.outputs.some(output=>output.nativeProjectRef) && (!delta || (!delta.startsWith('../') && !isAbsolute(delta))))throw new Error('package_output_inside_source');
   for(const output of source.outputs)await verifyArtifact(output,source.root);
  }
+ for(const node of snapshot.plan.nodes)await verifyPublicDependencies(snapshot.nodes[node.id].root,snapshot.nodes[node.id].outputs,node);
  await mkdir(dirname(destination),{recursive:true});
  const stage=await mkdtemp(join(dirname(destination),'.craft-package-'));
  let reservedInode:number|undefined;

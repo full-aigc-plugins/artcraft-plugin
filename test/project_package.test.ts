@@ -10,10 +10,10 @@ import {LocalRunner} from '../src/harness/local_runner.ts';
 import {WorkflowEngine} from '../src/planning/workflow_engine.ts';
 import {packageProject,verifyProjectPackage} from '../src/artifacts/project_package.ts';
 const hash=(x:Buffer|string)=>createHash('sha256').update(x).digest('hex');
-async function fixture(font=false){
+async function fixture(font=false,publicNative=false){
  const root=await mkdtemp(join(tmpdir(),'craft-package-')),ledger=new TaskLedger(join(root,'tasks.sqlite'));
  const delivery=join(root,'source');await mkdir(delivery);
- const files={'project.fcproj':'fixture native','render.bin':'fixture render','asset.bin':'fixture dependency','native.json':'{"layers":[]}'};
+ const files={'project.fcproj':publicNative?JSON.stringify({format:'filmcraft.project',schema_version:12,project:{items:{}}}):'fixture native','render.bin':'fixture render','asset.bin':'fixture dependency','native.json':'{"layers":[]}'};
  for(const [name,data] of Object.entries(files))await writeFile(join(delivery,name),data);
  const manifest={schema:'filmcraft-delivery/v1',runtimeSha256:hash(await readFile(process.execPath)),files:Object.fromEntries(Object.entries(files).map(([name,data])=>[name,hash(data)])),assets:{media:{path:'asset.bin',sha256:hash(files['asset.bin'])}},bindings:{}};
  const text=JSON.stringify(manifest);await writeFile(join(delivery,'manifest.json'),text);
@@ -24,8 +24,12 @@ async function fixture(font=false){
   artifact.evidenceRefs.push(inspection);
   (artifact.dependencies as any[]).push({assetRef:null,kind:'font',packaged:false,missingReason:'font_file_not_collected',fontRequirement:{family:'Arial',nativeProjectSha256:artifact.nativeProjectRef.sha256,inspectionRef:inspection}});
  }
+ if(publicNative){
+  const assetRef={assetId:'known-media',version:hash(files['asset.bin']),sha256:hash(files['asset.bin'])};
+  (artifact.dependencies as any[]).push({assetRef,kind:'media',packaged:true,missingReason:null});artifact.evidenceRefs.push({...assetRef,location:'asset.bin'});
+ }
  const identity={pluginId:'filmcraft',pluginVersion:'fixture',cliVersion:process.version,sha256:manifest.runtimeSha256,mode:'headless',capabilitySnapshotSha256:hash('fixture')};
- const plan={workflowId:'package-test',ownerId:'owner',revision:'v1',authorizationRef:'scope',budget:{currency:'USD',maxMinorUnits:0,maxRevisions:0,maxExternalCalls:0},deadline:new Date(Date.now()+60000).toISOString(),nodes:[{id:'film',dependsOn:[],projectKey:'film-project',runtimeIdentity:identity,expectedRevision:null,payload:{schemaVersion:'fixture/v1',plan:{text:'fixture'}}}]};
+ const plan={workflowId:'package-test',ownerId:'owner',revision:'v1',authorizationRef:'scope',budget:{currency:'USD',maxMinorUnits:0,maxRevisions:0,maxExternalCalls:0},deadline:new Date(Date.now()+60000).toISOString(),nodes:[{id:'film',dependsOn:[],projectKey:'film-project',runtimeIdentity:identity,expectedRevision:null,payload:{schemaVersion:publicNative?'craft-skill-workflow/v1':'fixture/v1',plan:{text:'fixture'}}}]};
  const engine=new WorkflowEngine(ledger,new LocalRunner(ledger,async()=>{}),{filmcraft:async(_node,_inputs,taskId)=>({root:delivery,adapter:{prepare:async()=>({executable:process.execPath,args:['-e','process.exit(0)'],cwd:root,actualRevision:null,budgetUsage:{minorUnits:0,externalCalls:0}}),verify:async()=>({root:delivery,outputs:[{...artifact,producerTaskId:taskId}],evidenceRefs:[]})}})});
  return {root,ledger,delivery,plan,engine,artifact,cleanup:async()=>{ledger.close();await rm(root,{recursive:true});}};
 }
@@ -109,5 +113,25 @@ test('moving a package preserves missing font requirements without claiming font
   assert.equal(dep.missingReason,'font_file_not_collected');
   await writeFile(join(verified.children[0].root,'native.json'),'{}');
   await assert.rejects(verifyProjectPackage(moved,receipt.sha256),/package_file_digest_mismatch/);
+ }finally{await f.cleanup();}
+});
+
+test('legacy ready snapshot with missing collected dependencies cannot be published by direct packaging',async()=>{
+ const f=await fixture(false,true);try{
+  const result=await f.engine.run(f.plan);assert.equal(result.state,'review_ready');
+  const snapshot=f.ledger.packageSnapshot.bind(f.ledger);
+  // 受控旧快照夹具；真实账本和领域文件保持不变。
+  f.ledger.packageSnapshot=(...args)=>{const value=snapshot(...args);value.nodes.film.outputs[0].dependencies=[];return value;};
+  const target=join(f.root,'legacy-package');await assert.rejects(packageProject(f.ledger,result.runKey,'owner','scope',target),/dependency_manifest_mismatch/);
+  await assert.rejects(access(target),/ENOENT/);
+ }finally{await f.cleanup();}
+});
+test('moved public package with omitted collected dependencies is rejected even with its exact supplied manifest hash',async()=>{
+ const f=await fixture(false,true);try{
+  const result=await f.engine.run(f.plan),target=join(f.root,'package');assert.equal(result.state,'review_ready');
+  const receipt=await packageProject(f.ledger,result.runKey,'owner','scope',target);await verifyProjectPackage(target,receipt.sha256);
+  const path=join(target,'project.json'),manifest=JSON.parse(await readFile(path,'utf8'));manifest.children[0].outputs[0].dependencies=[];
+  const text=JSON.stringify(manifest);await writeFile(path,text);
+  await assert.rejects(verifyProjectPackage(target,hash(text)),/dependency_manifest_mismatch/);
  }finally{await f.cleanup();}
 });

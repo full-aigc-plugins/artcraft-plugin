@@ -1,0 +1,111 @@
+{
+  "schema": "artcraft-inherited-dependencies-candidate/v1",
+  "status": "candidate_verified_fixed_distribution_pending",
+  "runtimeTests": {
+    "total": 695,
+    "passed": 669,
+    "skipped": 26,
+    "failed": 0
+  },
+  "publicInstalledRed": {
+    "runtimeVersion": "0.1.0-dev.138-runtime.1",
+    "status": "behavior_failure_confirmed",
+    "expected": "inherited media/LUT identities retained on reopen",
+    "actual": "poster, intro and film non-font dependency arrays empty",
+    "qaInvocationFailureExcluded": "first attempt missed providedAssets grade declaration; retry1 is the behavioral red"
+  },
+  "controlledRed": {
+    "mapping": 6,
+    "cacheContract": 2,
+    "directPackageAndConsumer": 2
+  },
+  "sourceHashes": {
+    "src/adapters/public_skill.ts": "95fc019cc06314e4dd6f8d076be6c98052034e6b42f50346a8c397fec0d1a085",
+    "src/adapters/collected_dependencies.ts": "4a3f2fc1dcafbd2804ccb6bf6e6c6082005deb914b78e7d228e2105c7006335d",
+    "src/adapters/collected_output.ts": "5bc447240efe90c01c8c2a75c92ded7be8e23c73b6b254ecde8c13505961ec05",
+    "src/artifacts/project_package.ts": "57b815030543f563089d6de770f1b3d5d2c8de7b7a3ee4f6e0868307d67c1147",
+    "src/planning/workflow_engine.ts": "700cacfe597e2f1629aeb7f1c34334fd90fffae0af7310ce80594ceab81ad9ba",
+    "src/adapters/font_output.ts": "89b63721b00a19bc065eb09488b02eff6a7549dade1dbfebbfca67c51a8721d9",
+    "package.json": "7a9610a48ef579c64baf1a07339d6ff6339ca7caab4f7135e2c8634bd674cc5c"
+  },
+  "logsSha256": {
+    "inherited-deps-red": "5e36e4442f2e4f9aa8035161186e54544f3a49813210853582c52ba324852ba7",
+    "inherited-deps-green": "02c9d96f50006e89eb12854677b924b279d3055b5cc1e34d1e43ddee984bc6e1",
+    "inherited-cache-red": "8219bd3d4c03ac1a23760a63f741eba2f1a17f3124c3a6d6a57e3810585d0038",
+    "inherited-cache-green": "526fd0ef0a216e9e32f3c51b1bf679bf10022aae66b67268203ab20861aabafc",
+    "inherited-package-red": "ae0d3c2b0d8193fc34aa8a66e7eafa5b9c602a0ec491b80f419d0e02188e1d9a",
+    "inherited-package-green": "2ebfd140e9715c74b610b1b6c31fa3e73aec262cce5d3ccc684fa587a715cad0",
+    "inherited-deps-full-final": "b32957c25e041b1794f2ada612593f0d207ba29957979f10e990db771e4b3fd1",
+    "inherited-public-red-retry1": "03b117978f102dcfebd2896695b7d3dad63a0f8491ddce6b3682315ab78d8e8a"
+  },
+  "actualNative": [
+    {
+      "root": "artcraft-inherited-deps-candidate-20261009",
+      "proofSha256": "b6fd133113032ae71160e9b4a93d3487f2bed8d9bb50b19584c8352c0fcc1343",
+      "packageSha256": "d645dab47920d5c8f78a1f085ed2d7ebabd01d08d2ae40b950f31a808093d2a5",
+      "reopenedPackageSha256": "7498d5427ddb3df69464fc3292c12d21b3b8eadeb66d01e1fce1051979e608c2",
+      "status": "passed",
+      "thirdResultSha256": "770e949f1ea1607ffb65bd7c7486007213e4445b720a09d6909dc74d27e78917",
+      "replacementResultSha256": null
+    },
+    {
+      "root": "artcraft-inherited-lut-candidate-20261009",
+      "proofSha256": "d06b99ed1f960b095f2273a05e90d8f25af48bd3236751f6c91fa14298d2de9c",
+      "packageSha256": "92535f908227e11e21596dcd63d202a23b5fca9bcd1f051e75fd23ac648e4524",
+      "reopenedPackageSha256": "0c59b0a98b97f6167b0de4bbf568b5d569cde6901357cd892b9cf3ef35c178d4",
+      "status": "passed",
+      "thirdResultSha256": "d48d78aa30544d85373f61b5fab4bad9448b9907295d0d6c987324dd4da70fa8",
+      "replacementResultSha256": null
+    },
+    {
+      "root": "artcraft-inherited-replacement-candidate-20261009",
+      "proofSha256": "b505571debf9c31b8e352cb634e1975a58223f551e6257a171898272ff0dfc4b",
+      "packageSha256": "67229f078c3864fd9e9f65c38ac37e45d7a23dbfce4878587cccfe4fd085bb08",
+      "reopenedPackageSha256": "a31773c026a21428397008409e93fc3618353700fc764b31079a6e69e4dba66c",
+      "status": "passed",
+      "thirdResultSha256": "60d3806a83cf1ff8212828469ef68ede9847442dd4976997a468b4a40f60a08f",
+      "replacementResultSha256": "9d748e4cf70856029752640f6b16bbcba0cc9681a1b574128a8122ec20769432"
+    }
+  ],
+  "packageGate": {
+    "status": "passed",
+    "results": [
+      {
+        "root": "artcraft-inherited-deps-candidate-20261009/moved",
+        "status": "passed",
+        "sha256": "d645dab47920d5c8f78a1f085ed2d7ebabd01d08d2ae40b950f31a808093d2a5"
+      },
+      {
+        "root": "artcraft-inherited-deps-candidate-20261009/reopened-package",
+        "status": "passed",
+        "sha256": "7498d5427ddb3df69464fc3292c12d21b3b8eadeb66d01e1fce1051979e608c2"
+      },
+      {
+        "root": "artcraft-inherited-lut-candidate-20261009/moved",
+        "status": "passed",
+        "sha256": "92535f908227e11e21596dcd63d202a23b5fca9bcd1f051e75fd23ac648e4524"
+      },
+      {
+        "root": "artcraft-inherited-lut-candidate-20261009/reopened-package",
+        "status": "passed",
+        "sha256": "0c59b0a98b97f6167b0de4bbf568b5d569cde6901357cd892b9cf3ef35c178d4"
+      },
+      {
+        "root": "artcraft-release139-20261009/fixed-font-first-use/moved",
+        "status": "rejected_incomplete_legacy_dependencies",
+        "sha256": "0115349c97646871fd496802f7cff53b8b863d8c1404a10d806833f68bdbc036"
+      },
+      {
+        "root": "artcraft-release139-20261009/fixed-font-first-use/reopened-package",
+        "status": "rejected_incomplete_legacy_dependencies",
+        "sha256": "c0592c178c5f1361c2ff2cd557f7f6488533a9f425ff053dd54aee0e42315a50"
+      }
+    ]
+  },
+  "remaining": [
+    "new fixed runtime, skills and plugin installation acceptance",
+    "current full CP-002 audit",
+    "full V1 and host acceptance"
+  ],
+  "task2_3Complete": false
+}

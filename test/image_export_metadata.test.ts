@@ -2,7 +2,7 @@ import {lockNativeSchema} from './fixtures/native_schema_lock.ts';
 /** 派生图片的公开属性交接；结构夹具不代替原生导出与视觉验收。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp,writeFile,readFile,mkdir,rm } from 'node:fs/promises';
+import { mkdtemp,writeFile,readFile,mkdir,rm,readdir,copyFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
@@ -12,7 +12,7 @@ import { inspectJpeg } from '../src/protocol/jpeg_inspection.ts';
 const hash=(value:Buffer|string)=>createHash('sha256').update(value).digest('hex');
 const png=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGP4z8DQAAAEgQGALFXOsAAAAABJRU5ErkJggg==','base64');
 const jpegImages=JSON.parse(await readFile(new URL('./fixtures/jpeg-images.json',import.meta.url),'utf8')).images;
-async function fixture(pluginId:'photocraft'|'vectorcraft'|'effectcraft',media:Buffer,mediaType:string){
+async function fixture(pluginId:'photocraft'|'vectorcraft'|'effectcraft',media:Buffer,mediaType:string,collected=false){
  const root=await mkdtemp(join(tmpdir(),'craft-image-export-')),skill=join(root,'skill');await mkdir(join(skill,'scripts'),{recursive:true});
  const files=await Promise.all(['workflow.py','bootstrap.py','mcp_session.py','runtime.lock.json','exchange_loss.py','preserved_stage.py'].map(async name=>{const path=join(skill,'scripts',name);await writeFile(path,'fixture');return {path,sha256:hash('fixture')};}));
  await lockNativeSchema(files,true);
@@ -24,10 +24,11 @@ async function fixture(pluginId:'photocraft'|'vectorcraft'|'effectcraft',media:B
  const vector={layers:[{kind:{type:'text',runs:[{text:'NOVA',style:{font_family:'Arial'}}]}}]};
  const effect={schema:1,items:{'1':{value:{t:'Text',v:{font:'Arial'}}}}};
  const content:Record<string,Buffer|string>={[project]:pluginId==='effectcraft'?JSON.stringify(effect):'fixture project','native.json':JSON.stringify(pluginId==='photocraft'?{layers:[{kind:'Type',text:{font:'Arial',text:'NOVA'}}]}:pluginId==='vectorcraft'?vector:{}),[location]:media};
+ if(collected)content['asset.bin']='inherited media';
  const ref=(location:string)=>({location,sha256:hash(content[location])});
  content['exchange-loss.json']=JSON.stringify({schema:'craft-exchange-loss/v1',pluginId,native:ref(project),inspection:ref('native.json'),acceptance:'technical-observations-only',outputs:[{...ref(location),format:mediaType==='image/png'?'png':'jpeg',role:'derivative',nativeSubstitute:false,observations:{},warnings:[],changes:[{code:'editable_layers',status:'lost',reason:'flattened_image'}]}]});
  const hashes:Record<string,string>={};for(const [name,value] of Object.entries(content)){await writeFile(join(made.root,name),value);hashes[name]=hash(value);}
- await writeFile(join(made.root,'manifest.json'),JSON.stringify({schema:pluginId+'-delivery/v1',runtimeSha256:identity.sha256,files:hashes,assets:{},lossReport:{path:'exchange-loss.json',sha256:hashes['exchange-loss.json']}}));
+ await writeFile(join(made.root,'manifest.json'),JSON.stringify({schema:pluginId+'-delivery/v1',runtimeSha256:identity.sha256,files:hashes,assets:collected?{logo:{path:'asset.bin',sha256:hashes['asset.bin']}}:{},lossReport:{path:'exchange-loss.json',sha256:hashes['exchange-loss.json']}}));
  return {made,identity,factory,cleanup:()=>rm(root,{recursive:true})};
 }
 test('Photo Vector Effect publish actual PNG and JPEG encoded facts in public outputs',async()=>{
@@ -48,6 +49,24 @@ test('Photo Vector Effect publish actual PNG and JPEG encoded facts in public ou
    }
   }finally{await f.cleanup();}}
  }
+});
+
+for(const plugin of ['photocraft','vectorcraft','effectcraft'] as const)test(`${plugin} public adapter preserves inherited media identity and matching file evidence through two reopens`,async()=>{
+ const f=await fixture(plugin,png,'image/png',true);try{
+  let result=await f.made.adapter.verify({runtimeIdentity:f.identity} as any);
+  const first=result.outputs[0].dependencies.filter((d:any)=>d.kind==='media');assert.equal(first.length,1);
+  for(let revision=1;revision<=2;revision++){
+   const old=result.outputs[0],node:any={id:'revise',dependsOn:[],projectKey:'design',runtimeIdentity:f.identity,expectedRevision:old.nativeProjectRef.sha256,payload:{schemaVersion:'craft-skill-workflow/v1',sourceProject:{assetId:old.assetId},plan:{operations:[]},assetBindings:[],outputs:[{assetId:'reopened-'+revision,location:'image.png',mediaType:'image/png'}]}};
+   const made=await f.factory(node,[{root:result.root,artifact:old}],'reopen-media-'+revision);
+   await mkdir(made.root,{recursive:true});
+   for(const name of await readdir(result.root))await copyFile(join(result.root,name),join(made.root,name));
+   const path=join(made.root,'manifest.json'),manifest=JSON.parse(await readFile(path,'utf8'));manifest.sourceProjectSha256=node.expectedRevision;await writeFile(path,JSON.stringify(manifest));
+   result=await made.adapter.verify({runtimeIdentity:f.identity} as any);
+   const output=result.outputs[0];assert.deepEqual(output.dependencies.filter((d:any)=>d.kind==='media'),first);
+   assert.equal(output.sourceRefs.length,1);assert.equal(output.sourceRefs[0].assetId,old.assetId);
+   for(const dependency of first)assert.ok(output.evidenceRefs.some((ref:any)=>ref.assetId===dependency.assetRef.assetId&&ref.version===dependency.assetRef.version&&ref.sha256===dependency.assetRef.sha256&&ref.location==='asset.bin'));
+  }
+ }finally{await f.cleanup();}
 });
 test('invalid derived images are rejected even when their manifest digest matches',async()=>{
  for(const [data,type] of [[png.subarray(0,33),'image/png'],[Buffer.from(jpegImages.rgb,'base64').subarray(0,20),'image/jpeg']] as const){
