@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+Fixed plugin140 / source112 / runtime139-runtime.1 passes inherited media/LUT retention, two source reopens, replacement/reuse and moved-package checks; normalized sequence identity also passes. Task2.10 completes; full2.3 and V1 remain open. [Acceptance](docs/ArtCraft-Inherited-Dependencies-Acceptance-Architecture.md).
+
 Fixed139/source111/runtime138 qualifies font revalidation and actual four-domain creation/reuse/moved-source reopening. Inherited media still has a confirmed public dependency-list gap;2.3 and full V1 remain open. [Acceptance](docs/ArtCraft-Font-Reuse-Acceptance-Architecture.md).
 
 Four-domain font candidate: native creation, moved packages and all four source reopens pass;644 runtime tests pass. A new pinned development chain is being prepared. [Architecture and limits](docs/ArtCraft-Four-Domain-Fonts-Architecture.md).

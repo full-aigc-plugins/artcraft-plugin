@@ -1,0 +1,150 @@
+{
+  "schema": "artcraft-inherited-dependencies-fixed140/v1",
+  "status": "scoped_fixed_distribution_verified_full_protocol_incomplete",
+  "releases": [
+    {
+      "repository": "full-aigc-plugins/artcraft-plugin",
+      "tag": "v0.1.0-dev.140",
+      "url": "https://github.com/full-aigc-plugins/artcraft-plugin/releases/tag/v0.1.0-dev.140",
+      "asset": "artcraft-plugin-0.1.0-dev.140.zip",
+      "sha256": "283deaf1b5367418a2c8234a3f9ea0fac4765da3886d70b31f98b860e4d0f324",
+      "bytes": 11610570,
+      "githubDigestMatched": true
+    },
+    {
+      "repository": "full-aigc-skills/artcraft-skills",
+      "tag": "v0.1.0-dev.112",
+      "url": "https://github.com/full-aigc-skills/artcraft-skills/releases/tag/v0.1.0-dev.112",
+      "asset": "artcraft-skills-0.1.0-dev.112.zip",
+      "sha256": "3465550b7a071f3fedf663a92d0810f15b35fef627f92441e64f9135908d9372",
+      "bytes": 10281836,
+      "githubDigestMatched": true
+    },
+    {
+      "repository": "full-aigc-plugins/artcraft-plugin",
+      "tag": "v0.1.0-dev.139-runtime.1",
+      "url": "https://github.com/full-aigc-plugins/artcraft-plugin/releases/tag/v0.1.0-dev.139-runtime.1",
+      "asset": "artcraft-runtime-0.1.0-dev.139-runtime.1.zip",
+      "sha256": "e62f7dbeadb33767e5ce1605b0a28ff9350dafb6edcc8c7efb85ef1351d97bdf",
+      "bytes": 91157,
+      "githubDigestMatched": true
+    }
+  ],
+  "pluginCommit": "0236f4fb4a503def818ea2584a83bf8fe0af5168",
+  "sourceCommit": "8ae5ecfc2bb38cd63248e6f2527795aa54e60775",
+  "runtimeCommit": "87c63bb3f12ee719f150064db7a385de4d533ff8",
+  "runtimeTests": {
+    "total": 695,
+    "passed": 669,
+    "skipped": 26,
+    "failed": 0
+  },
+  "fixedRuntimeTests": {
+    "passed": 78,
+    "skipped": 0,
+    "failed": 0
+  },
+  "sourcePython": {
+    "passed": 162,
+    "skipped": 53,
+    "failed": 0
+  },
+  "pluginPython": {
+    "passed": 112,
+    "skipped": 11,
+    "failed": 0
+  },
+  "installedNative": [
+    {
+      "root": "artifacts/artcraft-release140-20261009/source-inherited-first-use",
+      "proofSha256": "86ac040b3024dc203cc5fc3240a2cef0f613182998ca5ef00aae8efd29b3c201",
+      "runtimeVersion": "0.1.0-dev.139-runtime.1",
+      "packageSha256": "c6eec2c59bf45841e5de2094ea2487639f4eab8c5033bfc4f988cdcfb6a9abad",
+      "reopenedPackageSha256": "711abe073781a18f139af41ce0c2123c1edab3163d321281324bb92427e7ef11",
+      "status": "passed",
+      "twoSourceReopens": true,
+      "lutInheritance": true,
+      "effectReplacementAndReuse": true,
+      "legacyIncompletePackageRejected": true,
+      "sourceAndSkillPreserved": true
+    },
+    {
+      "root": "artifacts/artcraft-release140-20261009/fixed-inherited-first-use",
+      "proofSha256": "7f68b862e89720167c37b1ae559df47bfc8be1db4586c786b5121b800a7b74b4",
+      "runtimeVersion": "0.1.0-dev.139-runtime.1",
+      "packageSha256": "6a78fa3183f190320a3c2780c910451ed645fc0cd23c79fa46b2ec74468e5c8d",
+      "reopenedPackageSha256": "9186f7fd0a8678128ef334bbe20a886837d6c08a85f1fa60c1218ffba71c79a4",
+      "status": "passed",
+      "twoSourceReopens": true,
+      "lutInheritance": true,
+      "effectReplacementAndReuse": true,
+      "legacyIncompletePackageRejected": true,
+      "sourceAndSkillPreserved": true
+    }
+  ],
+  "logsSha256": {
+    "inherited-deps-full-final": "b32957c25e041b1794f2ada612593f0d207ba29957979f10e990db771e4b3fd1",
+    "fixed139-inherited": "80f749634c665cb5c976bf5e89e01f7ce03cbbec1f47391b4e2adabe4ee1efd0",
+    "source112-python": "7751150177c0839df834efda60a6aed7698883ff49d9fd64586ae623967fd91c",
+    "inherited-plugin-python": "7306b5ec79ce1f44ef2e95734c8fb7c468749b6033837b923ffe10f2eefef36c",
+    "plugin140-inherited-first-use": "43b51e7da400e763395f0d7bf13ed5a819f1fd4b54ca80086266a704f0a9a2b5",
+    "source112-inherited-first-use": "d43858b66206f2d7bff4b780c134a9875a2afff2242a04c215878c64d4842ddf",
+    "normalized-sequence-public": "3b8fb941b6901f84e838a5cb51abec9716b33ac1c5d9da1e4c87ce03af95593c",
+    "normalized-sequence-public-retry1": "4724acbf43d8ae4addbc2e88317ba4b7420a828cb4f99c724bbe5ff8e95e1ec0"
+  },
+  "pluginCI": {
+    "successfulRuns": [
+      37863125097,
+      37863125438,
+      37863125102,
+      37863125440
+    ]
+  },
+  "runtimeCI": {
+    "successfulRuns": [
+      37862850374,
+      37862849797,
+      37862850094,
+      37862849799
+    ]
+  },
+  "sourceCI": "not_configured",
+  "task2_10Complete": true,
+  "task2_3Complete": false,
+  "v1Complete": false,
+  "remaining": [
+    "current complete CP-002 scenario audit",
+    "full V1 and host/platform qualification",
+    "generic Skills CLI installation",
+    "creative acceptance"
+  ],
+  "scope": "warm public runtime cache; single source/fixed plugin skill; not host64 or cold-cache qualification",
+  "normalizedSequence": {
+    "status": "passed",
+    "runtimeVersion": "0.1.0-dev.139-runtime.1",
+    "warmRuntimeCache": true,
+    "frameCount": 12,
+    "chunkFrames": 6,
+    "width": 320,
+    "height": 180,
+    "notHdAcceptance": true,
+    "sourceDescriptorSha256": "5fde34cd8fe6c182c52c1e8b813ef5795b62ca2bee4129e26fe21b1ffc0478a9",
+    "collectedDescriptorSha256": "5f07ad51d0618872e02841fd18251f833cad3cf86600962bca1004a493f6a8fa",
+    "sourceSequenceSha256": "5fde34cd8fe6c182c52c1e8b813ef5795b62ca2bee4129e26fe21b1ffc0478a9",
+    "collectedDependency": {
+      "assetRef": {
+        "assetId": "collected-534ee07e40e999f3470926db5fe66ebd",
+        "version": "5f07ad51d0618872e02841fd18251f833cad3cf86600962bca1004a493f6a8fa",
+        "sha256": "5f07ad51d0618872e02841fd18251f833cad3cf86600962bca1004a493f6a8fa"
+      },
+      "kind": "media",
+      "packaged": true,
+      "missingReason": null
+    },
+    "movedPackageSha256": "bc7cf3534b5885d106d40b5c9e21e340a391b62f53b6306735c4adf10c6ec49d",
+    "sourceFilesAndSkillPreserved": true,
+    "proofSha256": "4bf46ac13a6bad6ba3d8f2bbf5afcc1781f1293549bc19b791634b4b7cf1cc56",
+    "root": "artifacts/artcraft-release140-20261009/normalized-sequence-first-use-retry1",
+    "initialHarnessError": "first QA script referenced nonexistent technicalMetadata.frameCount; corrected to actual rational frameRate; initial result retained, not counted as product failure"
+  }
+}

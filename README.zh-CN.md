@@ -1,5 +1,7 @@
 # ArtCraft Agent Plugin
 
+固定插件140／技能源112／runtime139-runtime.1通过继承媒体与LUT、两次源重开、替换复用及移动包核验，规范化序列身份亦通过。仅完成2.10，完整2.3与V1保持开放。[验收记录](docs/ArtCraft-Inherited-Dependencies-Acceptance-Architecture.zh_CN.md)。
+
 固定139／源111／runtime138已通过字体复用重验及实际四领域创建／复用／移动源重开；继承媒体的公共依赖清单仍有已确认缺口，2.3与完整V1继续开放。[验收](docs/ArtCraft-Font-Reuse-Acceptance-Architecture.zh_CN.md)。
 
 四领域字体候选已通过真实创建、移动包和四个源工程重开；644项运行时测试通过。正在准备新的固定开发发行链。[架构与边界](docs/ArtCraft-Four-Domain-Fonts-Architecture.zh_CN.md)。
