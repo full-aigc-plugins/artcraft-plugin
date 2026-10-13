@@ -1,6 +1,6 @@
 # ArtCraft 持久化任务账本
 
-当前实现位于 [task_ledger.ts](../src/harness/task_ledger.ts)，由已有 OpenSpec 的 AC-CP-001、AC-TX-001、AC-TX-002 与 AC-TX-003 约束。本阶段完成任务登记、版本绑定、单写占用、未知结果和取消意图；现已接入本地监督器与已核验停止后的失败/取消终结及 review_ready 释放；完整完成与崩溃 adoption 仍待实现。
+当前实现位于 [task_ledger.ts](../scripts/harness/task_ledger.ts)，由已有 OpenSpec 的 AC-CP-001、AC-TX-001、AC-TX-002 与 AC-TX-003 约束。本阶段完成任务登记、版本绑定、单写占用、未知结果和取消意图；现已接入本地监督器与已核验停止后的失败/取消终结及 review_ready 释放；完整完成与崩溃 adoption 仍待实现。
 
 ## 行为和状态
 

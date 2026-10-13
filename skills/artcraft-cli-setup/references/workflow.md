@@ -168,7 +168,7 @@ Source dev.46 pins runtime dev.68 and Film source dev.10. Registered Film asset 
 The `examples/segmented-hd-brand-campaign.json` fixture uses four native domains and five nodes: editable brand graphics, a poster, a 1920×1080 / 24 fps / five-second transparent intro, a captioned voice film, and an independent icon. Provide a five-second WAV and 1920×1080 PNG background as registered assets. The intro exports four bounded 32-frame segments; Film consumes the complete checkpoint. Native projects remain separate and editable. This fixture is a technical example; creative approval and arbitrary editorial operations remain separate.
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/workflow.py" \
+python3 -I -B "$HARNESS_DIR/scripts/workflow.py" \
   "$SKILL_DIR/examples/segmented-hd-brand-campaign.json" \
   --output /absolute/output/campaign \
   --authorization brand-campaign \

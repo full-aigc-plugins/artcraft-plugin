@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { Readable } from 'node:stream';
 import { finished } from 'node:stream/promises';
 import { createHash } from 'node:crypto';
-import { OutputObservation, nativeDiagnostics } from '../src/harness/native_diagnostics.ts';
+import { OutputObservation, nativeDiagnostics } from '../scripts/harness/native_diagnostics.ts';
 
 async function observe(value:string){
  const stream=Readable.from([Buffer.from(value)]),observation=new OutputObservation(stream);

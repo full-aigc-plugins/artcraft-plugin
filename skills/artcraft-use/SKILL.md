@@ -8,6 +8,8 @@ license: Apache-2.0
 
 本技能负责拆解、选择工具、依赖交接与交付核验。四个领域的独立技能负责各自原生工程。当前平台为 macOS arm64，需要 Python 3.11+；不依赖全局 Node，不使用插件私有路径。
 
+执行实现收敛在内置的 **artcraft-harness** 技能（随插件捆绑安装；单独安装用 `npx skills add full-aigc-skills/artcraft-skills --skill artcraft-harness`）。将 `HARNESS_DIR` 设置为该技能实际加载目录（绝对路径）；本技能的 `SKILL_DIR` 只用于读取自身的 `examples/` 与 `references/`，脚本执行路径一律使用 `$HARNESS_DIR/scripts/`。
+
 ## 安装与首次使用
 
 定位本技能的真实目录。用户已要求完成创作或安装且授权覆盖必要依赖时，运行公开入口；先安装固定版本和摘要的 Node 与 ArtCraft 编排运行时；执行 workflow.py 时再按任务图安装所需领域技能源和锁定 CLI。安装范围仅用户数据目录，不需 sudo，不修改 PATH。
@@ -16,7 +18,7 @@ license: Apache-2.0
 
 ```bash
 : "${SKILL_DIR:?请先设置为本 SKILL.md 的实际所在目录}"
-python3 -I -B "$SKILL_DIR/scripts/bootstrap.py" --runtime-only
+python3 -I -B "$HARNESS_DIR/scripts/bootstrap.py" --runtime-only
 ```
 
 此基础安装返回 JSON 包含 `nodeExecutable`、`entryPoint`，`skills` 为空；任务图执行后的安装回执只列实际使用的领域运行时身份。当前锁文件指向固定开发发布制品；制品缺失或摘要不符会明确失败。各领域技能保持自身版本，不跟随 ArtCraft 运行时伪升级。
@@ -30,7 +32,7 @@ python3 -I -B "$SKILL_DIR/scripts/bootstrap.py" --runtime-only
 参见[计划合同](references/workflow.md)。示例 `examples/brand-campaign.json` 生成 Logo、分层海报、动态图形片头和带字幕、音频的短片。示例需要用户提供 `voice` WAV：
 
 ```bash
-python3 "$SKILL_DIR/scripts/workflow.py" \
+python3 "$HARNESS_DIR/scripts/workflow.py" \
   "$SKILL_DIR/examples/brand-campaign.json" \
   --output /absolute/path/brand-project \
   --authorization brand-project-authorized \
@@ -53,7 +55,7 @@ python3 "$SKILL_DIR/scripts/workflow.py" \
 
 当前验证范围：四个原生公开工作流交接、Logo 语义改动后下游重建、源工程与已有音频保留、CLI 重开和状态核验。完整干净首次使用与在线发布状态以最新测试及仓库证据为准。
 
-开发版本 5 提供项目打包与移动验包：使用 `scripts/package.py create/verify`，参见[交付包合同](references/project-package.md)。从可信账本收集原生工程、登记输入和工作流记录，保留技术待审状态；移动后核验并使用独立技能源工程入口重关联。
+开发版本 5 提供项目打包与移动验包：使用 artcraft-harness 技能的 `scripts/package.py create/verify`，参见[交付包合同](references/project-package.md)。从可信账本收集原生工程、登记输入和工作流记录，保留技术待审状态；移动后核验并使用独立技能源工程入口重关联。
 
 ArtCraft dev.7 消费四领域 dev.2 的[交换损失报告](references/exchange-loss.md)。报告引用写入每份公共素材并随项目打包；核验原生/导出/重开检查身份，拒绝未知保真冒充已验证或有损原生替代。
 
@@ -71,19 +73,19 @@ ArtCraft dev.7 消费四领域 dev.2 的[交换损失报告](references/exchange
 | **artcraft-cli-deliver** | 收集原生子工程、素材、计划和证据，移动包后核验 |
 | **artcraft-cli-review** | 检查混合交付的技术证据和视觉文案音频一致性 |
 
-缺少技能：`npx skills add full-aigc-skills/artcraft-skills --skill <skill-name>`。每项自带安装与执行资源；直接执行本技能 `scripts/cli.py` 也可查询当前 CLI，不依赖兄弟路径。
+缺少技能：`npx skills add full-aigc-skills/artcraft-skills --skill <skill-name>`。执行实现收敛在 artcraft-harness 技能；直接执行该技能的 `scripts/cli.py` 也可查询当前 CLI，不依赖兄弟路径。
 
 需要通过既有 Video Factory 验证成片时，读取本技能 [公开验证交接](references/video-factory.md)。该适配保留 NOT_RUN，不替代创作审阅或原生工程。
 
-需要保存审阅证据时使用本技能自带 `scripts/review.py`，合同见 [审阅记录](references/review.md)。它记录具名观察、责任插件与当前版本绑定，不执行模型或自动修订，不能用验包成功替代创作与人工接受。
+需要保存审阅证据时使用 artcraft-harness 技能的 `scripts/review.py`，合同见 [审阅记录](references/review.md)。它记录具名观察、责任插件与当前版本绑定，不执行模型或自动修订，不能用验包成功替代创作与人工接受。
 
-连续按审阅问题返工时，使用本技能的 `scripts/revision.py`，按 [受控修订指南](references/revision.md) 冻结策略并执行明确补丁，保存轮次、停滞与最佳包锚。未知结果不自动重放；完整模型规划／评价与创作接受独立验收。
+连续按审阅问题返工时，使用 artcraft-harness 技能的 `scripts/revision.py`，按 [受控修订指南](references/revision.md) 冻结策略并执行明确补丁，保存轮次、停滞与最佳包锚。未知结果不自动重放；完整模型规划／评价与创作接受独立验收。
 
 ## 品牌色板混合返工
 
 本技能自带品牌图形／海报／片头／成片和独立图标的五节点示例。按本技能 [品牌色板指南](references/brand-token-workflow.md) 执行并核对受影响产物；首次安装所需领域由固定依赖锁决定。
 
-版本化需求记录可用本技能自带 `scripts/brief.py`；参见[Brief 合同与当前边界](references/brief.md)。Python 工作流支持 `--brief` 与 `--brief-sha`，安装前拒绝阻塞需求；Node 与 Python 执行器核对需求约束，安装使用本技能分发锁固定版本；技术通过与创作接受分别记录。
+版本化需求记录可用 artcraft-harness 技能的 `scripts/brief.py`；参见[Brief 合同与当前边界](references/brief.md)。Python 工作流支持 `--brief` 与 `--brief-sha`，安装前拒绝阻塞需求；Node 与 Python 执行器核对需求约束，安装使用 artcraft-harness 技能分发锁固定版本；技术通过与创作接受分别记录。
 
 PhotoCraft 源工程局部修改可在领域 plan 中声明 `protectedRegions`（具名矩形 id／rect=[x,y,width,height]）；领域工作流发布前检查保护区域，对照 PNG 与报告随子工程和项目包保留。不要把保护区报告当作创作接受。
 

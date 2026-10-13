@@ -26,7 +26,7 @@ flowchart TD
 
 独立技能源 `skills/artcraft-use/scripts/workflow.py` 在工程文件锁内完成安装身份核对、冻结修订校验、登记材料发布和运行时调用。冻结绑定涵盖计划、登记表、owner与授权；冲突时不发布新的安装回执和登记表。十个技能保留各自完整的安装与脚本资源。
 
-插件 `src/harness/task_ledger.ts` 将实际计划摘要、输入引用、修订、运行时身份、授权、预算与期限绑定到幂等键。SQLite写事务同时执行版本核对和单写占用；不同OS进程争用同一工程最多取得一个租约。不明确结果保留原attempt及占用，进程退出本身不允许重放。
+插件 `scripts/harness/task_ledger.ts` 将实际计划摘要、输入引用、修订、运行时身份、授权、预算与期限绑定到幂等键。SQLite写事务同时执行版本核对和单写占用；不同OS进程争用同一工程最多取得一个租约。不明确结果保留原attempt及占用，进程退出本身不允许重放。
 
 `src/adapters/public_skill.ts` 只解析登记素材的原生工程引用，核验manifest中的文件，准备和验收时重复核验源交付，并通过公开 --source 另存修订。任意路径、错误修订、缺少manifest及源文件漂移均拒绝。`src/planning/workflow_engine.ts` 复用时同时核对历史工作流及原生产任务的授权范围；新授权不会继承旧授权任务身份。
 

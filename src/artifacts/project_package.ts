@@ -6,7 +6,7 @@ import {createHash} from 'node:crypto';
 import {verifyArtifact,planHash} from '../protocol/contracts.ts';
 import {verifyDomainFontOutput} from '../adapters/font_output.ts';
 import {verifyCollectedOutput} from '../adapters/collected_output.ts';
-import type {TaskLedger} from '../harness/task_ledger.ts';
+import type {TaskLedger} from '../../scripts/harness/task_ledger.ts';
 const hash=(x:Buffer|string)=>createHash('sha256').update(x).digest('hex');
 const safe=(x:unknown):x is string=>typeof x==='string' && !!x && !isAbsolute(x) && !/[\\:\x00]/.test(x) && !x.split('/').some(p=>['','..','.'].includes(p));
 async function filePath(root:string,location:string):Promise<string>{

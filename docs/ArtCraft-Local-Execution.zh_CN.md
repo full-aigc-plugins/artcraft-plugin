@@ -1,6 +1,6 @@
 # ArtCraft 本地执行与终结
 
-当前代码：[执行器](../src/harness/local_runner.ts)、[账本](../src/harness/task_ledger.ts)。本轮接通可信适配器、真实子进程、退出观察、产物核验和工程占用释放。现阶段是本地执行基础，不是完整混合场景插件。
+当前代码：[执行器](../scripts/harness/local_runner.ts)、[账本](../scripts/harness/task_ledger.ts)。本轮接通可信适配器、真实子进程、退出观察、产物核验和工程占用释放。现阶段是本地执行基础，不是完整混合场景插件。
 
 ## 执行路径
 

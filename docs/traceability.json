@@ -25,6 +25,10 @@
         "2.2",
         "2.3",
         "2.4",
+        "2.5",
+        "2.6",
+        "2.7",
+        "2.8",
         "2.9",
         "2.10"
       ],
@@ -63,9 +67,9 @@
       "tasks": [
         "3.4",
         "3.5",
-        "3.6",
         "3.16",
         "3.20",
+        "3.22",
         "3.24",
         "3.25"
       ],
@@ -92,9 +96,6 @@
       "requirement": "AC-RT-002",
       "capability": "runtime-distribution",
       "tasks": [
-        "4.4",
-        "4.5",
-        "4.6",
         "4.7",
         "4.8",
         "4.9",
@@ -128,44 +129,14 @@
       "currentScenarioAudit": "docs/evidence/runtime-scenario-audit140-20261009.json"
     },
     {
-      "requirement": "AC-TX-001",
-      "capability": "task-execution",
-      "tasks": [
-        "5.1",
-        "5.2",
-        "5.3"
-      ],
-      "owner": "Harness owner",
-      "status": "in-progress",
-      "evidence": "docs/evidence/local-execution-tests.json",
-      "implementationEvidence": "docs/evidence/version-binding-implementation-audit-20261008.json",
-      "remainingAcceptance": "5.3: actual GUI modification and stale-plan response; complete boundary acceptance remains open",
-      "currentInstalledEvidence": "docs/evidence/version-binding-fixed127-20261009.json"
-    },
-    {
       "requirement": "AC-TX-002",
       "capability": "task-execution",
       "tasks": [
-        "5.4",
-        "5.5",
-        "5.6",
-        "5.16"
+        "6.32"
       ],
       "owner": "Harness owner",
       "status": "in-progress",
       "evidence": "docs/evidence/local-execution-tests.json"
-    },
-    {
-      "requirement": "AC-TX-003",
-      "capability": "task-execution",
-      "tasks": [
-        "5.7",
-        "5.8",
-        "5.9"
-      ],
-      "owner": "Harness owner",
-      "status": "implemented-verified",
-      "evidence": "docs/evidence/budget-cancel-complete-fixed127-20261009.json"
     },
     {
       "requirement": "AC-DM-001",
@@ -173,7 +144,11 @@
       "tasks": [
         "6.1",
         "6.2",
-        "6.3"
+        "6.3",
+        "6.23",
+        "6.26",
+        "6.27",
+        "6.28"
       ],
       "owner": "Domain owner",
       "status": "implemented-verified",
@@ -257,7 +232,9 @@
       "tasks": [
         "6.13",
         "6.14",
-        "6.15"
+        "6.15",
+        "6.24",
+        "6.25"
       ],
       "owner": "Domain owner",
       "status": "implemented-verified",
@@ -279,18 +256,6 @@
       "evidence": "docs/evidence/external-delivery-fixed127-20261009.json"
     },
     {
-      "requirement": "AC-AR-001",
-      "capability": "artifact-delivery",
-      "tasks": [
-        "7.1",
-        "7.2",
-        "7.3"
-      ],
-      "owner": "Harness owner",
-      "status": "in-progress",
-      "evidence": "docs/evidence/local-execution-tests.json"
-    },
-    {
       "requirement": "AC-AR-002",
       "capability": "artifact-delivery",
       "tasks": [
@@ -305,54 +270,17 @@
       "evidence": "docs/evidence/native-loss-complete-fixed127-20261009.json"
     },
     {
-      "requirement": "AC-QA-001",
-      "capability": "quality-review",
-      "tasks": [
-        "8.1",
-        "8.2",
-        "8.3",
-        "8.7"
-      ],
-      "owner": "Harness owner",
-      "status": "implemented-verified",
-      "evidence": "docs/evidence/quality-mechanisms-acceptance-20261008.json"
-    },
-    {
       "requirement": "AC-QA-002",
       "capability": "quality-review",
-      "tasks": [
-        "8.4",
-        "8.5",
-        "8.6",
-        "8.8",
-        "8.9"
-      ],
+      "tasks": [],
       "owner": "Harness owner",
       "status": "implemented-verified",
       "evidence": "docs/evidence/quality-mechanisms-acceptance-20261008.json"
-    },
-    {
-      "requirement": "AC-RL-001",
-      "capability": "release-compatibility",
-      "tasks": [
-        "9.1",
-        "9.2",
-        "9.3",
-        "9.7",
-        "9.8",
-        "9.9"
-      ],
-      "owner": "Release owner",
-      "status": "planned"
     },
     {
       "requirement": "AC-RL-002",
       "capability": "release-compatibility",
-      "tasks": [
-        "9.4",
-        "9.5",
-        "9.6"
-      ],
+      "tasks": [],
       "owner": "Release owner",
       "status": "planned"
     },
@@ -373,7 +301,10 @@
         "3.19",
         "3.21",
         "3.27",
-        "3.28"
+        "3.28",
+        "3.29",
+        "3.30",
+        "3.31"
       ],
       "owner": "Skills owner",
       "status": "bounded-verification-passed",

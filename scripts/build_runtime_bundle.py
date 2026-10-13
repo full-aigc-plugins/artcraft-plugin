@@ -80,7 +80,7 @@ def git_archive_bundle(repository, version, destination, published_repository, a
 
 def build(plugin_root, skills_root, output, lock_path, input_lock=None):
     """按锁重建五个发行包；全部验证后才输出，不覆盖不同内容的发布包。"""
-    input_lock = input_lock or plugin_root / 'skills/artcraft-use/scripts/distribution.lock.json'
+    input_lock = input_lock or plugin_root / 'skills/artcraft-harness/scripts/distribution.lock.json'
     lock = json.loads(input_lock.read_text())
     expected_names = {'artcraft-runtime', *[n + '-skills' for n in NAMES]}
     if lock.get('schema') != 'artcraft-distribution/v1' or set(lock.get('bundles', {})) != expected_names:

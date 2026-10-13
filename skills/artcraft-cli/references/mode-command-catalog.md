@@ -2,13 +2,13 @@
 
 状态：候选源码；固定发行安装验收未完成。
 
-在实际加载的技能目录调用自带 `scripts/domain_commands.py`。目录可以位于项目或用户的 `.agents/skills/<skill-name>`，也可以在插件内部；不要固定 `/mnt/skills/user`。以下命令中 `$ARTCRAFT_SKILL_DIR` 必须指向本次实际加载目录。
+在 artcraft-harness 技能实际加载目录调用 `scripts/domain_commands.py`。目录可以位于项目或用户的 `.agents/skills/artcraft-harness`，也可以在插件内部；不要固定 `/mnt/skills/user`。以下命令中 `$HARNESS_DIR` 必须指向该技能实际加载目录。
 
 ```sh
-python3 -I -B "$ARTCRAFT_SKILL_DIR/scripts/domain_commands.py" list --domain photocraft --mode desktop --category paint
-python3 -I -B "$ARTCRAFT_SKILL_DIR/scripts/domain_commands.py" describe filmcraft file.importImageSequence --mode desktop
-python3 -I -B "$ARTCRAFT_SKILL_DIR/scripts/domain_commands.py" check photocraft PLAN.json --mode desktop
-python3 -I -B "$ARTCRAFT_SKILL_DIR/scripts/domain_commands.py" run photocraft PLAN.json --mode desktop --output NEW_DIRECTORY
+python3 -I -B "$HARNESS_DIR/scripts/domain_commands.py" list --domain photocraft --mode desktop --category paint
+python3 -I -B "$HARNESS_DIR/scripts/domain_commands.py" describe filmcraft file.importImageSequence --mode desktop
+python3 -I -B "$HARNESS_DIR/scripts/domain_commands.py" check photocraft PLAN.json --mode desktop
+python3 -I -B "$HARNESS_DIR/scripts/domain_commands.py" run photocraft PLAN.json --mode desktop --output NEW_DIRECTORY
 ```
 
 `list`／`describe` 不安装依赖；按 ID 前缀分类，也可用 `--filter` 查找。查询工具使用 `--tools`／`--tool`，工具查询不支持命令分类。`check` 只验证结构与目录成员，NOT_RUN 不代表原生执行通过。`run` 不覆盖已有目录。

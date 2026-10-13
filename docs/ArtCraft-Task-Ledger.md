@@ -1,6 +1,6 @@
 # ArtCraft persistent task ledger
 
-The [implementation](../src/harness/task_ledger.ts) follows the active OpenSpec requirements AC-CP-001 and AC-TX-001 through AC-TX-003. It implements registration, version bindings, writer ownership, unknown outcomes and cancellation intent. A local supervisor and stopped-process failure/cancellation/review-ready settlement are now integrated. Final creative completion and crash adoption remain pending.
+The [implementation](../scripts/harness/task_ledger.ts) follows the active OpenSpec requirements AC-CP-001 and AC-TX-001 through AC-TX-003. It implements registration, version bindings, writer ownership, unknown outcomes and cancellation intent. A local supervisor and stopped-process failure/cancellation/review-ready settlement are now integrated. Final creative completion and crash adoption remain pending.
 
 ## State behavior
 

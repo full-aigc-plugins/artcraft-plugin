@@ -1,20 +1,20 @@
 # Art完整领域命令组件 / Complete domain command handoff
 
-以当前宿主实际加载SKILL.md的目录设置SKILL_DIR；用户／项目.agents/skills、插件skills或缓存均按实际路径，不依赖兄弟技能。当前目录与原生身份来自本技能 `scripts/distribution.lock.json`，不得从历史指南中的版本号选择安装包。
+以当前宿主实际加载SKILL.md的目录设置SKILL_DIR；用户／项目.agents/skills、插件skills或缓存均按实际路径，不依赖兄弟技能。原生身份来自 artcraft-harness 技能 `scripts/distribution.lock.json`，不得从历史指南中的版本号选择安装包。
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" list --domain effectcraft --filter expression
-python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" describe effectcraft prop.setExpression
-python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" list --domain effectcraft --tools
-python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" describe effectcraft open_project --tool
+python3 -I -B "$HARNESS_DIR/scripts/domain_commands.py" list --domain effectcraft --filter expression
+python3 -I -B "$HARNESS_DIR/scripts/domain_commands.py" describe effectcraft prop.setExpression
+python3 -I -B "$HARNESS_DIR/scripts/domain_commands.py" list --domain effectcraft --tools
+python3 -I -B "$HARNESS_DIR/scripts/domain_commands.py" describe effectcraft open_project --tool
 ```
 
 list/describe离线查询全部2646条命令或实际MCP工具schema，不安装运行时。参数说明保持原文，命令文本不是JSON Schema。先核对工程、对象、素材及实时可执行状态。
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" check effectcraft "$SKILL_DIR/examples/domain-effectcraft-create.json" --runtime-home /absolute/isolated-runtime
-python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" run effectcraft "$SKILL_DIR/examples/domain-effectcraft-create.json" --output /absolute/new-original --runtime-home /absolute/isolated-runtime
-python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" run effectcraft "$SKILL_DIR/examples/domain-effectcraft-revise.json" --input project=/absolute/new-original/project.ecproj --output /absolute/new-revision --runtime-home /absolute/isolated-runtime
+python3 -I -B "$HARNESS_DIR/scripts/domain_commands.py" check effectcraft "$SKILL_DIR/examples/domain-effectcraft-create.json" --runtime-home /absolute/isolated-runtime
+python3 -I -B "$HARNESS_DIR/scripts/domain_commands.py" run effectcraft "$SKILL_DIR/examples/domain-effectcraft-create.json" --output /absolute/new-original --runtime-home /absolute/isolated-runtime
+python3 -I -B "$HARNESS_DIR/scripts/domain_commands.py" run effectcraft "$SKILL_DIR/examples/domain-effectcraft-revise.json" --input project=/absolute/new-original/project.ecproj --output /absolute/new-revision --runtime-home /absolute/isolated-runtime
 ```
 
 check/run只安装指定领域及Art自身运行时，核对固定目录、全部领域技能文件和原生CLI摘要，通过领域公开commands.py交接。check只检查结构、目录及引用，nativeExecution=NOT_RUN，不证明实际参数或创作成功。run使用同会话真实对象引用；每个独立Art技能都有四领域create/revise实例。实际用户工程必须只读检查实际对象，不照搬实例数组下标。
@@ -48,7 +48,7 @@ Historical Effect source dev.29 supplied the [tracking guide](https://github.com
 例如，当前技能自带的 `examples/effect-expression-workflow.json` 在 `nodes[].payload.plan.operations[]` 中使用 `native.command`：
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/workflow.py" \
+python3 -I -B "$HARNESS_DIR/scripts/workflow.py" \
   "$SKILL_DIR/examples/effect-expression-workflow.json" \
   --output /absolute/new-expression-project \
   --runtime-home /absolute/isolated-runtime \

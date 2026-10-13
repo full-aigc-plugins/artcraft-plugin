@@ -5,8 +5,8 @@ import { mkdtemp, readFile, writeFile, mkdir, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { createHash } from 'node:crypto';
-import { TaskLedger } from '../src/harness/task_ledger.ts';
-import { LocalRunner } from '../src/harness/local_runner.ts';
+import { TaskLedger } from '../scripts/harness/task_ledger.ts';
+import { LocalRunner } from '../scripts/harness/local_runner.ts';
 import { WorkflowEngine } from '../src/planning/workflow_engine.ts';
 import { planHash } from '../src/protocol/contracts.ts';
 
@@ -214,7 +214,7 @@ for(const cancel of [false,true])test((cancel ? 'cancel parent after scheduler S
   await writeFile(executionPlan.args[0],`import{appendFileSync,writeFileSync}from'node:fs';appendFileSync(process.argv[2]+'.starts','x');setTimeout(()=>writeFileSync(process.argv[2],'logo|'),350);`);
   f.ledger.saveWorkflowNode(key,node.id,{status:'running',taskId,root:compiled.root,fingerprint});
   const parentScript=join(f.root,'scheduler.mjs');
-  await writeFile(parentScript,`import{TaskLedger}from${JSON.stringify(new URL('../src/harness/task_ledger.ts',import.meta.url).href)};import{LocalRunner}from${JSON.stringify(new URL('../src/harness/local_runner.ts',import.meta.url).href)};const ledger=new TaskLedger(${JSON.stringify(join(f.root,'ledger.sqlite'))});await new LocalRunner(ledger,async()=>{}).execute(${JSON.stringify(taskId)},{prepare:async()=>(${JSON.stringify(executionPlan)}),verify:async()=>{throw Error('scheduler_should_be_killed')}});`);
+  await writeFile(parentScript,`import{TaskLedger}from${JSON.stringify(new URL('../scripts/harness/task_ledger.ts',import.meta.url).href)};import{LocalRunner}from${JSON.stringify(new URL('../scripts/harness/local_runner.ts',import.meta.url).href)};const ledger=new TaskLedger(${JSON.stringify(join(f.root,'ledger.sqlite'))});await new LocalRunner(ledger,async()=>{}).execute(${JSON.stringify(taskId)},{prepare:async()=>(${JSON.stringify(executionPlan)}),verify:async()=>{throw Error('scheduler_should_be_killed')}});`);
   const parent=spawn(process.execPath,[parentScript],{stdio:'ignore'}),closed=new Promise(resolve=>parent.once('close',resolve));
   for(let n=0;!f.ledger.execution(taskId)?.pid && n<300;n++)await new Promise(resolve=>setTimeout(resolve,10));
   assert.ok(f.ledger.execution(taskId)?.pid);parent.kill('SIGKILL');await closed;

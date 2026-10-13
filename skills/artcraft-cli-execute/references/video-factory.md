@@ -13,7 +13,7 @@
 上例 assetId 是字段示意，执行前核对实际 film 输出。仅一个输入，固定 MP4；报告原生工程为空，源 FilmCraft 工程由原 film 子节点保留。
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/workflow.py" "$PLAN" \
+python3 -I -B "$HARNESS_DIR/scripts/workflow.py" "$PLAN" \
   --output "$PROJECT" --authorization "$AUTHORIZATION" \
   --asset "voice=$VOICE" \
   --video-factory-root "$VIDEO_FACTORY_ROOT" \

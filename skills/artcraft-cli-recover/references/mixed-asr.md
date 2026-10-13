@@ -6,7 +6,7 @@ Current source pins Film source36/nativecraft.4 and immutable Art runtime122-run
 
 ## 安装、模型与目录 / Setup, model and directory
 
-1. 确定当前技能的真实安装位置 `ART_SKILL_DIR`（独立 `.agents/skills/artcraft-cli-recover` 或宿主插件内的技能目录）。执行该目录下的 `scripts/bootstrap.py --runtime-home "$CRAFT_RUNTIME_HOME" --plugin filmcraft`。选择 Film 时只安装 Art 运行时和 Film；混合计划再按需增量安装其他领域。
+1. 确定 artcraft-harness 技能的真实安装位置 `HARNESS_DIR`（独立 `.agents/skills/artcraft-harness` 或宿主插件内的技能目录）。执行该目录下的 `scripts/bootstrap.py --runtime-home "$CRAFT_RUNTIME_HOME" --plugin filmcraft`。选择 Film 时只安装 Art 运行时和 Film；混合计划再按需增量安装其他领域。
 2. 声明绝对持久目录 `FILMCRAFT_DATA_DIR`，在启动 Art 前设置。模型位于该目录的 `models/whisper-tiny`，与运行时安装目录分离。下载、识别和返工必须使用同一目录。
 3. 使用安装回执 `skills.filmcraft.executable` 指向的固定 CLI，先执行 `exec transcript.models --data-dir "$FILMCRAFT_DATA_DIR"`，确认 `available=true`；再执行 `exec transcript.downloadModel '{"model":"whisper-tiny"}' --data-dir "$FILMCRAFT_DATA_DIR"`。
 4. 使用多语言 Whisper tiny，固定 Hugging Face 修订 `169d4a4341b33bc18d8881c4b69c2e104e1cc0af`，四文件约154MB。模型权重采用 MIT，Hugging Face 转换代码采用 Apache-2.0；权重不内置、不提交或随交付包分发。下载器检查新下载文件摘要，验收还须核对已存在文件。具体四文件摘要见本源分发所引用的 Film 转录指南；另行使用 **filmcraft-cli-transcript** 技能时安装命令为 `npx skills add full-aigc-skills/filmcraft-skills --skill filmcraft-cli-transcript`。

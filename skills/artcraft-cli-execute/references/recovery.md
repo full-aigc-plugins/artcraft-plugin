@@ -1,10 +1,10 @@
 # 原任务恢复合同
 
-当前运行时版本由本技能 scripts/distribution.lock.json 固定；领域技能源版本各自读取 bundles，不假设与运行时相同。下文恢复合同自运行时 dev.6 引入；当前行为以固定运行时及对应验证证据为准。
+当前运行时版本由 artcraft-harness 技能 scripts/distribution.lock.json 固定；领域技能源版本各自读取 bundles，不假设与运行时相同。下文恢复合同自运行时 dev.6 引入；当前行为以固定运行时及对应验证证据为准。
 
 ## 操作
 
-调度器异常退出后，保留项目目录和 `tasks.sqlite`。再次运行相同 `scripts/workflow.py` 命令，使用同一计划、revision、owner 和 authorization。独立 worker 在调度器消失后继续监督原生子任务，读取账本取消意图和截止时间，持久化实际 close 与进程组停止证据。恢复不重新分配预算，也不提交第二次原生调用。
+调度器异常退出后，保留项目目录和 `tasks.sqlite`。再次运行相同的 artcraft-harness 技能 `scripts/workflow.py` 命令，使用同一计划、revision、owner 和 authorization。独立 worker 在调度器消失后继续监督原生子任务，读取账本取消意图和截止时间，持久化实际 close 与进程组停止证据。恢复不重新分配预算，也不提交第二次原生调用。
 
 原任务仍在运行时返回 `waiting`（公开入口以失败退出码返回可读 JSON）；等待原任务完成后再次核对。不要修改 frozen plan、删除账本或以新项目规避未确认的副作用。
 
@@ -32,7 +32,7 @@
 
 ```bash
 : "${SKILL_DIR:?本技能实际加载目录}" "${DATABASE:?原账本绝对路径}" "${TASK_ID:?原任务 ID}"
-python3 -I -B "$SKILL_DIR/scripts/cli.py" -- status --database "$DATABASE" --task "$TASK_ID"
+python3 -I -B "$HARNESS_DIR/scripts/cli.py" -- status --database "$DATABASE" --task "$TASK_ID"
 ```
 
 failed 状态以非零退出码返回可读 JSON。error.code 仍为 native_execution_failed；error.diagnostics.domainCode 只表示子进程报告的已知错误，例如 protected_region_changed、missing_fonts、unsupported_command 或 revision_conflict。stdout/stderr 仅记录 bytes、sha256、truncated、complete，不保存原始文本。null 不能被猜测为某个领域原因。

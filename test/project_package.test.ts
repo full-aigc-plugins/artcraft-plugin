@@ -5,8 +5,8 @@ import {mkdtemp,readFile,writeFile,mkdir,rm,rename,access,symlink} from 'node:fs
 import {join} from 'node:path';
 import {tmpdir} from 'node:os';
 import {createHash} from 'node:crypto';
-import {TaskLedger} from '../src/harness/task_ledger.ts';
-import {LocalRunner} from '../src/harness/local_runner.ts';
+import {TaskLedger} from '../scripts/harness/task_ledger.ts';
+import {LocalRunner} from '../scripts/harness/local_runner.ts';
 import {WorkflowEngine} from '../src/planning/workflow_engine.ts';
 import {packageProject,verifyProjectPackage} from '../src/artifacts/project_package.ts';
 const hash=(x:Buffer|string)=>createHash('sha256').update(x).digest('hex');

@@ -231,7 +231,7 @@ flowchart LR
 | --- | --- |
 | Plugin ID / version | artcraft / 0.1.0-dev.140 |
 | Specification authority | openspec/changes/establish-v1-plugin |
-| Skill authority | Independent artcraft-skills / published v0.1.0-dev.112 |
+| Skill authority | Independent artcraft-skills / published v0.1.0-dev.113 |
 | Runtime | macOS arm64; Python 3.11+; pinned Node installed automatically |
 | Native delivery | .vectorcraft / .pcraft / .ecproj / .fcproj |
 | Host and marketplace | Codex development install/discovery pass; production marketplace not eligible |
@@ -330,7 +330,7 @@ Default online dev.7 first-use acceptance passes in 53.106 seconds: one copied s
 
 ## CLI and task skill suite
 
-The source suite contains 10 independently installable skills with setup, public CLI operations and focused tasks. [Architecture and catalogue](docs/ArtCraft-Skill-Suite-Architecture.md). Runtime and plugin versions are separate; prior host evidence retains its original version scope.
+The source suite contains 11 independently installable skills: 10 domain skills plus one built-in execution harness (artcraft-harness) that carries the shared scripts. [Architecture and catalogue](docs/ArtCraft-Skill-Suite-Architecture.md). Runtime and plugin versions are separate; prior host evidence retains its original version scope.
 
 Previously verified plugin: `0.1.0-dev.10`; skill suite: `0.1.0-dev.9`. The corrected examples resolve scripts from the actual host-loaded `SKILL.md` directory. All skills passed isolated entry-point checks in user, project and plugin layouts with spaces. [Path evidence](docs/evidence/installed-skill-paths.json). Earlier host evidence above covers its recorded release; existing installations require an update.
 

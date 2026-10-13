@@ -3,7 +3,7 @@
 本技能自身包含 photo-adjustment-workflow.json 与 photo-adjustment-revision-plan.json。公开入口首次按锁安装Node、runtime83、Photo源19及原生CLI；该计划仅安装Photo领域。
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/workflow.py" "$SKILL_DIR/examples/photo-adjustment-workflow.json" --output "$PROJECT_DIR" --runtime-home "$RUNTIME_HOME" --owner local-user --authorization photo-adjustment-local
+python3 -I -B "$HARNESS_DIR/scripts/workflow.py" "$SKILL_DIR/examples/photo-adjustment-workflow.json" --output "$PROJECT_DIR" --runtime-home "$RUNTIME_HOME" --owner local-user --authorization photo-adjustment-local
 ```
 
 SKILL_DIR是当前技能真实加载目录；领域usageRecipes相对安装回执skillRoot解析，不能相对Art根目录解析。本例是完整DAG，不是craft-command-plan/v1。创建真实调整layer引用，再建立矩形选区和revealSelection蒙版，取消选区。brightness/contrast/legacy均明确给出，蒙版只覆盖产品左半部分；调整保持独立可编辑，不烘焙。

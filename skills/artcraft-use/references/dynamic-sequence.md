@@ -6,7 +6,7 @@
 
 ```bash
 : "${SKILL_DIR:?设置为本 SKILL.md 的实际目录}"
-python3 -I -B "$SKILL_DIR/scripts/workflow.py" \
+python3 -I -B "$HARNESS_DIR/scripts/workflow.py" \
   "$SKILL_DIR/examples/dynamic-brand-campaign.json" \
   --output /absolute/path/dynamic-brand-project \
   --authorization dynamic-brand-authorized \
@@ -14,7 +14,7 @@ python3 -I -B "$SKILL_DIR/scripts/workflow.py" \
   --asset background=/absolute/path/background.png
 ```
 
-公开入口按任务图安装锁定 Node、Art runtime 和四领域技能源／CLI。技能可单独安装到 `.agents/skills` 或从插件加载，以实际目录为准。版本、技能源提交、原生 CLI 与文件摘要从本技能 `scripts/distribution.lock.json`、领域 runtime.lock.json 及实际安装回执读取，不从上游主分支或历史候选编号推断。
+公开入口按任务图安装锁定 Node、Art runtime 和四领域技能源／CLI。技能可单独安装到 `.agents/skills` 或从插件加载，以实际目录为准。版本、技能源提交、原生 CLI 与文件摘要从 artcraft-harness 技能 `scripts/distribution.lock.json`、领域 runtime.lock.json 及实际安装回执读取，不从上游主分支或历史候选编号推断。
 
 ## 序列交接
 

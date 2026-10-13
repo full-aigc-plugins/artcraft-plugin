@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawn } from 'node:child_process';
 import { DatabaseSync } from 'node:sqlite';
-import { TaskLedger } from '../src/harness/task_ledger.ts';
+import { TaskLedger } from '../scripts/harness/task_ledger.ts';
 import { planHash } from '../src/protocol/contracts.ts';
 
 const identity={pluginId:'fixture',pluginVersion:'0.1',cliVersion:'0.1',sha256:'a'.repeat(64),mode:'headless',capabilitySnapshotSha256:'a'.repeat(64)};
@@ -57,7 +57,7 @@ test('usage must be explicit safe integers and malformed usage cannot allocate a
 }));
 test('two OS processes cannot reserve more than the common budget for different projects',()=>fixture(async(ledger,path,root)=>{
  const key=ledger.beginWorkflow(plan());register(ledger,key,'one');register(ledger,key,'two');
- const module=new URL('../src/harness/task_ledger.ts',import.meta.url).href,script=join(root,'reserve.mjs');
+ const module=new URL('../scripts/harness/task_ledger.ts',import.meta.url).href,script=join(root,'reserve.mjs');
  writeFileSync(script,`import {TaskLedger} from ${JSON.stringify(module)};const l=new TaskLedger(process.argv[2]);try{l.claim(process.argv[3],null,{minorUnits:6,externalCalls:0});console.log(JSON.stringify({ok:true}));}catch(e){console.log(JSON.stringify({ok:false,error:e.message}));}finally{l.close();}`);
  const claim=(id:string)=>new Promise<any>((resolve,reject)=>{const p=spawn(process.execPath,[script,path,id],{stdio:['ignore','pipe','pipe']});let out='',err='';p.stdout.on('data',b=>out+=b);p.stderr.on('data',b=>err+=b);p.on('error',reject);p.on('close',code=>code?reject(new Error(err)):resolve(JSON.parse(out)));});
  const results=await Promise.all([claim('one'),claim('two')]);

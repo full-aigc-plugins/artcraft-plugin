@@ -1,7 +1,7 @@
 /** 关闭后的不存在、存在但无权限与未知探测错误使用不同停止语义。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {groupAlive, signalGroup} from '../src/harness/process_group.ts';
+import {groupAlive, signalGroup} from '../scripts/harness/process_group.ts';
 test('permission-denied existence probe must retain writer ownership',()=>{
  assert.equal(groupAlive(123,()=>{throw Object.assign(new Error('permission denied'),{code:'EPERM'});}),true);
 });

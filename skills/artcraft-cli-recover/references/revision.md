@@ -1,6 +1,6 @@
 # 当前审阅驱动的受控修订
 
-`scripts/revision.py step/status` 是本技能自带的辅助入口。每个独立技能都包含此脚本、审阅与打包入口和固定安装器；按当前实际加载的 SKILL.md 定位 SKILL_DIR。当前平台为 macOS arm64；首次调用按任务图安装需要的领域，状态查询不安装运行时。
+`scripts/revision.py step/status` 是 artcraft-harness 技能的辅助入口，与审阅、打包入口和固定安装器一起收敛在该技能；脚本路径按 artcraft-harness 技能实际加载目录定位（HARNESS_DIR）。当前平台为 macOS arm64；首次调用按任务图安装需要的领域，状态查询不安装运行时。
 
 ## 输入与授权
 
@@ -61,14 +61,14 @@
 ## 执行与继续
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/revision.py" step \
+python3 -I -B "$HARNESS_DIR/scripts/revision.py" step \
   --project "$PROJECT_ROOT" \
   --package "$PACKAGE_ROOT" --package-sha "$PACKAGE_SHA" \
   --review "$REVIEW_ROOT" --review-sha "$REVIEW_SHA" \
   --policy "$REVISION_POLICY" --policy-sha "$POLICY_SHA" \
   --request "$REVISION_REQUEST"
 
-python3 -I -B "$SKILL_DIR/scripts/revision.py" status --project "$PROJECT_ROOT"
+python3 -I -B "$HARNESS_DIR/scripts/revision.py" status --project "$PROJECT_ROOT"
 ```
 
 成功步骤自动执行公开 workflow.py 并打包新版本，返回 `review_required` 和新包回执。先核验、审阅这个新包，再提交下一步骤。不得以旧包审阅继续新步骤。技术和创作观察必须覆盖全部当前输出；缺项或 NOT_RUN 保持待审，不能自动修订。真实人工拒绝可以形成问题，人工接受保持独立记录。

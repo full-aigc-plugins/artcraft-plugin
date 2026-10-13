@@ -5,13 +5,13 @@ runtime `0.1.0-dev.139-runtime.1` 对 schema1 迁移先检查任务、租约和�
 先设置 `SKILL_DIR` 为当前加载技能目录，将 `DATABASE` 设置为原任务的 SQLite 账本绝对路径，保持账本身份。公开只读查询：
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/cli.py" -- status --database "$DATABASE"
+python3 -I -B "$HARNESS_DIR/scripts/cli.py" -- status --database "$DATABASE"
 ```
 
 旧 schema 只读状态中的 `budgetTracking: untracked-legacy-schema` 表示历史额度未记录，不表示免费或新预算；旧任务查询不触发迁移。在旧版本排空任务后，显式调用公开升级入口，不需要手工执行 SQL：
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/cli.py" -- upgrade --database "$DATABASE"
+python3 -I -B "$HARNESS_DIR/scripts/cli.py" -- upgrade --database "$DATABASE"
 ```
 
 返回 `runtimeVersion`、`schemaVersion`、`migrated` 和 `snapshot`。实际迁移时 `snapshot` 包含旧schema版本、绝对路径与SHA-256；已是当前schema时 `migrated: false`、`snapshot: null`，不生成第二份快照。缺失账本返回错误，不创建空账本。

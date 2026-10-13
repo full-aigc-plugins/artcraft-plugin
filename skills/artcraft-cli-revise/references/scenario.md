@@ -35,15 +35,15 @@
 5. dependsOn 与 assetBindings 指向新 Logo/片头的真实 assetId；无关节点的计划、输入与 projectKey 不改。再次运行同一修订应复用原 taskId；旧工程各文件摘要不变。
 6. package.py create/verify 保留五类资料：原生工程、素材、预览与导出、工作流记录、验收证据。包移动后用外部保存的 sha 验证，review_ready 仍需创作审阅。
 
-以上使用本技能自带脚本；命令 argv 和 SKILL_DIR 按 SKILL.md。替换海报 Logo 的方法保留隐藏的旧图层与新增图层，不声称原生资源原位替换或无损跨编辑器转换。
+以上脚本由 artcraft-harness 技能提供；命令 argv 和 HARNESS_DIR 设置见 SKILL.md。替换海报 Logo 的方法保留隐藏的旧图层与新增图层，不声称原生资源原位替换或无损跨编辑器转换。
 
 ## 中文混合实例与字幕局部修改
 
 本技能自带 `examples/chinese-brand-campaign.json`：品牌图形、海报、三秒片头和带中文配音素材的三秒成片。配音必须是已有绝对路径素材，至少覆盖三秒；示例不生成、上传或购买配音。字幕选择 Heiti SC，必须通过 FilmCraft 实际字体发现确认，缺失时停止并明确报告。
 
 ```bash
-: "${SKILL_DIR:?设置为实际加载 SKILL.md 所在目录}"
-python3 -I -B "$SKILL_DIR/scripts/workflow.py"   "$SKILL_DIR/examples/chinese-brand-campaign.json"   --output "$PROJECT_DIR" --authorization "$AUTHORIZATION"   --asset "voice=$VOICE_PATH"
+: "${HARNESS_DIR:?设置为 artcraft-harness 实际加载 SKILL.md 所在目录}"
+python3 -I -B "$HARNESS_DIR/scripts/workflow.py"   "$SKILL_DIR/examples/chinese-brand-campaign.json"   --output "$PROJECT_DIR" --authorization "$AUTHORIZATION"   --asset "voice=$VOICE_PATH"
 ```
 
 首次调用安装固定 Node、编排运行时及四个领域技能/CLI。FilmCraft 独立版本锁为 dev.5 / 0.2.0-craft.1；保留三个其他领域版本及编排运行时原摘要。公开源码 ZIP 的目录条目只允许固定文件清单的父目录。

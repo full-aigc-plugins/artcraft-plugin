@@ -46,7 +46,7 @@ flowchart TB
 | Planned module | Responsibility | Input and output |
 | :--- | :--- | :--- |
 | src/planning/ | Normalize goals and edit plans | Brief → DomainPlan |
-| src/harness/ | State machine, authorization, budget, recovery | DomainPlan → TaskReceipt |
+| scripts/harness/ | State machine, authorization, budget, recovery | DomainPlan → TaskReceipt |
 | src/adapters/ | Upstream command and result mapping | TaskRequest → native command |
 | src/artifacts/ | Register hashes, references and delivery | files → ArtifactManifest |
 | src/evaluation/ | Technical checks and creative findings | artifacts → QualityVerdict |

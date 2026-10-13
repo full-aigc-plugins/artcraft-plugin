@@ -36,7 +36,7 @@ class RuntimeBundleTests(unittest.TestCase):
             repo = 'full-aigc-plugins/artcraft-plugin' if name == 'artcraft-runtime' else 'full-aigc-skills/' + name
             entries[name] = builder.bundle(source, files, output / (name + '-1.0.0.zip'), repo, '1.0.0')
         lock = {'schema': 'artcraft-distribution/v1', 'version': '1.0.0', 'bundles': entries}
-        lock_file = plugin / 'skills/artcraft-use/scripts/distribution.lock.json'
+        lock_file = plugin / 'skills/artcraft-harness/scripts/distribution.lock.json'
         lock_file.parent.mkdir(parents=True); lock_file.write_text(json.dumps(lock))
         return plugin, skills, lock, lock_file
 

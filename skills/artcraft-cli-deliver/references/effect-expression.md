@@ -3,7 +3,7 @@
 本技能自身包含 `examples/effect-expression-workflow.json` 和 `examples/effect-expression-revision-plan.json`。首次执行公开工作流按锁安装本技能分发锁中的 Node、Art runtime、Effect 技能源与原生 CLI；此计划只安装Effect领域。
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/workflow.py" "$SKILL_DIR/examples/effect-expression-workflow.json" --output "$PROJECT_DIR" --runtime-home "$RUNTIME_HOME" --owner local-user --authorization effect-expression-local
+python3 -I -B "$HARNESS_DIR/scripts/workflow.py" "$SKILL_DIR/examples/effect-expression-workflow.json" --output "$PROJECT_DIR" --runtime-home "$RUNTIME_HOME" --owner local-user --authorization effect-expression-local
 ```
 
 SKILL_DIR为实际.agents/skills或插件缓存中的当前技能；PROJECT_DIR与RUNTIME_HOME使用用户自己的目录。领域参数文档与usageRecipes相对于安装回执的Effect skillRoot解析，不能相对于Art根目录解析。这个示例是完整DAG计划，不是domain_commands.py run接受的craft-command-plan/v1。

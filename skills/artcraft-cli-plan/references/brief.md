@@ -1,11 +1,11 @@
 # 版本化 Brief（开发中）
 
-本技能自带 `scripts/brief.py`，仅使用 Python 标准库。它记录需求、检查声明计划，不安装运行时，也不替代原生和创作验收。
+artcraft-harness 技能提供 `scripts/brief.py`，仅使用 Python 标准库。它记录需求、检查声明计划，不安装运行时，也不替代原生和创作验收。
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/brief.py" create --input /absolute/brief.json --output /absolute/brief-v1
-python3 -I -B "$SKILL_DIR/scripts/brief.py" assess --brief /absolute/brief-v1 --sha <回执sha256> --plan /absolute/plan.json --owner local-user --authorization authorized-scope
-python3 -I -B "$SKILL_DIR/scripts/workflow.py" /absolute/plan.json --output /absolute/project --owner local-user --authorization authorized-scope --brief /absolute/brief-v1 --brief-sha <回执sha256>
+python3 -I -B "$HARNESS_DIR/scripts/brief.py" create --input /absolute/brief.json --output /absolute/brief-v1
+python3 -I -B "$HARNESS_DIR/scripts/brief.py" assess --brief /absolute/brief-v1 --sha <回执sha256> --plan /absolute/plan.json --owner local-user --authorization authorized-scope
+python3 -I -B "$HARNESS_DIR/scripts/workflow.py" /absolute/plan.json --output /absolute/project --owner local-user --authorization authorized-scope --brief /absolute/brief-v1 --brief-sha <回执sha256>
 ```
 
 `craft-brief/v1` 必须包含 workflowId、revision、ownerId、authorizationRef、budget、brand（可为空）、subjects、deliverables、dataPolicy 和 ambiguities。每项交付填写 id、nativeFormat、width、height、dependsOn、execution；按需填写 frameRate（num/den）和 durationSeconds。品牌包含 name、colors、fonts、appliesTo、referenceAssets；主体包含 id、role、description、appliesTo、referenceAssets；歧义包含 id、question、affects。参考素材只使用 assetId/version/sha256，必须对应真实登记输入。

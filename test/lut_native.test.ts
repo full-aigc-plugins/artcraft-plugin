@@ -9,8 +9,8 @@ import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import {publicSkillFactory} from '../src/adapters/public_skill.ts';
 import {WorkflowEngine} from '../src/planning/workflow_engine.ts';
-import {TaskLedger} from '../src/harness/task_ledger.ts';
-import {LocalRunner} from '../src/harness/local_runner.ts';
+import {TaskLedger} from '../scripts/harness/task_ledger.ts';
+import {LocalRunner} from '../scripts/harness/local_runner.ts';
 const hash=(data:Buffer|string)=>createHash('sha256').update(data).digest('hex');
 const env=process.env;
 test('native Effect to Film typed LUT and motion revision preserves upstream/audio/source',{skip:env.CRAFT_LUT_NATIVE!=='1'},async()=>{

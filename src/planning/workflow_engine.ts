@@ -8,13 +8,13 @@ import { assessBrief, nodeBriefConstraints, pendingNativeAssessment } from './pr
 import type { SourceInspection } from './project_brief.ts';
 import { orderGraph } from '../protocol/dependency_graph.ts';
 import { planHash, validateTask, verifyArtifact, verifySourceRevision } from '../protocol/contracts.ts';
-import { TaskLedger } from '../harness/task_ledger.ts';
-import type { TaskReceipt } from '../harness/task_ledger.ts';
+import { TaskLedger } from '../../scripts/harness/task_ledger.ts';
+import type { TaskReceipt } from '../../scripts/harness/task_ledger.ts';
 import { taskErrorDetail } from '../protocol/task_error.ts';
 import type { TaskErrorDetail } from '../protocol/task_error.ts';
-import { LocalRunner } from '../harness/local_runner.ts';
-import type { BudgetSnapshot } from '../harness/budget.ts';
-import type { ExecutionAdapter } from '../harness/local_runner.ts';
+import { LocalRunner } from '../../scripts/harness/local_runner.ts';
+import type { BudgetSnapshot } from '../../scripts/harness/budget.ts';
+import type { ExecutionAdapter } from '../../scripts/harness/local_runner.ts';
 
 export interface ArtifactInput {root:string;artifact:Record<string,any>;}
 export interface WorkflowNode {

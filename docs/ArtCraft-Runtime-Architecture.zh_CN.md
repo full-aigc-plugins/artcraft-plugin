@@ -46,7 +46,7 @@ flowchart TB
 | 规划模块 | 责任 | 输入与输出 |
 | :--- | :--- | :--- |
 | src/planning/ | 规范化目标与编辑计划 | Brief → DomainPlan |
-| src/harness/ | 状态机、授权、预算、恢复 | DomainPlan → TaskReceipt |
+| scripts/harness/ | 状态机、授权、预算、恢复 | DomainPlan → TaskReceipt |
 | src/adapters/ | 上游命令与结果映射 | TaskRequest → native command |
 | src/artifacts/ | 登记哈希、引用与交付 | files → ArtifactManifest |
 | src/evaluation/ | 技术检查与创作问题 | artifacts → QualityVerdict |

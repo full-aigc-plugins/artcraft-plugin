@@ -1,7 +1,7 @@
 /** 公共任务核心字段逐项核验；不把 schema 通过当作领域执行完成。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { TaskLedger } from '../src/harness/task_ledger.ts';
+import { TaskLedger } from '../scripts/harness/task_ledger.ts';
 import { planHash, validateTask } from '../src/protocol/contracts.ts';
 
 const digest='a'.repeat(64);

@@ -8,6 +8,8 @@ license: Apache-2.0
 
 本技能负责检查混合交付的技术证据和视觉文案音频一致性。与同包技能按名称交接，单独安装即可使用，不读取兄弟目录。使用本项目的本地编排 CLI；上游 ArtCraft 是 Tauri 应用，不安装或冒充同名官方 CLI。
 
+执行实现收敛在内置的 **artcraft-harness** 技能（随插件捆绑安装；单独安装用 `npx skills add full-aigc-skills/artcraft-skills --skill artcraft-harness`）。将 `HARNESS_DIR` 设置为该技能实际加载目录（绝对路径）；本技能的 `SKILL_DIR` 只用于读取自身的 `examples/` 与 `references/`，脚本执行路径一律使用 `$HARNESS_DIR/scripts/`。
+
 ## 输入与交付
 
 输入为用户已确认的任务、素材、工程或对象、输出目录与修改范围；需要现有工程时先核对摘要。返回实际 CLI 结果、保存后的原生工程、需要的派生输出与核验记录。安装成功、命令目录存在与创作任务完成分别报告。
@@ -20,9 +22,9 @@ license: Apache-2.0
 
 ```bash
 : "${SKILL_DIR:?请先设置为本 SKILL.md 的实际所在目录}"
-python3 -I -B "$SKILL_DIR/scripts/bootstrap.py" --runtime-only
-python3 -I -B "$SKILL_DIR/scripts/cli.py" -- --version
-python3 -I -B "$SKILL_DIR/scripts/cli.py" -- --help
+python3 -I -B "$HARNESS_DIR/scripts/bootstrap.py" --runtime-only
+python3 -I -B "$HARNESS_DIR/scripts/cli.py" -- --version
+python3 -I -B "$HARNESS_DIR/scripts/cli.py" -- --help
 ```
 
 CLI argv 在 `--` 后，原生子命令必须放首位。安装参数放分隔符前；`--runtime-home` 可隔离缓存。锁定制品摘要失败、损坏安装或不支持平台时停止；不改 PATH、不执行浮动升级。原生帮助入口是 `--help`；launcher 自身 `--help` 只说明启动参数。
@@ -35,7 +37,7 @@ CLI argv 在 `--` 后，原生子命令必须放首位。安装参数放分隔�
 
 技术 SHA 核验与实际视觉听觉审阅分开；记录具体问题、返工范围和未验证项，不伪造模型评审结果。
 
-原生组合与源工程修订使用本技能自带 `scripts/workflow.py`；读取 [工作流合同](references/workflow.md)，模板在本技能 examples 内。只修改授权对象，原生工程和依赖素材保留，派生格式损失读取 [交换报告](references/exchange-loss.md)。
+原生组合与源工程修订使用 artcraft-harness 技能的 `scripts/workflow.py`；读取 [工作流合同](references/workflow.md)，模板在本技能 examples 内。只修改授权对象，原生工程和依赖素材保留，派生格式损失读取 [交换报告](references/exchange-loss.md)。
 
 ## 核验与恢复
 
@@ -53,11 +55,11 @@ CLI argv 在 `--` 后，原生子命令必须放首位。安装参数放分隔�
 
 ## 保存具名审阅结果
 
-需要保存技术、创作、人工接受与品牌问题时，按 [当前交付审阅记录](references/review.md) 调用本技能 `scripts/review.py record/verify`。使用当前打包回执摘要与真实观察文件；绑定子节点、资产版本和问题位置。仅记录已执行观察，不编造人工接受，不把测试记录或模型意见当用户同意。缺少完整审阅时保持 pending，账本状态仍为 review_ready。
+需要保存技术、创作、人工接受与品牌问题时，按 [当前交付审阅记录](references/review.md) 调用 artcraft-harness 技能的 `scripts/review.py record/verify`。使用当前打包回执摘要与真实观察文件；绑定子节点、资产版本和问题位置。仅记录已执行观察，不编造人工接受，不把测试记录或模型意见当用户同意。缺少完整审阅时保持 pending，账本状态仍为 review_ready。
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/review.py" record --package "$PACKAGE_ROOT" --package-sha "$PACKAGE_SHA" --input "$REVIEW_INPUT" --output "$REVIEW_ROOT"
-python3 -I -B "$SKILL_DIR/scripts/review.py" verify --package "$PACKAGE_ROOT" --package-sha "$PACKAGE_SHA" --review "$REVIEW_ROOT" --review-sha "$REVIEW_SHA"
+python3 -I -B "$HARNESS_DIR/scripts/review.py" record --package "$PACKAGE_ROOT" --package-sha "$PACKAGE_SHA" --input "$REVIEW_INPUT" --output "$REVIEW_ROOT"
+python3 -I -B "$HARNESS_DIR/scripts/review.py" verify --package "$PACKAGE_ROOT" --package-sha "$PACKAGE_SHA" --review "$REVIEW_ROOT" --review-sha "$REVIEW_SHA"
 ```
 
 ## 动态透明序列交接

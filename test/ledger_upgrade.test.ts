@@ -6,7 +6,7 @@ import { mkdtempSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
-import { TaskLedger } from '../src/harness/task_ledger.ts';
+import { TaskLedger } from '../scripts/harness/task_ledger.ts';
 import { planHash } from '../src/protocol/contracts.ts';
 
 const digest='a'.repeat(64);

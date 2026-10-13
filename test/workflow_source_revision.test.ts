@@ -5,8 +5,8 @@ import {mkdtemp,writeFile,readFile,rm,symlink} from 'node:fs/promises';
 import {join} from 'node:path';
 import {tmpdir} from 'node:os';
 import {createHash} from 'node:crypto';
-import {TaskLedger} from '../src/harness/task_ledger.ts';
-import {LocalRunner} from '../src/harness/local_runner.ts';
+import {TaskLedger} from '../scripts/harness/task_ledger.ts';
+import {LocalRunner} from '../scripts/harness/local_runner.ts';
 import {WorkflowEngine} from '../src/planning/workflow_engine.ts';
 const sha=(value:Buffer|string)=>createHash('sha256').update(value).digest('hex');
 for(const domain of ['filmcraft','effectcraft','photocraft','vectorcraft'])for(const primaryNative of [false,true])for(const fault of ['native','manifest','unbound-native','valid','escaping-native',...(!primaryNative?['media']:[])])test(domain+' '+(primaryNative?'native-primary':'rendition-primary')+' source preflight '+fault,async()=>{

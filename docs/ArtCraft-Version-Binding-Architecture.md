@@ -26,7 +26,7 @@ flowchart TD
 
 The independent skill's `skills/artcraft-use/scripts/workflow.py` holds the project file lock throughout installation identity checks, frozen revision checks, metadata publication and runtime execution. Frozen bindings cover the plan, registry, owner and authorization. Conflicts cannot publish replacement installation receipts or registries. All ten skills retain their complete installation and script resources.
 
-The plugin's `src/harness/task_ledger.ts` binds actual plan hashes, input references, revision, runtime identity, authorization, budget and deadline to scoped idempotency keys. A SQLite write transaction checks revision and obtains exclusive project ownership together. Competing OS processes can obtain at most one lease. Unknown results retain their original attempt and lease; process exit alone cannot authorize replay.
+The plugin's `scripts/harness/task_ledger.ts` binds actual plan hashes, input references, revision, runtime identity, authorization, budget and deadline to scoped idempotency keys. A SQLite write transaction checks revision and obtains exclusive project ownership together. Competing OS processes can obtain at most one lease. Unknown results retain their original attempt and lease; process exit alone cannot authorize replay.
 
 `src/adapters/public_skill.ts` resolves only registered native project references, checks manifest files before execution and during verification, and saves revisions through the public --source interface. Arbitrary paths, wrong revisions, missing manifests and source drift are refused. `src/planning/workflow_engine.ts` checks both historical workflow authorization and the producing task's authorization before reuse. A new scope cannot inherit task identities from an old scope.
 

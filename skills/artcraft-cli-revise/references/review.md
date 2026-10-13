@@ -1,6 +1,6 @@
 # 当前交付的审阅记录
 
-`scripts/review.py` 是技能内的公开辅助入口，原生 ArtCraft CLI 的命令目录保持不变。单独安装本技能即含本入口、安装器与验包器，不读取兄弟技能。支持当前 macOS arm64 运行时；首次调用通过固定发行包安装 Node 与 ArtCraft 编排包，不安装未使用领域工具。
+`scripts/review.py` 是 artcraft-harness 技能的公开辅助入口，原生 ArtCraft CLI 的命令目录保持不变。该技能单独安装即含本入口、安装器与验包器，不读取兄弟技能。支持当前 macOS arm64 运行时；首次调用通过固定发行包安装 Node 与 ArtCraft 编排包，不安装未使用领域工具。
 
 ## 信任与状态
 
@@ -43,11 +43,11 @@
 PACKAGE_SHA 必须来自此前单独保存的打包回执；REVIEW_SHA 来自本次记录回执。二者不能从待验证文件中自行读取作为信任锚。
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/review.py" record \
+python3 -I -B "$HARNESS_DIR/scripts/review.py" record \
   --package "$PACKAGE_ROOT" --package-sha "$PACKAGE_SHA" \
   --input "$REVIEW_INPUT" --output "$REVIEW_ROOT"
 
-python3 -I -B "$SKILL_DIR/scripts/review.py" verify \
+python3 -I -B "$HARNESS_DIR/scripts/review.py" verify \
   --package "$PACKAGE_ROOT" --package-sha "$PACKAGE_SHA" \
   --review "$REVIEW_ROOT" --review-sha "$REVIEW_SHA"
 ```

@@ -9,7 +9,7 @@ Use the four domain tools according to deliverables and actual dependencies. Pre
 本技能 `examples/segmented-hd-brand-campaign.json` 提供四领域、五节点技术模板：品牌图形、海报、动态片头、宣传片及独立图标。示例需要五秒 WAV 和 1920×1080 PNG 背景，片头为 1920×1080、24 fps、五秒。复制模板到工作目录并适配用户规格，保留安装副本；首次执行会按固定锁安装运行时和计划所需领域。
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/workflow.py" \
+python3 -I -B "$HARNESS_DIR/scripts/workflow.py" \
   "$SKILL_DIR/examples/segmented-hd-brand-campaign.json" \
   --output /absolute/new-campaign \
   --authorization brand-campaign \

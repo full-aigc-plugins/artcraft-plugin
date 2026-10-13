@@ -1,0 +1,31 @@
+{
+ "schema": "artcraft-architecture-evidence/v1",
+ "date": "2026-10-13",
+ "scope": "Task 3.31 (AC-SK-003) execution-payload convergence: upstream layout, plugin re-vendor and offline snapshot verification; no new native, creative, platform or host acceptance",
+ "change": {
+  "summary": "收敛重复执行实现为内置 artcraft-harness：共享执行脚本只保留一份，10 个领域技能瘦身为薄文档技能并按名称路由到 harness",
+  "upstreamRepository": "https://github.com/full-aigc-skills/artcraft-skills",
+  "upstreamTag": "v0.1.0-dev.113",
+  "upstreamCommit": "23ccb7002b6b393bddaeba3fcb582e1cd833e5b8",
+  "harnessSkill": "skills/artcraft-harness",
+  "harnessDocumentedEntries": ["scripts/bootstrap.py", "scripts/workflow.py", "scripts/cli.py", "scripts/domain_commands.py", "scripts/package.py", "scripts/review.py", "scripts/revision.py", "scripts/brief.py"],
+  "harnessInternalPayload": ["scripts/setup.py", "scripts/public_call.py", "scripts/mode_catalog.py", "scripts/consistency.py", "scripts/download.py", "scripts/png_inspection.py", "scripts/jpeg_inspection.py", "scripts/native_contract.py", "scripts/node.lock.json", "scripts/distribution.lock.json"],
+  "harnessScriptFiles": 18,
+  "harnessReferenceContracts": ["references/domain-command-index.json", "references/mode-command-catalog.json"],
+  "domainSkillsSlimmed": 10,
+  "removedOrphanPayload": [],
+  "behaviorPreservation": "可达性两遍法（文档化入口闭包＋引号内无扩展名动态 load 扫描）核实 18/18 文件全部可达、无孤儿可删；harness 18 份脚本与两份契约 JSON 和 v0.1.0-dev.112 逐字节一致；10×18=180 份逐字节重复副本删除；vendored harness 与插件前一锁定的载荷逐字节一致"
+ },
+ "verification": {
+  "pluginLock": {
+   "repo": "https://github.com/full-aigc-skills/artcraft-skills.git",
+   "ref": "v0.1.0-dev.113",
+   "sha": "23ccb7002b6b393bddaeba3fcb582e1cd833e5b8",
+   "vendoredSkills": 11,
+   "vendorCheckOffline": "pass — skill vendor check: all managed skills match the lockfile (offline)"
+  },
+  "upstreamRegression": "219 项测试全部通过（53 项显式 opt-in 跳过）；sync_skill_suite --check 通过；test_selected_setup 领域夹具改为按分发锁 pin 的 tag 提取后修复了依赖 effectcraft 兄弟仓浮动工作树的既有环境错误",
+  "harnessSmoke": "vendored skills/artcraft-harness/scripts/cli.py -- --version 返回 {\"name\":\"artcraft\",\"version\":\"0.1.0-dev.139-runtime.1\"}；brief.py --help 正常；vendored 载荷与上游 tag 逐字节一致（lockfile 摘要校验）"
+ },
+ "boundaries": "本收敛不证明任何命令的原生执行验收、目标平台验收或宿主验收；既有安装的固定发行验收分别绑定其历史载荷；发布推送与 CI 在线核验另行授权。docs 门禁在并行会话未完成的 tasks.md 裁剪下存在与本收敛无关的任务覆盖错误（以 HEAD tasks.md 验证为 0 错误）"
+}

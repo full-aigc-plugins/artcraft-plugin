@@ -3,7 +3,7 @@
 当前技能自带 `examples/vector-appearance-workflow.json` 和 `examples/vector-appearance-revision-plan.json`。首次执行公开工作流会按分发锁安装 本技能分发锁中的 Node、Art runtime、Vector 技能源及原生 CLI；该计划只需要Vector领域，无需其他领域下载。
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/workflow.py" "$SKILL_DIR/examples/vector-appearance-workflow.json" --output "$PROJECT_DIR" --runtime-home "$RUNTIME_HOME" --owner local-user --authorization vector-appearance-local
+python3 -I -B "$HARNESS_DIR/scripts/workflow.py" "$SKILL_DIR/examples/vector-appearance-workflow.json" --output "$PROJECT_DIR" --runtime-home "$RUNTIME_HOME" --owner local-user --authorization vector-appearance-local
 ```
 
 `SKILL_DIR` 为实际安装的当前技能目录，`PROJECT_DIR` 为用户交付目录，`RUNTIME_HOME` 为用户运行时目录。原生参数文档及`usageRecipes`属于安装回执返回的Vector `skillRoot`，不是Art技能自身的目录。Art中的上述示例是完整DAG工作流；不能把它直接传给接受`craft-command-plan/v1`的`domain_commands.py run`。

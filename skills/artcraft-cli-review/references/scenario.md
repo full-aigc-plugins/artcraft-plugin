@@ -31,7 +31,7 @@
 PACKAGE_ROOT 使用当前移动后的绝对目录；PACKAGE_SHA 使用此前 create 回执单独保存的 sha256，不从包内读取信任摘要。
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/cli.py" -- verify-package --package "$PACKAGE_ROOT" --sha "$PACKAGE_SHA"
+python3 -I -B "$HARNESS_DIR/scripts/cli.py" -- verify-package --package "$PACKAGE_ROOT" --sha "$PACKAGE_SHA"
 ```
 
 核对 children 中的原生引用、文件摘要和当前位置。技术通过后仍需分别审阅视觉、文案、音频和品牌一致性；没有创作审阅证据时保持 review_ready。验包不会补写缺失文件、重新渲染或修改已保存工程。

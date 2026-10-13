@@ -7,8 +7,8 @@ import { tmpdir } from 'node:os';
 import { createHash } from 'node:crypto';
 import { execFile, spawn } from 'node:child_process';
 import { promisify } from 'node:util';
-import { TaskLedger } from '../src/harness/task_ledger.ts';
-import { LocalRunner } from '../src/harness/local_runner.ts';
+import { TaskLedger } from '../scripts/harness/task_ledger.ts';
+import { LocalRunner } from '../scripts/harness/local_runner.ts';
 import { planHash } from '../src/protocol/contracts.ts';
 
 const exec=promisify(execFile);
@@ -41,7 +41,7 @@ for(const crash of [false,true])test((crash ? 'scheduler SIGKILL recovery: ' : '
    const plan=await adapter.prepare();
    const parentScript=join(root,'scheduler.mjs');
    const {writeFile}=await import('node:fs/promises');
-   await writeFile(parentScript,`import{TaskLedger}from${JSON.stringify(new URL('../src/harness/task_ledger.ts',import.meta.url).href)};import{LocalRunner}from${JSON.stringify(new URL('../src/harness/local_runner.ts',import.meta.url).href)};const ledger=new TaskLedger(${JSON.stringify(join(root,'tasks.sqlite'))});await new LocalRunner(ledger,async()=>{}).execute('native-render',{prepare:async()=>(${JSON.stringify(plan)}),verify:async()=>{throw Error('scheduler_should_be_killed')}});`);
+   await writeFile(parentScript,`import{TaskLedger}from${JSON.stringify(new URL('../scripts/harness/task_ledger.ts',import.meta.url).href)};import{LocalRunner}from${JSON.stringify(new URL('../scripts/harness/local_runner.ts',import.meta.url).href)};const ledger=new TaskLedger(${JSON.stringify(join(root,'tasks.sqlite'))});await new LocalRunner(ledger,async()=>{}).execute('native-render',{prepare:async()=>(${JSON.stringify(plan)}),verify:async()=>{throw Error('scheduler_should_be_killed')}});`);
    const parent=spawn(process.execPath,[parentScript],{stdio:'ignore'}),closed=new Promise(resolve=>parent.once('close',resolve));
    for(let n=0;!ledger.execution('native-render')?.pid && n<300;n++)await new Promise(resolve=>setTimeout(resolve,5));
    assert.equal(ledger.execution('native-render')?.status,'running');const attempt=ledger.status('native-render').attemptId;

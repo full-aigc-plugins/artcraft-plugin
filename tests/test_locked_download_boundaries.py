@@ -23,7 +23,7 @@ class Response:
 
 class LockedDownloadBoundariesTests(unittest.TestCase):
     def module(self):
-        spec = importlib.util.spec_from_file_location('fixed_download', ROOT/'skills/artcraft-use/scripts/download.py')
+        spec = importlib.util.spec_from_file_location('fixed_download', ROOT/'skills/artcraft-harness/scripts/download.py')
         module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module); return module
 
     def test_all_declared_transient_classes_recover_on_third_read_only_attempt(self):

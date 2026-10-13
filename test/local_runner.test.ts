@@ -6,8 +6,8 @@ import { mkdtemp, writeFile, readFile, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { createHash } from 'node:crypto';
-import { TaskLedger } from '../src/harness/task_ledger.ts';
-import { LocalRunner } from '../src/harness/local_runner.ts';
+import { TaskLedger } from '../scripts/harness/task_ledger.ts';
+import { LocalRunner } from '../scripts/harness/local_runner.ts';
 import { planHash } from '../src/protocol/contracts.ts';
 
 const hash=(data:Buffer|string)=>createHash('sha256').update(data).digest('hex');
@@ -192,8 +192,8 @@ test('missing or excessive trusted cost stops before spawn and leaves no output 
 async function crashedParent(fixture:Awaited<ReturnType<typeof context>>,wait=false){
  const script=join(fixture.root,'parent.mjs');
  await writeFile(join(fixture.root,'worker.mjs'),wait ? `import{appendFileSync}from'node:fs';appendFileSync(process.argv[2]+'.starts','x');setInterval(()=>{},1000);` : `import{appendFileSync,writeFileSync}from'node:fs';appendFileSync(process.argv[2]+'.starts','x');setTimeout(()=>writeFileSync(process.argv[2],'result'),350);`);
- const runnerUrl=new URL('../src/harness/local_runner.ts',import.meta.url).href;
- const ledgerUrl=new URL('../src/harness/task_ledger.ts',import.meta.url).href;
+ const runnerUrl=new URL('../scripts/harness/local_runner.ts',import.meta.url).href;
+ const ledgerUrl=new URL('../scripts/harness/task_ledger.ts',import.meta.url).href;
  await writeFile(script,`import{TaskLedger}from${JSON.stringify(ledgerUrl)};import{LocalRunner}from${JSON.stringify(runnerUrl)};const ledger=new TaskLedger(${JSON.stringify(join(fixture.root,'tasks.sqlite'))});await new LocalRunner(ledger,async()=>{}).execute('task1',{prepare:async()=>(${JSON.stringify(await fixture.adapter.prepare())}),verify:async()=>{throw Error('parent_should_be_killed')}});`);
  const parent=spawn(process.execPath,[script],{stdio:'ignore'});
  const closed=new Promise(resolve=>parent.once('close',resolve));

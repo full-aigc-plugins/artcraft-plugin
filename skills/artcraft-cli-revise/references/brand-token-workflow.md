@@ -5,7 +5,7 @@
 沿用当前实际加载的 `SKILL.md` 所在目录作为 `SKILL_DIR`：
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/workflow.py" \
+python3 -I -B "$HARNESS_DIR/scripts/workflow.py" \
   "$SKILL_DIR/examples/brand-token-campaign.json" \
   --output "$PROJECT_DIR" --authorization "$AUTHORIZATION" \
   --asset "voice=$VOICE_FILE"

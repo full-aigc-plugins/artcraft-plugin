@@ -1,6 +1,6 @@
 # ArtCraft local execution and settlement
 
-The [runner](../src/harness/local_runner.ts) and [ledger](../src/harness/task_ledger.ts) now connect trusted adapters, actual subprocesses, exit observation, output verification and writer release. Complete mixed-project delivery is still pending.
+The [runner](../scripts/harness/local_runner.ts) and [ledger](../scripts/harness/task_ledger.ts) now connect trusted adapters, actual subprocesses, exit observation, output verification and writer release. Complete mixed-project delivery is still pending.
 
 ## Execution path
 

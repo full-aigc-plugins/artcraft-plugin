@@ -1,0 +1,35 @@
+{
+  "name": "artcraft",
+  "version": "0.1.0-dev.140+codex.20261013",
+  "description": "ArtCraft creative workflows with pinned first-use installation and independent skill snapshots; development release, full domain and host acceptance pending.",
+  "author": {
+    "name": "Full AIGC Plugins",
+    "url": "https://github.com/full-aigc-plugins"
+  },
+  "homepage": "https://github.com/full-aigc-plugins/artcraft-plugin",
+  "repository": "https://github.com/full-aigc-plugins/artcraft-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "agent-plugin",
+    "artcraft",
+    "creative-workflow",
+    "development-release",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "ArtCraft",
+    "shortDescription": "Editable creative workflows and pinned setup",
+    "longDescription": "Use independently maintained, checksummed skills to install pinned native CLIs and create editable native projects. Development release; complete capability and host acceptance remain in progress.",
+    "developerName": "Full AIGC Plugins",
+    "category": "Creativity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/full-aigc-plugins/artcraft-plugin",
+    "defaultPrompt": [
+      "Create an editable ArtCraft project from my assets"
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 # ArtCraft 共享预算架构
 
-本实现对应既有 OpenSpec AC-TX-003。目标是让父子调用共享真实额度，并在原生副作用前拒绝超额；它不把计划上的预算字段当作已执行的控制。实施代码位于 `src/harness/budget.ts`、`task_ledger.ts`、`local_runner.ts` 和 `planning/workflow_engine.ts`。
+本实现对应既有 OpenSpec AC-TX-003。目标是让父子调用共享真实额度，并在原生副作用前拒绝超额；它不把计划上的预算字段当作已执行的控制。实施代码位于 `scripts/harness/budget.ts`、`task_ledger.ts`、`local_runner.ts` 和 `planning/workflow_engine.ts`。
 
 ## 范围与当前状态
 

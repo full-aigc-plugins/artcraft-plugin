@@ -3,7 +3,7 @@
 仅限 macOS arm64。Art 自身保存项目编排记录；需要 GUI 的领域命令可显式使用 desktop 模式。当前技能目录 SKILL_DIR 必须为实际加载目录，不依赖兄弟技能。
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/domain_commands.py" run vectorcraft "$SKILL_DIR/examples/domain-vectorcraft-desktop.json" --mode desktop --output "$OUTPUT" --runtime-home "$RUNTIME_HOME"
+python3 -I -B "$HARNESS_DIR/scripts/domain_commands.py" run vectorcraft "$SKILL_DIR/examples/domain-vectorcraft-desktop.json" --mode desktop --output "$OUTPUT" --runtime-home "$RUNTIME_HOME"
 ```
 
 其他领域使用各自 domain-filmcraft-desktop.json、domain-effectcraft-desktop.json、domain-photocraft-desktop.json。OUTPUT 尚不存在且父目录已存在。可用 --input NAME=PATH 明确导入素材。该入口仅安装所选领域的source21包、固定CLI和桌面，Node／Art运行时仍按自身锁安装。安装回执核验全部领域文件及原生CLI，子技能自身启动隔离GUI、核对PID监听归属、执行同会话工作流并关闭本次进程。Art核对完整命令回执及desktop-session.json的域、版本、二进制身份和退出状态。

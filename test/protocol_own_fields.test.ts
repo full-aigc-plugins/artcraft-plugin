@@ -1,8 +1,8 @@
 /** 未声明的原型同名字段不能进入公共任务或素材协议。 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { TaskLedger } from '../src/harness/task_ledger.ts';
-import { LocalRunner } from '../src/harness/local_runner.ts';
+import { TaskLedger } from '../scripts/harness/task_ledger.ts';
+import { LocalRunner } from '../scripts/harness/local_runner.ts';
 import { WorkflowEngine } from '../src/planning/workflow_engine.ts';
 import { validateTask, validateArtifact, planHash } from '../src/protocol/contracts.ts';
 

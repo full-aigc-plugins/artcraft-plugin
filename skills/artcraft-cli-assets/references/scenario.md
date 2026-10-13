@@ -30,7 +30,7 @@
 以既有项目的 tasks.sqlite 绝对路径作为 PROJECT_DATABASE；查询不会生成新工程，也不创建空账本。
 
 ```bash
-python3 -I -B "$SKILL_DIR/scripts/cli.py" -- status --database "$PROJECT_DATABASE"
+python3 -I -B "$HARNESS_DIR/scripts/cli.py" -- status --database "$PROJECT_DATABASE"
 ```
 
 返回 tasks、leases、budgets；实际产物 root、outputs、sourceRefs 与 nativeProjectRef 从已保存的 result 回执读取。用完整 artifact 与真实摘要登记输入，不把文件名、版本标签或 task 状态代替内容摘要。任务列表和媒体血缘分别检查。

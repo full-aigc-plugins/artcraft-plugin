@@ -1,8 +1,8 @@
 # 固定参考的一致性审阅 / Fixed-reference consistency review
 
-此能力属于 `scripts/review.py record/verify` 的可选合同。技能源提供此合同；首次使用以当前技能锁定的运行时为准，固定安装验收另有版本绑定证据。原有不含 consistency 的输入及记录保持兼容。
+此能力属于 artcraft-harness 技能 `scripts/review.py record/verify` 的可选合同。技能源提供此合同；首次使用以当前技能锁定的运行时为准，固定安装验收另有版本绑定证据。原有不含 consistency 的输入及记录保持兼容。
 
-Use the optional contract through `scripts/review.py record/verify`. The skill source provides this contract. Use its pinned runtime; installed-release acceptance requires separate version-bound evidence. Legacy inputs and records remain supported.
+Use the optional contract through the `scripts/review.py record/verify` entry of the artcraft-harness skill. The skill source provides this contract. Use its pinned runtime; installed-release acceptance requires separate version-bound evidence. Legacy inputs and records remain supported.
 
 ## 输入 / Input
 

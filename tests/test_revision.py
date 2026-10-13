@@ -13,7 +13,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 class RevisionTests(unittest.TestCase):
  def module(self):
-  s=importlib.util.spec_from_file_location('revision',ROOT/'skills/artcraft-use/scripts/revision.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
+  s=importlib.util.spec_from_file_location('revision',ROOT/'skills/artcraft-harness/scripts/revision.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
  def fixture(self):
   policy={'schema':'craft-revision-policy/v1','workflowId':'brand','ownerId':'local-user','authorizationRef':'scope','targetSha256':'a'*64,'maxRounds':2,'maxStagnantRounds':1,'allowedCommands':{'logo':['paint.setFill'],'poster':['asset.replace']}}
   def node(id,deps,plugin):return {'id':id,'dependsOn':deps,'projectKey':id,'pluginId':plugin,'expectedRevision':None,'payload':{'schemaVersion':'craft-skill-workflow/v1','plan':{'document':{'name':id},'operations':[],'exports':[]},'assetBindings':[],'outputs':[{'assetId':id,'location':id+'.png','mediaType':'image/png'}]}}

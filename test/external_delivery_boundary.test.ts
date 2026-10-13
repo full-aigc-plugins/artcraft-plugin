@@ -5,8 +5,8 @@ import {mkdtemp,readFile,mkdir,rm} from 'node:fs/promises';
 import {join} from 'node:path';
 import {tmpdir} from 'node:os';
 import {createHash} from 'node:crypto';
-import {TaskLedger} from '../src/harness/task_ledger.ts';
-import {LocalRunner} from '../src/harness/local_runner.ts';
+import {TaskLedger} from '../scripts/harness/task_ledger.ts';
+import {LocalRunner} from '../scripts/harness/local_runner.ts';
 import {WorkflowEngine} from '../src/planning/workflow_engine.ts';
 import {packageProject} from '../src/artifacts/project_package.ts';
 

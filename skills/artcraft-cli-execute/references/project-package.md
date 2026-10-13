@@ -1,17 +1,17 @@
 # 项目交付包 / Project delivery package
 
-开发版本 5 的 `scripts/package.py` 通过锁定安装器调用公开 ArtCraft package / verify-package CLI，不依赖全局 Node，也不执行编辑或渲染。
+开发版本 5 起由 artcraft-harness 技能的 `scripts/package.py` 通过锁定安装器调用公开 ArtCraft package / verify-package CLI，不依赖全局 Node，也不执行编辑或渲染。
 
 以下 `SKILL_DIR` 沿用本技能 `SKILL.md` 的实际加载目录，脚本和示例均来自同一技能。
 
 ```bash
-python3 "$SKILL_DIR/scripts/package.py" create \
+python3 "$HARNESS_DIR/scripts/package.py" create \
   --project /absolute/path/brand-project \
   --workflow WORKFLOW_RUN_KEY \
   --output /absolute/path/brand-delivery \
   --authorization brand-project-authorized
 
-python3 "$SKILL_DIR/scripts/package.py" verify \
+python3 "$HARNESS_DIR/scripts/package.py" verify \
   --package /absolute/path/moved-brand-delivery \
   --sha MANIFEST_SHA256_FROM_PACKAGE_RECEIPT
 ```

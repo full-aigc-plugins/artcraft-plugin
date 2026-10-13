@@ -1,6 +1,6 @@
 # ArtCraft shared budget architecture
 
-This implements existing OpenSpec AC-TX-003. Parent and child calls share an actual allowance, enforced before native side effects. Source: `src/harness/budget.ts`, `task_ledger.ts`, `local_runner.ts` and `planning/workflow_engine.ts`.
+This implements existing OpenSpec AC-TX-003. Parent and child calls share an actual allowance, enforced before native side effects. Source: `scripts/harness/budget.ts`, `task_ledger.ts`, `local_runner.ts` and `planning/workflow_engine.ts`.
 
 ## Scope and current state
 

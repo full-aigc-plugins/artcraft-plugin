@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { TaskLedger } from '../src/harness/task_ledger.ts';
+import { TaskLedger } from '../scripts/harness/task_ledger.ts';
 import { planHash } from '../src/protocol/contracts.ts';
 
 const digest='a'.repeat(64);
@@ -101,7 +101,7 @@ test('separate OS processes compete for one project without duplicate starts',as
  const ledger=new TaskLedger(path);
  ledger.register('caller','project',request());ledger.ready('task1');
  ledger.register('caller','project',request('task2','key2'));ledger.ready('task2');
- const module=new URL('../src/harness/task_ledger.ts',import.meta.url).href;
+ const module=new URL('../scripts/harness/task_ledger.ts',import.meta.url).href;
  const script=join(root,'claim.mjs');
  writeFileSync(script,`import {TaskLedger} from ${JSON.stringify(module)};const ledger=new TaskLedger(process.argv[2]);try{console.log(JSON.stringify({ok:true,receipt:ledger.claim(process.argv[3],'revision1',{minorUnits:0,externalCalls:0})}));}catch(error){console.log(JSON.stringify({ok:false,error:error.message}));}finally{ledger.close();}`);
  const claim=(id:string)=>new Promise<{ok:boolean,error?:string}>((resolve,reject)=>{
@@ -121,7 +121,7 @@ test('killed writer leaves durable intent and lease; restart never replays the t
  const {spawn}=await import('node:child_process');const {writeFileSync}=await import('node:fs');
  const root=mkdtempSync(join(tmpdir(),'craft-writer-crash-'));const path=join(root,'tasks.sqlite');const ledger=new TaskLedger(path);
  ledger.register('caller','project',request());ledger.ready('task1');
- const module=new URL('../src/harness/task_ledger.ts',import.meta.url).href;
+ const module=new URL('../scripts/harness/task_ledger.ts',import.meta.url).href;
  const script=join(root,'writer.mjs');
  writeFileSync(script,`import {TaskLedger} from ${JSON.stringify(module)};const ledger=new TaskLedger(process.argv[2]);console.log(JSON.stringify(ledger.claim('task1','revision1',{minorUnits:0,externalCalls:0})));setInterval(()=>{},1000);`);
  const child=spawn(process.execPath,[script,path],{stdio:['ignore','pipe','pipe']});
