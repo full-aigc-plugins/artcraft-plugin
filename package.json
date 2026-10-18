@@ -9,5 +9,11 @@
   "scripts": {
     "test": "node --test test/*.test.ts",
     "test:native": "node --test --test-concurrency=1 test/*.test.ts"
+  },
+  "main": "./dsh/lib/index.js",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
   }
 }
